@@ -19,13 +19,13 @@ public class Main {
      * 测试组合效果
      */
     public static void testCombination(Integer... features) {
-        String path = "C:\\Users\\gzq\\Desktop\\HTW\\data\\";
+        String path = "debt_data\\";
         File[] projects = new File(path).listFiles();
 
         for (File p : projects) {
             BaseProject project = new BaseProject(p.getPath(), 0);
             project.setFeatures(BaseRanking.rankByFeature(project, BaseRanking.SUMMATION, BaseRanking.RANK_DESC, features));
-            Evaluation.F1(project);
+            Evaluation.F1(project, false);
         }
 
     }
@@ -38,7 +38,7 @@ public class Main {
     public static void testSelector() {
         //选择特征
         int featureNumber = 5;
-        String outputPath = "C:\\Users\\gzq\\Desktop\\result";
+        String outputPath = "C:\\Users\\naplues\\Desktop\\result";
         String fileType = "svg";
         int neededFeatureNumber = 5;
         double threshold = 0.0;
