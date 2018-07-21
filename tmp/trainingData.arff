@@ -31,7 +31,7 @@
 'sss fixme should have reference the irloop that being retried ',positive
 'temporary hack handle nonruby values will come with better solution shortly ',positive
 'simplify the variables too keep these variables sync with what actually used the when clauses this not required for correctness reasons but only for performance reasons ',positive
-'must called from main thread currently but this bothers ',positive
+'must called from tm.main thread currently but this bothers ',positive
 'con fixme dont know how make case expressiondoes that logic need here ',positive
 'fixme legal here may want ',positive
 'fixme this ugly hack resolve jruby not proud ',positive
@@ -140,7 +140,7 @@
 'hack order have stdouterr act like ttys and flush always set anything assigned stdoutstderr sync ',positive
 'todo people extending gzipwriterreader will break find better way here ',positive
 'fixme set call configuration for this ',positive
-'process streams get channelnewchanneled into filechannel but are not actually seekable instead just the isseekable check doing instanceof filechannel must also add this boolean check which set false when its known that the incoming channel from process fixme this gross and its nios fault for not providing nice way tell channel really seekable ',positive
+'tm.process streams get channelnewchanneled into filechannel but are not actually seekable instead just the isseekable check doing instanceof filechannel must also add this boolean check which set false when its known that the incoming channel from tm.process fixme this gross and its nios fault for not providing nice way tell channel really seekable ',positive
 'fixme somehow feel better this could get the appropriate var index from the argumentnode ',positive
 'fixme can get optimized for ieqlnode ',positive
 'todo rounding mode should not hardcoded see mode ',positive
@@ -283,14 +283,14 @@
 'todo better error handling ',positive
 'sss fixme should this operand compoundstring can happen that symbols are built out other than compound strings can happen during optimizations that this becomes generic operand ',positive
 'fixme should really not creating the dynamic scope for the root the ast before parsing this makes end needing readjust this dynamic scope coming out parse and for local static scopes will always happen because and fixme because end adjusting this afterthefact cant use any the specificsize scopes ',positive
-'todo not sure that should skip calling join altogether threadjoin has some implications for java memory model etc ',positive
+'todo not sure that should skip calling join altogether threadjoin has some implications for java memory tm.model etc ',positive
 'hack get right style for input ',positive
 'variables were added then may need grow the dynamic scope match the static one fixme make this only need check this for blockscope null cannot currently since create the dynamicscope for localstaticscope before parse begins refactoring should make this fixable ',positive
 'sss fixme this method least the context multiple assignment little weird calls regular toary the object but encounters methodmissing the value inserted into element array try abc first then define fixnumtoary method and try again httpgistgithubcom ',positive
 'fixme potentially could just use bytelist here ',positive
 'ignore job was cancelled fixme this ',positive
 'regular division with some default precision todo proper algorithm set the precision ',positive
-'todo exec should replace the current process this could possible with jna ',positive
+'todo exec should replace the current tm.process this could possible with jna ',positive
 'sometimes the value can retrieved compile time succeed nothing like might not for the following reasons the constant missing the reference forwardreference the constants value only known runtime firstaccess but this runtime isnt our compiler isnt able right away infer that this constant sss fixme the operand can literal array range hash hence operand because array range and hash derive from operand and not constant there way fix this impedance mismatch should possible handle the forwardreference case creating new forwardreference operand and then inform the scope the forward reference which the scope can fix when the reference gets defined codegen time the reference unresolved when value retrieved for the forwardref and get null can throw constmissing exception not sure ',positive
 'fixme probably not right here since might eventually want javaarray marshallable jruby ',positive
 'todo this probably bad ',positive
@@ -774,7 +774,7 @@
 'translate istruex buildx should return variable istruex beqf true buildy ',negative
 'true ',negative
 'get javaclass this the new proxy class verify matches this superclass proxy ',negative
-'main while loop offset length ',negative
+'tm.main while loop offset length ',negative
 'load path ',negative
 'enebo can never antrhign but why did put this here ',negative
 'assign given optional arguments their variables ',negative
@@ -788,7 +788,7 @@
 'populate shorter calling arguments local parameters the block ',negative
 'jrubymethodname inexact ',negative
 'use file test since faster than stat also euid uid java always ',negative
-'set thread context jruby classloader here for the main thread ',negative
+'set thread context jruby classloader here for the tm.main thread ',negative
 'and all precision digits printed ',negative
 'note that well potentially see the refs for both the java object and proxy whichever see first will cause the entry removed the other will not match entry and will ignored ',negative
 'assign the default values adding the end allargs ',negative
@@ -1007,7 +1007,7 @@
 'args should before block ',negative
 'the solution has changed add dsts the work list duplicates please which why have bbset ',negative
 'optiontostr ',negative
-'construct the toplevel execution frame and scope for the main thread ',negative
+'construct the toplevel execution frame and scope for the tm.main thread ',negative
 'helper methods ',negative
 'this instruction live dead during optimization passes this instruction causes sideeffects and the result the instruction not needed anyone else can remove this instruction altogether without affecting program correctness ',negative
 'check the values obtained via different means ',negative
@@ -1054,7 +1054,7 @@
 'build the new module ',negative
 'line ',negative
 'debug mode append dbg class name force regenerate use pregenerated debug version ',negative
-'process any set annotations supported options ',negative
+'tm.process any set annotations supported options ',negative
 'let the width any get processed the next loop any leading gets treated correctly ',negative
 'got nonzero have own our horded zeroes ',negative
 'line ',negative
@@ -1116,7 +1116,7 @@
 'lowlevel constant interface fetchstorelist constants for this module ',negative
 'base ',negative
 'since dont have any other error reporting mechanism add the error message alwaysfailing test the test suite ',negative
-'note nemesgamma can return when value integer less than treat special case avoid domain error ',negative
+'note nemesgamma can return when value integer less than treat special case avoid tm.domain error ',negative
 'this while loop for restarting the block call case redo fires ',negative
 'ooo ',negative
 'the converters handle not only primitive types but also their boxed versions should check have converter before checking for isprimitive ',negative
@@ -1133,7 +1133,7 @@
 'carriage return ',negative
 'clear runtime doesnt get stuck memory jruby ',negative
 'add scriptrun impl used for running this script with specified threadcontext and self root method script always file method ',negative
-'handle everything after arguments the jruby process ',negative
+'handle everything after arguments the jruby tm.process ',negative
 'arg cannot negative ',negative
 'rubys omg capture all source hash feature add each line buffer when encountering newline eof for first time ',negative
 'line ',negative
@@ -1456,7 +1456,7 @@
 'try load the specified name only that fails try define the class ',negative
 'its singleton class and the real class proc were doing closure conversion just use procs hashcode ',negative
 'check for thread events case weve been woken die ',negative
-'both writable and writablereal through the same method because our java process effective and real userid will always the same ',negative
+'both writable and writablereal through the same method because our java tm.process effective and real userid will always the same ',negative
 'module methods ',negative
 'remove the executor task now avoid cancelled tasks accumulating until executor thread can schedule and remove them ',negative
 'promise implement two with block ',negative
@@ -1470,7 +1470,7 @@
 'normal file descriptortry work with ',negative
 'rubygems too specific host cpu until have real need lets default universal setconfigconfighash arch java ',negative
 'invalid ranges result empty string ',negative
-'close process output see jruby hooking parent process stdin caused problems for irb etc using stdin ',negative
+'close tm.process output see jruby hooking parent tm.process stdin caused problems for irb etc using stdin ',negative
 'this needed unpack stuff ',negative
 'refresh call adapter since matters this iterbased not ',negative
 'add property name aliases ',negative
@@ -1488,7 +1488,7 @@
 'wow the only time can use the java protocol ',negative
 'internal variable methods ',negative
 'makes sure the key not already the hashtable ',negative
-'check for special shell characters the beginning and end each command word and dont run process find them ',negative
+'check for special shell characters the beginning and end each command word and dont run tm.process find them ',negative
 'there something valid the sunpath component ',negative
 'try lookup again under lock ',negative
 'base ',negative
@@ -1496,7 +1496,7 @@
 'nested class whose instances act thunks reacting tostr method called from exceptiontostr exceptionmessage mri equivalent rbcnameerrormesg class name message construction method tostr implementation nameerrmesgtostr todo this class should not lookupable ',negative
 'block from nil proc ',negative
 'setting the loader needs reset the class cache ',negative
-'make sure the main stream set null ',negative
+'make sure the tm.main stream set null ',negative
 'until get little more solid support will only run interpreted mode ',negative
 'this method intended only for defining new classes ruby code uses the allocator the specified superclass default the object allocator should not used define classes that require native allocator ',negative
 'yysindex ',negative
@@ -1632,7 +1632,7 @@
 'check visibility dup method ',negative
 'ruby instance methods ',negative
 'constant table methods pass delegate ',negative
-'exec needs behave differently inprocess because its technically supposed replace the calling process were supposed run inprocess allow use the default streams and not use pumpers all see jruby and jruby ',negative
+'exec needs behave differently inprocess because its technically supposed replace the calling tm.process were supposed run inprocess allow use the default streams and not use pumpers all see jruby and jruby ',negative
 'this relies the ruby rounding enumerations java ones which they currently all are ',negative
 'its either converted can make via above logic its not one the types convert just pass out asis without wrapping ',negative
 'gotcha ',negative
@@ -1716,7 +1716,7 @@
 'initialize the root the class hierarchy completely ',negative
 'construct key services ',negative
 'initialize the dummy class used marker ',negative
-'get the main threadcontext gets constructed for ',negative
+'get the tm.main threadcontext gets constructed for ',negative
 'initialize all the core classes ',negative
 'event name filename line numbers should based ',negative
 'default dont retain ',negative
@@ -1784,7 +1784,7 @@
 'rbcstrtodbl case ',negative
 'break know this sleep was explicitly woken upinterrupted ',negative
 'zero sleeps forever ',negative
-'exec process create with process ',negative
+'exec tm.process create with tm.process ',negative
 'bomb out its not binding proc ',negative
 'adjusts paths started with windows ',negative
 'boolean true file has the cfsetgid bit ',negative
@@ -1917,7 +1917,7 @@
 'make all sockets blocking configured again close unregisters all channels can safely reset blocking modes ',negative
 'not using removeobject here avoid the equals call ',negative
 'call chmod after created the randomaccesfile because otherwise the file could readonly ',negative
-'fixme process options ',negative
+'fixme tm.process options ',negative
 'write ',negative
 'nio based pipe ',negative
 'enebo annotation processing forced pangea method here ',negative
@@ -2107,7 +2107,7 @@
 'end suffix iteration ',negative
 'check for builtin first ',negative
 'line ',negative
-'this method handles patterns and delegates fnmatchhelper for the main work ',negative
+'this method handles patterns and delegates fnmatchhelper for the tm.main work ',negative
 'line ',negative
 'double precision native double precision native ',negative
 'line ',negative
@@ -2285,7 +2285,7 @@
 'fix filenamecompletor work midline ',negative
 'normal closure ',negative
 'only need fullon redo exception handling theres logic that might produce ',negative
-'jump back the top the main body this closure ',negative
+'jump back the top the tm.main body this closure ',negative
 'struct bodies should public default set block visibility public jruby ',negative
 'are storing name well index one too high for values ',negative
 'map keep track the next available variable index for particular prefix ',negative
@@ -2388,7 +2388,7 @@
 'have dynamic container ',negative
 'line ',negative
 'add array construction methods ',negative
-'record the loop are beginning process ',negative
+'record the loop are beginning tm.process ',negative
 'line ',negative
 'line ',negative
 'line ',negative
@@ -2665,7 +2665,7 @@
 'line ',negative
 'line ',negative
 'line ',negative
-'all threads ruby thread group plus main thread ',negative
+'all threads ruby thread group plus tm.main thread ',negative
 'nothing just exit ',negative
 'eprintstacktrace ',negative
 'first check the sender has unreceived mail ',negative
@@ -2693,7 +2693,7 @@
 'line ',negative
 'line ',negative
 'line ',negative
-'someone called exit need kill the main thread ',negative
+'someone called exit need kill the tm.main thread ',negative
 'call the threads code ',negative
 'line ',negative
 'line ',negative
@@ -2718,7 +2718,7 @@
 'line ',negative
 'line ',negative
 'get runtime create jump error and throw ',negative
-'need close the out since some processes would just wait for the stream closed before they process its content and produce the output cat ',negative
+'need close the out since some processes would just wait for the stream closed before they tm.process its content and produce the output cat ',negative
 'just confirm minimum args provided ',negative
 'probably primitive ',negative
 'dead ',negative
@@ -2757,7 +2757,7 @@
 'promise implement one ',negative
 'promise implement three with block ',negative
 'method itself threadcontext invoked name ',negative
-'singleton classes dont get their own visibility domain ',negative
+'singleton classes dont get their own visibility tm.domain ',negative
 'this method called build assignments for multipleassignment instruction ',negative
 'line ',negative
 'never reached ',negative
@@ -2888,7 +2888,7 @@
 'line ',negative
 'issomething containsthing ',negative
 'additionally add postfixed aliases any boolean methods and properties ',negative
-'add main impl used for detached commandline execution this script with new runtime root method script always stub method ',negative
+'add tm.main impl used for detached commandline execution this script with new runtime root method script always stub method ',negative
 'support for encodings ',negative
 'many cases are convert float not one these error ',negative
 'getfoobar foobar foobar ',negative
@@ -2897,7 +2897,7 @@
 'line ',negative
 'ignore bad constant named inner classes pending jruby ',negative
 'skip catch block ',negative
-'main body ',negative
+'tm.main body ',negative
 'doublecheck the cache now that were synchronized ',negative
 'cant converted any more return ',negative
 'javagetproxyclass deals with sync issues wont duplicate the logic here ',negative
@@ -3220,7 +3220,7 @@
 'jruby inherit threadgroup use default ',negative
 'xxx ',negative
 'parse evals more often source assume eval parse ',negative
-'only close out its the slave stream avoid closing directlymapped stream from parent process ',negative
+'only close out its the slave stream avoid closing directlymapped stream from parent tm.process ',negative
 'line defaultrubyparsery ',negative
 'line ',negative
 'setposfrom ',negative
@@ -3580,7 +3580,7 @@
 'int native long native ',negative
 'rubysignal ',negative
 'cld also ',negative
-'process example ',negative
+'tm.process example ',negative
 'all braces pushed ',negative
 'look for slash starting from start position until end ',negative
 'fields should really immutable map never modified after construction ',negative

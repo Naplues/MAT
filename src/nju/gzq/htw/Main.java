@@ -9,10 +9,10 @@ public class Main {
     public static void main(String[] args) {
 
         //测试特征选择器
-        testSelector();
+        //testSelector();
 
         //测试组合效果
-        //testCombination(1, 3, 4);
+        testCombination(1, 3, 4);
     }
 
     /**

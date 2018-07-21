@@ -1,4 +1,4 @@
-package main;
+package tm.main;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import process.DataReader;
+import tm.process.DataReader;
 import weka.attributeSelection.InfoGainAttributeEval;
 import weka.attributeSelection.Ranker;
 import weka.classifiers.Classifier;
@@ -20,8 +20,8 @@ import weka.core.stopwords.WordsFromFile;
 import weka.filters.Filter;
 import weka.filters.supervised.attribute.AttributeSelection;
 import weka.filters.unsupervised.attribute.StringToWordVector;
-import domain.Document;
-import model.EnsembleLearner;
+import tm.domain.Document;
+import tm.model.EnsembleLearner;
 
 public class Main {
 

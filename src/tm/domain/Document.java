@@ -1,10 +1,10 @@
-package domain;
+package tm.domain;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import util.WordSplit;
+import tm.util.WordSplit;
 
 
 public class Document implements Comparable<Document>{

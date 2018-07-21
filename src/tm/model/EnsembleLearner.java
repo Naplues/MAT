@@ -1,4 +1,4 @@
-package model;
+package tm.model;
 
 import weka.core.Instance;
 import weka.core.Instances;

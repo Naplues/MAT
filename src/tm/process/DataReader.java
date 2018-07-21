@@ -1,11 +1,11 @@
-package process;
+package tm.process;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import util.FileUtil;
-import domain.Document;
+import tm.util.FileUtil;
+import tm.domain.Document;
 
 public class DataReader {
 
