@@ -42,17 +42,19 @@ public class Main {
         String testingDataPath = "tmp/testingData.arff";
 
         double ratio = 0.1;
-
+        List<Document> comments = DataReader.readComments("data/");  //读取注释数据，每个元素代表一条注释
+        // 每个测试项目
         for (int target = 0; target < projects.size(); target++) {
             System.out.println("targe project: " + projects.get(target));
 
             EnsembleLearner eLearner = new EnsembleLearner();
-            List<Document> comments = DataReader.readComments("data/");
+
             Set<String> projectForTesting = new HashSet<>();
             projectForTesting.add(projects.get(target));
 
             List<Document> testDoc = DataReader.selectProject(comments, projectForTesting);
 
+            // 每个训练项目
             for (int source = 0; source < projects.size(); source++) {
                 if (source == target) continue;
 
@@ -81,6 +83,7 @@ public class Main {
                 WordsFromFile stopwords = new WordsFromFile();
                 stopwords.setStopwords(new File("dic/stopwords.txt"));
                 stw.setStopwordsHandler(stopwords);
+
                 Instances trainSet = DataSource.read(trainingDataPath);
                 Instances testSet = DataSource.read(testingDataPath);
                 stw.setInputFormat(trainSet);
@@ -89,12 +92,13 @@ public class Main {
                 testSet = Filter.useFilter(testSet, stw);
                 testSet.setClassIndex(0);
 
+                // 生成arff文件
                 ArffSaver saver = new ArffSaver();
                 saver.setInstances(trainSet);
                 saver.setFile(new File("./data/" + projects.get(source) + ".arff"));
                 saver.writeBatch();
 
-                // attribute selection for training data
+                // 对训练集进行特征选择 IG
                 AttributeSelection attSelection = new AttributeSelection();
                 Ranker ranker = new Ranker();
                 ranker.setNumToSelect((int) (trainSet.numAttributes() * ratio));
@@ -105,8 +109,8 @@ public class Main {
                 trainSet = Filter.useFilter(trainSet, attSelection);
                 testSet = Filter.useFilter(testSet, attSelection);
 
+                // 分类器
                 Classifier classifier = new NaiveBayesMultinomial();
-
                 classifier.buildClassifier(trainSet);
 
                 for (int i = 0; i < testSet.numInstances(); i++) {

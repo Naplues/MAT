@@ -23,6 +23,9 @@ public class EnsembleLearner {
         vote[index] += score;
     }
 
+    /**
+     * 评估
+     */
     public void evaluate() {
 
         tp = fp = fn = 0;

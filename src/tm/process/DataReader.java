@@ -10,9 +10,13 @@ import tm.domain.Document;
 
 public class DataReader {
 
+    /**
+     * 生成 arff 数据文件
+     * @param comments
+     * @param outputFilePath
+     */
     public static void outputArffData(List<Document> comments, String outputFilePath) {
         // notice: here we assume positive class is SATD
-
         // arff declare info
         List<String> lines = new ArrayList<>();
         lines.add("@relation 'technicalDebt'");
@@ -30,25 +34,32 @@ public class DataReader {
             else tmp = tmp + "',positive";
             lines.add(tmp);
         }
-
         FileUtil.writeLinesToFile(lines, outputFilePath);
     }
 
+    /**
+     * 选择项目
+     * @param comments
+     * @param projectName
+     * @return
+     */
     public static List<Document> selectProject(List<Document> comments, Set<String> projectName) {
-
         List<Document> res = new ArrayList<>();
-
         for (Document doc : comments) if (projectName.contains(doc.getProject())) res.add(doc);
         return res;
     }
 
+    /**
+     * 读取注释数据, 将注释存储到List<Document> 中
+     * @param path
+     * @return
+     */
     public static List<Document> readComments(String path) {
-
         List<Document> comments = new ArrayList<>();
-
         // read comments' content first
         List<String> lines = FileUtil.readLinesFromFile(path + "comments");
 
+        // 读取注释内容
         for (int i = 0; i < lines.size(); i++) {
             String line = lines.get(i);
             if (!line.contains("\"/*")) {
@@ -66,25 +77,19 @@ public class DataReader {
             }
         }
 
-        // System.out.println(comments.size());
-        // read label
+        // 读取标签
         lines = FileUtil.readLinesFromFile(path + "labels");
-        // System.out.println(lines.size());
-        for (int i = 0; i < lines.size(); i++)
-            comments.get(i).setLabel(lines.get(i));
+        for (int i = 0; i < lines.size(); i++) comments.get(i).setLabel(lines.get(i));
 
-        // read project name
+        // 读取项目名称
         lines = FileUtil.readLinesFromFile(path + "projects");
-        // System.out.println(lines.size());
-        for (int i = 0; i < lines.size(); i++)
-            comments.get(i).setProject(lines.get(i));
+        for (int i = 0; i < lines.size(); i++) comments.get(i).setProject(lines.get(i));
 
-        // remove duplicate and empty comments
+        // 移除重复和空的注释
         List<Document> res = new ArrayList<>();
         Set<String> content = new HashSet<>();
         for (Document doc : comments) {
-            if (doc.getWords().isEmpty() || content.contains(doc.getContent()))
-                continue;
+            if (doc.getWords().isEmpty() || content.contains(doc.getContent())) continue;
             content.add(doc.getContent());
             res.add(doc);
         }

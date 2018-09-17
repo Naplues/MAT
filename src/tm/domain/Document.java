@@ -9,13 +9,12 @@ import tm.util.WordSplit;
 
 public class Document implements Comparable<Document> {
 
-    private String content;
-    private List<String> words;
+    private String content; //内容
+    private List<String> words; //单词
 
-    private String project, label;
+    private String project, label; //项目,标记
 
     private Map<String, Double> tf;
-    private Map<String, Double> tf_idf;
 
     double scoreForRank;
 
@@ -83,14 +82,6 @@ public class Document implements Comparable<Document> {
         this.tf = tf;
     }
 
-    public Map<String, Double> getTf_idf() {
-        return tf_idf;
-    }
-
-    public void setTf_idf(Map<String, Double> tf_idf) {
-        this.tf_idf = tf_idf;
-    }
-
     public double getScoreForRank() {
         return scoreForRank;
     }
@@ -98,6 +89,4 @@ public class Document implements Comparable<Document> {
     public void setScoreForRank(double scoreForRank) {
         this.scoreForRank = scoreForRank;
     }
-
-
 }
