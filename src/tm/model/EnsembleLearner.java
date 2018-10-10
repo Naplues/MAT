@@ -27,14 +27,13 @@ public class EnsembleLearner {
      * 评估
      */
     public void evaluate() {
-
         tp = fp = fn = 0;
         for (int i = 0; i < testData.numInstances(); i++) {
             Instance instance = testData.instance(i);
             double label;
             if (vote[i] > 0) label = 1.0;
             else label = 0.0;
-
+            // 真实值: classValue 预测值: label
             if (instance.classValue() == 1.0 && label == 1.0) tp++;
             if (instance.classValue() == 1.0 && label == 0.0) fn++;
             if (instance.classValue() == 0.0 && label == 1.0) fp++;

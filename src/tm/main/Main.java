@@ -1,6 +1,7 @@
 package tm.main;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -14,7 +15,9 @@ import weka.classifiers.bayes.NaiveBayesMultinomial;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ArffSaver;
+import weka.core.converters.CSVSaver;
 import weka.core.converters.ConverterUtils.DataSource;
+import weka.core.converters.Saver;
 import weka.core.stemmers.SnowballStemmer;
 import weka.core.stopwords.WordsFromFile;
 import weka.filters.Filter;
@@ -27,89 +30,64 @@ public class Main {
 
     public static void main(String args[]) throws Exception {
 
-        // 项目名称
-        List<String> projects = new ArrayList<>();
-        projects.add("argouml");
-        projects.add("columba-1.4-src");
-        projects.add("hibernate-distribution-3.3.2.GA");
-        projects.add("jEdit-4.2");
-        projects.add("jfreechart-1.0.19");
-        projects.add("apache-jmeter-2.10");
-        projects.add("jruby-1.4.0");
-        projects.add("sql12");
+        // 项目名称  // "apache-ant-1.7.0", "emf-2.4.1"
+        String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
+                "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"};
 
-        String trainingDataPath = "tmp/trainingData.arff";
-        String testingDataPath = "tmp/testingData.arff";
-
+        // 训练测试数据
+        String trainDataPath, testDataPath;
         double ratio = 0.1;
-        List<Document> comments = DataReader.readComments("data/");  //读取注释数据，每个元素代表一条注释
+        DataReader.readComments("data/");  //读取注释数据，每个元素代表一条注释
+        // 将（训练集和测试集）中的字符串转换为词向量
+        WordsFromFile stopWords = new WordsFromFile();
+        stopWords.setStopwords(new File("dic/stopwords.txt")); // 停用词列表
+
+        StringToWordVector stw = new StringToWordVector(100000);
+        stw.setOutputWordCounts(true); //设置记录单词在文档中出现的次数（词频变量）若使用TFIDF公式，该选项必须设置为true
+        stw.setTFTransform(true);      //执行TF转换 TF(t,d)=log(f(t,d)+1)
+        stw.setIDFTransform(true);     //执行IDF(t,D)=log(|D|/|{d in D, t in d}|)
+        stw.setStemmer(new SnowballStemmer());
+        stw.setStopwordsHandler(stopWords);
+
+        //generateData(stw, projectNames);
+
         // 每个测试项目
-        for (int target = 0; target < projects.size(); target++) {
-            System.out.println("targe project: " + projects.get(target));
-
+        for (int target = 0; target < projectNames.length; target++) {
+            System.out.println("targe project: " + projectNames[target]);
+            testDataPath = "./data/data--" + projectNames[target] + ".arff";
+            // 集成学习器
             EnsembleLearner eLearner = new EnsembleLearner();
-
-            Set<String> projectForTesting = new HashSet<>();
-            projectForTesting.add(projects.get(target));
-
-            List<Document> testDoc = DataReader.selectProject(comments, projectForTesting);
-
             // 每个训练项目
-            for (int source = 0; source < projects.size(); source++) {
+            for (int source = 0; source < projectNames.length; source++) {
+                trainDataPath = "./data/data--" + projectNames[source] + ".arff";
                 if (source == target) continue;
 
-                Set<String> projectForTraining = new HashSet<>();
-                projectForTraining.add(projects.get(source));
-
-                List<Document> trainDoc = DataReader.selectProject(comments, projectForTraining);
-
-                // 构建训练集和测试集
-                DataReader.outputArffData(trainDoc, trainingDataPath);
-                DataReader.outputArffData(testDoc, testingDataPath);
-
+                // 测试数据
                 if (eLearner.getTestData() == null) {
-                    Instances tmp = DataSource.read(testingDataPath);
+                    Instances tmp = DataSource.read(testDataPath);
                     tmp.setClassIndex(1);  //类标记索引
                     eLearner = new EnsembleLearner(tmp);
                 }
-
-                // string to word vector (both for training and testing data)
-                StringToWordVector stw = new StringToWordVector(100000);
-                stw.setOutputWordCounts(true);
-                stw.setIDFTransform(true);
-                stw.setTFTransform(true);
-                SnowballStemmer stemmer = new SnowballStemmer();
-                stw.setStemmer(stemmer);
-                WordsFromFile stopwords = new WordsFromFile();
-                stopwords.setStopwords(new File("dic/stopwords.txt"));
-                stw.setStopwordsHandler(stopwords);
-
-                Instances trainSet = DataSource.read(trainingDataPath);
-                Instances testSet = DataSource.read(testingDataPath);
+                Instances trainSet = DataSource.read(trainDataPath);
+                Instances testSet = DataSource.read(testDataPath);
                 stw.setInputFormat(trainSet);
                 trainSet = Filter.useFilter(trainSet, stw);
-                trainSet.setClassIndex(0);
                 testSet = Filter.useFilter(testSet, stw);
+                trainSet.setClassIndex(0);
                 testSet.setClassIndex(0);
-
-                // 生成arff文件
-                ArffSaver saver = new ArffSaver();
-                saver.setInstances(trainSet);
-                saver.setFile(new File("./data/" + projects.get(source) + ".arff"));
-                saver.writeBatch();
 
                 // 对训练集进行特征选择 IG
                 AttributeSelection attSelection = new AttributeSelection();
                 Ranker ranker = new Ranker();
-                ranker.setNumToSelect((int) (trainSet.numAttributes() * ratio));
+                ranker.setNumToSelect((int) (trainSet.numAttributes() * ratio)); //设置选择特征的数目
                 InfoGainAttributeEval ifg = new InfoGainAttributeEval();
-                attSelection.setEvaluator(ifg);
-                attSelection.setSearch(ranker);
-                attSelection.setInputFormat(trainSet);
+                attSelection.setEvaluator(ifg);  //使用IG评估
+                attSelection.setSearch(ranker);  // 设置搜索
+                attSelection.setInputFormat(trainSet); //设置输入格式
                 trainSet = Filter.useFilter(trainSet, attSelection);
                 testSet = Filter.useFilter(testSet, attSelection);
 
-                // 分类器
+                // NBM分类器
                 Classifier classifier = new NaiveBayesMultinomial();
                 classifier.buildClassifier(trainSet);
 
@@ -120,8 +98,39 @@ public class Main {
                     else score = -1;
                     eLearner.vote(i, score);
                 }
-            }
+            } //end for 训练集
             eLearner.evaluate();
+        }// end for 测试集*/
+    }
+
+
+    /**
+     * 生成数据集
+     *
+     * @param stw
+     * @param projectNames
+     * @throws Exception
+     */
+    public static void generateData(StringToWordVector stw, String[] projectNames) throws Exception {
+        for (int i = 0; i < projectNames.length; i++) {
+            String filePath = "./data/data--" + projectNames[i] + ".arff";
+            DataReader.outputArffData(DataReader.selectProject(projectNames[i]), filePath);
+            Instances dataSet = DataSource.read(filePath);
+            stw.setInputFormat(dataSet);
+            dataSet = Filter.useFilter(dataSet, stw);
+            dataSet.setClassIndex(0);
+
+            // 生成arff文件
+            Saver saver = new ArffSaver();
+            saver.setInstances(dataSet);
+            saver.setFile(new File("./data/" + projectNames[i] + ".arff"));
+            saver.writeBatch();
+
+            // 生成csv文件
+            saver = new CSVSaver();
+            saver.setInstances(dataSet);
+            saver.setFile(new File("./data/" + projectNames[i] + ".csv"));
+            saver.writeBatch();
         }
     }
 }

@@ -6,7 +6,6 @@ import java.util.Map;
 
 import tm.util.WordSplit;
 
-
 public class Document implements Comparable<Document> {
 
     private String content; //内容

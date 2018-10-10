@@ -10,8 +10,11 @@ import tm.domain.Document;
 
 public class DataReader {
 
+    private static List<Document> commentList; //注释对象列表
+
     /**
-     * 生成 arff 数据文件
+     * 根据原始注释 生成 arff 数据文件
+     *
      * @param comments
      * @param outputFilePath
      */
@@ -39,22 +42,25 @@ public class DataReader {
 
     /**
      * 选择项目
-     * @param comments
-     * @param projectName
+     *
+     * @param projectName 项目列表
      * @return
      */
-    public static List<Document> selectProject(List<Document> comments, Set<String> projectName) {
+    public static List<Document> selectProject(String... projectName) {
         List<Document> res = new ArrayList<>();
-        for (Document doc : comments) if (projectName.contains(doc.getProject())) res.add(doc);
+        for (Document doc : commentList) {
+            for (String project : projectName) if (project.equals(doc.getProject())) res.add(doc);
+        }
         return res;
     }
 
     /**
      * 读取注释数据, 将注释存储到List<Document> 中
+     *
      * @param path
      * @return
      */
-    public static List<Document> readComments(String path) {
+    public static void readComments(String path) {
         List<Document> comments = new ArrayList<>();
         // read comments' content first
         List<String> lines = FileUtil.readLinesFromFile(path + "comments");
@@ -86,13 +92,12 @@ public class DataReader {
         for (int i = 0; i < lines.size(); i++) comments.get(i).setProject(lines.get(i));
 
         // 移除重复和空的注释
-        List<Document> res = new ArrayList<>();
+        commentList = new ArrayList<>();
         Set<String> content = new HashSet<>();
         for (Document doc : comments) {
             if (doc.getWords().isEmpty() || content.contains(doc.getContent())) continue;
             content.add(doc.getContent());
-            res.add(doc);
+            commentList.add(doc);
         }
-        return res;
     }
 }
