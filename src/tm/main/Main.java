@@ -28,16 +28,20 @@ import tm.model.EnsembleLearner;
 
 public class Main {
 
+    public static String rootPath = "data/";
+
     public static void main(String args[]) throws Exception {
 
-        // 项目名称  // "apache-ant-1.7.0", "emf-2.4.1"
+        // 项目名称  // "apache-ant-1.7.0", "emf-2.4.1", "argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
+        //                "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"
         String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
                 "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"};
+
 
         // 训练测试数据
         String trainDataPath, testDataPath;
         double ratio = 0.1;
-        DataReader.readComments("data/");  //读取注释数据，每个元素代表一条注释
+        DataReader.readComments(rootPath);  //读取注释数据，每个元素代表一条注释
         // 将（训练集和测试集）中的字符串转换为词向量
         WordsFromFile stopWords = new WordsFromFile();
         stopWords.setStopwords(new File("dic/stopwords.txt")); // 停用词列表
@@ -49,17 +53,17 @@ public class Main {
         stw.setStemmer(new SnowballStemmer());
         stw.setStopwordsHandler(stopWords);
 
-        //generateData(stw, projectNames);
+        generateData(stw, projectNames);
 
         // 每个测试项目
         for (int target = 0; target < projectNames.length; target++) {
             System.out.println("targe project: " + projectNames[target]);
-            testDataPath = "./data/data--" + projectNames[target] + ".arff";
+            testDataPath = rootPath + "data--" + projectNames[target] + ".arff";
             // 集成学习器
             EnsembleLearner eLearner = new EnsembleLearner();
             // 每个训练项目
             for (int source = 0; source < projectNames.length; source++) {
-                trainDataPath = "./data/data--" + projectNames[source] + ".arff";
+                trainDataPath = rootPath + "data--" + projectNames[source] + ".arff";
                 if (source == target) continue;
 
                 // 测试数据
@@ -113,7 +117,7 @@ public class Main {
      */
     public static void generateData(StringToWordVector stw, String[] projectNames) throws Exception {
         for (int i = 0; i < projectNames.length; i++) {
-            String filePath = "./data/data--" + projectNames[i] + ".arff";
+            String filePath = rootPath + "/data--" + projectNames[i] + ".arff";
             DataReader.outputArffData(DataReader.selectProject(projectNames[i]), filePath);
             Instances dataSet = DataSource.read(filePath);
             stw.setInputFormat(dataSet);
@@ -123,13 +127,13 @@ public class Main {
             // 生成arff文件
             Saver saver = new ArffSaver();
             saver.setInstances(dataSet);
-            saver.setFile(new File("./data/" + projectNames[i] + ".arff"));
+            saver.setFile(new File(rootPath + projectNames[i] + ".arff"));
             saver.writeBatch();
 
             // 生成csv文件
             saver = new CSVSaver();
             saver.setInstances(dataSet);
-            saver.setFile(new File("./data/" + projectNames[i] + ".csv"));
+            saver.setFile(new File(rootPath + projectNames[i] + ".csv"));
             saver.writeBatch();
         }
     }

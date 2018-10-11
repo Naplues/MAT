@@ -41,8 +41,8 @@ public class EnsembleLearner {
         precision = tp / (tp + fp);
         recall = tp / (tp + fn);
         fmeasure = 2 * precision * recall / (precision + recall);
-        System.out.println("tp,fp,fn: " + tp + " " + fp + " " + fn);
-        System.out.println("precision: " + precision + ", recall: " + recall + ", f-measure: " + fmeasure);
+        // System.out.println("tp,fp,fn: " + tp + " " + fp + " " + fn);
+        System.out.println(precision + "," + recall + "," + fmeasure);
     }
 
 
