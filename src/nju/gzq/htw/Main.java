@@ -11,9 +11,9 @@ public class Main {
     public static void main(String[] args) {
         String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
                 "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"};
-        // runHTW();
+        runHTW();
 
-        for (int i = 0; i < projectNames.length; i++) search("data/" + projectNames[i] + ".csv");
+        //for (int i = 0; i < projectNames.length; i++) search("data/" + projectNames[i] + ".csv");
 
     }
 
