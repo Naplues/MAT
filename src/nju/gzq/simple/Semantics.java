@@ -41,7 +41,7 @@ public class Semantics {
         selectedFeatures = new String[set.size()];
         int index2 = 0;
         for (String feature : set) selectedFeatures[index2++] = feature;
-        printCount(selectedFeatures);
+        //printCount(selectedFeatures);
         return selectedFeatures;
     }
 

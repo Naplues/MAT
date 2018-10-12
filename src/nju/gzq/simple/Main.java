@@ -12,10 +12,11 @@ public class Main {
         String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
                 "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"};
 
-        String[] keyWords = {"hack", "todo", "workaround", "fix"};
+        //0.8912224594547866, 0.7286790687027291, 0.7795997053235931
+        String[] keyWords = {"hack", "todo", "workaround", "fixme"};
         double[] result = new double[3];
         for (int i = 0; i < projectNames.length; i++) {
-            double[] temp = readData(projectNames[i], keyWords, true);
+            double[] temp = readData(projectNames[i], keyWords, false);
             for (int j = 0; j < result.length; j++) result[j] += temp[j];
             System.out.println(i+1);
         }
@@ -32,7 +33,7 @@ public class Main {
         List<String> instances = FileHandle.readFileToLines(rootPath + "data--" + projectName + ".arff");
         String[] labels = new String[instances.size()];
         int[] predicts = new int[instances.size()];
-        keyWords = Semantics.getPMIWords(rootPath + "token--" + projectName + ".txt", instances, keyWords, 1);
+        //keyWords = Semantics.getPMIWords(rootPath + "token--" + projectName + ".txt", instances, keyWords, 1);
 
         for (int i = 0; i < instances.size(); i++) {
             labels[i] = instances.get(i).split(",")[1];
