@@ -8,21 +8,31 @@ public class Main {
     public static String rootPath = "d/";
 
     public static void main(String[] args) {
+        //"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2","jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"
         String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
                 "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"};
 
         String[] keyWords = {"hack", "todo", "workaround", "fix"};
-        for (int i = 0; i < projectNames.length; i++)
-            readData(rootPath + "data--" + projectNames[i] + ".arff", keyWords, false);
+        double[] result = new double[3];
+        for (int i = 0; i < projectNames.length; i++) {
+            double[] temp = readData(projectNames[i], keyWords, true);
+            for (int j = 0; j < result.length; j++) result[j] += temp[j];
+            System.out.println(i+1);
+        }
+        for (int i = 0; i < result.length; i++) result[i] /= projectNames.length;
+        System.out.println(result[0] + ", " + result[1] + ", " + result[2]);
     }
 
     /**
-     * @param filePath
+     * @param projectName
+     * @param keyWords
+     * @param extension
      */
-    public static void readData(String filePath, String[] keyWords, boolean extension) {
-        List<String> instances = FileHandle.readFileToLines(filePath);
+    public static double[] readData(String projectName, String[] keyWords, boolean extension) {
+        List<String> instances = FileHandle.readFileToLines(rootPath + "data--" + projectName + ".arff");
         String[] labels = new String[instances.size()];
         int[] predicts = new int[instances.size()];
+        keyWords = Semantics.getPMIWords(rootPath + "token--" + projectName + ".txt", instances, keyWords, 1);
 
         for (int i = 0; i < instances.size(); i++) {
             labels[i] = instances.get(i).split(",")[1];
@@ -43,7 +53,8 @@ public class Main {
         double f1 = 2 * precision * recall / (precision + recall);
         //System.out.println("TP: " + TP + " FP: " + FP);
         //System.out.println("TN: " + TN + " FN: " + FN);
-        System.out.println(precision + ", " + recall + ", " + f1);
+        //System.out.println(precision + ", " + recall + ", " + f1);
+        return new double[]{precision, recall, f1};
     }
 
     /**
@@ -55,7 +66,8 @@ public class Main {
     public static int classify(String instance, String[] keyWords, boolean extension) {
         String[] words = instance.replace("'", "").split(" ");
         if (extension) {
-            for (String word : words) for (String key : keyWords) if (word.contains(key)) return 1;
+            for (String word : words)
+                for (String key : keyWords) if (word.startsWith(key) || word.endsWith(key)) return 1;
         } else {
             for (String word : words) for (String key : keyWords) if (word.equals(key)) return 1;
         }
