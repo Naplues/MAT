@@ -8,17 +8,20 @@ public class Main {
     public static String rootPath = "d/";
 
     public static void main(String[] args) {
-        //"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2","jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"
+        //// "apache-ant-1.7.0", "emf-2.4.1"
         String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
-                "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"};
+                "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12", "apache-ant-1.7.0", "emf-2.4.1"};
 
         //0.8912224594547866, 0.7286790687027291, 0.7795997053235931
         String[] keyWords = {"hack", "todo", "workaround", "fixme"};
+
+
+        //预测正负
         double[] result = new double[3];
         for (int i = 0; i < projectNames.length; i++) {
-            double[] temp = readData(projectNames[i], keyWords, false);
+            double[] temp = readData(projectNames[i], keyWords, true);
             for (int j = 0; j < result.length; j++) result[j] += temp[j];
-            System.out.println(i+1);
+            //System.out.println(i + 1);
         }
         for (int i = 0; i < result.length; i++) result[i] /= projectNames.length;
         System.out.println(result[0] + ", " + result[1] + ", " + result[2]);
@@ -49,12 +52,16 @@ public class Main {
             else FN++;
         }
 
-        double precision = TP / (TP + FP);
-        double recall = TP / (TP + FN);
-        double f1 = 2 * precision * recall / (precision + recall);
+        double precision = .0, recall = .0, f1 = .0;
+        if (TP > 0) {
+            precision = TP / (TP + FP);
+            recall = TP / (TP + FN);
+            f1 = 2 * precision * recall / (precision + recall);
+        }
+
         //System.out.println("TP: " + TP + " FP: " + FP);
         //System.out.println("TN: " + TN + " FN: " + FN);
-        //System.out.println(precision + ", " + recall + ", " + f1);
+        System.out.println(precision + ", " + recall + ", " + f1);
         return new double[]{precision, recall, f1};
     }
 

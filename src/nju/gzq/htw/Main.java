@@ -9,11 +9,10 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
-                "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"};
-        runHTW();
+        String[] projectNames = {"apache-ant-1.7.0", "emf-2.4.1"};
+        //runHTW();
 
-        //for (int i = 0; i < projectNames.length; i++) search("data/" + projectNames[i] + ".csv");
+        for (int i = 0; i < projectNames.length; i++) search("data/" + projectNames[i] + ".csv");
 
     }
 
@@ -25,7 +24,7 @@ public class Main {
         List<String> lines = FileHandle.readFileToLines(filePath);
         String[] features = lines.get(0).split(",");
         int[] count = new int[features.length];
-        System.out.println(features.length);
+        System.out.println(filePath + " " + features.length);
         for (int i = 0; i < features.length - 1; i++) {
             for (int j = i + 1; j < features.length; j++) {
                 if (features[j].contains(features[i])) {

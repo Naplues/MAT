@@ -32,10 +32,9 @@ public class Main {
 
     public static void main(String args[]) throws Exception {
 
-        // 项目名称  // "apache-ant-1.7.0", "emf-2.4.1", "argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
-        //                "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"
+        // 项目名称  // "apache-ant-1.7.0", "emf-2.4.1"
         String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
-                "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12"};
+                "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12", "apache-ant-1.7.0", "emf-2.4.1"};
 
 
         // 训练测试数据
@@ -53,7 +52,7 @@ public class Main {
         stw.setStemmer(new SnowballStemmer());
         stw.setStopwordsHandler(stopWords);
 
-        generateData(stw, projectNames);
+        //generateData(stw, projectNames);
 
         // 每个测试项目
         for (int target = 0; target < projectNames.length; target++) {
