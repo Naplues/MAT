@@ -15,16 +15,30 @@ public class Main {
         //0.8912224594547866, 0.7286790687027291, 0.7795997053235931
         String[] keyWords = {"hack", "todo", "workaround", "fixme"};
 
+        long[] predictTime = new long[projectNames.length];
 
-        //预测正负
-        double[] result = new double[3];
-        for (int i = 0; i < projectNames.length; i++) {
-            double[] temp = readData(projectNames[i], keyWords, true);
-            for (int j = 0; j < result.length; j++) result[j] += temp[j];
-            //System.out.println(i + 1);
+        double times = 100.0;
+
+        for (int number = 0; number < times; number++) {
+            System.out.println("Running: " + number + " time(s)");
+            //预测正负
+            double[] result = new double[3];
+            for (int i = 0; i < projectNames.length; i++) {
+                long startTime = System.currentTimeMillis();
+                double[] temp = readData(projectNames[i], keyWords, false);
+                long endTime = System.currentTimeMillis();
+                //项目i在number次运行的预测时间
+                predictTime[i] += endTime - startTime;
+                for (int j = 0; j < result.length; j++) result[j] += temp[j];
+            }
+            for (int i = 0; i < result.length; i++) result[i] /= projectNames.length;
+            // System.out.println(result[0] + ", " + result[1] + ", " + result[2]);
         }
-        for (int i = 0; i < result.length; i++) result[i] /= projectNames.length;
-        System.out.println(result[0] + ", " + result[1] + ", " + result[2]);
+
+        for (int i = 0; i < predictTime.length; i++) {
+            System.out.println(predictTime[i] / times);
+        }
+
     }
 
     /**
@@ -61,7 +75,7 @@ public class Main {
 
         //System.out.println("TP: " + TP + " FP: " + FP);
         //System.out.println("TN: " + TN + " FN: " + FN);
-        System.out.println(precision + ", " + recall + ", " + f1);
+        //System.out.println(precision + ", " + recall + ", " + f1);
         return new double[]{precision, recall, f1};
     }
 
