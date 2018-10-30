@@ -1,7 +1,5 @@
 package nju.gzq.simple;
 
-import nju.gzq.selector.FileHandle;
-
 import java.util.List;
 
 public class Main {
@@ -17,7 +15,7 @@ public class Main {
 
         long[] predictTime = new long[projectNames.length];
 
-        double times = 100.0;
+        double times = 1.0;
 
         for (int number = 0; number < times; number++) {
             System.out.println("Running: " + number + " time(s)");
@@ -25,19 +23,17 @@ public class Main {
             double[] result = new double[3];
             for (int i = 0; i < projectNames.length; i++) {
                 long startTime = System.currentTimeMillis();
-                double[] temp = readData(projectNames[i], keyWords, false);
+                double[] temp = readData(projectNames[i], keyWords, true);
                 long endTime = System.currentTimeMillis();
                 //项目i在number次运行的预测时间
                 predictTime[i] += endTime - startTime;
                 for (int j = 0; j < result.length; j++) result[j] += temp[j];
             }
             for (int i = 0; i < result.length; i++) result[i] /= projectNames.length;
-            // System.out.println(result[0] + ", " + result[1] + ", " + result[2]);
+            System.out.println(result[0] + ", " + result[1] + ", " + result[2]);
         }
 
-        for (int i = 0; i < predictTime.length; i++) {
-            System.out.println(predictTime[i] / times);
-        }
+        //for (int i = 0; i < predictTime.length; i++) System.out.println(predictTime[i] / times);
 
     }
 

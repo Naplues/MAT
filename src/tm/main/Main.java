@@ -28,7 +28,7 @@ import tm.model.EnsembleLearner;
 
 public class Main {
 
-    public static String rootPath = "data/";
+    public static String rootPath = "nd/";
 
     public static void main(String args[]) throws Exception {
 
@@ -52,7 +52,7 @@ public class Main {
         stw.setStemmer(new SnowballStemmer());
         stw.setStopwordsHandler(stopWords);
 
-        //generateData(stw, projectNames);
+        generateData(stw, projectNames);
 
         // 每个测试项目
         for (int target = 0; target < projectNames.length; target++) {
@@ -128,12 +128,13 @@ public class Main {
             saver.setInstances(dataSet);
             saver.setFile(new File(rootPath + projectNames[i] + ".arff"));
             saver.writeBatch();
-
+            /*
             // 生成csv文件
             saver = new CSVSaver();
             saver.setInstances(dataSet);
             saver.setFile(new File(rootPath + projectNames[i] + ".csv"));
             saver.writeBatch();
+            */
         }
     }
 }
