@@ -17,7 +17,7 @@ public class Main {
         //splitProjectData();
 
         // 获取模式
-        String[] keyWords = getPatterns("dic/k.txt");
+        String[] keyWords = getPatterns("dic/k.txt", false);
         // 预测正负
         double[] result = new double[3];
         for (int i = 0; i < projectNames.length; i++) {
@@ -65,12 +65,25 @@ public class Main {
      * 获取模式
      *
      * @param filePath
+     * @param fuzzy
      * @return
      */
-    public static String[] getPatterns(String filePath) {
+    public static String[] getPatterns(String filePath, boolean fuzzy) {
         List<String> keyWordsList = FileHandle.readFileToLines(filePath);
-        String[] keyWords = new String[keyWordsList.size()];
-        for (int i = 0; i < keyWords.length; i++) keyWords[i] = keyWordsList.get(i);
+        String[] keyWords;
+        if (fuzzy) {
+            int length = 0;
+            for (int i = 0; i < keyWordsList.size(); i++) length += keyWordsList.get(i).split(" ").length;
+            keyWords = new String[length];
+            for (int i = 0, j = 0; i < keyWordsList.size(); i++) {
+                String[] temp = keyWordsList.get(i).split(" ");
+                for (int k = 0; k < temp.length; k++) keyWords[j++] = temp[k];
+            }
+
+        } else {
+            keyWords = new String[keyWordsList.size()];
+            for (int i = 0; i < keyWords.length; i++) keyWords[i] = keyWordsList.get(i);
+        }
         return keyWords;
     }
 
@@ -117,7 +130,9 @@ public class Main {
      */
     public static int classify(String instance, String[] keyWords) {
         String[] words = instance.replace("'", "").split(" ");
-        for (String word : words) for (String key : keyWords) if (word.contains(key)) return 1;
+        for (String word : words)
+            for (String key : keyWords)
+                if (word.contains(key)) return 1;
         return 0;
     }
 }

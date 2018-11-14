@@ -1,0 +1,19 @@
+143: // hack to get fixed length 'length' field
+80: "/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		findMostSpecficMethod() needs to be rewritten to eliminate 		findAccessibleMethod.  We should implement the findMostSpecificMethod 		that uses the publicOnly flag.  FindMostSpecificMethod should also		operate in two passes to give standard Java assignable matches priority		over extended bsh type matches.	*/"
+41: "/*	Thanks to Slava Pestov (of jEdit fame) for import caching enhancements.	Note: This class has gotten too big.  It should be broken down a bit.*/"
+65: "/*		Note: object is only used here for precondition... get rid of it?	*/"
+189: // skip header bytes // maybe should check if they're valid or not?
+1: // is this right?
+188: // TODO: Also check REG_ANCHORINDEX vs. anchor
+183: "/** * An output stream that compresses into the BZip2 format (without the file * header chars) into another stream. TODO: Update to BZip2 1.0.1 * * @author <a href=""mailto:keiron@aftexsw.com"">Keiron Liddle</a> */"
+185: // implement the recursion for getClassImpl()
+77: "/*		Note: this impor pattern is becoming common... could factor it out into		an importedObject Vector class.	*/"
+68: "/*		Note: the bsh command code should probably not be here...  we need to		scope it by the namespace that imported the command... so it probably		needs to be integrated into NameSpace.	*/"
+57: "/* this is stupid and misleading.					 * but 'path' is not used anywhere except					 * the above line, and if this is done					 * after the 'continue', then we will					 * either hang, or be forced to duplicate					 * it inside the buffer == null, or add					 * a 'finally' clause. you decide which one's					 * worse. */"
+99: // workaround for Swing's annoying processing of // labels starting with <html>, which often breaks
+23: "/*			Wrap nulls.			This is a bit of a cludge to address a deficiency in the class			generator whereby it does not wrap nulls on method delegate.  See			Class Generator.java.  If we fix that then we can remove this.			(just have to generate the code there.)		*/"
+150: "/*		Note: is using SignatureKey in this way dangerous?  In the pathological		case a user could eat up memory caching every possible combination of		argument types to an untyped method.  Maybe we could be smarter about		it by ignoring the types of untyped parameter positions?  The method		resolver could return a set of ""hints"" for the signature key caching?		There is also the overhead of creating one of these for every method		dispatched.  What is the alternative?	*/"
+129: // ugly workaround
+31: // Can this be factored out...?   // Should be be adding the L...; here instead?
+74: "/*				Somewhat of a hack.  If the special fields are visible (we're				operating relative to a 'this' type already) dissallow further				.this references to prevent user from skipping to things like				super.this.caller			*/"
+27: "/*		I wish protected access were limited to children and not also 		package scope... I want this to be a singleton implemented by various		children.  	*/"

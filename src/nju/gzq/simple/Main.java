@@ -3,37 +3,30 @@ package nju.gzq.simple;
 import java.util.List;
 
 public class Main {
-    public static String rootPath = "d/";
+    public static String rootPath = "sampling/";
+    //// "apache-ant-1.7.0", "emf-2.4.1"
+    public static String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
+            "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12", "apache-ant-1.7.0", "emf-2.4.1"};
 
     public static void main(String[] args) {
-        //// "apache-ant-1.7.0", "emf-2.4.1"
-        String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
-                "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12", "apache-ant-1.7.0", "emf-2.4.1"};
 
         //0.8912224594547866, 0.7286790687027291, 0.7795997053235931
-        String[] keyWords = {"hack", "todo", "workaround", "fixme"};
+        String[] keyWords = {"xxx"}; //, "todo", "workaround", "fixme", "xxx"
 
         long[] predictTime = new long[projectNames.length];
 
-        double times = 1.0;
-
-        for (int number = 0; number < times; number++) {
-            System.out.println("Running: " + number + " time(s)");
-            //预测正负
-            double[] result = new double[3];
-            for (int i = 0; i < projectNames.length; i++) {
-                long startTime = System.currentTimeMillis();
-                double[] temp = readData(projectNames[i], keyWords, true);
-                long endTime = System.currentTimeMillis();
-                //项目i在number次运行的预测时间
-                predictTime[i] += endTime - startTime;
-                for (int j = 0; j < result.length; j++) result[j] += temp[j];
-            }
-            for (int i = 0; i < result.length; i++) result[i] /= projectNames.length;
-            System.out.println(result[0] + ", " + result[1] + ", " + result[2]);
+        //预测正负
+        double[] result = new double[3];
+        for (int i = 0; i < projectNames.length; i++) {
+            long startTime = System.currentTimeMillis();
+            double[] temp = readData(projectNames[i], keyWords, true);
+            long endTime = System.currentTimeMillis();
+            //项目i在number次运行的预测时间
+            predictTime[i] += endTime - startTime;
+            for (int j = 0; j < result.length; j++) result[j] += temp[j];
         }
-
-        //for (int i = 0; i < predictTime.length; i++) System.out.println(predictTime[i] / times);
+        for (int i = 0; i < result.length; i++) result[i] /= projectNames.length;
+        System.out.println(result[0] + ", " + result[1] + ", " + result[2]);
 
     }
 
@@ -71,7 +64,7 @@ public class Main {
 
         //System.out.println("TP: " + TP + " FP: " + FP);
         //System.out.println("TN: " + TN + " FN: " + FN);
-        //System.out.println(precision + ", " + recall + ", " + f1);
+        System.out.println(precision + ", " + recall + ", " + f1);
         return new double[]{precision, recall, f1};
     }
 

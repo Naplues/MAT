@@ -1,0 +1,96 @@
+708: // TODO: i18n
+397: "/*** ActionAddExistingNode enables pasting of an existing node into a Diagram.** @author Eugenio Alvarez* Data Access Technologies.* TODO: Why do we have this class as well as ActionAddExistingNodes?*/"
+201: "/**     * Set the fig style attributes.     * <p>     *     * TODO: This should move into the render factories as described in issue     * 859.     *     * @param fig the fig to style.     * @param attributeMap a map of name value pairs     */"
+322: // Don't wait on ourselves, we'll deadlock! // TODO: We might want to throw an exception here
+938: // Make a read-only copy of the listeners list so that reentrant calls // back to add/removeListener won't mess us up. // TODO: Potential performance issue, but we need the correctness - tfm
+6: //setFontFamily("dialog"); /* TODO: Is this needed?*/
+934: // TODO: Implement following WFR for GeneralizableElements // [4] The parent must be included in the Namespace of the //     GeneralizableElement. //       self.generalization->forAll(g | //           self.namespace.allContents->includes(g.parent) ) //        return ModelManagementHelperMDRImpl.getContents(ns).contains( //                gen.getParent());
+911: // there's more to be handled, which still need to be implemented:
+918: "/** * Eclipse UML2 implementation of XmiWriter. *  * TODO: We need facilities for writing and reading stable IDs to/from either * xmi.id or xmi.uuid. *  * @author Tom Morris */"
+908: // TODO: Implement
+385: "/**     * TODO: Use the following function to have a dropdown set of tools:     * ToolBarFactory.addItemsToToolBar(buttonPanel, actions, true);     * Instead, this temporary solution:     *     * @param buttonPanel the toolbar     * @param actions an array of actions representing the tool layout     */"
+337: // A model element has been removed from this packages namespace // If the Fig representing that model element is on the same // diagram as this package then make sure it is not enclosed by // this package. // TODO: In my view the Fig representing the model element should be // removed from the diagram. Yet to be agreed. Bob.
+285: "/**     * Actually instanciate the NetNode and FigNode objects and     * set the global next mode to ModePlace     * TODO: should call super, reduce code volume!     *     * @see org.tigris.gef.graph.GraphFactory#makeNode()     */"
+491: "/**     * Get an {@link AbstractFilePersister} for file.     *     * @param file the {@link File} in which an ArgoUML {@link Project} will     * be persisted.     * @return the appropriate persister for file or null if the file's     * extension doesn't match a supported persister.     * TODO: move this to an helper class.     */"
+112: // hack in order to be able to compile in java1.3
+747: // TODO: Placeholder implementation until support for tracking on // a per-project basis is implemented
+639: // TODO: this can be simplified to just //((Include) extend).setBase((UseCase) base);
+152: // TODO: Encountering a deleted object during // any part of this traversal will // abort the rest of the traversal. // We probably should do the whole traversal // in a single MDR transaction.
+366: "/**     * Sets the language of an expression.     *     * TODO: This operation is fooling the user     * in thinking that the body of the object is changed.     * Instead, a new object is created.     * There is no other way: a MExpression can not be altered,     * once created!     * So, this operation returns a newly created object instead.     *     * @param handle The expression.     * @param language The new language.     * @return The newly created Object.     */"
+135: // TODO: ActionState, CallState, and SubactivityState have been replaced // in UML 2.0 by explicitly modeled Actions
+673: // TODO: Try reusing the same set on every recursion
+780: // TODO: Allow .zargo as profile as well?
+5: // TODO: This will vary based on the type of the TagDefinition
+507: "/** * Agency manages Critics.  Since classes are not really first class * objects in java, a singleton instance of Agency is made and passed * around as needed.  The Agency keeps a registry of all Critics that * should be applied to each type of design material. When a * design material instance is critiqued it asks Agency to apply all * registered Critic's.  In the current scheme there is a thread that * proactively, continuously critiques the Design at hand, even if * the user is idle! This is simple and it works.  The disadvantage * is that _all_ active critics related to a given design material are * applied, regardless of the reason for the critiquing and a lot of * CPU time is basically wasted.  <p> * * TODO: I am moving toward a more reactionary scheme in * which specific design manipulations in the editor cause critics * relevant to those manipulations to be applied.  This transition is * still half done.  Triggers are the critiquing requests.  The code * for triggers is currently dormant (latent?).<p> * * TODO: There is a strong dependency cycle between Agency and Designer.  They * either need to be merged into a single class or partitioned differently, * perhaps using an interface to break the cycle.  The Designer singleton gets * passed to almost every single part of the Critic subsystem, creating strong * coupling throughout. - tfm 20070620 * * @author Jason Robbins */"
+721: // TODO: Review - priority of public ID vs system ID has been reversed // from original implementation
+138: // Initialze GEF's version of the loader too // TODO: We should probably be passing icons that we loaded ourselves // but there doesn't seem to be a way to do that with GEF - tfm
+467: // First of all, let's set up the duplicate hash. This hash contains // all the duplicate key for another key. // // TODO: every duplicate.put() is done twice - but how to avoid this?
+528: // TODO: Note copy/paste code in FigEntryPoint - where is this code // better placed in GEF?
+559: "/**     * Create an EnumerationLiteral.     * @return Object new Enumeration     * @since UML 1.4     * TODO: This needs an extra parameter to specify the model/extent where     * the new element should be created.     */"
+199: // TODO: Use stylesheet to convert or wait till we use Fig // factories in diagram subsystem. // What is the last version that used FigNote?
+604: // TODO: We currently delete the old values before setting // to something new. This is a workaround to issue 6056. // We should consider giving an API to get the lower and // upper values so that controls can listen directly to // those rather than the element containing those values.
+179: // TODO: End up with multiple models here
+10: // TODO: All super constrcutors should take a GraphModel
+156: // TODO: This is well-formedness rule from UML1.4.2 // 4.5.3.20 [1] A root cannot have any Generalizations. // self.isRoot implies self.generalization->isEmpty
+173: "/**     * Returns the root package.     *      * @return the Package which is the root     * @deprecated for 0.25.4 by tfmorris - use {@link #getRoots()} to     *             get packages/model elements which are at the top level.     *             <p>     *             TODO: We probably need a getDefaultNamespace() method or     *             something similar to replace some uses of this.     */"
+524: // TODO: This should happen in GEF
+944: // TODO: We failed to resolve URL - signal error
+238: "/**     * Loads the project file and opens all kinds of error message windows     * if it doesn't work for some reason. In those cases it preserves     * the old project.     *     * @param file the file to open.     * @param showUI true if an error message may be shown to the user,     *               false if run in commandline mode     * @param pmw       the ProgressMonitor to be updated;     *                          if not needed, use null     * @return true if the file was successfully opened     *     * TODO: Separate this into a Swing specific class - tfm     */"
+382: "/**     * Prevent underline events if underline does not change.     * TODO: GEF should manage this after GEF 0.13.4 is included.     */"
+211: // TODO: Seems like overkill to load the model just to get the display // name, but that's where it's stored currently - tfm
+419: // TODO: Without the null check the following throws a NPE so many // times when it is called from FigEdgeModelElement.modelChanged(), // we need to think about it.
+226: // TODO: Bob says - tabs that listen for target changes // should register themselves not expect DetailsPane to // listen and pass on the event. Otherwise these tabs // always rely on DetailsPane. TabToDoTarget and TabProps // currently listen directly.
+862: // TODO: implement this - show some documentation?
+37: "/**     * @return Returns the default stereotype view     * TODO: Enumeration here?     */"
+574: "/**     * Return the tagged value with a specific tag. <p>     *      * Warning: this method returns only the first TaggedValue found     *  with the given name. Hence, this method is a simplification of      *  the real problem and should be avoided.     *     *  TODO: What should be done about the above problem?  Options are     *  to deprecate the method, throw an exception if the name is ambiguous,     *  or leave the caller to figure it out themselves.     *       * @param handle The model element the tagged value belongs to.     * @param name The tag name.     * @return The found tag, null if not found     */"
+635: "/* TODO: mvw: do we really look into super-types of the stereotype,             * or should we be looking into super-types of the baseclass? */"
+116: // TODO: Add an "open most recent project" command so that  // command state can be decoupled from user settings?
+632: // apply <<profile>> stereotype to make it a "profile" (our convention) // (hack: create that stereotype instead using the UML 1.4 profile)
+954: // TODO: Use the SVGWriter2D implementation //            cmd = new SaveSVGAction2(Translator.localize("action.save-svg"));
+200: // TODO: Move to Diagram subsystem?
+363: "/** * Action to add a stereotype to a model element. *  * TODO: Appears to be unused? *  * @author Bob Tarling * @deprecated for 0.27.2 by tfmorris.  Use  * {@link org.argouml.uml.ActionAddStereotype}. */"
+449: "/**     * TODO: MVW: I am not completely sure of the following:<p>     * The ""namespace"" of the diagram is e.g. used when creating new elements     * that are shown on the diagram; they will have their namespace set     * according this. It is NOT necessarily equal to the ""owner"".      *      * @return the namespace for the diagram     */"
+323: // TODO: Must we calculate the whole list?
+429: // hack to make sure that the right height is // applied when no icon is used.
+489: // TODO: Do we care?
+968: // add Figs to the FigNode in back-to-front order
+611: // TODO: Model implementation independent
+881: "/**     * If the property that this comboboxmodel depicts is changed in the UML     * model, this method will make sure that the changes will be     * done in the combobox-model equally. <p>     * TODO: This function is not yet completely written!     *     * {@inheritDoc}     * @see java.beans.PropertyChangeListener#propertyChange(java.beans.PropertyChangeEvent)     */"
+492: "/**     * Finds a type in a model by name     *     * FIXME: duplicated from the method with the same name in     * org.argouml.profile.internal.ModelUtils.     *     * @param s the type name     * @param model the model     * @return the type or <code>null</code> if the type has not been found.     */"
+476: "/** * This is the ""main"" class for the GUI subsystem.<p> * * Users of the GUI subsystem, i.e. components that are to place themselves * in any of the GUI components, register themselves in this class.<p> * * TODO: Add the rest of the registers to this. * * @author Linus Tolke * @since 0.21.3 */"
+415: // TODO: This needs to use a different method than that used by the // constructor if it wants to allow the method to be overridden
+299: // Get all classifiers in our model // TODO: We need the property panels to have some reference to // the project they belong to instead of using deprecated // functionality
+695: // TODO: Bob says the reflective code following should be replaced // with something more specific like this commented out code. // This would mean we need sType changed to a meta type Object // rather than a String.
+933: // TODO: Fully implement this!
+203: // TODO: we really want to be able replace the initial content handler // which is passed to SAX, but we can't do this without cloning a // whole bunch of code because it's private in the super class.
+167: "/**     * Return the default type for an attribute.     *      * @return a Classifier to use as the default type     * TODO: This belongs in ProjectSettings. - tfm     */"
+532: // TODO: this shouldn't be hardcoded // 20 is the height of the spline // 50 is the default activation height
+538: "/**     * Create an empty but initialized instance of a UML Parameter.     *     * @return an initialized UML Parameter instance.     * TODO: This needs an extra parameter to specify the model/extent where     * the new element should be created.     */"
+570: "/**     * Recognizer for Parameter's with a DirectionKind of Return.     * TODO: This is a duplicate of {@link #hasReturnParameterDirectionKind(Object)}     * @param handle candidate parameter     * @return true if handle is a return parameter.     */"
+765: // TODO: Reuse the offender List.
+677: // TODO: Should we handle <<access>> and <<import>>?
+198: // TODO: Attempt to move the following code to GEF
+247: // TODO: Move to different class?
+754: "/**     * The constructor.     * TODO: Why does this method not handle all settings?     */"
+218: // TODO: This code is cloned over and over again! - tfm
+953: /* FIX: set the application name for Mac OS X */
+779: // TODO support other name kinds
+810: // TODO: I18N required
+158: // TODO: This references the concrete factory // We need a factories factory
+618: // TODO: We shouldn't actually have to do all this work
+8: "/*     * TODO: This is a temporary method of making sure the model is updated     * on loss of focus of a combo box. In the long term we should attempt to     * update the model on each keypress.     *      * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)     */"
+612: "/*         * TODO: mvw: do we really look into super-types of the stereotype, or         * should we be looking into super-types of the baseclass?         */"
+202: "/* TODO: Without this, we fail to draw e.g. a Class.                 * But is this a good solution?                  * Why is the Layer not set in the constructor? */"
+853: // TODO: Use this event mechanism to update // the checkmark on the Presentation Tab:
+685: "/**     * The list of operations shall contain     * all operations of all classifiers     * contained in the same package as the callaction itself. <p>     *     * TODO: In fact, we also should include operations of imported     * clasifiers.     *     * @see org.argouml.uml.ui.UMLComboBoxModel#buildModelList()     */"
+701: // TODO: getAllModelElementsOfKind should probably do this // processing of imported elements automatically
+494: "/**     * TODO: Is this used in places other than on Diagrams?  If so, it needs to     * stay in ProjectSettings (as well as being a DiagramSetting).     *      * @return Returns <code>true</code> if we show stereotypes in the explorer     */"
+957: "/**     * List of ChecklistStatus:es.     *     * Indexed on the model element itself.     * TODO: Should use weak references so that this is forgotten about     * when the object is removed.     */"
+148: // TODO: Generalize - assumes UML type names are unique // without the qualifying package names - true for UML 1.4
+689: "/**     * The constructor.     *     * @param expressionModel     *            Expression model, should be shared between Language and Body     *            fields     * @param notify     *            Set to true to forward events to model. Only one of Language     *            and Body fields should have this set to true.     *            TODO: MVW: I do not understand that.     */"
+798: // TODO: This could be made more efficient by working with iterators // directly and creating a composite iterator made up of all the  // various sub iterators.
+120: "/**     * Choose the arrowhead style for each end. <p>     *     * TODO: This is called from paint(). Would it not better     * be called from renderingChanged()?     */"
+598: "/**     * This keeps track of the editing domain that is used to track all changes     * to the model.     * <p>     * TODO: This probably needs to be a set of EditingDomain so that we can     * manage an EditingDomain per project.     */"
+97: // hack for to do items only, should check isLeaf(node), but that // includes empty folders. Really I need alwaysLeaf(node).
+27: // TODO: Unused?
+573: // this should be moved to a ui action.

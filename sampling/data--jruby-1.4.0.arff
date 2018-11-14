@@ -1,0 +1,38 @@
+280: // SSS FIXME: This method (at least in the context of multiple assignment) is a little weird. // It calls regular to_ary on the object.  But, if it encounters a method_missing, the value // is inserted into an 1-element array! // try "a,b,c = 1" first; then define Fixnum.to_ary method and try it again. // Ex: http://gist.github.com/163551
+157: // FIXME: null check is removable once we figure out how to assign to unset named block args
+80: // FIXME: not very efficient
+127: // TODO: Bleeding runtime into parser.  Arity may be should be in parser (to keep bleeding oneway)
+371: // TODO: don't calculate the same value 3 times
+2: // SSS FIXME: 1. Is the ordering correct? (poll before next)
+369: // Bunch of methods still not implemented
+360: // filter out any Java primitive names // TODO: should check against all Java reserved names here, not just primitives
+363: // TODO: check safe, taint on incoming string
+359: // FIXME: Make thread pool threads daemons if necessary
+152: // TODO: NOT_ALLOCATABLE_ALLOCATOR is probably ok here, since we don't intend for people to monkey with // this type and it can't be marshalled. Confirm. JRUBY-415
+133: // FIXME: set up a call configuration for this
+113: // again, shouldn't happen. TODO: might want to throw exception instead.
+194: // TODO: handle writing into original buffer better
+44: // FIXME: wtf is this? Why would these use the class?
+295: // TODO: adjust length so it won't fall in the middle  // of a multi-byte character. MRI's sprintf.c uses tables // in a modified version of regex.c, which assume some // particular  encoding for a given installation/application. // (See regex.c#re_mbcinit in ruby-1.8.5-p12)  // // This is only an issue if the user specifies a precision // that causes the string to be truncated. The same issue // would arise taking a substring of a ByteList-backed RubyString.
+253: // SSS FIXME: Are we guaranteed that we splats dont head to multiple-assignment nodes!  i.e. |*(a,b)|?
+60: // SSS FIXME: This should never get called for constant svalues
+145: // add 'new' with full signature, so it's guaranteed to be directly accessible // TODO: no need for this to be a full, formal JVM signature
+54: // TODO: this is kinda gross
+266: // SSS FIXME: I added this in.  Is this correct?
+308: // TODO: pass this in?
+200: // TODO: better algorithm to set precision needed
+285: // Sometimes the value can be retrieved at "compile time".  If we succeed, nothing like it!   // We might not .. for the following reasons: // 1. The constant is missing, // 2. The reference is a forward-reference, // 3. The constant's value is only known at run-time on first-access (but, this is runtime, isn't it??) // 4. Our compiler isn't able to right away infer that this is a constant. // // SSS FIXME: // 1. The operand can be a literal array, range, or hash -- hence Operand //    because Array, Range, and Hash derive from Operand and not Constant ... //    Is there a way to fix this impedance mismatch? // 2. It should be possible to handle the forward-reference case by creating a new //    ForwardReference operand and then inform the scope of the forward reference //    which the scope can fix up when the reference gets defined.  At code-gen time, //    if the reference is unresolved, when a value is retrieved for the forward-ref //    and we get a null, we can throw a ConstMissing exception!  Not sure! //
+185: // SSS FIXME: Receiver -- this is the class meta object basically? // Operand receiver = build(defsNode.getReceiverNode(), s);
+209: // FIXME: set up a CallConfiguration for this
+221: // TODO: Generalize this type-checking code into IRubyObject helper.
+78: // TODO: is this the right thing to do?
+239: // this is a rather ugly hack, but similar to MRI. See hash.c:ruby_setenv and similar in MRI // we search all keys for a case-insensitive match, and use that
+71: /* ENEBO: Lots of optz in 1.9 parser here*/
+4: // add a "self" recv here // TODO: is this right?
+62: // FIXME: There's some code duplication here with RubyObject#inspect
+68: // Workaround for JRUBY-4149
+207: // arguments compilers always create IRubyObject[], but we want to use RubyArray.concat here; // FIXME: as a result, this is NOT efficient, since it creates and then later unwraps an array
+373: // FIXME: This needs to happen for lambdas //            args.checkArgCount(runtime, parameters.length);
+94: // if we don't have opt args, start after args (they will be assigned later) // this is for crap like def foo(a = (b = true; 1)) which numbers b before a // FIXME: only starting after required args, since opt args may access others // and rest args conflicts with compileRoot using "0" to indicate [] signature.
+151: // The following three methods must be defined fast, since they expect to modify the current frame // (i.e. they expect no frame will be allocated for them). JRUBY-1185.
+83: /* Workaround for JRUBY-2326 (MRI does not enter this production for some reason)*/
