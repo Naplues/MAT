@@ -18,40 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileHandle {
-    
-    /**
-     * 读取查询文件名
-     *
-     * @param filePath
-     * @return
-     */
-    public static String[][] readOriginQuery(String filePath) {
-        List<String> file = FileHandle.readFileToLines(filePath);
-        String[][] queryList = new String[file.size()][];
-        for (int i = 0; i < queryList.length; i++)
-            queryList[i] = file.get(i).substring(0, file.get(i).length() - 2).split("_");
-        return queryList;
-    }
-
-    /**
-     * 获取查询查询文件完整路径
-     *
-     * @param dataDir
-     * @param fileName
-     * @return
-     */
-    public static String[][] getQueryFile(String dataDir, String fileName) {
-        List<String> file = FileHandle.readFileToLines(dataDir + fileName);
-        String[][] queryList = readOriginQuery(dataDir + fileName);
-        String[][] list = new String[file.size()][];
-        for (int i = 0; i < file.size(); i++) {
-            list[i] = new String[2];
-            for (int j = 0; j < list[i].length; j++)
-                list[i][j] = dataDir + "test\\" + queryList[i][j] + ".txt";
-        }
-        return list;
-    }
-
 
     /**
      * 读取文件返回一个字符串列表

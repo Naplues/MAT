@@ -130,9 +130,7 @@ public class Main {
      */
     public static int classify(String instance, String[] keyWords) {
         String[] words = instance.replace("'", "").split(" ");
-        for (String word : words)
-            for (String key : keyWords)
-                if (word.contains(key)) return 1;
+        for (String word : words) for (String key : keyWords) if (word.contains(key)) return 1;
         return 0;
     }
 }

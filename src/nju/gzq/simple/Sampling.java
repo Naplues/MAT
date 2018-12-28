@@ -66,7 +66,6 @@ public class Sampling {
                     set.add(word);
                     System.out.println(word);
                 }
-
             }
         }
 

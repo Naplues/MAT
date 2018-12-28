@@ -3,7 +3,7 @@ package nju.gzq.simple;
 import java.util.List;
 
 public class Main {
-    public static String rootPath = "sampling/";
+    public static String rootPath = "d/";
     //// "apache-ant-1.7.0", "emf-2.4.1"
     public static String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
             "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12", "apache-ant-1.7.0", "emf-2.4.1"};
@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         //0.8912224594547866, 0.7286790687027291, 0.7795997053235931
-        String[] keyWords = {"xxx"}; //, "todo", "workaround", "fixme", "xxx"
+        String[] keyWords = {"todo", "hack", "workaround", "fixme", "xxx"}; //, "todo", "workaround", "fixme", "xxx"
 
         long[] predictTime = new long[projectNames.length];
 
@@ -19,7 +19,7 @@ public class Main {
         double[] result = new double[3];
         for (int i = 0; i < projectNames.length; i++) {
             long startTime = System.currentTimeMillis();
-            double[] temp = readData(projectNames[i], keyWords, true);
+            double[] temp = readData(projectNames[i], keyWords, true, true);
             long endTime = System.currentTimeMillis();
             //项目i在number次运行的预测时间
             predictTime[i] += endTime - startTime;
@@ -35,7 +35,7 @@ public class Main {
      * @param keyWords
      * @param extension
      */
-    public static double[] readData(String projectName, String[] keyWords, boolean extension) {
+    public static double[] readData(String projectName, String[] keyWords, boolean extension, boolean details) {
         List<String> instances = FileHandle.readFileToLines(rootPath + "data--" + projectName + ".arff");
         String[] labels = new String[instances.size()];
         int[] predicts = new int[instances.size()];
@@ -64,7 +64,11 @@ public class Main {
 
         //System.out.println("TP: " + TP + " FP: " + FP);
         //System.out.println("TN: " + TN + " FN: " + FN);
-        System.out.println(precision + ", " + recall + ", " + f1);
+        if (details){
+            //System.out.println("TP: " + TP + " FP: " + FP);
+            System.out.println(precision + ", " + recall + ", " + f1);
+        }
+
         return new double[]{precision, recall, f1};
     }
 
