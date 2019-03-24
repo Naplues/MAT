@@ -5,7 +5,7 @@ import weka.core.Instances;
 
 public class EnsembleLearner {
 
-    private double tp, fp, fn;
+    private double tp, fp, fn, tn;
     private double precision, recall, fmeasure;
     private double[] vote;
     private Instances testData;
@@ -35,14 +35,15 @@ public class EnsembleLearner {
             else label = 0.0;
             // 真实值: classValue 预测值: label
             if (instance.classValue() == 1.0 && label == 1.0) tp++;
-            if (instance.classValue() == 1.0 && label == 0.0) fn++;
             if (instance.classValue() == 0.0 && label == 1.0) fp++;
+            if (instance.classValue() == 1.0 && label == 0.0) fn++;
+            if (instance.classValue() == 0.0 && label == 0.0) tn++;
         }
         precision = tp / (tp + fp);
         recall = tp / (tp + fn);
         fmeasure = 2 * precision * recall / (precision + recall);
-        // System.out.println("tp,fp,fn: " + tp + " " + fp + " " + fn);
-        System.out.println(precision + "," + recall + "," + fmeasure);
+        System.out.println("tp, fp, fn, tn: " + tp + " " + fp + " " + fn + " " + tn);
+        //System.out.println(precision + "," + recall + "," + fmeasure);
     }
 
 

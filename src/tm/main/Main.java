@@ -1,12 +1,9 @@
 package tm.main;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
+
+import config.Settings;
 import tm.process.DataReader;
 import weka.attributeSelection.InfoGainAttributeEval;
 import weka.attributeSelection.Ranker;
@@ -28,19 +25,13 @@ import tm.model.EnsembleLearner;
 
 public class Main {
 
-    public static String rootPath = "nd/";
+    public static String rootPath = "data/new/"; // data/tm
 
     public static void main(String args[]) throws Exception {
-
-        // 项目名称  // "apache-ant-1.7.0", "emf-2.4.1"
-        String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
-                "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12", "apache-ant-1.7.0", "emf-2.4.1"};
-
-
         // 训练测试数据
         String trainDataPath, testDataPath;
         double ratio = 0.1;
-        DataReader.readComments(rootPath);  //读取注释数据，每个元素代表一条注释
+        DataReader.readComments("data/origin/");  //读取注释数据，每个元素代表一条注释
         // 将（训练集和测试集）中的字符串转换为词向量
         WordsFromFile stopWords = new WordsFromFile();
         stopWords.setStopwords(new File("dic/stopwords.txt")); // 停用词列表
@@ -52,17 +43,18 @@ public class Main {
         stw.setStemmer(new SnowballStemmer());
         stw.setStopwordsHandler(stopWords);
 
-        generateData(stw, projectNames);
+        //准备实验数据
+        // generateData(stw, Settings.projectNames);
 
         // 每个测试项目
-        for (int target = 0; target < projectNames.length; target++) {
-            System.out.println("targe project: " + projectNames[target]);
-            testDataPath = rootPath + "data--" + projectNames[target] + ".arff";
+        for (int target = 0; target < Settings.projectNames.length; target++) {
+            System.out.println("target project: " + Settings.projectNames[target]);
+            testDataPath = rootPath + "data--" + Settings.projectNames[target] + ".arff";
             // 集成学习器
             EnsembleLearner eLearner = new EnsembleLearner();
             // 每个训练项目
-            for (int source = 0; source < projectNames.length; source++) {
-                trainDataPath = rootPath + "data--" + projectNames[source] + ".arff";
+            for (int source = 0; source < Settings.projectNames.length; source++) {
+                trainDataPath = rootPath + "data--" + Settings.projectNames[source] + ".arff";
                 if (source == target) continue;
 
                 // 测试数据
@@ -89,6 +81,7 @@ public class Main {
                 attSelection.setInputFormat(trainSet); //设置输入格式
                 trainSet = Filter.useFilter(trainSet, attSelection);
                 testSet = Filter.useFilter(testSet, attSelection);
+
 
                 // NBM分类器
                 Classifier classifier = new NaiveBayesMultinomial();
@@ -123,11 +116,13 @@ public class Main {
             dataSet = Filter.useFilter(dataSet, stw);
             dataSet.setClassIndex(0);
 
+            /*
             // 生成arff文件
             Saver saver = new ArffSaver();
             saver.setInstances(dataSet);
             saver.setFile(new File(rootPath + projectNames[i] + ".arff"));
             saver.writeBatch();
+            */
             /*
             // 生成csv文件
             saver = new CSVSaver();

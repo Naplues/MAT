@@ -1,17 +1,14 @@
 package pattern;
 
-import nju.gzq.simple.FileHandle;
+import config.Settings;
+import config.FileHandle;
 
 import java.util.*;
 
 public class Main {
-    public static String rootPath = "data_pattern/";
+    public static String rootPath = "data/new/";
 
     public static void main(String[] args) {
-        //// "apache-ant-1.7.0", "emf-2.4.1"
-        String[] projectNames = {"argouml", "columba-1.4-src", "hibernate-distribution-3.3.2.GA", "jEdit-4.2",
-                "jfreechart-1.0.19", "apache-jmeter-2.10", "jruby-1.4.0", "sql12", "apache-ant-1.7.0", "emf-2.4.1"};
-
 
         //分割数据集
         //splitProjectData();
@@ -20,11 +17,11 @@ public class Main {
         String[] keyWords = getPatterns("dic/k.txt", false);
         // 预测正负
         double[] result = new double[3];
-        for (int i = 0; i < projectNames.length; i++) {
-            double[] temp = predictData(projectNames[i], keyWords);
+        for (int i = 0; i < Settings.projectNames.length; i++) {
+            double[] temp = predictData(Settings.projectNames[i], keyWords);
             for (int j = 0; j < result.length; j++) result[j] += temp[j];
         }
-        for (int i = 0; i < result.length; i++) result[i] /= projectNames.length;
+        for (int i = 0; i < result.length; i++) result[i] /= Settings.projectNames.length;
         System.out.println(result[0] + ", " + result[1] + ", " + result[2]); //*/
     }
 
@@ -116,9 +113,9 @@ public class Main {
             f1 = 2 * precision * recall / (precision + recall);
         }
 
-        //System.out.println("TP: " + TP + " FP: " + FP);
+        System.out.println("TP: " + TP + " FP: " + FP);
         //System.out.println("TN: " + TN + " FN: " + FN);
-        System.out.println(precision + ", " + recall + ", " + f1);
+        //System.out.println(precision + ", " + recall + ", " + f1);
         return new double[]{precision, recall, f1};
     }
 
