@@ -6,14 +6,19 @@ import config.Settings;
 import java.util.List;
 
 public class Main {
-    public static String rootPath = "data/mat/";
+    public static String rootPath = "data_new/mat/";
     //"todo", "workaround", "fixme", "xxx"
-    static String[] keyWords = {"todo", "xxx", "fixme", "hack"};
+    static String[] keyWords = {"todo", "xxx", "fixme", "hack", "workaround", "stupid", "yuck", "ugly"};
 
     public static void main(String[] args) {
+        // predict(Settings.projectNames[8], keyWords, false, true);
+
+
         //预测正负
         for (int i = 0; i < Settings.projectNames.length; i++) {
+            System.out.print(Settings.projectNames[i] + ",");
             predict(Settings.projectNames[i], keyWords, true, true);
+
         }
     }
 
@@ -27,9 +32,9 @@ public class Main {
      */
     public static double[] predict(String projectName, String[] keyWords, boolean isFuzzy, boolean details) {
         List<String> instances = FileHandle.readFileToLines(rootPath + "data--" + projectName + ".txt");
+        //System.out.println(instances.size());
         String[] labels = new String[instances.size()];
         int[] predicts = new int[instances.size()];
-        //keyWords = Semantics.getPMIWords(rootPath + "token--" + projectName + ".txt", instances, keyWords, 1);
 
         for (int i = 0; i < instances.size(); i++) {
             labels[i] = instances.get(i).split(",")[1];
@@ -55,8 +60,8 @@ public class Main {
         }
 
         if (details) {
-            System.out.println(TP + ", " + FP + ", " + FN + ", " + TN);
-            //System.out.println(precision + ", " + recall + ", " + f1);
+            //  System.out.println(TP + ", " + FP + ", " + FN + ", " + TN);
+            System.out.println(String.format("%.3f", precision) + ", " + String.format("%.3f", recall) + ", " + String.format("%.3f", f1));
         }
         return new double[]{precision, recall, f1};
     }
@@ -70,13 +75,19 @@ public class Main {
     public static int classify(String instance, String[] keyWords, boolean isFuzzy) {
         String[] words = instance.replace("'", "").split(" ");
         if (isFuzzy) {
-            for (String word : words)
-                for (String key : keyWords) if (word.startsWith(key) || word.endsWith(key)) return 1;
-
+            for (String word : words) {
+                for (String key : keyWords) {
+                    if (word.startsWith(key) || word.endsWith(key)) {
+                        if (word.contains("xxx") && !word.equals("xxx")) return 0;
+                        return 1;
+                    }
+                }
+            }
         } else {
-            //String word = words[0];
-            for (String word : words)
-            for (String key : keyWords) if (word.equals(key)) return 1;
+            for (String word : words) {
+                for (String key : keyWords)
+                    if (word.equals(key)) return 1;
+            }
         }
         return 0;
     }

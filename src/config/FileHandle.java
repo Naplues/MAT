@@ -90,9 +90,11 @@ public class FileHandle {
      * @param a
      */
     public static void writeLinesToFile(String filePath, List<String> lines, boolean... a) {
-        for (String t : lines) {
-            writeStringToFile(filePath, t + "\n", a);
+        String text = "";
+        for (String line : lines){
+            text += line + "\n";
         }
+        writeStringToFile(filePath, text + "\n", a);
     }
 
     /**

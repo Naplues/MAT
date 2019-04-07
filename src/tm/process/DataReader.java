@@ -68,19 +68,9 @@ public class DataReader {
         // 读取注释内容
         for (int i = 0; i < lines.size(); i++) {
             String line = lines.get(i);
-            if (!line.contains("\"/*")) {
-                comments.add(new Document(line));
-            } else {
-                String tmp = "";
-                for (int j = i; j < lines.size(); j++) {
-                    tmp = tmp + lines.get(j);
-                    if (lines.get(j).contains("*/\"")) {
-                        i = j;
-                        break;
-                    }
-                }
-                comments.add(new Document(tmp));
-            }
+            comments.add(new Document(line));
+
+
         }
 
         // 读取标签
@@ -95,7 +85,7 @@ public class DataReader {
         commentList = new ArrayList<>();
         Set<String> content = new HashSet<>();
         for (Document doc : comments) {
-            if (doc.getWords().isEmpty() || content.contains(doc.getContent())) continue;
+           // if (doc.getWords().isEmpty() || content.contains(doc.getContent())) continue;
             content.add(doc.getContent());
             commentList.add(doc);
         }
