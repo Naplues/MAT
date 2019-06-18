@@ -12,16 +12,16 @@ import java.io.File;
 
 public class Settings {
     public static String[] projectNames = {
-            "apache-ant-1.7.0",
-            "argouml",
-            "columba-1.4-src",
-            "emf-2.4.1",
-            "hibernate-distribution-3.3.2.GA",
-            "jEdit-4.2",
-            "jfreechart-1.0.19",
-            "apache-jmeter-2.10",
-            "jruby-1.4.0",
-            "sql12",
+            "Ant",
+            "JMeter",
+            "ArgoUML",
+            "Columba",
+            "EMF",
+            "Hibernate",
+            "JEdit",
+            "JFreeChart",
+            "JRuby",
+            "SQuirrel",
     };
 
 

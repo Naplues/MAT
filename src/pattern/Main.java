@@ -30,7 +30,7 @@ public class Main {
      * 分割项目数据
      */
     public static void splitProjectData() {
-        List<String> projects = FileHandle.readFileToLines(rootPath + "projects");
+        List<String> projects = FileHandle.readFileToLines(rootPath + "projectNames");
         List<String> comments = FileHandle.readFileToLines(rootPath + "comments");
         List<String> labels = FileHandle.readFileToLines(rootPath + "labels");
 

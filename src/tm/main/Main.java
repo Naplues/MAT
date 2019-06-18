@@ -25,13 +25,13 @@ import tm.model.EnsembleLearner;
 
 public class Main {
 
-    public static String rootPath = "data/new/"; // data/tm
+    public static String rootPath = "data_new/"; // data/tm
 
     public static void main(String args[]) throws Exception {
         // 训练测试数据
         String trainDataPath, testDataPath;
         double ratio = 0.1;
-        DataReader.readComments("data/origin/");  //读取注释数据，每个元素代表一条注释
+        DataReader.readComments(rootPath + "/origin/");  //读取注释数据，每个元素代表一条注释
         // 将（训练集和测试集）中的字符串转换为词向量
         WordsFromFile stopWords = new WordsFromFile();
         stopWords.setStopwords(new File("dic/stopwords.txt")); // 停用词列表

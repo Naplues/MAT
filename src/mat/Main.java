@@ -7,18 +7,16 @@ import java.util.List;
 
 public class Main {
     public static String rootPath = "data_new/mat/";
-    //"todo", "workaround", "fixme", "xxx"
-    static String[] keyWords = {"todo", "xxx", "fixme", "hack", "workaround", "stupid", "yuck", "ugly"};
+    //"todo", "workaround", "fixme", "xxx"  "workaround", "stupid", "yuck", "ugly", "dms", "revisit", "tbd", "nasty", "suck", "fuck", "notes"
+    static String[] keyWords = {"todo", "fixme", "hack", "xxx", "workaround", "tbd", "stupid", "yuck", "ugly", "nasty", "suck", "fuck", "notes"};
 
     public static void main(String[] args) {
         // predict(Settings.projectNames[8], keyWords, false, true);
-
 
         //预测正负
         for (int i = 0; i < Settings.projectNames.length; i++) {
             System.out.print(Settings.projectNames[i] + ",");
             predict(Settings.projectNames[i], keyWords, true, true);
-
         }
     }
 
@@ -32,7 +30,6 @@ public class Main {
      */
     public static double[] predict(String projectName, String[] keyWords, boolean isFuzzy, boolean details) {
         List<String> instances = FileHandle.readFileToLines(rootPath + "data--" + projectName + ".txt");
-        //System.out.println(instances.size());
         String[] labels = new String[instances.size()];
         int[] predicts = new int[instances.size()];
 
@@ -79,6 +76,7 @@ public class Main {
                 for (String key : keyWords) {
                     if (word.startsWith(key) || word.endsWith(key)) {
                         if (word.contains("xxx") && !word.equals("xxx")) return 0;
+                        if (word.contains("notes") && !word.equals("notes")) return 0;
                         return 1;
                     }
                 }

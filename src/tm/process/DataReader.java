@@ -78,7 +78,7 @@ public class DataReader {
         for (int i = 0; i < lines.size(); i++) comments.get(i).setLabel(lines.get(i));
 
         // 读取项目名称
-        lines = FileUtil.readLinesFromFile(path + "projects");
+        lines = FileUtil.readLinesFromFile(path + "projectNames");
         for (int i = 0; i < lines.size(); i++) comments.get(i).setProject(lines.get(i));
 
         // 移除重复和空的注释
