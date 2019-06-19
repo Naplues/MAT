@@ -28,7 +28,7 @@ public class FileHandle {
     public static List<String> readFileToLines(String filePath, boolean... args) {
         BufferedReader reader = null;
         if (args.length > 0 && args[0])
-            reader = FileHandle.getExternelPath(filePath); // 读取文件系统路径
+            reader = FileHandle.getExternalPath(filePath); // 读取文件系统路径
         else
             reader = FileHandle.getActualPath(filePath); // 默认读取实际路径
         List<String> lines = new ArrayList<>();
@@ -86,6 +86,32 @@ public class FileHandle {
     }
 
     /**
+     * 将double数组写入文件
+     *
+     * @param filePath
+     * @param array
+     * @param a
+     */
+    public static void writeDoubleArrayToFile(String filePath, double[] array, boolean... a) {
+        StringBuilder text = new StringBuilder();
+        for (double arr : array) text.append((int) arr).append("\n");
+        writeStringToFile(filePath, text.toString(), a);
+    }
+
+    /**
+     * 将int数组写入文件
+     *
+     * @param filePath
+     * @param array
+     * @param a
+     */
+    public static void writeIntegerArrayToFile(String filePath, int[] array, boolean... a) {
+        StringBuilder text = new StringBuilder();
+        for (int arr : array) text.append(arr).append("\n");
+        writeStringToFile(filePath, text.toString(), a);
+    }
+
+    /**
      * @param filePath
      * @param a
      */
@@ -118,7 +144,7 @@ public class FileHandle {
      * @param path
      * @return
      */
-    public static BufferedReader getExternelPath(String path) {
+    public static BufferedReader getExternalPath(String path) {
         try {
             return new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
         } catch (UnsupportedEncodingException | FileNotFoundException e) {

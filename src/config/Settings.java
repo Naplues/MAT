@@ -1,6 +1,6 @@
 package config;
 
-import tm.process.DataReader;
+import others.tm.process.DataReader;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils;
 import weka.core.stemmers.SnowballStemmer;
@@ -13,13 +13,13 @@ import java.io.File;
 public class Settings {
     public static String[] projectNames = {
             "Ant",
-            "JMeter",
             "ArgoUML",
             "Columba",
             "EMF",
             "Hibernate",
             "JEdit",
             "JFreeChart",
+            "JMeter",
             "JRuby",
             "SQuirrel",
     };
@@ -31,7 +31,7 @@ public class Settings {
     }
 
     public static void generateData() throws Exception {
-        DataReader.readComments("data_new/origin/");  //读取注释数据，每个元素代表一条注释
+        DataReader.readComments("data/origin/");  //读取注释数据，每个元素代表一条注释
         // 将（训练集和测试集）中的字符串转换为词向量
         WordsFromFile stopWords = new WordsFromFile();
         stopWords.setStopwords(new File("dic/stopwords.txt")); // 停用词列表
@@ -43,14 +43,14 @@ public class Settings {
         stw.setStemmer(new SnowballStemmer());
         stw.setStopwordsHandler(stopWords);
         for (int i = 0; i < projectNames.length; i++) {
-            String filePath = "data_new/tm/data--" + projectNames[i] + ".arff";
+            String filePath = "data_new/others.tm/data--" + projectNames[i] + ".arff";
             DataReader.outputArffData(DataReader.selectProject(projectNames[i]), filePath);
             Instances dataSet = ConverterUtils.DataSource.read(filePath);
             stw.setInputFormat(dataSet);
             dataSet = Filter.useFilter(dataSet, stw);
             dataSet.setClassIndex(0);
 
-            filePath = "data_new/mat/data--" + projectNames[i] + ".txt";
+            filePath = "data_new/others/data--" + projectNames[i] + ".txt";
             DataReader.outputArffData(DataReader.selectProject(projectNames[i]), filePath);
         }
     }
