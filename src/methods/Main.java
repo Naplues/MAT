@@ -7,16 +7,38 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        for (String project : Settings.projectNames) combineResult(project);
+        for (String project : Settings.projectNames) {
+             combineResult(project);
+            //statistics(project);
+        }
     }
+
+
+    public static void statistics(String projectName) {
+        String resultPath = "data/result/" + projectName + ".csv";
+        List<String> lines = FileHandle.readFileToLines(resultPath);
+        int count = 0;
+        for (int i = 1; i < lines.size(); i++) {
+            String[] splits = lines.get(i).split(",");
+            String oracle = splits[0];
+            String pattern = splits[1];
+            String tm = splits[2];
+            String mat = splits[3];
+            if (oracle.equals("1"))
+                if (tm.equals(mat) && tm.equals("1")) count++;
+        }
+        System.out.println(count);
+        //System.out.println(lines.size());
+    }
+
 
     public static void combineResult(String project) {
         String commentPath = "data/pattern/data--" + project + ".txt";
         String labelPath = "data/pattern/label--" + project + ".txt";
 
         String patternPath = "data/pattern/result--" + project + ".txt";
-        String tmPath = "data/others.tm/result--" + project + ".txt";
-        String matPath = "data/others/result--" + project + ".txt";
+        String tmPath = "data/tm/result--" + project + ".txt";
+        String matPath = "data/mat/result--" + project + ".txt";
 
         String resultPath = "data/result/" + project + ".csv";
 
@@ -39,8 +61,8 @@ public class Main {
             text.append(commentLines.get(i)).append("\n");  // 注释
         }
         FileHandle.writeStringToFile(resultPath, text.toString());
-        //evaluate(labelLines, patternLines);
-        evaluate(labelLines, tmLines);
+        evaluate(labelLines, patternLines);
+        //evaluate(labelLines, tmLines);
         //evaluate(labelLines, matLines);
         System.out.println("Output result file successfully! " + project);
     }

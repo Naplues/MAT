@@ -15,7 +15,7 @@ public class Pattern {
         //splitProjectData();
 
         // 获取模式
-        String[] keyWords = getPatterns("dic/k.txt", false);
+        String[] keyWords = getPatterns("data/dic/k.txt", false);
         // 预测每个项目上的结果
         for (int i = 0; i < Settings.projectNames.length; i++) predictData(Settings.projectNames[i], keyWords);
         System.out.println("Pattern prediction finished!");

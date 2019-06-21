@@ -34,7 +34,7 @@ public class Settings {
         DataReader.readComments("data/origin/");  //读取注释数据，每个元素代表一条注释
         // 将（训练集和测试集）中的字符串转换为词向量
         WordsFromFile stopWords = new WordsFromFile();
-        stopWords.setStopwords(new File("dic/stopwords.txt")); // 停用词列表
+        stopWords.setStopwords(new File("data/dic/stopwords.txt")); // 停用词列表
 
         StringToWordVector stw = new StringToWordVector(100000);
         stw.setOutputWordCounts(true); //设置记录单词在文档中出现的次数（词频变量）若使用TFIDF公式，该选项必须设置为true

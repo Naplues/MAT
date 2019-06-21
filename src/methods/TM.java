@@ -23,7 +23,7 @@ import others.tm.model.EnsembleLearner;
 public class TM {
     public static String root = "data/";
     public static String originPath = root + "origin/";
-    public static String methodPath = root + "tm/";
+    public static String methodPath = root + "tm_new/";
 
     public static void main(String args[]) throws Exception {
         // 训练测试数据
@@ -32,7 +32,7 @@ public class TM {
         DataReader.readComments(originPath);  //读取注释数据，每个元素代表一条注释
         // 将（训练集和测试集）中的字符串转换为词向量
         WordsFromFile stopWords = new WordsFromFile();
-        stopWords.setStopwords(new File("dic/stopwords.txt")); // 停用词列表
+        stopWords.setStopwords(new File("data/dic/stopwords.txt")); // 停用词列表
 
         StringToWordVector stw = new StringToWordVector(100000);
         stw.setOutputWordCounts(true); //设置记录单词在文档中出现的次数（词频变量）若使用TFIDF公式，该选项必须设置为true
