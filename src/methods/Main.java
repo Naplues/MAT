@@ -3,12 +3,13 @@ package methods;
 import config.FileHandle;
 import config.Settings;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         for (String project : Settings.projectNames) {
-             combineResult(project);
+            combineResult(project);
             //statistics(project);
         }
     }
@@ -49,7 +50,9 @@ public class Main {
         List<String> tmLines = FileHandle.readFileToLines(tmPath);
         List<String> matLines = FileHandle.readFileToLines(matPath);
 
-        StringBuilder text = new StringBuilder("oracle,Pattern,TM,MAT,Comments\n");
+        // 组合结果
+        List<String> matTMLines = new ArrayList<>();
+        StringBuilder text = new StringBuilder("oracle,Pattern,TM,MAT,MAT_TM,,Comments\n");
 
         for (int i = 0; i < commentLines.size(); i++) {
             if (labelLines.get(i).equals("positive")) text.append(1);
@@ -58,13 +61,22 @@ public class Main {
             text.append(patternLines.get(i)).append(",");   // Pattern 结果
             text.append(tmLines.get(i)).append(",");        // TM      结果
             text.append(matLines.get(i)).append(",");       // MAT     结果
+
+            // 组合结果
+            if (matLines.get(i).equals("1") || tmLines.get(i).equals("1")) matTMLines.add("1");
+            else matTMLines.add("0");
+            text.append(matTMLines.get(i)).append(",,");
+
+            // 注释
             text.append(commentLines.get(i)).append("\n");  // 注释
         }
         FileHandle.writeStringToFile(resultPath, text.toString());
-        evaluate(labelLines, patternLines);
-        //evaluate(labelLines, tmLines);
+        //evaluate(labelLines, patternLines);
+        evaluate(labelLines, tmLines);
         //evaluate(labelLines, matLines);
-        System.out.println("Output result file successfully! " + project);
+        //evaluate(labelLines, matTMLines);
+        System.out.println();
+        //System.out.println("Output result file successfully! " + project);
     }
 
 

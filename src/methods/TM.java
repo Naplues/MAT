@@ -23,7 +23,7 @@ import others.tm.model.EnsembleLearner;
 public class TM {
     public static String root = "data/";
     public static String originPath = root + "origin/";
-    public static String methodPath = root + "tm_new/";
+    public static String methodPath = root + "tm/";
 
     public static void main(String args[]) throws Exception {
         // 训练测试数据
@@ -109,6 +109,7 @@ public class TM {
         for (String project : Transform.projectNames.keySet()) {
             String simpleName = Transform.projectNames.get(project);
             String filePath = methodPath + "/data--" + simpleName + ".arff";
+            System.out.println(filePath);
             DataReader.outputArffData(DataReader.selectProject(project), filePath);
             Instances dataSet = DataSource.read(filePath);
             stw.setInputFormat(dataSet);
