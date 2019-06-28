@@ -11,9 +11,9 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,"/*     * TODO: This is a temporary method of making sure the model is updated     * on loss of focus of a combo box. In the long term we should attempt to     * update the model on each keypress.     *      * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)     */"
 1,0,0,0,0,,// These methods are based on the GraphEvents. These need replacing by // more specic meaningful requests of the diagram interface model
 1,0,1,1,1,,// TODO: All super constrcutors should take a GraphModel
-1,0,1,0,1,,// workaround for missing ability to parse "*"
+1,0,1,1,1,,// workaround for missing ability to parse "*"
 1,0,1,1,1,,// TODO: Needs to be tidied up after stable release. Graph model // should be created in constructor
-1,0,1,0,1,,// this is wrongly called with a null handle, // as a workaround we return an empty collection
+1,0,1,1,1,,// this is wrongly called with a null handle, // as a workaround we return an empty collection
 1,0,1,1,1,,// TODO: not navigable this direction? - tfm
 1,0,1,1,1,,// TODO: this doesn't look right - review - tfm
 1,0,1,1,1,,"/**     * @return the statemachine     *     * TODO: If this method is called by any of the Figs, it will introduce     * a dependency cycle.  It would be much better if they could just     * use {@link org.argouml.uml.diagram.ArgoDiagram#getOwner()} which does     * the same thing.     */"
@@ -190,7 +190,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,// Save the .argo entry // TODO: Cyclic dependency with PersistenceManager // move PersistenceManager..getProjectBaseName() someplace else
 1,1,0,0,0,,// If c2 is empty, then we're done (or there is a // cycle in the message graph, which would be bad) If // c2 has more than one element, then the model is // crappy, but we'll just use one of them anyway
 1,0,1,1,1,,"/**     * Utility method to encode a String in a way that allows it to be     * saved properly in an XML file and regained filtering out any noice     * that an XML framework might have seen fit to add.     *     * TODO: Why are we doing this ourselves?  Surely encoding information     * for XML serialization is a well known task - tfm     * I have never understood why this is being done. I think we should remove     * any usage - bob     *     * @param	str	The String to encode.     * @return	The encoded String.     */"
-1,0,1,0,1,,//hence a less elegant workaround that works:
+1,0,1,1,1,,//hence a less elegant workaround that works:
 1,0,0,0,0,,// This should probably be inside xmiReader.parse // but there is another place in this source // where XMIReader is used, but it appears to be // the NSUML XMIReader.  When Argo XMIReader is used // consistently, it can be responsible for loading // the listener.  Until then, do it here.
 1,0,1,1,1,,"/** * A critic to suggest using the facade stereotype. <p> * * TODO: At the moment only a dummy implementation, * see issue 3093.*/"
 1,0,1,1,1,,/* TODO: Is this needed? */
@@ -1189,7 +1189,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,"/* No further listeners required in this case - the rest is handled         * by the notationProvider and sub-Figs. */"
 0,0,0,0,0,,// Compile Checkbox
 0,0,1,1,1,,// TODO: the last argument (recursive flag) should be a // selectable option
-0,0,1,0,1,,// skip backup files. This is actually a workaround for the // cpp generator, which always creates backup files (it's a // bug).
+0,0,1,1,1,,// skip backup files. This is actually a workaround for the // cpp generator, which always creates backup files (it's a // bug).
 0,0,1,1,1,,// TODO: The following is carried over from setOwner, but probably // isn't needed //        renderingChanged(); // It does the following (add as needed): //        updateNameText(); //        updateStereotypeText(); //        updateStereotypeIcon(); //        updateBounds(); //        damage();
 0,0,1,1,1,,// TODO: This is using the default platform character // encoding.  Specifying an encoding will produce more // predictable results
 0,0,1,1,1,,// TODO: Get saved default directory // outputDirectoryComboBox.getModel().setSelectedItem(savedDir);
@@ -1315,7 +1315,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,1,1,1,,// TODO: this seems to be called at startup only so no check so far
 0,0,0,0,0,,// Add an invisible button to be used when everything is off
 0,0,0,0,0,,// I am only prepared to go this far.
-0,0,1,0,1,,"/*|  //removed to workaround problems with autosplit                     OCLEditor.OPTIONMASK_AUTOSPLIT*/"
+0,0,1,1,1,,"/*|  //removed to workaround problems with autosplit                     OCLEditor.OPTIONMASK_AUTOSPLIT*/"
 0,0,1,1,1,,"/**     * ADDONLY_COMMAND determines a changeability kind.     * TODO: Removed from UML 2.x.  Phase out of UI - tfm - 20070529     */"
 0,0,0,0,0,,//TabModelTarget interface methods
 0,0,0,0,0,,// warn about inherited name conflicts, different critic?
@@ -3418,7 +3418,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,//return getCriticName();
 0,0,0,0,0,,//////////////////////////////////////////////////////////////// // design feedback
 0,0,0,0,0,,/* end interface Poster */
-0,0,0,0,0,,"// Use this for fast fail instead. // Sacrificed for complete fail. d00mst //throw new UnresolvableException( //	""Unable to create ItemUID for class: "" //	+ obj.getClass());"
+0,0,0,1,1,,"// Use this for fast fail instead. // Sacrificed for complete fail. d00mst //throw new UnresolvableException( //	""Unable to create ItemUID for class: "" //	+ obj.getClass());"
 0,0,1,1,1,,// TODO: values
 0,0,0,0,0,,// Delete Extends which have this as their only ExtensionPoint
 0,0,0,0,0,,/* end class Goal */
@@ -4185,7 +4185,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// Parse the string as if // possible
 0,0,0,0,0,,// ignored - will never be called
 0,0,0,0,0,,// add preloading progress bar?
-0,0,0,0,0,,// JasonsThemes
+0,0,0,1,1,,// JasonsThemes
 0,0,1,1,1,,// TODO: The src_visibility tag doesn't appear to be created // anywhere by ArgoUML currently
 0,0,1,1,1,,// TODO - lets pass in Project as a constructor argument
 0,0,0,0,0,,/* Listen to name changes in the path (useful for e.g. Package): */

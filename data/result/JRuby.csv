@@ -68,7 +68,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,1,1,,// Hacky: Advance position to eat newline here....
 1,0,0,0,0,,// need to reexamine this
 1,0,1,1,1,,// FIXME: This is currently only here because of some problems with IOOutputStream writing to a "bare" runtime without a proper scope
-1,0,1,0,1,,// Workaround for JRUBY-4149
+1,0,1,1,1,,// Workaround for JRUBY-4149
 1,0,0,0,0,,// using IOOutputStream may not be the most performance way, but it's easy.
 1,0,1,1,1,,// ignore...bean doesn't get registered // TODO: Why does that bother me?
 1,0,0,0,0,,/* ENEBO: Lots of optz in 1.9 parser here*/
@@ -83,7 +83,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,// FIXME: not very efficient
 1,0,0,0,0,,// This is GROSS, but Java API's aren't ISO 8601 compliant at all
 1,0,1,1,1,,// TODO: is this correct ?
-1,0,1,0,1,,/* Workaround for JRUBY-2326 (MRI does not enter this production for some reason)*/
+1,0,1,1,1,,/* Workaround for JRUBY-2326 (MRI does not enter this production for some reason)*/
 1,0,1,1,1,,// Create block for this iter node // FIXME: We shouldn't use the current scope if it's not actually from the same hierarchy of static scopes
 1,0,0,1,1,,/* SSS FIXME: Do we need to check if l is same as whatever popped? */
 1,0,0,1,1,,// SSS FIXME: Where is this set up?  How is this diff from ClassVarDeclNode??
@@ -104,7 +104,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,// There's not a compelling reason to keep JavaClass instances in a weak map // (any proxies created are [were] kept in a non-weak map, so in most cases they will // stick around anyway), and some good reasons not to (JavaClass creation is // expensive, for one; many lookups are performed when passing parameters to/from // methods; etc.). // TODO: faster custom concurrent map
 1,0,1,1,1,,// TODO: check for Java reserved names and raise exception if encountered
 1,0,0,1,1,,// FIXME: JRUBY-3188 ends up with condition returning null...quick fix until I can dig into it
-1,0,1,0,1,,// Workaround for a bug in Sun's JDK 1.5.x, see // http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6303753
+1,0,1,1,1,,// Workaround for a bug in Sun's JDK 1.5.x, see // http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6303753
 1,0,1,1,1,,// FIXME weakref.rb also does caller(2) here for the backtrace
 1,0,0,1,1,,// FIXME: Remove this from grammars.
 1,0,1,1,1,,// TODO: It's perhaps just a coincidence that all the channels for // which we should raise are instanceof SelectableChannel, since // stdio is not...so this bothers me slightly. -CON

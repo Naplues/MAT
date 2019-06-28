@@ -8,7 +8,7 @@ import java.util.List;
 public class Mat {
     public static String methodPath = "data/mat/";
     //"todo", "hack", "fixme", "xxx"  "workaround",
-    public static String[] keyWords = {"todo", "hack", "fixme", "xxx"};
+    public static String[] keyWords = {"todo", "hack", "fixme", "xxx", "workaround","tbd", "dms", "revisit", "notused"};
 
     public static void main(String[] args) {
         //预测正负

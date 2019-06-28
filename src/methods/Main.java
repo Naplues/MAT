@@ -8,10 +8,33 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        Mat.main(args);
         for (String project : Settings.projectNames) {
             combineResult(project);
             //statistics(project);
+            //misClassification(project);
         }
+    }
+
+    public static void misClassification(String projectName) {
+        System.out.println(projectName);
+        String resultPath = "data/result/" + projectName + ".csv";
+        List<String> lines = FileHandle.readFileToLines(resultPath);
+        int count = 0;
+        for (int i = 1; i < lines.size(); i++) {
+            String[] splits = lines.get(i).split(",");
+            String oracle = splits[0];
+            String mat = splits[3];
+            String comment = splits[6];
+            //FN
+            if (oracle.equals("1") && mat.equals("0")) {
+                System.out.printf("%s, %s, %s\n", oracle, mat, comment);
+                count++;
+            }
+
+        }
+        System.out.println(count);
+        //System.out.println(lines.size());
     }
 
 
@@ -72,8 +95,8 @@ public class Main {
         }
         FileHandle.writeStringToFile(resultPath, text.toString());
         //evaluate(labelLines, patternLines);
-        evaluate(labelLines, tmLines);
-        //evaluate(labelLines, matLines);
+        //evaluate(labelLines, tmLines);
+        evaluate(labelLines, matLines);
         //evaluate(labelLines, matTMLines);
         System.out.println();
         //System.out.println("Output result file successfully! " + project);
