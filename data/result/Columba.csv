@@ -70,10 +70,10 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,1,1,,// FIXME (@author fdietz): Do we need this implementation in a TempFolder? // If not, just put an empty method here, just like in VirtualFolder.
 1,0,1,1,1,,// TODO Ristretto should handle the logging of streams in another // way.
 1,0,1,1,1,,// TODO (@author fdietz): All this code for creating a new // IMAPRootFolder should // be moved to a FolderFactory // -> this way "path" would be handled in the factory, too // parent directory for mail folders // for example: ".columba/mail/" // String path = // MailConfig.getInstance().getConfigDirectory().getPath();
-1,0,1,1,1,,// turn of focus stealing (workaround should be removed in the // future!)
+1,0,1,0,1,,// turn of focus stealing (workaround should be removed in the // future!)
 1,0,1,1,1,,// wait, if there is an active transaction // TODO @author hubms retrycount!
 1,0,1,1,1,,"/**	 * this regular expression should cover anything from a@a.pt or a@a.com to	 * a@a.info. Permits usage of invalid top domains though.	 * <p>	 * [bug] fdietz: added ""."" and ""-"" as regular characters	 * (example:mail@toplevel.mail.de)	 * <p>	 * TODO: see if we can replace the matching code with Ristretto stuff	 *	 */"
-1,0,1,1,1,,// @author: fdietz // This is a workaround. Generally, the contact dialog editor // should ensure that all necessary fields are available // 
+1,0,1,0,1,,// @author: fdietz // This is a workaround. Generally, the contact dialog editor // should ensure that all necessary fields are available // 
 1,0,1,1,1,,// TODO: replace view with more detailed info view
 1,0,1,1,1,,// TODO we should check if we need an vector or better another list // implementation; checking also, if the list // must be syncronized or not (performance)
 1,0,1,1,1,,// FIXME is this correct for
@@ -89,11 +89,11 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,0,0,,// The JavaHelp can't be added to a BorderLayout because it // isnt' a component. For this demo we'll use the embeded method // since we don't want a Frame to be created.
 1,0,0,0,0,,// @author: fdietz // // PROBLEM: Extensions don't run using Java Webstart (JWS) //  // Even though we assign "all-permission" in our columba.jnlp file, this // only applies // to the initial Java Webstart classloader. But, we create our own // classloaders for // loading extensions. These classloaders don't have the same permission // settings anymore.
 1,0,0,0,0,,// what to do here? we could start a new server...
-1,0,1,1,1,,// WORKAROUND: //  // System.setSecurityManager(null); // // This call effectly disables the sandbox mode and seems to work fine. // // Below I use another way. The policy for all classloaders is set to // "all-permissions". // Don't really know the difference though.
+1,0,1,0,1,,// WORKAROUND: //  // System.setSecurityManager(null); // // This call effectly disables the sandbox mode and seems to work fine. // // Below I use another way. The policy for all classloaders is set to // "all-permissions". // Don't really know the difference though.
 1,0,0,0,0,,// For the Mac ScreenBarMenus to work, this must be declared before // *ANY* AWT / Swing gets initialised. Do *NOT* move it to plugin init // location because that is too late...
 1,0,0,0,0,,// kids - don't do this at home
-1,0,1,1,1,,// @author: fdietz // // The following line is not working - just don't know why // methods.Main.mainClassLoader.addURLs((URL[]) urlList.toArray(new URL[0])); // // WORKAROUND: // // Modify the system class loader instead - horrible! But it works!
-1,0,1,1,1,,// // @author: fdietz // WORKAROUND: // we simply append URLs to the existing global class loader // and use the same as parent //  // Note, that we create a new URL classloader for every class // we instanciate. We might want to support hot-swapping // of changed classes later.
+1,0,1,0,1,,// @author: fdietz // // The following line is not working - just don't know why // methods.Main.mainClassLoader.addURLs((URL[]) urlList.toArray(new URL[0])); // // WORKAROUND: // // Modify the system class loader instead - horrible! But it works!
+1,0,1,0,1,,// // @author: fdietz // WORKAROUND: // we simply append URLs to the existing global class loader // and use the same as parent //  // Note, that we create a new URL classloader for every class // we instanciate. We might want to support hot-swapping // of changed classes later.
 1,0,0,0,0,,// we can't use SystemClassLoader here, because that doesn't work // with java webstart // -> instead we use this.getClass().getClassLoader() // -> which seems to work perfectly
 1,0,1,1,1,,// TODO (@author karlpeder): If existing meta tags are to be kept, code changes are // necessary
 1,0,1,1,1,,/* TODO create exception for this */

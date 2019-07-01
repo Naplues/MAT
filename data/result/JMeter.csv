@@ -20,7 +20,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,// TODO this is not populated currently
 1,0,1,1,1,,// N.B. Needs to implement Visualizer so that TestBeanGUI can find the correct GUI class // TODO - remove UnsharedComponent ? Probably does not make sense for a TestBean.
 1,0,1,1,1,,// $NON-NLS-1$ // TODO - use a different format here?
-1,0,0,1,1,,// NOTUSED: long[] longSample = getSamples(); // load each node
+1,0,0,0,0,,// NOTUSED: long[] longSample = getSamples(); // load each node
 1,0,0,0,0,,//This can lead to code smell, meh! Do we care
 1,0,1,1,1,,// TODO is this ever used?
 1,0,1,1,1,,// TODO is this the best way to do this?
@@ -81,7 +81,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,// Hack to get full modifier value
 1,0,1,1,1,,"/*     * TODO consider removing this method, and providing method wrappers instead.     * This would allow the Gui package to do any additional clearups if required,     * as has been done with clearTestPlan()    */"
 1,0,0,0,0,,//Maybe do nothing at all?
-1,0,0,1,1,,"/*     * NOTUSED private void initButtonMap() { }     */"
+1,0,0,0,0,,"/*     * NOTUSED private void initButtonMap() { }     */"
 1,0,0,0,0,,//avoid error in ant task tests (good way?)
 1,0,0,0,0,,// Does not appear to be used; called by MainFrame#setEditAddMenu() but that is not called
 1,0,1,1,1,,"/** * Aggregates sample results for use by the Statistical remote batch mode. * Samples are aggregated by the key defined by getKey(). * TODO: merge error count into parent class? */"
@@ -196,7 +196,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,// All form parameter always have text/plain as mime type //TODO make this a parameter?
 1,0,1,1,1,,// $NON-NLS-1$ // TODO can this be obtained from the file somehow?
 1,0,0,0,0,,// Does not appear to be used
-1,0,0,1,1,,// NOTUSED: GuiPackage guiPack =
+1,0,0,0,0,,// NOTUSED: GuiPackage guiPack =
 1,0,1,1,1,,// Allow serializable test to work // TODO: is the serializable test necessary now that JMeterTreeNode is // no longer a GUI component?
 1,0,1,1,1,,// TODO is null correct?
 1,0,1,1,1,,// TODO - how to handle thread stopped here
@@ -233,7 +233,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,0,0,,// Should we use java.naming.security.[principal|credentials] to create the QueueConnection?
 1,0,1,1,1,,// TODO set different status if not enough messages found?
 1,0,1,1,1,,"/** * FIXME BROKEN CODE */"
-1,0,0,1,1,,// NOTUSED private String chosenFile;
+1,0,0,0,0,,// NOTUSED private String chosenFile;
 1,0,0,1,1,,"/* * Find all beans out there and check their resource property files: - Check * that non-default property files don't have any extra keys. - Check all * necessary properties are defined at least in the default property file, * except for beans whose name contains ""Experimental"" or ""Alpha"".  *  * TODO: - Check property files don't have duplicate keys (is this important) *  */"
 1,0,1,0,1,,// This could perhaps be a variable name
 1,0,0,0,0,,// Should we add the "_" separator?
@@ -262,7 +262,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,// TODO strings should be resources
 1,0,1,1,1,,// result.setError(true); // TODO is this the correct strategy? // throw exception; // allow assertion to pass
 1,0,0,0,0,,// Why does this not call guiInstance.clearTestPlan() ? // Is there a reason for not clearing everything?
-1,0,0,1,1,,// NOTUSED yet private JTextField filename;
+1,0,0,0,0,,// NOTUSED yet private JTextField filename;
 1,0,1,1,1,,// TODO somehow show progress
 1,0,1,1,1,,// TODO support multiple signers
 1,0,1,1,1,,// TODO: fetch this once as per vars above?
@@ -1021,7 +1021,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// Buffer to hold the entity body
 0,0,0,0,0,,// we provide the MIME type here
 0,0,0,0,0,,// Only create this if we are overriding whatever default there may be // If there are no arguments, we can send a file as the body of the request
-0,0,0,1,1,,// NOTUSED Font plainText = new Font("plain", Font.PLAIN, 9); // These must not be static, otherwise Language change does not work //$NON-NLS-1$
+0,0,0,0,0,,// NOTUSED Font plainText = new Font("plain", Font.PLAIN, 9); // These must not be static, otherwise Language change does not work //$NON-NLS-1$
 0,0,0,0,0,,// Just append all the parameter values, and use that as the entity body
 0,0,0,0,0,,// Check if it is a file being uploaded //$NON-NLS-1$
 0,0,0,0,0,,// Check if we have any content to send for body
@@ -1474,7 +1474,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// first response
 0,0,0,0,0,,// save the latency
 0,0,0,0,0,,// Set up the defaults (may be overridden below)
-0,0,0,1,1,,// NOTUSED private Class PARSERCLASS = null;
+0,0,0,0,0,,// NOTUSED private Class PARSERCLASS = null;
 0,0,0,0,0,,// Should // not // detect // trailing // option
 0,0,0,0,0,,// drop empty trailing content
 0,0,0,0,0,,// Was there an error?
@@ -1569,7 +1569,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// Reload data form internal list of results
 0,0,0,0,0,,// Button
 0,0,0,0,0,,// timeout to retrieve wsdl when server not response
-0,0,0,1,1,,// NOTUSED String portname = pnode.getAttribute("name"); // used to check binding, but now it doesn't. it was // failing when wsdl did not using binding as expected
+0,0,0,0,0,,// NOTUSED String portname = pnode.getAttribute("name"); // used to check binding, but now it doesn't. it was // failing when wsdl did not using binding as expected
 0,0,0,0,0,,// check soap12
 0,0,0,0,0,,"/* (non-Javadoc)     * @see org.apache.http.conn.ssl.SSLSocketFactory#createSocket()     */"
 0,0,0,0,0,,// Search field
@@ -3251,7 +3251,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// Used by: MonitorHealthVisualizer.add(SampleResult res)
 0,0,0,0,0,,//+ JMX property names; do not change
 0,0,0,0,0,,//- JMX property names
-0,0,0,1,1,,//NOTUSED private static final String DATABASE = "db"; // $NON_NLS-1$
+0,0,0,0,0,,//NOTUSED private static final String DATABASE = "db"; // $NON_NLS-1$
 0,0,0,0,0,,// Associate sample with file name
 0,0,0,0,0,,// Mutable int to keep track of sample count
 0,0,0,0,0,,// Should we save the sample?
@@ -3917,7 +3917,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// (Comment 16, Huw)
 0,0,0,0,0,,// uninstantiable
 0,0,0,0,0,,// Constructors
-0,0,0,1,1,,// NOTUSED Dimension dim = layoutSize(parent, false);
+0,0,0,0,0,,// NOTUSED Dimension dim = layoutSize(parent, false);
 0,0,0,0,0,,// work out the total size
 0,0,0,0,0,,// otherwise there's a vgap too many // Work out the anchor paint
 0,0,0,0,0,,// do layout

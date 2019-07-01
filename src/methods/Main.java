@@ -10,8 +10,9 @@ public class Main {
     public static void main(String[] args) {
         Mat.main(args);
         for (String project : Settings.projectNames) {
-            combineResult(project);
-            //statistics(project);
+            //System.out.print(project + ":\t");
+            //combineResult(project);
+            statistics(project);
             //misClassification(project);
         }
     }
@@ -45,11 +46,10 @@ public class Main {
         for (int i = 1; i < lines.size(); i++) {
             String[] splits = lines.get(i).split(",");
             String oracle = splits[0];
-            String pattern = splits[1];
             String tm = splits[2];
             String mat = splits[3];
-            if (oracle.equals("1"))
-                if (tm.equals(mat) && tm.equals("1")) count++;
+            if (oracle.equals("1")) // tm.equals(mat) && tm.equals("1")
+                if ( tm.equals("0") && mat.equals("1")) count++;
         }
         System.out.println(count);
         //System.out.println(lines.size());
@@ -85,7 +85,7 @@ public class Main {
             text.append(tmLines.get(i)).append(",");        // TM      结果
             text.append(matLines.get(i)).append(",");       // MAT     结果
 
-            // 组合结果
+            // TM 和 MAT 组合结果
             if (matLines.get(i).equals("1") || tmLines.get(i).equals("1")) matTMLines.add("1");
             else matTMLines.add("0");
             text.append(matTMLines.get(i)).append(",,");

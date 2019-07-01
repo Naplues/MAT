@@ -5,7 +5,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,0,0,,// should we do this for both cases above?
 1,0,0,0,0,,// need to loosen this to any throwable... do we need to handle // that in interpreter somewhere?  check first...
 1,0,0,0,0,,// fucking GTK look and feel
-1,0,1,1,1,,"/*		Note: this implementation is temporary. We currently keep a flat		namespace of the base name of classes.  i.e. BeanShell cannot be in the		process of defining two classes in different packages with the same		base name.  To remove this limitation requires that we work through		namespace imports in an analogous (or using the same path) as regular		class import resolution.  This workaround should handle most cases 		so we'll try it for now.	*/"
+1,0,1,0,1,,"/*		Note: this implementation is temporary. We currently keep a flat		namespace of the base name of classes.  i.e. BeanShell cannot be in the		process of defining two classes in different packages with the same		base name.  To remove this limitation requires that we work through		namespace imports in an analogous (or using the same path) as regular		class import resolution.  This workaround should handle most cases 		so we'll try it for now.	*/"
 1,0,0,0,0,,// copy and paste from bsh/classpath/ClassManagerImpl.java...
 1,0,0,0,0,,// I wish I could make this "friendly" to only NameSpace
 1,1,1,1,1,,// undocumented hack to allow browser actions to work. // XXX - clean up in 4.3
@@ -18,11 +18,11 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,0,0,,"/*	Note: This class essentially just delegates most of its methods to its	parent.  The setVariable() indirection is very small.  We could probably	fold this functionality back into the base NameSpace as a special case.	But this has changed a few times so I'd like to leave this abstraction for	now.*/"
 1,0,0,0,0,,// simplified these settings a little...
 1,0,0,0,0,,"/*		Should check for strict java here and use isJavaAssignable() instead	*/"
-1,0,1,1,1,,// workaround for Swing rendering labels starting // with <html> using the HTML engine
+1,0,1,0,1,,// workaround for Swing rendering labels starting // with <html> using the HTML engine
 1,0,0,0,0,,// Look for a default invoke() handler method in the namespace // Note: this code duplicates that in This.java... should it? // Call on 'This' can never be a command
 1,0,0,0,0,,// this method is a nightmare
 1,0,0,0,0,,// ConsoleInterface // The interpreter reflexively implements the console interface that it  // uses.  Should clean this up by using an inner class to implement the // console for us.
-1,0,1,1,1,,// Case-insensitive fs workaround
+1,0,1,0,1,,// Case-insensitive fs workaround
 1,0,0,0,0,,"/*			Wrap nulls.			This is a bit of a cludge to address a deficiency in the class			generator whereby it does not wrap nulls on method delegate.  See			Class Generator.java.  If we fix that then we can remove this.			(just have to generate the code there.)		*/"
 1,0,0,0,0,,// switch eats a multi-level break here? // not empty statement
 1,0,0,0,0,,// Check for field on object  // Note: could eliminate throwing the exception somehow
@@ -49,13 +49,13 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,0,0,,// Should cache this subject to classloader change message // Evaluation of the formal parameter simply resolves its // type via the specified namespace.. it doesn't modify the // namespace.
 1,0,0,0,0,,"/*	Notes:	It would not be hard to eliminate the use of org.objectweb.asm.Type from	this class, making the distribution a tiny bit smaller.*/"
 1,1,0,0,0,,// stupid: caret will automatically be incremented
-1,0,1,1,1,,/* Spacing workaround */
+1,0,1,0,1,,/* Spacing workaround */
 1,0,1,0,1,,// I don't know of any other way to fix this, since invoking this // command from a menu results in the focus owner being the menu // until the menu goes away.
 1,1,1,1,1,,// a little hack for reverse replace and find
 1,0,0,0,0,,// Static methods that operate on compound ('.' separated) names // I guess we could move these to StringUtil someday
 1,0,0,0,0,,"/*	Note: which of these things should be checked at parse time vs. run time?*/"
 1,0,0,0,0,,// this part sucks
-1,0,1,1,1,,// Windows bug workaround in case a YES/NO confirm // was shown
+1,0,1,0,1,,// Windows bug workaround in case a YES/NO confirm // was shown
 1,0,0,0,0,,// clear name resolvers... don't know if this is necessary.
 1,1,0,0,0,,"/* this is stupid and misleading.					 * but 'path' is not used anywhere except					 * the above line, and if this is done					 * after the 'continue', then we will					 * either hang, or be forced to duplicate					 * it inside the buffer == null, or add					 * a 'finally' clause. you decide which one's					 * worse. */"
 1,0,1,0,1,,// I'm too tired to think of a better way // to handle this right now.
@@ -73,7 +73,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,0,0,,// It was explicitly imported, but we don't know what it is. // should we throw an error here??
 1,0,0,0,0,,"/*		Note: we need a form of eval that passes the callstack through...	*/"
 1,0,0,0,0,,"/* 		Primary interpreter set and get variable methods		Note: These are squeltching errors... should they?	*/"
-1,0,1,1,1,,// Workaround for JDK bug 4071281, where system.in.available()  // returns too large a value. This bug has been fixed in JDK 1.2.
+1,0,1,0,1,,// Workaround for JDK bug 4071281, where system.in.available()  // returns too large a value. This bug has been fixed in JDK 1.2.
 1,1,1,1,1,,"/*				Somewhat of a hack.  If the special fields are visible (we're				operating relative to a 'this' type already) dissallow further				.this references to prevent user from skipping to things like				super.this.caller			*/"
 1,0,0,0,0,,// Should clean this up to a single return statement
 1,0,0,0,0,,"/*	Implementation notes:	Note: we may need some synchronization in here	Note on version dependency:  This base class is JDK 1.1 compatible,	however we are forced to use weak references in the full featured	implementation (the optional bsh.classpath package) to accomodate all of	the fleeting namespace listeners as they fall out of scope.  (NameSpaces	must be informed if the class space changes so that they can un-cache	names).  	<p>	Perhaps a simpler idea would be to have entities that reference cached	types always perform a light weight check with a counter / reference	value and use that to detect changes in the namespace.  This puts the 	burden on the consumer to check at appropriate times, but could eliminate	the need for the listener system in many places and the necessity of weak 	references in this package.	<p>*/"
@@ -81,7 +81,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,0,0,,// not sure if we should really recurse here for explicitly imported // class in parent...  
 1,0,0,0,0,,// The following two boolean checks were tacked on. // This could probably be smoothed out.
 1,0,0,0,0,,"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		findMostSpecficMethod() needs to be rewritten to eliminate 		findAccessibleMethod.  We should implement the findMostSpecificMethod 		that uses the publicOnly flag.  FindMostSpecificMethod should also		operate in two passes to give standard Java assignable matches priority		over extended bsh type matches.	*/"
-1,0,0,1,1,,//{{{ UnixWorkaround constructor
+1,0,0,0,0,,//{{{ UnixWorkaround constructor
 1,0,0,0,0,,// drag and drop support // I'd just move the code to // JEditTextArea but it // depends on JDK 1.4 APIs
 1,0,0,0,0,,// next version: remove this
 1,1,0,0,0,,// compatibility kludge for jEdit 3.1 and earlier
@@ -99,11 +99,11 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,1,0,0,0,,"/* silly that we reference the vertical				   scroll bar here directly. we do this so				   that the horizontal scroll bar is flush				   with the vertical scroll bar */"
 1,0,0,1,1,,// XXX clean up this conditional
 1,1,1,1,1,,// Temporary hack to support inner classes  // If the obj is a non-static inner class then import the context... // This is not a sufficient emulation of inner classes. // Replace this later...
-1,0,1,1,1,,// workaround for Swing's annoying processing of // labels starting with <html>, which often breaks
+1,0,1,0,1,,// workaround for Swing's annoying processing of // labels starting with <html>, which often breaks
 1,0,0,0,0,,// fucking GTK look and feel!
 1,1,1,1,1,,// hack so that 'select all' does not change current buffer
 1,1,1,1,1,,"/* if an occurence occurs at the		beginning of the selection, the		selection start will get moved.		this sucks, so we hack to avoid it. */"
-1,0,1,1,1,,"/* Silly bug workaround #8694. If you look at the above code,		 * note that we restore the saved caret position first, then		 * scroll to the saved location. However, the caret changing		 * can itself result in scrolling to a different location than		 * what was saved; and since moveCaretPosition() calls		 * updateBracketHighlight(), the bracket highlight's out of		 * bounds calculation will rely on a different set of physical		 * first/last lines than what we will end up with eventually.		 * Instead of confusing the user with status messages that		 * appear at random when switching buffers, we simply hide the		 * message altogether. */"
+1,0,1,0,1,,"/* Silly bug workaround #8694. If you look at the above code,		 * note that we restore the saved caret position first, then		 * scroll to the saved location. However, the caret changing		 * can itself result in scrolling to a different location than		 * what was saved; and since moveCaretPosition() calls		 * updateBracketHighlight(), the bracket highlight's out of		 * bounds calculation will rely on a different set of physical		 * first/last lines than what we will end up with eventually.		 * Instead of confusing the user with status messages that		 * appear at random when switching buffers, we simply hide the		 * message altogether. */"
 1,1,1,1,1,,"/* this is a sloppy hack to fix bug				   ""[ 677902 ] hitting return after collapsed				   fold""				   the idea is that if we extend the range then				   the problem described in the bug happends, so				   if the insert is at the very end of the range				   we don't extend it, instead we push the				   insert into the next range, however for this				   to work properly we also have to mess with				   screen line counts. */"
 1,1,1,1,1,,// need this bullshit scroll bar policy for the preferred size // hack to work
 1,0,0,1,1,,// XXX if we keep the createClassManager in getClassManager then we can axe // this?
@@ -111,7 +111,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,1,1,0,1,,// the sooner ppl move to the new api, the less we'll need // crap like this
 1,0,0,0,0,,// Nasty hardcoded values
 1,0,0,1,1,,/* XXX magic number */
-1,0,1,1,1,,/* Workaround for uncooperative Windows L&F */
+1,0,1,0,1,,/* Workaround for uncooperative Windows L&F */
 1,1,1,1,1,,// have to do this hack until VFSPath class is written
 1,1,0,0,0,,// stupid Swing
 1,1,1,0,1,,// none of the others are ever meant to be // removed. retarded, eh? this needs to be // fixed eventually, for plugins might // want to do weird stuff to jEdit's UI
@@ -124,12 +124,12 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,0,0,,// while this might be questionable, some // menus depend on properties
 1,0,0,0,0,,// Get available screens // O(n^3), this is nasty, but since we aren't dealling with // many items it should be fine
 1,0,1,0,1,,//{{{ Methods that really shouldn't be public...
-1,0,0,1,1,,//{{{ UnixWorkaround class
+1,0,0,0,0,,//{{{ UnixWorkaround class
 1,0,1,0,1,,// Perhaps if Xerces wasn't slightly brain-damaged, we would // not need this
 1,0,0,0,0,,// moved to GUIUtilities as it makes no sense being here.
 1,0,1,1,1,,// Hack... need a more direct way of obtaining a view? // JEditTextArea.getView() method?
 1,0,0,0,0,,// REVIEW How do we resolve this discrepancy?!
-1,1,1,1,1,,// ugly workaround
+1,1,1,0,1,,// ugly workaround
 1,0,0,0,0,,//{{{ Windows work around
 1,1,1,1,1,,// hack since HelpViewer needs a URL...
 1,0,1,0,1,,// Why is object in the args?
@@ -151,14 +151,14 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,0,0,,// This should probably be in Reflect.java
 1,0,0,0,0,,"/*		Notes: See notes on findMostSpecificMethod.		This method should be rolled into findMostSpecificMethod.	*/"
 1,0,1,0,1,,"/*		Note: is using SignatureKey in this way dangerous?  In the pathological		case a user could eat up memory caching every possible combination of		argument types to an untyped method.  Maybe we could be smarter about		it by ignoring the types of untyped parameter positions?  The method		resolver could return a set of ""hints"" for the signature key caching?		There is also the overhead of creating one of these for every method		dispatched.  What is the alternative?	*/"
-1,0,1,1,1,,// crusty workaround
-1,0,1,1,1,,"/* workaround for A+keys producing				 * garbage on Windows */"
+1,0,1,0,1,,// crusty workaround
+1,0,1,0,1,,"/* workaround for A+keys producing				 * garbage on Windows */"
 1,1,1,1,1,,"/* addToFavorites(), which is a static method		 * (for convinience) needs an instance of the		 * VFS to pass to VFSManager.sendVFSUpdate(),		 * hence this hack. */"
 1,0,0,1,1,,// Allow getThis() to work through BlockNameSpace to the method // namespace // XXX re-eval this... do we need it?
 1,0,0,0,0,,// these are used to eliminate code duplication. i don't normally use // the visitor or "template method" pattern, but this code was contributed // by Peter Cox and i don't feel like changing it around too much.
 1,0,0,0,0,,// fuck me dead
 1,1,1,1,1,,// stupid hack to handle referencing // a rule set that is defined later!
-1,0,1,1,1,,// JDK 1.4 workaround
+1,0,1,0,1,,// JDK 1.4 workaround
 1,0,1,0,1,,// should the next two be public, maybe?
 1,0,0,0,0,,"/*		Note: this method and resolveExpectedJavaField should be rewritten		to invert this logic so that no exceptions need to be caught		unecessarily.  This is just a temporary impl.		@return the field or null if not found	*/"
 1,0,1,0,1,,"/*		Note: we need a singleton here so that things like 'this == this' work		(and probably a good idea for speed).		Caching a single instance here seems technically incorrect,		considering the declaringInterpreter could be different under some		circumstances.  (Case: a child interpreter running a source() / eval() 		command ).  However the effect is just that the main interpreter that		executes your script should be the one involved in call-backs from Java.		I do not know if there are corner cases where a child interpreter would		be the first to use a This reference in a namespace or if that would		even cause any problems if it did...  We could do some experiments		to find out... and if necessary we could cache on a per interpreter		basis if we had weak references...  We might also look at skipping 		over child interpreters and going to the parent for the declaring 		interpreter, so we'd be sure to get the top interpreter.	*/"
@@ -166,15 +166,15 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,1,1,1,1,,// some regexps (eg ^ by itself) have a length == 0, so we // implement this hack. if you don't understand what's going on // here, then go back to watching MTV
 1,0,1,0,1,,// Optimization - If classOfStaticMethod is set then we have already  // been here and determined that this is a static method invocation. // Note: maybe factor this out with path below... clean up.
 1,0,0,0,0,,// this will probably not get used // Object type
-1,0,1,1,1,,// Windows JDK workaround
+1,0,1,0,1,,// Windows JDK workaround
 1,1,1,1,1,,// this listener priority thing is a bad hack...
 1,0,1,0,1,,"/* This doesn't look pretty and mode line should			 * probably be split up into seperate			 * components/strings			 */"
 1,1,0,0,0,,"/* this is stupid and misleading.				 * but 'path' is not used anywhere except				 * the above line, and if this is done				 * after the 'continue', then we will				 * either hang, or be forced to duplicate				 * it inside the buffer == null, or add				 * a 'finally' clause. you decide which one's				 * worse. */"
-1,0,1,1,1,,"/* workaround for hang if match was					 * zero-width. not sure if there is					 * a better way to handle this */"
+1,0,1,0,1,,"/* workaround for hang if match was					 * zero-width. not sure if there is					 * a better way to handle this */"
 1,0,0,0,0,,"/* On Windows, paths of the form X: list the last *working		 * directory* on that drive. To list the root of the drive,		 * you must use X:\.		 *		 * However, the VFS browser and friends strip off trailing		 * path separators, for various reasons. So to work around		 * that, we add a '\' to drive letter paths on Windows.		 */"
 1,0,1,0,1,,// On Unix, set permissions of port file to rw-------, // so that on broken Unices which give everyone read // access to user home dirs, people can't see your // port file (and hence send arbitriary BeanShell code // your way. Nasty.)
 1,0,0,0,0,,// ??? this should only be called with // fully loaded action set
-1,0,1,1,1,,// broken Eclipse workaround! // 24 Febuary 2004
+1,0,1,0,1,,// broken Eclipse workaround! // 24 Febuary 2004
 1,0,0,0,0,,"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		This method needs to be rewritten to eliminate findAccessibleMethod.		We should implement the findMostSpecificMethod that uses the publicOnly		flag.  FindMostSpecificMethod should also operate in two passes to give		standard Java assignable matches priority over extended bsh type		matches.	*/"
 1,0,0,1,1,,// XXX: This should not be hardcoded
 1,0,0,0,0,,// INTERVAL OPERATOR: //  {x} | {x,} | {x,y}  (RE_INTERVALS && RE_NO_BK_BRACES) //  \{x\} | \{x,\} | \{x,y\} (RE_INTERVALS && !RE_NO_BK_BRACES) // // OPEN QUESTION:  //  what is proper interpretation of '{' at start of string?
@@ -1519,7 +1519,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,//{{{ isAntiAliasEnabled() method
 0,0,0,0,0,,// Stop when we hit a null index.
 0,0,0,0,0,,// If they're the same length, // check for a match. // If the loop finishes, 'index' will // contain the current bucket // position.
-0,0,1,1,1,,/* M+ discarded by key event workaround! */
+0,0,1,0,1,,/* M+ discarded by key event workaround! */
 0,0,0,0,0,,//{{{ updateText() method
 0,0,0,0,0,,//{{{ getZipFile() method
 0,0,0,0,0,,//{{{ createTextFieldAndListPanel() method

@@ -57,7 +57,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,1,1,1,1,,// XXX Unfortunately JDK1.2 adds entrySet(), keySet(), values() - // implementing this requires a small hack, we can add it later.
 1,0,0,0,0,,// first: developer could use a little help
 1,0,0,1,1,,// XXX     should we silently catch possible exceptions and try to //         load a different implementation?
-1,0,1,1,1,,// since Java 1.4 //return normalizedPath.split("/"); // workaround for Java 1.2-1.3
+1,0,1,0,1,,// since Java 1.4 //return normalizedPath.split("/"); // workaround for Java 1.2-1.3
 1,0,0,0,0,,// HAMMER // end inline mainGTU
 1,0,1,1,1,,"/**     * This array really shouldn't be here.     * Again, for historical purposes it is.     *     * <p>FIXME: This array should be in a private or package private     * location, since it could be modified by malicious code.</p>     */"
 1,0,0,0,0,,// Should move to a separate public class - and have API to add // listeners, etc.
@@ -782,7 +782,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,"/*             * If this is a standard EJB 1.1 descriptor, we are looking for one             * set of data, while if this is an iAS-specific descriptor, we're             * looking for different set of data.  Hand the processing off to             * the appropriate method.             */"
 0,0,0,0,0,,//the trick to integrating test output to the formatter, is to //create a special test class that asserts an error //and tell the formatter that it raised.
 0,0,0,0,0,,// we don't have any more args to recognize!
-0,0,1,1,1,,// this comment extract from JUnit Task may also apply here // "in VM is not very nice since it could probably hang the // whole build. IMHO this method should be avoided and it would be best // to remove it in future versions. TBD. (SBa)"
+0,0,1,0,1,,// this comment extract from JUnit Task may also apply here // "in VM is not very nice since it could probably hang the // whole build. IMHO this method should be avoided and it would be best // to remove it in future versions. TBD. (SBa)"
 0,0,0,0,0,,// if it's no other arg, it may be the target
 0,0,0,0,0,,//remove the .class
 0,0,0,0,0,,// keys to optional attributes
@@ -1394,7 +1394,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// start the timeout thread
 0,0,0,0,0,,// determine if the generated java file is up-to-date
 0,0,0,0,0,,// Extract file's base-name
-0,0,1,1,1,,// in VM is not very nice since it could probably hang the // whole build. IMHO this method should be avoided and it would be best // to remove it in future versions. TBD. (SBa)
+0,0,1,0,1,,// in VM is not very nice since it could probably hang the // whole build. IMHO this method should be avoided and it would be best // to remove it in future versions. TBD. (SBa)
 0,0,0,0,0,,// will cause trouble in JDK 1.1 if omitted
 0,0,0,0,0,,// now find available running slots for the remaining threads
 0,0,0,0,0,,// Replace the file's extension with '.java'
@@ -1516,7 +1516,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// check if one of the builds failed in keep going mode
 0,0,0,0,0,,// make sure that we've got a destdir
 0,0,0,0,0,,//bind to a compiler
-0,0,0,1,1,,//     REVISIT: Defaults to the target name that contains this task if not specified.
+0,0,0,0,0,,//     REVISIT: Defaults to the target name that contains this task if not specified.
 0,0,0,0,0,,// make sure that we've got a srcdir
 0,0,0,0,0,,// if the compiler does its own dependency stuff, we just call it right now
 0,0,0,0,0,,// END class SubAnt
@@ -3014,7 +3014,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,//we do not use the sun impl for portability, //and always use our own implementation for consistent //testing
 0,0,0,0,0,,// otherwise perform a timestamp comparison - at least
 0,0,0,0,0,,"/*             * Move the generated source file to the base directory.  If             * base directory and sourcebase are the same, the generated             * sources are already in place.             */"
-0,0,0,1,1,,//REVISIT: at this point even non HTTP connections may //support the if-modified-since behaviour -we just check //the date of the content and skip the write if it is not //newer. Some protocols (FTP) don't include dates, of //course.
+0,0,0,0,0,,//REVISIT: at this point even non HTTP connections may //support the if-modified-since behaviour -we just check //the date of the content and skip the write if it is not //newer. Some protocols (FTP) don't include dates, of //course.
 0,0,0,0,0,,// no source file generated, nothing to move
 0,0,0,0,0,,// The property is the name of a file.  We are testing // a location attribute, so we need to resolve the given // file name in the provided folder.
 0,0,0,0,0,,// the method called to add/create the nested element

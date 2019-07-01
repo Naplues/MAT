@@ -22,7 +22,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,//aliasRefNode.resolve( false, false, aliasRefNode.getText() ); //TODO: is it kosher to do it here? //TODO: is it kosher to do it here?
 1,0,1,1,1,,//TODO: better to degrade to lazy="false" if uninstrumented
 1,0,0,0,0,,// Does this dialect support the Oracle-style FOR UPDATE NOWAIT syntax?
-1,0,1,1,1,,//Icky workaround for MySQL bug:
+1,0,1,0,1,,//Icky workaround for MySQL bug:
 1,1,0,0,0,,// we have to set up the table later!! yuck
 1,0,1,1,1,,//TODO: Somehow add the newly created foreign keys to the internal collection
 1,0,0,0,0,,// This inner class implements a case statement....perhaps im being a bit over-clever here
@@ -49,9 +49,9 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,0,0,,// 'hibernate.temp.use_jdbc_metadata_defaults' is a temporary magic value. // The need for it is intended to be alleviated with future developement, thus it is // not defined as an Environment constant... // // it is used to control whether we should consult the JDBC metadata to determine // certain Settings default values; it is useful to *not* do this when the database // may not be available (mainly in tools usage).
 1,0,1,1,1,,//TODO: is this right??
 1,1,0,0,0,,//ie. the subquery! yuck!
-1,0,1,1,1,,//use of a stringbuffer to workaround a JDK bug
+1,0,1,0,1,,//use of a stringbuffer to workaround a JDK bug
 1,0,1,1,1,,//TODO: copy/paste from recreate()
-1,0,1,1,1,,//workaround, for backward compatibility of sets with no //not-null columns, assume all columns are used in the //row locator SQL
+1,0,1,0,1,,//workaround, for backward compatibility of sets with no //not-null columns, assume all columns are used in the //row locator SQL
 1,0,1,1,1,,// todo : this eventually needs to be removed
 1,0,1,1,1,,// todo : remove
 1,1,1,0,1,,//just to help out during the load (ugly, i know)
@@ -170,7 +170,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,0,1,,//work around a bug in all known connection pools....
 1,0,1,1,1,,//TODO: reuse the PreLoadEvent
 1,0,1,0,1,,// Need a better way to define the suffixes here...
-1,0,1,1,1,,//workaround for WebLogic
+1,0,1,0,1,,//workaround for WebLogic
 1,0,1,1,1,,//TODO: temporary
 1,0,1,1,1,,// TODO : YUCK!!!  fix after HHH-1907 is complete
 1,0,0,0,0,,// would be great to move all this below here into another method that could also be used // from the new scrolling stuff. // // Would need to change the way the max-row stuff is handled (i.e. behind an interface) so // that I could do the control breaking at the means to know when to stop
@@ -227,7 +227,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,//TODO: if object was an uninitialized proxy, this is inefficient, //      resulting in two SQL selects
 1,0,1,1,1,,//TODO: put this stuff back in to read snapshot from //      the second-level cache (needs some extra work)
 1,0,0,0,0,,//this is kinda the best we can do...
-1,1,1,1,1,,/* trim done to workaround stupid oracle bug that cant handle whitespaces before a { in a sp */
+1,1,1,0,1,,/* trim done to workaround stupid oracle bug that cant handle whitespaces before a { in a sp */
 1,0,1,1,1,,//TODO: this needn't exclude subclasses...
 1,0,1,1,1,,//TODO: we use two visitors here, inefficient!
 1,0,1,1,1,,//TODO: does this really need to be here? //      does the collection already have //      it's own up-to-date snapshot?
@@ -235,7 +235,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,//it is possible that the tree-walking in OuterJoinLoader can get to //an association defined by a subclass, in which case the property-ref //might refer to a property defined on a subclass of the current class //in this case, the table name is not known - this temporary solution  //assumes that the property-ref refers to a property of the subclass //table that the association belongs to (a reasonable guess) //TODO: fix this, add: OuterJoinLoadable.getSubclassPropertyTableName(String propertyName)
 1,0,1,1,1,,// TODO: an alternative is to check if the owner has changed; if it hasn't then // return collection.getOwner()
 1,0,0,0,0,,//I suppose?
-1,0,0,1,1,,"// TBD should this be varbinary($1)? //		registerColumnType(Types.VARBINARY,     ""binary($1)"");"
+1,0,0,0,0,,"// TBD should this be varbinary($1)? //		registerColumnType(Types.VARBINARY,     ""binary($1)"");"
 1,0,0,0,0,,//shortcut
 1,0,1,1,1,,//TODO: we should provide some way to get keys of collection of statistics to make it easier to retrieve from a GUI perspective
 1,0,1,1,1,,// TODO : probably better to calculate these and pass them in, as it'll be more performant
@@ -280,7 +280,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,//index += getPropertyColumnSpan( i ); //TODO:  this is kinda slow...
 1,0,1,1,1,,//TODO: move to .sql package, and refactor with similar things!
 1,0,1,1,1,,//TODO: I am not so sure about the exception handling in this bit!
-1,1,1,1,1,,//ugly little workaround for fact that createUniqueKeyLoaders() does not handle component properties
+1,1,1,0,1,,//ugly little workaround for fact that createUniqueKeyLoaders() does not handle component properties
 1,0,1,1,1,,// append the SQL to return the generated identifier //TODO: suck into Insert
 1,1,1,0,1,,//This is really ugly, but necessary:
 1,0,1,1,1,,// todo : modify the class definition if not already transformed...
@@ -1105,7 +1105,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// ATTRIBUTES USED ONLY DURING FLUSH CYCLE
 0,0,0,0,0,,// Create SQL_TOKEN nodes for the columns.
 0,0,0,0,0,,// "current" means the reference that was found during flush() 
-0,0,0,1,1,,// RDMS has no known variation of a "SELECT ... FOR UPDATE" syntax...
+0,0,0,0,0,,// RDMS has no known variation of a "SELECT ... FOR UPDATE" syntax...
 0,0,0,0,0,,// ignore this row of results! Note the early exit
 0,0,0,0,0,,// Add the new node to the map so that we don't create it twice.
 0,0,0,0,0,,"//		return getFactory().getSettings().getBytecodeProvider().getProxyFactoryFactory().buildProxyFactory();"
@@ -1418,7 +1418,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// a "detached" collection that originally belonged to the same entity
 0,0,0,0,0,,// add the comment // nest the main query in an outer select // add the rownnumber bit into the outer query select list
 0,0,0,0,0,,"//		 You may still have other ResultSets or update counts left to process here  //		 but you can't do it now or the ResultSet you just got will be closed "
-0,0,0,1,1,,"// Note: For object <-> SQL datatype mappings see: //	 Configuration Manager | Advanced | SQL | System DDL Datatype Mappings // //	TBD	registerColumnType(Types.BINARY,        ""binary($1)""); // changed 08-11-2005, jsl"
+0,0,0,0,0,,"// Note: For object <-> SQL datatype mappings see: //	 Configuration Manager | Advanced | SQL | System DDL Datatype Mappings // //	TBD	registerColumnType(Types.BINARY,        ""binary($1)""); // changed 08-11-2005, jsl"
 0,0,0,0,0,,// See if the second lookahed token can be an identifier.
 0,0,0,0,0,,// Case 2: The current token is after FROM and before '.'.
 0,0,0,0,0,,// TRIM(end_keyword string-expression-1 FROM string-expression-2) // use Hibernate implementation "From" is one of the parameters they pass in position ?3 //registerFunction( "trim", new SQLFunctionTemplate(Hibernate.STRING, "trim(?1 ?2 from ?3)") );
@@ -2407,7 +2407,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// not null is implicit
 0,0,0,0,0,,// Display the dialect version.
 0,0,0,0,0,,// nothing to do in a stateful session
-0,0,0,1,1,,// The RDMS concat() function only supports 2 parameters
+0,0,0,0,0,,// The RDMS concat() function only supports 2 parameters
 0,0,0,0,0,,//flat recursive algorithm
 0,0,0,0,0,,//an identifier mapper => getKey will be included in the getNonDuplicatedPropertyIterator() //and checked later, so it needs to be excluded
 0,0,0,0,0,,// Dialect method overrides ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2417,7 +2417,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// Verify the state of this new method in Hibernate 3.0 Dialect.java
 0,0,0,0,0,,// Origial Dialect.java returns true;
 0,0,0,0,0,,// index should be last column listed
-0,0,0,1,1,,// *** Sequence methods - start. The RDMS dialect needs these
+0,0,0,0,0,,// *** Sequence methods - start. The RDMS dialect needs these
 0,0,0,0,0,,// methods to make it possible to use the Native Id generator
 0,0,0,0,0,,//if it is a formula index, use the element columns in the PK
 0,0,0,0,0,,// don't create a unique key, 'cos some // databases don't like a UK on nullable // columns
@@ -2427,7 +2427,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,1,1,1,,//TODO: we could just return all false...
 0,0,0,0,0,,// the case of a foreign key to something other than the pk is handled in createPropertyRefConstraints
 0,0,0,0,0,,// the object is persistent
-0,0,0,1,1,,// RDMS supports the UNION ALL clause.
+0,0,0,0,0,,// RDMS supports the UNION ALL clause.
 0,0,0,0,0,,// Multi-param dialect functions...
 0,0,0,0,0,,// function templates
 0,0,0,0,0,,//not null is implicit

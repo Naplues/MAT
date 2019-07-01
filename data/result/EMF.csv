@@ -3,17 +3,17 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,0,0,0,,// EATM Call the deprecated method which does the same thing  // but might have an override in older code.
 1,0,0,0,0,,// Unused?
 1,0,1,1,1,,// TODO factor up into GenBaseImpl? //
-1,0,1,1,1,,// call workaround
+1,0,1,0,1,,// call workaround
 1,0,1,1,1,,// TODO deprecate (since getPluginClass() is no longer called) //
 1,0,0,0,0,,// Ensure that this race condition is thread safe; it doesn't matter who wins the race. //
 1,0,1,1,1,,// TODO // This assumes we only get a SET notification, which isn't a good assumption. //
-1,0,0,1,1,,//DMS handle this well.
-1,0,0,1,1,,//FB TBD can we come up with a better algorithm for choosing the default label feature?
-1,0,0,1,1,,//DMS should we let this exception out?
-1,0,0,1,1,,//DMS What if Eclipse is running, but an invalid facade has been specified?  We still should format code, use encoding,...
-1,0,0,1,1,,//DMS  Do a better job with specific exceptions? Just use chained RuntimeExceptions?
+1,0,0,0,0,,//DMS handle this well.
+1,0,0,0,0,,//FB TBD can we come up with a better algorithm for choosing the default label feature?
+1,0,0,0,0,,//DMS should we let this exception out?
+1,0,0,0,0,,//DMS What if Eclipse is running, but an invalid facade has been specified?  We still should format code, use encoding,...
+1,0,0,0,0,,//DMS  Do a better job with specific exceptions? Just use chained RuntimeExceptions?
 1,0,1,0,1,,// If the delegate URI can be handled as a file,  // we'll hope that renaming it will be really efficient. //
-1,0,0,1,1,,//DMS Why not this? //new SubProgressMonitor(progressMonitor, 1));
+1,0,0,0,0,,//DMS Why not this? //new SubProgressMonitor(progressMonitor, 1));
 1,0,0,0,0,,// Assume that it's an attribute for now. // It will/could become a reference if the type resolves to an EClass. //
 1,0,0,0,0,,// Do nothing for now, and avoid propagating the exception.   // How should builders handle cancel?
 1,0,0,0,0,,// this is a fall-back, however, this should never be called
@@ -24,12 +24,12 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,1,1,1,1,,// This is a big festering hack to make the images the right size from the start. //
 1,0,0,0,0,,// EATM Demand create metadata; needs to depend on processing mode...
 1,0,1,1,1,,// TODO This is really quite attrocious since there is code that will assume an iterator that returns strings!
-1,0,0,1,1,,//TBD return (user selected subset?) of referenced packages that contain super classes of classes in this package.
-1,0,1,1,1,,// call the workaround
-1,0,0,1,1,,// //TBD rethink where exactly some of the following methods belong (GenModel or GenPackage) //
+1,0,0,0,0,,//TBD return (user selected subset?) of referenced packages that contain super classes of classes in this package.
+1,0,1,0,1,,// call the workaround
+1,0,0,0,0,,// //TBD rethink where exactly some of the following methods belong (GenModel or GenPackage) //
 1,0,0,0,0,,// if there are multiple variables in declaration,  // separate this variable fragment into a separate declaration
 1,0,0,0,0,,// EATM this would be wrong.
-1,0,0,1,1,,// REVISIT: Remove this code.
+1,0,0,0,0,,// REVISIT: Remove this code.
 1,0,0,0,0,,// The label is not used. //
 1,1,1,0,1,,// Motif kludge: we would get something random instead of null. //
 1,0,1,1,1,,// TODO So what should be the eType be now? //
@@ -42,30 +42,30 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 1,0,1,1,1,,// TODO Hack that should be removed.
 1,0,1,1,1,,// TODO // Specialize this to return a resource locator for messages specific to this validator. // Ensure that you remove @generated or mark it @generated NOT
 1,0,1,1,1,,// TODO // I'm concerned that folders will often return 401 or even 403. // So should we consider something to exist even though access if unauthorized or forbidden? //
-1,0,1,1,1,,// Only file-scheme URIs will be re-encoded. If a URI was decoded in the workaround // above, and Platform.resolve() didn't return a file-scheme URI, then this will return // an decoded URI. //
+1,0,1,0,1,,// Only file-scheme URIs will be re-encoded. If a URI was decoded in the workaround // above, and Platform.resolve() didn't return a file-scheme URI, then this will return // an decoded URI. //
 1,0,1,0,1,,// This functionality should eventually go away, as it is replaced by model exporters. // We'll just delegate to the deprecated GenPackage method. The monitor isn't used, so we won't pass it. //
 1,0,1,0,1,,// The eAnnotations and eGenericType are possible containment references.  // We'll move them instead of copying //
 1,0,0,0,0,,// Note: Registry based authority is being removed from a // new spec for URI which would obsolete RFC 2396. If the // spec is added to XML errata, processing of reg_name // needs to be removed. - mrglavas.
 1,0,0,0,0,,// temporary structure to hold node's attributes + namespaces in scope
 1,0,1,1,1,,// HACK: reading encoding
 1,0,0,0,0,,// Because of the old factoring approach in the create method,  // it might be the case that the state of the old value has changed by the time we get here, // and in that case, we don't want to duplicate the removals in this code. //
-1,0,0,1,1,,// REVISIT: Remove this code. // Store port value as string instead of integer.
+1,0,0,0,0,,// REVISIT: Remove this code. // Store port value as string instead of integer.
 1,0,1,1,1,,// TODO // This is faster than many charAt() calls. //
-1,0,0,1,1,,//REVISIT: do we really need to support block names as in Unicode 3.1 //         or we can just create all the names in IsBLOCKNAME format (XML Schema REC)? //
+1,0,0,0,0,,//REVISIT: do we really need to support block names as in Unicode 3.1 //         or we can just create all the names in IsBLOCKNAME format (XML Schema REC)? //
 1,0,1,0,1,,// Bubble sort // Why? -- In many cases, //         this.ranges has few elements.
 1,0,1,0,1,,// Per Schema 1.0 it is not clear if the result returned should be a valid URI.  // For the future if we plant to support IRIs then it is better not to massage // the initialValue.  // We should thought consider where would be the best way to validate anyURI values -- EL
 1,0,1,1,1,,// Note that the way they are sorted, the values of index[i++] always increase, // so the objects are added from right to left in the list. // // EATM  TODO // // We could make this more efficient by grouping the adds when indices increment by one, // so that a single grouped notification would result. //
 1,0,1,1,1,,// TODO deprecate (since no longer used by getEditPluginClass(), getEditorPluginClass(), getTestSuiteClass()) //
 1,0,0,0,0,,// if there are multiple variables in declaration,  // separate this variable fragment into a separate declaration    
-1,0,0,1,1,,//DMS factor this into a method? Use a non-static subclass? 
-1,0,1,1,1,,//DMS this doesn't really produce nice output. //
-1,0,0,1,1,,//FB TBD filter out volatile and other inappropriate links?
+1,0,0,0,0,,//DMS factor this into a method? Use a non-static subclass? 
+1,0,1,0,1,,//DMS this doesn't really produce nice output. //
+1,0,0,0,0,,//FB TBD filter out volatile and other inappropriate links?
 1,0,0,0,0,,// I don't know if this should be run this deferred // because we might have to give the editor a chance to process the viewer update events // and hence to update the views first. // //
 1,0,1,1,1,,// TODO processing instructions are not sent to recordValues
 1,0,1,1,1,,// TODO comments are not sent to recordValues
 1,0,1,1,1,,// TODO Ignore for now.
 1,0,1,1,1,,// TODO handle situation when ASTJNode is removed (compilationUnit is null)
-1,0,0,1,1,,//TBD return super classes of classes in this package that come from a delegate package.
+1,0,0,0,0,,//TBD return super classes of classes in this package that come from a delegate package.
 1,0,0,0,0,,// if current char is comma, insert line break after it // // we should be able to find the comma because the range for enum constants includes all trailing comments up to the separator // if TargetSourceRangeComputer of ASTRewrite changes, this logic should change to skip comments // see org.eclipse.emf.codegen.merge.java.facade.ast.CommentAwareSourceRangeComputer#getEnumConstantSourceRange(ASTNode)
 1,0,1,1,1,,// TODO translation
 1,0,1,1,1,,// TODO Binary incompatibility; an old override must override putAll.
@@ -523,7 +523,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// Create annotations // http:///org/eclipse/emf/ecore/util/ExtendedMetaData
 0,0,0,0,0,,// Map to an eClass. //
 0,0,0,0,0,,// Until the encoding can be specified within the template  // we need to assume an encoding capable of working with any character set.
-0,0,0,1,1,,//FB TBD different objects for ecore model!
+0,0,0,0,0,,//FB TBD different objects for ecore model!
 0,0,0,0,0,,// Check end of quote, skip closing quote: //
 0,0,0,0,0,,// note: absolutePath -> hierarchical
 0,0,0,0,0,,// Get the attribute name: //
@@ -632,7 +632,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// Server based authority.
 0,0,0,0,0,,// can check against path characters because the set // is the same except for '/' which we've already excluded.
 0,0,0,0,0,,// Initialize all the fields from the command parameter. //
-0,0,0,1,1,,// Check that port is well formed if it exists. // REVISIT: There's no restriction on port value ranges, but // perform the same check as in setPort to be consistent. Pass // in a string to this method instead of an integer.
+0,0,0,0,0,,// Check that port is well formed if it exists. // REVISIT: There's no restriction on port value ranges, but // perform the same check as in setPort to be consistent. Pass // in a string to this method instead of an integer.
 0,0,0,0,0,,"/*   * (non-Javadoc)   *    * @see org.eclipse.jface.window.Window#close()   */"
 0,0,0,0,0,,// IPv6 addresses are 128-bit, so there can be at most eight sections.
 0,0,0,0,0,,"/*   * All Eclipse-dependent operations are delegated to this class. This pattern avoids any runtime failure due to   * missing dependencies in the stand-alone case.   */"
@@ -897,7 +897,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// Go through class super types to catch any from other packages
 0,0,0,0,0,,// For the control case, we need a dialog to ask for the URI and obtain the resource, then we create the command. //
 0,0,0,0,0,,// support for 1047, as proposed to be added to the  // IANA registry in  // http://lists.w3.org/Archives/Public/ietf-charset/2002JulSep/0049.html
-0,0,0,1,1,,// If we aren't getting the domain from the workbench part... // This happens when this action is used for a global popup action. // We try to get the editing domain from one of the objects in the selection. // //DMS editingDomain == null) ?
+0,0,0,0,0,,// If we aren't getting the domain from the workbench part... // This happens when this action is used for a global popup action. // We try to get the editing domain from one of the objects in the selection. // //DMS editingDomain == null) ?
 0,0,0,0,0,,// scan feature lists for those with multiple elements and return them
 0,0,0,0,0,,// Nothing more to do and we don't want to do the default stuff below. //
 0,0,0,0,0,,//GenTypedElementImpl
@@ -931,7 +931,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// Otherwise you can't make it a child. //
 0,0,0,0,0,,// Let them choose type parameters as well. //
 0,0,0,0,0,,//$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-2$
-0,0,0,1,1,,//TBD 
+0,0,0,0,0,,//TBD 
 0,0,0,0,0,,// If it is a list type value... // 
 0,0,0,0,0,,//GenPackageImpl
 0,0,0,0,0,,//   protected JETEmitter extendedItemProviderEmitter = null;
@@ -1802,7 +1802,7 @@ oracle,Pattern,TM,MAT,MAT_TM,,Comments
 0,0,0,0,0,,// presence of the host (whether valid or empty) means // double-slashes which means generic uri
 0,0,0,0,0,,// Add ASCII Digits and ASCII Hex Numbers
 0,0,0,0,0,,//RFC 2732 added '[' and ']' as reserved characters
-0,0,0,1,1,,// REVISIT: //   j:CNS11643 -> EUC-TW? //   ISO-2022-CN? ISO-2022-CN-EXT?
+0,0,0,0,0,,// REVISIT: //   j:CNS11643 -> EUC-TW? //   ISO-2022-CN? ISO-2022-CN-EXT?
 0,0,0,0,0,,// class EncodingMap
 0,0,0,0,0,,// // Public static methods //
 0,0,0,0,0,,// set rewriter on the new node
