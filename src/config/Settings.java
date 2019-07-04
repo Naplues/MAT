@@ -12,10 +12,10 @@ import java.io.File;
 
 public class Settings {
     public static String[] projectNames = {
-            "Ant",
+           // "Ant",
             "ArgoUML",
             "Columba",
-            "EMF",
+            //"EMF",
             "Hibernate",
             "JEdit",
             "JFreeChart",

@@ -11,8 +11,8 @@ public class Main {
         Mat.main(args);
         for (String project : Settings.projectNames) {
             //System.out.print(project + ":\t");
-            //combineResult(project);
-            statistics(project);
+            combineResult(project);
+            //statistics(project);
             //misClassification(project);
         }
     }
@@ -46,10 +46,10 @@ public class Main {
         for (int i = 1; i < lines.size(); i++) {
             String[] splits = lines.get(i).split(",");
             String oracle = splits[0];
-            String tm = splits[2];
-            String mat = splits[3];
+            String tm = splits[3];
+            String mat = splits[4];
             if (oracle.equals("1")) // tm.equals(mat) && tm.equals("1")
-                if ( tm.equals("0") && mat.equals("1")) count++;
+                if (tm.equals("0") && mat.equals("1")) count++;
         }
         System.out.println(count);
         //System.out.println(lines.size());
@@ -61,6 +61,7 @@ public class Main {
         String labelPath = "data/pattern/label--" + project + ".txt";
 
         String patternPath = "data/pattern/result--" + project + ".txt";
+        String nlpPath = "data/nlp/result--" + project + ".txt";
         String tmPath = "data/tm/result--" + project + ".txt";
         String matPath = "data/mat/result--" + project + ".txt";
 
@@ -70,18 +71,20 @@ public class Main {
         List<String> labelLines = FileHandle.readFileToLines(labelPath);
 
         List<String> patternLines = FileHandle.readFileToLines(patternPath);
+        List<String> nlpLines = FileHandle.readFileToLines(nlpPath);
         List<String> tmLines = FileHandle.readFileToLines(tmPath);
         List<String> matLines = FileHandle.readFileToLines(matPath);
 
         // 组合结果
         List<String> matTMLines = new ArrayList<>();
-        StringBuilder text = new StringBuilder("oracle,Pattern,TM,MAT,MAT_TM,,Comments\n");
+        StringBuilder text = new StringBuilder("oracle, Pattern, NLP, TM, MAT, MAT_TM, ,Comments\n");
 
         for (int i = 0; i < commentLines.size(); i++) {
             if (labelLines.get(i).equals("positive")) text.append(1);
             else text.append(0);
             text.append(",");                               // Oracle
             text.append(patternLines.get(i)).append(",");   // Pattern 结果
+            text.append(nlpLines.get(i)).append(",");       // NLP     结果
             text.append(tmLines.get(i)).append(",");        // TM      结果
             text.append(matLines.get(i)).append(",");       // MAT     结果
 
@@ -95,7 +98,8 @@ public class Main {
         }
         FileHandle.writeStringToFile(resultPath, text.toString());
         //evaluate(labelLines, patternLines);
-        //evaluate(labelLines, tmLines);
+        evaluate(labelLines, nlpLines);
+        evaluate(labelLines, tmLines);
         evaluate(labelLines, matLines);
         //evaluate(labelLines, matTMLines);
         System.out.println();
@@ -115,6 +119,6 @@ public class Main {
         double precision = (double) TP / (TP + FP);
         double recall = (double) TP / (TP + FN);
         double f1 = 2 * precision * recall / (precision + recall);
-        System.out.printf("%.3f, %.3f, %.3f ", precision, recall, f1);
+        System.out.printf("%.3f, %.3f, %.3f, ", precision, recall, f1);
     }
 }
