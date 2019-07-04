@@ -19,7 +19,7 @@ public class Transform {
         projectNames.put("sql12", "SQuirrel");
     }
 
-    public static String[] projects = { "ArgoUML", "Columba",  "Hibernate", "JEdit", "JFreeChart", "JMeter", "JRuby", "SQuirrel"};
+    public static String[] projects = {"Ant", "ArgoUML", "Columba", "EMF", "Hibernate", "JEdit", "JFreeChart", "JMeter", "JRuby", "SQuirrel"};
 
     public static void main(String[] args) {
         String NLPPath = "data/nlp/";
