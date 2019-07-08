@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Mat.main(args);
+        //Mat.main(args);
         for (String project : Settings.projectNames) {
             //System.out.print(project + ":\t");
             combineResult(project);
@@ -46,10 +46,12 @@ public class Main {
         for (int i = 1; i < lines.size(); i++) {
             String[] splits = lines.get(i).split(",");
             String oracle = splits[0];
+            String pattern = splits[1];
+            String nlp = splits[2];
             String tm = splits[3];
             String mat = splits[4];
             if (oracle.equals("1")) // tm.equals(mat) && tm.equals("1")
-                if (tm.equals("0") && mat.equals("1")) count++;
+                if (nlp.equals("1") && mat.equals("0")) count++;
         }
         System.out.println(count);
         //System.out.println(lines.size());
@@ -77,7 +79,8 @@ public class Main {
 
         // 组合结果
         List<String> matTMLines = new ArrayList<>();
-        StringBuilder text = new StringBuilder("oracle, Pattern, NLP, TM, MAT, MAT_TM, ,Comments\n");
+        List<String> matNLPLines = new ArrayList<>();
+        StringBuilder text = new StringBuilder("oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments\n");
 
         for (int i = 0; i < commentLines.size(); i++) {
             if (labelLines.get(i).equals("positive")) text.append(1);
@@ -91,17 +94,21 @@ public class Main {
             // TM 和 MAT 组合结果
             if (matLines.get(i).equals("1") || tmLines.get(i).equals("1")) matTMLines.add("1");
             else matTMLines.add("0");
-            text.append(matTMLines.get(i)).append(",,");
-
+            text.append(matTMLines.get(i)).append(",");
+            // NLP 和 MAT 组合结果
+            if (matLines.get(i).equals("1") || nlpLines.get(i).equals("1")) matNLPLines.add("1");
+            else matNLPLines.add("0");
+            text.append(matTMLines.get(i)).append(",");
             // 注释
             text.append(commentLines.get(i)).append("\n");  // 注释
         }
         FileHandle.writeStringToFile(resultPath, text.toString());
-        //evaluate(labelLines, patternLines);
-        evaluate(labelLines, nlpLines);
-        evaluate(labelLines, tmLines);
-        evaluate(labelLines, matLines);
-        //evaluate(labelLines, matTMLines);
+        // evaluate(labelLines, patternLines);
+        //evaluate(labelLines, nlpLines);
+        // evaluate(labelLines, tmLines);
+        // evaluate(labelLines, matLines);
+        evaluate(labelLines, matTMLines);
+        evaluate(labelLines, matNLPLines);
         System.out.println();
         //System.out.println("Output result file successfully! " + project);
     }
