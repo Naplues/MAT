@@ -1,0 +1,682 @@
+Ant
+1, 0, //borrowed from TokenFilterTest
+1, 0, // What is the property supposed to be?
+1, 0, // there's a convenient xsltc class version but data are // private so use package information
+1, 0, // stolen from org.apache.xerces.impl.XMLEntityManager#getUserDir() // of the Xerces-J team // which ASCII characters need to be escaped
+1, 0, // bingo append it. (this should normally not be done here)
+1, 0, // This is faintly ridiculous:
+1, 0, //cannot remove underscores due to protected visibility >:(
+1, 0, //  PR: I do not know what to do if the object class //      has multiple defines //      but this is for logging only...
+1, 0, // not sure what could be the need of this...
+1, 0, // Experimental/Testing
+1, 0, //this is really irritating; we need a way to set stuff
+1, 0, // -------------------- Access to property tables  -------------------- // This is used to support ant call and similar tasks. It should be // deprecated
+1, 0, // Temporary - until we figure a better API
+1, 0, // There is a better way to save the context. This shouldn't // delegate to next
+1, 0, // quick fix for Ant.java use of property before // initializing the project
+1, 0, "/*             * two reasons are mentioned in the API docs for File.list             * (1) dir is not a directory. This is impossible as             *     we wouldn't get here in this case.             * (2) an IO error occurred (why doesn't it throw an exception             *     then???)             */"
+1, 0, //these are pathological cases
+1, 0, "/*                 * This is a rather hairy case.                 *                 * One of our subclasses knows that we need to update the                 * archive
+1, 0, // This is deprecated - use classespath in the future
+1, 0, // This may change
+1, 0, // probably not the best choice
+1, 0, // Fix for invalid characters. If you think of more add to the list.
+1, 0, "/*             * fallback in case we have trouble loading the class or             * don't know how to handle it (there is no easy way to             * know what IDL mode would generate.             *             * This is supposed to make Ant always recompile the             * class
+1, 0, // Check it out; also ugly.
+1, 0, //I can't get my head around this; is encoding treatment needed here?
+1, 0, //quick & dirty
+1, 0, // only: the developer knows what (s)he is doing
+1, 0, // first: developer could use a little help
+1, 0, // since Java 1.4 //return normalizedPath.split("/"); // workaround for Java 1.2-1.3
+1, 0, // HAMMER // end inline mainGTU
+1, 0, // Should move to a separate public class - and have API to add // listeners
+1, 0, // "" should become a single empty argument
+1, 0, // not very nice but will do the job
+1, 0, // provide public visibility
+1, 0, // not used
+1, 0, // super.validateAttributes(); // don't want to call this method
+1, 0, // We keep this
+1, 0, // *************  copied from ConcatTest  *************
+1, 0, // not sure whether this is clean
+1, 0, // We just set the prefix for this fileset
+1, 0, //why do we do nothing?
+1, 0, // // We have to deal with assembly!!! // The programmer can be writing little 32 byte chunks for all // we know
+1, 0, // This is the new
+1, 0, // This is ugly; checking for the root folder.
+1, 0, //stolen from writeManifest
+1, 0, // we have to find a cleaner way to put this output
+1, 0, // This is the old way and is deprecated - classespath is // the right way to do this and is above
+1, 0, // For Script example that modifies id'ed tasks in other // targets to work. *very* Ugly // The reference is replaced by RuntimeConfigurable
+1, 0, // don't call super.close() because that reader is used // on other places ...
+1, 0, // report error if something weird happens...this is diagnostic.
+1, 0, // sorry - otherwise we will get a ClassCastException because the MockCache // is loaded by two different classloader ...
+1, 0, // Singleton for now
+1, 0, //TO DO : delete the file if it is not a valid file.
+1, 0, // Have to think about lazy initialization here...  JHM // comparator = new java.text.RuleBasedCollator();
+1, 0, "/*     * The displayName variable stores the value of the ""display-name"" element     * from the standard EJB descriptor.  As a future enhancement to this task
+55
+ArgoUML
+1, 0, // These methods are based on the GraphEvents. These need replacing by // more specic meaningful requests of the diagram interface model
+1, 0, // workaround for missing ability to parse "*"
+1, 0, // this is wrongly called with a null handle
+1, 0, // These may not actually make any difference at present (the code // behind addTrigger needs more work).
+1, 0, // needs more work: sending and receiving icons
+1, 0, // must be overridden to make sense // (I didn't want to make it abstract because it might not be required)
+1, 0, // Our superclass no longer has this method
+1, 0, // Check for duplicate name and rename if necessary
+1, 0, // local variables - what do they do?
+1, 0, // This method has insufficient information to call buildExtensionPoint. // Thus we'll need to create one
+1, 0, // Andreas: just temporary for the uml2 pre-alpha versions!
+1, 0, "/*         * Install the trap to ""eat"" SecurityExceptions.         *         * NOTE: This is temporary and will go away in a ""future"" release         * http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4714232         */"
+1, 0, // Andreas: just temporary: a warning dialog for uml2...
+1, 0, /* This code was copied from ActionBooleanTaggedValue: */
+1, 0, //this is the temporary solution for issue 1011
+1, 0, // this is the temporary solution for issue 1011
+1, 0, // If c2 is empty
+1, 0, //hence a less elegant workaround that works:
+1, 0, // This should probably be inside xmiReader.parse // but there is another place in this source // where XMIReader is used
+1, 0, // Could this be some other type of internal error that we want // to handle differently?  Don't think so.  - tfm
+1, 0, // If no Fig was created by the code above then we must go // look for the old style constructor that should have fallen // into disuse by now. // Fig(Object
+1, 0, // I hate this so much even before I start writing it. // Re-initialising a global in a place where no-one will see it just // feels wrong.  Oh well
+1, 0, // This is carried over from previous implementation // not sure why we don't want contents of package - tfm - 20060214
+1, 0, // // needed?
+1, 0, "/* The next 4 lines fix the 2nd half of issue 5638.         * Is there no better way? */"
+1, 0, "/*     * Delete a model element.  Implements 'cascading delete' to make sure     * model is still valid after element has been deleted.<p>     *     * The actual deletion is delegated to delete methods in the rest of the     * factories. For example: a method deleteClass exists on CoreHelper. Delete     * methods as deleteClass should only do those extra actions that are     * necessary for the deletion of the modelelement itself. I.e. deleteClass     * should only take care of things specific to UmlClass.<p>     *     * The delete methods in the UML Factories should not be called directly     * throughout the code! Calls should always refer to this method and never     * call the deleteXXX method on XXXFactory directly. The reason that it is     * possible to call the deleteXXX methods directly is a pure implementation     * detail.<p>     *     * The implementation of this method uses a quite complicated if/then/else     * tree. This is done to provide optimal performance and full compliance to     * the UML 1.4 metamodel. The last remark refers to the fact that the     * UML 1.4 model uses multiple inheritance in several places.     * This has to be taken into account.<p>     *     * TODO: The requirements of the metamodel could probably be better     * determined by reflection on the metamodel.  Then each association     * that a deleted element participates in could be reviewed to make sure     * that it meets the requirements and
+1, 0, // Check if labels etc have been hit // Apparently GEF does require PathItems to be "annotations" // which ours aren't
+1, 0, // Name is set to the empty string (yuck!) by default - fix it
+1, 0, // There shall not be a dependency from ... to ...
+1, 0, // update the titleLabel // MVW: This overrules the icon set initiallly... Why do we need this?
+1, 0, "/* This should NOT be looking for a NamedElement
+1, 0, "/* MVW: for this case
+1, 0, "/* MVW: for this case
+1, 0, "/**     * Reroutes the connection to the old node to be connected to     * the new node.     *     * delegates to rerouteXXX(
+1, 0, // needed?
+1, 0, "/*         * Work in progress here to allow multiple details panes with different         * contents - Bob Tarling         */"
+1, 0, // This can be made public to allow others to extend their own persisters
+1, 0, "/*         * Since this is (hopefully) a temporary solution
+1, 0, // How much control should critics have over when they are relavant? // Does doing that in code instead of declaratively limit reasoning? // How does using more semantically rich method calls impact // componentization?
+1, 0, // Andreas: this is just temporary for the uml2 pre-alpha versions.
+1, 0, // This checks the order in addition to the contents // Is that really what we want here? - tfm 20070603
+1, 0, // this should be moved to a ui action.
+1, 0, // Don't implement - deprecated method in interface.
+1, 0, "/*     * A near clone of this code works fine outside of ArgoUML
+1, 0, // This causes problems. It can make multiple return messages // refer to the same activator even if not returning to the same // classifier role as the activator emenates from. // I'm not sure that changing the activator of one message // should amend any other messages but this is certainly changing // too many - Bob.
+1, 0, // not needed
+1, 0, // The following debug line is now the single most memory consuming // line in the whole of ArgoUML. It allocates approximately 18% of // all memory allocated. // Suggestions for solutions: // Check if there is a LOG.log(Level.FINE
+1, 0, // If we weren't given a system ID
+1, 0, // Unused currently //            StringBuffer taggedValuesSb = getTaggedValues(modelElement);
+1, 0, // Empty implementation.
+1, 0, // Apparently
+1, 0, // If it's a jar
+1, 0, "/* We need to extend the ExtensionMechanismsFactory so that                  * we can replace the above deprecated call with something like this: */"
+1, 0, // ignored - it shouldn't have been in the project in the 1st place
+1, 0, // how to handle empty target lists? // probably the TabText should only show an empty pane in that case
+1, 0, //  Empty implementation - not used.
+1, 0, // Don't know what to do otherwise
+1, 0, // Do we have 2 connection ends?
+1, 0, // additional cleanup needed
+1, 0, // This may not actually make any difference at present (the code // behind addTrigger needs more work).
+1, 0, // Perhaps something like the following would work instead //            Rectangle drawingArea = //                Globals.curEditor().getJComponent().getVisibleRect();
+1, 0, // how to handle empty target lists? // probably the wizstep should only show an empty pane in that case
+1, 0, // not implemented yet
+1, 0, // there's more to be handled
+1, 0, /* FIX: set the application name for Mac OS X */
+65
+Columba
+1, 0, // real stupid recreation of whole list model // -> replace with id-based listmodel update
+1, 0, // ??? bad to have release hardocoded here. Fix later...right.
+1, 0, // something is very wrong here
+1, 0, // its maybe better to leave this option out of the dialog // -> make it configurable in the xml file anyway
+1, 0, // we can't use SystemClassLoader here
+1, 0, // cleanup: remove port number file
+1, 0, // real stupid recreation of whole menu model
+1, 0, // // @author: fdietz // using shutdown-manager is wrong here
+1, 0, // manually rewrite the connection url
+1, 0, // turn of focus stealing (workaround should be removed in the // future!)
+1, 0, // @author: fdietz // This is a workaround. Generally
+1, 0, // @author: tstich // Its better to call the Shutdownmanager // since the above is called automatically from it. // ShutdownManager is modified to allow one shutdown // call only
+1, 0, // Since Columba is doing its own logging handlers
+1, 0, // The JavaHelp can't be added to a BorderLayout because it // isnt' a component. For this demo we'll use the embeded method // since we don't want a Frame to be created.
+1, 0, // @author: fdietz // // PROBLEM: Extensions don't run using Java Webstart (JWS) //  // Even though we assign "all-permission" in our columba.jnlp file
+1, 0, // what to do here? we could start a new server...
+1, 0, // WORKAROUND: //  // System.setSecurityManager(null); // // This call effectly disables the sandbox mode and seems to work fine. // // Below I use another way. The policy for all classloaders is set to // "all-permissions". // Don't really know the difference though.
+1, 0, // For the Mac ScreenBarMenus to work
+1, 0, // kids - don't do this at home
+1, 0, // @author: fdietz // // The following line is not working - just don't know why // methods.Main.mainClassLoader.addURLs((URL[]) urlList.toArray(new URL[0])); // // WORKAROUND: // // Modify the system class loader instead - horrible! But it works!
+1, 0, // // @author: fdietz // WORKAROUND: // we simply append URLs to the existing global class loader // and use the same as parent //  // Note
+1, 0, // we can't use SystemClassLoader here
+22
+EMF
+1, 0, // EATM Call the deprecated method which does the same thing  // but might have an override in older code.
+1, 0, // Unused?
+1, 0, // call workaround
+1, 0, // Ensure that this race condition is thread safe; it doesn't matter who wins the race. //
+1, 0, //DMS handle this well.
+1, 0, //FB TBD can we come up with a better algorithm for choosing the default label feature?
+1, 0, //DMS should we let this exception out?
+1, 0, //DMS What if Eclipse is running
+1, 0, //DMS  Do a better job with specific exceptions? Just use chained RuntimeExceptions?
+1, 0, // If the delegate URI can be handled as a file
+1, 0, //DMS Why not this? //new SubProgressMonitor(progressMonitor
+1, 0, // Assume that it's an attribute for now. // It will/could become a reference if the type resolves to an EClass. //
+1, 0, // Do nothing for now
+1, 0, // this is a fall-back
+1, 0, // I don't know if we should be run this deferred  // because we might have to give the editor a chance to process the viewer update events  // and hence to update the views first. //  //
+1, 0, // EATM Demand create metadata; needs to depend on processing mode...
+1, 0, //TBD return (user selected subset?) of referenced packages that contain super classes of classes in this package.
+1, 0, // call the workaround
+1, 0, // //TBD rethink where exactly some of the following methods belong (GenModel or GenPackage) //
+1, 0, // if there are multiple variables in declaration
+1, 0, // EATM this would be wrong.
+1, 0, // REVISIT: Remove this code.
+1, 0, // The label is not used. //
+1, 0, // Motif kludge: we would get something random instead of null. //
+1, 0, // This runs the operation
+1, 0, // This is a kludge to deal with enumerators
+1, 0, // This is copied from ItemProviderAdapterFactory. //
+1, 0, // EATM This might be better written as a single loop for the EObject case? //
+1, 0, // Second alternative should be getModelProject()?
+1, 0, // Only file-scheme URIs will be re-encoded. If a URI was decoded in the workaround // above
+1, 0, // This functionality should eventually go away
+1, 0, // The eAnnotations and eGenericType are possible containment references.  // We'll move them instead of copying //
+1, 0, // Note: Registry based authority is being removed from a // new spec for URI which would obsolete RFC 2396. If the // spec is added to XML errata
+1, 0, // temporary structure to hold node's attributes + namespaces in scope
+1, 0, // Because of the old factoring approach in the create method
+1, 0, // REVISIT: Remove this code. // Store port value as string instead of integer.
+1, 0, //REVISIT: do we really need to support block names as in Unicode 3.1 //         or we can just create all the names in IsBLOCKNAME format (XML Schema REC)? //
+1, 0, // Bubble sort // Why? -- In many cases
+1, 0, // Per Schema 1.0 it is not clear if the result returned should be a valid URI.  // For the future if we plant to support IRIs then it is better not to massage // the initialValue.  // We should thought consider where would be the best way to validate anyURI values -- EL
+1, 0, // if there are multiple variables in declaration
+1, 0, //DMS factor this into a method? Use a non-static subclass? 
+1, 0, //DMS this doesn't really produce nice output. //
+1, 0, //FB TBD filter out volatile and other inappropriate links?
+1, 0, // I don't know if this should be run this deferred // because we might have to give the editor a chance to process the viewer update events // and hence to update the views first. // //
+1, 0, //TBD return super classes of classes in this package that come from a delegate package.
+1, 0, // if current char is comma
+1, 0, // This runs the options
+1, 0, // we should be able to find the comma because the range for enum constants includes all preceding comments up to the previous constant // if TargetSourceRangeComputer of ASTRewrite changes
+48
+Hibernate
+1, 0, // use COUNT as the default.  This mimics the old behavior
+1, 0, //perhaps not really necessary...
+1, 0, // turn hibernate.c3p0.* into c3p0.*
+1, 0, //note there is a wierd implementation in the client side
+1, 0, // Do we need to drop constraints before dropping tables in this dialect?
+1, 0, // Does this dialect support check constraints?
+1, 0, // this is called by SessionFactory irregardless; we just disregard here; // could also add a check to SessionFactory to only conditionally call start
+1, 0, // Does this dialect support the UNIQUE column syntax?
+1, 0, // Does this dialect support the FOR UPDATE syntax?
+1, 0, // Does this dialect support FOR UPDATE OF
+1, 0, // Does this dialect support the Oracle-style FOR UPDATE NOWAIT syntax?
+1, 0, //Icky workaround for MySQL bug:
+1, 0, // we have to set up the table later!! yuck
+1, 0, // This inner class implements a case statement....perhaps im being a bit over-clever here
+1, 0, //create an index on the key columns??
+1, 0, //use of trim() here is ugly?
+1, 0, // can happen because of the multiple ways Cache.remove() // can be invoked :(
+1, 0, //ick!
+1, 0, // 'hibernate.temp.use_jdbc_metadata_defaults' is a temporary magic value. // The need for it is intended to be alleviated with future developement
+1, 0, //ie. the subquery! yuck!
+1, 0, //use of a stringbuffer to workaround a JDK bug
+1, 0, //workaround
+1, 0, //just to help out during the load (ugly
+1, 0, //use a degenerated strategy for backward compatibility
+1, 0, // get the right object from the list ... would it be easier to just call getEntity() ??
+1, 0, // why does this matter?
+1, 0, // does this need holdlock also? : return tableName + " with (updlock
+1, 0, // sql-server
+1, 0, // is it necessary to register %exact since it can only appear in a where clause?
+1, 0, // Does this dialect support the ALTER TABLE syntax?
+1, 0, // orphans should not be deleted during copy??
+1, 0, // orphans should not be deleted during merge??
+1, 0, // this class has no proxies (so do a shortcut)
+1, 0, //do we even really need this? the update will fail anyway....
+1, 0, // null or brand new collection // this will also (inefficiently) handle arrays
+1, 0, // Not possible to simply re-use the versionPropertyNode here as it causes // OOM errors due to circularity :(
+1, 0, // at some point the generate phase needs to be moved out of here
+1, 0, // VERY IMPORTANT!!!! - This class needs to be free of any static references // to any CGLIB or Javassist classes.  Otherwise
+1, 0, // really there are two situations where it should be ok to allow the insertion // into properties defined on a superclass: //      1) union-subclass with an abstract root entity //      2) discrim-subclass // // #1 is handled already because of the fact that // UnionSubclassPersister alreay always returns 0 // for this call... // // we may want to disallow it for discrim-subclass just for // consistency-sake (currently does not work anyway)...
+1, 0, // implicit joins are always(?) ok to reuse
+1, 0, // we do not know either type //BLIND GUESS!
+1, 0, // We would probably refactor to have LogicParser (builds a tree of simple // expressions connected by and
+1, 0, // short-circuit for performance...
+1, 0, // not absolutely necessary
+1, 0, //yuck!
+1, 0, // ignore it; the incoming property could not be found so we // cannot be sure what to do here.  At the very least
+1, 0, // yuck!
+1, 0, //note that i parameter is now unused (delete it?)
+1, 0, // We should reengineer this class so that
+1, 0, //The class is now way to complex!
+1, 0, //name from a super query (a bit inelegant that it shows up here)
+1, 0, //put() has nowait semantics
+1, 0, //Must be done here because of side-effect! yuck...
+1, 0, //We should actually rework this class to not implement Parser //and just process path expressions in the most convenient way.
+1, 0, // we may be screwed here since the collection action is about to execute // and we do not know the final owner key value
+1, 0, //work around a bug in all known connection pools....
+1, 0, // Need a better way to define the suffixes here...
+1, 0, //workaround for WebLogic
+1, 0, // would be great to move all this below here into another method that could also be used // from the new scrolling stuff. // // Would need to change the way the max-row stuff is handled (i.e. behind an interface) so // that I could do the control breaking at the means to know when to stop
+1, 0, // some messy
+1, 0, // polymorphism not really handled completely correctly
+1, 0, //This is not very nice (and quite slow):
+1, 0, // meant to handle dynamic instantiation queries...(Copy from QueryLoader)
+1, 0, // worrying about proxies is perhaps a little bit of overkill here...
+1, 0, //should this interface extend PropertyMapping?
+1, 0, // is this really necessary?
+1, 0, //Yuck:
+1, 0, // create an index on the key columns??
+1, 0, //is this ok?
+1, 0, // perhaps this should be an exception since it is only ever used // in the above method?
+1, 0, // NOTE: this assumes something about how propertySelectFragment is implemented by the subclass! // was toUnqotedAliasStrings( getdiscriminatorColumnName() ) before - now tried // to remove that unqoting and missing aliases..
+1, 0, // Put a placeholder in entries
+1, 0, //this is kinda the best we can do...
+1, 0, /* trim done to workaround stupid oracle bug that cant handle whitespaces before a { in a sp */
+1, 0, // otherwise
+1, 0, //I suppose?
+1, 0, "// TBD should this be varbinary($1)? //		registerColumnType(Types.VARBINARY
+1, 0, //shortcut
+1, 0, //HSQL has no Blob/Clob support .... but just put these here for now!
+1, 0, // yick!  need this for proper serialization/deserialization handling...
+1, 0, // Sets can be just a view of a part of another collection. // do we need to copy it to be sure it won't be changing // underneath us? // ie. this.set.addAll(set);
+1, 0, // would be better to use the element-type to determine // whether the old and the new are equal here; the problem being // we do not necessarily have access to the element type in all // cases
+1, 0, //note that this method could easily be moved up to BasicEntityPersister
+1, 0, // Do we need to qualify index names with the schema name?
+1, 0, // this is called by SessionFactory irregardless; we just disregard here; // could also add a check to SessionFactory to only conditionally call stop
+1, 0, //swaldman 2004-02-07: modify to allow null values to signify fall through to c3p0 PoolConfig defaults
+1, 0, // work around that crazy issue where the tree contains // "empty" FromElements (no text); afaict
+1, 0, //kinda ugly
+1, 0, //ugly little workaround for fact that createUniqueKeyLoaders() does not handle component properties
+1, 0, //This is really ugly
+1, 0, // NOTE: this assumes something about how propertySelectFragment is implemented by the subclass! // was toUnqotedAliasStrings( getIdentiferColumnNames() ) before - now tried // to remove that unqoting and missing aliases..
+1, 0, //hum ... should we cascade anyway? throw an exception? fine like it is?
+1, 0, // This
+1, 0, // xmlforest requires a new kind of function constructor
+1, 0, // work around the "feature" where tree cache is validating the // inserted node during the next transaction.  no idea...
+1, 0, //need to do that here rather than in the save event listener to let //the post insert events to have a id-filled entity when IDENTITY is used (EJB3)
+1, 0, // unhappy about this being public ... is there a better way?
+1, 0, // work around the "feature" where tree cache is validating the // inserted node during the next transaction. no idea...
+1, 0, // short cut check...
+1, 0, // this is ugly here
+1, 0, // inheritance cycle detection (paranoid check)
+1, 0, //polymorphism comment above
+1, 0, // add an entry for this type of entity. // we can be assured that all referenced entities have already // been processed
+1, 0, // we could move this inside if we wanted to // tolerate collection initializations during // collection dirty checking:
+104
+JEdit
+1, 0, "/*			Implement String += value;			According to the JLS
+1, 0, /* this should be before dockables are initialized */
+1, 0, // is this right?
+1, 0, // should we do this for both cases above?
+1, 0, // need to loosen this to any throwable... do we need to handle // that in interpreter somewhere?  check first...
+1, 0, // fucking GTK look and feel
+1, 0, "/*		Note: this implementation is temporary. We currently keep a flat		namespace of the base name of classes.  i.e. BeanShell cannot be in the		process of defining two classes in different packages with the same		base name.  To remove this limitation requires that we work through		namespace imports in an analogous (or using the same path) as regular		class import resolution.  This workaround should handle most cases 		so we'll try it for now.	*/"
+1, 0, // copy and paste from bsh/classpath/ClassManagerImpl.java...
+1, 0, // I wish I could make this "friendly" to only NameSpace
+1, 0, // Look for a default invoke() handler method in the namespace // Note: this code duplicates that in NameSpace getCommand() // is that ok?
+1, 0, // This should be per instance
+1, 0, // Can we use the proxy mechanism to cast a bsh.This to  // the correct interface?
+1, 0, // redundant with constructor
+1, 0, "/*		Issues to resolve here...		1) In which classloader should we define the class?		if there is a BshClassLoader should we define it there?		2) should we use reflection to set it in a non-bsh classloader		if there is one or should we always create a bsh classloader		(and expose its defineClass)?	*/"
+1, 0, // could refactor these a bit
+1, 0, "/*	Note: This class essentially just delegates most of its methods to its	parent.  The setVariable() indirection is very small.  We could probably	fold this functionality back into the base NameSpace as a special case.	But this has changed a few times so I'd like to leave this abstraction for	now.*/"
+1, 0, // simplified these settings a little...
+1, 0, "/*		Should check for strict java here and use isJavaAssignable() instead	*/"
+1, 0, // workaround for Swing rendering labels starting // with <html> using the HTML engine
+1, 0, // Look for a default invoke() handler method in the namespace // Note: this code duplicates that in This.java... should it? // Call on 'This' can never be a command
+1, 0, // this method is a nightmare
+1, 0, // ConsoleInterface // The interpreter reflexively implements the console interface that it  // uses.  Should clean this up by using an inner class to implement the // console for us.
+1, 0, // Case-insensitive fs workaround
+1, 0, "/*			Wrap nulls.			This is a bit of a cludge to address a deficiency in the class			generator whereby it does not wrap nulls on method delegate.  See			Class Generator.java.  If we fix that then we can remove this.			(just have to generate the code there.)		*/"
+1, 0, // switch eats a multi-level break here? // not empty statement
+1, 0, // Check for field on object  // Note: could eliminate throwing the exception somehow
+1, 0, // XXXX re-evaluate this // can getSuper work by itself now? // If we're a class instance and the parent is also a class instance // then super means our parent.
+1, 0, "/*		I wish protected access were limited to children and not also 		package scope... I want this to be a singleton implemented by various		children.  	*/"
+1, 0, // Imported full name wasn't found as an absolute class // If it is compound
+1, 0, "/*	Can't this be combined with run() ?	run seems to have stuff in it for interactive vs. non-interactive...	compare them side by side and see what they do differently
+1, 0, // Null value is just a declaration // Note: we might want to keep any existing value here instead of reset
+1, 0, // Can this be factored out...?   // Should be be adding the L...; here instead?
+1, 0, "/* 							Catch the mismatch and continue to try the next							Note: this is innefficient
+1, 0, // should use try/finally here to pop ns
+1, 0, "/*			Note: this could be made clearer by adding an inner class for the			cases and an object context for the child traversal.		*/"
+1, 0, "/* 		This is the namespace in which the method is set.		It is a back-reference for the node
+1, 0, // Replace this is Cocoa API calls later
+1, 0, // Scripting classes currently requires accessibility // This can be eliminated with a bit more work.
+1, 0, // This could be static
+1, 0, "/*	Thanks to Slava Pestov (of jEdit fame) for import caching enhancements.	Note: This class has gotten too big.  It should be broken down a bit.*/"
+1, 0, "/*		Note: We will ll move this behavior out to a subclass of 		NameSpace
+1, 0, // This is a particularly nasty bit // of code
+1, 0, // Should cache this subject to classloader change message // Evaluation of the formal parameter simply resolves its // type via the specified namespace.. it doesn't modify the // namespace.
+1, 0, "/*	Notes:	It would not be hard to eliminate the use of org.objectweb.asm.Type from	this class
+1, 0, // stupid: caret will automatically be incremented
+1, 0, /* Spacing workaround */
+1, 0, // I don't know of any other way to fix this
+1, 0, // Static methods that operate on compound ('.' separated) names // I guess we could move these to StringUtil someday
+1, 0, "/*	Note: which of these things should be checked at parse time vs. run time?*/"
+1, 0, // this part sucks
+1, 0, // Windows bug workaround in case a YES/NO confirm // was shown
+1, 0, // clear name resolvers... don't know if this is necessary.
+1, 0, "/* this is stupid and misleading.					 * but 'path' is not used anywhere except					 * the above line
+1, 0, // I'm too tired to think of a better way // to handle this right now.
+1, 0, // some other primitive // should avoid calling methods on primitive
+1, 0, // Change the parent (which was the class static) to the class instance // We really need to check if we're a static inner class here first... // but for some reason Java won't show the static modifier on our // fake inner classes...  could generate a flag field.
+1, 0, // this is where checked exceptions piss me off. this method only uses // a StringReader which can never throw an exception...
+1, 0, // Parse pattern into tokens.  Does anyone know if it's more efficient // to use char[] than a String.charAt()?  I'm assuming so.
+1, 0, "/*		Note: object is only used here for precondition... get rid of it?	*/"
+1, 0, // Why both of these?
+1, 0, // Cut off from parent
+1, 0, "/*		Note: the bsh command code should probably not be here...  we need to		scope it by the namespace that imported the command... so it probably		needs to be integrated into NameSpace.	*/"
+1, 0, // This could be smarter...
+1, 0, // It was explicitly imported
+1, 0, "/*		Note: we need a form of eval that passes the callstack through...	*/"
+1, 0, "/* 		Primary interpreter set and get variable methods		Note: These are squeltching errors... should they?	*/"
+1, 0, // Workaround for JDK bug 4071281
+1, 0, // Should clean this up to a single return statement
+1, 0, "/*	Implementation notes:	Note: we may need some synchronization in here	Note on version dependency:  This base class is JDK 1.1 compatible
+1, 0, "/*		Note: this impor pattern is becoming common... could factor it out into		an importedObject Vector class.	*/"
+1, 0, // not sure if we should really recurse here for explicitly imported // class in parent...  
+1, 0, // The following two boolean checks were tacked on. // This could probably be smoothed out.
+1, 0, "/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		findMostSpecficMethod() needs to be rewritten to eliminate 		findAccessibleMethod.  We should implement the findMostSpecificMethod 		that uses the publicOnly flag.  FindMostSpecificMethod should also		operate in two passes to give standard Java assignable matches priority		over extended bsh type matches.	*/"
+1, 0, //{{{ UnixWorkaround constructor
+1, 0, // drag and drop support // I'd just move the code to // JEditTextArea but it // depends on JDK 1.4 APIs
+1, 0, // next version: remove this
+1, 0, // compatibility kludge for jEdit 3.1 and earlier
+1, 0, // stupid scrollbar policy is an attempt to work around // bugs people have been seeing with IBM's JDK -- 7 Sep 2000
+1, 0, // AHA! // this is probably the only way to fix this
+1, 0, // we consume this to work around the bug // where A+TAB window switching activates // the menu bar on Windows.
+1, 0, "/* I guess translated events do not have the 'evt' field set		so consuming won't work. I don't think this is a problem as		nothing uses translation anyway */"
+1, 0, // copy and paste from RESyntaxMatcher to make syntax package // independent of jEdit itself
+1, 0, // stupidity
+1, 0, // This doesn't seem very correct
+1, 0, // don't try this at home
+1, 0, "/* silly that we reference the vertical				   scroll bar here directly. we do this so				   that the horizontal scroll bar is flush				   with the vertical scroll bar */"
+1, 0, // workaround for Swing's annoying processing of // labels starting with <html>
+1, 0, // fucking GTK look and feel!
+1, 0, "/* Silly bug workaround #8694. If you look at the above code
+1, 0, "/*	Note: This class is messy.  The method and field resolution need to be	rewritten.  Various methods in here catch NoSuchMethod or NoSuchField	exceptions during their searches.  These should be rewritten to avoid	having to catch the exceptions.  Method lookups are now cached at a high 	level so they are less important
+1, 0, // the sooner ppl move to the new api
+1, 0, // Nasty hardcoded values
+1, 0, /* Workaround for uncooperative Windows L&F */
+1, 0, // stupid Swing
+1, 0, // none of the others are ever meant to be // removed. retarded
+1, 0, // this is retarded. excuse me while I drool // and make stupid noises
+1, 0, // retarded GTK look and feel!
+1, 0, // should probably error
+1, 0, // there must be a better way of fixing this... // the problem is that this method can sometimes // be called as a result of a text area scroll // event
+1, 0, // Perhaps here we would want to guard with // a property for parallel backups or not.
+1, 0, // this is such a bad way of doing it
+1, 0, // while this might be questionable
+1, 0, // Get available screens // O(n^3)
+1, 0, //{{{ Methods that really shouldn't be public...
+1, 0, //{{{ UnixWorkaround class
+1, 0, // Perhaps if Xerces wasn't slightly brain-damaged
+1, 0, // moved to GUIUtilities as it makes no sense being here.
+1, 0, // REVIEW How do we resolve this discrepancy?!
+1, 0, // ugly workaround
+1, 0, //{{{ Windows work around
+1, 0, // Why is object in the args?
+1, 0, // should implement getMinimumLength() -- any ideas?
+1, 0, // Move me to classpath/ClassManagerImpl???
+1, 0, // they never taught you this in undergrad computer science
+1, 0, // (should we cache info in not a class case too?)
+1, 0, // wtf?
+1, 0, "/*			First try for an accessible version of the exact match.			This first lookup seems redundant with below
+1, 0, // work around for broken FTP plugin!
+1, 0, // This feels sloppy
+1, 0, // // We have to deal with assembly!!! // The programmer can be writing little 32 byte chunks for all // we know
+1, 0, "/*		This method should be rewritten to use getFields() and avoid catching		exceptions during the search.	*/"
+1, 0, // This should probably be in Reflect.java
+1, 0, "/*		Notes: See notes on findMostSpecificMethod.		This method should be rolled into findMostSpecificMethod.	*/"
+1, 0, "/*		Note: is using SignatureKey in this way dangerous?  In the pathological		case a user could eat up memory caching every possible combination of		argument types to an untyped method.  Maybe we could be smarter about		it by ignoring the types of untyped parameter positions?  The method		resolver could return a set of ""hints"" for the signature key caching?		There is also the overhead of creating one of these for every method		dispatched.  What is the alternative?	*/"
+1, 0, // crusty workaround
+1, 0, "/* workaround for A+keys producing				 * garbage on Windows */"
+1, 0, // these are used to eliminate code duplication. i don't normally use // the visitor or "template method" pattern
+1, 0, // fuck me dead
+1, 0, // JDK 1.4 workaround
+1, 0, // should the next two be public
+1, 0, "/*		Note: this method and resolveExpectedJavaField should be rewritten		to invert this logic so that no exceptions need to be caught		unecessarily.  This is just a temporary impl.		@return the field or null if not found	*/"
+1, 0, "/*		Note: we need a singleton here so that things like 'this == this' work		(and probably a good idea for speed).		Caching a single instance here seems technically incorrect
+1, 0, "/* 			Resolve relative to a class type			static field
+1, 0, // Optimization - If classOfStaticMethod is set then we have already  // been here and determined that this is a static method invocation. // Note: maybe factor this out with path below... clean up.
+1, 0, // this will probably not get used // Object type
+1, 0, // Windows JDK workaround
+1, 0, "/* This doesn't look pretty and mode line should			 * probably be split up into seperate			 * components/strings			 */"
+1, 0, "/* this is stupid and misleading.				 * but 'path' is not used anywhere except				 * the above line
+1, 0, "/* workaround for hang if match was					 * zero-width. not sure if there is					 * a better way to handle this */"
+1, 0, "/* On Windows
+1, 0, // On Unix
+1, 0, // ??? this should only be called with // fully loaded action set
+1, 0, // broken Eclipse workaround! // 24 Febuary 2004
+1, 0, "/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		This method needs to be rewritten to eliminate findAccessibleMethod.		We should implement the findMostSpecificMethod that uses the publicOnly		flag.  FindMostSpecificMethod should also operate in two passes to give		standard Java assignable matches priority over extended bsh type		matches.	*/"
+1, 0, // INTERVAL OPERATOR: //  {x} | {x
+1, 0, // We do need to save every possible point
+1, 0, "/*		Note: this should really just throw NoSuchFieldException... need		to change related signatures and code.	*/"
+1, 0, // Split the methods into constructors and regular method lists
+1, 0, // need to add static block here
+1, 0, // implement the recursion for getClassImpl()
+1, 0, // Need some format checking here
+1, 0, // Need to calculate this... just fudging here for now.
+1, 0, // skip header bytes // maybe should check if they're valid or not?
+1, 0, "/*		Debug utils are static so that they are reachable by code that doesn't		necessarily have an interpreter reference (e.g. tracing in utils).		In the future we may want to allow debug/trace to be turned on on		a per interpreter basis
+1, 0, // this convention may change...
+155
+JFreeChart
+1, 0, // this may be negative
+1, 0, // do we need to update the crosshair values?
+1, 0, // defer argument checking...
+1, 0, // here we tweak the notify flag on the plot so that only // one notification happens even though we update multiple // axes...
+1, 0, // defer argument checking
+1, 0, // TO DO:  these annotations only work with XYPlot
+1, 0, // not strictly necessary
+1, 0, // end of workaround
+1, 0, // a redraw should NOT trigger another change event
+1, 0, // unused in parent
+1, 0, // the method we want isn't in the CategoryItemRenderer // interface...
+1, 0, // unused but must return something
+1, 0, // if we are rendering the values as percentages
+1, 0, // Note: It would be nice to pre-calculate this per series
+1, 0, // we assume that all other Paint instances implement equals() and // hashCode()...of course that might not be true
+1, 0, // here's a quirk - the API has been defined in terms of a plain // TimePeriod
+1, 0, // now handle specific plot types (and yes
+1, 0, // now we handle some special cases - yes
+1, 0, // here we could probably be a little faster by searching for both // indices simultaneously
+1, 0, // report this?
+1, 0, // this may be obsolete (not used anywhere)
+1, 0, /// a kludge to make everything work when no rows returned
+1, 0, // needs to be improved !!!
+1, 0, // not used by plot
+1, 0, // we'll have to use the method in the interface
+1, 0, // I know it's bad to create object. better idea?
+1, 0, // not implemented
+1, 0, // could make this configurable
+28
+JMeter
+1, 0, // Maybe move to vector if MT problems occur
+1, 0, // Programming error: bail out.
+1, 0, // houston we have a problem !!
+1, 0, // N.B. Needs to implement Visualizer so that TestBeanGUI can find the correct GUI class
+1, 0, // Can be null (not sure why)
+1, 0, // NOTUSED: long[] longSample = getSamples(); // load each node
+1, 0, //This can lead to code smell
+1, 0, // All keys in messages.properties are lowercase (historical reasons?)
+1, 0, //NOT USED protected double[][] data = null;
+1, 0, "/*         * Does the system support UNC paths? If so
+1, 0, // Not used
+1, 0, // Method is broken anyway
+1, 0, // Should we return fragment as text
+1, 0, "/*         * Not clear what can cause this ? conflicting versions perhaps         */"
+1, 0, // Allow JMeter to render frames (and relative images) // Must be done after setContentType [Why?]
+1, 0, // Should we run a beanshell script on startup? // $NON-NLS-1$
+1, 0, "/*             * Add fix for Deadlocks
+1, 0, // This is effectively the same as saver.toXML(Object
+1, 0, //Maybe do nothing at all?
+1, 0, "/*     * NOTUSED private void initButtonMap() { }     */"
+1, 0, //avoid error in ant task tests (good way?)
+1, 0, // Does not appear to be used; called by MainFrame#setEditAddMenu() but that is not called
+1, 0, // not used
+1, 0, // should the samples be aggregated on thread name or thread group (default) ?
+1, 0, // Make it easier to enter a tab (can use \<tab> but that is awkward)
+1, 0, // Does not appear to be used (yet)
+1, 0, // Yuck: TIFFImageEncoder uses Error to report runtime problems
+1, 0, // a check
+1, 0, // Not used
+1, 0, // Temporary fix to allow default protocol to be changed
+1, 0, // Does not appear to be used yet
+1, 0, // Remember to change this when the class changes ...
+1, 0, "/*         * Setting SamplingStarted before the contollers are initialised allows         * them to access the running values of functions and variables (however         * it does not seem to help with the listeners)         */"
+1, 0, // Surely this is always null in the constructor?
+1, 0, // NOTE: Source and line arguments are nonsense in a call(). //       Any way to make these arguments *sensible?
+1, 0, // Is it an exception wrapped in a JavaScriptException?
+1, 0, "/*                 * Fix bug: -D arg1=arg2 was causing parse error; however                 * --define arg1=arg2 is OK This seems to be because the parser                 * skips the terminator for the long options
+1, 0, //very wrong.
+1, 0, "/*     * Holder for storing cache details.     * Perhaps add original response later?     */"
+1, 0, // not currently used
+1, 0, // Code also allows for LF only (not sure why - perhaps because the test code uses it?)
+1, 0, // May be replaced later
+1, 0, // Could we drop the Sync here?
+1, 0, // Does not appear to be used
+1, 0, // NOTUSED: GuiPackage guiPack =
+1, 0, // Maybe we should consider creating a global cache for the // random files to make JMeter more efficient.
+1, 0, // Should we use java.naming.security.[principal|credentials] to create the QueueConnection?
+1, 0, // NOTUSED private String chosenFile;
+1, 0, // This could perhaps be a variable name
+1, 0, // Should we add the "_" separator?
+1, 0, // NOT USED transient protected ThreadGroup THREADGROUP = null; // Anyway
+1, 0, // all the others could be private too?
+1, 0, // Should the TestBean be hidden?
+1, 0, // It might be useful also to make this available in the 'Request' tab
+1, 0, // should header be saved with the data? //$NON-NLS-1$
+1, 0, // Why does this not call guiInstance.clearTestPlan() ? // Is there a reason for not clearing everything?
+1, 0, // NOTUSED yet private JTextField filename;
+1, 0, // Fix path to allow the use of UNC URLs
+1, 0, // Should we exit at end of the test? (only applies to server
+1, 0, "/*         * Have we reached the reporting boundary?         * Need to allow for a margin of error
+1, 0, // REMIND: convert arg list Vectors here?
+1, 0, // not yet handled
+62
+JRuby
+1, 0, // we basically ignore protocol. let someone report it...
+1, 0, // We use a highly uncommon string to represent the paragraph delimiter (100% soln not worth it) 
+1, 0, // it would be nice (and logical!) if exponent form  // behaved like E/e
+1, 0, // this covers the rare case of lower-case class names (and thus will // fail 99.999% of the time). fortunately
+1, 0, // modules are included with a shim class; we must find that shim to handle super() appropriately
+1, 0, // Simplify the variables too -- to keep these variables in sync with what is actually used in the when clauses // This is not required for correctness reasons
+1, 0, // Must be called from main thread (it is currently
+1, 0, // using IOInputStream may not be the most performance way
+1, 0, // these extra arrays are really unfortunate; split some of these paths out to eliminate?
+1, 0, // We clone dynamic scope because this will be a new instance of a block.  Any previously // captured instances of this block may still be around and we do not want to start // overwriting those values when we create a new one. // ENEBO: Once we make self
+1, 0, // need to reexamine this
+1, 0, // Workaround for JRUBY-4149
+1, 0, // using IOOutputStream may not be the most performance way
+1, 0, /* ENEBO: Lots of optz in 1.9 parser here*/
+1, 0, // IN FACT
+1, 0, // bit risky if someone changes completor
+1, 0, // This is GROSS
+1, 0, /* Workaround for JRUBY-2326 (MRI does not enter this production for some reason)*/
+1, 0, // grrr
+1, 0, // This is perhaps innefficient timewise?  Optimal spacewise
+1, 0, // Workaround for a bug in Sun's JDK 1.5.x
+1, 0, // This is a dummy scope; we should find a way to make that more explicit
+1, 0, // We always prepend an org.jruby.proxy package to the beginning // because java and javax packages are protected and signed // jars prevent us generating new classes with those package // names. See JRUBY-2439.
+1, 0, // index for the item // this could probably be more efficient
+1, 0, // from DUP_SETUP // rb_copy_generic_ivar from DUP_SETUP here ...unlikely..
+1, 0, // context is null
+1, 0, // The following three methods must be defined fast
+1, 0, // For JRUBY-2759
+1, 0, // Yow...this is still ugly
+1, 0, // ENEBO: Totally weird naming (in MRI is not allocated and is a local var name)
+1, 0, // This is for JRUBY-2988
+1, 0, // we're depending on the side effect of the load
+1, 0, // method has more than 500 lines; we'll need to split it // and therefore need to use a heap-based scope
+1, 0, // Not sure how well this works
+1, 0, // we might need to perform a DST correction
+1, 0, // this needs to be split
+1, 0, // don't bother to check if final method
+1, 0, // ruby constants for strings (should this be moved somewhere else?)
+1, 0, // lame generics issues: making Segment class static and manually // inserting cache reference to work around various problems generically // referencing methods/vars across classes.
+1, 0, // this seems unlikely to happen unless it's a totally bogus fileno // ...so do we even need to bother trying to create one?
+1, 0, // see note below re: 2-field kludge
+1, 0, // rb_copy_generic_ivar from DUP_SETUP here ...unlikely..
+1, 0, // using IOChannel may not be the most performant way
+1, 0, // FIX replace type() == ... with isInstanceOf(...)
+1, 0, // Bunch of methods still not implemented
+45
+SQuirrel
+1, 0, // ??? For now
+1, 0, // JASON: Do we need these?
+1, 0, //??? For now
+1, 0, // BAD - Converting a URL to a file this way is problematic when the file path contains spaces
+1, 0, //JASON: Remove?? //_session.getSessionSheet().getSQLPanel().executeSQL(sql);
+1, 0, // hear no evil
+1, 0, // When I tried using a length for LONGVARBINARY that is the max // length of the source records
+1, 0, "//	 JASON: Do we need these?"
+1, 0, "// JASON: Do we need this? //		getSQLPanel().selected();"
+1, 0, //set the property values // Note: this may have already been done by another instance of // this DataType created to handle a different column.
+1, 0, // multiple rows - not good
+1, 0, //?? Extract this out into a class like CascadeInternalFramePositioner.
+1, 0, // ?? Is there any way to check for invalid input? Valid input includes // ?? at least any printable character
+1, 0, // Cast is not so nice
+1, 0, "/*				 * END-KLUDGE				 */"
+1, 0, // JASON: Should be part of status bar?
+1, 0, //??GETRIDOFTHIS
+1, 0, // Don't call super. Packing this frame causes problems.
+1, 0, // Note. Some DBMSs such as Oracle do not allow: // "select *
+1, 0, // We are displaying a new dataset
+1, 0, // KLUDGE: // We want some info about the columns to be available for validating the // user input during cell editing operations.  Ideally we would get that // info inside the ResultSetDataSet class during the creation of the // columnDefinition objects by using various functions in ResultSetMetaData // such as isNullable(idx).  Unfortunately
+1, 0, // The following only works if SwingUtilities.getRoot(table) returns // and instanceof BaseMDIParentFrame. // If SwingTUilities.getRoot(table) returns and instance of Dialog or // Frame
+1, 0, // Need to somehow call  // SQLResultExecuterPanel.reRunSelectedResultTab(true); //  // Something like : // SQLResultExecuterPanel panel = getPanel();  // panel.reRunSelectedResultTab(true); // // However
+1, 0, //?? Split these 4 functions off into a subclass of BaseFavouriteAction
+1, 0, // This refactoring depends on the following API methods: // getCreateTableSQL
+1, 0, //Should probably create my own table model but i am being a bit slack.
+1, 0, // Here
+1, 0, // Copied from Java Doc Matcher.replaceAll: // // Note that backslashes (\) and dollar signs ($) in the replacement string // may cause the results to be different than if it // were being treated as a literal replacement string. // Dollar signs may be treated as references to // captured subsequences as described above
+1, 0, // This is weird - if I don't set this the column header doesn't line up // with the column contents.
+1, 0, // Required otherwise it gets too wide.
+1, 0, //??? For now
+1, 0, // This refactoring depends on the following dialect API methods: // getUpdateSQL
+1, 0, // For PointBase
+1, 0, //Silently ignore
+1, 0, // This is a bit hard coded but if we use _scale here // some number displays go crazy.
+1, 0, // check the error stream for a problem // // This is a bit questionable since it is possible // for processes to output something on stderr // but continue processing.  But without this
+1, 0, //????? if desired
+1, 0, /* Work around some UTC and Daylight saving offsets */
+1, 0, //?? Is there any way to check for invalid input?  Valid input includes //?? at least any printable character
+1, 0, // This is (a logically not sufficent) try to cope with the problem that there are the following // contradictory rules in the JDBC API Doc: // Statement.getResultSet(): // This method should be called only once per result. // Statement.getUpdateCount(): // This method should be called only once per result. // Statement.getMoreResults(): // There are no more results when the following is true: (!getMoreResults() && (getUpdateCount() == -1) // // If getMoreResults() returns false
+1, 0, // The call here is the result of a desperate fight // to find a place where the components in the split // had not height = 0. If someone knows a better way // please tell me I'll apreciate any advice. // gerdwagner@users.sourceforge.net
+1, 0, // The following ugly conversion from text to Byte is necessary because // the Byte class is inconsistant.  When asked to output as Hex
+1, 0, /* this should just bring back one table
+1, 0, // handle mouse events for double-click creation of popup dialog. // This happens only in the JTextField
+1, 0, // Don't use tinyint for now
+1, 0, // No appropriate DataType for this column
+1, 0, // This is a work-around for what looks like a bug to me - it is a syntax error to qualify with the  // schema the new table name
+1, 0, // Skip formatting for Stored Procedures - They can have // comments embedded in them
+1, 0, // ??Need to tell object to display itself in a panel.
+1, 0, // all of the following have been converted to use the DataType objects // So
+1, 0, //?? Need to associate a panel with an object type somehow.
+1, 0, "/*		 * CSE: moved this code down here to fix repaint problems on first		 * display - bounds should be set before install		 *		 * Uninstall the old popup from root pane		 * and install the new one. Even in case		 * they are the same objects it's necessary		 * to cover the workspace switches etc.		 */"
+1, 0, // Discovered that the loginame field can be null - in that case
+1, 0, //?? Best guess: read object? //?? This is probably the wrong thing to do here
+1, 0, // This is a bit hard coded but if we use _scale here // some number displays go crazy. //_numberFormat.setMaximumFractionDigits(_scale);
+1, 0, // JASON: Make menu smarter. When second window for the same // session is added create a hierarchical menu for all windows // for the session.
+1, 0, // For some reason
+1, 0, // The following is a work-around for the problem on Mac OS X where // the Apple LAF delegates to the Swing Popup factory but then // tries to set a 90% alpha on the underlying Cocoa window
+1, 0, // colDefs not in same order as DB
+1, 0, // This info is merely a placeholder in the tree that we can use to get index name and // parent name more easily. We probably should create a IndexColumnInfo that has this // extra info in it.
+1, 0, "/* work-around for this driver
+1, 0, "/*					 * END-KLUDGE					 */"
+1, 0, // On Win 2000 & XP mnemonics are normally hidden. To make them // visible you press the alt key. Under the Windows L&F pressing // alt may not work. This code is a workaround. See bug report // 4736093 for more information.
+1, 0, /* work-around for bug which means we must use "dbo" for schema */
+1, 0, //Unfortunately we need to remove the exising tree table component and create a //new one due to limitations with replacing models in the existing //sun implementation. Why on earth they couldnt formalise the tree //table example on JFC (which we use) a bit more is anyones guess.
+1, 0, // This could (perhaps more elegantly) be done by recursion
+1, 0, // H2 uses Java classes that implement the "Trigger" interface to operate // on database tables rows when an action triggers them. Therefore
+1, 0, // Arrays of Strings are a special case. // In XMLBeanWriter method ProcessProperty an array of // Strings is turned into a list of StringWrapper objects // in the XML (presumably so that when reading them back // we have a class that we can call setters on). Thus
+1, 0, // tell caller that the underlying data was not updated //?? is this always true
+1, 0, // empty string ('') seems to be represented as null in some drivers. // Not sure if this is the best thing to do here
+1, 0, // Facade methods for IMessageHandler.  We don't want to allow code to  // directly access an internal IMessageHandler
+1, 0, "// JASON: Mow that multiple object trees exist storing the edit // where by objectInfo within session won't work. It needs to be objectinfo // within something else. //	private final Map _editWhereColsSheets = new HashMap();"
+1, 0, // DB delete worked correctly
+1, 0, //?? remember which column is the rowID (if any) so we can //?? prevent editing on it
+1, 0, // Not implemented
+1, 0, // Move any i18n files that are located in the core downloads dir to the i18n downloads dir. The spring // application context will not load properly (for some unknown reason) when there are i18n jars in the // classpath. So as a work-around
+1, 0, // Not yet ready // DataImportGlobalPreferencesTab tab = new DataImportGlobalPreferencesTab(); // return new IGlobalPreferencesPanel[] { tab };
+1, 0, //?? Future: may want to create TablePopupMenu to allow cut/copy/paste operations
+78
