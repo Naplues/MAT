@@ -11,7 +11,7 @@ import java.util.List;
 
 public class NLP {
 
-    private static String where = "data/nlp/";
+    private static String where = "data/nlp_new/";
     public static String[] projects = {"Ant", "ArgoUML", "Columba", "EMF", "Hibernate", "JEdit", "JFreeChart", "JMeter", "JRuby", "SQuirrel"};
 
     public static void main(String[] args) throws Exception {

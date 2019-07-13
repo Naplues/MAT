@@ -1,0 +1,2494 @@
+SATD	 this may negative 
+SATD	  implemented 
+SATD	  the subplot areas needs moved out the plot into the plot state 
+SATD	  shift block down bottom 
+SATD	  might good idea keep reference the color specified setpaint setcolor rather than creating new object every time getpaint called 
+SATD	  for now are ignoring the height constraint 
+SATD	 first determine the size the chart rendering area  workout insets for swt 
+SATD	  implement properly 
+SATD	  this must wrong 
+SATD	  didnt check the width yet 
+SATD	  ensure the newly created awt fonts will rendered with the same height the swt one 
+SATD	  shift block right half 
+SATD	  need locale well timezone 
+SATD	  shift block over right 
+SATD	 need update the crosshair values 
+SATD	  find better localization key 
+SATD	  this attribute should transferred the renderer state 
+SATD	  implement this low priority 
+SATD	  the xyitemrenderer interface doesnt specify the getannotations method but should 
+SATD	 defer argument checking 
+SATD	 calculate the adjusted data area taking into account the effect this assumes that there renderer all this effect bit ugly  
+SATD	  add constructors for combinations number and date formatters 
+SATD	  move plot state 
+SATD	 here tweak the notify flag the plot that only one notification happens even though update multiple axes 
+SATD	 defer argument checking 
+SATD	  should really assert value here 
+SATD	 these annotations only work with xyplot see possible make contourplot subclass xyplot 
+SATD	  should really assert value 
+SATD	 not strictly necessary since the renderer set for the parent plot not used 
+SATD	  complete this 
+SATD	  fix output when this flag set true 
+SATD	  move the above the plot state 
+SATD	  this code means that not possible use more than one domain axis for the combined plots 
+SATD	 end workaround 
+SATD	  could change this itemfillpaint for backwards compatibility might require usefillpaint flag 
+SATD	 redraw should not trigger another change event 
+SATD	 unused parent 
+SATD	  jfreechart put this method the interface 
+SATD	  rotate the image when drawn with horizontal orientation 
+SATD	  implement this properly 
+SATD	  this should generate series change event 
+SATD	 create entities  these methods should defined 
+SATD	  the renderer interface doesnt have the drawdomainline method have rely the renderer being subclass which lame 
+SATD	  this attribute not used deprecate 
+SATD	  coding the event with some information about what changed the dataset could make the recalculation the interval more efficient some cases for instance the change just update yvalue then the xinterval doesnt need updating 
+SATD	 the method want isnt the interface 
+SATD	  what value null next line 
+SATD	  this needs move into the renderer state 
+SATD	  implement this method properly 
+SATD	  ensure the newly created swt fonts will rendered with the same height the awt one 
+SATD	 unused but must return something while are 
+SATD	  perhaps should clone the data list 
+SATD	 are rendering the values percentages need calculate the total for the current item unfortunately here end repeating the calculation more times than strictly necessary hopefully ill come back this and find way add the totals the renderer state the other problem implicitly assume the dataset has negative valuesperhaps that can fixed too 
+SATD	 note would nice precalculate this per series 
+SATD	 assume that all other paint instances implement equals and hashcodeof course that might not true but what can about 
+SATD	  use other fields too 
+SATD	 all attributes are immutable can just return the superclone  fact the generator itself immutable cloning not necessary 
+SATD	 heres quirk the api has been defined terms plain timeperiod which cannot make use the timezone and locale specified the constructorso only the time zone pegging the period instanceof regulartimeperiod 
+SATD	 now handle specific plot types and yes know this some really ugly code that has manually updated any time new plot type added should have written something much cooler but didnt and neither did anyone else 
+SATD	  urlencode 
+SATD	  revert svn revision jfreechart jdk issues  then change visibility all darker methods except darkerpaint private 
+SATD	  replace getsize getbounds 
+SATD	  check threshold 
+SATD	  add boolean 
+SATD	  add boolean 
+SATD	 now handle some special cases yes ugly code alert 
+SATD	  probably makes sense allocate array colors and lazily populate this array 
+SATD	  need fetch this from localised resources 
+SATD	  getvalueformat method 
+SATD	 here could probably little faster searching for both indices simultaneously but ill look that later seems like matters 
+SATD	  complete this 
+SATD	  this attribute never used deprecate 
+SATD	  clone the attributed string not null 
+SATD	 report this 
+SATD	 this may obsolete not used anywhere 
+SATD	  this good idea 
+SATD	 kludge make everything work when rows returned 
+SATD	  shift block down half 
+SATD	  better ask the renderer instead datasetutilities 
+SATD	  implement the entity for the annotation 
+SATD	 needs improved 
+SATD	 not used plot 
+SATD	  need locale well timezone 
+SATD	  for jfreechart this method should the shapeutilities class 
+SATD	 well have use the method the interface but this doesnt have the paint and stroke settings 
+SATD	  check that there isnt already series with the same key 
+SATD	 know its bad create object better idea 
+SATD	  clone generator 
+SATD	  use generator here 
+SATD	  think need make sure the keys are actually cloned whereas the paint instances are always immutable theyre 
+SATD	  draw outliers 
+SATD	  think need make sure the keys are actually cloned whereas the stroke instances are always immutable theyre 
+SATD	 not implemented 
+SATD	 returns string representing the week week  look return string representing the week 
+SATD	  show dialog with the error 
+SATD	  draw the interval marker with effect 
+SATD	  add serialization support for images 
+SATD	 could make this configurable 
+SATD	  see need apply some line color and style the axis traces 
+SATD	  implement this 
+SATD	 annotation that allows image placed some location link xyplot  implement serialization properly image not serializable 
+WITHOUT_CLASSIFICATION	 not check there paint defined for the specified key 
+WITHOUT_CLASSIFICATION	 range range 
+WITHOUT_CLASSIFICATION	 height but width must constrained 
+WITHOUT_CLASSIFICATION	 need fill the buffer 
+WITHOUT_CLASSIFICATION	 check that the clone doesnt share the same underlying arrays 
+WITHOUT_CLASSIFICATION	 now replacing the dataset should update the axis range 
+WITHOUT_CLASSIFICATION	 minortickcount 
+WITHOUT_CLASSIFICATION	 create dataset 
+WITHOUT_CLASSIFICATION	 check that the renderer has corresponding dataset doesnt matter the dataset null 
+WITHOUT_CLASSIFICATION	 build first tab 
+WITHOUT_CLASSIFICATION	 comparable 
+WITHOUT_CLASSIFICATION	 row background paint for the chart 
+WITHOUT_CLASSIFICATION	 mercurypaint 
+WITHOUT_CLASSIFICATION	 period 
+WITHOUT_CLASSIFICATION	 should get for negative index 
+WITHOUT_CLASSIFICATION	 create legend requested 
+WITHOUT_CLASSIFICATION	 segment fromsegment getsegmentfrom fromsegmentinc segment tosegment getsegmentto tosegmentdec 
+WITHOUT_CLASSIFICATION	 dispose any fonts have created 
+WITHOUT_CLASSIFICATION	 case comparing another timeseriesdatapair object 
+WITHOUT_CLASSIFICATION	 empty cell row 
+WITHOUT_CLASSIFICATION	 the following angle calc will ensure there isnt top vertical axis this may useful you dont want any given criteria appear move important than the others cat catcount 
+WITHOUT_CLASSIFICATION	 create the colorchange dialog 
+WITHOUT_CLASSIFICATION	 draw the item labels there are any 
+WITHOUT_CLASSIFICATION	 build second tab 
+WITHOUT_CLASSIFICATION	 you can add null list would have been better this required emptylist 
+WITHOUT_CLASSIFICATION	 row 
+WITHOUT_CLASSIFICATION	 check previously colinear 
+WITHOUT_CLASSIFICATION	 set the plot properties 
+WITHOUT_CLASSIFICATION	 draw the standard deviation lines before the shapes theyre visible looks better the shape fill colour different the line colour 
+WITHOUT_CLASSIFICATION	 labelsetfontfont 
+WITHOUT_CLASSIFICATION	 create event with special flag setthe purpose this communicate the plot the default receiver the event that series visibility has changed the axis ranges might need updating 
+WITHOUT_CLASSIFICATION	 dont need anything 
+WITHOUT_CLASSIFICATION	 need instantiate this 
+WITHOUT_CLASSIFICATION	 row 
+WITHOUT_CLASSIFICATION	 rosehighlightpaint 
+WITHOUT_CLASSIFICATION	 return the appropriate axis editor 
+WITHOUT_CLASSIFICATION	 timeseriesdataitem item 
+WITHOUT_CLASSIFICATION	 create the new font and set into the title label 
+WITHOUT_CLASSIFICATION	 shape visible 
+WITHOUT_CLASSIFICATION	 check regular value 
+WITHOUT_CLASSIFICATION	 test collection which doesnt define all tasks all series 
+WITHOUT_CLASSIFICATION	 xyseries 
+WITHOUT_CLASSIFICATION	 row 
+WITHOUT_CLASSIFICATION	 when the dataset contains one more series but those series contain items expect the value range null 
+WITHOUT_CLASSIFICATION	 use colored text field show the color 
+WITHOUT_CLASSIFICATION	 not first tick displayed tick label 
+WITHOUT_CLASSIFICATION	 create the fontchange dialog 
+WITHOUT_CLASSIFICATION	 the following code barl javad coordinates the left end the bar for horizontal bar chart and the top end the bar for vertical bar chart whether this the base the bar not depends also whether the data value negative relative the base value and whether not the range axis inverted this only matters ifwhen apply the minimumbarlength attribute because should extend the nonbase end the bar 
+WITHOUT_CLASSIFICATION	 get the item count for the series that can know which the end the series 
+WITHOUT_CLASSIFICATION	 deal with range axis 
+WITHOUT_CLASSIFICATION	 shape filled 
+WITHOUT_CLASSIFICATION	 set the range axis display integers only 
+WITHOUT_CLASSIFICATION	 convert the font size for awt height pixels for swt 
+WITHOUT_CLASSIFICATION	 pass the click the plot rely the plot post plot change event and redraw the chart 
+WITHOUT_CLASSIFICATION	 use item paint for outlines default not outline paint 
+WITHOUT_CLASSIFICATION	 handle the special case where the dataset has yintervals that want measure 
+WITHOUT_CLASSIFICATION	 categoryplot plot 
+WITHOUT_CLASSIFICATION	 deal with domain axis 
+WITHOUT_CLASSIFICATION	 were doing this for testing only and make sure that only add data ascending order xvalue 
+WITHOUT_CLASSIFICATION	 verify max value 
+WITHOUT_CLASSIFICATION	 change series outline stroke 
+WITHOUT_CLASSIFICATION	 verify min value 
+WITHOUT_CLASSIFICATION	 check inherited attribute 
+WITHOUT_CLASSIFICATION	 gridbandpaint 
+WITHOUT_CLASSIFICATION	 starts the back wraps around front and finishes back again 
+WITHOUT_CLASSIFICATION	 deal with plot appearance 
+WITHOUT_CLASSIFICATION	 test customised instance 
+WITHOUT_CLASSIFICATION	 row orientation 
+WITHOUT_CLASSIFICATION	 rangeaxislocation 
+WITHOUT_CLASSIFICATION	 row 
+WITHOUT_CLASSIFICATION	 here change the affinetransform can draw the annotation larger area and scale down into the display area afterwards the original transform restored 
+WITHOUT_CLASSIFICATION	 row background paint 
+WITHOUT_CLASSIFICATION	 time zone 
+WITHOUT_CLASSIFICATION	 row stroke 
+WITHOUT_CLASSIFICATION	 clip top and bottom bounds data area 
+WITHOUT_CLASSIFICATION	 check dataset with one time period 
+WITHOUT_CLASSIFICATION	 bar 
+WITHOUT_CLASSIFICATION	 cant anything 
+WITHOUT_CLASSIFICATION	 sectionoutlinepaint 
+WITHOUT_CLASSIFICATION	 use valuemarker for the tests because need concrete subclass 
+WITHOUT_CLASSIFICATION	 bordervisible 
+WITHOUT_CLASSIFICATION	 consistent with other graphicsd implementations 
+WITHOUT_CLASSIFICATION	 validate base timeline exclusions added timelines esceptions 
+WITHOUT_CLASSIFICATION	 domainaxislocation longer separate field but test anyway 
+WITHOUT_CLASSIFICATION	 row keys 
+WITHOUT_CLASSIFICATION	 private tickunits standardtickunits 
+WITHOUT_CLASSIFICATION	 backgroundimage 
+WITHOUT_CLASSIFICATION	 try unknown column key 
+WITHOUT_CLASSIFICATION	 minorticklength 
+WITHOUT_CLASSIFICATION	 when the dataset contains one more series but those series contain items still expect the range null 
+WITHOUT_CLASSIFICATION	 labelfont 
+WITHOUT_CLASSIFICATION	 tblrc bottom and right only 
+WITHOUT_CLASSIFICATION	 build the third tab 
+WITHOUT_CLASSIFICATION	 need resize the buffer 
+WITHOUT_CLASSIFICATION	 column keys 
+WITHOUT_CLASSIFICATION	 even though the axis not visible need ticks for the gridlines 
+WITHOUT_CLASSIFICATION	 and cancel buttons 
+WITHOUT_CLASSIFICATION	 does nothing override necessary 
+WITHOUT_CLASSIFICATION	 dont zoom unless the mouse pointer the plots data area 
+WITHOUT_CLASSIFICATION	 there tool tip expect generate the title and alt values only add empty alt there tooltip 
+WITHOUT_CLASSIFICATION	 borderstroke 
+WITHOUT_CLASSIFICATION	 ensure have maximum value use the axes 
+WITHOUT_CLASSIFICATION	 dispose resources own but user must dispose 
+WITHOUT_CLASSIFICATION	 remove plot but plot removed instead 
+WITHOUT_CLASSIFICATION	 set the line style solid default 
+WITHOUT_CLASSIFICATION	 are starting new series path 
+WITHOUT_CLASSIFICATION	 apply dash style any 
+WITHOUT_CLASSIFICATION	 too slow look every data item lets just look the first middle and last items 
+WITHOUT_CLASSIFICATION	 showing estyle ticks negative exponent generating tick value between show fewer 
+WITHOUT_CLASSIFICATION	 axislabelpaint 
+WITHOUT_CLASSIFICATION	 properties save print zoom tooltips 
+WITHOUT_CLASSIFICATION	 retrieve the swt font description indept way 
+WITHOUT_CLASSIFICATION	 collect entity and tool tip information 
+WITHOUT_CLASSIFICATION	 create new awt font with the appropiate data 
+WITHOUT_CLASSIFICATION	 and independent 
+WITHOUT_CLASSIFICATION	 for now simply want extract the chars from the iterator and call unstyled text renderer 
+WITHOUT_CLASSIFICATION	 first get the range without the interval then expand for the interval width 
+WITHOUT_CLASSIFICATION	 see comment above swtcolor 
+WITHOUT_CLASSIFICATION	 renderinghints 
+WITHOUT_CLASSIFICATION	 next setup the plot area 
+WITHOUT_CLASSIFICATION	 thismycolor new colorgetdisplay colorgetrgb 
+WITHOUT_CLASSIFICATION	 seems the same 
+WITHOUT_CLASSIFICATION	 swt and awt share the same style constants 
+WITHOUT_CLASSIFICATION	 set the axis properties 
+WITHOUT_CLASSIFICATION	  add setbasestrokestroke boolean 
+WITHOUT_CLASSIFICATION	 create the dataset 
+WITHOUT_CLASSIFICATION	 null will returned 
+WITHOUT_CLASSIFICATION	 subtitles 
+WITHOUT_CLASSIFICATION	 erase the previous zoom rectangle any only need this are using xor mode which when were not using the buffer there buffer then the end this method just trigger repaint 
+WITHOUT_CLASSIFICATION	 borderpaint 
+WITHOUT_CLASSIFICATION	 draw the markers that are associated with specific dataset 
+WITHOUT_CLASSIFICATION	 title 
+WITHOUT_CLASSIFICATION	 start with unit that least the axis length 
+WITHOUT_CLASSIFICATION	 backgroundpaint 
+WITHOUT_CLASSIFICATION	 adjust the plot area for interior spacing and labels 
+WITHOUT_CLASSIFICATION	 plot 
+WITHOUT_CLASSIFICATION	 create the chart 
+WITHOUT_CLASSIFICATION	 add item entity this information being collected 
+WITHOUT_CLASSIFICATION	 try 
+WITHOUT_CLASSIFICATION	 reference 
+WITHOUT_CLASSIFICATION	 pdfdocument class will null the function will return false 
+WITHOUT_CLASSIFICATION	 special case the bar colour has alpha draw nothing 
+WITHOUT_CLASSIFICATION	 private double angle 
+WITHOUT_CLASSIFICATION	 avoid draw overlapping tick labels 
+WITHOUT_CLASSIFICATION	 check independence 
+WITHOUT_CLASSIFICATION	 null key should throw 
+WITHOUT_CLASSIFICATION	 adding something the returned list should not change the chart 
+WITHOUT_CLASSIFICATION	 axissetlowerbound assertequals axisgetlowerbound epsilon 
+WITHOUT_CLASSIFICATION	 perform the zoom each range axis 
+WITHOUT_CLASSIFICATION	 include legend 
+WITHOUT_CLASSIFICATION	 draw the domain grid lines any 
+WITHOUT_CLASSIFICATION	 chart title 
+WITHOUT_CLASSIFICATION	 check for bounds interval that includes 
+WITHOUT_CLASSIFICATION	 outlinepaint 
+WITHOUT_CLASSIFICATION	 deregister the collection change listener each series the collection 
+WITHOUT_CLASSIFICATION	 private paint arrowpaint 
+WITHOUT_CLASSIFICATION	 value 
+WITHOUT_CLASSIFICATION	 case comparing another timeperiod object 
+WITHOUT_CLASSIFICATION	 align this rectangle the frameanchor 
+WITHOUT_CLASSIFICATION	 data include legend tooltips urls 
+WITHOUT_CLASSIFICATION	 standard test 
+WITHOUT_CLASSIFICATION	 setup for collecting optional entity info 
+WITHOUT_CLASSIFICATION	 private numbertickunit tickunit 
+WITHOUT_CLASSIFICATION	 nothing item not visible 
+WITHOUT_CLASSIFICATION	 drawingsupplier 
+WITHOUT_CLASSIFICATION	 get the previous point and the next point can calculate hot spot for the area used the chart entity 
+WITHOUT_CLASSIFICATION	 use reflection get the svg string 
+WITHOUT_CLASSIFICATION	 legenditempaint 
+WITHOUT_CLASSIFICATION	 suppress shadow generation because svg vector format and the shadow effect applied via bitmap effects 
+WITHOUT_CLASSIFICATION	 clear any exceptions this timeline 
+WITHOUT_CLASSIFICATION	 create array xindex hold new column indices 
+WITHOUT_CLASSIFICATION	 domainaxis 
+WITHOUT_CLASSIFICATION	 stategetbarwidth 
+WITHOUT_CLASSIFICATION	 wallpaint 
+WITHOUT_CLASSIFICATION	 selected rectangle shouldnt extend outside the data area 
+WITHOUT_CLASSIFICATION	 the axes use linear scale you can uncomment the code below and switch the alternative transxtransy calculation inside the loop that follows little bit faster then int int dataareagetminx int int dataareagetwidth int int dataareagetmaxy int int dataareagetheight double domainmin double domainlength domainmin double rangemin double rangelength rangemin 
+WITHOUT_CLASSIFICATION	 close 
+WITHOUT_CLASSIFICATION	 reserve some space for the domain axis 
+WITHOUT_CLASSIFICATION	 serieskey 
+WITHOUT_CLASSIFICATION	 check that the listener lists are independent 
+WITHOUT_CLASSIFICATION	 shadowpaint 
+WITHOUT_CLASSIFICATION	 reset the min and max 
+WITHOUT_CLASSIFICATION	 private stroke arrowstroke 
+WITHOUT_CLASSIFICATION	 return the override there one 
+WITHOUT_CLASSIFICATION	 shadowvisible 
+WITHOUT_CLASSIFICATION	 bar not visible 
+WITHOUT_CLASSIFICATION	 actual value set below 
+WITHOUT_CLASSIFICATION	 ticklabelpaint 
+WITHOUT_CLASSIFICATION	 parameter value the mathlog function based not 
+WITHOUT_CLASSIFICATION	 thermometerpaint 
+WITHOUT_CLASSIFICATION	 appenddata writes new data the index position given newestat when adding new data dynamically use advancetime followed this 
+WITHOUT_CLASSIFICATION	 now try reject equality 
+WITHOUT_CLASSIFICATION	 barpainter 
+WITHOUT_CLASSIFICATION	 the axis not visible dont draw 
+WITHOUT_CLASSIFICATION	 xybarpainter 
+WITHOUT_CLASSIFICATION	 shadowxoffset 
+WITHOUT_CLASSIFICATION	 errorindicatorpaint 
+WITHOUT_CLASSIFICATION	 draw the plot axes and data visualisation 
+WITHOUT_CLASSIFICATION	 small log values and lower bound value too small then set small value dont allow 
+WITHOUT_CLASSIFICATION	 find optimum height 
+WITHOUT_CLASSIFICATION	 private double tipradius 
+WITHOUT_CLASSIFICATION	 add second dataset plotted against second axis 
+WITHOUT_CLASSIFICATION	 note that for consistency with the awt implementation necessary switch temporarily the foreground and background colours 
+WITHOUT_CLASSIFICATION	 work out scaling required 
+WITHOUT_CLASSIFICATION	 private double arrowlength 
+WITHOUT_CLASSIFICATION	 dont draw this tick label 
+WITHOUT_CLASSIFICATION	 private double baseradius 
+WITHOUT_CLASSIFICATION	 redraw the zoom rectangle present usebuffer false use xor can xor the rectangle away again without redrawing the chart 
+WITHOUT_CLASSIFICATION	 private boolean 
+WITHOUT_CLASSIFICATION	 set the outline paint fully transparent then the legend shape will just have the same colour the lines drawn the renderer 
+WITHOUT_CLASSIFICATION	 first field contains the row key 
+WITHOUT_CLASSIFICATION	 weight 
+WITHOUT_CLASSIFICATION	 tblrc bottom and center only 
+WITHOUT_CLASSIFICATION	 now map the dataset the second xaxis 
+WITHOUT_CLASSIFICATION	 gclipcliparea 
+WITHOUT_CLASSIFICATION	 five dates check 
+WITHOUT_CLASSIFICATION	 from intervalxydataset 
+WITHOUT_CLASSIFICATION	 private double labeloffset 
+WITHOUT_CLASSIFICATION	 handle panning have start point else unregister 
+WITHOUT_CLASSIFICATION	 bufferedimage image 
+WITHOUT_CLASSIFICATION	 mgs using the methods return value was missing 
+WITHOUT_CLASSIFICATION	 tblrc top and left only 
+WITHOUT_CLASSIFICATION	 get upper bound value 
+WITHOUT_CLASSIFICATION	 value 
+WITHOUT_CLASSIFICATION	 unregister the collection change listener each series the collection 
+WITHOUT_CLASSIFICATION	 stroke 
+WITHOUT_CLASSIFICATION	 create the renderer 
+WITHOUT_CLASSIFICATION	 replace existing series 
+WITHOUT_CLASSIFICATION	 category 
+WITHOUT_CLASSIFICATION	 add entity for the item but only falls within the data area 
+WITHOUT_CLASSIFICATION	 categoryanchor 
+WITHOUT_CLASSIFICATION	 start check and 
+WITHOUT_CLASSIFICATION	 tickmarkposition 
+WITHOUT_CLASSIFICATION	 test default instance 
+WITHOUT_CLASSIFICATION	 check that setting the min date something after the current min date works 
+WITHOUT_CLASSIFICATION	 offset the start the boxes the total width used smaller than the category width 
+WITHOUT_CLASSIFICATION	 tickunit 
+WITHOUT_CLASSIFICATION	 draw the category labels and axis label 
+WITHOUT_CLASSIFICATION	 timeline 
+WITHOUT_CLASSIFICATION	 negative values are allowed parameter value the mathlog function based not 
+WITHOUT_CLASSIFICATION	 range 
+WITHOUT_CLASSIFICATION	 suppresses compiler warning 
+WITHOUT_CLASSIFICATION	 case comparing another object 
+WITHOUT_CLASSIFICATION	 the following fields are inherited from the 
+WITHOUT_CLASSIFICATION	 the bug still present this leads endless loop 
+WITHOUT_CLASSIFICATION	 tblrc top and bottom only 
+WITHOUT_CLASSIFICATION	 end check and 
+WITHOUT_CLASSIFICATION	 middle check and 
+WITHOUT_CLASSIFICATION	 this series belongs dataset the dataset might veto the change results two series within the dataset having the same key 
+WITHOUT_CLASSIFICATION	 jfreechart chart 
+WITHOUT_CLASSIFICATION	 remember value negative 
+WITHOUT_CLASSIFICATION	 empty dataset should return null range 
+WITHOUT_CLASSIFICATION	 changing the item that was added should not change the series 
+WITHOUT_CLASSIFICATION	 basestroke 
+WITHOUT_CLASSIFICATION	 end point either lower left corner vertical gradient end point upper right corner horizontal gradient 
+WITHOUT_CLASSIFICATION	 argument checking delegated 
+WITHOUT_CLASSIFICATION	 try empty dataset should return null range 
+WITHOUT_CLASSIFICATION	 shapelocation 
+WITHOUT_CLASSIFICATION	 the row may not have entry for this key which case the return value null 
+WITHOUT_CLASSIFICATION	 test independence 
+WITHOUT_CLASSIFICATION	 here need update the for the popup menu the panel has one 
+WITHOUT_CLASSIFICATION	 private double arrowwidth 
+WITHOUT_CLASSIFICATION	 both axes 
+WITHOUT_CLASSIFICATION	 end check 
+WITHOUT_CLASSIFICATION	 reserve space for the range axes any 
+WITHOUT_CLASSIFICATION	 start check 
+WITHOUT_CLASSIFICATION	 case comparing nontimeperiod object 
+WITHOUT_CLASSIFICATION	 fetch listeners from local storage 
+WITHOUT_CLASSIFICATION	 case object mutable but not publiccloneable 
+WITHOUT_CLASSIFICATION	 work out the space required the domain axis 
+WITHOUT_CLASSIFICATION	 middle check 
+WITHOUT_CLASSIFICATION	 check retrieve value key 
+WITHOUT_CLASSIFICATION	 get desired width and height from somewhere then 
+WITHOUT_CLASSIFICATION	 plot data 
+WITHOUT_CLASSIFICATION	 shifting with delta does not change the range 
+WITHOUT_CLASSIFICATION	 set axis bounds both greater than 
+WITHOUT_CLASSIFICATION	 get the column names and cache them 
+WITHOUT_CLASSIFICATION	 check that changing tick label font doesnt change 
+WITHOUT_CLASSIFICATION	 check that changing tick label paint doesnt change 
+WITHOUT_CLASSIFICATION	 null dataset throws 
+WITHOUT_CLASSIFICATION	 check that changing category label tooltip doesnt change 
+WITHOUT_CLASSIFICATION	 the popup menu has already been triggered then ignore dragging 
+WITHOUT_CLASSIFICATION	 lowermargin 
+WITHOUT_CLASSIFICATION	 check for both bounds smaller than 
+WITHOUT_CLASSIFICATION	 the line visible wasnt wed have returned false from within the while loop above 
+WITHOUT_CLASSIFICATION	 the categorydataset interface expects list series but weve stored them array 
+WITHOUT_CLASSIFICATION	 categorymargin 
+WITHOUT_CLASSIFICATION	 uppermargin 
+WITHOUT_CLASSIFICATION	 check the item the last item for the series and number items cant draw area for single point 
+WITHOUT_CLASSIFICATION	 set start and end date 
+WITHOUT_CLASSIFICATION	 tblrc left and center items 
+WITHOUT_CLASSIFICATION	 create the canvas and add the required listeners 
+WITHOUT_CLASSIFICATION	 fillpaintlist 
+WITHOUT_CLASSIFICATION	 test onesegment and adjacent segments 
+WITHOUT_CLASSIFICATION	 get the origin the zoom selection the javad space used for drawing the chart that before any scaling fit the panel 
+WITHOUT_CLASSIFICATION	 fixed auto range then derive lower bound 
+WITHOUT_CLASSIFICATION	 set the new dataset and register the chart change listener 
+WITHOUT_CLASSIFICATION	 advance line stroke 
+WITHOUT_CLASSIFICATION	 only draw have good values 
+WITHOUT_CLASSIFICATION	 offset 
+WITHOUT_CLASSIFICATION	 check the item the last item for the series null value and number items cant draw area for single point 
+WITHOUT_CLASSIFICATION	 try null key should throw exception 
+WITHOUT_CLASSIFICATION	 compute common denominator 
+WITHOUT_CLASSIFICATION	 private double fixedautorange 
+WITHOUT_CLASSIFICATION	 paint 
+WITHOUT_CLASSIFICATION	 case comparing general object 
+WITHOUT_CLASSIFICATION	 ticklabelpaint 
+WITHOUT_CLASSIFICATION	 register listener with subcomponents 
+WITHOUT_CLASSIFICATION	 categorylabelurls 
+WITHOUT_CLASSIFICATION	 draw domain crosshair required 
+WITHOUT_CLASSIFICATION	 now draw annotations and render data items 
+WITHOUT_CLASSIFICATION	 ticklabelpaint 
+WITHOUT_CLASSIFICATION	 test base timeline for mstimeline using included and excluded segments timeline start time eeeeeeee eeeeeeee msbasetimeline segment group segment size 
+WITHOUT_CLASSIFICATION	 private shape leftarrow 
+WITHOUT_CLASSIFICATION	 verify attributes set during object construction 
+WITHOUT_CLASSIFICATION	 after removed from the collection should able set the key anything want 
+WITHOUT_CLASSIFICATION	 cycle bound mapping 
+WITHOUT_CLASSIFICATION	 many the zoom methods need screen location all have the zoompoint but might null here grab the and coordinates use defaults 
+WITHOUT_CLASSIFICATION	 private methods 
+WITHOUT_CLASSIFICATION	 make sure binsbinslengths upper boundary ends maximum avoid the rounding issue the bins lower boundary guaranteed start from min 
+WITHOUT_CLASSIFICATION	 generic map for each series 
+WITHOUT_CLASSIFICATION	 reduce the default margins 
+WITHOUT_CLASSIFICATION	 advance line visible 
+WITHOUT_CLASSIFICATION	 for macosx cant use the ctrl key for mouse drags see 
+WITHOUT_CLASSIFICATION	 put exclusions test 
+WITHOUT_CLASSIFICATION	 try dataset with some content 
+WITHOUT_CLASSIFICATION	 set start time 
+WITHOUT_CLASSIFICATION	 lower bound and margin get log lower bound 
+WITHOUT_CLASSIFICATION	 create segmented time line segment size minutes 
+WITHOUT_CLASSIFICATION	 redrawing the chart every time 
+WITHOUT_CLASSIFICATION	 these constants control test cycles the validatexxxx methods 
+WITHOUT_CLASSIFICATION	 make the chart area square 
+WITHOUT_CLASSIFICATION	 quarter 
+WITHOUT_CLASSIFICATION	 make the background the buffer clear and transparent 
+WITHOUT_CLASSIFICATION	 add minor ticks for gridlines 
+WITHOUT_CLASSIFICATION	 doublenan should ignored 
+WITHOUT_CLASSIFICATION	 calculate the first monday after 
+WITHOUT_CLASSIFICATION	 default instances 
+WITHOUT_CLASSIFICATION	 low 
+WITHOUT_CLASSIFICATION	 calculate the max label width from the plot dimensions because circular pie can leave lot more room for labels 
+WITHOUT_CLASSIFICATION	 the anchor point typically the point where the mouse last clicked the crosshairs will driven off this point 
+WITHOUT_CLASSIFICATION	 there explicit mapping the default group counted 
+WITHOUT_CLASSIFICATION	 test ampm monday through friday timeline 
+WITHOUT_CLASSIFICATION	 the segment entirely the front the chart 
+WITHOUT_CLASSIFICATION	 range none 
+WITHOUT_CLASSIFICATION	 test some included and excluded segments 
+WITHOUT_CLASSIFICATION	 stroke 
+WITHOUT_CLASSIFICATION	 tblrc bottom item only 
+WITHOUT_CLASSIFICATION	 zap the buffer onto the panel 
+WITHOUT_CLASSIFICATION	 logically consecutive segments nonphysically consecutive with noncontained time between 
+WITHOUT_CLASSIFICATION	 positive item label position 
+WITHOUT_CLASSIFICATION	 verify segments are consecutive and correct 
+WITHOUT_CLASSIFICATION	 get the data point 
+WITHOUT_CLASSIFICATION	 test inc method 
+WITHOUT_CLASSIFICATION	 create new but empty chartmouselisteners list 
+WITHOUT_CLASSIFICATION	 visible flag 
+WITHOUT_CLASSIFICATION	 dmo end dmo additions 
+WITHOUT_CLASSIFICATION	 try next segment 
+WITHOUT_CLASSIFICATION	 itemlabelsvisible 
+WITHOUT_CLASSIFICATION	 exclude current exception and last one 
+WITHOUT_CLASSIFICATION	 test inc methods 
+WITHOUT_CLASSIFICATION	 check that the series visible flag observed 
+WITHOUT_CLASSIFICATION	 another segment continue test 
+WITHOUT_CLASSIFICATION	 data the parent plot 
+WITHOUT_CLASSIFICATION	 make the link area square the pie chart circular circular 
+WITHOUT_CLASSIFICATION	 test incn method 
+WITHOUT_CLASSIFICATION	 fixed domain axis space 
+WITHOUT_CLASSIFICATION	 select tick unit that the next one bigger than the current log range divided 
+WITHOUT_CLASSIFICATION	 font 
+WITHOUT_CLASSIFICATION	 tick label insets 
+WITHOUT_CLASSIFICATION	 the link area defines the dog leg points for the linking lines the labels 
+WITHOUT_CLASSIFICATION	 verify list exceptions 
+WITHOUT_CLASSIFICATION	 lowerbound 
+WITHOUT_CLASSIFICATION	 tick labels visible flag 
+WITHOUT_CLASSIFICATION	 fill the exceptions 
+WITHOUT_CLASSIFICATION	 rangeaxislocation longer separate field but test anyway 
+WITHOUT_CLASSIFICATION	 should excluded segment 
+WITHOUT_CLASSIFICATION	 add entity for the item but only falls within the data area 
+WITHOUT_CLASSIFICATION	 should included segment 
+WITHOUT_CLASSIFICATION	 include current exception and last one 
+WITHOUT_CLASSIFICATION	 tick mark paint 
+WITHOUT_CLASSIFICATION	 need guard against thiszoompoint being null 
+WITHOUT_CLASSIFICATION	 long stltotimelinevaluel 
+WITHOUT_CLASSIFICATION	 strokelist 
+WITHOUT_CLASSIFICATION	 ticklabeloffset 
+WITHOUT_CLASSIFICATION	 multiple axes are mapped the first the list should returned 
+WITHOUT_CLASSIFICATION	 only add exception currently included segment 
+WITHOUT_CLASSIFICATION	 consider time periods ordered after general objects 
+WITHOUT_CLASSIFICATION	 add our exceptions and store locally arraylist longs 
+WITHOUT_CLASSIFICATION	 private plot parent dont clone the parent plot but take care childs combined plots instead 
+WITHOUT_CLASSIFICATION	 some checks that the clone independent the original 
+WITHOUT_CLASSIFICATION	 make array exceptions 
+WITHOUT_CLASSIFICATION	 the dataset not then just revert the superclass behaviour 
+WITHOUT_CLASSIFICATION	 start time 
+WITHOUT_CLASSIFICATION	 try replacing existing value 
+WITHOUT_CLASSIFICATION	 add the base timeline exclusions timelines esceptions 
+WITHOUT_CLASSIFICATION	 adjust the plot area the interior spacing value 
+WITHOUT_CLASSIFICATION	 jan 
+WITHOUT_CLASSIFICATION	 remove series and add new series 
+WITHOUT_CLASSIFICATION	 sublabelpaint 
+WITHOUT_CLASSIFICATION	 more than demo applications are included with the jfreechart developer guidefor more information see 
+WITHOUT_CLASSIFICATION	 default the renderer with index used 
+WITHOUT_CLASSIFICATION	 ensure the autorange least minrange size 
+WITHOUT_CLASSIFICATION	 test serialization 
+WITHOUT_CLASSIFICATION	 set info collection 
+WITHOUT_CLASSIFICATION	 sublabelfont 
+WITHOUT_CLASSIFICATION	 this replaces the entry with the current minimum value but the new minimum value now different item 
+WITHOUT_CLASSIFICATION	 verify all timeline segments included the basetimelinesegment are now exceptions 
+WITHOUT_CLASSIFICATION	 stat function for linear slope ybar xbar sumx sum sumy sum sumx 
+WITHOUT_CLASSIFICATION	 subcategories 
+WITHOUT_CLASSIFICATION	 utility methods 
+WITHOUT_CLASSIFICATION	 physically consecutive 
+WITHOUT_CLASSIFICATION	 hasnt implemented domaininfo iterate 
+WITHOUT_CLASSIFICATION	 there separator assume the first four characters are yyyy 
+WITHOUT_CLASSIFICATION	 label font 
+WITHOUT_CLASSIFICATION	 adjust the drawing area for the plot insets any 
+WITHOUT_CLASSIFICATION	 label 
+WITHOUT_CLASSIFICATION	 prefetch the colors for each keythis because the subplots may not display every key but need the coloring consistent 
+WITHOUT_CLASSIFICATION	 label paint 
+WITHOUT_CLASSIFICATION	 holds the moving average sum 
+WITHOUT_CLASSIFICATION	 attributed label 
+WITHOUT_CLASSIFICATION	 now add some more data 
+WITHOUT_CLASSIFICATION	 label insets 
+WITHOUT_CLASSIFICATION	 the box has been drawn backwards restore the auto bounds 
+WITHOUT_CLASSIFICATION	 high 
+WITHOUT_CLASSIFICATION	 lots can wrong while fiddling with images color models such anything all goes awry just return the original texturepaint texturepaints are immutable anyway harm done 
+WITHOUT_CLASSIFICATION	 axis line stroke 
+WITHOUT_CLASSIFICATION	 add each point area 
+WITHOUT_CLASSIFICATION	 label angle 
+WITHOUT_CLASSIFICATION	 the axis not visible additional space required 
+WITHOUT_CLASSIFICATION	 axis line visible 
+WITHOUT_CLASSIFICATION	 none fixed 
+WITHOUT_CLASSIFICATION	 tblrc top and center only 
+WITHOUT_CLASSIFICATION	 axis line visible flag 
+WITHOUT_CLASSIFICATION	 jfreechart free chart library for the javatm platform copyright object refinery limited and contributors project info this library free software you can redistribute andor modify under the terms the gnu lesser general public license published the free software foundation either version the license your option any later version this library distributed the hope that will useful but without any warranty without even the implied warranty merchantability fitness for particular purpose see the gnu lesser general public license for more details you should have received copy the gnu lesser general public license along with this library not write the free software foundation inc franklin street fifth floor boston usa oracle and java are registered trademarks oracle andor its affiliates other names may trademarks their respective owners chartfactoryjava copyright object refinery limited and contributors original author david gilbert for object refinery limited contributors serge grachov joao guilherme del valle bill kelemen jon iles jelai wang richard atkinson david browning for australian institute marine science benoit xhenseval changes oct version most methods transferred from jfreechartjava oct added methods create stacked bar charts renamed datasourcejava datasetjava etc oct added deffect vertical bar and stackedbar charts contributed serge grachov nov added flag control whether not legend added the chart nov for pie chart changed dataset from categorydataset piedataset nov removed trycatch handlers from chart creation the exception are now runtimeexceptions suggested joao guilherme del valle dec added methods dec added method dec updated methods for charts with new renderers jan added import for jan changed the method use renderer feb added new method createwindplot apr updates the chart and plot constructor api may added new method createareachart jun added new method createganttchart jun renamed for consistency aug updated javadoc comments aug added method oct fixed errors reported checkstyle oct added methods including tooltips and url flags nov moved renderers into separate package nov changed categorydataset tabledataset mar incorporated see bug may merged some horizontal and vertical methods may added support for timeline createhighlowchart jul added createhistogram method contributed jelai wang jul added method aug added new method sep changed valueaxis api oct added stepped area chart contributed matthias rose nov added method nov set rendering order for bar charts fix overlapping problems nov added createwafermapchart method dec renamed createpiedchart createpiechartd for consistency jan added createpolarchart method jan fixed bug with axis range method feb renamed xytooltipgenerator mar updated for pie chart changes apr added new createpiechart method contributed benoit xhenseval see rfe may split and jan removed deprecated methods jan added new constructor feb added docs createbubblechart method mar added createringplot method apr replaced insets with rectangleinsets nov removed signal chart jfreechart jan corrected api docs for createscatterplot aug modified use because doesnt handle negative values sep update createpiechart method for deprecated code nov update createxybarchart use time based tool tip generator dateaxis requested jan added method from patch submitted darren jung jul added new methods create pie charts with locale for section label and tool tip formatting aug added charttheme facility oct check for legacy theme setcharttheme and reset default bar painters dec set category margin jul use paramchecks class 
+WITHOUT_CLASSIFICATION	 label location 
+WITHOUT_CLASSIFICATION	 tick label paint 
+WITHOUT_CLASSIFICATION	 through each zoom menu item and decide whether not enable 
+WITHOUT_CLASSIFICATION	 tick mark inside length 
+WITHOUT_CLASSIFICATION	 the source point doesnt fall within subplot the zoom all subplots 
+WITHOUT_CLASSIFICATION	 fixed dimension 
+WITHOUT_CLASSIFICATION	 tick mark outside length 
+WITHOUT_CLASSIFICATION	 none range 
+WITHOUT_CLASSIFICATION	 get absolute value log value 
+WITHOUT_CLASSIFICATION	 private shape downarrow 
+WITHOUT_CLASSIFICATION	 upper bound and margin get log upper bound 
+WITHOUT_CLASSIFICATION	 private shape rightarrow 
+WITHOUT_CLASSIFICATION	 add second renderer with the same index dataset now will used 
+WITHOUT_CLASSIFICATION	 private shape uparrow 
+WITHOUT_CLASSIFICATION	 none none 
+WITHOUT_CLASSIFICATION	 the rendering process there special handling for item zero cant support processing visible data items only 
+WITHOUT_CLASSIFICATION	 verticalticklabels 
+WITHOUT_CLASSIFICATION	 update and and using intersections then recheck 
+WITHOUT_CLASSIFICATION	 axislinestroke 
+WITHOUT_CLASSIFICATION	 yearformatter 
+WITHOUT_CLASSIFICATION	 check arguments 
+WITHOUT_CLASSIFICATION	 locale 
+WITHOUT_CLASSIFICATION	 series are columns then the categories are the row keys 
+WITHOUT_CLASSIFICATION	 showyear 
+WITHOUT_CLASSIFICATION	 when the dataset contains series expect the range null 
+WITHOUT_CLASSIFICATION	 chars 
+WITHOUT_CLASSIFICATION	 now repeat for vertical axis 
+WITHOUT_CLASSIFICATION	 fixed range 
+WITHOUT_CLASSIFICATION	 draw the annotations any 
+WITHOUT_CLASSIFICATION	 end point lower right corner diagonal gradient 
+WITHOUT_CLASSIFICATION	 the next functions implement the rangeinfo interface using saved limits updated each updatetime call significantly improves performance warning this code makes the simplifying assumption that data never negative expand needed for the general case 
+WITHOUT_CLASSIFICATION	 fixed none 
+WITHOUT_CLASSIFICATION	 range fixed 
+WITHOUT_CLASSIFICATION	 main include and excluded segments 
+WITHOUT_CLASSIFICATION	 tblrc left item only 
+WITHOUT_CLASSIFICATION	 this the last period but only partially visible check that the label will fit before displaying 
+WITHOUT_CLASSIFICATION	 tblrc right item only 
+WITHOUT_CLASSIFICATION	 check that there some data display 
+WITHOUT_CLASSIFICATION	 fixed fixed 
+WITHOUT_CLASSIFICATION	 case comparing another timeseriesdataitem object 
+WITHOUT_CLASSIFICATION	 tblrc 
+WITHOUT_CLASSIFICATION	 only power value its and its resulting tick value will larger than lower bound data decrement generate more ticks 
+WITHOUT_CLASSIFICATION	 draw the block without collecting entities 
+WITHOUT_CLASSIFICATION	 try case where right item shorter than center item 
+WITHOUT_CLASSIFICATION	 initialize chartpanelspecific tool tip delays with values the from 
+WITHOUT_CLASSIFICATION	 should items 
+WITHOUT_CLASSIFICATION	 the incoming state null information will passed back the caller but create temporary state record the plot area since that used later the axes 
+WITHOUT_CLASSIFICATION	 tblrc right and center items 
+WITHOUT_CLASSIFICATION	 check this addition will exceed the maximum item count 
+WITHOUT_CLASSIFICATION	 try case where left item shorter than center item 
+WITHOUT_CLASSIFICATION	 here check that the average marker will fact visible before drawing 
+WITHOUT_CLASSIFICATION	 tblrc top left and right 
+WITHOUT_CLASSIFICATION	 check series with one item 
+WITHOUT_CLASSIFICATION	 weve been panning need reset now that the mouse released 
+WITHOUT_CLASSIFICATION	 tblrc left and right items 
+WITHOUT_CLASSIFICATION	 add entity for the item 
+WITHOUT_CLASSIFICATION	 otherwise look the generator table 
+WITHOUT_CLASSIFICATION	 tblrc left right and center items 
+WITHOUT_CLASSIFICATION	 try array containing single number and null 
+WITHOUT_CLASSIFICATION	 case comparing another minute object 
+WITHOUT_CLASSIFICATION	 tblrc 
+WITHOUT_CLASSIFICATION	 tblrc 
+WITHOUT_CLASSIFICATION	 add value that isnt the xrange 
+WITHOUT_CLASSIFICATION	 tblrc all 
+WITHOUT_CLASSIFICATION	 collection containing nan will return doublenan for the result 
+WITHOUT_CLASSIFICATION	 tblrc 
+WITHOUT_CLASSIFICATION	 special case the underlying rectangle uses ints need create one that uses doubles 
+WITHOUT_CLASSIFICATION	 create dataset 
+WITHOUT_CLASSIFICATION	 set popup menu 
+WITHOUT_CLASSIFICATION	 need create entity cant save anyways 
+WITHOUT_CLASSIFICATION	 erase the zoom rectangle 
+WITHOUT_CLASSIFICATION	 secondary 
+WITHOUT_CLASSIFICATION	 test series with item 
+WITHOUT_CLASSIFICATION	 the initial averaging period excluded then calculate the lowest xvalue have average calculated 
+WITHOUT_CLASSIFICATION	 tblrc top bottom and right 
+WITHOUT_CLASSIFICATION	 tblrc 
+WITHOUT_CLASSIFICATION	 initialize the members seriesnames array they wont null 
+WITHOUT_CLASSIFICATION	 remove value 
+WITHOUT_CLASSIFICATION	 wrong outcome 
+WITHOUT_CLASSIFICATION	 tblrc bottom right and center 
+WITHOUT_CLASSIFICATION	 change rendering order ensure that bar overlapping the right way around 
+WITHOUT_CLASSIFICATION	 check that removing index also works 
+WITHOUT_CLASSIFICATION	 additional methods required 
+WITHOUT_CLASSIFICATION	 now should allowed change key anything but 
+WITHOUT_CLASSIFICATION	 standard case plain xydataset 
+WITHOUT_CLASSIFICATION	 either autowidth off autointervalwidth was not set 
+WITHOUT_CLASSIFICATION	 dmo added this panel for colorbar control start dmo additions 
+WITHOUT_CLASSIFICATION	 tblrc top right and center 
+WITHOUT_CLASSIFICATION	 tblrc bottom left and right 
+WITHOUT_CLASSIFICATION	 tblrc bottom left and center 
+WITHOUT_CLASSIFICATION	 tblrc top item only 
+WITHOUT_CLASSIFICATION	 check that the new bin doesnt overlap with any existing bin 
+WITHOUT_CLASSIFICATION	 tblrc right and top only 
+WITHOUT_CLASSIFICATION	 tblrc 
+WITHOUT_CLASSIFICATION	 defer null argument check 
+WITHOUT_CLASSIFICATION	 some setup 
+WITHOUT_CLASSIFICATION	 nothing item not visible null 
+WITHOUT_CLASSIFICATION	 format 
+WITHOUT_CLASSIFICATION	 handle three cases dataset type 
+WITHOUT_CLASSIFICATION	 tooltip format 
+WITHOUT_CLASSIFICATION	 extras found useful when analyzingverifying class behavior public number series int item return item public float getuntranslatedyint series int item return supergetyseries item 
+WITHOUT_CLASSIFICATION	 date format 
+WITHOUT_CLASSIFICATION	 data can the next methods should modified 
+WITHOUT_CLASSIFICATION	 create subplot 
+WITHOUT_CLASSIFICATION	 create new dataset with keys above threshold percentthreshold 
+WITHOUT_CLASSIFICATION	 try null value 
+WITHOUT_CLASSIFICATION	 now extrapolate based label height and unit height 
+WITHOUT_CLASSIFICATION	 another test 
+WITHOUT_CLASSIFICATION	 end period not original series this first item after end period this last item before end 
+WITHOUT_CLASSIFICATION	 the reverse transformed value will the start the next nonexcluded and nonexception segment 
+WITHOUT_CLASSIFICATION	 number format 
+WITHOUT_CLASSIFICATION	 format string 
+WITHOUT_CLASSIFICATION	 add last point for fillpath and close path 
+WITHOUT_CLASSIFICATION	 date format 
+WITHOUT_CLASSIFICATION	 number format 
+WITHOUT_CLASSIFICATION	 orientation 
+WITHOUT_CLASSIFICATION	 from seriesdataset 
+WITHOUT_CLASSIFICATION	 create subplot 
+WITHOUT_CLASSIFICATION	 yadj descent leading float boundsgetheight 
+WITHOUT_CLASSIFICATION	 add the subplots 
+WITHOUT_CLASSIFICATION	 the actual panning occurs later the mousedragged method 
+WITHOUT_CLASSIFICATION	 separatorpaint 
+WITHOUT_CLASSIFICATION	 apply upper margin increasing upper bound 
+WITHOUT_CLASSIFICATION	 now get the data and plot the visual representation will depend the mrenderer that has been set 
+WITHOUT_CLASSIFICATION	 for item labels have special case because there the possibility draw the regular item label near just the upper yvalue the regular item label near the upper yvalue plus additional item label near the lower yvalue 
+WITHOUT_CLASSIFICATION	 axisoffset 
+WITHOUT_CLASSIFICATION	 absolute value since the relative positions are reversed for horizontal orientation 
+WITHOUT_CLASSIFICATION	 tblrc items 
+WITHOUT_CLASSIFICATION	 request with negative index 
+WITHOUT_CLASSIFICATION	 try negative row index 
+WITHOUT_CLASSIFICATION	 domainaxes 
+WITHOUT_CLASSIFICATION	 work out the number periods skip for labelling 
+WITHOUT_CLASSIFICATION	 private attributes 
+WITHOUT_CLASSIFICATION	 turn off antialiasing when filling rectangles 
+WITHOUT_CLASSIFICATION	 draw shared domain axis 
+WITHOUT_CLASSIFICATION	 tblrc 
+WITHOUT_CLASSIFICATION	 check handling when the dataset regular xydataset not xyzdataset 
+WITHOUT_CLASSIFICATION	 get the previous data point 
+WITHOUT_CLASSIFICATION	 rendering order 
+WITHOUT_CLASSIFICATION	 calculate the data area 
+WITHOUT_CLASSIFICATION	 domainaxislocations 
+WITHOUT_CLASSIFICATION	 case object mutable and publiccloneable 
+WITHOUT_CLASSIFICATION	 try default instance 
+WITHOUT_CLASSIFICATION	 renderers 
+WITHOUT_CLASSIFICATION	 forces recalculation the axis range 
+WITHOUT_CLASSIFICATION	 closetickpaint 
+WITHOUT_CLASSIFICATION	 rangeaxes 
+WITHOUT_CLASSIFICATION	 fake dataset change event update axes 
+WITHOUT_CLASSIFICATION	 rangeaxislocations 
+WITHOUT_CLASSIFICATION	 get list keys 
+WITHOUT_CLASSIFICATION	 first tick group create label text 
+WITHOUT_CLASSIFICATION	 annotations 
+WITHOUT_CLASSIFICATION	 handle panning have start point 
+WITHOUT_CLASSIFICATION	 draw the arrow 
+WITHOUT_CLASSIFICATION	 there alignment adjustment made 
+WITHOUT_CLASSIFICATION	 rangegridlinepaint 
+WITHOUT_CLASSIFICATION	 generate the grid 
+WITHOUT_CLASSIFICATION	 delegate argument checking xydataitem 
+WITHOUT_CLASSIFICATION	 rangegridlinestroke 
+WITHOUT_CLASSIFICATION	 from outlier array sort out which are outliers and put these into arraylist there are any farouts set the flag the 
+WITHOUT_CLASSIFICATION	 rectangled hotspot 
+WITHOUT_CLASSIFICATION	 rowrenderingorder 
+WITHOUT_CLASSIFICATION	 key that hasnt been mapped should return the default group 
+WITHOUT_CLASSIFICATION	 background range markers 
+WITHOUT_CLASSIFICATION	 this should never happen with the existing code but throw exception case future changes make possible 
+WITHOUT_CLASSIFICATION	 rangecrosshairvalue 
+WITHOUT_CLASSIFICATION	 default notify listeners when the chart changes 
+WITHOUT_CLASSIFICATION	 parameter value calculate log using positive value 
+WITHOUT_CLASSIFICATION	 starts the front finishes the back going around the left side 
+WITHOUT_CLASSIFICATION	 labelgenerator 
+WITHOUT_CLASSIFICATION	 assum super always initialized allzero matrix the total sum should upon initialization however set doubleminvalue get the same effect and yet avoid division upon initialization 
+WITHOUT_CLASSIFICATION	 starts back finishes front clockwise 
+WITHOUT_CLASSIFICATION	 background domain markers 
+WITHOUT_CLASSIFICATION	 override default 
+WITHOUT_CLASSIFICATION	 foreground range markers 
+WITHOUT_CLASSIFICATION	 special case where the lowest xvalue xlow 
+WITHOUT_CLASSIFICATION	 foreground domain markers 
+WITHOUT_CLASSIFICATION	 make sure there are exceptions 
+WITHOUT_CLASSIFICATION	 return 
+WITHOUT_CLASSIFICATION	 calculate power using positive value then negate 
+WITHOUT_CLASSIFICATION	 create new space object one wasnt supplied 
+WITHOUT_CLASSIFICATION	 check for independence 
+WITHOUT_CLASSIFICATION	 define the default locations for axes 
+WITHOUT_CLASSIFICATION	 series outline paint 
+WITHOUT_CLASSIFICATION	 fixed range axis space 
+WITHOUT_CLASSIFICATION	 send dataset change event self 
+WITHOUT_CLASSIFICATION	 shadowgenerator 
+WITHOUT_CLASSIFICATION	 axis line paint 
+WITHOUT_CLASSIFICATION	 try dataset with single value 
+WITHOUT_CLASSIFICATION	 parameter value use asis 
+WITHOUT_CLASSIFICATION	 didnt get exception all good 
+WITHOUT_CLASSIFICATION	 the value not within the axis range 
+WITHOUT_CLASSIFICATION	 correct outcome 
+WITHOUT_CLASSIFICATION	 should equal 
+WITHOUT_CLASSIFICATION	 dial outline paint 
+WITHOUT_CLASSIFICATION	 add second dataset 
+WITHOUT_CLASSIFICATION	 get the current data item 
+WITHOUT_CLASSIFICATION	 check second argument less than first argument 
+WITHOUT_CLASSIFICATION	 labelpaint 
+WITHOUT_CLASSIFICATION	 check index getitemcount throws exception 
+WITHOUT_CLASSIFICATION	 should able give dataset arbitrary index 
+WITHOUT_CLASSIFICATION	 the plot area too small just return 
+WITHOUT_CLASSIFICATION	 set xor mode draw the zoom rectangle 
+WITHOUT_CLASSIFICATION	 should able give renderer arbitrary index 
+WITHOUT_CLASSIFICATION	 outline paint 
+WITHOUT_CLASSIFICATION	 domaingridlinepaint 
+WITHOUT_CLASSIFICATION	 are using the chart buffer 
+WITHOUT_CLASSIFICATION	 draw average special aims requirement 
+WITHOUT_CLASSIFICATION	 tooltipgenerator 
+WITHOUT_CLASSIFICATION	 adjust the drawing area for plot insets any 
+WITHOUT_CLASSIFICATION	 drawborder 
+WITHOUT_CLASSIFICATION	 can pan this plot 
+WITHOUT_CLASSIFICATION	 tick label paint 
+WITHOUT_CLASSIFICATION	 force redraw new entity code 
+WITHOUT_CLASSIFICATION	 update the linking line target for later add entity for the pie section 
+WITHOUT_CLASSIFICATION	 xydataset only provides methods for reading dataset 
+WITHOUT_CLASSIFICATION	 tick label font 
+WITHOUT_CLASSIFICATION	 remove the point iperiodcount out the rolling sum 
+WITHOUT_CLASSIFICATION	 value paint 
+WITHOUT_CLASSIFICATION	 check there are any values earlier than specified the history count 
+WITHOUT_CLASSIFICATION	 value font 
+WITHOUT_CLASSIFICATION	 set some objects 
+WITHOUT_CLASSIFICATION	 needle paint 
+WITHOUT_CLASSIFICATION	 set theme using the new shadow generator feature available for backwards compatibility not enabled default 
+WITHOUT_CLASSIFICATION	 stroke 
+WITHOUT_CLASSIFICATION	 draw the new zoom rectangle 
+WITHOUT_CLASSIFICATION	 tick label format 
+WITHOUT_CLASSIFICATION	 settickvalues was missing from colorpalette 
+WITHOUT_CLASSIFICATION	 alpha 
+WITHOUT_CLASSIFICATION	 draw border 
+WITHOUT_CLASSIFICATION	 since the items are ordered could more clever here and avoid iterating over all the data 
+WITHOUT_CLASSIFICATION	 paint 
+WITHOUT_CLASSIFICATION	 class variable initializes 
+WITHOUT_CLASSIFICATION	 tick paint 
+WITHOUT_CLASSIFICATION	 meter angle 
+WITHOUT_CLASSIFICATION	 add the subtrahends points the polygon reverse 
+WITHOUT_CLASSIFICATION	 key 
+WITHOUT_CLASSIFICATION	 stop listening for changes the existing chart 
+WITHOUT_CLASSIFICATION	 have rotation 
+WITHOUT_CLASSIFICATION	 get positive exponent create multiplier value multiply round and divide for bound value 
+WITHOUT_CLASSIFICATION	 change the generator and make sure only affects 
+WITHOUT_CLASSIFICATION	 outlinestroke 
+WITHOUT_CLASSIFICATION	 secondary rangeaxes 
+WITHOUT_CLASSIFICATION	 draw the axis label note that state passed and returned 
+WITHOUT_CLASSIFICATION	 rosecenterpaint 
+WITHOUT_CLASSIFICATION	 create the plot 
+WITHOUT_CLASSIFICATION	 rosepaint 
+WITHOUT_CLASSIFICATION	 first determine the size the chart rendering area 
+WITHOUT_CLASSIFICATION	 reset the default overwrite mode 
+WITHOUT_CLASSIFICATION	 interiorgap 
+WITHOUT_CLASSIFICATION	 interiorgap 
+WITHOUT_CLASSIFICATION	 extent 
+WITHOUT_CLASSIFICATION	 labelgap 
+WITHOUT_CLASSIFICATION	 sectionpaint 
+WITHOUT_CLASSIFICATION	 additional dataarea modifications check whether modification 
+WITHOUT_CLASSIFICATION	 circular 
+WITHOUT_CLASSIFICATION	 another empty series 
+WITHOUT_CLASSIFICATION	 ignorenullvalues 
+WITHOUT_CLASSIFICATION	 direction 
+WITHOUT_CLASSIFICATION	 now get the data and plot the visual representation will depend the renderer that has been set 
+WITHOUT_CLASSIFICATION	 sectionpaintmap 
+WITHOUT_CLASSIFICATION	 new methods 
+WITHOUT_CLASSIFICATION	 when the dataset contains series expect the value range null 
+WITHOUT_CLASSIFICATION	 labeloutlinestroke 
+WITHOUT_CLASSIFICATION	 separatorsvisible 
+WITHOUT_CLASSIFICATION	 plot dataset pass series item domainaxis dataarea rangeaxis crosshairstate entities 
+WITHOUT_CLASSIFICATION	 labeloutlinepaint 
+WITHOUT_CLASSIFICATION	 shadowpaint 
+WITHOUT_CLASSIFICATION	 newestat takes value previously held oldestat 
+WITHOUT_CLASSIFICATION	 shadowyoffset 
+WITHOUT_CLASSIFICATION	 outlinevisible 
+WITHOUT_CLASSIFICATION	 get log version lower bound and round integer 
+WITHOUT_CLASSIFICATION	 try customised instance 
+WITHOUT_CLASSIFICATION	 links visible 
+WITHOUT_CLASSIFICATION	 verify various indices inside segment are the same segment 
+WITHOUT_CLASSIFICATION	 maximumlabelwidth 
+WITHOUT_CLASSIFICATION	 explodepercentages 
+WITHOUT_CLASSIFICATION	 nonjavadoc see 
+WITHOUT_CLASSIFICATION	 labelshadowpaint 
+WITHOUT_CLASSIFICATION	 suppress shadow generation because pdf vector format and the shadow effect applied via bitmap effects 
+WITHOUT_CLASSIFICATION	 handle transparency and compositing 
+WITHOUT_CLASSIFICATION	 startangle 
+WITHOUT_CLASSIFICATION	 list store the series index and bar region can draw all the labels the end 
+WITHOUT_CLASSIFICATION	 get the relevant source coordinate given the plot orientation 
+WITHOUT_CLASSIFICATION	 store the current time zone 
+WITHOUT_CLASSIFICATION	 axislinepaint 
+WITHOUT_CLASSIFICATION	 previous data point 
+WITHOUT_CLASSIFICATION	 check that the url generator has been cloned 
+WITHOUT_CLASSIFICATION	 the following alternative only supported jdk support jdk onwards 
+WITHOUT_CLASSIFICATION	 urlgenerator 
+WITHOUT_CLASSIFICATION	 linkmargin 
+WITHOUT_CLASSIFICATION	 process outliers each outlier either added the appropriate outlier list new outlier list made 
+WITHOUT_CLASSIFICATION	 labellinkstroke 
+WITHOUT_CLASSIFICATION	 only needed calculating percentages 
+WITHOUT_CLASSIFICATION	 legenditemshape 
+WITHOUT_CLASSIFICATION	 offset the start the box the box width smaller than the category width 
+WITHOUT_CLASSIFICATION	 long result wont work with jdk 
+WITHOUT_CLASSIFICATION	 the clone references the same dataset the original 
+WITHOUT_CLASSIFICATION	 plot likely registered listener with the existing axis 
+WITHOUT_CLASSIFICATION	 check that zero items are ignored requested 
+WITHOUT_CLASSIFICATION	 get two consecutive segments for various tests 
+WITHOUT_CLASSIFICATION	 outlinestroke 
+WITHOUT_CLASSIFICATION	 submit the current data point crosshair candidate 
+WITHOUT_CLASSIFICATION	 check that null items are ignored requested 
+WITHOUT_CLASSIFICATION	 cant use the following valueof method because wont compile with jdk 
+WITHOUT_CLASSIFICATION	 this should have been defined boolean primitive because allowing null values nuisancebut part the final api now well have support 
+WITHOUT_CLASSIFICATION	 change the shape and make sure only affects 
+WITHOUT_CLASSIFICATION	 dont know anything about the ordering the xvalues but can still skip any initial values that fall outside the range 
+WITHOUT_CLASSIFICATION	 check that negative items are always ignored 
+WITHOUT_CLASSIFICATION	 draw the item label there one 
+WITHOUT_CLASSIFICATION	 nodatamessagepaint 
+WITHOUT_CLASSIFICATION	  add boolean 
+WITHOUT_CLASSIFICATION	 nodatamessagefont 
+WITHOUT_CLASSIFICATION	 nodatamessage 
+WITHOUT_CLASSIFICATION	 deregister the composite listener for the chart 
+WITHOUT_CLASSIFICATION	 try null collection 
+WITHOUT_CLASSIFICATION	 foregroundalpha 
+WITHOUT_CLASSIFICATION	 draw the top axes 
+WITHOUT_CLASSIFICATION	 drawingsupplier 
+WITHOUT_CLASSIFICATION	 now some optional customisation the chart 
+WITHOUT_CLASSIFICATION	 backgroundalpha 
+WITHOUT_CLASSIFICATION	 secondary renderers 
+WITHOUT_CLASSIFICATION	 row antialiasing 
+WITHOUT_CLASSIFICATION	 dataextractorder 
+WITHOUT_CLASSIFICATION	 maxvalue 
+WITHOUT_CLASSIFICATION	 title xaxis label yaxis label data create legend generate tooltips generate urls 
+WITHOUT_CLASSIFICATION	 valuefont 
+WITHOUT_CLASSIFICATION	 subtrahend not specified assume zero 
+WITHOUT_CLASSIFICATION	 key not found 
+WITHOUT_CLASSIFICATION	 get here know that duplicate values are not permitted 
+WITHOUT_CLASSIFICATION	 polygon definitions 
+WITHOUT_CLASSIFICATION	 since the flow layout relatively straightforward information needs recorded here 
+WITHOUT_CLASSIFICATION	 draw the label 
+WITHOUT_CLASSIFICATION	 copy range before the start the series data 
+WITHOUT_CLASSIFICATION	 add another value 
+WITHOUT_CLASSIFICATION	 change series paint 
+WITHOUT_CLASSIFICATION	 add second dataset plotted against second axis 
+WITHOUT_CLASSIFICATION	 event generated the dataset already empty 
+WITHOUT_CLASSIFICATION	 axislabelgap 
+WITHOUT_CLASSIFICATION	 performs the actual drawing here 
+WITHOUT_CLASSIFICATION	 secondary domainaxislocations 
+WITHOUT_CLASSIFICATION	 there existing dataset remove the plot from the list change listeners 
+WITHOUT_CLASSIFICATION	 webfilled 
+WITHOUT_CLASSIFICATION	 check that super class fields are being looked 
+WITHOUT_CLASSIFICATION	 change the legenditemshape 
+WITHOUT_CLASSIFICATION	 axisindices can null nonempty containing only integer objects that are unique 
+WITHOUT_CLASSIFICATION	 thermometerpaint 
+WITHOUT_CLASSIFICATION	 valuelocation 
+WITHOUT_CLASSIFICATION	 now add third value the series 
+WITHOUT_CLASSIFICATION	 far know the locale for the calendar only affects week number calculations and since datetickunit doesnt week arithmetic the default locale whatever should fine here 
+WITHOUT_CLASSIFICATION	 first tick group did not zero tick last iteration 
+WITHOUT_CLASSIFICATION	 domainaxislocation 
+WITHOUT_CLASSIFICATION	 delegate info and source argument checks 
+WITHOUT_CLASSIFICATION	 loop over intervals between nodes 
+WITHOUT_CLASSIFICATION	 valueformat 
+WITHOUT_CLASSIFICATION	 valuepaint 
+WITHOUT_CLASSIFICATION	 dataset index 
+WITHOUT_CLASSIFICATION	 axislocation 
+WITHOUT_CLASSIFICATION	 thermometerstroke 
+WITHOUT_CLASSIFICATION	 this doesnt work 
+WITHOUT_CLASSIFICATION	 check starting new column 
+WITHOUT_CLASSIFICATION	 secondary rangeaxislocations 
+WITHOUT_CLASSIFICATION	 secondary domainaxes 
+WITHOUT_CLASSIFICATION	 rangeaxis 
+WITHOUT_CLASSIFICATION	 renderer 
+WITHOUT_CLASSIFICATION	 change series outline paint 
+WITHOUT_CLASSIFICATION	 for mousereleased event horizontalzoom verticalzoom will true can just test for either being false otherwise both are true 
+WITHOUT_CLASSIFICATION	 parent plot 
+WITHOUT_CLASSIFICATION	 itemlabelfontlist 
+WITHOUT_CLASSIFICATION	 outlinepaint 
+WITHOUT_CLASSIFICATION	 try collection with single number plus null 
+WITHOUT_CLASSIFICATION	 restore original tooltip dealys 
+WITHOUT_CLASSIFICATION	 number format 
+WITHOUT_CLASSIFICATION	 data 
+WITHOUT_CLASSIFICATION	 need redraw the buffer 
+WITHOUT_CLASSIFICATION	 locale should not matter here 
+WITHOUT_CLASSIFICATION	 since this only used clearrect dont update the yet 
+WITHOUT_CLASSIFICATION	 when the xvalues are sorted descending order the lower bound found calculating relative the xhigh value 
+WITHOUT_CLASSIFICATION	 fixed legend items 
+WITHOUT_CLASSIFICATION	 relay the event from the canvas our registered listeners 
+WITHOUT_CLASSIFICATION	 use item paint for fills default 
+WITHOUT_CLASSIFICATION	 barrenderer 
+WITHOUT_CLASSIFICATION	 textanchor 
+WITHOUT_CLASSIFICATION	 create storage for listeners 
+WITHOUT_CLASSIFICATION	 ticklabelfont 
+WITHOUT_CLASSIFICATION	 last item series draw the lot set the alphatransparency 
+WITHOUT_CLASSIFICATION	 int midy int plotareagetminy plotareagetheight 
+WITHOUT_CLASSIFICATION	 tick value not between show tick label its the first last the set its beyond that show fewer the values get larger 
+WITHOUT_CLASSIFICATION	 tblrc top left and center 
+WITHOUT_CLASSIFICATION	 organise the data with the following assumption the data are sorted then that the data will represented rectangle formed using and march along the yaxis the same value until new value found which point will flag the index where xixi 
+WITHOUT_CLASSIFICATION	 check whether the column now empty 
+WITHOUT_CLASSIFICATION	 adjust for insets 
+WITHOUT_CLASSIFICATION	 cant allow duplicate values need check whether there item with the given xvalue already 
+WITHOUT_CLASSIFICATION	 renderer 
+WITHOUT_CLASSIFICATION	 private numberformat 
+WITHOUT_CLASSIFICATION	 outline stroke 
+WITHOUT_CLASSIFICATION	 quadrant paint 
+WITHOUT_CLASSIFICATION	 create the polygon add the minuends points polygon 
+WITHOUT_CLASSIFICATION	 return the generator for all series there one 
+WITHOUT_CLASSIFICATION	 paint sequence 
+WITHOUT_CLASSIFICATION	 from xydataset 
+WITHOUT_CLASSIFICATION	 draw the tick marks and labels 
+WITHOUT_CLASSIFICATION	 now test that the clone independent the original 
+WITHOUT_CLASSIFICATION	 shape sequence 
+WITHOUT_CLASSIFICATION	 outline stroke sequence 
+WITHOUT_CLASSIFICATION	 for series with data expect 
+WITHOUT_CLASSIFICATION	 outline paint sequence 
+WITHOUT_CLASSIFICATION	 baseitemlabelpaint immutable need clone reference 
+WITHOUT_CLASSIFICATION	 now overwrite this item with another 
+WITHOUT_CLASSIFICATION	 create dataset 
+WITHOUT_CLASSIFICATION	 setup our test timelines legend for comments below spaces segments included the final timeline excluded segments via timeline rules exception segments inherited from base timeline exclusions 
+WITHOUT_CLASSIFICATION	 gradient paint transformer 
+WITHOUT_CLASSIFICATION	 paint index 
+WITHOUT_CLASSIFICATION	 item 
+WITHOUT_CLASSIFICATION	 this case every color has range values 
+WITHOUT_CLASSIFICATION	 with buffer use xor draw the rectangle over the chart 
+WITHOUT_CLASSIFICATION	 only relevant when this subplot 
+WITHOUT_CLASSIFICATION	 create array items reverse order 
+WITHOUT_CLASSIFICATION	 upperbound 
+WITHOUT_CLASSIFICATION	 compute common deltas 
+WITHOUT_CLASSIFICATION	 tickradius 
+WITHOUT_CLASSIFICATION	 clear the flag 
+WITHOUT_CLASSIFICATION	 nothing drawn the row index not included the list with the indices the visible rows 
+WITHOUT_CLASSIFICATION	 radius 
+WITHOUT_CLASSIFICATION	 try few checks ensure that the clone independent the original 
+WITHOUT_CLASSIFICATION	 check the case where there secondary dataset that doesnt have renderer falls back renderer 
+WITHOUT_CLASSIFICATION	 verify that the plot listening the cloned renderer 
+WITHOUT_CLASSIFICATION	 check key order 
+WITHOUT_CLASSIFICATION	 shape index 
+WITHOUT_CLASSIFICATION	 draw median 
+WITHOUT_CLASSIFICATION	 now try reject equality 
+WITHOUT_CLASSIFICATION	 check negative index throws exception 
+WITHOUT_CLASSIFICATION	 outline stroke index 
+WITHOUT_CLASSIFICATION	 dont know anything about the ordering the xvalues iterate until find the first crossing any know there are least items the series this point 
+WITHOUT_CLASSIFICATION	 now remove but since aequalsa this will fact remove 
+WITHOUT_CLASSIFICATION	 add value the second series 
+WITHOUT_CLASSIFICATION	 actually removes 
+WITHOUT_CLASSIFICATION	 check that the generator has been cloned 
+WITHOUT_CLASSIFICATION	 check for unknown column 
+WITHOUT_CLASSIFICATION	 section outline paint 
+WITHOUT_CLASSIFICATION	 there are only null items get nanrange 
+WITHOUT_CLASSIFICATION	 copy the middle three items 
+WITHOUT_CLASSIFICATION	 visible 
+WITHOUT_CLASSIFICATION	 shape 
+WITHOUT_CLASSIFICATION	 check that empty dataset handled 
+WITHOUT_CLASSIFICATION	 continue and separate the labels only necessary 
+WITHOUT_CLASSIFICATION	 set the category names 
+WITHOUT_CLASSIFICATION	 dateformatoverride 
+WITHOUT_CLASSIFICATION	 negative values not allowed parameter value the mathlog function based not 
+WITHOUT_CLASSIFICATION	 column all null values still counted 
+WITHOUT_CLASSIFICATION	 outer radius 
+WITHOUT_CLASSIFICATION	 first arrange without constraints then see the width fits within the required rangeif not call arrangefn max width 
+WITHOUT_CLASSIFICATION	 now when the default group mapped shouldnt increase the group count 
+WITHOUT_CLASSIFICATION	 foregroundpaint 
+WITHOUT_CLASSIFICATION	 the split may occur either splitted segments any but not both 
+WITHOUT_CLASSIFICATION	 inner radius 
+WITHOUT_CLASSIFICATION	 constructors and factory methods 
+WITHOUT_CLASSIFICATION	 foreground paint 
+WITHOUT_CLASSIFICATION	 tick mark stroke 
+WITHOUT_CLASSIFICATION	 confirm overwriting existing value 
+WITHOUT_CLASSIFICATION	 frameanchor 
+WITHOUT_CLASSIFICATION	 angle 
+WITHOUT_CLASSIFICATION	 immutable need clone reference 
+WITHOUT_CLASSIFICATION	 clear mapping 
+WITHOUT_CLASSIFICATION	 test custom instance 
+WITHOUT_CLASSIFICATION	 templatevalue 
+WITHOUT_CLASSIFICATION	 outline stroke 
+WITHOUT_CLASSIFICATION	 fill paint 
+WITHOUT_CLASSIFICATION	 check retrieve value index 
+WITHOUT_CLASSIFICATION	 valueanchor 
+WITHOUT_CLASSIFICATION	 not highlowdataset just draw line connecting this point with the previous point 
+WITHOUT_CLASSIFICATION	 dial cap 
+WITHOUT_CLASSIFICATION	 now make change the renderer and see triggers plot change event 
+WITHOUT_CLASSIFICATION	 not first last tick graph and value change value indicate zero tick create label for tick 
+WITHOUT_CLASSIFICATION	 get the coordinates the original gradientpaint 
+WITHOUT_CLASSIFICATION	 frame 
+WITHOUT_CLASSIFICATION	 negative paint 
+WITHOUT_CLASSIFICATION	 view 
+WITHOUT_CLASSIFICATION	 negative then set flag and make positive 
+WITHOUT_CLASSIFICATION	 layer 
+WITHOUT_CLASSIFICATION	 populate deprecated fields 
+WITHOUT_CLASSIFICATION	 check that null dataset returns null bounds 
+WITHOUT_CLASSIFICATION	 standard resourcebundle behaviour 
+WITHOUT_CLASSIFICATION	 apply the margins these should apply the exponent range 
+WITHOUT_CLASSIFICATION	 insets text field private insetstextfield label insets text field private insetstextfield 
+WITHOUT_CLASSIFICATION	 check series with four items 
+WITHOUT_CLASSIFICATION	 outlinestrokelist 
+WITHOUT_CLASSIFICATION	 majorticklength 
+WITHOUT_CLASSIFICATION	 cursor midx columnradius axisgap 
+WITHOUT_CLASSIFICATION	 sometimes the last few days the year are considered fall the first week the following year refer the javadocs for gregoriancalendar 
+WITHOUT_CLASSIFICATION	 majortickstroke 
+WITHOUT_CLASSIFICATION	 baseoutlinepaint immutable need clone reference 
+WITHOUT_CLASSIFICATION	 try null dataset should return null range 
+WITHOUT_CLASSIFICATION	 majortickincrement 
+WITHOUT_CLASSIFICATION	 add the last point 
+WITHOUT_CLASSIFICATION	 majortickpaint 
+WITHOUT_CLASSIFICATION	 the configured call the removecodebase method typically the init method applet 
+WITHOUT_CLASSIFICATION	 label 
+WITHOUT_CLASSIFICATION	 outline paint index 
+WITHOUT_CLASSIFICATION	 seriesvisible 
+WITHOUT_CLASSIFICATION	 baseseriesvisible 
+WITHOUT_CLASSIFICATION	 second pass adds shapes where the items are 
+WITHOUT_CLASSIFICATION	 have use concrete subclass 
+WITHOUT_CLASSIFICATION	 parameter value the mathlog function based not 
+WITHOUT_CLASSIFICATION	 cycle through all the segments contained the basetimeline exception segment 
+WITHOUT_CLASSIFICATION	 cant find any differences 
+WITHOUT_CLASSIFICATION	 test default instance 
+WITHOUT_CLASSIFICATION	 constructors 
+WITHOUT_CLASSIFICATION	 seriesvisiblelist 
+WITHOUT_CLASSIFICATION	 adjust for padding 
+WITHOUT_CLASSIFICATION	 outlinepaintlist 
+WITHOUT_CLASSIFICATION	 get the axis label size and update the space object 
+WITHOUT_CLASSIFICATION	 check that setting the max date something before the current min date works 
+WITHOUT_CLASSIFICATION	 work out the anchor point 
+WITHOUT_CLASSIFICATION	 basefillpaint 
+WITHOUT_CLASSIFICATION	 just the lines filling 
+WITHOUT_CLASSIFICATION	 baseshape 
+WITHOUT_CLASSIFICATION	 check series with two items 
+WITHOUT_CLASSIFICATION	 small log values use create numeric value for tick 
+WITHOUT_CLASSIFICATION	 createentitieslist 
+WITHOUT_CLASSIFICATION	 the segment must splitted insert new point strict test forces have real segments not equal points and avoids division 
+WITHOUT_CLASSIFICATION	 complicate things little 
+WITHOUT_CLASSIFICATION	 customise the title position and font 
+WITHOUT_CLASSIFICATION	 shapelist 
+WITHOUT_CLASSIFICATION	 baseoutlinestroke 
+WITHOUT_CLASSIFICATION	 add the new chart 
+WITHOUT_CLASSIFICATION	 seem the same 
+WITHOUT_CLASSIFICATION	 draw the plot background and axes 
+WITHOUT_CLASSIFICATION	 slope 
+WITHOUT_CLASSIFICATION	 renderer gridlines 
+WITHOUT_CLASSIFICATION	 itemlabelpaint 
+WITHOUT_CLASSIFICATION	 while the tick labels overlap and there are more tick sizes available choose the next bigger label 
+WITHOUT_CLASSIFICATION	 but this does 
+WITHOUT_CLASSIFICATION	 this not one our included segment skip 
+WITHOUT_CLASSIFICATION	 baseitemlabelfont 
+WITHOUT_CLASSIFICATION	 work out the value label and position 
+WITHOUT_CLASSIFICATION	 itemlabelfont 
+WITHOUT_CLASSIFICATION	 draw the lower shadow 
+WITHOUT_CLASSIFICATION	 itemlabelpaintlist 
+WITHOUT_CLASSIFICATION	 calculate the bar width this calculation differs from the barrenderer calculation because the bars are layered top one another there effectively only one bar per category for the purpose the bar width calculation 
+WITHOUT_CLASSIFICATION	 sanity check for data area 
+WITHOUT_CLASSIFICATION	 createentities 
+WITHOUT_CLASSIFICATION	 yaxis label 
+WITHOUT_CLASSIFICATION	 baseitemlabelpaint 
+WITHOUT_CLASSIFICATION	 initial zoom point was set ignore dragging 
+WITHOUT_CLASSIFICATION	 shape 
+WITHOUT_CLASSIFICATION	 baseoutlinepaint 
+WITHOUT_CLASSIFICATION	 insets 
+WITHOUT_CLASSIFICATION	 now check autopopulatetrue 
+WITHOUT_CLASSIFICATION	 baselegendshape 
+WITHOUT_CLASSIFICATION	 itemlabelsvisible 
+WITHOUT_CLASSIFICATION	 legendshape 
+WITHOUT_CLASSIFICATION	 legendtextfont 
+WITHOUT_CLASSIFICATION	 outline paint 
+WITHOUT_CLASSIFICATION	 baselegendtextfont 
+WITHOUT_CLASSIFICATION	 itemlabelfont 
+WITHOUT_CLASSIFICATION	 failed 
+WITHOUT_CLASSIFICATION	 negative item label anchor 
+WITHOUT_CLASSIFICATION	 check series with items 
+WITHOUT_CLASSIFICATION	 now remove series from collection 
+WITHOUT_CLASSIFICATION	 first test for equality contains contained 
+WITHOUT_CLASSIFICATION	 add series collection should not equal 
+WITHOUT_CLASSIFICATION	 unlikely that state will null but check anyway 
+WITHOUT_CLASSIFICATION	 check series with repeating items 
+WITHOUT_CLASSIFICATION	 check series with three items 
+WITHOUT_CLASSIFICATION	 check dataset with two time periods 
+WITHOUT_CLASSIFICATION	 private paint negativebarpaint 
+WITHOUT_CLASSIFICATION	 were doing this for testing only and make sure that only add data descending order xvalue 
+WITHOUT_CLASSIFICATION	 try with gradient paint 
+WITHOUT_CLASSIFICATION	 drawyerror 
+WITHOUT_CLASSIFICATION	 positivebarpaint 
+WITHOUT_CLASSIFICATION	 compute number labels 
+WITHOUT_CLASSIFICATION	 lastbarpaint 
+WITHOUT_CLASSIFICATION	 firstbarpaint 
+WITHOUT_CLASSIFICATION	 the renderer should not equal barrenderer 
+WITHOUT_CLASSIFICATION	 quick check for independence 
+WITHOUT_CLASSIFICATION	 top 
+WITHOUT_CLASSIFICATION	 set flag true negative values not allowed and the lower bound between and 
+WITHOUT_CLASSIFICATION	 what our alignment 
+WITHOUT_CLASSIFICATION	 urlgeneratorlist 
+WITHOUT_CLASSIFICATION	 right 
+WITHOUT_CLASSIFICATION	 drawbaroutline 
+WITHOUT_CLASSIFICATION	 autowidthfactor 
+WITHOUT_CLASSIFICATION	 itemmargin 
+WITHOUT_CLASSIFICATION	 try something from the base class 
+WITHOUT_CLASSIFICATION	 base value 
+WITHOUT_CLASSIFICATION	 minimumbarlength 
+WITHOUT_CLASSIFICATION	 maximumbarwidth 
+WITHOUT_CLASSIFICATION	 barpainter 
+WITHOUT_CLASSIFICATION	 shadowsvisible 
+WITHOUT_CLASSIFICATION	 try null argument 
+WITHOUT_CLASSIFICATION	 setuseyinterval 
+WITHOUT_CLASSIFICATION	 try empty dataset 
+WITHOUT_CLASSIFICATION	 setdrawbaroutline 
+WITHOUT_CLASSIFICATION	 setbase 
+WITHOUT_CLASSIFICATION	 legendbar 
+WITHOUT_CLASSIFICATION	 setmargin 
+WITHOUT_CLASSIFICATION	 check list containing nonnumber object 
+WITHOUT_CLASSIFICATION	 autowidthmethod 
+WITHOUT_CLASSIFICATION	 drawopenticks 
+WITHOUT_CLASSIFICATION	 roundxcoordinates 
+WITHOUT_CLASSIFICATION	 legendline 
+WITHOUT_CLASSIFICATION	 drawxerror 
+WITHOUT_CLASSIFICATION	 drawcloseticks 
+WITHOUT_CLASSIFICATION	 opentickpaint 
+WITHOUT_CLASSIFICATION	 ticklength 
+WITHOUT_CLASSIFICATION	 candlewidth 
+WITHOUT_CLASSIFICATION	 drawvolume 
+WITHOUT_CLASSIFICATION	 first arrange without constraints and see this fits within the required ranges 
+WITHOUT_CLASSIFICATION	 downpaint 
+WITHOUT_CLASSIFICATION	 uppaint 
+WITHOUT_CLASSIFICATION	 check boxpaint null also 
+WITHOUT_CLASSIFICATION	 find out where place the label 
+WITHOUT_CLASSIFICATION	 linepaint 
+WITHOUT_CLASSIFICATION	 fillpaint 
+WITHOUT_CLASSIFICATION	 make sure that modifying the returned array doesnt change the function 
+WITHOUT_CLASSIFICATION	 stripoutlinevisible 
+WITHOUT_CLASSIFICATION	 jfreechart free chart library for the javatm platform copyright object refinery limited and contributors project info this library free software you can redistribute andor modify under the terms the gnu lesser general public license published the free software foundation either version the license your option any later version this library distributed the hope that will useful but without any warranty without even the implied warranty merchantability fitness for particular purpose see the gnu lesser general public license for more details you should have received copy the gnu lesser general public license along with this library not write the free software foundation inc franklin street fifth floor boston usa oracle and java are registered trademarks oracle andor its affiliates other names may trademarks their respective owners chartutilitiesjava copyright object refinery limited and contributors original author david gilbert for object refinery limited contributors wolfgang irler richard atkinson xavier poinsard changes dec version the jpeg method comes from wolfgang irlers class jan changed savechartasxxx methods pass ioexceptions back caller jun added image map methods aug added writebufferedimage methods modified writeimagemap method support flexible image maps aug added savechartasjpeg and writechartasjpeg methods with info objects sep added writeimagemap method support overlib sep fixed errors reported checkstyle oct exposed jpeg quality setting and png compression level parameters oct fixed writechartasjpeg empty method bug mar updated writeimagemap method suggested xavier poinsard see feature request aug added support for custom image maps using and sep separated png encoding from writing chart outputstream dec chart draw method modified include anchor point feb edited javadocs and added argument checking apr fixed problem with buffered image type aug modified use encoderutil for all image encoding aug delegated image map related functionality imagemaputil jan renamed imagemaputil imagemaputilities removed method string chartrenderinginfo which exists imagemaputilities jfreechart feb api doc update mar use tryfinally close output stream savechartasxxx methods jan fix bug dont create image with transparency when saving jpeg format jul use paramchecks class 
+WITHOUT_CLASSIFICATION	 autowidthgap 
+WITHOUT_CLASSIFICATION	 bottom 
+WITHOUT_CLASSIFICATION	 timeseries result 
+WITHOUT_CLASSIFICATION	 locale shouldnt matter here 
+WITHOUT_CLASSIFICATION	 stripwidth 
+WITHOUT_CLASSIFICATION	 axisoffset 
+WITHOUT_CLASSIFICATION	 test finddomainbounds well 
+WITHOUT_CLASSIFICATION	 check the bounds simple dataset 
+WITHOUT_CLASSIFICATION	 axis 
+WITHOUT_CLASSIFICATION	 blockheight 
+WITHOUT_CLASSIFICATION	 blockwidth 
+WITHOUT_CLASSIFICATION	 paintscale 
+WITHOUT_CLASSIFICATION	 shapeoutlinevisible 
+WITHOUT_CLASSIFICATION	 stripoutlinepaint 
+WITHOUT_CLASSIFICATION	 stripoutlinestroke 
+WITHOUT_CLASSIFICATION	 anwender hat abgebrochen 
+WITHOUT_CLASSIFICATION	 line 
+WITHOUT_CLASSIFICATION	 simple case 
+WITHOUT_CLASSIFICATION	 shapeanchor 
+WITHOUT_CLASSIFICATION	 the clone independent 
+WITHOUT_CLASSIFICATION	 linestroke 
+WITHOUT_CLASSIFICATION	 try deleting null 
+WITHOUT_CLASSIFICATION	 modify the original list its best the url generator not affected 
+WITHOUT_CLASSIFICATION	 the clone contains reference the original object 
+WITHOUT_CLASSIFICATION	 start with the current tick unit 
+WITHOUT_CLASSIFICATION	 try null calendar 
+WITHOUT_CLASSIFICATION	 all tick labels have the same width equal the height the font 
+WITHOUT_CLASSIFICATION	 check null argument 
+WITHOUT_CLASSIFICATION	 check that clone independent the original 
+WITHOUT_CLASSIFICATION	 check sorted rows 
+WITHOUT_CLASSIFICATION	 the clone contains reference clone the original object 
+WITHOUT_CLASSIFICATION	 try null key 
+WITHOUT_CLASSIFICATION	 confirm that the clone independent the original 
+WITHOUT_CLASSIFICATION	 replace existing value 
+WITHOUT_CLASSIFICATION	 request width index itemcount 
+WITHOUT_CLASSIFICATION	 try row index too high 
+WITHOUT_CLASSIFICATION	 check handling null key 
+WITHOUT_CLASSIFICATION	 check null argument 
+WITHOUT_CLASSIFICATION	 check null list 
+WITHOUT_CLASSIFICATION	 scaling with factor does not change the range 
+WITHOUT_CLASSIFICATION	 try unknown key 
+WITHOUT_CLASSIFICATION	 try key index itemcount 
+WITHOUT_CLASSIFICATION	 try negative key index 
+WITHOUT_CLASSIFICATION	 range 
+WITHOUT_CLASSIFICATION	 lower upper mid point used 
+WITHOUT_CLASSIFICATION	 expand does not change the range 
+WITHOUT_CLASSIFICATION	 map key new group 
+WITHOUT_CLASSIFICATION	 check empty dataset 
+WITHOUT_CLASSIFICATION	 autosort 
+WITHOUT_CLASSIFICATION	 remove item 
+WITHOUT_CLASSIFICATION	 add value 
+WITHOUT_CLASSIFICATION	 calculate midnight first monday after relative current locale 
+WITHOUT_CLASSIFICATION	 try null keys 
+WITHOUT_CLASSIFICATION	 now overwrite group 
+WITHOUT_CLASSIFICATION	 new map always has group the default group 
+WITHOUT_CLASSIFICATION	 text 
+WITHOUT_CLASSIFICATION	 the default group always index 
+WITHOUT_CLASSIFICATION	 the default group not mapped should still count towards the group count 
+WITHOUT_CLASSIFICATION	 indices are assigned the order that groups are originally mapped 
+WITHOUT_CLASSIFICATION	 check invalid indices 
+WITHOUT_CLASSIFICATION	 nonexistent group should return 
+WITHOUT_CLASSIFICATION	 null argument should throw exception 
+WITHOUT_CLASSIFICATION	 small check for independence 
+WITHOUT_CLASSIFICATION	 number 
+WITHOUT_CLASSIFICATION	 try array containing single number 
+WITHOUT_CLASSIFICATION	 comparable 
+WITHOUT_CLASSIFICATION	 try column index too high 
+WITHOUT_CLASSIFICATION	 try negative column index 
+WITHOUT_CLASSIFICATION	 try null column key 
+WITHOUT_CLASSIFICATION	 try null row key 
+WITHOUT_CLASSIFICATION	 try unknown row key 
+WITHOUT_CLASSIFICATION	 try null 
+WITHOUT_CLASSIFICATION	 try null source 
+WITHOUT_CLASSIFICATION	 basic check for independence 
+WITHOUT_CLASSIFICATION	 its use index equal the size the list 
+WITHOUT_CLASSIFICATION	 this expected 
+WITHOUT_CLASSIFICATION	 defer argument checks 
+WITHOUT_CLASSIFICATION	 test null source 
+WITHOUT_CLASSIFICATION	 check that two empty datasets are equal 
+WITHOUT_CLASSIFICATION	 number 
+WITHOUT_CLASSIFICATION	 another item 
+WITHOUT_CLASSIFICATION	 increment unknown row 
+WITHOUT_CLASSIFICATION	 increment null value 
+WITHOUT_CLASSIFICATION	 row all null values still counted 
+WITHOUT_CLASSIFICATION	 left 
+WITHOUT_CLASSIFICATION	 increment unknown column 
+WITHOUT_CLASSIFICATION	 rotation anchor 
+WITHOUT_CLASSIFICATION	 number start 
+WITHOUT_CLASSIFICATION	 define subtasks 
+WITHOUT_CLASSIFICATION	 note that dont define taskb 
+WITHOUT_CLASSIFICATION	 int count 
+WITHOUT_CLASSIFICATION	 number end 
+WITHOUT_CLASSIFICATION	 what dont want the interval 
+WITHOUT_CLASSIFICATION	 simple check for independence 
+WITHOUT_CLASSIFICATION	 try single item 
+WITHOUT_CLASSIFICATION	 dataset with single value 
+WITHOUT_CLASSIFICATION	 item series 
+WITHOUT_CLASSIFICATION	 null ignored 
+WITHOUT_CLASSIFICATION	 pass the event the auxiliary handlers 
+WITHOUT_CLASSIFICATION	 check another regular value 
+WITHOUT_CLASSIFICATION	 adding second series 
+WITHOUT_CLASSIFICATION	 advance line paint 
+WITHOUT_CLASSIFICATION	 overwrite the value 
+WITHOUT_CLASSIFICATION	 check nan 
+WITHOUT_CLASSIFICATION	 check null value 
+WITHOUT_CLASSIFICATION	 does nothing unless overridden 
+WITHOUT_CLASSIFICATION	 empty dataset should return null max 
+WITHOUT_CLASSIFICATION	 and that simple aggregation works 
+WITHOUT_CLASSIFICATION	 got 
+WITHOUT_CLASSIFICATION	 doublenan doesnt mess things 
+WITHOUT_CLASSIFICATION	 empty dataset returns null 
+WITHOUT_CLASSIFICATION	 null range throws 
+WITHOUT_CLASSIFICATION	 null list throws 
+WITHOUT_CLASSIFICATION	 try 
+WITHOUT_CLASSIFICATION	 try some nulls 
+WITHOUT_CLASSIFICATION	 timeseries 
+WITHOUT_CLASSIFICATION	 initial zoom rectangle exists but the handler set life handler unregister 
+WITHOUT_CLASSIFICATION	 add second series 
+WITHOUT_CLASSIFICATION	 empty dataset should return null for bounds 
+WITHOUT_CLASSIFICATION	 try doublenan 
+WITHOUT_CLASSIFICATION	 gets the outline stroke width the plot 
+WITHOUT_CLASSIFICATION	 add exception included segments 
+WITHOUT_CLASSIFICATION	 try dataset with two values 
+WITHOUT_CLASSIFICATION	 try null list 
+WITHOUT_CLASSIFICATION	 saturday and sundays are non business hours 
+WITHOUT_CLASSIFICATION	 try list containing single value 
+WITHOUT_CLASSIFICATION	 test empty series 
+WITHOUT_CLASSIFICATION	 try array containing single number and nan 
+WITHOUT_CLASSIFICATION	 try single value 
+WITHOUT_CLASSIFICATION	 try null argument 
+WITHOUT_CLASSIFICATION	 try collection with single number 
+WITHOUT_CLASSIFICATION	 try empty collection 
+WITHOUT_CLASSIFICATION	 try collection with several numbers 
+WITHOUT_CLASSIFICATION	 try zero length array 
+WITHOUT_CLASSIFICATION	 try collection with single number plus nan 
+WITHOUT_CLASSIFICATION	 check list containing null 
+WITHOUT_CLASSIFICATION	 call refresh ticks just get the maximum width height 
+WITHOUT_CLASSIFICATION	 check empty list 
+WITHOUT_CLASSIFICATION	 item 
+WITHOUT_CLASSIFICATION	 copy range that begins before and ends the middle the series 
+WITHOUT_CLASSIFICATION	 try deleting time period that doesnt exist 
+WITHOUT_CLASSIFICATION	 copy range that includes only the first item the series 
+WITHOUT_CLASSIFICATION	 copy the last item 
+WITHOUT_CLASSIFICATION	 caplength 
+WITHOUT_CLASSIFICATION	 copy just the first item 
+WITHOUT_CLASSIFICATION	 copy the first two items 
+WITHOUT_CLASSIFICATION	 copy the last two items 
+WITHOUT_CLASSIFICATION	 rotation angle 
+WITHOUT_CLASSIFICATION	 try array containing items 
+WITHOUT_CLASSIFICATION	 did zero tick last iteration clear flag create tick label string show tick label estyle and its one the first two its the first last the set its beyond that show fewer the values get larger 
+WITHOUT_CLASSIFICATION	 changing the overwritten record shouldnt affect the series 
+WITHOUT_CLASSIFICATION	 store the plot and its weight 
+WITHOUT_CLASSIFICATION	 check negative first argument 
+WITHOUT_CLASSIFICATION	 cant get anything yetjust exception 
+WITHOUT_CLASSIFICATION	 first tick series not too small value and one first ticks last tick displayed set exact number fractional digits shown effect showing estyle ticks 
+WITHOUT_CLASSIFICATION	 timeseriesdataitem item 
+WITHOUT_CLASSIFICATION	 test series with one item 
+WITHOUT_CLASSIFICATION	 test series with two items 
+WITHOUT_CLASSIFICATION	 private int autotickindex protected double protected double 
+WITHOUT_CLASSIFICATION	 tests with values 
+WITHOUT_CLASSIFICATION	 try null array 
+WITHOUT_CLASSIFICATION	 negatives allowed upper bound not between flag then change log version highest value make range begin value else use nearest int 
+WITHOUT_CLASSIFICATION	 this line triggers the defect 
+WITHOUT_CLASSIFICATION	 test series with two items 
+WITHOUT_CLASSIFICATION	 test 
+WITHOUT_CLASSIFICATION	 negatives not allowed and lower range bound zero use data range bound instead 
+WITHOUT_CLASSIFICATION	 null items are ignored 
+WITHOUT_CLASSIFICATION	 test 
+WITHOUT_CLASSIFICATION	 less than then make subtract out margin and get exponential value 
+WITHOUT_CLASSIFICATION	 domain description null 
+WITHOUT_CLASSIFICATION	 range description 
+WITHOUT_CLASSIFICATION	 null item should throw 
+WITHOUT_CLASSIFICATION	 test 
+WITHOUT_CLASSIFICATION	 add fourth time period 
+WITHOUT_CLASSIFICATION	 check empty dataset 
+WITHOUT_CLASSIFICATION	 range description null 
+WITHOUT_CLASSIFICATION	 restore the default time zone 
+WITHOUT_CLASSIFICATION	 work out the maximum height width the nonshared axes 
+WITHOUT_CLASSIFICATION	 first day week sunday 
+WITHOUT_CLASSIFICATION	 now add second value the series 
+WITHOUT_CLASSIFICATION	 add third time period 
+WITHOUT_CLASSIFICATION	 now test with single value the series 
+WITHOUT_CLASSIFICATION	 try null zone 
+WITHOUT_CLASSIFICATION	 first day week monday 
+WITHOUT_CLASSIFICATION	 now remove series from collection make them equal again 
+WITHOUT_CLASSIFICATION	 newly created collections should equal 
+WITHOUT_CLASSIFICATION	 now add the same series collection make them equal again 
+WITHOUT_CLASSIFICATION	 shapevisible 
+WITHOUT_CLASSIFICATION	 make sure theres nothing left 
+WITHOUT_CLASSIFICATION	 the moving average series has items the first three days august are skipped 
+WITHOUT_CLASSIFICATION	 look lower and upper bounds 
+WITHOUT_CLASSIFICATION	 for efficiency just use the first last and middle items compute hashcode 
+WITHOUT_CLASSIFICATION	 now add another series 
+WITHOUT_CLASSIFICATION	 and check the first series too 
+WITHOUT_CLASSIFICATION	 case comparing another second object 
+WITHOUT_CLASSIFICATION	 clone the chart because presumably there can some delay between putting this instance the system clipboard and actually having the gettransferdata method called 
+WITHOUT_CLASSIFICATION	 flag then change log version lowest value make range begin value 
+WITHOUT_CLASSIFICATION	 add empty series 
+WITHOUT_CLASSIFICATION	 add series 
+WITHOUT_CLASSIFICATION	 float midx float minx plotareagetwidth getrotatex float midy float miny plotareagetheight getrotatey 
+WITHOUT_CLASSIFICATION	 call parent method setup flag based bounds values 
+WITHOUT_CLASSIFICATION	 check for series key out bounds 
+WITHOUT_CLASSIFICATION	 after setting all the subplots the shared range axis may need reconfiguring 
+WITHOUT_CLASSIFICATION	 check that adding series will overwrite the old series 
+WITHOUT_CLASSIFICATION	 xhigh 
+WITHOUT_CLASSIFICATION	 first check that valid renaming works 
+WITHOUT_CLASSIFICATION	 next check that setting duplicate key fails 
+WITHOUT_CLASSIFICATION	 got the required exception 
+WITHOUT_CLASSIFICATION	 negatives not allowed and upper bound between round nearest significant digit for bound get negative exponent 
+WITHOUT_CLASSIFICATION	 try index out bounds 
+WITHOUT_CLASSIFICATION	 still 
+WITHOUT_CLASSIFICATION	 check null key 
+WITHOUT_CLASSIFICATION	 hasnt implemented rangeinfo well have iterate 
+WITHOUT_CLASSIFICATION	 xlow 
+WITHOUT_CLASSIFICATION	 yhigh 
+WITHOUT_CLASSIFICATION	 ylow 
+WITHOUT_CLASSIFICATION	 test that there are points and some specific values 
+WITHOUT_CLASSIFICATION	 the series name should not change because already the key for the other series the collection 
+WITHOUT_CLASSIFICATION	 remove series 
+WITHOUT_CLASSIFICATION	 after adding point series check that there are now items each series 
+WITHOUT_CLASSIFICATION	 test that there are still points 
+WITHOUT_CLASSIFICATION	 with autopruning 
+WITHOUT_CLASSIFICATION	 test that there are now points 
+WITHOUT_CLASSIFICATION	 establish the coordinates the top left corner the drawing area 
+WITHOUT_CLASSIFICATION	 value pruned 
+WITHOUT_CLASSIFICATION	 without autopruning 
+WITHOUT_CLASSIFICATION	 still 
+WITHOUT_CLASSIFICATION	 here check see the user installing the legacy theme and reset the bar painters that case 
+WITHOUT_CLASSIFICATION	 the current stroke not basicstroke then handled special case 
+WITHOUT_CLASSIFICATION	  add boolean 
+WITHOUT_CLASSIFICATION	 text anchor 
+WITHOUT_CLASSIFICATION	 milliseconds somewhere 
+WITHOUT_CLASSIFICATION	 starts back and wraps right around the back again 
+WITHOUT_CLASSIFICATION	 double range double scaledrange range percent 
+WITHOUT_CLASSIFICATION	 the pie sections are arranged anticlockwise 
+WITHOUT_CLASSIFICATION	 this cell held maximum andor minimum value well need update the cached bounds 
+WITHOUT_CLASSIFICATION	 handle special case the bar colour has alpha invisible shouldnt draw any shadow 
+WITHOUT_CLASSIFICATION	 for the case were the first tick greater than minz 
+WITHOUT_CLASSIFICATION	 retrieve item 
+WITHOUT_CLASSIFICATION	 key 
+WITHOUT_CLASSIFICATION	 are drawing perfect circle need readjust the top left coordinates the drawing area for the arcs arrive this effect 
+WITHOUT_CLASSIFICATION	 draw the sections the top the pie and set tooltips 
+WITHOUT_CLASSIFICATION	 from highlowdataset 
+WITHOUT_CLASSIFICATION	 deregister the collection change listener each series the collection 
+WITHOUT_CLASSIFICATION	 average radius outlier radius 
+WITHOUT_CLASSIFICATION	 these are deliberately not bounded retain old behaviour 
+WITHOUT_CLASSIFICATION	 errorpaint 
+WITHOUT_CLASSIFICATION	 positive paint 
+WITHOUT_CLASSIFICATION	 the first initialization must precede creation the valueset array establishes length each array 
+WITHOUT_CLASSIFICATION	 starts the back and finishes the front wrapping the left side 
+WITHOUT_CLASSIFICATION	 the notify flag has been switched false dont notify the listeners 
+WITHOUT_CLASSIFICATION	 errorstroke 
+WITHOUT_CLASSIFICATION	  add boolean 
+WITHOUT_CLASSIFICATION	 shape outlined 
+WITHOUT_CLASSIFICATION	 the intersect the next point for both the minuend and subtrahend 
+WITHOUT_CLASSIFICATION	 draw outliers outlier radius 
+WITHOUT_CLASSIFICATION	 coordinate pairs current minuend point next minuend point current subtrahend point next subtrahend point 
+WITHOUT_CLASSIFICATION	 map 
+WITHOUT_CLASSIFICATION	 check the item the last item for the series and number items cant draw area for single point 
+WITHOUT_CLASSIFICATION	 the bounds should calculated using just the items within the current range the xaxisif there one 
+WITHOUT_CLASSIFICATION	 less than then make add margin and get exponential value 
+WITHOUT_CLASSIFICATION	 labellinkpaint 
+WITHOUT_CLASSIFICATION	 paintlist 
+WITHOUT_CLASSIFICATION	 calculate plotareas all subplots maximum verticalhorizontal axis widthheight 
+WITHOUT_CLASSIFICATION	 optional customisation completed 
+WITHOUT_CLASSIFICATION	 item label paint 
+WITHOUT_CLASSIFICATION	 itemlabelgenerator 
+WITHOUT_CLASSIFICATION	 create the new color and set the swtpaintcanvas 
+WITHOUT_CLASSIFICATION	 seriesoutlinestroke 
+WITHOUT_CLASSIFICATION	 private boolean 
+WITHOUT_CLASSIFICATION	 there override 
+WITHOUT_CLASSIFICATION	 test exception segments 
+WITHOUT_CLASSIFICATION	 quadrant origin 
+WITHOUT_CLASSIFICATION	 now check that all datasets renderers and axes are being listened too 
+WITHOUT_CLASSIFICATION	 background paint 
+WITHOUT_CLASSIFICATION	 work out the mid angle and right otherwise left 
+WITHOUT_CLASSIFICATION	 these methods should throw since the column too high 
+WITHOUT_CLASSIFICATION	 range markers 
+WITHOUT_CLASSIFICATION	 regular equality for the datasets doesnt check the fields just the data valuesso lets check some more things 
+WITHOUT_CLASSIFICATION	 after clearing reverts default group 
+WITHOUT_CLASSIFICATION	 nothing defined autopopulate 
+WITHOUT_CLASSIFICATION	 the dataset should prevent the addition series with the same name existing series the dataset 
+WITHOUT_CLASSIFICATION	 null argument check delegated 
+WITHOUT_CLASSIFICATION	 the explode area defines the max circleellipse for the exploded pie sections defined shrinking the linkarea the linkmargin factor 
+WITHOUT_CLASSIFICATION	 secondary range markers 
+WITHOUT_CLASSIFICATION	 delegate 
+WITHOUT_CLASSIFICATION	 rotationanchor 
+WITHOUT_CLASSIFICATION	 axis gridlines 
+WITHOUT_CLASSIFICATION	 include legend tooltips urls 
+WITHOUT_CLASSIFICATION	 rotationangle 
+WITHOUT_CLASSIFICATION	 cant zoom domain axis 
+WITHOUT_CLASSIFICATION	 get the source coordinate this plot has always vertical orientation 
+WITHOUT_CLASSIFICATION	 tooltiptext 
+WITHOUT_CLASSIFICATION	 the above should cover all the options 
+WITHOUT_CLASSIFICATION	 have use subclass abstractrenderer 
+WITHOUT_CLASSIFICATION	 test monday though friday timeline 
+WITHOUT_CLASSIFICATION	 find first monday after 
+WITHOUT_CLASSIFICATION	 domain axis zoom 
+WITHOUT_CLASSIFICATION	 stroke index 
+WITHOUT_CLASSIFICATION	 test construction process 
+WITHOUT_CLASSIFICATION	 tblrc center item only 
+WITHOUT_CLASSIFICATION	 series visible legend not yet respected all renderers 
+WITHOUT_CLASSIFICATION	 expandtofitspace 
+WITHOUT_CLASSIFICATION	 category 
+WITHOUT_CLASSIFICATION	 paint 
+WITHOUT_CLASSIFICATION	 stroke 
+WITHOUT_CLASSIFICATION	 basepaint 
+WITHOUT_CLASSIFICATION	 category 
+WITHOUT_CLASSIFICATION	 value 
+WITHOUT_CLASSIFICATION	  calculate 
+WITHOUT_CLASSIFICATION	 left polygon 
+WITHOUT_CLASSIFICATION	 date format 
+WITHOUT_CLASSIFICATION	 margin 
+WITHOUT_CLASSIFICATION	 current data point 
+WITHOUT_CLASSIFICATION	 clip left and right bounds data area 
+WITHOUT_CLASSIFICATION	 date format 
+WITHOUT_CLASSIFICATION	 domain description 
+WITHOUT_CLASSIFICATION	 calculate bar width 
+WITHOUT_CLASSIFICATION	 the indicator bounds calculated from the templatevalue which determines the minimum size the maxtemplatevalue which specified provides maximum size and the actual value 
+WITHOUT_CLASSIFICATION	 chart title data include legend 
+WITHOUT_CLASSIFICATION	 get reference the plot for further customisation 
+WITHOUT_CLASSIFICATION	 test timeline translations 
+WITHOUT_CLASSIFICATION	 shapesvisible 
+WITHOUT_CLASSIFICATION	 handle zoom box 
+WITHOUT_CLASSIFICATION	 exception expected 
+WITHOUT_CLASSIFICATION	 nothing override necessary 
+WITHOUT_CLASSIFICATION	 private boolean autorangestickyzero 
+WITHOUT_CLASSIFICATION	 majortickincrement majorticklength majortickpaint majortickstroke minortickcount minorticklength minortickpaint minortickstroke ticklabeloffset ticklabelfont ticklabelsvisible ticklabelformatter 
+WITHOUT_CLASSIFICATION	 nonjavadoc see 
+WITHOUT_CLASSIFICATION	 nonjavadoc see 
+WITHOUT_CLASSIFICATION	 ignorezerovalues 
+WITHOUT_CLASSIFICATION	 open 
+WITHOUT_CLASSIFICATION	 new entity code 
+WITHOUT_CLASSIFICATION	 disable bar outlines 
+WITHOUT_CLASSIFICATION	  private boolean fillzoomrectangle true 
+WITHOUT_CLASSIFICATION	 start new row 
+WITHOUT_CLASSIFICATION	 width but height must constrained 
+WITHOUT_CLASSIFICATION	 start new column 
+WITHOUT_CLASSIFICATION	 xaxis label 
+WITHOUT_CLASSIFICATION	 use gradients and white borders for the section colours 
+WITHOUT_CLASSIFICATION	 deprecated fields and methods 
+WITHOUT_CLASSIFICATION	 swap rows and columns match plotarea shape 
+WITHOUT_CLASSIFICATION	 draw the markers 
+WITHOUT_CLASSIFICATION	 paint 
+WITHOUT_CLASSIFICATION	 add the insets 
+WITHOUT_CLASSIFICATION	 for data ascending order xvalue are broadly looking for the index the highest xvalue that less than xlow 
+WITHOUT_CLASSIFICATION	 subtitle the legend 
+WITHOUT_CLASSIFICATION	 bar 
+WITHOUT_CLASSIFICATION	 calculate the maximum allowed candle width from the axis 
+WITHOUT_CLASSIFICATION	 draw the outline 
+WITHOUT_CLASSIFICATION	 check that legend item needs displayed 
+WITHOUT_CLASSIFICATION	 work out the label anchor point 
+WITHOUT_CLASSIFICATION	 higlight the background corners 
+WITHOUT_CLASSIFICATION	 fastforward through leading tails 
+WITHOUT_CLASSIFICATION	 get the and coordinates 
+WITHOUT_CLASSIFICATION	 itemlabelfontlist baseitemlabelfont itemlabelpaintlist baseitemlabelpaint createentitylist basecreateentities 
+WITHOUT_CLASSIFICATION	 here check that the average marker will fact visible before drawing 
+WITHOUT_CLASSIFICATION	 check that minitem limit observed 
+WITHOUT_CLASSIFICATION	 assert itemindex itemindex getitemcount 
+WITHOUT_CLASSIFICATION	 skip chart null 
+WITHOUT_CLASSIFICATION	 swtgraphicsd new swtgraphicsdegc 
+WITHOUT_CLASSIFICATION	 axis 
+WITHOUT_CLASSIFICATION	 for value bounds the lookup 
+WITHOUT_CLASSIFICATION	 shapefilled 
+WITHOUT_CLASSIFICATION	 domainaxis longer separate field but test anyway 
+WITHOUT_CLASSIFICATION	 itemlabelpaint 
+WITHOUT_CLASSIFICATION	 separatorstroke 
+WITHOUT_CLASSIFICATION	 sectiondepth 
+WITHOUT_CLASSIFICATION	 dont know anything about the ordering the xvalues but can still skip any trailing values that fall outside the range 
+WITHOUT_CLASSIFICATION	 rangeaxis longer separate field but test anyway 
+WITHOUT_CLASSIFICATION	 extralargefont 
+WITHOUT_CLASSIFICATION	 renderer longer separate field but test anyway 
+WITHOUT_CLASSIFICATION	 leave the values untranslated going stacked later previous series values after this will translated 
+WITHOUT_CLASSIFICATION	 largefont 
+WITHOUT_CLASSIFICATION	 set the series names 
+WITHOUT_CLASSIFICATION	 regularfont 
+WITHOUT_CLASSIFICATION	 there should change event when clearing empty series 
+WITHOUT_CLASSIFICATION	 titlepaint 
+WITHOUT_CLASSIFICATION	 clean 
+WITHOUT_CLASSIFICATION	 anchorvalue 
+WITHOUT_CLASSIFICATION	 tick marks visible flag 
+WITHOUT_CLASSIFICATION	 tblrc 
+WITHOUT_CLASSIFICATION	 tick label font 
+WITHOUT_CLASSIFICATION	 antialiasing 
+WITHOUT_CLASSIFICATION	 rangecrosshairpaint 
+WITHOUT_CLASSIFICATION	 draw outliers 
+WITHOUT_CLASSIFICATION	  add setbasepaintint paint boolean 
+WITHOUT_CLASSIFICATION	 item url generator 
+WITHOUT_CLASSIFICATION	 bufferedimage img 
+WITHOUT_CLASSIFICATION	 stream 
+WITHOUT_CLASSIFICATION	 process all renderers 
+WITHOUT_CLASSIFICATION	 reserve space for the primary domain axis 
+WITHOUT_CLASSIFICATION	 draw the bottom circle 
+WITHOUT_CLASSIFICATION	 range markers longer separate fields but test anyway 
+WITHOUT_CLASSIFICATION	 set custom background for the chart 
+WITHOUT_CLASSIFICATION	 process all range axes 
+WITHOUT_CLASSIFICATION	 line visible 
+WITHOUT_CLASSIFICATION	 shape outlined 
+WITHOUT_CLASSIFICATION	 line visible 
+WITHOUT_CLASSIFICATION	 subtitlepaint 
+WITHOUT_CLASSIFICATION	 calculate the bar width 
+WITHOUT_CLASSIFICATION	 chartpanel methods 
+WITHOUT_CLASSIFICATION	 member variables 
+WITHOUT_CLASSIFICATION	 constants 
+WITHOUT_CLASSIFICATION	 process all domain axes 
+WITHOUT_CLASSIFICATION	 cycle when necessary 
+WITHOUT_CLASSIFICATION	 wait till are the last item for the row then draw the whole stack once 
+WITHOUT_CLASSIFICATION	 public methods 
+WITHOUT_CLASSIFICATION	 nothing all 
+WITHOUT_CLASSIFICATION	 add the chart title one has been specified 
+WITHOUT_CLASSIFICATION	 default the outline and background wont visible 
+WITHOUT_CLASSIFICATION	 process all annotations 
+WITHOUT_CLASSIFICATION	 the next zoompointx and replace and for now this helps handle the mouse events and besides those values are unused afaik 
+WITHOUT_CLASSIFICATION	 linerendererd 
+WITHOUT_CLASSIFICATION	 barrendererd 
+WITHOUT_CLASSIFICATION	 this fires chartchangeevent 
+WITHOUT_CLASSIFICATION	 added the following hint because 
+WITHOUT_CLASSIFICATION	 clear the section attributes that the themes drawingsupplier will used 
+WITHOUT_CLASSIFICATION	 the flag being set true there may queued changes 
+WITHOUT_CLASSIFICATION	 draw the title and subtitles 
+WITHOUT_CLASSIFICATION	 ensure drawing occurs outside chart area 
+WITHOUT_CLASSIFICATION	 handle gradientpaint special case 
+WITHOUT_CLASSIFICATION	 not notify while zooming each axis 
+WITHOUT_CLASSIFICATION	 private boolean bordervisible private transient stroke borderstroke private transient paint borderpaint 
+WITHOUT_CLASSIFICATION	 this generates the change event too 
+WITHOUT_CLASSIFICATION	 use imageicon because waits for the image load 
+WITHOUT_CLASSIFICATION	 load only when required 
+WITHOUT_CLASSIFICATION	 seem the same 
+WITHOUT_CLASSIFICATION	  thisimage 
+WITHOUT_CLASSIFICATION	 dont have least coordinates just return 
+WITHOUT_CLASSIFICATION	  stream 
+WITHOUT_CLASSIFICATION	 return new chart containing the overlaid plot 
+WITHOUT_CLASSIFICATION	 thisimage 
+WITHOUT_CLASSIFICATION	 add second dataset and renderer 
+WITHOUT_CLASSIFICATION	 create plot 
+WITHOUT_CLASSIFICATION	 create transform transform shape 
+WITHOUT_CLASSIFICATION	 compute transform matrix elements via sample points assume rotation shear 
+WITHOUT_CLASSIFICATION	 when zooming submillisecond ranges can the case that adjend adjstartand cant have axis with zero length apply this instead 
+WITHOUT_CLASSIFICATION	 basecreateentities 
+WITHOUT_CLASSIFICATION	 for each power value create ten ticks 
+WITHOUT_CLASSIFICATION	 handle axis trace 
+WITHOUT_CLASSIFICATION	 axis 
+WITHOUT_CLASSIFICATION	 redrawing the chart every time 
+WITHOUT_CLASSIFICATION	 regular number axis 
+WITHOUT_CLASSIFICATION	 what the available space for one unit 
+WITHOUT_CLASSIFICATION	 all tick labels have the same width equal the height the font 
+WITHOUT_CLASSIFICATION	 there are more candidates 
+WITHOUT_CLASSIFICATION	 its the plot which clones restore the correct references 
+WITHOUT_CLASSIFICATION	 the axis has fixed dimension return 
+WITHOUT_CLASSIFICATION	 displaystart displayend need handle split 
+WITHOUT_CLASSIFICATION	 plot data 
+WITHOUT_CLASSIFICATION	 negative values not allowed 
+WITHOUT_CLASSIFICATION	 get log version upper bound and round integer 
+WITHOUT_CLASSIFICATION	 the category valid 
+WITHOUT_CLASSIFICATION	 setup number formatter obj 
+WITHOUT_CLASSIFICATION	 add space for the outer tick labels any 
+WITHOUT_CLASSIFICATION	 this the first period but only partially visible check that the label will fit before displaying 
+WITHOUT_CLASSIFICATION	 legendtextpaint 
+WITHOUT_CLASSIFICATION	 work out the initial gap 
+WITHOUT_CLASSIFICATION	 draw minor tick marks 
+WITHOUT_CLASSIFICATION	 work out the trailing gap 
+WITHOUT_CLASSIFICATION	 autorange true then the current range irrelevant 
+WITHOUT_CLASSIFICATION	 calculate the max size the tick labels visible 
+WITHOUT_CLASSIFICATION	 need work out the space used the tick labels can update the cursor 
+WITHOUT_CLASSIFICATION	 return value negate original value was negative 
+WITHOUT_CLASSIFICATION	 invert adjustlog 
+WITHOUT_CLASSIFICATION	 calculate ceil using negative value 
+WITHOUT_CLASSIFICATION	 negative values are allowed 
+WITHOUT_CLASSIFICATION	 get lower bound value 
+WITHOUT_CLASSIFICATION	 parameter value val use asis 
+WITHOUT_CLASSIFICATION	 then increase translates 
+WITHOUT_CLASSIFICATION	 setup for estyle tick labels regular numeric tick labels depending flag 
+WITHOUT_CLASSIFICATION	 calculate floor using negative value 
+WITHOUT_CLASSIFICATION	 setup flag based bounds values 
+WITHOUT_CLASSIFICATION	 real data present 
+WITHOUT_CLASSIFICATION	 need account for case where upper 
+WITHOUT_CLASSIFICATION	 actual data present get lower bound value 
+WITHOUT_CLASSIFICATION	 apply lower margin decreasing lower bound 
+WITHOUT_CLASSIFICATION	 strict flag set allownegatives not set and values 
+WITHOUT_CLASSIFICATION	 not small log values use allow for values did zero tick last iter then 
+WITHOUT_CLASSIFICATION	 tick label shown 
+WITHOUT_CLASSIFICATION	 create tick label force use fmt obj 
+WITHOUT_CLASSIFICATION	 create tick label 
+WITHOUT_CLASSIFICATION	 for each tick displayed 
+WITHOUT_CLASSIFICATION	 autorange still below minimum then adjust can needed when minrange very small 
+WITHOUT_CLASSIFICATION	 not etype label positive exponent then make integer 
+WITHOUT_CLASSIFICATION	 not logtype label 
+WITHOUT_CLASSIFICATION	 tick value and within data range set tick value zero indicate zero tick 
+WITHOUT_CLASSIFICATION	 small log values use 
+WITHOUT_CLASSIFICATION	 did not zero tick last iteration 
+WITHOUT_CLASSIFICATION	 not small log values use allow for values did zero tick last iter then decrement tick now calculate poweroften value for tick 
+WITHOUT_CLASSIFICATION	 for each tick with label displayed 
+WITHOUT_CLASSIFICATION	 tick value not below lowest data value 
+WITHOUT_CLASSIFICATION	 past highest data value then exit method 
+WITHOUT_CLASSIFICATION	 negative exponent create fractional value set exact number fractional digits shown 
+WITHOUT_CLASSIFICATION	 flag then create etype label 
+WITHOUT_CLASSIFICATION	 get lower bound value 
+WITHOUT_CLASSIFICATION	 itemlabelpaint 
+WITHOUT_CLASSIFICATION	 create etype label 
+WITHOUT_CLASSIFICATION	 check the new minimum date relative the current maximum date 
+WITHOUT_CLASSIFICATION	 decrement tick now 
+WITHOUT_CLASSIFICATION	 first last tick graph value create label for tick 
+WITHOUT_CLASSIFICATION	 create logtype label 
+WITHOUT_CLASSIFICATION	 milliseconds 
+WITHOUT_CLASSIFICATION	 not first tick group label make sure flag cleared 
+WITHOUT_CLASSIFICATION	 create tick object and add list 
+WITHOUT_CLASSIFICATION	 past highest data value then exit method 
+WITHOUT_CLASSIFICATION	 did zero tick last iteration label clear flag 
+WITHOUT_CLASSIFICATION	 date formatters 
+WITHOUT_CLASSIFICATION	 usually the range will daterange but isnt conversion 
+WITHOUT_CLASSIFICATION	 flag then create logtype label 
+WITHOUT_CLASSIFICATION	 using exponents forceformatter flag set convert lowercase 
+WITHOUT_CLASSIFICATION	 check the new maximum date relative the current minimum date 
+WITHOUT_CLASSIFICATION	 get localespecific resource bundle 
+WITHOUT_CLASSIFICATION	 draw the chart background 
+WITHOUT_CLASSIFICATION	 then extrapolate 
+WITHOUT_CLASSIFICATION	 even though the axis not visible need refresh ticks case the grid being drawn 
+WITHOUT_CLASSIFICATION	 days 
+WITHOUT_CLASSIFICATION	 minutes 
+WITHOUT_CLASSIFICATION	 timeline hasnt method getstarttime 
+WITHOUT_CLASSIFICATION	 years 
+WITHOUT_CLASSIFICATION	 months 
+WITHOUT_CLASSIFICATION	 hours 
+WITHOUT_CLASSIFICATION	 make final selection 
+WITHOUT_CLASSIFICATION	 could add flag make the following correction optional 
+WITHOUT_CLASSIFICATION	 tickmarkposition immutable need clone 
+WITHOUT_CLASSIFICATION	 action required 
+WITHOUT_CLASSIFICATION	 datetickunit immutable need clone 
+WITHOUT_CLASSIFICATION	 record the chart area info requested 
+WITHOUT_CLASSIFICATION	 step down size until the current size too small there are more units 
+WITHOUT_CLASSIFICATION	 now process the plot there one 
+WITHOUT_CLASSIFICATION	 there specific font use the general one 
+WITHOUT_CLASSIFICATION	 there specific paint use the general one 
+WITHOUT_CLASSIFICATION	 nothing required 
+WITHOUT_CLASSIFICATION	 find first excluded base segment starting fromdomainvalue 
+WITHOUT_CLASSIFICATION	 make time zone with dst for our calendar calculations 
+WITHOUT_CLASSIFICATION	 predetermined segments sizes 
+WITHOUT_CLASSIFICATION	 static block 
+WITHOUT_CLASSIFICATION	 other constants 
+WITHOUT_CLASSIFICATION	 move forward segments skipping excluded segments 
+WITHOUT_CLASSIFICATION	 last series are ready draw the min and max 
+WITHOUT_CLASSIFICATION	 operations 
+WITHOUT_CLASSIFICATION	 verify that basetimeline compatible with 
+WITHOUT_CLASSIFICATION	 calculate the result exceptions 
+WITHOUT_CLASSIFICATION	 find all consecutive included segments 
+WITHOUT_CLASSIFICATION	 adjust result for any exceptions the result calculated 
+WITHOUT_CLASSIFICATION	 skip exception excluded segments may fall 
+WITHOUT_CLASSIFICATION	 skip all whole exception segments the range 
+WITHOUT_CLASSIFICATION	 add the interval exception 
+WITHOUT_CLASSIFICATION	 first check that autopopulatefalse works expected 
+WITHOUT_CLASSIFICATION	 long start mathmax thissegmentstart long end thissegmentend 
+WITHOUT_CLASSIFICATION	 cycle over all the base segments groups the range 
+WITHOUT_CLASSIFICATION	 cycle through all the segments contained the base exclusion area 
+WITHOUT_CLASSIFICATION	 next base segment group 
+WITHOUT_CLASSIFICATION	 tick overlap when cycling update last tick too 
+WITHOUT_CLASSIFICATION	 calculate the adjusted data area taking into account the effect 
+WITHOUT_CLASSIFICATION	 check need collect chart entities from the container 
+WITHOUT_CLASSIFICATION	 suppresses compiler warnings 
+WITHOUT_CLASSIFICATION	 seriesoutlinepaint 
+WITHOUT_CLASSIFICATION	 update but dont draw tick marks needed for stepped colors 
+WITHOUT_CLASSIFICATION	 inverted 
+WITHOUT_CLASSIFICATION	 draw mean special aims requirement 
+WITHOUT_CLASSIFICATION	 allow fixed thickness 
+WITHOUT_CLASSIFICATION	 default make height plotarea 
+WITHOUT_CLASSIFICATION	 remember these values for next comparison 
+WITHOUT_CLASSIFICATION	 transparent 
+WITHOUT_CLASSIFICATION	 ensure that all the symbols are displayed 
+WITHOUT_CLASSIFICATION	 catches null also 
+WITHOUT_CLASSIFICATION	 this ensure that the grid bands will displayed correctly 
+WITHOUT_CLASSIFICATION	 must top bottom 
+WITHOUT_CLASSIFICATION	 from outlier array sort out which are outliers and put these into list there are any farouts set the flag the 
+WITHOUT_CLASSIFICATION	 zap the buffer onto the canvas 
+WITHOUT_CLASSIFICATION	 avoid possible sundcprprexception endpath bad path 
+WITHOUT_CLASSIFICATION	 null handled fine here 
+WITHOUT_CLASSIFICATION	 place this row truncated anyway 
+WITHOUT_CLASSIFICATION	 find optimum height then map range 
+WITHOUT_CLASSIFICATION	 block block blocksgeti 
+WITHOUT_CLASSIFICATION	 can safely ignore 
+WITHOUT_CLASSIFICATION	 handle tool tips simple way 
+WITHOUT_CLASSIFICATION	 find optimum width and map range 
+WITHOUT_CLASSIFICATION	 since the flow layout relatively straightforward information needs recorded here 
+WITHOUT_CLASSIFICATION	 chart title data legend tooltips url generation 
+WITHOUT_CLASSIFICATION	 this default implementation will just fill the available border space with single color 
+WITHOUT_CLASSIFICATION	 nothing clear 
+WITHOUT_CLASSIFICATION	 fixed width 
+WITHOUT_CLASSIFICATION	 find optimum height and map range 
+WITHOUT_CLASSIFICATION	 the area has zero height width shouldnt draw anything 
+WITHOUT_CLASSIFICATION	 check initial polygon needs clipped 
+WITHOUT_CLASSIFICATION	 place this column truncated anyway 
+WITHOUT_CLASSIFICATION	 autorange 
+WITHOUT_CLASSIFICATION	 customise the section label appearance 
+WITHOUT_CLASSIFICATION	 pass the superclass for handling 
+WITHOUT_CLASSIFICATION	 add subtitle giving the data source 
+WITHOUT_CLASSIFICATION	 insets values 
+WITHOUT_CLASSIFICATION	 figure out what type axis have and instantiate the appropriate panel 
+WITHOUT_CLASSIFICATION	 create panel for the settings 
+WITHOUT_CLASSIFICATION	 populate the deprecated fields 
+WITHOUT_CLASSIFICATION	 end fix rfuller 
+WITHOUT_CLASSIFICATION	 pass superclass for handling 
+WITHOUT_CLASSIFICATION	 update the deprecated field 
+WITHOUT_CLASSIFICATION	 same for chartentity 
+WITHOUT_CLASSIFICATION	 then the axis properties 
+WITHOUT_CLASSIFICATION	 check the deprecated fields 
+WITHOUT_CLASSIFICATION	 update the deprecated fields 
+WITHOUT_CLASSIFICATION	 try the parent plot 
+WITHOUT_CLASSIFICATION	  
+WITHOUT_CLASSIFICATION	 fix rfuller 
+WITHOUT_CLASSIFICATION	 dmo added dmo added 
+WITHOUT_CLASSIFICATION	 baseseriespaint 
+WITHOUT_CLASSIFICATION	 record the plot area 
+WITHOUT_CLASSIFICATION	 title xaxis label yaxis label 
+WITHOUT_CLASSIFICATION	 set the default stroke for all series 
+WITHOUT_CLASSIFICATION	 does nothing unless overridden 
+WITHOUT_CLASSIFICATION	 force redraw 
+WITHOUT_CLASSIFICATION	 the url text should already have been escaped the url generator 
+WITHOUT_CLASSIFICATION	 have been panning reset the cursor unregister any case 
+WITHOUT_CLASSIFICATION	 the actual panning occurs later the mousedragged method 
+WITHOUT_CLASSIFICATION	 have rotation huston please spin 
+WITHOUT_CLASSIFICATION	 fields test 
+WITHOUT_CLASSIFICATION	 expect the line vertical horizontal vertical 
+WITHOUT_CLASSIFICATION	 int maxx int plotareagetmaxx 
+WITHOUT_CLASSIFICATION	 isarrowattop 
+WITHOUT_CLASSIFICATION	 horizontal 
+WITHOUT_CLASSIFICATION	 have rotation houston please spin 
+WITHOUT_CLASSIFICATION	 configure the range axis 
+WITHOUT_CLASSIFICATION	 draw the shared axis 
+WITHOUT_CLASSIFICATION	 set the width and height nonshared axis all subplots 
+WITHOUT_CLASSIFICATION	 calculate subplot area 
+WITHOUT_CLASSIFICATION	 default preserves previous behaviour 
+WITHOUT_CLASSIFICATION	 the range axis deserialized before the subplots its value range likely incorrect 
+WITHOUT_CLASSIFICATION	 the pie area defines the circleellipse for regular pie sections defined shrinking the explodearea the explodemargin factor 
+WITHOUT_CLASSIFICATION	 draw all the charts 
+WITHOUT_CLASSIFICATION	 the explode area defines the max circleellipse for the exploded pie sections defined shrinking the linkarea the linkmargin factor 
+WITHOUT_CLASSIFICATION	 get the data source return null 
+WITHOUT_CLASSIFICATION	 this paint dont recognise 
+WITHOUT_CLASSIFICATION	 the link area defines the dogleg point for the linking lines the labels 
+WITHOUT_CLASSIFICATION	 too any elements 
+WITHOUT_CLASSIFICATION	 nothing default 
+WITHOUT_CLASSIFICATION	 depth negative dont draw anything 
+WITHOUT_CLASSIFICATION	 and finishes back 
+WITHOUT_CLASSIFICATION	 the segment starts the front and wraps all the way around the back and finishes the front again 
+WITHOUT_CLASSIFICATION	 start front 
+WITHOUT_CLASSIFICATION	 draw the height 
+WITHOUT_CLASSIFICATION	 for clockwise charts the extent will negative 
+WITHOUT_CLASSIFICATION	 cycle through again drawing only the sides the front 
+WITHOUT_CLASSIFICATION	 segments wraps right around the back 
+WITHOUT_CLASSIFICATION	 segment starts back 
+WITHOUT_CLASSIFICATION	 and finishes the front 
+WITHOUT_CLASSIFICATION	 whole segment stays the back 
+WITHOUT_CLASSIFICATION	 segments starts front and finishes back 
+WITHOUT_CLASSIFICATION	 segment only occupies the front 
+WITHOUT_CLASSIFICATION	 dmo zero when the parameter not set 
+WITHOUT_CLASSIFICATION	 never updated the subtrahend implied zero 
+WITHOUT_CLASSIFICATION	 draw horizontal crosshair required 
+WITHOUT_CLASSIFICATION	 draw vertical crosshair required 
+WITHOUT_CLASSIFICATION	 ratio represents axis units 
+WITHOUT_CLASSIFICATION	 ratio represents pixels 
+WITHOUT_CLASSIFICATION	 draw the plot background 
+WITHOUT_CLASSIFICATION	 get the data points 
+WITHOUT_CLASSIFICATION	 segment starts the front 
+WITHOUT_CLASSIFICATION	 just the horizontal axis 
+WITHOUT_CLASSIFICATION	 just the vertical axis 
+WITHOUT_CLASSIFICATION	 end column 
+WITHOUT_CLASSIFICATION	 the following relies the fact that the intervals are immutable 
+WITHOUT_CLASSIFICATION	 seriespaintlist 
+WITHOUT_CLASSIFICATION	 this new column 
+WITHOUT_CLASSIFICATION	 plot the data unless the dataset null 
+WITHOUT_CLASSIFICATION	 object oldvalue thisurlgenerator 
+WITHOUT_CLASSIFICATION	 object oldvalue 
+WITHOUT_CLASSIFICATION	 draw the background 
+WITHOUT_CLASSIFICATION	 cant find any difference 
+WITHOUT_CLASSIFICATION	 intentionally blank 
+WITHOUT_CLASSIFICATION	 set the anchor value for the range axis 
+WITHOUT_CLASSIFICATION	 make the link area square the pie chart circular 
+WITHOUT_CLASSIFICATION	 send dataset change event self trigger plot change event 
+WITHOUT_CLASSIFICATION	 check line segments are colinear 
+WITHOUT_CLASSIFICATION	 delegate 
+WITHOUT_CLASSIFICATION	 axis 
+WITHOUT_CLASSIFICATION	 range scaledrange range percent 
+WITHOUT_CLASSIFICATION	 add tooltip for the section 
+WITHOUT_CLASSIFICATION	 draw all the subplots 
+WITHOUT_CLASSIFICATION	 the segment starts the back still extending clockwise 
+WITHOUT_CLASSIFICATION	 override only for documentation purposes 
+WITHOUT_CLASSIFICATION	 minor 
+WITHOUT_CLASSIFICATION	 not check there stroke defined for the specified key 
+WITHOUT_CLASSIFICATION	 draw the wafer 
+WITHOUT_CLASSIFICATION	 get major dimension 
+WITHOUT_CLASSIFICATION	 otherwise look the paint table 
+WITHOUT_CLASSIFICATION	 ellipse diameter the minor dimension 
+WITHOUT_CLASSIFICATION	 set upperleft point minor 
+WITHOUT_CLASSIFICATION	 calculate and draw the notch horizontal orientation considered notch right vertical orientation considered notch down 
+WITHOUT_CLASSIFICATION	 section paint 
+WITHOUT_CLASSIFICATION	 section outline stroke 
+WITHOUT_CLASSIFICATION	 seriespaint 
+WITHOUT_CLASSIFICATION	 cycle through once drawing only the sides the back 
+WITHOUT_CLASSIFICATION	 classify the keys according which side the label will appear 
+WITHOUT_CLASSIFICATION	 clear the point vectors 
+WITHOUT_CLASSIFICATION	 range axis renderer 
+WITHOUT_CLASSIFICATION	 draw the right labels 
+WITHOUT_CLASSIFICATION	 draw the labels 
+WITHOUT_CLASSIFICATION	 cant find any difference 
+WITHOUT_CLASSIFICATION	 getinteriorgap 
+WITHOUT_CLASSIFICATION	 line not visible 
+WITHOUT_CLASSIFICATION	 for radialgradientpaint adjust the center and radius match the current pie segment 
+WITHOUT_CLASSIFICATION	 create the bounds for the inner arc 
+WITHOUT_CLASSIFICATION	 set the anchor value for the vertical axis 
+WITHOUT_CLASSIFICATION	 after setting all the subplots the shared domain axis may need reconfiguring 
+WITHOUT_CLASSIFICATION	 delegate state and source argument checks 
+WITHOUT_CLASSIFICATION	 showvaluelines 
+WITHOUT_CLASSIFICATION	 column keys provide potential keys for individual pies 
+WITHOUT_CLASSIFICATION	 update the section colors match the global colors 
+WITHOUT_CLASSIFICATION	 calculate inner arc reverse direction for later generalpath construction 
+WITHOUT_CLASSIFICATION	 the columns variable always rows 
+WITHOUT_CLASSIFICATION	 add entity for the pie section 
+WITHOUT_CLASSIFICATION	 row keys provide potential keys for individual pies 
+WITHOUT_CLASSIFICATION	 jfreechart free chart library for the javatm platform copyright object refinery limited and contributors project info this library free software you can redistribute andor modify under the terms the gnu lesser general public license published the free software foundation either version the license your option any later version this library distributed the hope that will useful but without any warranty without even the implied warranty merchantability fitness for particular purpose see the gnu lesser general public license for more details you should have received copy the gnu lesser general public license along with this library not write the free software foundation inc franklin street fifth floor boston usa oracle and java are registered trademarks oracle andor its affiliates other names may trademarks their respective owners categoryplotjava copyright object refinery limited and contributors original author david gilbert for object refinery limited contributors jeremy bowman arnaud lelievre richard west advanced micro devices inc ulrich voigt patch peter kolb patches and changes jun removed redundant jfreechart parameter from constructors aug added standard header fixed dos encoding problem sep updated header oct data source classes moved comjrefinerydata oct renamed datasourcejava datasetjava etc oct changed intro and trail gaps bar plots use percentage available space rather than fixed number units dec changed constructors protected dec added tooltips jan increased maximum intro and trail gap percents plus added some argument checking code thanks taoufik romdhane for suggesting this feb added accessor methods for the tooltip generator incorporated alphatransparency for plot and subclasses mar updated import statements mar renamed barplotjava categoryplotjava and changed code use the interface mar dropped the getcategories method apr moved the dataset from the jfreechart class the plot class apr new methods support printing values the end bars contributed jeremy bowman may new methods for label visibility and overlaid plot support contributed jeremy bowman jun removed the tooltip generator this now stored with the renderer moved constants into the interface updated javadoc comments jun overridden datasetchanged method update the upper and lower bound the range axis necessary updated javadocs jun removed redundant imports aug changed the constructor for marker aug added listener notification setdomainaxis and setrangeaxis sep added getlegenditems method and fixed errors reported checkstyle oct changes the categorydataset interface nov base dataset now tabledataset not categorydataset nov renamed labelxxx valuelabelxxx nov added grid settings for both domain and range axis previously these were set the axes nov added axis location parameters constructor jan moved package feb fixed bug autorange calculation for secondary axis mar implemented serializable may moved render method from subclasses added secondary range markers added attribute control the dataset rendering order added drawannotations method changed the axis location from int axislocation may merged and into this class jun removed check for range axis compatibility jul added domain gridline position attribute jul moved drawingsupplier plot superclass aug added equals method and implemented cloneable sep fixed bug change event when secondary dataset changes sep fixed bug wrong dataset checked render method and initialise method sep added via use properties resourcebundle rfe sep fixed bug wrong secondary range axis being used changed valueaxis api sep fixed bug setrangeaxis method sep fixed two bugs serialization implemented publiccloneable oct added event notification for changes renderer nov fixed bug clearrangemarkers method dec modified draw method accept anchor jan update for renamed method valueaxis mar fixed bug axis range calculation when secondary renderer stacked may added fixed legend items may added check for null legend item from renderer jun updated the class nov renamed and ensured that returned list doesnt contain null datasets nov implemented new zoomable interface jan renamed getrangeextent findrangebounds may fixed serialization range markers may updated draw method parameters may added setdomainaxes and setrangeaxes methods per rfe jun upon deserialization register plot listener with its axes datasets and renderers see patch jun added support for domain markers jun fixed equals method for use with gradientpaint jun added setrenderers per rfe jun added getdomainaxiscount and getrangeaxiscount methods match xyplot see rfe jfreechart jan added configurerangeaxes rendererchanged since the renderer might influence the axis range jan added various null argument checks aug added getdatasetcount method plus fix for bug drawing category labels thanks adriaan joubert sep added markerchangeevent support oct added getdomainaxisindex and methods nov fire plotchangeevent from and nov fix for bug intervalmarker exceeds bounds data area feb fix for bug notify argument ignored mar added null argument checks for and fixed clipping for annotations jun override drawbackground for new gradientpaint handling jul added method sep implemented new zoom methods oct added some argument checks nov applied patch richard west for removal domain and range markers nov added missing event notifications mar added new methods with optional notification see patch apr fixed npe removedomainmarker and removerangemarker apr fixed equals and clone methods jun fixed crosshair support jul fixed outline visibility for renderers aug added renderercount method nov added facility map datasets multiples axes dec cleaned grid drawing methods dec use see patch jess thrysoee jan added flag mar modified anchored zoom behaviour mar implemented pannable interface see patch mar added entity support see patch peter kolb jun implemented see patch jul fix for cloning renderers see bug jul added optional drop shadow generator sep fixed annotation import oct fixed tooltip offset with shadow generator nov initialise shadow generator null jul use paramchecks sep check for rendering hint mar updated javadocs for issue apr remove use objectlist 
+WITHOUT_CLASSIFICATION	 allocate storage for dataset axes and renderers 
+WITHOUT_CLASSIFICATION	 item labels visible 
+WITHOUT_CLASSIFICATION	 series paint 
+WITHOUT_CLASSIFICATION	 add the unique categories from this dataset 
+WITHOUT_CLASSIFICATION	 dont let anyone draw outside the data area 
+WITHOUT_CLASSIFICATION	 the first axis the list used for data javad 
+WITHOUT_CLASSIFICATION	 reserve space for any domain axes 
+WITHOUT_CLASSIFICATION	 get the legend items for the datasets 
+WITHOUT_CLASSIFICATION	 there renderer draws the background otherwise use the default background 
+WITHOUT_CLASSIFICATION	 specify the anchor and coordinates javad space for the cases where these are not updated during rendering lock data 
+WITHOUT_CLASSIFICATION	 reserve some space for the range axis 
+WITHOUT_CLASSIFICATION	 add domain axes lists 
+WITHOUT_CLASSIFICATION	 now render data items 
+WITHOUT_CLASSIFICATION	 set the alphatransparency 
+WITHOUT_CLASSIFICATION	 draw outline around the plot area 
+WITHOUT_CLASSIFICATION	 draw the foreground markers 
+WITHOUT_CLASSIFICATION	 grab the plots annotations 
+WITHOUT_CLASSIFICATION	 iterate through the datasets that map the axis and get the union the ranges 
+WITHOUT_CLASSIFICATION	 draw the bottom axes 
+WITHOUT_CLASSIFICATION	 draw the left axes 
+WITHOUT_CLASSIFICATION	 add range axes lists 
+WITHOUT_CLASSIFICATION	 draw the right axes 
+WITHOUT_CLASSIFICATION	 now check that the chart usable 
+WITHOUT_CLASSIFICATION	 nothing because the plot not pannable along the domain axes 
+WITHOUT_CLASSIFICATION	 provides action default 
+WITHOUT_CLASSIFICATION	 draw the range grid lines any 
+WITHOUT_CLASSIFICATION	 stroke sequence 
+WITHOUT_CLASSIFICATION	 axislocation immutable can just copy the maps 
+WITHOUT_CLASSIFICATION	 some subclasses override this method completely dont put anything here that must done 
+WITHOUT_CLASSIFICATION	 delegate other method 
+WITHOUT_CLASSIFICATION	 not currently serialized 
+WITHOUT_CLASSIFICATION	 headpercent 
+WITHOUT_CLASSIFICATION	 square 
+WITHOUT_CLASSIFICATION	 check null argument 
+WITHOUT_CLASSIFICATION	 dont need the sign 
+WITHOUT_CLASSIFICATION	 basesectionpaint 
+WITHOUT_CLASSIFICATION	 the datasets are not cloned but listeners need added 
+WITHOUT_CLASSIFICATION	 filltype toupperbound 
+WITHOUT_CLASSIFICATION	 normalize angle 
+WITHOUT_CLASSIFICATION	 draw the radius grid lines any 
+WITHOUT_CLASSIFICATION	 now for each dataset get the renderer and the appropriate axis and render the dataset 
+WITHOUT_CLASSIFICATION	 solve linear system with tridiagonal matrix using gaussian elimination without pivoting where aii subi for aii diagi for aii supi for the values sub supn are ignored right hand side vector overwritten with solution note used all arrays unused 
+WITHOUT_CLASSIFICATION	 horizontal ellipse 
+WITHOUT_CLASSIFICATION	 horizontal rectangle 
+WITHOUT_CLASSIFICATION	 uppointing triangle 
+WITHOUT_CLASSIFICATION	 rightpointing triangle 
+WITHOUT_CLASSIFICATION	 this represents the situation for drawing horizontal bar 
+WITHOUT_CLASSIFICATION	 leftpointing triangle 
+WITHOUT_CLASSIFICATION	 vertical rectangle 
+WITHOUT_CLASSIFICATION	 otherwise look the paint list 
+WITHOUT_CLASSIFICATION	 draw the polygon series 
+WITHOUT_CLASSIFICATION	 verify independence fixed legend item collection 
+WITHOUT_CLASSIFICATION	 series outline stroke 
+WITHOUT_CLASSIFICATION	 draw the axis and category label 
+WITHOUT_CLASSIFICATION	 plot the data 
+WITHOUT_CLASSIFICATION	 now actually plot each the series polygons 
+WITHOUT_CLASSIFICATION	 end axis 
+WITHOUT_CLASSIFICATION	 find the point the appropriate distance end point along the axisangle identified above and add the polygon 
+WITHOUT_CLASSIFICATION	 shapefilled 
+WITHOUT_CLASSIFICATION	 finds our starting angle from the centre for this axis 
+WITHOUT_CLASSIFICATION	 downpointing triangle 
+WITHOUT_CLASSIFICATION	 circle 
+WITHOUT_CLASSIFICATION	 diamond 
+WITHOUT_CLASSIFICATION	 check that the graph being served was created the current user that begins with public 
+WITHOUT_CLASSIFICATION	 set the anchor value for the horizontal axis 
+WITHOUT_CLASSIFICATION	 plot the polygon 
+WITHOUT_CLASSIFICATION	 draw range crosshair required 
+WITHOUT_CLASSIFICATION	 put elipse the point being plotted 
+WITHOUT_CLASSIFICATION	 pass mouse down event some chartmouselistener are listening 
+WITHOUT_CLASSIFICATION	 reserve space for the domain axes 
+WITHOUT_CLASSIFICATION	 allocate storage for datasets axes and renderers all optional 
+WITHOUT_CLASSIFICATION	 negatives true 
+WITHOUT_CLASSIFICATION	 series are rows then the categories are the column keys 
+WITHOUT_CLASSIFICATION	 lastly fill the web polygon this required 
+WITHOUT_CLASSIFICATION	 value mathpowvalue 
+WITHOUT_CLASSIFICATION	 clone share data sets add the clone listener the dataset 
+WITHOUT_CLASSIFICATION	 zooming possible 
+WITHOUT_CLASSIFICATION	 izv 
+WITHOUT_CLASSIFICATION	 reserve space for the range axes 
+WITHOUT_CLASSIFICATION	 domain axis 
+WITHOUT_CLASSIFICATION	 render series forward order 
+WITHOUT_CLASSIFICATION	 draw background annotations 
+WITHOUT_CLASSIFICATION	 draw 
+WITHOUT_CLASSIFICATION	 render series reverse order 
+WITHOUT_CLASSIFICATION	 draw foreground annotations 
+WITHOUT_CLASSIFICATION	 render data items 
+WITHOUT_CLASSIFICATION	 default renderer available 
+WITHOUT_CLASSIFICATION	 cant draw quadrants without valid xaxis 
+WITHOUT_CLASSIFICATION	 cant render anything without axes 
+WITHOUT_CLASSIFICATION	 cant draw quadrants without valid yaxis 
+WITHOUT_CLASSIFICATION	 use the texttitle class because concrete subclass 
+WITHOUT_CLASSIFICATION	 the event was caused change series visibility then the axis ranges might need updating 
+WITHOUT_CLASSIFICATION	 dont clone the listeners 
+WITHOUT_CLASSIFICATION	 squares 
+WITHOUT_CLASSIFICATION	 there existing dataset remove the plot from the list change listeners 
+WITHOUT_CLASSIFICATION	 draw the item shapes 
+WITHOUT_CLASSIFICATION	 the textalignment and the horizontalalignment are separate things but makes sense for the default textalignment match the titles horizontal alignment 
+WITHOUT_CLASSIFICATION	 range axis 
+WITHOUT_CLASSIFICATION	 perform the zoom each domain axis 
+WITHOUT_CLASSIFICATION	 register the plot listener with its axes datasets and renderers 
+WITHOUT_CLASSIFICATION	 linevisible 
+WITHOUT_CLASSIFICATION	 int transx int domainmin domainlength int transy int rangemin rangelength 
+WITHOUT_CLASSIFICATION	 dont use the calendar numberformat fields but equalsobject failing without them being nonnull 
+WITHOUT_CLASSIFICATION	 images considered equal only theyre the same object  there way better test 
+WITHOUT_CLASSIFICATION	 draw units indicator 
+WITHOUT_CLASSIFICATION	 already calculated already calculated 
+WITHOUT_CLASSIFICATION	 plot registered listener with the existing axis 
+WITHOUT_CLASSIFICATION	 draw the cap there one 
+WITHOUT_CLASSIFICATION	 draw text value screen 
+WITHOUT_CLASSIFICATION	 draw start normal range 
+WITHOUT_CLASSIFICATION	 fill paint 
+WITHOUT_CLASSIFICATION	 draw the axis 
+WITHOUT_CLASSIFICATION	 draw start warning range 
+WITHOUT_CLASSIFICATION	 draw start critical range 
+WITHOUT_CLASSIFICATION	 pieindex 
+WITHOUT_CLASSIFICATION	 draw range indicators 
+WITHOUT_CLASSIFICATION	 draw thermometer outline 
+WITHOUT_CLASSIFICATION	 draw the border 
+WITHOUT_CLASSIFICATION	 draw the outline the filled polygon 
+WITHOUT_CLASSIFICATION	 calculate the bounds the template value 
+WITHOUT_CLASSIFICATION	 linevisible 
+WITHOUT_CLASSIFICATION	 urltext 
+WITHOUT_CLASSIFICATION	 now find the text anchor point 
+WITHOUT_CLASSIFICATION	 adjust text bounds match string position 
+WITHOUT_CLASSIFICATION	 draw the pointers 
+WITHOUT_CLASSIFICATION	 draw the background there one 
+WITHOUT_CLASSIFICATION	 first expand the viewing area into drawing frame 
+WITHOUT_CLASSIFICATION	 now the minor tick marks 
+WITHOUT_CLASSIFICATION	 otherwise look the stroke table 
+WITHOUT_CLASSIFICATION	 now fetch the row data need bear mind that the row structure may not have entry for the column key but that have already checked that the key valid for the structure 
+WITHOUT_CLASSIFICATION	 series visible not yet respected all renderers 
+WITHOUT_CLASSIFICATION	 otherwise look the position list 
+WITHOUT_CLASSIFICATION	 outline paint 
+WITHOUT_CLASSIFICATION	 otherwise look the shape list 
+WITHOUT_CLASSIFICATION	 otherwise look the position table 
+WITHOUT_CLASSIFICATION	 item label font 
+WITHOUT_CLASSIFICATION	 iterate and find all keys below threshold percentthreshold 
+WITHOUT_CLASSIFICATION	 item label visibility 
+WITHOUT_CLASSIFICATION	 positive item label position 
+WITHOUT_CLASSIFICATION	 otherwise look the boolean table 
+WITHOUT_CLASSIFICATION	 item label paint 
+WITHOUT_CLASSIFICATION	 paint immutable need clone reference 
+WITHOUT_CLASSIFICATION	 negative item label position 
+WITHOUT_CLASSIFICATION	 basestroke immutable need clone reference 
+WITHOUT_CLASSIFICATION	 outlinepaint immutable need clone reference 
+WITHOUT_CLASSIFICATION	 stroke immutable need clone reference 
+WITHOUT_CLASSIFICATION	 basepaint immutable need clone reference 
+WITHOUT_CLASSIFICATION	 skip any items that dont need including 
+WITHOUT_CLASSIFICATION	 baseitemlabelanchor immutable need clone reference 
+WITHOUT_CLASSIFICATION	 create temporary vector set some arbitary value used below 
+WITHOUT_CLASSIFICATION	 baseoutlinestroke immutable need clone reference 
+WITHOUT_CLASSIFICATION	 baseitemlabelfont immutable need clone reference 
+WITHOUT_CLASSIFICATION	 shapelist baseshape 
+WITHOUT_CLASSIFICATION	 this case every color has unique value 
+WITHOUT_CLASSIFICATION	 immutable need clone reference 
+WITHOUT_CLASSIFICATION	 itemlabelpaint immutable need clone reference 
+WITHOUT_CLASSIFICATION	 itemlabelfont immutable need clone reference 
+WITHOUT_CLASSIFICATION	 itemlabelsvisible immutable need clone reference 
+WITHOUT_CLASSIFICATION	 immutable need clone reference 
+WITHOUT_CLASSIFICATION	 assign color for each unique value 
+WITHOUT_CLASSIFICATION	 systemerrprint creating new outlier list 
+WITHOUT_CLASSIFICATION	 deprecated code 
+WITHOUT_CLASSIFICATION	 outlinestroke immutable need clone reference 
+WITHOUT_CLASSIFICATION	 listeners are not restored automatically but storage must provided 
+WITHOUT_CLASSIFICATION	 handle special case where value less that item zero 
+WITHOUT_CLASSIFICATION	 tool tip generator 
+WITHOUT_CLASSIFICATION	 special case where the highest xvalue xlow 
+WITHOUT_CLASSIFICATION	 url generator 
+WITHOUT_CLASSIFICATION	 more values than paints map multiple values the same color 
+WITHOUT_CLASSIFICATION	 there plot there dataset access 
+WITHOUT_CLASSIFICATION	 return the overall setting there one 
+WITHOUT_CLASSIFICATION	 end class wafermaprenderer 
+WITHOUT_CLASSIFICATION	 when the xvalues are descending the upper bound found comparing against xlow 
+WITHOUT_CLASSIFICATION	 handle negative value 
+WITHOUT_CLASSIFICATION	  calculate xxleft and xxright 
+WITHOUT_CLASSIFICATION	 end foreach map entry end else 
+WITHOUT_CLASSIFICATION	 handle positive value 
+WITHOUT_CLASSIFICATION	 right polygon 
+WITHOUT_CLASSIFICATION	 shapes filled 
+WITHOUT_CLASSIFICATION	 because negative 
+WITHOUT_CLASSIFICATION	 handle value outside bounds 
+WITHOUT_CLASSIFICATION	 handle rendering separately for the two plot orientations 
+WITHOUT_CLASSIFICATION	 look for any keys that dont already know about 
+WITHOUT_CLASSIFICATION	 draw the blocks 
+WITHOUT_CLASSIFICATION	 the commented out code would better but only rendererchangeevent immutable which isnt see there way fix this 
+WITHOUT_CLASSIFICATION	 shapes visible 
+WITHOUT_CLASSIFICATION	 contained titles 
+WITHOUT_CLASSIFICATION	 preserves old behaviour 
+WITHOUT_CLASSIFICATION	 lines visible 
+WITHOUT_CLASSIFICATION	 value 
+WITHOUT_CLASSIFICATION	 nothing drawn for null 
+WITHOUT_CLASSIFICATION	 put outline around the data area 
+WITHOUT_CLASSIFICATION	 fetch the series remove the change listener then remove the series 
+WITHOUT_CLASSIFICATION	 nothing both the line and shape are not visible 
+WITHOUT_CLASSIFICATION	 cases and 
+WITHOUT_CLASSIFICATION	 get the clipping values 
+WITHOUT_CLASSIFICATION	 set the default item label positions 
+WITHOUT_CLASSIFICATION	 fill background 
+WITHOUT_CLASSIFICATION	 highlight the background corners 
+WITHOUT_CLASSIFICATION	 item label generator 
+WITHOUT_CLASSIFICATION	 draw the bar 
+WITHOUT_CLASSIFICATION	 check the value are plotting 
+WITHOUT_CLASSIFICATION	 the bar not visible 
+WITHOUT_CLASSIFICATION	 url generator 
+WITHOUT_CLASSIFICATION	 tool tip generator 
+WITHOUT_CLASSIFICATION	 defensive check 
+WITHOUT_CLASSIFICATION	 new methods 
+WITHOUT_CLASSIFICATION	 now draw the outlines visible 
+WITHOUT_CLASSIFICATION	  add stroke boolean 
+WITHOUT_CLASSIFICATION	 cases and 
+WITHOUT_CLASSIFICATION	 handle special case 
+WITHOUT_CLASSIFICATION	 let the superclass handle 
+WITHOUT_CLASSIFICATION	 standard deviation lines 
+WITHOUT_CLASSIFICATION	 cases and 
+WITHOUT_CLASSIFICATION	 draw background image there one 
+WITHOUT_CLASSIFICATION	 thischart 
+WITHOUT_CLASSIFICATION	  add paint boolean 
+WITHOUT_CLASSIFICATION	  add boolean 
+WITHOUT_CLASSIFICATION	 draw the bars 
+WITHOUT_CLASSIFICATION	 nothing drawn for null values 
+WITHOUT_CLASSIFICATION	 plotbackgroundpaint 
+WITHOUT_CLASSIFICATION	 fields compute 
+WITHOUT_CLASSIFICATION	 percent will not apply unless changed 
+WITHOUT_CLASSIFICATION	  add boolean 
+WITHOUT_CLASSIFICATION	 units 
+WITHOUT_CLASSIFICATION	 shape 
+WITHOUT_CLASSIFICATION	 remove old items necessary but dont notify anyone because that happens next anyway 
+WITHOUT_CLASSIFICATION	 tick labels visible 
+WITHOUT_CLASSIFICATION	 tick size 
+WITHOUT_CLASSIFICATION	 standard deviation lines 
+WITHOUT_CLASSIFICATION	 switch and 
+WITHOUT_CLASSIFICATION	 upright bar 
+WITHOUT_CLASSIFICATION	 extend flat bar 
+WITHOUT_CLASSIFICATION	 xxs 
+WITHOUT_CLASSIFICATION	 xxs 
+WITHOUT_CLASSIFICATION	 the clone and the original share reference the same dataset 
+WITHOUT_CLASSIFICATION	 plotoutlinepaint 
+WITHOUT_CLASSIFICATION	 outline paint 
+WITHOUT_CLASSIFICATION	 flat bar 
+WITHOUT_CLASSIFICATION	  add setseriesshapeint shape boolean 
+WITHOUT_CLASSIFICATION	 bar width 
+WITHOUT_CLASSIFICATION	 paint 
+WITHOUT_CLASSIFICATION	 jfreechart free chart library for the javatm platform copyright object refinery limited and contributors project info this library free software you can redistribute andor modify under the terms the gnu lesser general public license published the free software foundation either version the license your option any later version this library distributed the hope that will useful but without any warranty without even the implied warranty merchantability fitness for particular purpose see the gnu lesser general public license for more details you should have received copy the gnu lesser general public license along with this library not write the free software foundation inc franklin street fifth floor boston usa oracle and java are registered trademarks oracle andor its affiliates other names may trademarks their respective owners copyright object refinery limited and contributors original author david gilbert for object refinery limited contributors mark watson wwwmarkwatsoncom changes oct version jan renamed feb changed return type the drawcategoryitem method from void shape part the tooltips implementation note may this has subsequently been changed back void tooltips are now collected along with entities chartrenderinginfo mar added the initialise method and changed all bar plots use this renderer may added chartrenderinginfo the initialise method may added the method jun updated javadoc comments jun added range axis the initialise method sep added getlegenditem method oct added methods nov replaced references categorydataset with tabledataset nov added the domain axis the drawcategoryitem method renamed drawcategoryitem drawitem nov changed signature drawitem method reflect use tabledataset nov replaced the isstacked method with the getrangetype method jan changed getseriescount getrowcount and getcategorycount getcolumncount jan changed name gridline methods jan merged tabledataset with categorydataset apr changed categorydataset keyedvaluesddataset drawitem method apr eliminated renderer interface sep fix for bug sep changed chartrenderinginfo plotrenderinginfo oct added setoutlinepaint method feb added missing methods and moved deprecated methods feb added extra setxxxlabelsvisible methods apr changed integer int initialise method may added methods for item label paint nov added getpasscount method and pass parameter drawitem method jan renamed getrangeextent findrangebounds jan removed deprecated code preparation for release feb now extends legenditemsource apr renamed may added drawdomainmarker method jfreechart feb updated api docs apr deprecated seriesvisible and flags apr deprecated paint fillpaint outlinepaint stroke outlinestroke shape itemlabelsvisible itemlabelfont itemlabelpaint and createentities override fields jun added new method required for crosshair support this changes the api version 
+WITHOUT_CLASSIFICATION	 the next functions override the baseclass implementation the domaininfo interface using saved limits updated each updatetime call improves performance 
+WITHOUT_CLASSIFICATION	 bar height 
+WITHOUT_CLASSIFICATION	 row outline color 
+WITHOUT_CLASSIFICATION	  add setseriespaintint paint boolean 
+WITHOUT_CLASSIFICATION	 fill paint 
+WITHOUT_CLASSIFICATION	  add setseriesstrokeint stroke boolean 
+WITHOUT_CLASSIFICATION	 stroke 
+WITHOUT_CLASSIFICATION	  add setbaseshapeshape boolean 
+WITHOUT_CLASSIFICATION	  add boolean 
+WITHOUT_CLASSIFICATION	 item labels visible 
+WITHOUT_CLASSIFICATION	 outline stroke 
+WITHOUT_CLASSIFICATION	  add boolean 
+WITHOUT_CLASSIFICATION	 item label font 
+WITHOUT_CLASSIFICATION	  add boolean 
+WITHOUT_CLASSIFICATION	  add paint boolean 
+WITHOUT_CLASSIFICATION	 stategetbarwidth 
+WITHOUT_CLASSIFICATION	  add font boolean 
+WITHOUT_CLASSIFICATION	 create actual polygon 
+WITHOUT_CLASSIFICATION	 create line renderer only 
+WITHOUT_CLASSIFICATION	 draw the upper shadow 
+WITHOUT_CLASSIFICATION	 connect the previous point 
+WITHOUT_CLASSIFICATION	 need handle cluster centering special case 
+WITHOUT_CLASSIFICATION	 first check the number are plotting 
+WITHOUT_CLASSIFICATION	 percent will not apply unless changed 
+WITHOUT_CLASSIFICATION	 well set this false there least one nonnull data item 
+WITHOUT_CLASSIFICATION	 set the default item label positions which will only used the user requests visible item labels 
+WITHOUT_CLASSIFICATION	 calculate the box width 
+WITHOUT_CLASSIFICATION	 treat the last column value absolute 
+WITHOUT_CLASSIFICATION	 offset the start the box the box width smaller than the category width 
+WITHOUT_CLASSIFICATION	 alternatively sometimes the first few days the year are considered fall the last week the previous year 
+WITHOUT_CLASSIFICATION	 draw the box 
+WITHOUT_CLASSIFICATION	 legacy just return the original paint this corresponds exactly how paints used darkened 
+WITHOUT_CLASSIFICATION	 create new area for the series 
+WITHOUT_CLASSIFICATION	 start from rangebase 
+WITHOUT_CLASSIFICATION	 draw median 
+WITHOUT_CLASSIFICATION	 average radius 
+WITHOUT_CLASSIFICATION	 draw youtliers 
+WITHOUT_CLASSIFICATION	 draw the body 
+WITHOUT_CLASSIFICATION	 draw farout indicators 
+WITHOUT_CLASSIFICATION	 disable visible items optimisation doesnt work for this renderer 
+WITHOUT_CLASSIFICATION	 not just horizontal bar but need perform step 
+WITHOUT_CLASSIFICATION	 the first point thisbaseyvalue 
+WITHOUT_CLASSIFICATION	 check series are disjoint domainspans not overlap 
+WITHOUT_CLASSIFICATION	  
+WITHOUT_CLASSIFICATION	 project onto minuend 
+WITHOUT_CLASSIFICATION	 fill the polygon 
+WITHOUT_CLASSIFICATION	 draw outline around the area 
+WITHOUT_CLASSIFICATION	  
+WITHOUT_CLASSIFICATION	 nothingthis just hook for subclasses 
+WITHOUT_CLASSIFICATION	 start new area when needed see above 
+WITHOUT_CLASSIFICATION	 draw optional guide lines 
+WITHOUT_CLASSIFICATION	 calculate the arrow head and draw 
+WITHOUT_CLASSIFICATION	 there are fields check 
+WITHOUT_CLASSIFICATION	 labellinkstyle 
+WITHOUT_CLASSIFICATION	 orientation horizontal 
+WITHOUT_CLASSIFICATION	 check either series degenerate case less than points 
+WITHOUT_CLASSIFICATION	 try listener type that isnt registered 
+WITHOUT_CLASSIFICATION	 item label font 
+WITHOUT_CLASSIFICATION	 state 
+WITHOUT_CLASSIFICATION	 cant draw anything 
+WITHOUT_CLASSIFICATION	 start algorithm 
+WITHOUT_CLASSIFICATION	 subtrahend needs fast forwarded 
+WITHOUT_CLASSIFICATION	 deprecated methods 
+WITHOUT_CLASSIFICATION	 the series sorted the negative index result from and tells where insert the new itemotherwise will just and should just append the value the list 
+WITHOUT_CLASSIFICATION	 annotations 
+WITHOUT_CLASSIFICATION	 check for intersect 
+WITHOUT_CLASSIFICATION	 deassert bfastforward only matters for time through loop 
+WITHOUT_CLASSIFICATION	 set new starting point for the polygon 
+WITHOUT_CLASSIFICATION	 project onto subtrahend 
+WITHOUT_CLASSIFICATION	 pass mouse move event some chartmouselistener are listening 
+WITHOUT_CLASSIFICATION	 clear colinear points and flag 
+WITHOUT_CLASSIFICATION	 compute numerators 
+WITHOUT_CLASSIFICATION	 this wont happen 
+WITHOUT_CLASSIFICATION	 compute the point intersection 
+WITHOUT_CLASSIFICATION	 check the line segments intersect 
+WITHOUT_CLASSIFICATION	 test both grahphs have vertical rise the same xvalue 
+WITHOUT_CLASSIFICATION	 add intersection point the polygon 
+WITHOUT_CLASSIFICATION	 paint 
+WITHOUT_CLASSIFICATION	 return straight away the item not visible 
+WITHOUT_CLASSIFICATION	 add interection point new polygon 
+WITHOUT_CLASSIFICATION	 chart title domain axis label range axis label data orientation include legend tooltips urls 
+WITHOUT_CLASSIFICATION	 set the maxy and miny values intersect yvalue 
+WITHOUT_CLASSIFICATION	 labeltype 
+WITHOUT_CLASSIFICATION	 add the last point the minuned and subtrahend 
+WITHOUT_CLASSIFICATION	 consider last point minuend and subtrahend for determining positivity 
+WITHOUT_CLASSIFICATION	 check the final polygon needs clipped 
+WITHOUT_CLASSIFICATION	 the swtgraphicsd class doesnt handle gradientpaint well replace the gradient painter from the default theme with standard painter 
+WITHOUT_CLASSIFICATION	 advance the subtrahend needed 
+WITHOUT_CLASSIFICATION	 visible 
+WITHOUT_CLASSIFICATION	 advance the minuend needed 
+WITHOUT_CLASSIFICATION	 vertical orientation 
+WITHOUT_CLASSIFICATION	 advance minuend and subtrahend intesect 
+WITHOUT_CLASSIFICATION	 range object cannot equal different object type 
+WITHOUT_CLASSIFICATION	 bad axisnumber 
+WITHOUT_CLASSIFICATION	 compute slope components 
+WITHOUT_CLASSIFICATION	 drawing 
+WITHOUT_CLASSIFICATION	 may negative 
+WITHOUT_CLASSIFICATION	 outline paint 
+WITHOUT_CLASSIFICATION	 interval 
+WITHOUT_CLASSIFICATION	 first pass draws the shading 
+WITHOUT_CLASSIFICATION	 outline stroke 
+WITHOUT_CLASSIFICATION	 shape 
+WITHOUT_CLASSIFICATION	 item label generator 
+WITHOUT_CLASSIFICATION	 legend item label generator 
+WITHOUT_CLASSIFICATION	 legend items 
+WITHOUT_CLASSIFICATION	  
+WITHOUT_CLASSIFICATION	 get height adjustment based stack and translate javad values 
+WITHOUT_CLASSIFICATION	 add entity this info being collected 
+WITHOUT_CLASSIFICATION	 the renderer isnt assigned plot then dont have dataset 
+WITHOUT_CLASSIFICATION	 first pass render the areas line and outlines 
+WITHOUT_CLASSIFICATION	 use swtpaintcanvas show the color note that must set the heighthint 
+WITHOUT_CLASSIFICATION	 get series paint and stroke 
+WITHOUT_CLASSIFICATION	 start from previous height 
+WITHOUT_CLASSIFICATION	 labellinkpaint 
+WITHOUT_CLASSIFICATION	 draw outline around the area 
+WITHOUT_CLASSIFICATION	 the first point 
+WITHOUT_CLASSIFICATION	 dial shape 
+WITHOUT_CLASSIFICATION	 need least two points draw something 
+WITHOUT_CLASSIFICATION	 construct path 
+WITHOUT_CLASSIFICATION	 this the last item draw the path 
+WITHOUT_CLASSIFICATION	 update path reflect latest point 
+WITHOUT_CLASSIFICATION	 now create new title and replace the existing title several things should happen adding the new title should trigger immediate chartchangeevent modifying the new title should trigger chartchangeevent modifying the old title should not trigger chartchangeevent 
+WITHOUT_CLASSIFICATION	 second pass render shapes and collect entity and tooltip information 
+WITHOUT_CLASSIFICATION	 add points from last series complete the base the polygon 
+WITHOUT_CLASSIFICATION	 collect points 
+WITHOUT_CLASSIFICATION	 draw path 
+WITHOUT_CLASSIFICATION	 construct spline number points newton form coefficients xcoordinates nodes 
+WITHOUT_CLASSIFICATION	 need least points spline draw simple line for two points 
+WITHOUT_CLASSIFICATION	 were running jre this the best have 
+WITHOUT_CLASSIFICATION	 note that aanp 
+WITHOUT_CLASSIFICATION	 dial background paint 
+WITHOUT_CLASSIFICATION	 get the label position 
+WITHOUT_CLASSIFICATION	 name 
+WITHOUT_CLASSIFICATION	 just the range axis 
+WITHOUT_CLASSIFICATION	 then draw the line 
+WITHOUT_CLASSIFICATION	 fill under the curve 
+WITHOUT_CLASSIFICATION	 just the domain axis 
+WITHOUT_CLASSIFICATION	 now draw the real shape 
+WITHOUT_CLASSIFICATION	 factorization and forward substitution 
+WITHOUT_CLASSIFICATION	 reset points vector 
+WITHOUT_CLASSIFICATION	 should never get here 
+WITHOUT_CLASSIFICATION	 map key the default group 
+WITHOUT_CLASSIFICATION	 plot just retain reference not deep copy 
+WITHOUT_CLASSIFICATION	 calculate the step point 
+WITHOUT_CLASSIFICATION	 this handles the need perform step 
+WITHOUT_CLASSIFICATION	 this handles the need perform step calculate the step point 
+WITHOUT_CLASSIFICATION	 submit this data item candidate for the crosshair point 
+WITHOUT_CLASSIFICATION	 create new area polygon for the series 
+WITHOUT_CLASSIFICATION	 the first point 
+WITHOUT_CLASSIFICATION	 change 
+WITHOUT_CLASSIFICATION	 make the clip region slightly larger than the dataarea that the clipped edges dont show lines the chart 
+WITHOUT_CLASSIFICATION	 here use booleanutilities remain compatible with jdks 
+WITHOUT_CLASSIFICATION	 update the max value 
+WITHOUT_CLASSIFICATION	 need make sure are adding after any duplicates 
+WITHOUT_CLASSIFICATION	 needed get this far even for invisible items ensure that seriespath updates happened but now there nothing more need for nonvisible items 
+WITHOUT_CLASSIFICATION	 the line not wrapping then parent 
+WITHOUT_CLASSIFICATION	 draw the body 
+WITHOUT_CLASSIFICATION	 only draw line the gap between the current and previous data point within the threshold 
+WITHOUT_CLASSIFICATION	 draw the lower shadow 
+WITHOUT_CLASSIFICATION	 draw the upper shadow 
+WITHOUT_CLASSIFICATION	 this method must overridden you want display images 
+WITHOUT_CLASSIFICATION	 first pass draws the background lines for instance 
+WITHOUT_CLASSIFICATION	 fill the polygon 
+WITHOUT_CLASSIFICATION	 protected methods these provide the opportunity subclass the standard renderer and create custom effects 
+WITHOUT_CLASSIFICATION	 now split the segment needed 
+WITHOUT_CLASSIFICATION	 should not get here 
+WITHOUT_CLASSIFICATION	 youtliers can null but wed prefer empty list that case 
+WITHOUT_CLASSIFICATION	 draw farout 
+WITHOUT_CLASSIFICATION	 draw youtliers 
+WITHOUT_CLASSIFICATION	 minuend needs fast forwarded 
+WITHOUT_CLASSIFICATION	 null dont draw line all 
+WITHOUT_CLASSIFICATION	 initalize xvalues yvalues and zvalues arrays 
+WITHOUT_CLASSIFICATION	 process outliers each outlier either added the appropriate outlier list new outlier list made 
+WITHOUT_CLASSIFICATION	 null dont draw line then delegate parent 
+WITHOUT_CLASSIFICATION	 calculate the highest volume the dataset 
+WITHOUT_CLASSIFICATION	 draw the error bar for the yinterval 
+WITHOUT_CLASSIFICATION	 draw the error bar for the xinterval 
+WITHOUT_CLASSIFICATION	 transpose the dimensions because the title rotated 
+WITHOUT_CLASSIFICATION	 include the interval there one 
+WITHOUT_CLASSIFICATION	 domaingridlinepaint 
+WITHOUT_CLASSIFICATION	 need instantiate this class 
+WITHOUT_CLASSIFICATION	 handle item label drawing now that know all the bars have been drawn 
+WITHOUT_CLASSIFICATION	 didnt find the key 
+WITHOUT_CLASSIFICATION	 update the crosshair point 
+WITHOUT_CLASSIFICATION	 dont bother with parsing 
+WITHOUT_CLASSIFICATION	 deprecated code 
+WITHOUT_CLASSIFICATION	 rectangleinsets immutable same reference clone 
+WITHOUT_CLASSIFICATION	 add chart deletion list session 
+WITHOUT_CLASSIFICATION	 serve 
+WITHOUT_CLASSIFICATION	 replace with this prevent access the rest the file system 
+WITHOUT_CLASSIFICATION	 set http headers 
+WITHOUT_CLASSIFICATION	 suppress compiler warning 
+WITHOUT_CLASSIFICATION	 svgclass will null the function will return false 
+WITHOUT_CLASSIFICATION	 determine the space required for the axis 
+WITHOUT_CLASSIFICATION	 this includes the case where the underlying dataset null 
+WITHOUT_CLASSIFICATION	 get the lastest pixel 
+WITHOUT_CLASSIFICATION	 first point outside update against one the four sides then continue 
+WITHOUT_CLASSIFICATION	 second point outside update against one the four sides then continue 
+WITHOUT_CLASSIFICATION	 reserve variables store the coordinates the resulting gradientpaint 
+WITHOUT_CLASSIFICATION	 red green blue 
+WITHOUT_CLASSIFICATION	 always null 
+WITHOUT_CLASSIFICATION	 red green blue now map computed colour nearest palette 
+WITHOUT_CLASSIFICATION	 rgb optional alpha which leave unchanged 
+WITHOUT_CLASSIFICATION	 this the code that actually copies the pixels 
+WITHOUT_CLASSIFICATION	 buffered images may have properties but never disclose them nevertheless just case someone implements getpropertynames one day 
+WITHOUT_CLASSIFICATION	 ignore alphachannel 
+WITHOUT_CLASSIFICATION	 get the coordinates the shape that filled 
+WITHOUT_CLASSIFICATION	 substitute the filtered url list 
+WITHOUT_CLASSIFICATION	 all methods are static need instantiate 
+WITHOUT_CLASSIFICATION	 vertical pass 
+WITHOUT_CLASSIFICATION	 substract the oldest pixel from the sum 
+WITHOUT_CLASSIFICATION	 start point upper left corner 
+WITHOUT_CLASSIFICATION	 pixbuffer large enough for all pixels one row 
+WITHOUT_CLASSIFICATION	 start point lower left right corner diagonal gradient 
+WITHOUT_CLASSIFICATION	 horizontal pass 
+WITHOUT_CLASSIFICATION	 check that the column key defined the structure 
+WITHOUT_CLASSIFICATION	 consider these ordered after general objects 
+WITHOUT_CLASSIFICATION	 this will include the case where the underlying dataset null 
+WITHOUT_CLASSIFICATION	 check whether the row now empty 
+WITHOUT_CLASSIFICATION	 but the row data requires deep copy 
+WITHOUT_CLASSIFICATION	 check the file exists 
+WITHOUT_CLASSIFICATION	 int columnindex 
+WITHOUT_CLASSIFICATION	 placeholder 
+WITHOUT_CLASSIFICATION	 for the keys shallow copy should fine because keys should immutable 
+WITHOUT_CLASSIFICATION	 new methods required 
+WITHOUT_CLASSIFICATION	 map the nongrid data into the new regular grid 
+WITHOUT_CLASSIFICATION	 does the series exist 
+WITHOUT_CLASSIFICATION	 find min max for the and axes 
+WITHOUT_CLASSIFICATION	 fetch the value 
+WITHOUT_CLASSIFICATION	 update the data 
+WITHOUT_CLASSIFICATION	 step through all the values and add them the hash 
+WITHOUT_CLASSIFICATION	 store number double 
+WITHOUT_CLASSIFICATION	 scale the inverse distancepower 
+WITHOUT_CLASSIFICATION	 real small set the inverse large number avoid inf 
+WITHOUT_CLASSIFICATION	 determine the cell size 
+WITHOUT_CLASSIFICATION	 remove distance the sum 
+WITHOUT_CLASSIFICATION	 the categorydataset interface expects list categories but weve stored them array 
+WITHOUT_CLASSIFICATION	 store data long 
+WITHOUT_CLASSIFICATION	 remove all the series from the collection and notify listeners 
+WITHOUT_CLASSIFICATION	 set most recent value 
+WITHOUT_CLASSIFICATION	 store index where new column starts 
+WITHOUT_CLASSIFICATION	 already know isnt null 
+WITHOUT_CLASSIFICATION	 calculate constant values 
+WITHOUT_CLASSIFICATION	 store and axes doubles 
+WITHOUT_CLASSIFICATION	 not add key dataset 
+WITHOUT_CLASSIFICATION	 now try instantiate this 
+WITHOUT_CLASSIFICATION	 now the work 
+WITHOUT_CLASSIFICATION	 add other category applicable 
+WITHOUT_CLASSIFICATION	 add key dataset 
+WITHOUT_CLASSIFICATION	 the dataset implements domaininfo life easier 
+WITHOUT_CLASSIFICATION	 private 
+WITHOUT_CLASSIFICATION	 update the min value 
+WITHOUT_CLASSIFICATION	 handle the standard case plain categorydataset 
+WITHOUT_CLASSIFICATION	 create the temporary directory doesnt exist 
+WITHOUT_CLASSIFICATION	 new methods from combinationdataset 
+WITHOUT_CLASSIFICATION	 handle special case ohlcdataset 
+WITHOUT_CLASSIFICATION	 handle special case intervalxydataset 
+WITHOUT_CLASSIFICATION	 the dataset implements domaininfo life easy 
+WITHOUT_CLASSIFICATION	 work out the minimum value 
+WITHOUT_CLASSIFICATION	 minimum and maximum for each group 
+WITHOUT_CLASSIFICATION	 maps our series into our parents 
+WITHOUT_CLASSIFICATION	 add the series 
+WITHOUT_CLASSIFICATION	 more difficult case evaluate later 
+WITHOUT_CLASSIFICATION	 are working with time series 
+WITHOUT_CLASSIFICATION	 exact match first item 
+WITHOUT_CLASSIFICATION	 exact match 
+WITHOUT_CLASSIFICATION	 delegate null check dataset 
+WITHOUT_CLASSIFICATION	 overridden make public 
+WITHOUT_CLASSIFICATION	 crossing 
+WITHOUT_CLASSIFICATION	 spanning match 
+WITHOUT_CLASSIFICATION	 might need add free memory from any previous result sets 
+WITHOUT_CLASSIFICATION	 new methods added 
+WITHOUT_CLASSIFICATION	 prior just fired propertychange need keep doing this 
+WITHOUT_CLASSIFICATION	 not value cant use defaults null 
+WITHOUT_CLASSIFICATION	 remove any previous old data 
+WITHOUT_CLASSIFICATION	 first line contains column keys 
+WITHOUT_CLASSIFICATION	 first column contains the row key 
+WITHOUT_CLASSIFICATION	 remaining fields contain values 
+WITHOUT_CLASSIFICATION	 suppress value defaults null 
+WITHOUT_CLASSIFICATION	 lower bounds are the same 
+WITHOUT_CLASSIFICATION	 pretty sure this shouldnt ever happen 
+WITHOUT_CLASSIFICATION	 first field ignored since column for row keys 
+WITHOUT_CLASSIFICATION	 fill the bins 
+WITHOUT_CLASSIFICATION	 first column data 
+WITHOUT_CLASSIFICATION	 determine max and min values 
+WITHOUT_CLASSIFICATION	 get all rows rows new arraylist 
+WITHOUT_CLASSIFICATION	 pass values other constructor 
+WITHOUT_CLASSIFICATION	 sum 
+WITHOUT_CLASSIFICATION	 update the cached range values 
+WITHOUT_CLASSIFICATION	 update cached min and max values 
+WITHOUT_CLASSIFICATION	 defer null argument checks 
+WITHOUT_CLASSIFICATION	 intercept 
+WITHOUT_CLASSIFICATION	 calculate the sum and count 
+WITHOUT_CLASSIFICATION	 treat nulls the same nans 
+WITHOUT_CLASSIFICATION	 check for zero pivot element 
+WITHOUT_CLASSIFICATION	 iterate over all data items and update mins and maxes 
+WITHOUT_CLASSIFICATION	 update cached range values 
+WITHOUT_CLASSIFICATION	 tell the listeners new table has arrived 
+WITHOUT_CLASSIFICATION	 make the change its not duplicate time period 
+WITHOUT_CLASSIFICATION	 remove old items and notify necessary 
+WITHOUT_CLASSIFICATION	 are the last minute the hour 
+WITHOUT_CLASSIFICATION	 wont get here 
+WITHOUT_CLASSIFICATION	 find the serial index the period specified latest 
+WITHOUT_CLASSIFICATION	 see comments about priority validateobject 
+WITHOUT_CLASSIFICATION	 getxxx ftns can ignore the series argument dont synchronize this instead synchronize the loop that calls 
+WITHOUT_CLASSIFICATION	 rangegridlinepaint 
+WITHOUT_CLASSIFICATION	 figure out need iterate through all the yvalues find the revised miny maxy 
+WITHOUT_CLASSIFICATION	 are the first hour the day 
+WITHOUT_CLASSIFICATION	 the hour then create hour 
+WITHOUT_CLASSIFICATION	 start after last data item 
+WITHOUT_CLASSIFICATION	 but that series array already exists just overwrite its contents synchronizedthis 
+WITHOUT_CLASSIFICATION	 are the last hour the day 
+WITHOUT_CLASSIFICATION	 update the time series appropriately 
+WITHOUT_CLASSIFICATION	 case comparing another hour object 
+WITHOUT_CLASSIFICATION	 cached values used for interface domaininfo 
+WITHOUT_CLASSIFICATION	 arbitrary safe default value 
+WITHOUT_CLASSIFICATION	 parse the string 
+WITHOUT_CLASSIFICATION	 work out the average for the earlier values 
+WITHOUT_CLASSIFICATION	 case comparing another year object 
+WITHOUT_CLASSIFICATION	 default value 
+WITHOUT_CLASSIFICATION	 autoinits null 
+WITHOUT_CLASSIFICATION	 but that series array already exists just overwrite its contents 
+WITHOUT_CLASSIFICATION	 create the year 
+WITHOUT_CLASSIFICATION	 remaining lines contain row key and data values 
+WITHOUT_CLASSIFICATION	 create array holding the group indices for each series 
+WITHOUT_CLASSIFICATION	 the initial averaging period excluded then calculate the index the first data item have average calculated 
+WITHOUT_CLASSIFICATION	 cached values used for interface rangeinfo note minvalue pinned single set extrema covers the entire seriescollection 
+WITHOUT_CLASSIFICATION	 avoid 
+WITHOUT_CLASSIFICATION	 expand the following for all defined timeperiods 
+WITHOUT_CLASSIFICATION	 etc 
+WITHOUT_CLASSIFICATION	 deep copy from values caller can safely discard that array 
+WITHOUT_CLASSIFICATION	 methods for managing the fifos 
+WITHOUT_CLASSIFICATION	 handle special case 
+WITHOUT_CLASSIFICATION	 long kept updated advancetime 
+WITHOUT_CLASSIFICATION	 else implicit here 
+WITHOUT_CLASSIFICATION	 translation needed 
+WITHOUT_CLASSIFICATION	 the oldest data contained maximum yvalue invalidate the stored ymax and yrange data 
+WITHOUT_CLASSIFICATION	 now advance oldestat wrapping end the array 
+WITHOUT_CLASSIFICATION	 index select the series 
+WITHOUT_CLASSIFICATION	 update the domain limits time kept msec 
+WITHOUT_CLASSIFICATION	 check whether the valuehistory array member exists not create them 
+WITHOUT_CLASSIFICATION	 find the and the integer following remove both from the string 
+WITHOUT_CLASSIFICATION	 the following code handles the line for the yvaluesits all done code the super class 
+WITHOUT_CLASSIFICATION	 dont synchronize this instead synchronize the loop that calls 
+WITHOUT_CLASSIFICATION	 case comparing another quarter object 
+WITHOUT_CLASSIFICATION	 null value insert point base line instead step point 
+WITHOUT_CLASSIFICATION	 nothing null returned 
+WITHOUT_CLASSIFICATION	 replace any with space 
+WITHOUT_CLASSIFICATION	 update the array timeperiods 
+WITHOUT_CLASSIFICATION	 test timeline using included and excluded segments timeline start time eeee eeee eeee mstimeline segment group segment size 
+WITHOUT_CLASSIFICATION	 case comparing another day object 
+WITHOUT_CLASSIFICATION	 need work out the previous year has weeks 
+WITHOUT_CLASSIFICATION	 defensive lets check that the source series does fact belong this collection 
+WITHOUT_CLASSIFICATION	 check the new series name already exists for another series 
+WITHOUT_CLASSIFICATION	 test timeline with basetimeline using included and excluded segments centered inside each base segment the mstimeline without base would look like this timeline start time eeee eeee eeee eeee mstimeline segment group segment size with the base timeline some originally included segments are now removed see below eeeexxxxeeee eeeexxxxeeee mstimeline eeeeeeee eeeeeeee msbasetimeline 
+WITHOUT_CLASSIFICATION	 not the series name then have interest 
+WITHOUT_CLASSIFICATION	 check argumentsdelegated fetch the series name 
+WITHOUT_CLASSIFICATION	 suppress 
+WITHOUT_CLASSIFICATION	 case comparing another week object 
+WITHOUT_CLASSIFICATION	 trim whitespace from either end the string 
+WITHOUT_CLASSIFICATION	 axisoffset 
+WITHOUT_CLASSIFICATION	 case comparing another month object 
+WITHOUT_CLASSIFICATION	 all arrays equal length ignore argument 
+WITHOUT_CLASSIFICATION	 deprecated methods 
+WITHOUT_CLASSIFICATION	 now trickier determine the month year first 
+WITHOUT_CLASSIFICATION	 wipe the next about used set data slots 
+WITHOUT_CLASSIFICATION	 attributes read 
+WITHOUT_CLASSIFICATION	 thiskey null 
+WITHOUT_CLASSIFICATION	 private comparable key 
+WITHOUT_CLASSIFICATION	 cant sure the order 
+WITHOUT_CLASSIFICATION	 remove all the series from the collection and notify listeners 
+WITHOUT_CLASSIFICATION	 check argumentsdelegated 
+WITHOUT_CLASSIFICATION	 need configure the intervaldelegate match the original 
+WITHOUT_CLASSIFICATION	 add new series 
+WITHOUT_CLASSIFICATION	 false preserves the old behaviour prior introducing this flag 
+WITHOUT_CLASSIFICATION	 everything fine autowidth and autointervalwidth was set 
+WITHOUT_CLASSIFICATION	 thisx not allowed null 
+WITHOUT_CLASSIFICATION	 all series have the same number items this dataset 
+WITHOUT_CLASSIFICATION	 version response several developer requests changed the data attribute from private protected that others can make subclasses that work directly with the underlying data structure 
+WITHOUT_CLASSIFICATION	 figure out need iterate through all the yvalues 
+WITHOUT_CLASSIFICATION	 try class that isnt listener 

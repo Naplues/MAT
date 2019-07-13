@@ -8,9 +8,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,0,1,1,"/*		Note: this implementation is temporary. We currently keep a flat		namespace of the base name of classes.  i.e. BeanShell cannot be in the		process of defining two classes in different packages with the same		base name.  To remove this limitation requires that we work through		namespace imports in an analogous (or using the same path) as regular		class import resolution.  This workaround should handle most cases 		so we'll try it for now.	*/"
 1,0,0,0,0,0,0,// copy and paste from bsh/classpath/ClassManagerImpl.java...
 1,0,0,0,0,0,0,// I wish I could make this "friendly" to only NameSpace
-1,1,1,1,1,1,1,// undocumented hack to allow browser actions to work. // XXX - clean up in 4.3
+1,1,1,0,1,1,1,// undocumented hack to allow browser actions to work. // XXX - clean up in 4.3
 1,0,0,0,0,0,0,// Look for a default invoke() handler method in the namespace // Note: this code duplicates that in NameSpace getCommand() // is that ok?
-1,0,1,0,0,0,0,// This should be per instance
+1,0,0,0,0,0,0,// This should be per instance
 1,0,0,0,0,0,0,// Can we use the proxy mechanism to cast a bsh.This to  // the correct interface?
 1,0,0,0,0,0,0,// redundant with constructor
 1,0,0,0,0,0,0,"/*		Issues to resolve here...		1) In which classloader should we define the class?		if there is a BshClassLoader should we define it there?		2) should we use reflection to set it in a non-bsh classloader		if there is one or should we always create a bsh classloader		(and expose its defineClass)?	*/"
@@ -25,7 +25,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,0,1,1,// Case-insensitive fs workaround
 1,0,1,0,0,0,0,"/*			Wrap nulls.			This is a bit of a cludge to address a deficiency in the class			generator whereby it does not wrap nulls on method delegate.  See			Class Generator.java.  If we fix that then we can remove this.			(just have to generate the code there.)		*/"
 1,0,0,0,0,0,0,// switch eats a multi-level break here? // not empty statement
-1,0,1,0,0,0,0,// Check for field on object  // Note: could eliminate throwing the exception somehow
+1,0,0,0,0,0,0,// Check for field on object  // Note: could eliminate throwing the exception somehow
 1,0,0,0,0,0,0,// XXXX re-evaluate this // can getSuper work by itself now? // If we're a class instance and the parent is also a class instance // then super means our parent.
 1,0,0,0,0,0,0,"/*		I wish protected access were limited to children and not also 		package scope... I want this to be a singleton implemented by various		children.  	*/"
 1,0,0,0,0,0,0,// Imported full name wasn't found as an absolute class // If it is compound, try to resolve to an inner class.   // (maybe this should happen in the BshClassManager?)
@@ -35,23 +35,23 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,"/* 							Catch the mismatch and continue to try the next							Note: this is innefficient, should have an 							isAssignableFrom() that doesn't throw 						*/"
 1,0,0,0,0,0,0,// should use try/finally here to pop ns
 1,0,0,0,0,0,0,"/*			Note: this could be made clearer by adding an inner class for the			cases and an object context for the child traversal.		*/"
-1,1,1,1,1,1,1,// hack... sticking to first interpreter that resolves this // see comments on type instance variable
-1,1,1,1,1,1,1,// Note: incorrect here - we are using the hack in bsh class // manager that allows lookup by base name.  We need to eliminate // this limitation by working through imports.  See notes in class // manager.
-1,0,1,0,0,0,0,"/* 		This is the namespace in which the method is set.		It is a back-reference for the node, which needs to execute under this 		namespace.  It is not necessary to declare this transient, because 		we can only be saved as part of our namespace anyway... (currently).	*/"
+1,1,0,0,1,1,1,// hack... sticking to first interpreter that resolves this // see comments on type instance variable
+1,1,1,0,1,1,1,// Note: incorrect here - we are using the hack in bsh class // manager that allows lookup by base name.  We need to eliminate // this limitation by working through imports.  See notes in class // manager.
+1,0,0,0,0,0,0,"/* 		This is the namespace in which the method is set.		It is a back-reference for the node, which needs to execute under this 		namespace.  It is not necessary to declare this transient, because 		we can only be saved as part of our namespace anyway... (currently).	*/"
 1,0,0,0,0,0,0,// Replace this is Cocoa API calls later
-1,0,0,0,0,0,0,// Scripting classes currently requires accessibility // This can be eliminated with a bit more work.
+1,0,1,0,0,0,0,// Scripting classes currently requires accessibility // This can be eliminated with a bit more work.
 1,0,0,0,0,0,0,// This could be static
-1,0,1,0,0,0,0,"/*	Thanks to Slava Pestov (of jEdit fame) for import caching enhancements.	Note: This class has gotten too big.  It should be broken down a bit.*/"
-1,0,0,1,1,1,1,"/**    * Register an attribute declaration for later retrieval.    * Format:    * - String type    * - String default value    * - int value type    * *TODO: do something with attribute types.    */"
-1,0,1,0,1,1,1,"/*				TODO:					to get cast and boxing working e.g.					e.g. Byte [] ia = { 1, 2 }					If the baseType is a wrapper type then we need to get the 					primitive TYPE class for the base type here in order for 					the cast to allow it... Then boxing will happen naturally in					the Array.set().					e.g. Integer [] ia = { 1, 2 }				*/"
+1,0,0,0,0,0,0,"/*	Thanks to Slava Pestov (of jEdit fame) for import caching enhancements.	Note: This class has gotten too big.  It should be broken down a bit.*/"
+1,0,0,0,1,1,1,"/**    * Register an attribute declaration for later retrieval.    * Format:    * - String type    * - String default value    * - int value type    * *TODO: do something with attribute types.    */"
+1,0,0,0,1,1,1,"/*				TODO:					to get cast and boxing working e.g.					e.g. Byte [] ia = { 1, 2 }					If the baseType is a wrapper type then we need to get the 					primitive TYPE class for the base type here in order for 					the cast to allow it... Then boxing will happen naturally in					the Array.set().					e.g. Integer [] ia = { 1, 2 }				*/"
 1,0,1,1,0,1,1,"/*		Note: We will ll move this behavior out to a subclass of 		NameSpace, but we'll start here.	*/"
 1,0,0,0,0,0,0,// This is a particularly nasty bit // of code, that checks for a parameter // entity reference but peeks ahead to // catch the '%' in parameter entity // declarations.
 1,0,0,0,0,0,0,// Should cache this subject to classloader change message // Evaluation of the formal parameter simply resolves its // type via the specified namespace.. it doesn't modify the // namespace.
 1,0,0,0,0,0,0,"/*	Notes:	It would not be hard to eliminate the use of org.objectweb.asm.Type from	this class, making the distribution a tiny bit smaller.*/"
 1,1,0,0,0,0,0,// stupid: caret will automatically be incremented
-1,0,0,1,0,1,1,/* Spacing workaround */
-1,0,1,1,0,1,1,// I don't know of any other way to fix this, since invoking this // command from a menu results in the focus owner being the menu // until the menu goes away.
-1,1,1,1,1,1,1,// a little hack for reverse replace and find
+1,0,1,1,0,1,1,/* Spacing workaround */
+1,0,0,1,0,1,1,// I don't know of any other way to fix this, since invoking this // command from a menu results in the focus owner being the menu // until the menu goes away.
+1,1,1,0,1,1,1,// a little hack for reverse replace and find
 1,0,0,0,0,0,0,// Static methods that operate on compound ('.' separated) names // I guess we could move these to StringUtil someday
 1,0,0,0,0,0,0,"/*	Note: which of these things should be checked at parse time vs. run time?*/"
 1,0,0,0,0,0,0,// this part sucks
@@ -59,22 +59,22 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// clear name resolvers... don't know if this is necessary.
 1,1,0,0,0,0,0,"/* this is stupid and misleading.					 * but 'path' is not used anywhere except					 * the above line, and if this is done					 * after the 'continue', then we will					 * either hang, or be forced to duplicate					 * it inside the buffer == null, or add					 * a 'finally' clause. you decide which one's					 * worse. */"
 1,0,1,1,0,1,1,// I'm too tired to think of a better way // to handle this right now.
-1,1,0,1,1,1,1,// hacked BufferIORequest to send VFSUpdates in case // two stage save is off now...
+1,1,0,0,1,1,1,// hacked BufferIORequest to send VFSUpdates in case // two stage save is off now...
 1,0,0,0,0,0,0,// some other primitive // should avoid calling methods on primitive, as we do // in Name (can't treat primitive like an object message) // but the hole is useful right now.
 1,0,0,0,0,0,0,// Change the parent (which was the class static) to the class instance // We really need to check if we're a static inner class here first... // but for some reason Java won't show the static modifier on our // fake inner classes...  could generate a flag field.
 1,0,0,0,0,0,0,// this is where checked exceptions piss me off. this method only uses // a StringReader which can never throw an exception...
-1,0,1,1,1,1,1,// If any subexpressions didn't terminate, they don't count // TODO check if this code ever gets hit
+1,0,1,0,1,1,1,// If any subexpressions didn't terminate, they don't count // TODO check if this code ever gets hit
 1,0,0,1,0,1,1,// Parse pattern into tokens.  Does anyone know if it's more efficient // to use char[] than a String.charAt()?  I'm assuming so.
 1,0,0,0,0,0,0,"/*		Note: object is only used here for precondition... get rid of it?	*/"
 1,0,0,1,0,1,1,// Why both of these?
 1,0,0,0,0,0,0,// Cut off from parent, we must have our own class manager. // Can't do this in the run() command (needs to resolve stuff) // Should we do it by default when we create a namespace will no // parent of class manager?
-1,0,1,0,0,0,0,"/*		Note: the bsh command code should probably not be here...  we need to		scope it by the namespace that imported the command... so it probably		needs to be integrated into NameSpace.	*/"
+1,0,0,0,0,0,0,"/*		Note: the bsh command code should probably not be here...  we need to		scope it by the namespace that imported the command... so it probably		needs to be integrated into NameSpace.	*/"
 1,0,0,0,0,0,0,// This could be smarter...
 1,0,1,0,0,0,0,// It was explicitly imported, but we don't know what it is. // should we throw an error here??
 1,0,0,0,0,0,0,"/*		Note: we need a form of eval that passes the callstack through...	*/"
 1,0,0,0,0,0,0,"/* 		Primary interpreter set and get variable methods		Note: These are squeltching errors... should they?	*/"
 1,0,1,1,0,1,1,// Workaround for JDK bug 4071281, where system.in.available()  // returns too large a value. This bug has been fixed in JDK 1.2.
-1,1,0,1,1,1,1,"/*				Somewhat of a hack.  If the special fields are visible (we're				operating relative to a 'this' type already) dissallow further				.this references to prevent user from skipping to things like				super.this.caller			*/"
+1,1,0,0,1,1,1,"/*				Somewhat of a hack.  If the special fields are visible (we're				operating relative to a 'this' type already) dissallow further				.this references to prevent user from skipping to things like				super.this.caller			*/"
 1,0,0,0,0,0,0,// Should clean this up to a single return statement
 1,0,1,0,0,0,0,"/*	Implementation notes:	Note: we may need some synchronization in here	Note on version dependency:  This base class is JDK 1.1 compatible,	however we are forced to use weak references in the full featured	implementation (the optional bsh.classpath package) to accomodate all of	the fleeting namespace listeners as they fall out of scope.  (NameSpaces	must be informed if the class space changes so that they can un-cache	names).  	<p>	Perhaps a simpler idea would be to have entities that reference cached	types always perform a light weight check with a counter / reference	value and use that to detect changes in the namespace.  This puts the 	burden on the consumer to check at appropriate times, but could eliminate	the need for the listener system in many places and the necessity of weak 	references in this package.	<p>*/"
 1,0,1,0,0,0,0,"/*		Note: this impor pattern is becoming common... could factor it out into		an importedObject Vector class.	*/"
@@ -82,14 +82,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// The following two boolean checks were tacked on. // This could probably be smoothed out.
 1,0,0,0,0,0,0,"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		findMostSpecficMethod() needs to be rewritten to eliminate 		findAccessibleMethod.  We should implement the findMostSpecificMethod 		that uses the publicOnly flag.  FindMostSpecificMethod should also		operate in two passes to give standard Java assignable matches priority		over extended bsh type matches.	*/"
 1,0,1,0,0,0,0,//{{{ UnixWorkaround constructor
-1,0,0,0,0,0,0,// drag and drop support // I'd just move the code to // JEditTextArea but it // depends on JDK 1.4 APIs
+1,0,1,0,0,0,0,// drag and drop support // I'd just move the code to // JEditTextArea but it // depends on JDK 1.4 APIs
 1,0,0,0,0,0,0,// next version: remove this
 1,1,0,0,0,0,0,// compatibility kludge for jEdit 3.1 and earlier
 1,1,0,1,0,1,1,// stupid scrollbar policy is an attempt to work around // bugs people have been seeing with IBM's JDK -- 7 Sep 2000
-1,1,1,1,1,1,1,// this is a weird hack. // we don't want C+e a to insert 'a' in the // search bar if the search bar has focus...
+1,1,1,0,1,1,1,// this is a weird hack. // we don't want C+e a to insert 'a' in the // search bar if the search bar has focus...
 1,0,1,1,0,1,1,// AHA! // this is probably the only way to fix this
-1,1,0,1,1,1,1,// this is a dirty hack and it relies on the fact // that updates for parents are sent before updates // for the changed nodes themselves (if this was not // the case, the browser wouldn't be updated properly // on delete, etc). // // to avoid causing '> 1 request' errors, don't reload // directory if request already active
-1,0,1,0,0,0,0,// we consume this to work around the bug // where A+TAB window switching activates // the menu bar on Windows.
+1,1,0,0,1,1,1,// this is a dirty hack and it relies on the fact // that updates for parents are sent before updates // for the changed nodes themselves (if this was not // the case, the browser wouldn't be updated properly // on delete, etc). // // to avoid causing '> 1 request' errors, don't reload // directory if request already active
+1,0,0,0,0,0,0,// we consume this to work around the bug // where A+TAB window switching activates // the menu bar on Windows.
 1,0,0,0,0,0,0,"/* I guess translated events do not have the 'evt' field set		so consuming won't work. I don't think this is a problem as		nothing uses translation anyway */"
 1,1,1,1,1,1,1,// this is a hack, and really needs to be done better.
 1,0,0,0,0,0,0,// copy and paste from RESyntaxMatcher to make syntax package // independent of jEdit itself
@@ -98,23 +98,23 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// don't try this at home
 1,1,0,0,0,0,0,"/* silly that we reference the vertical				   scroll bar here directly. we do this so				   that the horizontal scroll bar is flush				   with the vertical scroll bar */"
 1,0,1,0,1,1,1,// XXX clean up this conditional
-1,1,1,1,1,1,1,// Temporary hack to support inner classes  // If the obj is a non-static inner class then import the context... // This is not a sufficient emulation of inner classes. // Replace this later...
+1,1,1,0,1,1,1,// Temporary hack to support inner classes  // If the obj is a non-static inner class then import the context... // This is not a sufficient emulation of inner classes. // Replace this later...
 1,0,0,1,0,1,1,// workaround for Swing's annoying processing of // labels starting with <html>, which often breaks
 1,0,0,0,0,0,0,// fucking GTK look and feel!
-1,1,0,1,1,1,1,// hack so that 'select all' does not change current buffer
-1,1,1,1,1,1,1,"/* if an occurence occurs at the		beginning of the selection, the		selection start will get moved.		this sucks, so we hack to avoid it. */"
+1,1,0,0,1,1,1,// hack so that 'select all' does not change current buffer
+1,1,1,0,1,1,1,"/* if an occurence occurs at the		beginning of the selection, the		selection start will get moved.		this sucks, so we hack to avoid it. */"
 1,0,0,1,0,1,1,"/* Silly bug workaround #8694. If you look at the above code,		 * note that we restore the saved caret position first, then		 * scroll to the saved location. However, the caret changing		 * can itself result in scrolling to a different location than		 * what was saved; and since moveCaretPosition() calls		 * updateBracketHighlight(), the bracket highlight's out of		 * bounds calculation will rely on a different set of physical		 * first/last lines than what we will end up with eventually.		 * Instead of confusing the user with status messages that		 * appear at random when switching buffers, we simply hide the		 * message altogether. */"
 1,1,1,1,1,1,1,"/* this is a sloppy hack to fix bug				   ""[ 677902 ] hitting return after collapsed				   fold""				   the idea is that if we extend the range then				   the problem described in the bug happends, so				   if the insert is at the very end of the range				   we don't extend it, instead we push the				   insert into the next range, however for this				   to work properly we also have to mess with				   screen line counts. */"
-1,1,1,1,1,1,1,// need this bullshit scroll bar policy for the preferred size // hack to work
+1,1,1,0,1,1,1,// need this bullshit scroll bar policy for the preferred size // hack to work
 1,0,1,0,1,1,1,// XXX if we keep the createClassManager in getClassManager then we can axe // this?
 1,0,0,0,0,0,0,"/*	Note: This class is messy.  The method and field resolution need to be	rewritten.  Various methods in here catch NoSuchMethod or NoSuchField	exceptions during their searches.  These should be rewritten to avoid	having to catch the exceptions.  Method lookups are now cached at a high 	level so they are less important, however the logic is messy.*/"
 1,1,0,1,0,1,1,// the sooner ppl move to the new api, the less we'll need // crap like this
 1,0,0,0,0,0,0,// Nasty hardcoded values
 1,0,1,0,1,1,1,/* XXX magic number */
 1,0,1,1,0,1,1,/* Workaround for uncooperative Windows L&F */
-1,1,1,1,1,1,1,// have to do this hack until VFSPath class is written
+1,1,1,0,1,1,1,// have to do this hack until VFSPath class is written
 1,1,0,0,0,0,0,// stupid Swing
-1,1,0,1,0,1,1,// none of the others are ever meant to be // removed. retarded, eh? this needs to be // fixed eventually, for plugins might // want to do weird stuff to jEdit's UI
+1,1,0,0,0,0,0,// none of the others are ever meant to be // removed. retarded, eh? this needs to be // fixed eventually, for plugins might // want to do weird stuff to jEdit's UI
 1,1,1,0,0,0,0,// this is retarded. excuse me while I drool // and make stupid noises
 1,1,0,0,0,0,0,// retarded GTK look and feel!
 1,0,0,0,0,0,0,// should probably error
@@ -131,7 +131,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// REVIEW How do we resolve this discrepancy?!
 1,1,1,1,0,1,1,// ugly workaround
 1,0,0,0,0,0,0,//{{{ Windows work around
-1,1,1,1,1,1,1,// hack since HelpViewer needs a URL...
+1,1,0,0,1,1,1,// hack since HelpViewer needs a URL...
 1,0,0,1,0,1,1,// Why is object in the args?
 1,0,0,0,0,0,0,// should implement getMinimumLength() -- any ideas?
 1,0,0,0,0,0,0,// Move me to classpath/ClassManagerImpl???
@@ -141,34 +141,34 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,"/*	 *  XXX: hairy code that is basically just a functional(?) port of some	 *  other code i barely understood	 */"
 1,0,0,0,0,0,0,"/*			First try for an accessible version of the exact match.			This first lookup seems redundant with below, but is apparently			needed.  This whole thing is messy.		*/"
 1,0,0,0,0,0,0,// work around for broken FTP plugin!
-1,1,1,1,1,1,1,// hack to move the spaces to the front
+1,1,1,0,1,1,1,// hack to move the spaces to the front
 1,0,0,0,0,0,0,// This feels sloppy, especially for non-U.S. locales.
-1,1,1,1,1,1,1,// hack to get fixed length 'length' field
+1,1,1,0,1,1,1,// hack to get fixed length 'length' field
 1,0,1,1,0,1,1,// // We have to deal with assembly!!! // The programmer can be writing little 32 byte chunks for all // we know, and we must assemble complete records for writing. // REVIEW Maybe this should be in TarBuffer? Could that help to //        eliminate some of the buffer copying. //
-1,0,1,1,1,1,1,// Hack done to fix bringing the window to the front. // At least on windows, Frame.toFront() doesn't cut it. // Remove the isWindows check if it's broken under other // OSes too.
+1,0,1,0,1,1,1,// Hack done to fix bringing the window to the front. // At least on windows, Frame.toFront() doesn't cut it. // Remove the isWindows check if it's broken under other // OSes too.
 1,0,0,0,0,0,0,"/*		This method should be rewritten to use getFields() and avoid catching		exceptions during the search.	*/"
-1,1,1,1,1,1,1,// hack...
+1,1,0,0,1,1,1,// hack...
 1,0,0,0,0,0,0,// This should probably be in Reflect.java
 1,0,0,0,0,0,0,"/*		Notes: See notes on findMostSpecificMethod.		This method should be rolled into findMostSpecificMethod.	*/"
-1,0,0,1,0,1,1,"/*		Note: is using SignatureKey in this way dangerous?  In the pathological		case a user could eat up memory caching every possible combination of		argument types to an untyped method.  Maybe we could be smarter about		it by ignoring the types of untyped parameter positions?  The method		resolver could return a set of ""hints"" for the signature key caching?		There is also the overhead of creating one of these for every method		dispatched.  What is the alternative?	*/"
+1,0,1,1,0,1,1,"/*		Note: is using SignatureKey in this way dangerous?  In the pathological		case a user could eat up memory caching every possible combination of		argument types to an untyped method.  Maybe we could be smarter about		it by ignoring the types of untyped parameter positions?  The method		resolver could return a set of ""hints"" for the signature key caching?		There is also the overhead of creating one of these for every method		dispatched.  What is the alternative?	*/"
 1,0,1,1,0,1,1,// crusty workaround
 1,0,1,1,0,1,1,"/* workaround for A+keys producing				 * garbage on Windows */"
-1,1,1,1,1,1,1,"/* addToFavorites(), which is a static method		 * (for convinience) needs an instance of the		 * VFS to pass to VFSManager.sendVFSUpdate(),		 * hence this hack. */"
+1,1,0,0,1,1,1,"/* addToFavorites(), which is a static method		 * (for convinience) needs an instance of the		 * VFS to pass to VFSManager.sendVFSUpdate(),		 * hence this hack. */"
 1,0,1,0,1,1,1,// Allow getThis() to work through BlockNameSpace to the method // namespace // XXX re-eval this... do we need it?
 1,0,1,0,0,0,0,// these are used to eliminate code duplication. i don't normally use // the visitor or "template method" pattern, but this code was contributed // by Peter Cox and i don't feel like changing it around too much.
 1,0,0,0,0,0,0,// fuck me dead
-1,1,1,1,1,1,1,// stupid hack to handle referencing // a rule set that is defined later!
+1,1,1,0,1,1,1,// stupid hack to handle referencing // a rule set that is defined later!
 1,0,1,1,0,1,1,// JDK 1.4 workaround
 1,0,1,1,0,1,1,// should the next two be public, maybe?
-1,0,0,0,0,0,0,"/*		Note: this method and resolveExpectedJavaField should be rewritten		to invert this logic so that no exceptions need to be caught		unecessarily.  This is just a temporary impl.		@return the field or null if not found	*/"
+1,0,1,0,0,0,0,"/*		Note: this method and resolveExpectedJavaField should be rewritten		to invert this logic so that no exceptions need to be caught		unecessarily.  This is just a temporary impl.		@return the field or null if not found	*/"
 1,0,0,1,0,1,1,"/*		Note: we need a singleton here so that things like 'this == this' work		(and probably a good idea for speed).		Caching a single instance here seems technically incorrect,		considering the declaringInterpreter could be different under some		circumstances.  (Case: a child interpreter running a source() / eval() 		command ).  However the effect is just that the main interpreter that		executes your script should be the one involved in call-backs from Java.		I do not know if there are corner cases where a child interpreter would		be the first to use a This reference in a namespace or if that would		even cause any problems if it did...  We could do some experiments		to find out... and if necessary we could cache on a per interpreter		basis if we had weak references...  We might also look at skipping 		over child interpreters and going to the parent for the declaring 		interpreter, so we'd be sure to get the top interpreter.	*/"
 1,0,0,0,0,0,0,"/* 			Resolve relative to a class type			static field, inner class, ?		*/"
 1,1,0,1,1,1,1,// some regexps (eg ^ by itself) have a length == 0, so we // implement this hack. if you don't understand what's going on // here, then go back to watching MTV
 1,0,0,1,0,1,1,// Optimization - If classOfStaticMethod is set then we have already  // been here and determined that this is a static method invocation. // Note: maybe factor this out with path below... clean up.
 1,0,0,0,0,0,0,// this will probably not get used // Object type
 1,0,1,1,0,1,1,// Windows JDK workaround
-1,1,1,1,1,1,1,// this listener priority thing is a bad hack...
-1,0,1,1,0,1,1,"/* This doesn't look pretty and mode line should			 * probably be split up into seperate			 * components/strings			 */"
+1,1,1,0,1,1,1,// this listener priority thing is a bad hack...
+1,0,0,1,0,1,1,"/* This doesn't look pretty and mode line should			 * probably be split up into seperate			 * components/strings			 */"
 1,1,0,0,0,0,0,"/* this is stupid and misleading.				 * but 'path' is not used anywhere except				 * the above line, and if this is done				 * after the 'continue', then we will				 * either hang, or be forced to duplicate				 * it inside the buffer == null, or add				 * a 'finally' clause. you decide which one's				 * worse. */"
 1,0,1,1,0,1,1,"/* workaround for hang if match was					 * zero-width. not sure if there is					 * a better way to handle this */"
 1,0,0,0,0,0,0,"/* On Windows, paths of the form X: list the last *working		 * directory* on that drive. To list the root of the drive,		 * you must use X:\.		 *		 * However, the VFS browser and friends strip off trailing		 * path separators, for various reasons. So to work around		 * that, we add a '\' to drive letter paths on Windows.		 */"
@@ -178,22 +178,22 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		This method needs to be rewritten to eliminate findAccessibleMethod.		We should implement the findMostSpecificMethod that uses the publicOnly		flag.  FindMostSpecificMethod should also operate in two passes to give		standard Java assignable matches priority over extended bsh type		matches.	*/"
 1,0,1,0,1,1,1,// XXX: This should not be hardcoded
 1,0,0,0,0,0,0,// INTERVAL OPERATOR: //  {x} | {x,} | {x,y}  (RE_INTERVALS && RE_NO_BK_BRACES) //  \{x\} | \{x,\} | \{x,y\} (RE_INTERVALS && !RE_NO_BK_BRACES) // // OPEN QUESTION:  //  what is proper interpretation of '{' at start of string?
-1,0,1,1,1,1,1,// XXX: does this really belong here?
+1,0,1,0,1,1,1,// XXX: does this really belong here?
 1,0,0,0,0,0,0,// We do need to save every possible point, but the number of clone() // invocations here is really a killer for performance on non-stingy // repeat operators.  I'm open to suggestions...
 1,0,0,0,0,0,0,"/*		Note: this should really just throw NoSuchFieldException... need		to change related signatures and code.	*/"
 1,0,0,0,0,0,0,// Split the methods into constructors and regular method lists
 1,0,0,0,0,0,0,// need to add static block here
-1,0,1,1,1,1,1,"/** * An output stream that compresses into the BZip2 format (without the file * header chars) into another stream. TODO: Update to BZip2 1.0.1 * * @author <a href=""mailto:keiron@aftexsw.com"">Keiron Liddle</a> */"
+1,0,0,0,1,1,1,"/** * An output stream that compresses into the BZip2 format (without the file * header chars) into another stream. TODO: Update to BZip2 1.0.1 * * @author <a href=""mailto:keiron@aftexsw.com"">Keiron Liddle</a> */"
 1,0,0,0,1,1,1,"/**    * Parse the XML declaration.    * <pre>    * [25] XMLDecl ::= '&lt;?xml' VersionInfo EncodingDecl? SDDecl? S? '?&gt;'    * [26] VersionInfo ::= S 'version' Eq ('""1.0""' | ""'1.0'"")    * [33] SDDecl ::= S 'standalone' Eq ""'"" ('yes' | 'no') ""'""    *               | S 'standalone' Eq '""' (""yes"" | ""no"") '""'    * [78] EncodingDecl ::= S 'encoding' Eq QEncoding    * </pre>    * <p>([80] to [82] are also significant.)    * <p>(The <code>&lt;?xml</code> and whitespace have already been read.)    * <p>TODO: validate value of standalone.    * @see #parseTextDecl    * @see #checkEncoding    */"
 1,0,0,0,0,0,0,// implement the recursion for getClassImpl()
 1,0,1,0,0,0,0,// Need some format checking here
 1,0,0,0,0,0,0,// Need to calculate this... just fudging here for now.
-1,0,1,1,1,1,1,// TODO: Also check REG_ANCHORINDEX vs. anchor
-1,0,0,0,0,0,0,// skip header bytes // maybe should check if they're valid or not?
+1,0,1,0,1,1,1,// TODO: Also check REG_ANCHORINDEX vs. anchor
+1,0,0,1,0,1,1,// skip header bytes // maybe should check if they're valid or not?
 1,0,0,0,0,0,0,"/*		Debug utils are static so that they are reachable by code that doesn't		necessarily have an interpreter reference (e.g. tracing in utils).		In the future we may want to allow debug/trace to be turned on on		a per interpreter basis, in which case we'll need to use the parent 		reference in some way to determine the scope of the command that 		turns it on or off.	*/"
-1,0,0,1,1,1,1,"/**    * Parse an element-content model.    * [42] elements ::= (choice | seq) ('?' | '*' | '+')?    * [44] cps ::= S? %cp S?    * [45] choice ::= '(' S? %ctokplus (S? '|' S? %ctoks)* S? ')'    * [46] ctokplus ::= cps ('|' cps)+    * [47] ctoks ::= cps ('|' cps)*    * [48] seq ::= '(' S? %stoks (S? ',' S? %stoks)* S? ')'    * [49] stoks ::= cps (',' cps)*    * *NOTE: the opening '(' and S have already been read.    * *TODO: go over parameter entity boundaries more carefully.    */"
-1,0,1,0,0,0,0,// this convention may change...
-1,0,0,1,1,1,1,"/**    * Parse the attribute type.    * [54] AttType ::= StringType | TokenizedType | EnumeratedType    * [55] StringType ::= 'CDATA'    * [56] TokenizedType ::= 'ID' | 'IDREF' | 'IDREFS' | 'ENTITY' | 'ENTITIES' |    *                        'NMTOKEN' | 'NMTOKENS'    * [57] EnumeratedType ::= NotationType | Enumeration    * *TODO: validate the type!!    */"
+1,0,0,0,1,1,1,"/**    * Parse an element-content model.    * [42] elements ::= (choice | seq) ('?' | '*' | '+')?    * [44] cps ::= S? %cp S?    * [45] choice ::= '(' S? %ctokplus (S? '|' S? %ctoks)* S? ')'    * [46] ctokplus ::= cps ('|' cps)+    * [47] ctoks ::= cps ('|' cps)*    * [48] seq ::= '(' S? %stoks (S? ',' S? %stoks)* S? ')'    * [49] stoks ::= cps (',' cps)*    * *NOTE: the opening '(' and S have already been read.    * *TODO: go over parameter entity boundaries more carefully.    */"
+1,0,0,0,0,0,0,// this convention may change...
+1,0,0,0,1,1,1,"/**    * Parse the attribute type.    * [54] AttType ::= StringType | TokenizedType | EnumeratedType    * [55] StringType ::= 'CDATA'    * [56] TokenizedType ::= 'ID' | 'IDREF' | 'IDREFS' | 'ENTITY' | 'ENTITIES' |    *                        'NMTOKEN' | 'NMTOKENS'    * [57] EnumeratedType ::= NotationType | Enumeration    * *TODO: validate the type!!    */"
 0,0,0,0,0,0,0,//{{{ PluginManagerProgress constructor
 0,0,0,0,0,0,0,//{{{ getRate() method
 0,0,0,0,0,0,0,//{{{ writeMarkers() method
@@ -250,7 +250,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Change import precedence if we are a class body/instance
 0,0,0,0,0,0,0,//{{{ getFoldHandlers() method
 0,0,0,0,0,0,0,//{{{ physDown() method // scroll down by physical line amount
-0,0,0,0,0,0,0,// Default implementation... subclasses can extend this.
+0,0,1,0,0,0,0,// Default implementation... subclasses can extend this.
 0,0,0,0,0,0,0,// null 'from' type corresponds to type of Primitive.NULL // assign to any object type
 0,0,0,0,0,0,0,//{{{ unregisterFoldHandler() method
 0,0,0,0,0,0,0,// statical import fields from the interface so that code inside // can refer to the fields directly (e.g. HEIGHT)
@@ -335,7 +335,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ isHorizontalLayout() method
 0,0,0,0,0,0,0,// alias
 0,0,0,0,0,0,0,// because its preferred size can be quite wide, we // don't want it to make the browser way too big, // so set the preferred width to 0.
-0,0,0,0,0,0,0,// Figure out what we're reading from.
+0,0,0,1,0,1,1,// Figure out what we're reading from.
 0,0,0,0,0,0,0,//{{{ closeView() method
 0,0,0,0,0,0,0,// only add the Plugins branch if there are OptionPanes
 0,0,0,0,0,0,0,/* exit does editor event & save */
@@ -352,7 +352,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ update() method
 0,0,0,0,0,0,0,//{{{ Package-private members
 0,0,0,0,0,0,0,// the first sub-fold. used by JEditTextArea.expandFold().
-0,0,0,0,0,0,0,// copy of indexes // copy of sizes // instructions to be resized // future offset of a jump instruction
+0,0,0,1,0,1,1,// copy of indexes // copy of sizes // instructions to be resized // future offset of a jump instruction
 0,0,0,0,0,0,0,"/*				If equals() is not explicitly defined we must override the 				default implemented by the This object protocol for scripted				object.  To support XThis equals() must test for equality with 				the generated proxy object, not the scripted bsh This object;				otherwise callers from outside in Java will not see a the 				proxy object as equal to itself.			*/"
 0,0,0,0,0,0,0,// set rename to false if > 1 file selected
 0,0,0,0,0,0,0,//{{{ addCurrentToHistory() method
@@ -708,7 +708,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// converts temporary opcodes 202 to 217 (inclusive), 218 and 219 // to IFEQ ... JSR (inclusive), IFNULL and IFNONNULL
 0,0,0,0,0,0,0,// no body?
 0,0,0,0,0,0,0,// Read the first four bytes for // autodetection.
-0,0,1,0,0,0,0,"/* Magic: UNTITLED is only set if newFile param to		 * constructor is set, NEW_FILE is also set if file		 * doesn't exist on disk.		 *		 * This is so that we can tell apart files created		 * with jEdit.newFile(), and those that just don't		 * exist on disk.		 *		 * Why do we need to tell the difference between the		 * two? jEdit.addBufferToList() checks if the only		 * opened buffer is an untitled buffer, and if so,		 * replaces it with the buffer to add. We don't want		 * this behavior to occur with files that don't		 * exist on disk; only untitled ones.		 */"
+0,0,0,0,0,0,0,"/* Magic: UNTITLED is only set if newFile param to		 * constructor is set, NEW_FILE is also set if file		 * doesn't exist on disk.		 *		 * This is so that we can tell apart files created		 * with jEdit.newFile(), and those that just don't		 * exist on disk.		 *		 * Why do we need to tell the difference between the		 * two? jEdit.addBufferToList() checks if the only		 * opened buffer is an untitled buffer, and if so,		 * replaces it with the buffer to add. We don't want		 * this behavior to occur with files that don't		 * exist on disk; only untitled ones.		 */"
 0,0,0,0,0,0,0,//{{{ mouseDragged() method
 0,0,0,1,0,1,1,// in the future we will want something better, // eg. having an 'evt' object passed to // EditAction.invoke().
 0,0,0,0,0,0,0,// Read the XML/Encoding declaration.
@@ -730,7 +730,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// use the low-level property setting code // so that if we have a buffer-local // property with the same value as a default, // later changes in the default don't affect // the buffer-local property
 0,0,0,0,0,0,0,// null callstack, one will be created for us 
 0,0,0,1,0,1,1,// according to krisk this looks better on OS X...
-0,0,1,0,0,0,0,// replaces the temporary jump opcodes introduced by Label.resolve.
+0,0,0,0,0,0,0,// replaces the temporary jump opcodes introduced by Label.resolve.
 0,0,0,0,0,0,0,// Read an XML or text declaration.
 0,0,0,0,0,0,0,// Search for a matching tuple, and // return the string if we find one.
 0,0,0,0,0,0,0,// Get the syntax token at 'offset' // only tokens with the same type will be checked for // the corresponding bracket
@@ -804,7 +804,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* case MouseEvent.MOUSE_ENTERED:				toolTipInitialDelay = ttm.getInitialDelay();				toolTipReshowDelay = ttm.getReshowDelay();				ttm.setInitialDelay(200);				ttm.setReshowDelay(0);				super.processMouseEvent(evt);				break;			case MouseEvent.MOUSE_EXITED:				ttm.setInitialDelay(toolTipInitialDelay);				ttm.setReshowDelay(toolTipReshowDelay);				super.processMouseEvent(evt);				break; */"
 0,0,1,0,0,0,0,// I guess ideally all browsers // should have views, but since they // don't, we just use the active view // in that case, since some actions // depend on a view being there and // I don't want to add checks to // them all
 0,0,0,0,0,0,0,// Push the boolean constant 'true' (for declaredOnly)
-0,1,1,0,0,0,0,// REMIND: calling isDirectory() on a floppy drive // displays stupid I/O error dialog box on Windows
+0,1,0,0,0,0,0,// REMIND: calling isDirectory() on a floppy drive // displays stupid I/O error dialog box on Windows
 0,0,0,0,0,0,0,//{{{ valueChanged() method
 0,0,0,0,0,0,0,//{{{ FavoritesMenuButton constructor
 0,0,0,0,0,0,0,/* Line seperator */
@@ -850,7 +850,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// bytecode of the method // indexes in b // loop indexes
 0,0,0,0,0,0,0,//{{{ LineManager constructor
 0,0,0,0,0,0,0,// try mode-specific abbrevs first
-0,0,1,0,0,0,0,// This constructor is used for convenience when we know the set beforehand, // e.g. \d --> new RETokenOneOf("0123456789",false, ..) //      \D --> new RETokenOneOf("0123456789",true, ..)
+0,0,0,0,0,0,0,// This constructor is used for convenience when we know the set beforehand, // e.g. \d --> new RETokenOneOf("0123456789",false, ..) //      \D --> new RETokenOneOf("0123456789",true, ..)
 0,0,0,0,0,0,0,//{{{ RecentHandler class
 0,0,0,0,0,0,0,// Add tryMatch to list of possibilities.
 0,0,0,0,0,0,0,//{{{ Protected members
@@ -877,7 +877,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ initBufferSwitcher() method
 0,0,0,0,0,0,0,// Get the ConstructorArgs selector field from ConstructorArgs
 0,0,0,0,0,0,0,"/*     * index of the last char in the block, so     * the block size == last + 1.     */"
-0,0,1,0,0,0,0,// If repeat was true originally, clear it // Otherwise it might have been set by the action, etc
+0,0,0,0,0,0,0,// If repeat was true originally, clear it // Otherwise it might have been set by the action, etc
 0,0,0,0,0,0,0,//{{{ resetLastActionCount() method
 0,0,0,0,0,0,0,//{{{ updateTitle() method
 0,0,0,0,0,0,0,//cv.visitLineNumber( index, labels[index] ); // push this before args
@@ -897,14 +897,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// should normally be
 0,0,0,0,0,0,0,// remember the last executed action
 0,0,0,0,0,0,0,//{{{ handleKey() method
-0,0,0,0,0,0,0,"/*		Disallowing VOIDs here was an easy way to support the throwing of a 		more descriptive error message on use of an undefined argument to a 		method call (very common).  If it ever turns out that we need to 		support that for some reason we'll have to re-evaluate how we get 		""meta-information"" about the arguments in the various invoke() methods 		that take Object [].  We could either pass BSHArguments down to 		overloaded forms of the methods or throw an exception subtype 		including the argument position back up, where the error message would		be compounded.	*/"
+0,0,0,1,0,1,1,"/*		Disallowing VOIDs here was an easy way to support the throwing of a 		more descriptive error message on use of an undefined argument to a 		method call (very common).  If it ever turns out that we need to 		support that for some reason we'll have to re-evaluate how we get 		""meta-information"" about the arguments in the various invoke() methods 		that take Object [].  We could either pass BSHArguments down to 		overloaded forms of the methods or throw an exception subtype 		including the argument position back up, where the error message would		be compounded.	*/"
 0,0,0,0,0,0,0,//{{{ invokeReadNextChar() method
 0,0,0,0,0,0,0,//{{{ JCheckBoxList constructor
 0,0,0,0,0,0,0,// stop people doing dumb stuff like C+ENTER 100 C+n
 0,0,0,0,0,0,0,//{{{ getValues() method
 0,0,0,0,0,0,0,//{{{ TextAreaTransferHandler class
 0,0,0,0,0,0,0,// For evaluation
-0,0,1,0,0,0,0,"/*		Note: bshmethod needs to re-evaluate the method return type here.		This is broken.	*/"
+0,0,0,0,0,0,0,"/*		Note: bshmethod needs to re-evaluate the method return type here.		This is broken.	*/"
 0,0,0,0,0,0,0,//{{{ userInput() method
 0,0,0,0,0,0,0,//{{{ goToPrevBracket() method
 0,0,0,0,0,0,0,// Read the encoding.
@@ -1005,7 +1005,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// non-interactive, return control now
 0,0,0,0,0,0,0,// See if we should place this toolbar before any others
 0,0,0,0,0,0,0,//{{{ getView() method
-0,0,1,0,0,0,0,// Method body can only use 'return' statment type return control.
+0,0,0,0,0,0,0,// Method body can only use 'return' statment type return control.
 0,0,0,0,0,0,0,//|| ( getParent()!=null && getParent().classStatic != null ) 
 0,0,0,0,0,0,0,// show extra "expecting..." info
 0,0,0,0,0,0,0,"/*	 *  to avoid our skip table having a length of 2 ^ 16, we hash each	 *  character of the input into a character in the alphabet [\x00-\xFF]	 *  using the lower 8 bits of the character's value (resulting in	 *  a more reasonable skip table of length 2 ^ 8).	 *	 *  the result of this is that more than one character can hash to the	 *  same index, but since the skip table encodes the position of	 *  occurence of the character furthest into the string with a particular	 *  index (whether or not it is the only character with that index), an	 *  index collision only means that that this heuristic will give a	 *  sub-optimal skip (i.e. a complete skip table could use the differences	 *  between colliding characters to maximal effect, at the expense of	 *  building a table that is over 2 orders of magnitude larger and very	 *  sparse).	 */"
@@ -1032,7 +1032,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ LineContext class
 0,0,0,0,0,0,0,// Make a tmp namespace to hold the original constructor args for // use in eval of the parameters node
 0,0,0,0,0,0,0,// Get the instance initializer block from the static This 
-0,1,1,0,0,0,0,"/* This protects against stupid people (like me)		 * doing stuff like buffer.setMode(jEdit.getMode(...)); */"
+0,1,1,1,0,1,1,"/* This protects against stupid people (like me)		 * doing stuff like buffer.setMode(jEdit.getMode(...)); */"
 0,0,0,0,0,0,0,//{{{ addEntry() method
 0,0,0,0,0,0,0,// Set the instance This reference on the instance
 0,0,0,0,0,0,0,//{{{ markTokens() method
@@ -1044,7 +1044,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ shiftIndentLeft() method
 0,0,0,0,0,0,0,//{{{ setIconPath() method
 0,0,0,0,0,0,0,//{{{ shiftIndentRight() method
-0,0,0,1,1,1,1,"/**    * Parse a conditional section.    * [63] conditionalSect ::= includeSect || ignoreSect    * [64] includeSect ::= '<![' %'INCLUDE' '[' (%markupdecl*)* ']]>'    * [65] ignoreSect ::= '<![' %'IGNORE' '[' ignoreSectContents* ']]>'    * [66] ignoreSectContents ::= ((SkipLit | Comment | PI) -(Char* ']]>'))    *                           | ('<![' ignoreSectContents* ']]>')    *                           | (Char - (']' | [<'""]))    *                           | ('<!' (Char - ('-' | '[')))    * *NOTE: the '<![' has already been read.    * *TODO: verify that I am handling ignoreSectContents right.    */"
+0,0,1,0,1,1,1,"/**    * Parse a conditional section.    * [63] conditionalSect ::= includeSect || ignoreSect    * [64] includeSect ::= '<![' %'INCLUDE' '[' (%markupdecl*)* ']]>'    * [65] ignoreSect ::= '<![' %'IGNORE' '[' ignoreSectContents* ']]>'    * [66] ignoreSectContents ::= ((SkipLit | Comment | PI) -(Char* ']]>'))    *                           | ('<![' ignoreSectContents* ']]>')    *                           | (Char - (']' | [<'""]))    *                           | ('<!' (Char - ('-' | '[')))    * *NOTE: the '<![' has already been read.    * *TODO: verify that I am handling ignoreSectContents right.    */"
 0,0,0,0,0,0,0,//{{{ getDockableTitle() method
 0,0,1,0,0,0,0,// Begin BeanShell Modification - super constructor args // null node, null callstack, ParseException knows where the error is.
 0,0,0,0,0,0,0,//{{{ removeLayoutComponent() method
@@ -1062,7 +1062,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// do some platforms throw exceptions if the file does not exist // when we ask for the canonical path?
 0,0,0,0,0,0,0,//{{{ isDockableWindowVisible() method
 0,0,0,0,0,0,0,//{{{ _canonPath() method
-0,0,0,0,0,0,0,// No matter what happends... stops us from leaving buffer // in a bad state
+0,0,0,1,0,1,1,// No matter what happends... stops us from leaving buffer // in a bad state
 0,0,0,0,0,0,0,//{{{ getDockableWindow() method
 0,0,0,1,0,1,1,"/*    * Ordinals for various reasons why an Error of this type can be thrown.    */"
 0,0,0,0,0,0,0,//{{{ getViews() method
@@ -1281,7 +1281,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// create a DirectoryEntry manually // instead of using _vfs._getDirectoryEntry() // since so many VFS's have broken // implementations of this method
 0,0,0,0,0,0,0,// fill in defaults for these from system properties if the // corresponding buffer.XXX properties not set
 0,0,0,0,0,0,0,// check to see if the instance has already been initialized // (the case if using a this() alternate constuctor)
-0,0,1,0,0,0,0,// the start and end flags will be wrong with reverse search enabled, // but they are only used by the regexp matcher, which doesn't // support reverse search yet. // // REMIND: fix flags when adding reverse regexp search.
+0,0,0,0,0,0,0,// the start and end flags will be wrong with reverse search enabled, // but they are only used by the regexp matcher, which doesn't // support reverse search yet. // // REMIND: fix flags when adding reverse regexp search.
 0,0,0,0,0,0,0,// Java does not support this encoding so // we have to handle it manually.
 0,0,0,0,0,0,0,// just as if Enter was pressed in another // text field
 0,0,0,0,0,0,0,// we didn't have a component previously, so // create a border
@@ -1329,7 +1329,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// changes the opcode of the jump instruction, in order to be able to // find it later (see resizeInstructions in CodeWriter). These // temporary opcodes are similar to jump instruction opcodes, except // that the 2 bytes offset is unsigned (and can therefore represent // values from 0 to 65535, which is sufficient since the size of a // method is limited to 65535 bytes).
 0,0,0,0,0,0,0,// // EBComponent implementation //
 0,0,0,0,0,0,0,//throw new CError();
-0,0,0,0,0,0,0,// ask whether to remove the old shortcut
+0,0,1,0,0,0,0,// ask whether to remove the old shortcut
 0,0,0,0,0,0,0,// Wait for pending I/O requests
 0,0,0,0,0,0,0,//{{{ getKeyBinding() method
 0,0,0,0,0,0,0,// over estimation of the number of bytes to be added to this // instruction = 3 - current number of padding bytes = 3 - (3 - // u%4) = u%4 = u & 3
@@ -1371,7 +1371,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getStructureHighlightColor() method
 0,0,0,0,0,0,0,// impl note: since multiple searches now allowed, // extra level in hierarchy
 0,0,0,0,0,0,0,// Check for backup.directory, and create that // directory if it doesn't exist
-0,0,0,0,0,0,0,"/*				If this was a literal ""super"" reference then we allow recursion				in setting the variable to get the normal effect of finding the				nearest definition starting at the super scope.  On any other				resolution qualified by a 'this' type reference we want to set				the variable directly in that scope. e.g. this.x=5;  or 				someThisType.x=5;								In the old scoping rules super didn't do this.			*/"
+0,0,1,0,0,0,0,"/*				If this was a literal ""super"" reference then we allow recursion				in setting the variable to get the normal effect of finding the				nearest definition starting at the super scope.  On any other				resolution qualified by a 'this' type reference we want to set				the variable directly in that scope. e.g. this.x=5;  or 				someThisType.x=5;								In the old scoping rules super didn't do this.			*/"
 0,0,0,0,0,0,0,//{{{ setSortType() method
 0,0,0,0,0,0,0,// the entire save operation can be aborted...
 0,0,0,0,0,0,0,//{{{ loadMenuItem() method
@@ -1400,7 +1400,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Figure out if this is a start tag // or an empty element, and dispatch an // event accordingly.
 0,0,0,0,0,0,0,// loop until the subset ends
 0,0,0,0,0,0,0,"/* read() and write() must be kept perfectly in sync...		 * its a very simple file format. doing it this way is		 * faster than serializing since serialization calls		 * reflection, etc. */"
-0,0,1,0,0,0,0,// If it had a different type throw error. // This allows declaring the same var again, but not with // a different (even if assignable) type.
+0,0,0,0,0,0,0,// If it had a different type throw error. // This allows declaring the same var again, but not with // a different (even if assignable) type.
 0,0,0,0,0,0,0,// add the JARs before checking deps since dep check might // require all JARs to be present
 0,0,0,0,0,0,0,//{{{ InputPane class
 0,0,0,0,0,0,0,// we don't need two identical shortcuts
@@ -1589,7 +1589,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getResource() method
 0,0,0,0,0,0,0,// found a non-backslash char.
 0,0,0,0,0,0,0,"/*          We'll print our banner using eval(String) in order to          exercise the parser and get the basic expression classes loaded...          This ameliorates the delay after typing the first statement.        */"
-0,0,0,0,0,0,0,"/*				Primitive (number or void) is not normally an instanceof				anything.  But for internal use we'll test true for the				bsh.Primitive class.  				i.e. (5 instanceof bsh.Primitive) will be true			*/"
+0,0,0,1,0,1,1,"/*				Primitive (number or void) is not normally an instanceof				anything.  But for internal use we'll test true for the				bsh.Primitive class.  				i.e. (5 instanceof bsh.Primitive) will be true			*/"
 0,0,0,0,0,0,0,//{{{ Top...
 0,0,0,0,0,0,0,//{{{ getVirtualWidth() method
 0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Conversion to type descriptors // --------------------------------------------------------------------------
@@ -1668,7 +1668,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// check the next character
 0,0,0,0,0,0,0,// MATCH-ANY-CHARACTER OPERATOR (except possibly newline and null) //  .
 0,0,0,0,0,0,0,//{{{ JARClassLoader constructor
-0,0,0,0,0,0,0,// no need to do this for macros!
+0,0,1,0,0,0,0,// no need to do this for macros!
 0,0,0,0,0,0,0,// Skip whitespace at the start.
 0,0,0,0,0,0,0,//{{{ accept() method
 0,0,0,0,0,0,0,// system id
@@ -1797,7 +1797,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ _delete() method
 0,0,0,0,0,0,0,// end compound name routines
 0,0,0,0,0,0,0,//{{{ LocalDirectoryEntry class
-0,0,1,0,0,0,0,// this is needed because on OS X renaming to a non-existent // directory causes problems
+0,0,0,0,0,0,0,// this is needed because on OS X renaming to a non-existent // directory causes problems
 0,0,0,0,0,0,0,//{{{ _backup() method
 0,0,0,0,0,0,0,//{{{ _mkdir() method
 0,0,0,0,0,0,0,//}}} //{{{ KEY_RELEASED...
@@ -1881,7 +1881,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ _endVFSSession() method
 0,0,0,0,0,0,0,// set the var here in the block namespace
 0,0,0,0,0,0,0,//e.printStackTrace();
-0,0,1,0,0,0,0,// super.variables.containsKey( name ) not any faster, I checked
+0,0,0,0,0,0,0,// super.variables.containsKey( name ) not any faster, I checked
 0,0,0,0,0,0,0,// set the var in the enclosing (parent) namespace
 0,0,0,0,0,0,0,// Found "<?"
 0,0,0,0,0,0,0,//{{{ getClassName() method
@@ -2455,7 +2455,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// push super class name // use superClassName var?
 0,0,0,0,0,0,0,//{{{ toggleLineSeparator() method
 0,0,0,0,0,0,0,// push class static This object
-0,1,1,1,1,1,1,//{{{ Instance variables // this is a bad hack
+0,1,1,0,1,1,1,//{{{ Instance variables // this is a bad hack
 0,0,0,0,0,0,0,//{{{ paintHeader() method
 0,0,0,0,0,0,0,// not supported for arbitriary filesets
 0,0,0,0,0,0,0,// generate switch body
@@ -2956,7 +2956,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getFont() method
 0,0,0,0,0,0,0,// Buffer a token so we can create a TokenRepeated, etc.
 0,0,0,0,0,0,0,// read the next character unit (including backslash escapes)
-0,0,1,0,0,0,0,// make everything up to here be a branch. create vector if nec.
+0,0,0,0,0,0,0,// make everything up to here be a branch. create vector if nec.
 0,0,0,0,0,0,0,// LIST OPERATOR: //  [...] | [^...]
 0,0,0,0,0,0,0,/* before first visible line */
 0,0,0,0,0,0,0,//  ---- BeanShell specific stuff hereafter ----  //
@@ -3085,7 +3085,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ updateRenderingHints() method
 0,0,0,0,0,0,0,//{{{ getPlugin() method
 0,0,0,0,0,0,0,"/* Try to guess the eventual size to avoid unnecessary		 * copying */"
-0,0,1,0,0,0,0,// should try to use this as little as possible.
+0,0,0,0,0,0,0,// should try to use this as little as possible.
 0,0,0,0,0,0,0,//{{{ Paint line highlight and collapsed fold highlight
 0,0,0,0,0,0,0,//{{{ PaintLineBackground class
 0,0,0,0,0,0,0,// minimise access$ methods
@@ -3232,7 +3232,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// OK, the cheat didn't work; start over // and do it by the book.
 0,0,0,0,0,0,0,//{{{ getColorProperty() method
 0,0,0,0,0,0,0,// left == default case
-0,0,0,0,1,1,1,// XXX //e.printStackTrace();
+0,0,1,0,1,1,1,// XXX //e.printStackTrace();
 0,0,0,0,0,0,0,//{{{ isOverwriteEnabled() method
 0,0,0,0,0,0,0,// handled by RE
 0,0,0,0,0,0,0,// true for the constant defined syntaxes
@@ -3242,7 +3242,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* delete a backup created using above method */
 0,0,0,0,0,0,0,"/* Differs from RE_SYNTAX_POSIX_EXTENDED in that RE_CONTEXT_INVALID_OPS	 replaces RE_CONTEXT_INDEP_OPS and RE_NO_BK_REFS is added. */"
 0,0,0,0,0,0,0,/* There is no official Perl spec, but here's a "best guess" */
-0,0,1,0,0,0,0,// except for '{', apparently
+0,0,0,0,0,0,0,// except for '{', apparently
 0,0,0,0,0,0,0,// while more labels or blocks and haven't hit return control
 0,0,0,0,0,0,0,//{{{ getSelectionStart() method
 0,0,0,0,0,0,0,//{{{ activatePlugin() method
@@ -3281,7 +3281,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Open files, create the view and hide the splash screen.
 0,0,0,0,0,0,0,"/*                If idealMatch fits targetMatch and this is the first match 				or targetMatch is more specific than the best match, make it 				the new best match.            */"
 0,0,0,0,0,0,0,// TAB ESCAPE //  \t
-0,0,1,0,0,0,0,// not sure if this is correct for OpenVMS.
+0,0,0,0,0,0,0,// not sure if this is correct for OpenVMS.
 0,0,0,0,0,0,0,//{{{ fileToClass() method
 0,0,0,0,1,1,1,// XXX
 0,0,0,0,0,0,0,"/*	End methods for interacting with Parser */"
@@ -3372,7 +3372,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ CompletionList class
 0,0,0,0,0,0,0,// Recursively adds our key listener to sub-components
 0,0,0,0,0,0,0,// do nothing //}}}
-0,0,0,0,0,0,0,// figure out what constitutes a word character and what // doesn't
+0,0,0,1,0,1,1,// figure out what constitutes a word character and what // doesn't
 0,0,0,0,0,0,0,//{{{ setText() method
 0,0,0,0,0,0,0,//{{{ fireActionPerformed() method
 0,0,0,0,0,0,0,//{{{ setSelectedColor() method
@@ -3541,7 +3541,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ goToPrevLine() method
 0,0,0,0,0,0,0,//{{{ goToPrevPage() method
 0,0,0,0,0,0,0,//{{{ goToBufferEnd() method
-0,0,1,0,0,0,0,//{{{ deleteParagraph() method
+0,0,0,0,0,0,0,//{{{ deleteParagraph() method
 0,0,0,0,0,0,0,// remove this when 4.1 plugin API is deprecated
 0,0,0,0,0,0,0,//{{{ backspace() method
 0,0,0,0,0,0,0,//{{{ setOverwriteEnabled() method
@@ -3647,7 +3647,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// > 16 bits, surrogate needed
 0,0,0,0,0,0,0,// Internal entity.
 0,0,0,0,0,0,0,//{{{ MutableCaretEvent class
-0,0,1,1,1,1,1,// XXX: getMarkPosition() deprecated!
+0,0,1,0,1,1,1,// XXX: getMarkPosition() deprecated!
 0,0,0,0,0,0,0,//{{{ hideSplashScreen() method
 0,0,0,0,0,0,0,//{{{ getNotLoadedPluginJARs() method
 0,0,0,0,0,0,0,//{{{ CaretBlinker class
@@ -3657,7 +3657,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getDot() method
 0,0,0,0,0,0,0,//{{{ focusLost() method
 0,0,0,0,0,0,0,// just scroll to the dragged location
-0,0,1,0,0,0,0,// so that Home <mouse click> Home is not the same // as pressing Home twice in a row
+0,0,0,0,0,0,0,// so that Home <mouse click> Home is not the same // as pressing Home twice in a row
 0,0,0,0,0,0,0,//{{{ loadStyles() method
 0,0,0,0,0,0,0,//{{{ getBelowPosition() method
 0,0,0,0,0,0,0,//{{{ getCachedServices() method
@@ -3975,9 +3975,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ overlaps() method
 0,0,0,0,0,0,0,//{{{ isJava14() method
 0,0,0,0,0,0,0,//{{{ isJava15() method
-0,0,1,0,0,0,0,// fix the bug where the horiz. // scroll bar was not updated // after creating a new file.
-0,0,0,0,0,0,0,// Note that we rely on the fact that when a physical line is // invalidated, all screen lines/subregions of that line are // invalidated as well. See below comment for code that tries // to uphold this assumption.
-0,0,0,0,0,0,0,"/* If this line has become longer or shorter				 * (in which case the new physical line number				 * is different from the cached one) we need to:				 * - continue updating past the last line				 * - advise the text area to repaint				 * On the other hand, if the line wraps beyond				 * lastScreenLine, we need to keep updating the				 * chunk list to ensure proper alignment of				 * invalidation flags (see start of method) */"
+0,0,0,0,0,0,0,// fix the bug where the horiz. // scroll bar was not updated // after creating a new file.
+0,0,1,0,0,0,0,// Note that we rely on the fact that when a physical line is // invalidated, all screen lines/subregions of that line are // invalidated as well. See below comment for code that tries // to uphold this assumption.
+0,0,1,0,0,0,0,"/* If this line has become longer or shorter				 * (in which case the new physical line number				 * is different from the cached one) we need to:				 * - continue updating past the last line				 * - advise the text area to repaint				 * On the other hand, if the line wraps beyond				 * lastScreenLine, we need to keep updating the				 * chunk list to ensure proper alignment of				 * invalidation flags (see start of method) */"
 0,0,0,0,0,0,0,//{{{ getLineInfo() method
 0,0,0,0,0,0,0,//{{{ loadClass() method
 0,0,0,0,0,0,0,// zero it here so that BufferTabs doesn't have any problems
@@ -4076,7 +4076,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*delcaredOnly*/
 0,0,0,0,0,0,0,//{{{ getViewCount() method
 0,0,0,0,0,0,0,/* I assume that there can be only one drag operation at the time */
-0,0,0,0,0,0,0,// Skip certain actions this way
+0,0,0,1,0,1,1,// Skip certain actions this way
 0,0,0,0,0,0,0,// Throw an EOFException if there // is nothing else to pop.
 0,0,0,0,0,0,0,// draw |
 0,0,0,0,0,0,0,//{{{ toTitleCase() method

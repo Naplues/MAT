@@ -38,7 +38,6 @@ public class Main {
         //System.out.println(lines.size());
     }
 
-
     public static void statistics(String projectName) {
         String resultPath = "data/result/" + projectName + ".csv";
         List<String> lines = FileHandle.readFileToLines(resultPath);
@@ -57,14 +56,13 @@ public class Main {
         //System.out.println(lines.size());
     }
 
-
     public static void combineResult(String project) {
         String commentPath = "data/pattern/data--" + project + ".txt";
         String labelPath = "data/pattern/label--" + project + ".txt";
 
         String patternPath = "data/pattern/result--" + project + ".txt";
-        String nlpPath = "data/nlp/result--" + project + ".txt";
-        String tmPath = "data/tm/result--" + project + ".txt";
+        String nlpPath = "data/nlp_new/result--" + project + ".txt";
+        String tmPath = "data/tm_new/result--" + project + ".txt";
         String matPath = "data/mat/result--" + project + ".txt";
 
         String resultPath = "data/result/" + project + ".csv";
@@ -104,11 +102,11 @@ public class Main {
         }
         FileHandle.writeStringToFile(resultPath, text.toString());
         // evaluate(labelLines, patternLines);
-        //evaluate(labelLines, nlpLines);
-        // evaluate(labelLines, tmLines);
+        evaluate(labelLines, nlpLines);
+        //evaluate(labelLines, tmLines);
         // evaluate(labelLines, matLines);
-        evaluate(labelLines, matTMLines);
-        evaluate(labelLines, matNLPLines);
+        //evaluate(labelLines, matTMLines);
+        //evaluate(labelLines, matNLPLines);
         System.out.println();
         //System.out.println("Output result file successfully! " + project);
     }

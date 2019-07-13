@@ -1,132 +1,132 @@
 oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
-1,0,1,1,1,1,1,// TODO (@author fdietz): should be removed if we only use // Streams!
-1,0,1,1,1,1,1,// FIXME (@author karlpeder): Is 3.2 the proper version of html to refer to?
-1,1,1,1,1,1,1,// this is a hack for the multiline column
-1,0,1,1,1,1,1,//TODO (@author tstich): do something
-1,0,1,1,1,1,1,// TODO (@author fdietz): i18n
+1,0,1,0,1,1,1,// TODO (@author fdietz): should be removed if we only use // Streams!
+1,0,1,0,1,1,1,// FIXME (@author karlpeder): Is 3.2 the proper version of html to refer to?
+1,1,1,0,1,1,1,// this is a hack for the multiline column
+1,0,1,0,1,1,1,//TODO (@author tstich): do something
+1,0,1,0,1,1,1,// TODO (@author fdietz): i18n
 1,0,1,0,1,1,1,// FIXME remove method // toolbarPane.add(c);
-1,0,1,1,1,1,1,//TODO (@author fdietz): i18n
+1,0,1,0,1,1,1,//TODO (@author fdietz): i18n
 1,0,1,1,1,1,1,// TODO @author hubms: copied from frederiks search builder
 1,1,0,0,0,0,0,// real stupid recreation of whole list model // -> replace with id-based listmodel update
-1,0,1,1,1,1,1,// TODO (@author karlpeder): Extend handling of special entities as in restoreSpecialCharacters
-1,0,0,1,1,1,1,"/**     * Transforms email-addresses into HTML just as     * substituteEmailAddress(String), but tries to ignore email-addresses,     * which are already links, if the ignore links flag is set.     * <br>     * This extended functionality is necessary when parsing a text which     * is already (partly) html.     * <br>     * FIXME: Can this be done smarter, i.e. directly with reg. expr. without manual parsing??     *     * @param         s                                input text     * @param        ignoreLinks                if true link tags are ignored. This gives a     *                                                         wrong result if some e-mail adresses are     *                                                         already links (but uses reg. expr. directly,     *                                                         and is therefore faster)     * @return        text with email-adresses transformed to links     */"
-1,0,0,1,1,1,1,//TODO: Return content encoding according to the mime part in the mail
-1,0,1,1,1,1,1,//TODO: Return content type according to the mime part in the mail
-1,1,1,1,1,1,1,// hack to support dockable view title update // TODO replace with listener pattern
-1,0,1,1,1,1,1,/*TODO stop polling thread?! */
-1,0,1,1,1,1,1,// TODO @author hubms: bad: if there is a icon it is tagged or // not
-1,0,1,1,1,1,1,// TODO categoryEnumeration
-1,1,1,1,1,1,1,// hack: if start and end time is at 00:00:00:000 it is // an all day event
+1,0,1,0,1,1,1,// TODO (@author karlpeder): Extend handling of special entities as in restoreSpecialCharacters
+1,0,0,0,1,1,1,"/**     * Transforms email-addresses into HTML just as     * substituteEmailAddress(String), but tries to ignore email-addresses,     * which are already links, if the ignore links flag is set.     * <br>     * This extended functionality is necessary when parsing a text which     * is already (partly) html.     * <br>     * FIXME: Can this be done smarter, i.e. directly with reg. expr. without manual parsing??     *     * @param         s                                input text     * @param        ignoreLinks                if true link tags are ignored. This gives a     *                                                         wrong result if some e-mail adresses are     *                                                         already links (but uses reg. expr. directly,     *                                                         and is therefore faster)     * @return        text with email-adresses transformed to links     */"
+1,0,0,0,1,1,1,//TODO: Return content encoding according to the mime part in the mail
+1,0,0,0,1,1,1,//TODO: Return content type according to the mime part in the mail
+1,1,1,0,1,1,1,// hack to support dockable view title update // TODO replace with listener pattern
+1,0,1,0,1,1,1,/*TODO stop polling thread?! */
+1,0,1,0,1,1,1,// TODO @author hubms: bad: if there is a icon it is tagged or // not
+1,0,1,0,1,1,1,// TODO categoryEnumeration
+1,1,0,0,1,1,1,// hack: if start and end time is at 00:00:00:000 it is // an all day event
 1,0,1,1,1,1,1,// register interest on store changes // TODO the dependency should be the other way around
-1,0,1,1,1,1,1,// TODO: fix layout to look good, even if there's not enough information provided
-1,1,1,1,1,1,1,// FIXME: ugly cast to ContactModel
-1,0,1,1,1,1,1,// @TODO dont use deprecated method
-1,0,1,1,1,1,1,/* TODO must get polling interval from config file */
-1,0,1,1,1,1,1,//      TODO: reactivate when feature is supported
-1,0,1,1,1,1,1,// If this folder has children add them // TODO: In the future we should try to fetch additional children on demand // when the tree of the dialog is opened
-1,0,0,1,1,1,1,// TODO (@author fdietz): Add more special entities - e.g. accenture chars such as ?
-1,0,0,0,1,1,1,// TODO (@author waffel): encrypt AND sign dosN#t work. The message is // always only // encrypted. We need a function that knows, here // is an encrypted AND signed Message. Thus first encyrpt and then // verifySign the message // if this message is signed/encrypted we have to use // GnuPG to extract the decrypted bodypart // - multipart/encrypted // - multipart/signed
-1,0,0,1,1,1,1,"/**     * Transforms urls into HTML just as substituteURL(String),     * but tries to ignore urls, which are already links, if the ignore     * links flag is set.     * <br>     * This extended functionality is necessary when parsing a text which     * is already (partly) html.     * <br>     * FIXME: Can this be done smarter, i.e. directly with reg. expr. without manual parsing??     *     * @param         s                                input text     * @param        ignoreLinks                if true link tags are ignored. This gives a     *                                                         wrong result if some urls are already links     *                                                         (but uses reg. expr. directly, and is     *                                                         therefore faster)     * @return        text with urls     */"
-1,0,0,1,1,1,1,// TODO @author fdietz: ensure that we don't fetch individual // headers // to reduce client/server roundtrips
+1,0,1,0,1,1,1,// TODO: fix layout to look good, even if there's not enough information provided
+1,1,1,0,1,1,1,// FIXME: ugly cast to ContactModel
+1,0,1,0,1,1,1,// @TODO dont use deprecated method
+1,0,1,0,1,1,1,/* TODO must get polling interval from config file */
+1,0,1,0,1,1,1,//      TODO: reactivate when feature is supported
+1,0,1,0,1,1,1,// If this folder has children add them // TODO: In the future we should try to fetch additional children on demand // when the tree of the dialog is opened
+1,0,1,0,1,1,1,// TODO (@author fdietz): Add more special entities - e.g. accenture chars such as ?
+1,0,1,0,1,1,1,// TODO (@author waffel): encrypt AND sign dosN#t work. The message is // always only // encrypted. We need a function that knows, here // is an encrypted AND signed Message. Thus first encyrpt and then // verifySign the message // if this message is signed/encrypted we have to use // GnuPG to extract the decrypted bodypart // - multipart/encrypted // - multipart/signed
+1,0,0,0,1,1,1,"/**     * Transforms urls into HTML just as substituteURL(String),     * but tries to ignore urls, which are already links, if the ignore     * links flag is set.     * <br>     * This extended functionality is necessary when parsing a text which     * is already (partly) html.     * <br>     * FIXME: Can this be done smarter, i.e. directly with reg. expr. without manual parsing??     *     * @param         s                                input text     * @param        ignoreLinks                if true link tags are ignored. This gives a     *                                                         wrong result if some urls are already links     *                                                         (but uses reg. expr. directly, and is     *                                                         therefore faster)     * @return        text with urls     */"
+1,0,0,0,1,1,1,// TODO @author fdietz: ensure that we don't fetch individual // headers // to reduce client/server roundtrips
 1,0,1,0,0,0,0,// ??? bad to have release hardocoded here. Fix later...right.
-1,0,1,1,1,1,1,//TODO: Open stream from the mime part specified by contentID of the  //currently viewed mail
+1,0,0,0,1,1,1,//TODO: Open stream from the mime part specified by contentID of the  //currently viewed mail
 1,0,1,0,0,0,0,// something is very wrong here
 1,0,1,1,0,1,1,// its maybe better to leave this option out of the dialog // -> make it configurable in the xml file anyway
-1,1,1,1,1,1,1,// TODO: Make this hack more i18n compatible
-1,0,0,1,1,1,1,/*TODO move resources to a resource file */
-1,0,1,1,1,1,1,// TODO: use UndoableEditEvent to make this really work
-1,0,1,1,1,1,1,// TODO: Should we take some action to ensure signature is valid // html?
+1,1,1,0,1,1,1,// TODO: Make this hack more i18n compatible
+1,0,1,0,1,1,1,/*TODO move resources to a resource file */
+1,0,1,0,1,1,1,// TODO: use UndoableEditEvent to make this really work
+1,0,1,0,1,1,1,// TODO: Should we take some action to ensure signature is valid // html?
 1,0,1,0,1,1,1,/* XXX should this be fired by a different thread? */
 1,0,0,0,1,1,1,//TODO:add a configuration of the cache size
-1,0,1,1,1,1,1,"/**	 * Command executes the search.	 * <p>	 * In case new result results arrive, it ensures that all interested	 * listeners are notified from inside the EDT.	 * <p>	 * FIXME: fdietz: No locking of folders currently implemented! TODO: fdietz:	 * create new Command for every provider to introduce real ""parallel"" search	 * 	 * @author fdietz	 */"
+1,0,0,0,1,1,1,"/**	 * Command executes the search.	 * <p>	 * In case new result results arrive, it ensures that all interested	 * listeners are notified from inside the EDT.	 * <p>	 * FIXME: fdietz: No locking of folders currently implemented! TODO: fdietz:	 * create new Command for every provider to introduce real ""parallel"" search	 * 	 * @author fdietz	 */"
 1,0,1,0,1,1,1,/*XXX this is not thread-safe, though luck. It isn't supposed to be. */
 1,0,1,1,1,1,1,// TODO (@author fdietz): move this to AbstractMessageFolder constructor
-1,0,1,1,1,1,1,//TODO: Should this be renamed to cLoc or something more appropriate than clock?
+1,0,1,0,1,1,1,//TODO: Should this be renamed to cLoc or something more appropriate than clock?
 1,0,1,1,1,1,1,"/*         * TODO (@author karlpeder): Guess that right thing to do is to get height as getDrawingSize().getHeight(),         * since this should take top- and bottom margin of this print         * object into account. But the height seems not to be set         * correctly in computePositionAndSize() (*20030604, karlpeder*)         */"
 1,0,0,0,0,0,0,// we can't use SystemClassLoader here, because that // wouldn't work with java webstart, // ResourceBundle uses its own internal classloader // if no classloader is given //  -> set classloader = null
-1,0,1,1,1,1,1,//  // Note: We intentionally don't remember internal plugins, because // we don't want them to appear in the plugin manager currently. //  // TODO: improve plugin manager dialog to support internal plugins // which can't be removed, etc.
-1,0,1,1,1,1,1,// FIXME calendar?
+1,0,1,0,1,1,1,//  // Note: We intentionally don't remember internal plugins, because // we don't want them to appear in the plugin manager currently. //  // TODO: improve plugin manager dialog to support internal plugins // which can't be removed, etc.
+1,0,1,0,1,1,1,// FIXME calendar?
 1,0,1,1,1,1,1,// TODO @author hubms have this flags, until the speed of the entitymanager // is improved
 1,0,0,0,0,0,0,// cleanup: remove port number file
 1,1,1,1,1,1,1,// TODO: There's probably a better way to do this hack...
-1,0,0,1,1,1,1,"/*TODO before inserting, find out if there's already a menu item     * with the same action command. if so, replace it, otherwise insert new     */"
-1,0,1,1,1,1,1,// TODO (@author fdietz): add import feature
-1,0,1,1,1,1,1,// TODO (@author hubms): implement custom menuitem renderer
-1,0,1,1,1,1,1,// TODO @author fdietz: no paging used currently // show only first 5 results
+1,0,0,0,1,1,1,"/*TODO before inserting, find out if there's already a menu item     * with the same action command. if so, replace it, otherwise insert new     */"
+1,0,1,0,1,1,1,// TODO (@author fdietz): add import feature
+1,0,1,0,1,1,1,// TODO (@author hubms): implement custom menuitem renderer
+1,0,1,0,1,1,1,// TODO @author fdietz: no paging used currently // show only first 5 results
 1,1,0,0,0,0,0,// real stupid recreation of whole menu model
-1,0,0,1,1,1,1,// TODO: throw IllegalArgumentException in case a variable == null
-1,0,1,1,1,1,1,//TODO (@author fdietz): associate help with button and root pane
+1,0,1,0,1,1,1,// TODO: throw IllegalArgumentException in case a variable == null
+1,0,1,0,1,1,1,//TODO (@author fdietz): associate help with button and root pane
 1,0,1,0,1,1,1,// FIXME -- This will most likely not work. //          You want the element removed if the contents are the same //          Not just if the element reference is the same.
-1,0,0,0,0,0,0,// // @author: fdietz // using shutdown-manager is wrong here, because this // automatically also calls the FrameManager, which  // also starts a second shutdown thread // -> This leads into two parallel shutdown thread which // -> is why sometimes config-files, etc. get messed up //        
-1,1,1,1,1,1,1,// @author fdietz: hackish way of creating a search toolbar //JToolBar searchToolBar = new ExtendableToolBar();
-1,0,1,1,1,1,1,"/** * A Command uses the information provided from {@link DefaultCommandReference} * to execute itself. * <p> * TODO: remove IFrameMediator dependency *  * @author Timo Stich <tstich@users.sourceforge.net> */"
+1,0,0,1,0,1,1,// // @author: fdietz // using shutdown-manager is wrong here, because this // automatically also calls the FrameManager, which  // also starts a second shutdown thread // -> This leads into two parallel shutdown thread which // -> is why sometimes config-files, etc. get messed up //        
+1,1,0,1,1,1,1,// @author fdietz: hackish way of creating a search toolbar //JToolBar searchToolBar = new ExtendableToolBar();
+1,0,0,1,1,1,1,"/** * A Command uses the information provided from {@link DefaultCommandReference} * to execute itself. * <p> * TODO: remove IFrameMediator dependency *  * @author Timo Stich <tstich@users.sourceforge.net> */"
 1,0,0,0,0,0,0,// manually rewrite the connection url, because // if there is no rewrite the database files are created // in the starting directory, we don't want that!
-1,0,1,1,1,1,1,// TODO: fix updateActions //enableActions(getCurrentOwner());
-1,0,1,1,1,1,1,// TODO: @author hubms check what is neccessary // remove old filters // searchFolder.getFilter().getFilterRule().removeAll(); // add filter criteria // searchFolder.getFilter().getFilterRule().add(c);
-1,0,0,1,1,1,1,//TODO Let the AttachmentViewer get the focus so that this works
-1,0,1,1,1,1,1,//TODO: Open in message frame //TODO: Handle also message attachments from OpenInComposer action
-1,0,1,1,1,1,1,// TODO (@author fdietz): add central place, which keeps a list of all possible //       colors, and provides a custom color configuration possibility
-1,0,1,1,1,1,1,// TODO (@author fdietz): implement custom menuitem renderer
+1,0,1,0,1,1,1,// TODO: fix updateActions //enableActions(getCurrentOwner());
+1,0,1,0,1,1,1,// TODO: @author hubms check what is neccessary // remove old filters // searchFolder.getFilter().getFilterRule().removeAll(); // add filter criteria // searchFolder.getFilter().getFilterRule().add(c);
+1,0,0,0,1,1,1,//TODO Let the AttachmentViewer get the focus so that this works
+1,0,1,0,1,1,1,//TODO: Open in message frame //TODO: Handle also message attachments from OpenInComposer action
+1,0,1,0,1,1,1,// TODO (@author fdietz): add central place, which keeps a list of all possible //       colors, and provides a custom color configuration possibility
+1,0,1,0,1,1,1,// TODO (@author fdietz): implement custom menuitem renderer
 1,0,1,0,1,1,1,// FIXME (@author fdietz): Do we need this implementation in a TempFolder? // If not, just put an empty method here, just like in VirtualFolder.
 1,0,1,1,1,1,1,// TODO Ristretto should handle the logging of streams in another // way.
 1,0,1,1,1,1,1,// TODO (@author fdietz): All this code for creating a new // IMAPRootFolder should // be moved to a FolderFactory // -> this way "path" would be handled in the factory, too // parent directory for mail folders // for example: ".columba/mail/" // String path = // MailConfig.getInstance().getConfigDirectory().getPath();
 1,0,1,1,0,1,1,// turn of focus stealing (workaround should be removed in the // future!)
-1,0,1,1,1,1,1,// wait, if there is an active transaction // TODO @author hubms retrycount!
-1,0,0,1,1,1,1,"/**	 * this regular expression should cover anything from a@a.pt or a@a.com to	 * a@a.info. Permits usage of invalid top domains though.	 * <p>	 * [bug] fdietz: added ""."" and ""-"" as regular characters	 * (example:mail@toplevel.mail.de)	 * <p>	 * TODO: see if we can replace the matching code with Ristretto stuff	 *	 */"
+1,0,1,0,1,1,1,// wait, if there is an active transaction // TODO @author hubms retrycount!
+1,0,0,0,1,1,1,"/**	 * this regular expression should cover anything from a@a.pt or a@a.com to	 * a@a.info. Permits usage of invalid top domains though.	 * <p>	 * [bug] fdietz: added ""."" and ""-"" as regular characters	 * (example:mail@toplevel.mail.de)	 * <p>	 * TODO: see if we can replace the matching code with Ristretto stuff	 *	 */"
 1,0,1,1,0,1,1,// @author: fdietz // This is a workaround. Generally, the contact dialog editor // should ensure that all necessary fields are available // 
-1,0,1,1,1,1,1,// TODO: replace view with more detailed info view
+1,0,1,0,1,1,1,// TODO: replace view with more detailed info view
 1,0,1,1,1,1,1,// TODO we should check if we need an vector or better another list // implementation; checking also, if the list // must be syncronized or not (performance)
-1,0,1,1,1,1,1,// FIXME is this correct for
-1,0,0,1,1,1,1,//TODO externalize string //$NON-NLS-1$
-1,0,1,1,1,1,1,// TODO: multiplicity checks
-1,0,0,1,1,1,1,// TODO (@author fdietz): until we can get all the settings update // immediately // we just open a message box, telling the user to restart
-1,0,1,1,1,1,1,// TODO: real IM status here
-1,0,0,1,1,1,1,// FIXME: should we align the menu to the left instead? // menu.show(b, b.getWidth() - menu.getWidth(), b.getHeight());
-1,0,0,0,0,0,0,// @author: tstich // Its better to call the Shutdownmanager // since the above is called automatically from it. // ShutdownManager is modified to allow one shutdown // call only, so we never should have multi-shutdown // problems again.
+1,0,1,0,1,1,1,// FIXME is this correct for
+1,0,0,0,1,1,1,//TODO externalize string //$NON-NLS-1$
+1,0,1,0,1,1,1,// TODO: multiplicity checks
+1,0,0,0,1,1,1,// TODO (@author fdietz): until we can get all the settings update // immediately // we just open a message box, telling the user to restart
+1,0,1,0,1,1,1,// TODO: real IM status here
+1,0,1,0,1,1,1,// FIXME: should we align the menu to the left instead? // menu.show(b, b.getWidth() - menu.getWidth(), b.getHeight());
+1,0,0,1,0,1,1,// @author: tstich // Its better to call the Shutdownmanager // since the above is called automatically from it. // ShutdownManager is modified to allow one shutdown // call only, so we never should have multi-shutdown // problems again.
 1,0,1,1,1,1,1,/* TODO should come up with a better name for the menu item */
-1,0,1,1,1,1,1,// TODO (@author fdietz): add export feature
+1,0,1,0,1,1,1,// TODO (@author fdietz): add export feature
 1,0,0,0,0,0,0,// Since Columba is doing its own logging handlers, we should not // use handlers in the parent logger.
 1,0,0,0,0,0,0,// The JavaHelp can't be added to a BorderLayout because it // isnt' a component. For this demo we'll use the embeded method // since we don't want a Frame to be created.
 1,0,0,0,0,0,0,// @author: fdietz // // PROBLEM: Extensions don't run using Java Webstart (JWS) //  // Even though we assign "all-permission" in our columba.jnlp file, this // only applies // to the initial Java Webstart classloader. But, we create our own // classloaders for // loading extensions. These classloaders don't have the same permission // settings anymore.
 1,0,0,0,0,0,0,// what to do here? we could start a new server...
 1,0,1,1,0,1,1,// WORKAROUND: //  // System.setSecurityManager(null); // // This call effectly disables the sandbox mode and seems to work fine. // // Below I use another way. The policy for all classloaders is set to // "all-permissions". // Don't really know the difference though.
 1,0,0,0,0,0,0,// For the Mac ScreenBarMenus to work, this must be declared before // *ANY* AWT / Swing gets initialised. Do *NOT* move it to plugin init // location because that is too late...
-1,0,0,0,0,0,0,// kids - don't do this at home
+1,0,1,0,0,0,0,// kids - don't do this at home
 1,0,1,1,0,1,1,// @author: fdietz // // The following line is not working - just don't know why // methods.Main.mainClassLoader.addURLs((URL[]) urlList.toArray(new URL[0])); // // WORKAROUND: // // Modify the system class loader instead - horrible! But it works!
 1,0,1,1,0,1,1,// // @author: fdietz // WORKAROUND: // we simply append URLs to the existing global class loader // and use the same as parent //  // Note, that we create a new URL classloader for every class // we instanciate. We might want to support hot-swapping // of changed classes later.
-1,0,0,0,0,0,0,// we can't use SystemClassLoader here, because that doesn't work // with java webstart // -> instead we use this.getClass().getClassLoader() // -> which seems to work perfectly
-1,0,1,1,1,1,1,// TODO (@author karlpeder): If existing meta tags are to be kept, code changes are // necessary
-1,0,1,1,1,1,1,/* TODO create exception for this */
+1,0,1,0,0,0,0,// we can't use SystemClassLoader here, because that doesn't work // with java webstart // -> instead we use this.getClass().getClassLoader() // -> which seems to work perfectly
+1,0,1,0,1,1,1,// TODO (@author karlpeder): If existing meta tags are to be kept, code changes are // necessary
+1,0,1,0,1,1,1,/* TODO create exception for this */
 1,0,1,1,1,1,1,// TODO (@author javaprog): better exception handling
 1,0,1,1,1,1,1,// TODO (@author fdietz): fix account info panel check
 1,0,1,1,1,1,1,// TODO (@author fdietz): move this to AbstractMessageFolder constructor // create filterlist datastructure
-1,0,1,1,1,1,1,// TODO: @author fdietz replace with regular expression
-1,0,1,1,1,1,1,// TODO implement me!
-1,0,1,1,1,1,1,//TODO (@author fdietz): implement
-1,0,1,1,1,1,1,// TODO implement validation
+1,0,1,0,1,1,1,// TODO: @author fdietz replace with regular expression
+1,0,1,0,1,1,1,// TODO implement me!
+1,0,1,0,1,1,1,//TODO (@author fdietz): implement
+1,0,1,0,1,1,1,// TODO implement validation
 1,0,1,0,1,1,1,"/**	 * 	 * create Subject headerfield in using the senders message subject and	 * prepending ""Fwd:"" if not already there	 * 	 * @param header	 *            A <code>ColumbaHeader</code> which contains the headerfields	 *            of the message we want reply/forward.	 * 	 * FIXME (@author fdietz): we need to i18n this!	 * 	 */"
-1,0,1,1,1,1,1,// TODO finish marshalling of all available properties
-1,0,1,1,1,1,1,// TODO finish unmarshalling of all available properties
-1,0,1,1,1,1,1,// TODO implement
-1,0,1,1,1,1,1,// TODO: implement this
+1,0,1,0,1,1,1,// TODO finish marshalling of all available properties
+1,0,1,0,1,1,1,// TODO finish unmarshalling of all available properties
+1,0,1,0,1,1,1,// TODO implement
+1,0,1,0,1,1,1,// TODO: implement this
 1,0,1,0,1,1,1,"/**	 * 	 * create subject headerfield in using the senders message subject and	 * prepending ""Re:"" if not already there	 * 	 * @param header	 *            A <code>ColumbaHeader</code> which contains the headerfields	 *            of the message we want reply/forward.	 * 	 * FIXME (@author fdietz): we need to i18n this!	 */"
 1,0,1,1,1,1,1,// TODO (@author karlpeder): Implementation of undo/redo missing
-1,0,1,1,1,1,1,// html - quoting is done by inserting a div around the // message formattet with a blue line at left edge // TODO (@author fdietz): Implement quoting (font color, stylesheet, // blockquote???)
-1,0,1,1,1,1,1,// TODO (@author fdietz): show error dialoghere
-1,0,1,1,1,1,1,// TODO (@author fdietz): add error dialog
-1,0,0,1,1,1,1,// TODO: Show dialog
-1,0,1,1,1,1,1,// TODO (@author fdietz): make i18n!
-1,0,1,1,1,1,1,// TODO (@author javaprog):sizeComboBox can be enabled as // paragraphComboBox when implemented
-1,0,1,1,1,1,1,//TODO: Add dialog to inform user that the smtp server // does not support authentication
-1,0,0,1,1,1,1,// TODO @author hubms show if there is already a virtual folder for // this tag
-1,0,1,1,1,1,1,// update status message // TODO (@author fdietz): i18n
-1,0,1,1,1,1,1,//TODO (@author fdietz): keep track of progress here
-1,0,0,1,1,1,1,// TODO localize filter action names
-1,0,1,1,1,1,1,//TODO (@author fdietz):  i18n
-1,0,1,1,1,1,1,// TODO implement clear()
-1,0,1,1,1,1,1,// TODO (@author fdietz):: implement action for font size combo box!
-1,0,1,1,1,1,1,// TODO (@author fdietz):  i18n
-1,0,0,1,1,1,1,// FIXME threaded-view auto collapse
+1,0,1,0,1,1,1,// html - quoting is done by inserting a div around the // message formattet with a blue line at left edge // TODO (@author fdietz): Implement quoting (font color, stylesheet, // blockquote???)
+1,0,1,0,1,1,1,// TODO (@author fdietz): show error dialoghere
+1,0,1,0,1,1,1,// TODO (@author fdietz): add error dialog
+1,0,1,0,1,1,1,// TODO: Show dialog
+1,0,1,0,1,1,1,// TODO (@author fdietz): make i18n!
+1,0,1,0,1,1,1,// TODO (@author javaprog):sizeComboBox can be enabled as // paragraphComboBox when implemented
+1,0,1,0,1,1,1,//TODO: Add dialog to inform user that the smtp server // does not support authentication
+1,0,0,0,1,1,1,// TODO @author hubms show if there is already a virtual folder for // this tag
+1,0,1,0,1,1,1,// update status message // TODO (@author fdietz): i18n
+1,0,1,0,1,1,1,//TODO (@author fdietz): keep track of progress here
+1,0,0,0,1,1,1,// TODO localize filter action names
+1,0,1,0,1,1,1,//TODO (@author fdietz):  i18n
+1,0,1,0,1,1,1,// TODO implement clear()
+1,0,1,0,1,1,1,// TODO (@author fdietz):: implement action for font size combo box!
+1,0,1,0,1,1,1,// TODO (@author fdietz):  i18n
+1,0,1,0,1,1,1,// FIXME threaded-view auto collapse
 0,0,0,0,0,0,0,// get selected folder
 0,0,0,0,0,0,0,// Create a FormLayout instance.
 0,0,0,0,0,0,0,// g2.setColor(fillColor); // g2.fillRect(0,0,w,h);
@@ -238,7 +238,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// AShape textShape = new TextAShape("text", "$" + GridRow.NAME + "$", // textRect, TextAShape.TYPE_SINGE_LINE, font, fgColor, // AtFraction.CENTER, AtStart.START0, Boolean.FALSE);
 0,0,0,0,0,0,0,// only local folders have an full-text indexing capability
 0,0,0,0,0,0,0,"/*		 * mainConstraints.fill = GridBagConstraints.BOTH;		 * mainConstraints.insets = new Insets(0, 0, 0, 0);		 * mainConstraints.gridwidth = GridBagConstraints.REMAINDER;		 * mainConstraints.weightx = 1.0; mainConstraints.weighty = 1.0;		 */"
-0,0,0,1,1,1,1,// TODO i18n "Close" button
+0,0,1,0,1,1,1,// TODO i18n "Close" button
 0,0,0,0,0,0,0,// get unique boundary (not checked against att. // list part - but guess its ok)
 0,0,0,0,0,0,0,// get column of list
 0,0,0,0,0,0,0,// if user cancelled task exit immediately
@@ -284,7 +284,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// update status information
 0,0,0,0,0,0,0,// remove all old elements
 0,0,0,0,0,0,0,// create To headerfield
-0,0,0,0,0,0,0,// @author fdietz // -> Moved code for updating mailfolderinfo to markMessage() // intentionally! //
+0,0,0,1,0,1,1,// @author fdietz // -> Moved code for updating mailfolderinfo to markMessage() // intentionally! //
 0,0,0,0,0,0,0,// some other version of the constructor
 0,0,0,0,0,0,0,// execute resyncing command
 0,0,0,0,0,0,0,// re-select folder to make changes visible to the user
@@ -654,7 +654,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,// shortcut key // no shortcut here, because F10 conflicts with system accelerator key // putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F10, // 0));
 0,0,0,0,0,0,0,// return default-account SpamItem instead 
 0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 *	 * @see org.columba.mail.folder.IMailbox#getMimePartSourceStream(java.lang.Object,	 *      java.lang.Integer[])	 */"
-0,0,1,1,1,1,1,// TODO (@author fdietz): this should be changed into a "real" window
+0,0,1,0,1,1,1,// TODO (@author fdietz): this should be changed into a "real" window
 0,0,0,0,0,0,0,// super.getTableCellRendererComponent( table, value, isSelected, // hasFocus, row, column );
 0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 *	 * @see org.columba.mail.folder.event.IFolderListener#messageRemoved(org.columba.mail.folder.event.IFolderEvent)	 */"
 0,0,0,0,0,0,0,// ======== this ========
@@ -683,7 +683,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Set id on from address
 0,0,0,0,0,0,0,// update folder selection
 0,0,0,0,0,0,0,// wait 10 seconds and check for pending commands again // this is useful if a command causes a deadlock
-0,0,0,1,1,1,1,// TODO i18n "Help" button
+0,0,0,0,1,1,1,// TODO i18n "Help" button
 0,0,0,0,0,0,0,// leave dialog empty if no source contact model specified
 0,0,0,0,0,0,0,// can no longer assume that sendMessageDialog has been displayed
 0,0,0,0,0,0,0,// getting current uid
@@ -887,7 +887,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.columba.core.filter.IFilterList#addAll(org.columba.core.filter.FilterList)   */"
 0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.columba.core.filter.IFilterList#add(org.columba.core.filter.Filter)   */"
 0,0,0,0,0,0,0,// clear messagenode cache
-0,0,0,0,0,0,0,// let us hard coding the gpg for each connection. Later we should // support also other variants (like smime)
+0,0,1,0,0,0,0,// let us hard coding the gpg for each connection. Later we should // support also other variants (like smime)
 0,0,0,0,0,0,0,// repaint table header
 0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 * 	 * @see javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event.ListSelectionEvent)	 */"
 0,0,0,0,0,0,0,// notify the model to sort the table // sorter.sort(column);
@@ -1069,7 +1069,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// // create a view more button, responsible for // // opening the attachment viewer popup // JButton moreButton = createAttachmentMoreButton();
 0,0,0,0,0,0,0,// only update table if, this folder is the same // as the currently selected
 0,0,0,0,0,0,0,//$NON-NLS-1$ //nameLabel.setFont(boldFont);
-0,0,1,1,1,1,1,// FIXME r.setPos();
+0,0,1,0,1,1,1,// FIXME r.setPos();
 0,0,0,0,0,0,0,// // Writer interface //
 0,0,0,0,0,0,0,// fetch the headerlist
 0,0,0,0,0,0,0,// *20030621, karlpeder*
@@ -1088,7 +1088,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Important!! // -> replacing this character must happen first
 0,0,0,0,0,0,0,// update treemodel
 0,0,0,0,0,0,0,//      notify tree //getRealModel().getTreeModel().nodeStructureChanged(getRootNode()); //}
-0,0,1,0,1,1,1,// only import VEVENT and VTODO for now
+0,0,0,0,1,1,1,// only import VEVENT and VTODO for now
 0,0,0,0,0,0,0,// save every MessageNode in hashmap for later reference
 0,0,0,0,0,0,0,// add this node to cache
 0,0,0,0,0,0,0,// init bottom panel with OK, Cancel buttons
@@ -1174,7 +1174,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// update message list
 0,0,0,0,0,0,0,"/*// enable/disable pluginString id = currentNode.getId();MainInterface.pluginManager.setEnabled(id, b.booleanValue());*/"
 0,0,0,0,0,0,0,// ensure that we are currently in the mail component
-0,0,0,1,1,1,1,// TODO: re-enable feature, the following code violates our // design, accessing folders is only allowed in Command.execute()
+0,0,0,0,1,1,1,// TODO: re-enable feature, the following code violates our // design, accessing folders is only allowed in Command.execute()
 0,0,0,0,0,0,0,// attachment controller doesn't support redo operation
 0,0,0,0,0,0,0,// create new menu
 0,0,0,0,0,0,0,"/*		 * // copy CopyMessageCommand command = new CopyMessageCommand(result);		 * CommandProcessor.getInstance().addOp(command);		 */"
@@ -1386,7 +1386,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.columba.calendar.store.api.IStoreListener#itemRemoved(org.columba.calendar.store.api.StoreEvent)	 */"
 0,0,0,0,0,0,0,// something else is wrong
 0,0,0,0,0,0,0,//view.setSelectedItem( model.getHeaderField("X-Priority") );
-0,0,0,0,0,0,0,// Use a caching mechanism for this
+0,0,1,0,0,0,0,// Use a caching mechanism for this
 0,0,0,0,0,0,0,// update this point of time as last communication // since every functio calls this before communicating with // the server
 0,0,0,0,0,0,0,"/*			 * clear existing attachments from the view *20031105, karlpeder*			 * Added to avoid dupplicating attachments when switching btw. html			 * and plain text.			 */"
 0,0,0,0,0,0,0,// AFTER
@@ -1420,7 +1420,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Update all component according to the new model
 0,0,0,0,0,0,0,// set display text - possible with a mnemonic defined using &
 0,0,0,0,0,0,0,// get list of all accounts
-0,0,1,0,0,0,0,"/*	 * This method is called whenever the month or year changes. It's job is to	 * repaint the labels and determine whether any selection range limits have	 * been reached.	 */"
+0,0,0,0,0,0,0,"/*	 * This method is called whenever the month or year changes. It's job is to	 * repaint the labels and determine whether any selection range limits have	 * been reached.	 */"
 0,0,0,0,0,0,0,// very unlikely to happen
 0,0,0,0,0,0,0,// figure out how many blank spaces there are before first day of // month, // and calculate coordinates of first drawn cell
 0,0,0,0,0,0,0,/* IETF variant */
@@ -1491,7 +1491,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// initialisation
 0,0,0,0,0,0,0,// Convert to MessageOptions
 0,0,0,0,0,0,0,// replace </p> with double newline
-0,0,0,0,0,0,0,// something really got wrong here -> show error dialog // JOptionPane.showMessageDialog(null, e.getMessage());
+0,0,0,1,0,1,1,// something really got wrong here -> show error dialog // JOptionPane.showMessageDialog(null, e.getMessage());
 0,0,0,0,0,0,0,// replace <br> and </br> with newline
 0,0,0,0,0,0,0,// save last message, because while loop aborted before being able to // save message
 0,0,0,0,0,0,0,// due to bug CA-174 changed: return EMAIL_PATTERN.matcher(s).replaceAll("<A HREF=\"mailto:$1\">$1</A>");
@@ -1729,7 +1729,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// trigged if activity is moved or daterange is modified
 0,0,0,0,0,0,0,// move all successfully send messages to the Sent folder
 0,0,0,0,0,0,0,// Fetch these uids and compare them to the // local list
-0,0,0,0,0,0,0,// start move command
+0,0,0,1,0,1,1,// start move command
 0,0,0,0,0,0,0,// sent folder
 0,0,0,0,0,0,0,// Find the messages that have been deleted
 0,0,0,0,0,0,0,//String invalidRecipient = null;
@@ -2025,7 +2025,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// An individual 3 digit number
 0,0,0,0,0,0,0,// child views exist - operate recursively on these
 0,0,0,0,0,0,0,// do not start a second time!
-0,0,1,1,1,1,1,// if folder is message folder // ->TODO (@author fdietz):  there should be an interface, instead of the AbstractMessageFolder // class
+0,0,1,0,1,1,1,// if folder is message folder // ->TODO (@author fdietz):  there should be an interface, instead of the AbstractMessageFolder // class
 0,0,0,0,0,0,0,// following java guidelines I'm setting this to low priority // -> this should make the gui more responsive, because the // -> background worker has low priority whereas the gui worker // -> has normal priority
 0,0,0,0,0,0,0,// delete folders
 0,0,0,0,0,0,0,// this is no integer value
@@ -2047,7 +2047,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// ---- label3 ----
 0,0,0,0,0,0,0,// ---- otherAddressLabel ----
 0,0,0,0,0,0,0,// private JButton b_lyear, b_ryear, b_lmonth, b_rmonth;
-0,1,1,1,1,1,1,"/*	 * Determine what day of week the first day of the month falls on. It's too	 * bad we have to resort to this hack; the Java API provides no means of	 * doing this any other way.	 */"
+0,1,1,0,1,1,1,"/*	 * Determine what day of week the first day of the month falls on. It's too	 * bad we have to resort to this hack; the Java API provides no means of	 * doing this any other way.	 */"
 0,0,0,0,0,0,0,// save message stream to file
 0,0,0,0,0,0,0,// draw horizontal lines
 0,0,0,0,0,0,0,// mark as spam /as not spam // for each message
@@ -2326,7 +2326,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.columba.addressbook.facade.IGroupItem#addContact(org.columba.addressbook.facade.IContactItem)	 */"
 0,0,0,0,0,0,0,// ** End of while loop over headers
 0,0,0,0,0,0,0,// Logging.log.severe("Error saving converted message", e);
-0,0,1,0,0,0,0,// should throw exception as attribute type "name2" is not defined in // type structure
+0,0,0,0,0,0,0,// should throw exception as attribute type "name2" is not defined in // type structure
 0,0,0,0,0,0,0,// initialize tagging
 0,0,0,0,0,0,0,// ** End of method divideMessage
 0,0,0,0,0,0,0,// unique boundary found
@@ -2339,7 +2339,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Color bulletPaint = new Color(100, 100, 100);
 0,0,0,0,0,0,0,// ** End of method saveMessage
 0,0,0,0,0,0,0,"// //		 w+=1; //			h+=1; //		 g.setColor(edge); //		 // bottom //		 g.drawLine(x+2, h, x+w, h ); //		 // right //		 g.drawLine(x+w, y+ovalHeight+2, x+w , y+h);"
-0,0,0,0,0,0,0,// Put properties that should be copied from parent here
+0,0,1,0,0,0,0,// Put properties that should be copied from parent here
 0,0,0,0,0,0,0,// initial guess
 0,0,0,0,0,0,0,// make sure file is deleted automatically when closing VM
 0,0,0,0,0,0,0,// build new message body
@@ -2418,7 +2418,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* (non-Javadoc)     * @see javax.swing.event.CaretListener#caretUpdate(javax.swing.event.CaretEvent)     */"
 0,0,0,0,0,0,0,// namespaceAware = false
 0,0,0,0,0,0,0,// force object finalization
-0,0,1,0,0,0,0,// remember parent path // (this is necessary for IMAPRootFolder sync operations)
+0,0,0,0,0,0,0,// remember parent path // (this is necessary for IMAPRootFolder sync operations)
 0,0,0,0,0,0,0,// set global class loader to null
 0,0,0,0,0,0,0,// This Method delivers the next line
 0,0,0,0,0,0,0,// 6. Line with Buttons
@@ -2534,7 +2534,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// append "_tooltip"
 0,0,0,0,0,0,0,// private Border unselectedBorder = null; // // private Border selectedBorder = null; // // private Color background; // // private Color foreground;
 0,0,0,0,0,0,0,// could not find it!
-0,0,1,1,0,1,1,// maybe based on HS?
+0,0,0,1,0,1,1,// maybe based on HS?
 0,0,0,0,0,0,0,// set whether the model should handle html or plain text
 0,0,0,0,0,0,0,// enable timer
 0,0,0,0,0,0,0,// if user is currently changing selection, don't do anything // -> wait until the final selection is available
@@ -2908,7 +2908,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*	 * 	 * encapsulate bodytext in HTML code	 * 	 */"
 0,0,0,0,0,0,0,// append
 0,0,0,0,0,0,0,// transform headers if necessary
-0,0,1,1,1,1,1,// TODO i18n "attachments" label
+0,0,1,0,1,1,1,// TODO i18n "attachments" label
 0,0,0,0,0,0,0,// search individual provider and individual criteria
 0,0,0,0,0,0,0,// disable subject column renderer, use tree-cellrenderer instead
 0,0,0,0,0,0,0,// set name of column
@@ -3343,7 +3343,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// dismiss char
 0,0,0,0,0,0,0,// exit for-loop
 0,0,0,0,0,0,0,// set configuration of this plugin
-0,0,1,0,0,0,0,// show error dialog, with exception message and stack-trace // -> dialog also provides a button for the user to easily // -> report a bug
+0,0,0,0,0,0,0,// show error dialog, with exception message and stack-trace // -> dialog also provides a button for the user to easily // -> report a bug
 0,0,0,0,0,0,0,// get date
 0,0,0,0,0,0,0,// check configuration
 0,0,0,0,0,0,0,// create reference
@@ -3506,7 +3506,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// refers to the // entry in // persistence.xml
 0,0,0,0,0,0,0,// one second (=1000 ms)
 0,0,0,0,0,0,0,// shutdown entity manager
-0,0,0,1,1,1,1,// no item exists in table // -> nothing todo
+0,0,0,0,1,1,1,// no item exists in table // -> nothing todo
 0,0,0,0,0,0,0,// creates a shallow // copy of this // object
 0,0,0,0,0,0,0,// if path startsWith "/" -> skip
 0,0,0,1,0,1,1,// should we really overwrite the Look and Feel font settings
@@ -3737,7 +3737,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// message flags
 0,0,0,0,0,0,0,// host from which this message was downloaded
 0,0,0,1,0,1,1,// properly decoded subject
-0,0,1,0,0,0,0,// short from, containing only name of person
+0,0,0,0,0,0,0,// short from, containing only name of person
 0,0,0,0,0,0,0,// message color
 0,0,0,0,0,0,0,// POP3 message UID
 0,0,0,0,0,0,0,// these are cached by default
@@ -3775,7 +3775,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// IMAP Folders have no own lock ,but share the lock from the Root // to ensure that only one operation can be processed simultanous
 0,0,0,0,0,0,0,// get IMAP rootfolder
 0,0,0,0,0,0,0,// We found the uid of a deleted message // -> remove it from the headerlist
-0,0,1,0,0,0,0,// Check if maybe no message at all got copied // In this case we are finished here
+0,0,0,0,0,0,0,// Check if maybe no message at all got copied // In this case we are finished here
 0,0,0,0,0,0,0,// the implementation of the search function. It returns always the position of the FIRST found word.
 0,0,0,0,0,0,0,// update the local flags and ensure that the MailboxInfo is correct
 0,0,0,0,0,0,0,// get header with UID
@@ -3786,7 +3786,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// MATCH ANY
 0,0,0,0,0,0,0,// find colum
 0,0,0,0,0,0,0,// if folder doesn't exist already
-0,0,1,0,0,0,0,// Remove of lock didn't work -> delete by hand
+0,0,0,0,0,0,0,// Remove of lock didn't work -> delete by hand
 0,0,0,0,0,0,0,// no delimiter found // -> this is already the final folder // if folder doesn't exist already
 0,0,0,0,0,0,0,// recursively go on
 0,0,0,0,0,0,0,// create and tag all subfolders on server
@@ -3900,7 +3900,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// composer can either edit in html or plain text mode // listen for configuration changes
 0,0,0,0,0,0,0,// if message contains attachments
 0,0,0,0,0,0,0,// East Asian # 17
-0,0,1,1,1,1,1,// Hack to ensure charset is set correctly at start-up
+0,0,0,0,1,1,1,// Hack to ensure charset is set correctly at start-up
 0,0,0,0,0,0,0,// add splitpane to the center
 0,0,0,0,0,0,0,// init controller for the editor depending on message type
 0,0,0,0,0,0,0,// set model based on configuration
@@ -4038,7 +4038,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// int selectedIndex = sizeComboBox.getSelectedIndex();
 0,0,0,0,0,0,0,// if no text is specified, we are done now
 0,0,0,0,0,0,0,// set paragraph formatting according to the selection
-0,0,0,0,0,0,0,// // This doesn't handle ChangedCharsetExceptions correctly. // view.setText(text);
+0,0,1,0,0,0,0,// // This doesn't handle ChangedCharsetExceptions correctly. // view.setText(text);
 0,0,0,0,0,0,0,// other IOExceptions than ChangedCharsetException
 0,0,0,0,0,0,0,// delete old contents
 0,0,0,0,0,0,0,// clear existing text

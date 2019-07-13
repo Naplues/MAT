@@ -22,7 +22,7 @@ public class Transform {
     public static String[] projects = {"Ant", "ArgoUML", "Columba", "EMF", "Hibernate", "JEdit", "JFreeChart", "JMeter", "JRuby", "SQuirrel"};
 
     public static void main(String[] args) {
-        String NLPPath = "data/nlp/";
+        String NLPPath = "data/nlp_new/";
 
         // 转换测试集格式
         for (int i = 0; i < projects.length; i++) {

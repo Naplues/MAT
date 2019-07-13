@@ -1,96 +1,96 @@
 oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
-1,0,1,1,1,1,1,// TODO: These 2 should be handled with an Iterator!!!
-1,0,1,1,1,1,1,// TODO verify this is correct
+1,0,1,0,1,1,1,// TODO: These 2 should be handled with an Iterator!!!
+1,0,1,0,1,1,1,// TODO verify this is correct
 1,0,0,0,0,0,0,// ??? For now, use the same renderer as everyone else. // ?? // ?? IN FUTURE: change this to use a new instance of renderer // ?? for this data type.
-1,0,1,1,1,1,1,// TODO: This should be handled with an Iterator!!!
-1,0,1,1,1,1,1,"/** * SQLFilterAction.java * * Created on March 22, 2003, 10:55 AM * * Adapted from SessionPropertiesAction.java by Colin Bell. * * TODO: CHange name to ContentsTabFilterAction */"
-1,0,1,1,1,1,1,// TODO: Do we need this one. */
+1,0,1,0,1,1,1,// TODO: This should be handled with an Iterator!!!
+1,0,1,0,1,1,1,"/** * SQLFilterAction.java * * Created on March 22, 2003, 10:55 AM * * Adapted from SessionPropertiesAction.java by Colin Bell. * * TODO: CHange name to ContentsTabFilterAction */"
+1,0,1,0,1,1,1,// TODO: Do we need this one. */
 1,0,0,0,0,0,0,// JASON: Do we need these?
 1,0,0,0,0,0,0,//??? For now, use the same renderer as everyone else. //?? //?? IN FUTURE: change this to use a new instance of renederer //?? for this data type.
 1,0,1,0,0,0,0,// BAD - Converting a URL to a file this way is problematic when the file path contains spaces
 1,0,0,0,0,0,0,//JASON: Remove?? //_session.getSessionSheet().getSQLPanel().executeSQL(sql);
-1,1,1,1,1,1,1,// TODO: This is a nasty quick hack. Needs an API to do this.
+1,1,1,0,1,1,1,// TODO: This is a nasty quick hack. Needs an API to do this.
 1,0,1,0,1,1,1,"/* TODO: Delete this class * Copyright (C) 2001 Colin Bell * colbell@users.sourceforge.net * * This library is free software; you can redistribute it and/or * modify it under the terms of the GNU Lesser General Public * License as published by the Free Software Foundation; either * version 2.1 of the License, or (at your option) any later version. * * This library is distributed in the hope that it will be useful, * but WITHOUT ANY WARRANTY; without even the implied warranty of * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU * Lesser General Public License for more details. * * You should have received a copy of the GNU Lesser General Public * License along with this library; if not, write to the Free Software * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA */"
-1,0,1,1,1,1,1,// TODO: Hard coded -. JDBC/ODBC bridge JDK1.4 // brings back -9 for nvarchar columns in // MS SQL Server tables.
+1,0,1,0,1,1,1,// TODO: Hard coded -. JDBC/ODBC bridge JDK1.4 // brings back -9 for nvarchar columns in // MS SQL Server tables.
 1,0,0,0,0,0,0,// hear no evil, see no evil
 1,0,0,0,0,0,0,// When I tried using a length for LONGVARBINARY that is the max // length of the source records, I get the following exception: // // Exception condition 239. Data exception - string data, right truncation. // I tried bit varying(32767) with data that had max length of 16384. So // it's back to maximum length hard-coded for now. // registerColumnType(Types.LONGVARBINARY, 2147000000, "bit varying($l)");
-1,0,1,1,1,1,1,// TODO: is this right???
-1,0,1,1,1,1,1,"/*	 * TODO: This should not be public. Check all usages of it	 * and put appropriate methods in an API object.	 */"
+1,0,1,0,1,1,1,// TODO: is this right???
+1,0,1,0,1,1,1,"/*	 * TODO: This should not be public. Check all usages of it	 * and put appropriate methods in an API object.	 */"
 1,0,0,0,0,0,0,"//	 JASON: Do we need these?"
 1,0,0,0,0,0,0,"// JASON: Do we need this? //		getSQLPanel().selected();"
-1,0,1,1,1,1,1,//TODO: Rename to IObjectTreeNodeExpander
-1,0,1,1,1,1,1,// TODO: Hard coded -. JDBC/ODBC bridge JDK1.4 // brings back -9 for nvarchar columns in // MS SQL Server tables. // -8 is ROWID in Oracle.
+1,0,1,0,1,1,1,//TODO: Rename to IObjectTreeNodeExpander
+1,0,1,0,1,1,1,// TODO: Hard coded -. JDBC/ODBC bridge JDK1.4 // brings back -9 for nvarchar columns in // MS SQL Server tables. // -8 is ROWID in Oracle.
 1,0,0,0,0,0,0,//set the property values // Note: this may have already been done by another instance of // this DataType created to handle a different column.
 1,0,1,1,1,1,1,// Always add plugins - there is not a good way to compare plugin zips and their extracted contents // at the moment. // TODO: Determine the best way to derive the filesize and checksum of the plugin zip that was last // extracted. Should we keep it around? How about using the current release.xml file ? Come to // think of it, perhaps we shouldn't be computing the checksum of *any* existing files, why don't // we just get it from the current release.xml file?
-1,0,1,1,1,1,1,// TODO: verify this
+1,0,1,0,1,1,1,// TODO: verify this
 1,0,0,0,0,0,0,// multiple rows - not good
 1,0,0,0,0,0,0,//?? Extract this out into a class like CascadeInternalFramePositioner.
-1,0,0,0,0,0,0,// ?? Is there any way to check for invalid input? Valid input includes // ?? at least any printable character, but could it also include unprintable // ?? characters?
+1,0,0,1,0,1,1,// ?? Is there any way to check for invalid input? Valid input includes // ?? at least any printable character, but could it also include unprintable // ?? characters?
 1,0,0,0,0,0,0,// Cast is not so nice, but framework doesn't meet new requirements.
 1,0,0,0,0,0,0,"/*				 * END-KLUDGE				 */"
-1,0,1,1,1,1,1,// Total Hack! Type OTHER(1111) can be other types as well?
+1,0,1,0,1,1,1,// Total Hack! Type OTHER(1111) can be other types as well?
 1,0,0,0,0,0,0,// JASON: Should be part of status bar?
 1,0,0,0,0,0,0,//??GETRIDOFTHIS
 1,0,1,0,0,0,0,// Don't call super. Packing this frame causes problems.
-1,0,1,1,1,1,1,// TODO: Delete ME
-1,0,1,0,0,0,0,// Note. Some DBMSs such as Oracle do not allow: // "select *, rowid from table" // You cannot have any column name in the columns clause // if you have * in there. Aliasing the table name seems to // be the best way to get around the problem.
+1,0,1,0,1,1,1,// TODO: Delete ME
+1,0,1,1,0,1,1,// Note. Some DBMSs such as Oracle do not allow: // "select *, rowid from table" // You cannot have any column name in the columns clause // if you have * in there. Aliasing the table name seems to // be the best way to get around the problem.
 1,0,0,0,0,0,0,// We are displaying a new dataset, so if there was // a cell editor in operation, tell it to cancel. //???? How does this impact popup display?
 1,0,1,0,0,0,0,// KLUDGE: // We want some info about the columns to be available for validating the // user input during cell editing operations.  Ideally we would get that // info inside the ResultSetDataSet class during the creation of the // columnDefinition objects by using various functions in ResultSetMetaData // such as isNullable(idx).  Unfortunately, in at least some DBMSs (e.g. // Postgres, HSDB) the results of those calls are not the same (and are less accurate // than) the SQLMetaData.getColumns() call used in ColumnsTab to get the column info. // Even more unfortunate is the fact that the set of attributes reported on by the two // calls is not the same, with the ResultSetMetadata listing things not provided by // getColumns.  Most of the data provided by the ResultSetMetaData calls is correct. // However, the nullable/not-nullable property is not set correctly in at least two // DBMSs, while it is correct for those DBMSs in the getColumns() info.  Therefore, // we collect the collumn nullability information from getColumns() and pass that // info to the ResultSet to override what it got from the ResultSetMetaData.
-1,0,1,1,1,1,1,"/**	 * the utility class that reads and writes release info from/to the release.xml file TODO: Spring-inject	 * when this class is a Spring bean	 */"
+1,0,0,0,1,1,1,"/**	 * the utility class that reads and writes release info from/to the release.xml file TODO: Spring-inject	 * when this class is a Spring bean	 */"
 1,0,1,1,1,1,1,// TODO: This won't work when the column has values with quotes in them. // Use PreparedStatements instead. Hmmm... instead of insert statements, could we not // just create a sequence and generate a select statement that: // a) uses the sequence for the pkid // b) selects distinct values // That would be a more efficient approach that would also eliminate this quoting problem
 1,0,0,0,0,0,0,// The following only works if SwingUtilities.getRoot(table) returns // and instanceof BaseMDIParentFrame. // If SwingTUilities.getRoot(table) returns and instance of Dialog or // Frame, then other code must be used.
-1,0,1,0,0,0,0,// Need to somehow call  // SQLResultExecuterPanel.reRunSelectedResultTab(true); //  // Something like : // SQLResultExecuterPanel panel = getPanel();  // panel.reRunSelectedResultTab(true); // // However, that doesn't apply when the user is exporting from the // table contents table.  There needs to be a more generic way to // do this for all tables containing data that is to be exported // where some of the fields contain placeholders. // For now, we just inform the user and let them either continue // or abort and change the configuration manually,  // re-run the query / reload the table data and re-export.  
-1,0,0,0,0,0,0,//?? Split these 4 functions off into a subclass of BaseFavouriteAction
-1,0,1,1,1,1,1,// TODO: Rename this to getTableType.
-1,0,1,1,1,1,1,// TODO: Bizarre that I couldn't find a valid SQL to drop an index.
-1,0,1,1,1,1,1,//TODO: ? Dialog Handling on Cancelled ?
+1,0,0,1,0,1,1,// Need to somehow call  // SQLResultExecuterPanel.reRunSelectedResultTab(true); //  // Something like : // SQLResultExecuterPanel panel = getPanel();  // panel.reRunSelectedResultTab(true); // // However, that doesn't apply when the user is exporting from the // table contents table.  There needs to be a more generic way to // do this for all tables containing data that is to be exported // where some of the fields contain placeholders. // For now, we just inform the user and let them either continue // or abort and change the configuration manually,  // re-run the query / reload the table data and re-export.  
+1,0,1,0,0,0,0,//?? Split these 4 functions off into a subclass of BaseFavouriteAction
+1,0,1,0,1,1,1,// TODO: Rename this to getTableType.
+1,0,1,0,1,1,1,// TODO: Bizarre that I couldn't find a valid SQL to drop an index.
+1,0,1,0,1,1,1,//TODO: ? Dialog Handling on Cancelled ?
 1,0,0,0,0,0,0,// This refactoring depends on the following API methods: // getCreateTableSQL
 1,0,0,1,0,1,1,//Should probably create my own table model but i am being a bit slack.
-1,0,1,1,1,1,1,// TODO Probably want to allow the user to set these sequence properties ?? // Sequence settings.
-1,0,1,0,1,1,1,// We set expected and checksum to -1 here, since we don't have that information for release.xml file // TODO: Can HttpClient be used to get the byte-size of release.xml so we can perform this check?
-1,0,0,0,0,0,0,// Here, I don't completely understand how these types are to be used in all databases and I haven't // yet had time to implement support in the dialects for them. So, this exclude list will keep these // less commonly used types from failing the test. Also, since not all of these types appear in Java5 // and we currently support compiling the code base with it, I use the integer values for new types // that were introduces in Java6, rather than the type constant name.
-1,0,1,1,1,1,1,"/* * TODO: Delete this class - unused */"
+1,0,1,0,1,1,1,// TODO Probably want to allow the user to set these sequence properties ?? // Sequence settings.
+1,0,0,0,1,1,1,// We set expected and checksum to -1 here, since we don't have that information for release.xml file // TODO: Can HttpClient be used to get the byte-size of release.xml so we can perform this check?
+1,0,1,0,0,0,0,// Here, I don't completely understand how these types are to be used in all databases and I haven't // yet had time to implement support in the dialects for them. So, this exclude list will keep these // less commonly used types from failing the test. Also, since not all of these types appear in Java5 // and we currently support compiling the code base with it, I use the integer values for new types // that were introduces in Java6, rather than the type constant name.
+1,0,1,0,1,1,1,"/* * TODO: Delete this class - unused */"
 1,0,1,1,1,1,1,"/*					 * TODO: Find out why					 * KLUDGE: For some reason, I am not able to get the sheet to					 * size correctly. It always displays with a size that causes					 * the sub-panels to have their scrollbars showing. Add a bit					 * of an increase in the size of the panel so the scrollbars					 * are not displayed.					 */"
 1,0,0,0,0,0,0,// Copied from Java Doc Matcher.replaceAll: // // Note that backslashes (\) and dollar signs ($) in the replacement string // may cause the results to be different than if it // were being treated as a literal replacement string. // Dollar signs may be treated as references to // captured subsequences as described above, and // backslashes are used to escape literal characters in the replacement string.
-1,0,1,1,1,1,1,"/**	 * TODO: Clean this mess up!!!! Load plugins. Load all plugin jars into class loader.	 */"
-1,0,1,1,1,1,1,// TODO: subclass these hibernate dialects to provide the "canPasteTo"  //       api method in HibernateDialect interface. //private static final DB2390Dialect db2390Dialect = new DB2390Dialect();
+1,0,1,0,1,1,1,"/**	 * TODO: Clean this mess up!!!! Load plugins. Load all plugin jars into class loader.	 */"
+1,0,1,0,1,1,1,// TODO: subclass these hibernate dialects to provide the "canPasteTo"  //       api method in HibernateDialect interface. //private static final DB2390Dialect db2390Dialect = new DB2390Dialect();
 1,0,0,0,0,0,0,// This is weird - if I don't set this the column header doesn't line up // with the column contents.
 1,0,0,0,0,0,0,// Required otherwise it gets too wide.
 1,0,0,0,0,0,0,//??? For now, use the same renderer as everyone else. //?? //?? IN FUTURE: change this to use a new instance of renderer //?? for this data type.
-1,0,1,1,1,1,1,// TODO: Delete Me
+1,0,1,0,1,1,1,// TODO: Delete Me
 1,0,1,0,0,0,0,// This refactoring depends on the following dialect API methods: // getUpdateSQL
 1,0,0,0,0,0,0,// For PointBase, if type maps to Pointbase "BLOB", and the size // isn't valid (PB requires size for BLOBS) then set it to something // reasonably large, like 16MB. 1 is the default size if no size // is specified.  That's practically useless :)
 1,0,1,0,1,1,1,// Should the data be first cloned so that the sorting doesn't take place // on the array that is used in getValue() // TODO: This is a must if sorting is done in a thread! ??
-1,0,1,1,1,1,1,"/*			 * TODO: When 1.4 is the earliest version supported, add the following line:			*		setSurrendersFocusOnKeystroke(true);			* This should help handle some problems with navigation using tab & return			* to move through cells.			*/"
-1,0,1,1,1,1,1,// Drop FK constraints before dropping any tables. Otherwise, we // may drop the child table prior to dropping it's FKs, which would // be an error. // TODO: This should be done in the dialect's getTableDropSQL method for a database specific // handling(or ignoring) of this problem.
-1,0,1,0,0,0,0,//Silently ignore, what could we do anyway?
+1,0,1,0,1,1,1,"/*			 * TODO: When 1.4 is the earliest version supported, add the following line:			*		setSurrendersFocusOnKeystroke(true);			* This should help handle some problems with navigation using tab & return			* to move through cells.			*/"
+1,0,1,0,1,1,1,// Drop FK constraints before dropping any tables. Otherwise, we // may drop the child table prior to dropping it's FKs, which would // be an error. // TODO: This should be done in the dialect's getTableDropSQL method for a database specific // handling(or ignoring) of this problem.
+1,0,1,1,0,1,1,//Silently ignore, what could we do anyway?
 1,0,1,0,0,0,0,// This is a bit hard coded but if we use _scale here // some number displays go crazy.
 1,1,1,1,1,1,1,// TODO: Figure out why the selection of the root node in the object tree // is undone if we don't delay. It seems like some other thread racing  // to set the selected node to none.  When this happens, the detail pane // for the root node disappears when a session is first opened, or when // an ObjectTree frame is created.  This is a really crappy and unreliable // way to fix this problem, but it hides the problem for now.  A better  // understanding of the architecture of session creation is required  // before a proper solution can be attempted. RMM 20051217
 1,0,1,1,1,1,1,// TODO: Temporary until we sort out a better way to do guido's fix // assertEquals(SECOND_STMT_SEP, qt2.getSQLStatementSeparator());
-1,0,1,1,1,1,1,// TODO Maybe we should have a checkbox to allow the user to toggle  // default value on/off.  Some dbs (like DB2) treat empty string "" as // a different default value than null.
+1,0,1,0,1,1,1,// TODO Maybe we should have a checkbox to allow the user to toggle  // default value on/off.  Some dbs (like DB2) treat empty string "" as // a different default value than null.
 1,0,0,0,0,0,0,// check the error stream for a problem // // This is a bit questionable since it is possible // for processes to output something on stderr // but continue processing.  But without this, some // problems are not seen (e.g. "bad argument" type // messages from the process).
-1,1,0,1,1,1,1,// OK, this is a hack.  Currently, when precision == scale, I have  // no way to determine if this is valid for the actual data.  The // problem comes when the source db's precision/scale are greater -  // or reported to be greater - than the precision/scale of the  // destination db.  In this case, it maximimizes both for the  // destination, causing a definition that allows 0 digits to the  // left of the decimal.  Trouble is, without looking at the actual // data, there is no way to tell if this is valid - in some cases // it will be ok (0.0000000789) in others it will not be ok (100.123). // So for now, make the scale be approx. one-half of the precision // to accomodate the most digits to the left and right of the decimal // and hopefully that covers the majority of cases.
+1,1,1,0,1,1,1,// OK, this is a hack.  Currently, when precision == scale, I have  // no way to determine if this is valid for the actual data.  The // problem comes when the source db's precision/scale are greater -  // or reported to be greater - than the precision/scale of the  // destination db.  In this case, it maximimizes both for the  // destination, causing a definition that allows 0 digits to the  // left of the decimal.  Trouble is, without looking at the actual // data, there is no way to tell if this is valid - in some cases // it will be ok (0.0000000789) in others it will not be ok (100.123). // So for now, make the scale be approx. one-half of the precision // to accomodate the most digits to the left and right of the decimal // and hopefully that covers the majority of cases.
 1,0,0,0,0,0,0,//????? if desired, get fancy and use icons in buttons instead of text ?????????
-1,0,1,1,1,1,1,// TODO: When JDK1.4 is the earliest JDK supported // by Squirrel then remove the hardcoding of the // boolean data type.
-1,0,1,1,1,1,1,// TODO: This should be handled with an Iterator
+1,0,0,0,1,1,1,// TODO: When JDK1.4 is the earliest JDK supported // by Squirrel then remove the hardcoding of the // boolean data type.
+1,0,1,0,1,1,1,// TODO: This should be handled with an Iterator
 1,0,0,0,0,0,0,/* Work around some UTC and Daylight saving offsets */
-1,0,0,0,0,0,0,//?? Is there any way to check for invalid input?  Valid input includes //?? at least any printable character, but could it also include unprintable //?? characters?
-1,0,1,1,1,1,1,// TODO: These 2 should be handled with an Iterator.
+1,0,0,1,0,1,1,//?? Is there any way to check for invalid input?  Valid input includes //?? at least any printable character, but could it also include unprintable //?? characters?
+1,0,1,0,1,1,1,// TODO: These 2 should be handled with an Iterator.
 1,0,0,0,0,0,0,// This is (a logically not sufficent) try to cope with the problem that there are the following // contradictory rules in the JDBC API Doc: // Statement.getResultSet(): // This method should be called only once per result. // Statement.getUpdateCount(): // This method should be called only once per result. // Statement.getMoreResults(): // There are no more results when the following is true: (!getMoreResults() && (getUpdateCount() == -1) // // If getMoreResults() returns false, we don't know if we have more results, we only know that it isn't // a result set. Since we called getUpdateCount() before getMoreResults() because we would like to know // the update count of the first result, we might not be allowed to call getUpdateCount() again. // // The Intersystems Cache Driver for example always returns the same updateCount on simple // INSERT, UPDATE, DELETE statements not matter if getMoreResults() was called. So updateCount never // gets -1 and this will loop forever. When I discussed the issue with the Intersystems people they // just told me not to call getUpdateCount() twice. That simple. My hope is that this will cure // problems with DBs that just don't care for multiple result sets.
-1,0,0,1,0,1,1,// The call here is the result of a desperate fight // to find a place where the components in the split // had not height = 0. If someone knows a better way // please tell me I'll apreciate any advice. // gerdwagner@users.sourceforge.net
-1,0,1,1,1,1,1,/** TODO: Spring-inject when this class is a Spring bean */
-1,0,1,1,1,1,1,"/* TODO: what I really want to do here is get the SQL script and replace                     * ""CREATE PROCEDURE"" with ""ALTER PROCEDURE"", then put that in the SQL pane                     * and *NOT* execute it. */"
-1,0,0,1,1,1,1,// TODO: should I be adding quotes if user wants identifiers quoted??
+1,0,1,1,0,1,1,// The call here is the result of a desperate fight // to find a place where the components in the split // had not height = 0. If someone knows a better way // please tell me I'll apreciate any advice. // gerdwagner@users.sourceforge.net
+1,0,1,0,1,1,1,/** TODO: Spring-inject when this class is a Spring bean */
+1,0,1,0,1,1,1,"/* TODO: what I really want to do here is get the SQL script and replace                     * ""CREATE PROCEDURE"" with ""ALTER PROCEDURE"", then put that in the SQL pane                     * and *NOT* execute it. */"
+1,0,1,0,1,1,1,// TODO: should I be adding quotes if user wants identifiers quoted??
 1,1,0,0,0,0,0,// The following ugly conversion from text to Byte is necessary because // the Byte class is inconsistant.  When asked to output as Hex, it does // so as an UNSIGNED byte, but when asked to read back the same thing // using the Hex radix, it insists that the input must be SIGNED. // To get around this, we up-size the conversion to Integer, then  // truncate that to a byte, and finally convert the byte to a Byte.  Yech.
 1,0,0,0,0,0,0,/* this should just bring back one table, i hope. */
 1,0,1,1,1,1,1,// TODO: Temporary until we sort out a better way to do guido's fix // IQueryTokenizer qt2 = sessionUnderTest.getQueryTokenizer();
-1,0,1,1,1,1,1,// Hack to deal with Firebird's RDB meta tables.
-1,0,1,1,1,1,1,// Hack to deal with Axion AXION_* tables.
+1,0,1,0,1,1,1,// Hack to deal with Firebird's RDB meta tables.
+1,0,1,0,1,1,1,// Hack to deal with Axion AXION_* tables.
 1,0,1,0,0,0,0,// handle mouse events for double-click creation of popup dialog. // This happens only in the JTextField, not the JTextArea, so we can // make this an inner class within this method rather than a separate // inner class as is done with the KeyTextHandler class. //
 1,0,1,1,0,1,1,// Don't use tinyint for now, even though Mckoi "supports" it. It's // notion of tinyint is 7-bit (not 8-bit) so it is not compatible with // other DBs and leads to overflow (resulting in negative values which // are a corruption of the actual value inserted/updated). This is not // a great work-around. I filed a bug report on the mailing list; // hopefully it will get fixed soon.
 1,0,1,1,1,1,1,// TODO: Need to define a better approach to getting dialects. // That is, we don't really want to ever prompt the user in this // case.  It's always Oracle.  Yet, we may have a new OracleDialect // at some point.
-1,0,1,0,0,0,0,// No appropriate DataType for this column, so do the best // we can with what we know. // // THIS MAY NOT BE THE BEST BEHAVIOR HERE!!!!!!!
-1,1,1,1,1,1,1,// Evil hack to split the vacuum output a little.
+1,0,1,1,0,1,1,// No appropriate DataType for this column, so do the best // we can with what we know. // // THIS MAY NOT BE THE BEST BEHAVIOR HERE!!!!!!!
+1,1,1,0,1,1,1,// Evil hack to split the vacuum output a little.
 1,0,1,0,1,1,1,"/** * This <CODE>ICommand</CODE> displays a dialog box that allows the user to * enter a 'where' clause or an 'order by' clause used when getting data via * the 'Contents' tab. * * @author <A HREF=""mailto:mjhammel@users.sourceforge.net"">Maury Hammel</A> * * TODO: Change name to ContentsTabFilterCommand */"
 1,1,1,0,1,1,1,// TODO: - Col - Add method to Databasemetadata that returns array // of objects for getBestRowIdentifier. For PostgreSQL put this kludge in // the new function. THis way all the kludges are kept in one place. // // KLUDGE!!!!!! // // For some DBs (e.g. PostgreSQL) there is actually a pseudo-column // providing the rowId, but the getBestRowIdentifier function is not // implemented.  This kludge hardcodes the knowledge that specific // DBs use a specific pseudo-column.  Additionally, as of pg 8.1, // you must create the table using "WITH OID" appended to the create // statement.  Otherwise, OID column is not available by default. //
 1,0,1,1,0,1,1,// This is a work-around for what looks like a bug to me - it is a syntax error to qualify with the  // schema the new table name, but not the old as in: // // ALTER TABLE "public"."tablerenametest" RENAME TO "public"."tablewasrenamed" // // The second "public". is apparently not (currently) a valid thing to do.
@@ -98,108 +98,108 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// ??Need to tell object to display itself in a panel.
 1,0,0,0,0,0,0,// all of the following have been converted to use the DataType objects // So, why not just have case Types.NULL and default??? (this seems pointless) // RMM 20070726
 1,0,0,0,0,0,0,//?? Need to associate a panel with an object type somehow.
-1,0,1,1,1,1,1,"/*     *     *     * Implement IDataSetUpdateableModel interface     * and IDataSetUpdateableTableModel interface     *     * TODO: THIS CODE WAS COPIED FROM ContentsTab.  IT SHOULD PROBABLY     * BE PUT INTO A COMMON LOCATION AND SHARED BY BOTH THIS     * CLASS AND ContentsTab.     *     *     */"
-1,0,1,1,1,1,1,// TODO: How to let the user customize this??
+1,0,1,0,1,1,1,"/*     *     *     * Implement IDataSetUpdateableModel interface     * and IDataSetUpdateableTableModel interface     *     * TODO: THIS CODE WAS COPIED FROM ContentsTab.  IT SHOULD PROBABLY     * BE PUT INTO A COMMON LOCATION AND SHARED BY BOTH THIS     * CLASS AND ContentsTab.     *     *     */"
+1,0,1,0,1,1,1,// TODO: How to let the user customize this??
 1,0,0,0,0,0,0,"/*		 * CSE: moved this code down here to fix repaint problems on first		 * display - bounds should be set before install		 *		 * Uninstall the old popup from root pane		 * and install the new one. Even in case		 * they are the same objects it's necessary		 * to cover the workspace switches etc.		 */"
-1,0,1,1,1,1,1,//TODO: RENAME to DataSetViewerPropertyDestination
+1,0,1,0,1,1,1,//TODO: RENAME to DataSetViewerPropertyDestination
 1,0,0,0,0,0,0,// Discovered that the loginame field can be null - in that case, how to know we have the correct view?
-1,0,1,1,1,1,1,"/**	 * TODO: This shouldn't be public. Its only been done for the JComplete	 * plugin. At some stage this method will be returned to package visibility.	 */"
-1,1,1,1,1,1,1,// Some dbs (like McKoi) make -1 the default for scale.  Apply the  // same hack as above.
-1,0,1,1,1,1,1,"/**	 * TODO: move to IOUtilities	 * 	 * @see net.sourceforge.squirrel_sql.client.update.UpdateUtil#createZipFile(FileWrapper, FileWrapper[])	 */"
+1,0,1,0,1,1,1,"/**	 * TODO: This shouldn't be public. Its only been done for the JComplete	 * plugin. At some stage this method will be returned to package visibility.	 */"
+1,1,1,0,1,1,1,// Some dbs (like McKoi) make -1 the default for scale.  Apply the  // same hack as above.
+1,0,1,0,1,1,1,"/**	 * TODO: move to IOUtilities	 * 	 * @see net.sourceforge.squirrel_sql.client.update.UpdateUtil#createZipFile(FileWrapper, FileWrapper[])	 */"
 1,0,1,1,1,1,1,"/*				 * TODO: Work out why				 * KLUDGE: For some reason, I am not able to get the sheet to				 * size correctly. It always displays with a size that causes				 * the sub-panels to have their scrollbars showing. Add a bit				 * of an increase in the size of the panel so the scrollbars				 * are not displayed.				 */"
-1,0,1,0,1,1,1,// If SQL executing produced warnings then write them out to the session // message handler. TODO: This is a pain. PostgreSQL sends "raise // notice" messages to the connection, not to the statment so they will // be mixed up with warnings from other statements.
+1,0,0,0,1,1,1,// If SQL executing produced warnings then write them out to the session // message handler. TODO: This is a pain. PostgreSQL sends "raise // notice" messages to the connection, not to the statment so they will // be mixed up with warnings from other statements.
 1,0,1,1,0,1,1,//?? Best guess: read object? //?? This is probably the wrong thing to do here, but //?? I don't know what else to try.
-1,0,1,1,1,1,1,// Hack to deal with Ingres IIE* meta tables.
+1,0,1,0,1,1,1,// Hack to deal with Ingres IIE* meta tables.
 1,0,1,0,0,0,0,// This is a bit hard coded but if we use _scale here // some number displays go crazy. //_numberFormat.setMaximumFractionDigits(_scale);
 1,0,1,1,1,1,1,// TODO: SPATIAL and FULLTEXT indexes require a MyISAM engine for the table. Is there a way // to tell what engine is being used for a table? It may not be necessary, since the following // doens't hurt if already a MyISAM engine: // // ALTER TABLE my_table ENGINE = MYISAM; // // Still, this is not the kind of thing we would want to do automatically, since MyISAM engine is // non-transactional. We will probably need to tell the user - somehow - that they need this // otherwise the create index statement will fail. Maybe a comment in the script and if they // happen to read it they could uncomment the conversion of the engine? Maybe a custom dialog?
-1,0,0,0,1,1,1,"/* * TODO: Delete me * Copyright (C) 2002-2003 Johan Compagner * jcompagner@j-com.nl * * This library is free software; you can redistribute it and/or * modify it under the terms of the GNU Lesser General Public * License as published by the Free Software Foundation; either * version 2.1 of the License, or (at your option) any later version. * * This library is distributed in the hope that it will be useful, * but WITHOUT ANY WARRANTY; without even the implied warranty of * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU * Lesser General Public License for more details. * * You should have received a copy of the GNU Lesser General Public * License along with this library; if not, write to the Free Software * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA */"
+1,0,1,0,1,1,1,"/* * TODO: Delete me * Copyright (C) 2002-2003 Johan Compagner * jcompagner@j-com.nl * * This library is free software; you can redistribute it and/or * modify it under the terms of the GNU Lesser General Public * License as published by the Free Software Foundation; either * version 2.1 of the License, or (at your option) any later version. * * This library is distributed in the hope that it will be useful, * but WITHOUT ANY WARRANTY; without even the implied warranty of * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU * Lesser General Public License for more details. * * You should have received a copy of the GNU Lesser General Public * License along with this library; if not, write to the Free Software * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA */"
 1,0,0,0,0,0,0,// JASON: Make menu smarter. When second window for the same // session is added create a hierarchical menu for all windows // for the session.
-1,0,0,0,0,0,0,// For some reason, when the Oracle plugin adds details tabs for  // triggers, the _tabPnl's first tab ends up being the trigger details // tab and not the generic database object info tab.  This causes the  // _tabs length to be 1 tab greater than the tabs that are actually in  // the _tabPnl.  This throws off the selection such that the tab  // selected in the tab panel doesn't get rendered until the tab to the // right of the selected tab is selected.  This is a work-around for  // this problem until I can determine why the DatabaseObjectInfoTab  // never makes it into the _tabPnl in the first place.
+1,0,0,1,0,1,1,// For some reason, when the Oracle plugin adds details tabs for  // triggers, the _tabPnl's first tab ends up being the trigger details // tab and not the generic database object info tab.  This causes the  // _tabs length to be 1 tab greater than the tabs that are actually in  // the _tabPnl.  This throws off the selection such that the tab  // selected in the tab panel doesn't get rendered until the tab to the // right of the selected tab is selected.  This is a work-around for  // this problem until I can determine why the DatabaseObjectInfoTab  // never makes it into the _tabPnl in the first place.
 1,0,1,1,0,1,1,// The following is a work-around for the problem on Mac OS X where // the Apple LAF delegates to the Swing Popup factory but then // tries to set a 90% alpha on the underlying Cocoa window, which // will always be null if you're using JGoodies L&F // see http://www.caimito.net/pebble/2005/07/26/1122392314480.html#comment1127522262179 // This has no effect on Linux/Windows
 1,0,0,0,0,0,0,// colDefs not in same order as DB, so search for // matching colDef entry // Note: linear search here will NORMALLY be not too bad // because most tables do not have huge numbers of columns.
-1,0,1,1,1,1,1,// TODO: What about these // Viewport.font, ColorChooser.font, InternalFrame.font, // OptionPane.font, "Panel.font", // ScrollPane.font, DesktopIcon.font
+1,0,1,0,1,1,1,// TODO: What about these // Viewport.font, ColorChooser.font, InternalFrame.font, // OptionPane.font, "Panel.font", // ScrollPane.font, DesktopIcon.font
 1,0,1,0,1,1,1,// Don't use "real" type. Axion sets the column size to 12 by default, // yet it can handle more precision. So data being copied from the real // column can potentially be larger than what the column claims to support. // This will be a problem for other databases that pay attention to the // column size. // TODO: Perhaps re-introduce the REAL type, but use the new // getPrecisionDigits to max out the precision.
 1,0,1,0,0,0,0,// This info is merely a placeholder in the tree that we can use to get index name and // parent name more easily. We probably should create a IndexColumnInfo that has this // extra info in it.
-1,0,1,1,1,1,1,// TODO: should the constraint name simply be the column name or something more like a constraint // name?
+1,0,1,0,1,1,1,// TODO: should the constraint name simply be the column name or something more like a constraint // name?
 1,0,1,0,1,1,1,// Some tables have pseudo column primary keys and others // do not.  JDBC on some DBMSs does not handle pseudo // columns 'correctly'.  Also, getTables returns 'views' as // well as tables, so the thing we are looking at might not // be a table. (JDBC does not give a simple way to // determine what we are looking at since the type of // object is described in a DBMS-specific encoding.)  For // these reasons, rather than testing for all these // conditions, we just try using the pseudo column info to // get the table data, and if that fails, we try to get the // table data without using the pseudo column. // TODO: Should we change the mode from editable to // non-editable?
 1,0,1,1,1,1,1,// TODO: maybe instead of throwing an exception, we could ask // the user if they would like us to adjust their preference for // them.
-1,0,1,1,1,1,1,// HACK: some dbs (like Frontbase) don't support boolean // types. I've tried tinyint, bit and boolean as the column // type, and setBoolean fails for all three. It's a mystery // at this point what column the getBoolean/setBoolean methods // actually work on iin FrontBase.
+1,0,1,0,1,1,1,// HACK: some dbs (like Frontbase) don't support boolean // types. I've tried tinyint, bit and boolean as the column // type, and setBoolean fails for all three. It's a mystery // at this point what column the getBoolean/setBoolean methods // actually work on iin FrontBase.
 1,0,0,1,0,1,1,"/* work-around for this driver, which must have ""dbo"" for schema.  The       * JConnect family of drivers appears to not be affected and can accept a       * null schema, which is necessary to find tables in other schemas, within       * the same catalog.  Similarly, jTDS 1.2.2 doesn't require this, yet it       * doesn't return non-dbo schema tables, unfortunately.        */"
 1,0,1,0,1,1,1,"/** * A dialect delegate for the Progress database. TODO: Progress specification says that the sum of all column * lengths of a table row may not exceed 31960. Need to add an interface method to the HibernateDialect * interface that takes an array of lengths and and checks the sum of columns for a row. This maximum number * may be different across databases so this check method needs to be implemented by each dialect. *  * @author manningr */"
-1,0,1,1,1,1,1,"//TODO: Decide whether this should be a bound property or not. //		getPropertyChangeReporter().firePropertyChange(ISQLDriver.IPropertyNames.NAME, _name, _name);"
+1,0,1,0,1,1,1,"//TODO: Decide whether this should be a bound property or not. //		getPropertyChangeReporter().firePropertyChange(ISQLDriver.IPropertyNames.NAME, _name, _name);"
 1,0,0,0,0,0,0,"/*					 * END-KLUDGE					 */"
-1,0,1,1,1,1,1,// Hack to deal with Sybase's sys tables
-1,0,1,1,1,1,1,"/** * TODO: Move all code other than for window creation up to AliasWindowManager * Factory to handle creation of maintenance sheets for SQL Alias objects. * * @author <A HREF=""mailto:colbell@users.sourceforge.net"">Colin Bell</A> */"
+1,0,1,0,1,1,1,// Hack to deal with Sybase's sys tables
+1,0,1,0,1,1,1,"/** * TODO: Move all code other than for window creation up to AliasWindowManager * Factory to handle creation of maintenance sheets for SQL Alias objects. * * @author <A HREF=""mailto:colbell@users.sourceforge.net"">Colin Bell</A> */"
 1,0,1,1,1,1,1,// TODO: Why shouldn't we call registerSQLDriver here? RMM 20070401
-1,0,1,1,1,1,1,// TODO: Should have session listeners instead of these calls.
-1,0,1,1,1,1,1,// TODO: just noticed that MySQL 5.0 supports a multi-bit BIT // column by using the getObject/setObject methods with a byte[]. // So it would be valuable at some point to make this code a bit // more dbms-specific
-1,0,1,1,1,1,1,"/** * TODO: Move all code other than for window creation up to AliasWindowManager * Factory to handle creation of maintenance sheets for SQL Driver objects. * * @author <A HREF=""mailto:colbell@users.sourceforge.net"">Colin Bell</A> */"
+1,0,1,0,1,1,1,// TODO: Should have session listeners instead of these calls.
+1,0,1,0,1,1,1,// TODO: just noticed that MySQL 5.0 supports a multi-bit BIT // column by using the getObject/setObject methods with a byte[]. // So it would be valuable at some point to make this code a bit // more dbms-specific
+1,0,1,0,1,1,1,"/** * TODO: Move all code other than for window creation up to AliasWindowManager * Factory to handle creation of maintenance sheets for SQL Driver objects. * * @author <A HREF=""mailto:colbell@users.sourceforge.net"">Colin Bell</A> */"
 1,0,1,1,0,1,1,// On Win 2000 & XP mnemonics are normally hidden. To make them // visible you press the alt key. Under the Windows L&F pressing // alt may not work. This code is a workaround. See bug report // 4736093 for more information.
-1,0,1,1,1,1,1,// TODO: Once we're happy that JFCUtilities is no longer required
+1,0,1,0,1,1,1,// TODO: Once we're happy that JFCUtilities is no longer required
 1,0,1,1,0,1,1,/* work-around for bug which means we must use "dbo" for schema */
 1,0,1,1,0,1,1,//Unfortunately we need to remove the exising tree table component and create a //new one due to limitations with replacing models in the existing //sun implementation. Why on earth they couldnt formalise the tree //table example on JFC (which we use) a bit more is anyones guess.
 1,0,1,1,1,1,1,// TODO: figure out why bind variables aren't working
 1,0,1,0,1,1,1,// TODO: Make properties file Application.properties so we can use class // name to generate properties file name.
-1,0,1,1,1,1,1,// Hack!!! hopefully the FK name will always be the last token!
-1,0,1,1,1,1,1,// TODO Need to have a generic hibernate dialect extend this to provide the types.
+1,0,1,0,1,1,1,// Hack!!! hopefully the FK name will always be the last token!
+1,0,1,0,1,1,1,// TODO Need to have a generic hibernate dialect extend this to provide the types.
 1,0,1,1,0,1,1,// This could (perhaps more elegantly) be done by recursion
-1,0,1,1,1,1,1,"/** * TODO: Get rid of this class. * This combobox contains all the columns in an SQL table. * * @author <A HREF=""mailto:colbell@users.sourceforge.net"">Colin Bell</A> */"
-1,0,1,1,1,1,1,// TODO: Make Parameter implement SQLItem interface which has a getString // method which can also be implemented by SQLString, or SQLFragment or // some such.  We can then eliminate the use of instanceof below and  // clean up the code a bit, by making itemsInSql look like: // //   ArrayList<SQLItem> itemsInSql = new ArrayList<SQLItem>(); // 
+1,0,1,0,1,1,1,"/** * TODO: Get rid of this class. * This combobox contains all the columns in an SQL table. * * @author <A HREF=""mailto:colbell@users.sourceforge.net"">Colin Bell</A> */"
+1,0,1,0,1,1,1,// TODO: Make Parameter implement SQLItem interface which has a getString // method which can also be implemented by SQLString, or SQLFragment or // some such.  We can then eliminate the use of instanceof below and  // clean up the code a bit, by making itemsInSql look like: // //   ArrayList<SQLItem> itemsInSql = new ArrayList<SQLItem>(); // 
 1,0,0,0,0,0,0,// H2 uses Java classes that implement the "Trigger" interface to operate // on database tables rows when an action triggers them. Therefore, there // is currently no way to access the source for a trigger. Hopefully this // will change at some point in the future. // _treeAPI.addDetailTab(DatabaseObjectType.TRIGGER, new TriggerSourceTab("The source of the trigger"));
 1,0,0,0,0,0,0,// Arrays of Strings are a special case. // In XMLBeanWriter method ProcessProperty an array of // Strings is turned into a list of StringWrapper objects // in the XML (presumably so that when reading them back // we have a class that we can call setters on). Thus, // when reading back an array of Strings we actually read // an array of StringWrappers, which gives a type mis-match // in the following arrayCopy. Therefore we need to convert // the data that is currently in the StringWrapper objects // into actual Strings.
-1,0,0,1,1,1,1,"/**	 * TODO: Move this to IOUtilities Extracts the specified zip file to the specified output directory.	 * 	 * @param zipFile	 * @param outputDirectory	 * @throws IOException	 */"
-1,0,0,1,1,1,1,"/**	 * Set the password for this alias.	 *	 * @param	password	The new password.	 *	 * @throws	ValidationException	 * 			TODO: What conditions?	 */"
+1,0,1,1,1,1,1,"/**	 * TODO: Move this to IOUtilities Extracts the specified zip file to the specified output directory.	 * 	 * @param zipFile	 * @param outputDirectory	 * @throws IOException	 */"
+1,0,0,0,1,1,1,"/**	 * Set the password for this alias.	 *	 * @param	password	The new password.	 *	 * @throws	ValidationException	 * 			TODO: What conditions?	 */"
 1,0,0,0,0,0,0,// tell caller that the underlying data was not updated //?? is this always true, or could the data be updated with a warning?
-1,0,0,0,0,0,0,// empty string ('') seems to be represented as null in some drivers. // Not sure if this is the best thing to do here, but it fixes an issue // where SQL returns is set default to '', when it is already null.
-1,0,1,1,1,1,1,// TODO: pass in a message handler so user gets error msgs.
+1,0,0,1,0,1,1,// empty string ('') seems to be represented as null in some drivers. // Not sure if this is the best thing to do here, but it fixes an issue // where SQL returns is set default to '', when it is already null.
+1,0,1,0,1,1,1,// TODO: pass in a message handler so user gets error msgs.
 1,0,0,0,0,0,0,// Facade methods for IMessageHandler.  We don't want to allow code to  // directly access an internal IMessageHandler, now that the IMessageHandler // interface requires an ExceptionFormatter to be injected for methods that // accept Exceptions.
 1,0,0,0,0,0,0,"// JASON: Mow that multiple object trees exist storing the edit // where by objectInfo within session won't work. It needs to be objectinfo // within something else. //	private final Map _editWhereColsSheets = new HashMap();"
-1,0,1,1,1,1,1,// TODO: Put in all the property accessors
+1,0,1,0,1,1,1,// TODO: Put in all the property accessors
 1,0,0,0,0,0,0,// DB delete worked correctly, so now delete from table //IMPORTANT: The user and the creator both work through the // SortableTableModel, not the Actual model.  Thus the row // indexes to delete are given in the SortableTableModel row numbers, // so we must work through that model model to actually do the delete.
-1,0,1,1,1,1,1,// TODO: figure out a more reliable way to handle OTHER type // which indicates a database-specific type.
-1,0,1,1,1,1,1,// TODO: Is giving a FK constraint a name universally supported // and done the same way on every database?
-1,0,1,1,1,1,1,/* TODO: sort the list. */
+1,0,1,0,1,1,1,// TODO: figure out a more reliable way to handle OTHER type // which indicates a database-specific type.
+1,0,1,0,1,1,1,// TODO: Is giving a FK constraint a name universally supported // and done the same way on every database?
+1,0,1,0,1,1,1,/* TODO: sort the list. */
 1,0,0,0,0,0,0,//?? remember which column is the rowID (if any) so we can //?? prevent editing on it
-1,0,1,1,1,1,1,// TODO // Plugin supports only the main session window
-1,0,1,1,1,1,1,"/**	 * Called when app shutdown.	 * TODO: Put throws clause back in	 */"
-1,0,0,1,1,1,1,// TODO I18N
-1,0,1,1,1,1,1,// TODO: Tooltips
-1,0,1,1,1,1,1,/* TODO: FILLFACTOR, ON [PRIMARY], etc. */
-1,0,1,1,1,1,1,// TODO: allow the user to specify ignore case or preserve case.
+1,0,1,0,1,1,1,// TODO // Plugin supports only the main session window
+1,0,1,0,1,1,1,"/**	 * Called when app shutdown.	 * TODO: Put throws clause back in	 */"
+1,0,0,0,1,1,1,// TODO I18N
+1,0,1,0,1,1,1,// TODO: Tooltips
+1,0,1,0,1,1,1,/* TODO: FILLFACTOR, ON [PRIMARY], etc. */
+1,0,1,0,1,1,1,// TODO: allow the user to specify ignore case or preserve case.
 1,0,0,0,1,1,1,// TODO: When message are can have some text in red (error) // and some normal then put out errors in red.
-1,0,1,1,1,1,1,// TODO: tell the user that the selected destination schema is // the same as the source schema. // monitor.showMessageDialog(...)
-1,0,1,1,1,1,1,/* TODO: ON [PRIMARY] */
+1,0,1,0,1,1,1,// TODO: tell the user that the selected destination schema is // the same as the source schema. // monitor.showMessageDialog(...)
+1,0,1,0,1,1,1,/* TODO: ON [PRIMARY] */
 1,0,1,1,1,1,1,// TODO: Maybe prompt the user to ask to append the records,  // ignoring errors for constraint violations?
-1,0,1,1,1,1,1,// TODO: Refresh
-1,0,1,1,1,1,1,// TODO: Maybe someday we could inform the user that the imported // key can't be created because the list of tables they've // selected, doesn't include the table that this foreign key // depends upon. For now, just log a warning and skip it.
-1,0,1,1,1,1,1,"/*			 * TODO: hookup with Interbase spec and adjust these as necessary. 			 */"
-1,0,1,1,1,1,1,// TODO: figure out how to get then name of the table that the trigger  //       is on.  //"and tables.name = ? " +
+1,0,1,0,1,1,1,// TODO: Refresh
+1,0,1,0,1,1,1,// TODO: Maybe someday we could inform the user that the imported // key can't be created because the list of tables they've // selected, doesn't include the table that this foreign key // depends upon. For now, just log a warning and skip it.
+1,0,1,0,1,1,1,"/*			 * TODO: hookup with Interbase spec and adjust these as necessary. 			 */"
+1,0,1,0,1,1,1,// TODO: figure out how to get then name of the table that the trigger  //       is on.  //"and tables.name = ? " +
 1,0,1,0,1,1,1,// TODO: should also make sure that each of the columns is made "NOT NULL"
 1,0,1,0,0,0,0,// Not implemented
 1,0,1,1,1,1,1,"/**     * Sorts the specified destInfos array based on the order of the sourceInfos     * array.  Not a very efficient algorthim, but it gets the job done.     * TODO: rewrite this using Collections sorting capability.     *      * @param sourceInfos     * @param destInfos     * @param sourceTableName     * @param destTableName     * @return a re-ordered version of the specified destInfos array     * @throws MappingException if the arrays differ in length or column names.     */"
-1,0,1,1,1,1,1,// TODO: Perhaps we can tell the user when they click "Copy Table" // if the source session is Axion and they want primary keys that // it's not possible.
-1,0,1,1,1,1,1,// TODO: use the destination database type to derive a format // that is acceptable.
+1,0,1,0,1,1,1,// TODO: Perhaps we can tell the user when they click "Copy Table" // if the source session is Axion and they want primary keys that // it's not possible.
+1,0,1,0,1,1,1,// TODO: use the destination database type to derive a format // that is acceptable.
 1,0,1,1,1,1,1,// TODO: if the use checks "export entire table" and doesn't select all,  // then the selected indices are not set, and this check doesn't properly // detect missing data.  If export entire table is selected, we need to  // set the selected indexes below correctly.
-1,0,1,1,1,1,1,// TODO: create the child index ST
-1,0,1,1,1,1,1,// We just copied the last table.  Now it is safe to copy the // constraints.(Well, that is, if all FK dependencies are met // in the group of tables being copied.  // TODO: new feature could be to examine table list for FK's  // in tables not in the list then prompt the user to add  // those missing tables to the list.
-1,0,1,1,1,1,1,"/** * A dialect delegate for the Axion database.   * TODO: This dialect is not yet complete.  Need to provide implementations wherever ""Not yet implemented"" * appears.  */"
+1,0,1,0,1,1,1,// TODO: create the child index ST
+1,0,1,0,1,1,1,// We just copied the last table.  Now it is safe to copy the // constraints.(Well, that is, if all FK dependencies are met // in the group of tables being copied.  // TODO: new feature could be to examine table list for FK's  // in tables not in the list then prompt the user to add  // those missing tables to the list.
+1,0,1,0,1,1,1,"/** * A dialect delegate for the Axion database.   * TODO: This dialect is not yet complete.  Need to provide implementations wherever ""Not yet implemented"" * appears.  */"
 1,0,0,0,1,1,1,// TODO: Allow the user to specify the sequence name for dialects that don't natively support  // auto-increment columns without using sequence/trigger combo.
-1,0,1,1,1,1,1,"/* * TODO: finish i18n */"
+1,0,1,0,1,1,1,"/* * TODO: finish i18n */"
 1,0,1,0,1,1,1,// TODO: Need to enhance the index dialog to allow specifying storage option. For now just accept the // default for the index access method. // valuesMap.put("indexType", "USING BTREE");
-1,0,1,1,1,1,1,// TODO: Put throws clause back in // Empty method.
-1,0,1,1,1,1,1,// TODO?? ColumnDisplayDefinition should also have the Type (String, Date, // Double,Integer,Boolean)
-1,0,1,1,1,1,1,// TODO: Need to add storageOptions to the add index dialog // valuesMap.put(ST_STORAGE_OPTION_KEY, );
+1,0,1,0,1,1,1,// TODO: Put throws clause back in // Empty method.
+1,0,1,0,1,1,1,// TODO?? ColumnDisplayDefinition should also have the Type (String, Date, // Double,Integer,Boolean)
+1,0,1,0,1,1,1,// TODO: Need to add storageOptions to the add index dialog // valuesMap.put(ST_STORAGE_OPTION_KEY, );
 1,0,1,1,0,1,1,// Move any i18n files that are located in the core downloads dir to the i18n downloads dir. The spring // application context will not load properly (for some unknown reason) when there are i18n jars in the // classpath. So as a work-around, we simply ensure that they are where they should be anyway. // Previously we were not as careful about this, so it is possible that i18n jars were copied into the // core downloads directory.
 1,0,1,1,1,1,1,// TODO: Implement this better
-1,0,1,1,1,1,1,// TODO need to implement or change the message
-1,0,1,1,1,1,1,// TODO: Need to allow user to specify this
-1,0,1,1,1,1,1,"/** * A dialect delegate for the TimesTen database. * TODO: This dialect is not yet complete.  Need to provide implementations wherever ""Not yet implemented"" * appears.   */"
-1,0,1,1,1,1,1,"/** * A dialect delegate for the Sun Microsystems HADB (High-Availability) database. * TODO: This dialect is not yet complete.  Need to provide implementations wherever ""Not yet implemented"" * appears. *  * @author manningr */"
+1,0,1,0,1,1,1,// TODO need to implement or change the message
+1,0,1,0,1,1,1,// TODO: Need to allow user to specify this
+1,0,1,0,1,1,1,"/** * A dialect delegate for the TimesTen database. * TODO: This dialect is not yet complete.  Need to provide implementations wherever ""Not yet implemented"" * appears.   */"
+1,0,1,0,1,1,1,"/** * A dialect delegate for the Sun Microsystems HADB (High-Availability) database. * TODO: This dialect is not yet complete.  Need to provide implementations wherever ""Not yet implemented"" * appears. *  * @author manningr */"
 1,0,0,0,0,0,0,// Not yet ready // DataImportGlobalPreferencesTab tab = new DataImportGlobalPreferencesTab(); // return new IGlobalPreferencesPanel[] { tab };
-1,0,1,1,1,1,1,// TODO: set the total for the progress bar.
-1,0,1,1,1,1,1,// TODO: use the destination database type to derive a // format that is acceptable.
-1,0,1,0,0,0,0,//?? Future: may want to create TablePopupMenu to allow cut/copy/paste operations
-1,0,1,1,1,1,1,// TODO: ask the user if they want to "undo" the changes that the  // paste made.  Alternatively show them the specific problem and  // let them fix it.  Then allow them to retry the operation, starting // from the point at which the previous operation failed.
+1,0,1,0,1,1,1,// TODO: set the total for the progress bar.
+1,0,1,0,1,1,1,// TODO: use the destination database type to derive a // format that is acceptable.
+1,0,0,0,0,0,0,//?? Future: may want to create TablePopupMenu to allow cut/copy/paste operations
+1,0,1,0,1,1,1,// TODO: ask the user if they want to "undo" the changes that the  // paste made.  Alternatively show them the specific problem and  // let them fix it.  Then allow them to retry the operation, starting // from the point at which the previous operation failed.
 0,0,0,0,0,0,0,// flag for whether we have already loaded the properties or not
 0,0,0,0,0,0,0,// History file not found for user - first time user ran pgm.
 0,0,0,0,0,0,0,// default is 12 point, so define font relative to that
@@ -226,7 +226,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The DataObject returns a string to put into the // popup which can later be converted to the appropriate // object type.
 0,0,0,0,0,0,0,// have the DataType object fill in the appropriate kind of value // into the appropriate variable position in the prepared stmt
 0,0,0,0,0,0,0,// bad export - do not proceed with command // The exportData() method has already put up a message // to the user saying the export failed.
-0,0,0,1,0,1,1,// DataTypes may limit the initial data read from the DB, e.g. to minimize the // time needed for the initial load of the table. // To edit the contents of a cell, we require that the entire contents of the data // element be present in the cell before editing. // Therefore we ask the DataType if we need to re-read the data contents // without limiting it, and do that read if needed.  If there is a problem during the // read (e.g. we cannot identify exactly one row in the DB matching the // current row in the table), then the cell is not editable. // The reverse is not true - if we succeed in reading the data, there may still // be other reasons why we cannot edit it, so we need to check for it being editable // after the read
+0,0,0,0,0,0,0,// DataTypes may limit the initial data read from the DB, e.g. to minimize the // time needed for the initial load of the table. // To edit the contents of a cell, we require that the entire contents of the data // element be present in the cell before editing. // Therefore we ask the DataType if we need to re-read the data contents // without limiting it, and do that read if needed.  If there is a problem during the // read (e.g. we cannot identify exactly one row in the DB matching the // current row in the table), then the cell is not editable. // The reverse is not true - if we succeed in reading the data, there may still // be other reasons why we cannot edit it, so we need to check for it being editable // after the read
 0,0,0,0,0,0,0,// i18n[oracle.displaySessionStatistics=Display database session statistics]
 0,0,0,0,0,0,0,// the parse did not find XML, or it was mal-formed
 0,0,0,0,0,0,0,// Test make many paths
@@ -292,7 +292,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// No i18n, developers should write English props.
 0,0,0,0,0,0,0,/* The JTextComponent that is being used for editing */
 0,0,0,0,0,0,0,/* The first time that schemas are asked for, return just one */
-0,0,1,0,0,0,0,//The connection Technology used, could be ODBC, JDBC, ADO //This is optional. If you don't want to give out this info, please enter "N/A"
+0,0,0,0,0,0,0,//The connection Technology used, could be ODBC, JDBC, ADO //This is optional. If you don't want to give out this info, please enter "N/A"
 0,0,0,0,0,0,0,// i18n[SQLResultExecuterPanel.outputStatus=Building output...]
 0,0,0,0,0,0,0,// Check to be sure we get only one schema
 0,0,0,0,0,0,0,//Use the session key you got from the openSession call here
@@ -359,7 +359,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// get the default values from the DB for the table columns
 0,0,0,0,0,0,0,//Make the button looks the same for all Laf's
 0,0,0,0,0,0,0,// childs
-0,0,0,0,0,0,0,// In case the connection won't be able to tell its Auto Commit state, // this is the best default we have.
+0,0,0,1,0,1,1,// In case the connection won't be able to tell its Auto Commit state, // this is the best default we have.
 0,0,0,0,0,0,0,// get the values from the "not use" list
 0,0,0,0,0,0,0,// check for Informix - it has very "special" qualified names
 0,0,0,0,0,0,0,//shift the image for pressed buttons
@@ -425,7 +425,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// field is not nullable, so create a reasonable default value
 0,0,0,0,0,0,0,// setup dest mock file
 0,0,0,0,0,0,0,// handle null
-0,0,0,0,0,0,0,// I cannot think of any reason for doing anything // at all here
+0,0,0,1,0,1,1,// I cannot think of any reason for doing anything // at all here
 0,0,0,0,0,0,0,// downloads directory
 0,0,0,0,0,0,0,// check for user deletes last thing in field
 0,0,0,0,0,0,0,// use factory to get the appropriate editor
@@ -443,7 +443,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//double zoom = _desktopController.getZoomer().getZoom();
 0,0,0,0,0,0,0,//g.fillOval((int)(zoom*fp.x + 0.5) - rad, (int)(zoom*fp.y+0.5) - rad, 2 * rad, 2 * rad);
 0,0,0,0,0,0,0,// CLOB cannot be used in WHERE clause
-0,0,0,1,0,1,1,// The old view is preserved to eventually preserve folding points
+0,0,0,0,0,0,0,// The old view is preserved to eventually preserve folding points
 0,0,0,0,0,0,0,// no need for conversion
 0,0,0,0,0,0,0,"/*    * DataBase-related functions    */"
 0,0,0,0,0,0,0,// PKTABLE_NAME // PKCOLUMN_NAME          // FKCOLUMN_NAME // FK_NAME
@@ -481,7 +481,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// This was originaly done every time. // and the count of instantiated objects was amazing
 0,0,0,0,0,0,0,// We look forward
 0,0,0,0,0,0,0,// i18n[PostgresPlugin.showProcedureSource=Show procedure source]
-0,0,0,0,0,0,0,// i18n[TableExportCsvController.replaceFile=The export file already exisits. Would you like to replace it?]
+0,0,0,1,0,1,1,// i18n[TableExportCsvController.replaceFile=The export file already exisits. Would you like to replace it?]
 0,0,0,0,0,0,0,// Menues that are also shown in the main window Session menu might // be in this popup. If we don't remove them, the Session won't be Garbage Collected.
 0,0,0,0,0,0,0,// look for illegal chars
 0,0,0,0,0,0,0,// i18n[TableExportCsvController.noFile=You must provide a export file name.]
@@ -515,10 +515,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// i18n[HibernateConfigController.noProviderMsg=Missing SessionFactoryImplProvider .\nChanges cannot be applied.]
 0,0,0,0,0,0,0,// mockThreadPool
 0,0,0,0,0,0,0,// i18n[i18n.noFilesOpened=No file found.\nSee message panel for details.]
-0,0,1,0,0,0,0,// We need this buffer because this method may be called asynchronously to the event dispatch thread // What could happen is, that _currentAliasInfos ist changed.
+0,0,0,0,0,0,0,// We need this buffer because this method may be called asynchronously to the event dispatch thread // What could happen is, that _currentAliasInfos ist changed.
 0,0,0,0,0,0,0,// Unfortunately we cannot simply call getColumnTypeAlterSQL since "serial" type is 4 (which is the same // as java.sql.Types.Integer, so we would get back an integer column, not a serial column).  So we piece // it together ourselves: // // ALTER TABLE dbcopydest:"informix".serialtest MODIFY myid integer
 0,0,0,0,0,0,0,//make a few calls
-0,0,1,0,0,0,0,// Example for this code: // Completion should  // from Kv k inner join fetch k.positionen as posses where posses.artNr = 'sdfsdf'
+0,0,0,0,0,0,0,// Example for this code: // Completion should  // from Kv k inner join fetch k.positionen as posses where posses.artNr = 'sdfsdf'
 0,0,0,0,0,0,0,// Can't work with ISessionAction because if a result window is on top // the session in a ISessionAction is null.
 0,0,0,0,0,0,0,// Should at least bind the tablename to a bind var in the SQL
 0,0,0,0,0,0,0,/* DB2 doesn't support cascade, set default, or set null for FK constraint update action */
@@ -685,7 +685,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Prepare to have a lot of DocumentEvent.EventType.CHANGE
 0,0,0,0,0,0,0,// Display the result set.
 0,0,0,0,0,0,0,"/* the constructor above sets this from resources, but we'll override it with         * the name of the index. */"
-0,0,1,1,0,1,1,// Why null??
+0,0,0,1,0,1,1,// Why null??
 0,0,0,0,0,0,0,// 1.5 "@ident" annotation // NOI18N
 0,0,0,0,0,0,0,//Expand all of the rows in the tree if the root is non null.
 0,0,0,0,0,0,0,// create add sequence sql
@@ -699,7 +699,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Now, check to be sure we get both schemas.
 0,0,0,0,0,0,0,// Sybase Adaptive Server Enterprise 
 0,0,0,0,0,0,0,// i18n[CreateTableScriptCommand.error.getprimarykey=Unable to get // primary key info for table {0}]
-0,0,1,0,0,0,0,// Serveral DBs automatically create an index for primary key fields // and return this index in getIndexInfo(). We remove this index from the script // because it would break the script with an index already exists error.
+0,0,0,0,0,0,0,// Serveral DBs automatically create an index for primary key fields // and return this index in getIndexInfo(). We remove this index from the script // because it would break the script with an index already exists error.
 0,0,0,0,0,0,0,// Oracle doesn't allow unique bitmap indexes.
 0,0,0,0,0,0,0,// View Tab
 0,0,0,0,0,0,0,// tabs and newlines get put into the text before this check, // so remove them // This only applies to Popup editing since these chars are // not passed to this level by the in-cell editor.
@@ -842,7 +842,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// call the DataType object for this column and have it check the current value
 0,0,0,0,0,0,0,"/*              * Create the panel and add the GUI items to it             */"
 0,0,0,0,0,0,0,//File object for doing IO
-0,0,1,0,0,0,0,// CopyOnWriteArrayList has snapshot iterators that don't support  // iterator.remove()
+0,0,0,0,0,0,0,// CopyOnWriteArrayList has snapshot iterators that don't support  // iterator.remove()
 0,0,0,0,0,0,0,// add button panel to main panel
 0,0,0,0,0,0,0,// no entry selected
 0,0,0,0,0,0,0,// convert signed to unsigned
@@ -954,7 +954,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// private final int TABLE_COL_DATATYPE = 3; // not used
 0,0,0,0,0,0,0,// Selects the values from the existing table
 0,0,0,0,0,0,0,// If the directory exists, add one to the directory number (making // it a new directory name.)
-0,0,1,0,0,0,0,// MySQL allows statement separators in procedure blocks.  The process // of tokenizing above renders these procedure blocks as separate  // statements, which are not valid to be executed separately.  Here, we  // re-assemble any create procedure/function/trigger statements that we  // find using the beginning procedure block pattern and the procedure  // separator. 
+0,0,0,0,0,0,0,// MySQL allows statement separators in procedure blocks.  The process // of tokenizing above renders these procedure blocks as separate  // statements, which are not valid to be executed separately.  Here, we  // re-assemble any create procedure/function/trigger statements that we  // find using the beginning procedure block pattern and the procedure  // separator. 
 0,0,0,0,0,0,0,// i18n[Application.info.setjdbcdebuglog=Attempting to set JDBC debug log to output stream]
 0,0,0,0,0,0,0,//To get the TableInfo for the selected object in the tree
 0,0,0,0,0,0,0,// BLOBs are different from normal data types in that what is actually // read from the DB is a descriptor pointing to the data rather than the // data itself.  During the initial load of the table, the values read from the // descriptor may have been limited, but the descriptor itself has been // completely read,  Therefore we do not need to re-read the datum // from the Database because we know that we have the entire // descriptor.  If the contents of the BLOB have been limited during // the initial table load, that will be discovered when we check if // the cell is editable and the full data will be read at that time using // this descriptor.
@@ -1019,7 +1019,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//JMH Remove the current sql text. Create a tabbed pane for session details (including sql text)
 0,0,0,0,0,0,0,// If we don't invokeLater here no Short-Cut-Key is sent // to the internal frame // seen under java version "1.4.1_01" and Linux
 0,0,0,0,0,0,0,// i18n[oracle.displaySessionDetails=Display session details]
-0,0,1,0,0,0,0,// Oracle allows statement separators in PL/SQL blocks. The process // of tokenizing above renders these procedure blocks as separate // statements, which is invalid for Oracle. Since "/" is the way // in SQL-Plus to denote the end of a procedure or function, we // re-assemble any create procedure/function/trigger statements that we // find. This should be done before expanding file includes. Otherwise, // any create sql found in files will already be joined, causing this to // find create SQL without matching "/". The process of // expanding 'file includes' already joins the sql fragments that it // finds.
+0,0,0,0,0,0,0,// Oracle allows statement separators in PL/SQL blocks. The process // of tokenizing above renders these procedure blocks as separate // statements, which is invalid for Oracle. Since "/" is the way // in SQL-Plus to denote the end of a procedure or function, we // re-assemble any create procedure/function/trigger statements that we // find. This should be done before expanding file includes. Otherwise, // any create sql found in files will already be joined, causing this to // find create SQL without matching "/". The process of // expanding 'file includes' already joins the sql fragments that it // finds.
 0,0,0,0,0,0,0,// At the moment, no default value
 0,0,0,0,0,0,0,//JMH: For additional performance we could utilise the fixed_table_sequence column //from the session, to investigate which rows need to be updated on a refresh //See V$SESSION doco for more info.
 0,0,0,0,0,0,0,// This seems to work for both Oracle 9i and 10g
@@ -1260,7 +1260,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Tests to see if the correct number of files were returned.
 0,0,0,0,0,0,0,// Assert is flawed because canWrite does not work. // assertTrue("File f2 Is Set To ReadOnly." , f2.canWrite());
 0,0,0,0,0,0,0,//testBooleanColType(sourceName, destName); //testCharColType(sourceName, destName);
-0,0,0,0,0,0,0,// This is for brute force detection of columns whose column size is 0
+0,0,1,0,0,0,0,// This is for brute force detection of columns whose column size is 0
 0,0,0,0,0,0,0,// verify that changing the clone didn't affect the original
 0,0,0,0,0,0,0,// we cannot mock DTProperties  because it is designed to be accessed // statically. :( // Simulate missing property.
 0,0,0,0,0,0,0,// We still have to bind a value, or else the PS will throw // an exception.
@@ -1372,7 +1372,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Determine size of grid to tile into. e.g 3X3 for 9 cells.
 0,0,0,0,0,0,0,// the insert worked, so make this input form go away
 0,0,0,0,0,0,0,// stay in block-comment state
-0,0,1,0,0,0,0,// Fixes ClassCastException, see below.
+0,0,0,0,0,0,0,// Fixes ClassCastException, see below.
 0,0,0,0,0,0,0,// Test to see if the correct number of directories are returned.
 0,0,0,0,0,0,0,// create column model
 0,0,0,0,0,0,0,// for now, ignore popup request //RowDataJTable.this.displayPopupMenu(evt);
@@ -1619,7 +1619,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*	 * @see ISQLEntryPanel#getCaretLineNumber()	 */"
 0,0,0,0,0,0,0,// Data types
 0,0,0,0,0,0,0,// print fore color will be gray
-0,0,0,0,0,0,0,// We do abrevs ourselfs in the DocumentListener in NetbeansSQLEntryPanel. // We don't use the Netbeans implementation mainly because it is case sensitive. // If we come across a performance problem one day we can still try to use this.
+0,0,1,0,0,0,0,// We do abrevs ourselfs in the DocumentListener in NetbeansSQLEntryPanel. // We don't use the Netbeans implementation mainly because it is case sensitive. // If we come across a performance problem one day we can still try to use this.
 0,0,0,0,0,0,0,"/* The current JTable that we are working with.	 * This is used only to see when the user moves	 * to a different JTable so we know when to clear	 * the HashMap of DataTypeObjects.	 */"
 0,0,0,0,0,0,0,// for convenience cast the object to BlobDescriptor
 0,0,0,0,0,0,0,//IMainPanelTab[] getMainTabbedPanePanels(ISession session);
@@ -1653,12 +1653,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// create the new document.
 0,0,0,0,0,0,0,// since we did something, we should check that there is // nothing else to do before going back to sleep.
 0,0,0,1,0,1,1,// Though in API-Doc they say setCharacterAttributes() is thread save we // received observed java.lang.Errors  from Swing as well as dead locks. // That's why we do changes synchron now.
-0,0,1,1,1,1,1,// TODO: columns, tables
+0,0,1,0,1,1,1,// TODO: columns, tables
 0,0,0,0,0,0,0,// Internationalized strings for this class.
 0,0,0,0,0,0,0,// targetType == TARGET_TYPE_SQL
 0,0,0,0,0,0,0,"/*          * String catalog, String schema, String simpleName          */"
 0,0,0,0,0,0,0,// Remove the core items since they are the most recent, and the user is not allowed to remove them
-0,0,0,1,1,1,1,"//TODO:			setFont(style.createStyledFont(getFont()));"
+0,0,0,0,1,1,1,"//TODO:			setFont(style.createStyledFont(getFont()));"
 0,0,0,0,0,0,0,// not something we can read
 0,0,0,0,0,0,0,// Removed for reformatting
 0,0,0,0,0,0,0,///////////////////////////////////////////////////////// // Setting the model initializes columns. We want to // initialize the columns ourselves below.
@@ -1695,12 +1695,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// MySQL spatial index requires a not null column
 0,0,0,0,0,0,0,"/* (non-Javadoc)     * @see net.sourceforge.squirrel_sql.client.plugin.IPlugin#initialize()     */"
 0,0,0,0,0,0,0,// alterations fail for some reason unless you do this...
-0,0,1,1,1,1,1,// TODO move to new standard location and rewrite test to be less static
+0,0,1,0,1,1,1,// TODO move to new standard location and rewrite test to be less static
 0,0,0,0,0,0,0,// We need to add a second column to have a unique constraint so that we can drop that one.  Progress // doesn't allow the very first index to ever be dropped.
 0,0,0,0,0,0,0,// This is what we expect
 0,0,0,0,0,0,0,// gui
 0,0,0,0,0,0,0,// We always get the BLOB, even when we are not reading the contents. // Since the BLOB is just a pointer to the BLOB data rather than the // data itself, this operation should not take much time (as opposed // to getting all of the data in the blob).
-0,0,1,0,0,0,0,////////////////////////////////////////////////////////////////////////////////////////// //Needs to be done at this moment. That's why we can't call updateFromPreferences() here.
+0,0,1,1,0,1,1,////////////////////////////////////////////////////////////////////////////////////////// //Needs to be done at this moment. That's why we can't call updateFromPreferences() here.
 0,0,0,0,0,0,0,// See if plugin has any jars in lib dir.
 0,0,0,0,0,0,0,// convert nullint into a varchar(100)
 0,0,0,0,0,0,0,//new RemoveQuotesCommand(_session.getSQLPanelAPI(_plugin)).execute();
@@ -1882,7 +1882,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//i18n[DatabaseObjectInfoTab.hint=Basic information] 
 0,0,0,0,0,0,0,// alter table <tablename> drop column <columnName>
 0,0,0,0,0,0,0,// i18n[popupeditableIoPanel.cannotCreateTempFile=Cannot create temp file..\nError was:\n{0}]
-0,0,1,0,0,0,0,// checkbox for whether to interpret input leniently or not // i18n[dataTypeDate.allowInexact=allow inexact format on input]
+0,0,0,0,0,0,0,// checkbox for whether to interpret input leniently or not // i18n[dataTypeDate.allowInexact=allow inexact format on input]
 0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see com.mockobjects.sql.MockDatabaseMetaData#nullsAreSortedHigh()	 */"
 0,0,0,0,0,0,0,// whether or not to read date type columns with rs.getTimestamp() // i18n[dataTypeDate.readDateAsTimestamp=Interpret DATE columns as TIMESTAMP]
 0,0,0,0,0,0,0,"/*              * Create the panel and add the GUI items to it              */"
@@ -2036,7 +2036,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// i18n[LogPanel.logInfoLabel=Logs: Errors {0}, Warnings {1}, Infos {2}]
 0,0,0,0,0,0,0,// here we've hit the second line of a multi-line i18n stanza // Just skip it, we're not that sophisticated.
 0,0,0,0,0,0,0,// And the query info.
-0,0,0,0,0,0,0,// This file is a zip; it needs to be extracted into the install directory. All zips are packaged // in such a way that the extraction beneath install directory is all that is required.
+0,0,1,0,0,0,0,// This file is a zip; it needs to be extracted into the install directory. All zips are packaged // in such a way that the extraction beneath install directory is all that is required.
 0,0,0,0,0,0,0,//i18n[UpdateSummaryTable.installOptionsLabel=Install Options]
 0,0,0,0,0,0,0,//i18n[ColumnDetailsDialog.defaultValueLabel=Default Value: ]
 0,0,0,0,0,0,0,// i18n[SupportedRefactoringsTab.hint=Show refactorings that are supported by the plugin]
@@ -2303,7 +2303,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// i18n[SchemaInfo.loadingTables=Loading tables]
 0,0,0,0,0,0,0,// i18n[DialectUtils.columnDefaultUnsupported={0} doesn''t support // altering a column''s default value]
 0,0,0,0,0,0,0,// i18n[userscript.classNotFoundIn=Class {0} found in\n{1}]
-0,0,0,0,0,0,0,// i18n[ThreadCheckingRepaintManager.workinwrongthread=GUI work done in wrong thread]
+0,0,0,1,0,1,1,// i18n[ThreadCheckingRepaintManager.workinwrongthread=GUI work done in wrong thread]
 0,0,0,0,0,0,0,// i18n[PreferencesPanel.statementSeparatorLabel=Statement Separator]
 0,0,0,0,0,0,0,// i18n[ImportFileDialog.tableColumn=Table column]
 0,0,0,0,0,0,0,// i18n[sqlval.dbms=DBMS]
@@ -2622,7 +2622,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// since the base name file exists, we need to skip it // and bump up the endIndex
 0,0,0,0,0,0,0,// i18n[laf.themePacLoc=Theme Pack Directory:]
 0,0,0,0,0,0,0,// If the operator is 'IN' and there are no parenthesis // around the value, put them there.
-0,0,0,0,0,0,0,// tell scrollpane to use table size with the height adjusted to leave // room for the scrollbar at the bottom if needed
+0,0,1,0,0,0,0,// tell scrollpane to use table size with the height adjusted to leave // room for the scrollbar at the bottom if needed
 0,0,0,0,0,0,0,// text put in file name field to indicate that we should // create a temp file for export
 0,0,0,0,0,0,0,// i18n[ErrorStream.error.semantic=Semantic error {0}]
 0,0,0,0,0,0,0,// should not happen since the file that was selected was // just being shown in the Chooser dialog, but just to be safe...
@@ -2785,7 +2785,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// i18n[mssql.toScript=Objects to script:]
 0,0,0,0,0,0,0,// Get the names of all the selected tables in a comma separated list,
 0,0,0,0,0,0,0,/* NOTE: a procedure may also be a UDF! */
-0,0,1,1,1,1,1,// TODO: tell the user that the selected destination schema is  // the same as the source schema. //monitor.showMessageDialog(...)            
+0,0,1,0,1,1,1,// TODO: tell the user that the selected destination schema is  // the same as the source schema. //monitor.showMessageDialog(...)            
 0,0,0,0,0,0,0,// Column is in table 2, but not table 1 - how else would we get // here??
 0,0,0,0,0,0,0,// Add Help, Licence and Change Log nodes to the tree. // i18n[HelpViewerWindow.help=Help]
 0,0,0,0,0,0,0,// i18n[popupeditableIoPanel.exportError8=Export Error]
@@ -2794,7 +2794,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// i18n[sqlbookmark.noRunSelection=Please select the bookmark to run]
 0,0,0,0,0,0,0,// "server" // "port" // "database file" // "backup file"
 0,0,0,0,0,0,0,// // If there are parameters in the SQL string, then we need // to prompt for some answers. //
-0,0,1,1,0,1,1,//For reasons that i cannot exmplain, this is out by two, probably due to the //border or insets around a cell??
+0,0,0,1,0,1,1,//For reasons that i cannot exmplain, this is out by two, probably due to the //border or insets around a cell??
 0,0,0,0,0,0,0,// change the delay, and start it if it was stopped.
 0,0,0,0,0,0,0,// create the timer, but DO NOT start it.
 0,0,0,0,0,0,0,//i18n[SQLResultExecuterPanel.scriptStmtCounts=Row update  //counts: {0} Inserts, {1} Selects, {2} Updates, {3} Deletes
@@ -2847,7 +2847,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// the user has restricted the set of columns to use. // If this name is NOT in the list, then skip it; otherwise we fall through // and use the column in the WHERE clause
 0,0,0,0,0,0,0,// If the directory exists, add one to the directory number // (making it a new directory name.)
 0,0,0,0,0,0,0,// Has to be done directly on the main frame because of racing condition at start up.
-0,0,1,0,0,0,0,// Find the internal Frame in the list of internal frames // and remove it.
+0,0,0,0,0,0,0,// Find the internal Frame in the list of internal frames // and remove it.
 0,0,0,0,0,0,0,// have the DataType object fill in the appropriate kind of value // into the first (and only) variable position in the prepared stmt
 0,0,0,0,0,0,0,// Span across two columns
 0,0,0,0,0,0,0,// Test Connection Button Panel (Both the button and the status label
@@ -2914,7 +2914,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"//		String EDIT = ""edit"";"
 0,0,0,0,0,0,0,// Activate another session since the current // active session has closed.
 0,0,0,0,0,0,0,"//	public SQLExecutionInfo() //	{ //		this(1, """"); //	}"
-0,0,1,0,0,0,0,// We only want the index sql which is the second statement in the array. Informix requires the // constraint stuck onto the end of the statement.
+0,0,0,0,0,0,0,// We only want the index sql which is the second statement in the array. Informix requires the // constraint stuck onto the end of the statement.
 0,0,0,0,0,0,0,//  There should not be more than one row in the DB that matches // the table, and if there is we cannot determine which one to read, // so check that there are no more
 0,0,0,0,0,0,0,// We need to keep track of the bind var index separately, since  // the number of column defs may not be the number of bind vars // (For example: auto-increment columns are excluded)
 0,0,0,0,0,0,0,// Means load all Schemas from database.
@@ -2980,7 +2980,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// i18n[mssql.only70compatible=Only script 7.0 compatible features]
 0,0,0,0,0,0,0,"//	private String _sqlOutputMetaDataClassName = IDataSetDestinations.READ_ONLY_TABLE;"
 0,0,0,0,0,0,0,// i18n[mssql.scriptLogins=Script SQL Server logins (Windows and SQL Server logins)]
-0,0,1,0,0,0,0,// Note: A CaseInsensitiveString can be a mutable string. // In fact it is a mutable string here because this is usually called from // within Syntax coloring which uses a mutable string.
+0,0,0,0,0,0,0,// Note: A CaseInsensitiveString can be a mutable string. // In fact it is a mutable string here because this is usually called from // within Syntax coloring which uses a mutable string.
 0,0,0,0,0,0,0,// make sure we are starting clean
 0,0,0,0,0,0,0,// load all table types with catalog = doi.getCatalog() and schema = doi.getSchema()
 0,0,0,0,0,0,0,//private transient String[] availableTypesInDataBase;
@@ -3082,7 +3082,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// i18n[SchemaPropertiesPanel.hint=Here you may pecify which Schemas to be loaded and displayed in a Session's Object tree. // Code completion and Syntax highlighting will work only for loaded schemas. // If Schemas take a long time to load you may cache them on your hard disk. // Then loading will take long only when you open a Session for the first time. // You can always refesh the cache either by using the Session's 'Refresh all' toolbar button // or by using the 'Refresh Item' right mouse menu on an Object tree node.]
 0,0,0,0,0,0,0,"//		Point pt = JFCUtilities.computePopupLocation(evt, evt.getComponent(), this);"
 0,0,0,0,0,0,0,// i18n[dataTypeBigDecimal.newlinesAsbackslashN=Show newlines as \\n within cells]
-0,0,1,0,0,0,0,// checkbox for whether to interpret input leniently or not // i18n[dateTypeTimestamp.allowInexact=allow inexact format on input]
+0,0,0,0,0,0,0,// checkbox for whether to interpret input leniently or not // i18n[dateTypeTimestamp.allowInexact=allow inexact format on input]
 0,0,0,0,0,0,0,// i18n[UdfDetailsTab.hint=Display UDF details]
 0,0,0,0,0,0,0,// some kind of problem - tell user // i18n[DataSetUpdateableTableModelImpl.error.preparingdelete=While preparing for delete, saw exception:\n{0}]
 0,0,0,0,0,0,0,// i18n[generalSessionPropertiesPanel.metaData=Meta Data:]
@@ -3182,7 +3182,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//i18n[ImportDataIntoTableExecutor.success={0,choice,0#No records|1#One record|1<{0} records} successfully inserted.]
 0,0,0,0,0,0,0,//i18n[AbstractRefactoringDialog.showButtonLabel=Show SQL]
 0,0,0,0,0,0,0,// i18n[mssql.scriptingOptionsDlg=Scripting options allow you to specify how an object will be scripted.]
-0,0,1,0,0,0,0,// checkbox for whether to interpret input leniently or not // i18n[dataTypeTime.inexact=allow inexact format on input]
+0,0,0,0,0,0,0,// checkbox for whether to interpret input leniently or not // i18n[dataTypeTime.inexact=allow inexact format on input]
 0,0,0,0,0,0,0,// i18n[SchemaPropertiesPanel.refreshSchemas=Connect database to refresh Schema table]
 0,0,0,0,0,0,0,// i18n[editextras.errorRemoveNewLines=Error processing Remove // NewLines SQL command: {0}]
 0,0,0,0,0,0,0,//i18n[FileEditorDropTargetListener.internalErrorMessage=Internal error occurred.  //See log for details]
@@ -3200,7 +3200,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// i18n[UpdateControllerImpl.softwareVersionCurrentMsg=This software's version is the most recent]
 0,0,0,0,0,0,0,// i18n[popupeditableIoPanel.errWhileExecutin=Error while executing command.\nThe command was:\n {0}\nThe error was:\n{1}]
 0,0,0,0,0,0,0,// i18n[oracle.displayColumns=Display index column information]
-0,0,0,0,0,0,0,// i18n[sqlbookmark.noSQLPanel=To run a bookmark you must open this window\nusing the "Edit Bookmarks" toolbar button of a Session window.\nThe bookmars SQL Code will then be written to the Session's SQL editor.]
+0,0,0,1,0,1,1,// i18n[sqlbookmark.noSQLPanel=To run a bookmark you must open this window\nusing the "Edit Bookmarks" toolbar button of a Session window.\nThe bookmars SQL Code will then be written to the Session's SQL editor.]
 0,0,0,0,0,0,0,// i18n[dataSetViewerEditableTablePanel.selectionNeeded=You must select something in the table to delete.]
 0,0,0,0,0,0,0,// i18n[generalSessionPropertiesPanel.generalSettings=General settings for the current session]
 0,0,0,0,0,0,0,// i18n[OraclePluginPreferencesPanel.showErrorOffsetTT=Creates and uses a // user-defined function that is used to determine the syntax error token]
@@ -3237,7 +3237,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//i18n[ImportDataIntoTableExecutor.sqlException=A database error occured while inserting data] //i18n[ImportDataIntoTableExecutor.error=Error]
 0,0,0,0,0,0,0,// i18n[dataSetViewerTablePanel.textCantBeConverted=The given text cannot be converted into the internal object.\nThe database has not been changed.\nThe conversion error was:\n{0}]
 0,0,0,0,0,0,0,// i18n[CancelStatementThread.closeFailed=Failed to close statement. Propably the driver/RDDBMS does not support canceling statements. See logs for further details ({0})]
-0,0,1,0,0,0,0,// i18n[DialectUtils.columnTypeUnsupported={0} doesn''t support // altering a column's type attribute]
+0,0,0,0,0,0,0,// i18n[DialectUtils.columnTypeUnsupported={0} doesn''t support // altering a column's type attribute]
 0,0,0,0,0,0,0,// i18n[rowDataInputFrame.propName=Input New Row Data]
 0,0,0,0,0,0,0,//i18n[ColumnDetailsDialog.columnTypeTootTip={0} does not  //support altering column type]     
 0,0,0,0,0,0,0,// i18n[DataSetUpdateableTableModelImpl.error.unknownupdateerror=Unknown problem during update.\nNo count of updated rows was returned.\nDatabase may be corrupted!]
@@ -3254,7 +3254,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//i18n[hibernate.HibernateTabPanel.connect=Connect/disconnect configuration selected configuration]
 0,0,0,0,0,0,0,// no first row, so we cannot retrieve the data // i18n[DataSetUpdateableTableModelImpl.error.nomatchingrow=Could not find any row in DB matching current row in table]
 0,0,0,0,0,0,0,// i18n[popupeditableIoPanel.cannotExec=Cannot execute a null command.\nPlease enter a command in the Command field before clicking on Execute.]
-0,0,1,0,0,0,0,//i18n[ColumnDetailsDialog.columnNullLabel={0} does not  //support altering column nullability]
+0,0,0,0,0,0,0,//i18n[ColumnDetailsDialog.columnNullLabel={0} does not  //support altering column nullability]
 0,0,0,0,0,0,0,// i18n[mysql.showLogs=(MySQL) Show Logs]
 0,0,0,0,0,0,0,// i18n[NumericFunctionsTab.title=Numeric Functions]
 0,0,0,0,0,0,0,// i18n[DialectUtils.columnNameUnsupported={0} doesn''t support // altering a column''s name]
@@ -3274,7 +3274,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// i18n[HibernateAttribuiteDataSet.tableCols=Table columns]
 0,0,0,0,0,0,0,// i18n[UpdatePreferencesPanel.statusLableFailureMsg=Connection failed. See log for error.]
 0,0,0,0,0,0,0,// i18n[cellDataPopUp.cannnotBGeConverted=The given text cannot be converted into the internal object.\n //Please change the data or cancel editing.\n //The conversion error was:\n{0}]
-0,0,1,0,0,0,0,// i18n[DBUtil.error.missingtable=getForeignKeySQL: table // '{0}' has a column '{1}' that references table '{2}' // column '{3}'. However, that table is not being copied. // Skipping this foreign key.]
+0,0,0,0,0,0,0,// i18n[DBUtil.error.missingtable=getForeignKeySQL: table // '{0}' has a column '{1}' that references table '{2}' // column '{3}'. However, that table is not being copied. // Skipping this foreign key.]
 0,0,0,0,0,0,0,//i18n[CSVSettingsPanel.csvSettings=CSV settings]
 0,0,0,0,0,0,0,// i18n[syntax.textLimitLineWidth=Text limit line width]
 0,0,0,0,0,0,0,// Required with the first beta of JDK1.4.1 to stop // this scrollpane from being too tall.
@@ -3282,7 +3282,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// i18n[I18n.appendI18nStringsProps=Create/Append I18nString.properties files]
 0,0,0,0,0,0,0,// i18n[I18n.generateTemplateComments=Generate template comments for missing translations]
 0,0,0,0,0,0,0,//add more space between the label and the button
-0,0,1,0,0,0,0,// We don't destroy the timer when there's nothing happening // because it would mean a lot more work on every single AWT // event that gets dispatched.
+0,0,0,0,0,0,0,// We don't destroy the timer when there's nothing happening // because it would mean a lot more work on every single AWT // event that gets dispatched.
 0,0,0,0,0,0,0,"/*				 * If the object representing the actual data (i.e. this object)				 * can be edited by the user, then the fw objects need to have				 * a reference to it.  Updateable objects must implement an				 * interface derived from IDataSetUpdateableComponent in the				 * net.sourceforge.squirrel_sql.fw.datasetviewer package.				 * If the component does not implement that interface,				 * then we just keep going, but if it does implement it,				 * then we need to tell the DataSetScrollingPanel that the				 * object that fw needs to call is this one.				 */"
 0,0,0,0,0,0,0,// There are some fields that cannot be used in a WHERE clause, either // because there cannot be an exact match (e.g. REAL, FLOAT), or // because we may not have the actual data in hand (BLOB/CLOB), or // because the data cannot be expressed in a string form (e.g. BINARY). // An update to one of those fields // will look like we are replacing one row with an identical row (because // we can only "see" the fields that we know how to do WHEREs on).  Therefore, // when we are updating them, there should be exactly one row that matches // all of our other fields, and when we are not updating one of these // special types of fields, there should be // no rows that exactly match our criteria (we hope). // // We determine whether this field is one that cannot be used in the WHERE // clause by checking the value returned for that field to use in the // WHERE clause.  Any field that can be used there will return something // of the form "<fieldName> = <value>", and a field that cannot be // used will return a null or zero-length string.
 0,0,0,0,0,0,0,//add more space to the top of the component
@@ -3434,7 +3434,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// just eat the exception
 0,0,0,0,0,0,0,// During assignable checks many classes can't be loaded but don't cause problems // either. So we just issue an info.
 0,0,0,0,0,0,0,// for string, just send the text to the output file
-0,0,1,1,1,1,1,// Do not use Axion's bigint data type. // I get the following exception in my test: // org.axiondb.AxionException: // Invalid value "3074478078827346" for column // (BIGINT_TYPE_TABLE).BIGINT_COLUMN, expected numeric(20,10) : // data exception: numeric value out of range // Can someone please tell me why Axion expects big integers to be limited // to 20 precision and 10 scale?(Integers should have scale == 0, right?) // So an Axion bigint is limited to just 20 digits to the left of the // decimal point. // TODO: consider filing a bug report against Axion build M3. // 38 is the maximum precision for Axion's numeric type.
+0,0,1,0,1,1,1,// Do not use Axion's bigint data type. // I get the following exception in my test: // org.axiondb.AxionException: // Invalid value "3074478078827346" for column // (BIGINT_TYPE_TABLE).BIGINT_COLUMN, expected numeric(20,10) : // data exception: numeric value out of range // Can someone please tell me why Axion expects big integers to be limited // to 20 precision and 10 scale?(Integers should have scale == 0, right?) // So an Axion bigint is limited to just 20 digits to the left of the // decimal point. // TODO: consider filing a bug report against Axion build M3. // 38 is the maximum precision for Axion's numeric type.
 0,0,0,0,0,0,0,/* DB2 needs to reorg table after changing nullabolity */
 0,0,0,0,0,0,0,"// UPDATE t SET a = (SELECT a FROM t2 WHERE t.b = t2.b); //		String templateStr =  //			""UPDATE $destTableName$ SET $columnName$ = "" + //			""(SELECT $columnName$ FROM $sourceTableName$ "" + //			""WHERE $sourceTableName$.$whereColumnName$ = $destTableName$.$whereColumnValue$""; //		StringTemplate st = new StringTemplate(templateStr);"
 0,0,0,0,0,0,0,// data must fit into the column's max size
@@ -3462,7 +3462,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* there can be only one default in truth, but the model allows more than one. */
 0,0,0,0,0,0,0,// This slash stuff is a ...
 0,0,0,0,0,0,0,/* there can be only one PK in truth, but the model allows more than one. */
-0,0,0,0,0,0,0,// check box for whether to use LONGVARCHAR in WHERE clause // (Oracle does not allow that type in WHERE clause)
+0,0,1,0,0,0,0,// check box for whether to use LONGVARCHAR in WHERE clause // (Oracle does not allow that type in WHERE clause)
 0,0,0,0,0,0,0,/* register as a listener for mouse events */
 0,0,0,0,0,0,0,// All sheets and cells added. Now write out the workbook
 0,0,0,0,0,0,0,// Should there me a Max Number of threads?
@@ -3548,14 +3548,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//ISession[] getActiveSessions();
 0,0,0,0,0,0,0,// Current Alias Schema properties dont want cache. // so we don't cache.
 0,0,0,0,0,0,0,// Treating sequences as tables interferes with the operation of the // PostgreSQL plugin            
-0,0,1,0,0,0,0,// Some drivers for DB2 don't return SYSFUN as a schema name. A // number of system stored procs are kept in this schema.
+0,0,0,0,0,0,0,// Some drivers for DB2 don't return SYSFUN as a schema name. A // number of system stored procs are kept in this schema.
 0,0,0,0,0,0,0,// Use a set rather than a list as some combinations of MS SQL and the // JDBC/ODBC return multiple copies of each table type.
 0,0,0,0,0,0,0,// Treating indexes as tables interferes with the operation of the // PostgreSQL plugin
 0,0,0,0,0,0,0,"/*	 * Ctor. Wraps this exception around another.	 *	 * @param	wrapee  The exception that this one is wrapped around.	 */"
 0,0,0,0,0,0,0,// Inserts all keys into the new column depending on the content in the old column.
 0,0,0,0,0,0,0,// Set dir to a non-existent directory inside the temporary // directory
 0,0,0,0,0,0,0,// Test for creating a tempfile in a directory that does not exist.
-0,0,0,0,0,0,0,// If we are blocked by a member of a deadlock chain // but do not belong to the deadlock chain ourselves // this prevents a forever loop.
+0,0,0,1,0,1,1,// If we are blocked by a member of a deadlock chain // but do not belong to the deadlock chain ourselves // this prevents a forever loop.
 0,0,0,0,0,0,0,// convert data from StringWrappers to Strings
 0,0,0,0,0,0,0,// Testing two files, one with suffix ".tmp" and one with null
 0,0,0,0,0,0,0,// this should throw an exception - should not allow multiple custom // tokenizers to be installed for a single session.
@@ -3806,7 +3806,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* (non-Javadoc)     * @see net.sourceforge.squirrel_sql.fw.sql.ISQLDriver#getWebSiteUrl()     */"
 0,0,0,0,0,0,0,// get WHERE clause using original value
 0,0,0,0,0,0,0,// only single dot
-0,0,0,0,0,0,0,// If all columns in a table have empty strings as the headings then the // row height of the label row is zero. We dont want this.
+0,0,1,0,0,0,0,// If all columns in a table have empty strings as the headings then the // row height of the label row is zero. We dont want this.
 0,0,0,0,0,0,0,//i18n[SpecialColumnMapping.AUTO_INCREMENT=Auto increment]
 0,0,0,0,0,0,0,"/*       * (non-Javadoc)       *        * @see net.sourceforge.squirrel_sql.fw.sql.ISQLDatabaseMetaData#getTablePrivileges(net.sourceforge.squirrel_sql.fw.sql.ITableInfo)       *        * @deprecated use getTablePrivilegesDataSet instead       */"
 0,0,0,0,0,0,0,"/* (non-Javadoc)     * @see net.sourceforge.squirrel_sql.fw.sql.ISQLDatabaseMetaData#getTimeDateFunctions()     */"
@@ -3996,7 +3996,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Count of available or free threads.
 0,0,0,0,0,0,0,// i18n[dataTypeClob.typeClob=CLOB   (SQL type 2005)]
 0,0,0,0,0,0,0,// i18n[SchemaTableCboItem.schemaID.loadAndCache=Load and cache]
-0,0,1,0,0,0,0,// Don't use bit(1) for boolean as Frontbase then reports it as BINARY // type instead of BIT.
+0,0,0,0,0,0,0,// Don't use bit(1) for boolean as Frontbase then reports it as BINARY // type instead of BIT.
 0,0,1,0,0,0,0,// Anticipate the same issue for VARBINARY as for BINARY and LONGVARBINARY. // registerColumnType(Types.VARBINARY, 2147000000, "bit varying($l)");
 0,0,0,0,0,0,0,// field for size of text to read
 0,0,0,0,0,0,0,// add listener to buttons
@@ -4066,7 +4066,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Process each individual query.
 0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see com.mockobjects.sql.MockDatabaseMetaData#supportsCatalogsInProcedureCalls()	 */"
 0,0,0,0,0,0,0,// Some driver don't correctly support setMaxRows. In // these cases use setMaxRows only if this is a // SELECT.
-0,0,0,0,0,0,0,// No decimal digits strongly suggests an INTEGER of some type. // Since it's not real easy to tell what kind of int (int2, int4, int8) // just make it an int8 (i.e. BIGINT)
+0,0,1,0,0,0,0,// No decimal digits strongly suggests an INTEGER of some type. // Since it's not real easy to tell what kind of int (int2, int4, int8) // just make it an int8 (i.e. BIGINT)
 0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see com.mockobjects.sql.MockDatabaseMetaData#supportsCatalogsInPrivilegeDefinitions()	 */"
 0,0,0,0,0,0,0,// Numbers and such.
 0,0,0,0,0,0,0,// i18n[codeCompletion.spWithParams=stored procedure with parameter info: {call mySP(<IN INTEGER tid>)}]
@@ -4114,12 +4114,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// "RENAME TABLE $oldObjectName$ TO $newObjectName$";
 0,0,0,0,0,0,0,// i18n[I18n.SourceDirDoesNotExist=Source directory {0} does not exist.]
 0,0,1,0,0,0,0,/* Not needed */
-0,0,1,0,0,0,0,"/*	 * 1968807: Unsigned INT problem with IMPORT FILE functionality	 * 	 * If we are working with a signed integer, then it should be ok to store in a Java integer which is 	 * always signed.  However, if we are working with an unsigned integer type, Java doesn't have this so 	 * use a long instead.  	 */"
+0,0,0,0,0,0,0,"/*	 * 1968807: Unsigned INT problem with IMPORT FILE functionality	 * 	 * If we are working with a signed integer, then it should be ok to store in a Java integer which is 	 * always signed.  However, if we are working with an unsigned integer type, Java doesn't have this so 	 * use a long instead.  	 */"
 0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see com.mockobjects.sql.MockDatabaseMetaData#supportsGroupByBeyondSelect()	 */"
 0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see com.mockobjects.sql.MockDatabaseMetaData#supportsFullOuterJoins()	 */"
 0,0,0,0,0,0,0,// Nothing to do for an SQL internal frame
 0,0,0,0,0,0,0,// Paste action object tree types
-0,0,1,0,0,0,0,// Can't paste from a session that is no longer around.
+0,0,0,1,0,1,1,// Can't paste from a session that is no longer around.
 0,0,0,0,0,0,0,// md = new MemoryDiagnostics();
 0,0,0,0,0,0,0,// Copy action object tree types
 0,0,0,0,0,0,0,// Row 2
@@ -4245,7 +4245,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see com.mockobjects.sql.MockDatabaseMetaData#supportsSubqueriesInComparisons()	 */"
 0,0,0,0,0,0,0,// load views with catalog = doi.getCatalog() and schema = doi.getSchema()
 0,0,0,0,0,0,0,// Go thru all plugins attached to this session asking for panels.
-0,0,0,0,0,0,0,// Fallback to the old method, going directly to the database // instead // of using SchemaInfo, since SchemaInfo didn't have it.
+0,0,0,1,0,1,1,// Fallback to the old method, going directly to the database // instead // of using SchemaInfo, since SchemaInfo didn't have it.
 0,0,0,0,0,0,0,//      _useDriverPropsChk.setSelected(_alias.getUseDriverProperties()); //      _driverPropsBtn.setEnabled(_useDriverPropsChk.isSelected()); // This is mainly for long URLs that cannot be fully // displayed in the label.
 0,0,0,0,0,0,0,// i18n[DBUtil.info.bindclobfile=bindClobVarInFile: Opening temp file '{0}']
 0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see com.mockobjects.sql.MockDatabaseMetaData#supportsResultSetHoldability(int)	 */"
@@ -4418,11 +4418,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// After this it can't be stopped anymore!
 0,0,0,0,0,0,0,// throw new IllegalStateException("Wrong constructor");
 0,0,0,0,0,0,0,// i18n[SchemasTab.hint=Show all the schemas]
-0,0,0,0,0,0,0,// JDBC spec says that BIT refers to a boolean column - i.e. a // single binary digit with value either "0" or "1". Also // the same spec encourages use of getBoolean/setBoolean. // However, the SQL-92 standard clearly states that the BIT type // is a bit string with length >= 0. So for SQL-92 compliant // databases (like PostgreSQL) the JDBC spec's support for BIT // is at best broken and unusable. Still, we do what the JDBC // spec suggests as that is all that we can do.
+0,0,0,1,0,1,1,// JDBC spec says that BIT refers to a boolean column - i.e. a // single binary digit with value either "0" or "1". Also // the same spec encourages use of getBoolean/setBoolean. // However, the SQL-92 standard clearly states that the BIT type // is a bit string with length >= 0. So for SQL-92 compliant // databases (like PostgreSQL) the JDBC spec's support for BIT // is at best broken and unusable. Still, we do what the JDBC // spec suggests as that is all that we can do.
 0,0,0,0,0,0,0,// String sourceSchema = null; // MySQL uses catalogs instead of schemas
 0,0,0,0,0,0,0,// Oracle can only store DECIMAL type numbers.  Since regular non-decimal // numbers appear as "decimal", Oracle's decimal numbers can be rather  // large compared to other databases (precision up to 38).  Other  // databases can only handle this large precision in BIGINT fields, not // decimal, so try to figure out if Oracle is really storing a BIGINT // and claiming it is a DECIMAL.  If so, convert the type to BIGINT before // going any further.
 0,0,0,0,0,0,0,"// Rows //				""12dlu, 6dlu, 12dlu, 6dlu, 80dlu:grow, 6dlu, 12dlu,              6dlu, 80dlu:grow, 6dlu, pref"""
-0,0,0,1,1,1,1,// pid 25493, lock examples: // 5  ["  /db1/shd_data_4_3/"]User.ygwaBvbPosKorrD(1)  25493  1D,  25499 X  E // 5  ["  /db1/shd_data_4_3/"]User.ygwaBvbPosKorrD(1)  25493  1D,  25499,25506  X,X  E,E // 5  ["  /db1/shd_data_4_3/"]User.ygwaBvbPosKorrD(1)  25493  1D,  25499,25506,25508  X,X,X  E,E,E // // oder // //6  ["  d:\db\shd_data_lov\"]User.WLagerartikelD(76)  5544  1D, //7  ["  d:\db\shd_data_lov\"]User.WLagerartikelD(77)  5544  1D,  3804  S  E //8  ["  d:\db\shd_data_lov\"]User.WVorgangD(24)  5544  1D, // // oder fuer kein Lock: // //3  ["  f:\db\shd_data\"]User.ygwaTestD(989)  3792  1D, //4  ["  f:\db\shd_data\"]User.ygwaTestD(990)  3792  1D, //5  ["  f:\db\shd_data\"]User.ygwaTestD(991)  3792  1D, //6  ["  f:\db\shd_data\"]User.ygwaTestD(992)  3792  1D, //7  ["  f:\db\shd_data\"]User.ygwaTestD(993)  3792  1D, //8  ["  f:\db\shd_data\"]User.ygwaTestD(994)  3792  1D, //9  ["  f:\db\shd_data\"]User.ygwaTestD(995)  3792  1D, // //
+0,0,0,0,1,1,1,// pid 25493, lock examples: // 5  ["  /db1/shd_data_4_3/"]User.ygwaBvbPosKorrD(1)  25493  1D,  25499 X  E // 5  ["  /db1/shd_data_4_3/"]User.ygwaBvbPosKorrD(1)  25493  1D,  25499,25506  X,X  E,E // 5  ["  /db1/shd_data_4_3/"]User.ygwaBvbPosKorrD(1)  25493  1D,  25499,25506,25508  X,X,X  E,E,E // // oder // //6  ["  d:\db\shd_data_lov\"]User.WLagerartikelD(76)  5544  1D, //7  ["  d:\db\shd_data_lov\"]User.WLagerartikelD(77)  5544  1D,  3804  S  E //8  ["  d:\db\shd_data_lov\"]User.WVorgangD(24)  5544  1D, // // oder fuer kein Lock: // //3  ["  f:\db\shd_data\"]User.ygwaTestD(989)  3792  1D, //4  ["  f:\db\shd_data\"]User.ygwaTestD(990)  3792  1D, //5  ["  f:\db\shd_data\"]User.ygwaTestD(991)  3792  1D, //6  ["  f:\db\shd_data\"]User.ygwaTestD(992)  3792  1D, //7  ["  f:\db\shd_data\"]User.ygwaTestD(993)  3792  1D, //8  ["  f:\db\shd_data\"]User.ygwaTestD(994)  3792  1D, //9  ["  f:\db\shd_data\"]User.ygwaTestD(995)  3792  1D, // //
 0,0,0,0,0,0,0,// Check to see if the string is a file uri.
 0,0,0,0,0,0,0,// common mocks
 0,0,0,0,0,0,0,// If truncate was attempted and not supported, then try delete. // If on the other hand delete was attempted, just throw the // SQLException that resulted from the delete.
@@ -4443,7 +4443,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//String sql = m_session.getSQLPanelAPI(m_plugin).getSQLScriptToBeExecuted();
 0,0,0,0,0,0,0,// this is the constraint that is dropped in drop constraint test
 0,0,0,0,0,0,0,/* The first time that catalogs are asked for, return just one */
-0,0,1,0,0,0,0,// The Ostermiller SQLLexer crashes with an ArrayIndexOutOfBoundsException // if the char is greater then 255. So we prevent the char from being greater. // This is surely not a proper Unicode treatment but it doesn't seem // to do no harm and it keeps the SQLLexer working.
+0,0,0,0,0,0,0,// The Ostermiller SQLLexer crashes with an ArrayIndexOutOfBoundsException // if the char is greater then 255. So we prevent the char from being greater. // This is surely not a proper Unicode treatment but it doesn't seem // to do no harm and it keeps the SQLLexer working.
 0,0,0,0,0,0,0,// We have to look for the modelindex because of the Row Number column
 0,0,0,0,0,0,0,///////////////////////////////////////////////////////////////////////////////// // This formula can be found in the API Doc for // methode relocate() of class org.netbeans.editor.Syntax. // See the description of the last parameter 'stopPosition'. // // relocate() is always called before the parseTocken() method of this class.
 0,0,0,0,0,0,0,// get the directory
