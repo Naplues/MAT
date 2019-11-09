@@ -1,0 +1,1220 @@
+oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
+1,0,1,0,1,1,1,/*                      * TODO Extensions like Flex Mojos use custom scopes like "merged", "internal", "external", etc. In                     * order to don't break backward-compat with those, only warn but don't error out.                      */
+1,0,1,0,1,1,1,/*      * TODO this needs to accept a {@link OverConstrainedVersionException} as returned by     *       {@link #getVersionRangeViolation(int)} but it's not used like that in     *       DefaultLegacyArtifactCollector      */
+1,0,0,0,0,0,0,//  it's the building of the grandchild project, having already cached the child project   (but not the parent project), which causes the problem. 
+1,0,1,1,1,1,1,//  TODO I would like to get rid of this. jvz. 
+1,0,0,0,0,0,0,/*          * NOTE: This should be considered a quirk to support interop with Maven's legacy ArtifactDeployer which         * processes one artifact at a time and hence cannot associate the artifacts from the same project to use the         * same timestamp+buildno for the snapshot versions. Allowing the caller to pass in metadata from a previous         * deployment allows to re-establish the association between the artifacts of the same project.          */
+1,0,1,1,1,1,1,//  TODO I'm really wondering where this method belongs; smells like it should be on MavenProject, but for some   reason it isn't ? This localization is kind-of a code smell. 
+1,1,1,1,1,1,1,//  TODO: hack because metadata isn't generated in m2e correctly and i want to run the maven i have in the 
+1,0,1,0,1,1,1,//  TODO this does not belong here. 
+1,0,0,0,0,0,0,//  this is FOUL!          snapshotArtifact.isSnapshot(); 
+1,0,0,0,0,0,0,//  NOTE: There's java.nio.charset.MalformedInputException and sun.io.MalformedInputException 
+1,0,0,0,1,1,1,/*      * Derive the path portion of the given URL.     *     * @param url the repository URL     * @return the basedir of the repository     * TODO need to URL decode for spaces?      */
+1,0,1,1,1,1,1,// TODO restore these if it makes sense 
+1,0,0,1,1,1,1,//  TODO could the configuration be passed to lookup and the configurator known to plexus via the descriptor   so that this method could entirely be handled by a plexus lookup? 
+1,0,0,1,1,1,1,// TODO error reporting 
+1,0,1,1,1,1,1,//  TODO This replacing shouldn't be necessary as user.home should be in the 
+1,0,1,1,1,1,1,//  TODO currently this is first wins, but really we should take the latest by comparing either the   snapshot timestamp, or some other timestamp later encoded into the metadata.   TODO this needs to be repeated here so the merging doesn't interfere with the written metadata    - we'd be much better having a pristine input, and an ongoing metadata for merging instead 
+1,0,0,0,1,1,1,//  TODO what about wildcards? Just specifying groups? versions? 
+1,0,1,0,1,1,1,//  TODO Use StringUtils here 
+1,0,1,1,1,1,1,//  TODO From a concurrency perspective, this class is not good. The combination of mutable/immutable state is not nice 
+1,0,1,1,1,1,1,//  TODO we probably want to warn the user that he is building an artifact with   different values than in dependencyManagement 
+1,0,0,0,0,0,0,//  ---------------------------------------------------------------------------------   I'm not sure if this last regexp was really intended to disallow the usage of   network paths as user.home directory. Unfortunately it did. I removed it and   have not detected any problems yet.   ---------------------------------------------------------------------------------   path = path.replaceAll( "//", "/" ); 
+1,0,1,1,1,1,1,//  TODO better way than static? this might hide messages in a reactor 
+1,0,1,1,1,1,1,/*  * This exception is thrown if an application attempts to attach * two of the same artifacts to a single project. * * @author pgier * @author jdcasey * TODO Make this a checked exception, and modify the API of MavenProjectHelper. * Currently, this modification would create compatibility problems for existing plugins.  */
+1,0,1,1,1,1,1,// TODO lifecycles being executed  TODO what runs in each phase  TODO plugins that need downloading  TODO project dependencies that need downloading  TODO unfortunately the plugins need to be downloaded in order to get the plugin.xml file. need to externalize this        from the plugin archive.  TODO this will be the class that people get in IDEs to modify 
+1,0,0,0,0,0,0,/*          * NOTE: For plugins that depend on other plugin artifacts the plugin realm contains more than one plugin         * descriptor. However, only the first descriptor is of interest.          */
+1,0,1,0,1,1,1,//  TODO not sure about this here, and may want a getLog on here as well/instead 
+1,0,0,0,1,1,1,//  TODO Does this check need to happen here? Had to add the same call   below when we iterate on child nodes -- will that suffice? 
+1,0,1,1,1,1,1,//  TODO MNG-5766 changes likely made this redundant 
+1,0,1,1,1,1,1,//  TODO Move this to plexus-utils' PathTool. 
+1,1,0,1,1,1,1,//  go find the version. This is a total hack. See previous comment. 
+1,0,0,0,0,0,0,/*          * NOTE: This is primarily to keep backward-compat with Maven 2.x which did not validate that dependencies are         * unique within a single POM. Upon multiple declarations, 2.x just kept the last one but retained the order of         * the first occurrence. So when we're in lenient/compat mode, we have to deal with such broken POMs and mimic         * the way 2.x works. When we're in strict mode, the removal of duplicates just saves other merging steps from         * aftereffects and bogus error messages.          */
+1,0,1,1,1,1,1,//  TODO Validate for < 0? 
+1,0,1,0,0,0,0,/*          * MNG-4312: We neither have reserved all of the above magic expressions nor is their set fixed/well-known (it         * gets occasionally extended by newer Maven versions). This imposes the risk for existing plugins to         * unintentionally use such a magic expression for an ordinary system property. So here we check whether we         * ended up with a magic value that is not compatible with the type of the configured mojo parameter (a string         * could still be converted by the configurator so we leave those alone). If so, back off to evaluating the         * expression from properties only.          */
+1,0,0,0,0,0,0,//    This is not ideal but there are events specifically for configuration from the CLI which I don't   believe are really valid but there are ITs which assert the right events are published so this   needs to be supported so the EventSpyDispatcher needs to be put in the CliRequest so that   it can be accessed by configuration processors. 
+1,0,0,1,1,1,1,//  TODO could we use a map? Maybe if the parent did that for components too, as this is too vulnerable to 
+1,0,1,0,1,1,1,//  TODO current policy is to retain the original version - is this correct, do we need strategies or is that handled elsewhere? 
+1,0,1,1,1,1,1,//  TODO The configuration for the lifecycle needs to be externalized so that I can use the annotations properly for the   wiring and reference and external source for the lifecycle configuration. 
+1,0,0,1,1,1,1,//  TODO a similar test should be created to test the dependency management (basically all usages   of DefaultModelBuilder.getCache() are affected by MNG-6530 
+1,0,0,1,1,1,1,//  TODO shouldn't the versions be merged across relocations? 
+1,0,1,0,1,1,1,//  TODO this should not need to be handed off... 
+1,0,0,0,0,0,0,//  note this will not be hit for Maven 1.x project.xml as it is an incompatible schema 
+1,0,0,1,1,1,1,//  TODO push all common bits back to plexus cli and prepare for transition to Guice. We don't need 50 ways to make CLIs 
+1,0,0,0,0,0,0,//  ------------------------------------------------------------------------   Metadata Resolution Exceptions: ArtifactResolutionExceptions   ------------------------------------------------------------------------ 
+1,0,1,1,1,1,1,// TODO why is this using the context 
+1,0,1,0,1,1,1,//  TODO !![jc; 28-jul-2005] check this; if we're using '-r' and there are aggregator tasks, this will result in weirdness. 
+1,0,0,0,0,0,0,//  Validate versions aren't inherited when using parent ranges the same way as when read externally. 
+1,0,1,1,1,1,1,//  TODO need to externalize CliRequest 
+1,0,0,0,0,0,0,//    We should get a whole slew of dependencies resolving this artifact transitively 
+1,0,0,0,0,0,0,//  NOTE: We SHOULD NOT be inheriting status, since this is an assessment of the POM quality.   NOTE: We SHOULD NOT be inheriting relocation, since this relates to a single POM 
+1,0,1,1,1,1,1,//  TODO could be more efficient by sorting the list and then moving along the restrictions in order? 
+1,0,0,1,1,1,1,//  set the recommended version   TODO maybe its better to just pass the range through to retrieval and use a   transformation? 
+1,0,0,0,0,0,0,//    There are too many ConfigurationProcessors so we don't know which one to run so report the error.   
+1,0,0,0,0,0,0,//  1.any < 1.1 ? 
+1,0,1,1,1,1,1,/*  * Exception that occurs when an artifact file is used, but has not been resolved. * * @author <a href="mailto:brett@apache.org">Brett Porter</a> * TODO it may be better for artifact.getFile() to throw it - perhaps it is a runtime exception?  */
+1,0,0,0,1,1,1,//  TODO log message or throw exception? 
+1,0,0,0,0,0,0,/*      * NOTE: This exists merely for backward-compat with legacy-style lifecycle definitions and allows configuration     * injection to work instead of failing.      */
+1,0,1,0,0,0,0,//  This class needs to stick around because it was exposed the the remote resources plugin started using it instead of   getting the repositories from the project. 
+1,0,0,0,0,0,0,//  Maven 2.x quirk: an artifact always points at the local repo, regardless whether resolved or not 
+1,0,0,1,1,1,1,//  TODO Optimize; or maybe just rewrite the whole way aggregating mojos are being run. 
+1,0,0,0,0,0,0,/*              * NOTE: getId() was added in 3.x and is as such not implemented by plugins compiled against 2.x APIs.              */
+1,0,1,1,1,1,1,//  TODO don't catch exception 
+1,0,0,0,1,1,1,//  TODO use settings? 
+1,0,0,0,1,1,1,/*      * TODO: Whether duplicates should be removed looks like an option for the generated merger.      */
+1,0,0,1,1,1,1,// TODO These two tests display a lack of symmetry with respect to the input which is a free form string and the        mojo descriptor which comes back. All the free form parsing needs to be done somewhere else, this is        really the function of the CLI, and then the pre-processing of that output still needs to be fed into        a hinting process which helps flesh out the full specification of the plugin. The plugin manager should        only deal in concrete terms -- all version finding mumbo jumbo is a customization to base functionality        the plugin manager provides. 
+1,0,1,1,1,1,1,// TODO this will be the basis of the customizable lifecycle execution so need to figure this out quickly. 
+1,0,0,1,1,1,1,//  TODO Use the following two instead of manageArtifact   TODO Remove ResolutionListenerDM interface 
+1,0,0,1,0,1,1,//  We have collected all the problems so let's mimic the way the old code worked and just blow up right here.   That's right lets just let it rip right here and send a big incomprehensible blob of text at unsuspecting   users. Bad dog!
+1,0,1,0,0,0,0,//  note: see MNG-3454. This causes a problem, but fixing it may break more.
+1,1,1,1,1,1,1,//  FIXME: This is hacky. What if module directory doesn't match artifactid, and parent   is coming from the repository?? 
+1,0,1,0,0,0,0,//  NOTE: DuplicateArtifactAttachmentException is currently unchecked, so be careful removing this try/catch!   This is necessary to avoid creating compatibility problems for existing plugins that use   MavenProjectHelper.attachArtifact(..). 
+1,0,1,1,1,1,1,/*  * Describes a version transformation during artifact resolution. * * @author <a href="mailto:brett@apache.org">Brett Porter</a> * TODO try and refactor to remove abstract main.methods - not particular happy about current design  */
+1,0,1,1,1,1,1,/*      * @return the required dependencies in a specified scope     * TODO the name is not intelligible      */
+1,0,1,0,1,1,1,//  TODO shouldn't need to double up on this work, only done for simplicity of handling   recommended 
+1,0,0,0,0,0,0,//    Trying to give loggers back is a bad idea. Ceki said so :-)   notice to self: what was this method supposed to do?   
+1,0,1,1,1,1,1,//  TODO Kristian wonders if this class really is necessary and if it overlaps other concepts. 
+1,0,1,1,1,1,1,//  TODO might be better to have source.retrieve() throw a specific exception for this   situation 
+1,0,0,0,0,0,0,//  This is really a wagon TransferFailedException so something went wrong after we successfully   retrieved the metadata. 
+1,0,0,0,1,1,1,/*  * Filter to exclude from a list of artifact patterns. * * @author <a href="mailto:brett@apache.org">Brett Porter</a> * TODO I think this is equiv. to exclusion set filter in maven-core  */
+1,0,1,0,1,1,1,//  TODO this is only to provide a project for plugins that don't need a project to execute but need some   of the values from a MavenProject. Ideally this should be something internal and nothing outside Maven 
+1,0,1,1,1,1,1,//  TODO why MVN adds dot /./ in paths??? 
+1,0,0,0,1,1,1,//  TODO introducing a space here...not sure what else to do but collapse whitespace 
+1,0,0,0,0,0,0,//  igorf: Way too many declared exceptions!
+1,0,1,0,1,1,1,/*  * Describes repository directory metadata. * * @author <a href="mailto:brett@apache.org">Brett Porter</a> * TODO not happy about the store method - they use "this"  */
+1,0,1,0,1,1,1,//  TODO We currently cannot tell which <dependencyManagement> section contained the management        information. When the resolver provides this information, these log messages should be updated        to contain it. 
+1,0,1,1,1,1,1,//  TODO Hack to make the cycle detection the same for the new graph builder 
+1,0,1,1,1,1,1,//  TODO the antrun plugin has its own configurator, the only plugin that does. might need to think about how that works   TODO remove the coreArtifactFilterManager 
+1,0,0,1,1,1,1,//    TODO jvz Why isn't all this checking the job of the duty of the workspace resolver, we know that we   have a model that is suitable, yet more checks are done here and the one for the version is problematic   before because with parents as ranges it will never work in this scenario.   
+1,0,0,1,1,1,1,/*      * TODO: The order of the merged list could be controlled by an attribute in the model association: target-first,     * source-first, dominant-first, recessive-first      */
+1,0,1,1,1,1,1,//  TODO add better exception 
+1,0,1,0,1,1,1,//  TODO let the scope handler deal with this 
+1,1,0,0,0,0,0,//  artifact or not. things like the stupid dummy artifact coming from surefire.
+1,1,0,0,0,0,0,//  this is just silly, lookupList should return an empty list! 
+1,0,1,1,1,1,1,//  TODO This needs to be colorized 
+1,0,1,0,1,1,1,/*      * TODO: Whether the merge continues recursively into an existing node or not could be an option for the generated     * merger      */
+1,0,0,0,1,1,1,/*  * Specific problems during resolution that we want to account for: * <ul> *   <li>missing metadata</li> *   <li>version range violations</li> *   <li>version circular dependencies</li> *   <li>missing artifacts</li> *   <li>network/transfer errors</li> *   <li>file system errors: permissions</li> * </ul> * * @author Jason van Zyl * TODO carlos: all these possible has*Exceptions and get*Exceptions main.methods make the clients too *       complex requiring a long list of checks, need to create a parent/interface/encapsulation *       for the types of exceptions  */
+1,0,1,0,1,1,1,/*      * TODO this needs to accept a {@link OverConstrainedVersionException} as returned by     *       {@link #getVersionRangeViolation(int)} but it's not used like that in     *       {@link org.apache.maven.repository.legacy.resolver.DefaultLegacyArtifactCollector}      */
+1,0,0,1,1,1,1,//  MAVENAPI FIXME: the DAG used is NOT only used to represent the dependency relation,   but also for <parent>, <build><plugin>, <reports>. We need multiple DAG's   since a DAG can only handle 1 type of relationship properly.   Usecase:  This is detected as a cycle:   org.apache.maven:maven-plugin-api                -(PARENT)->   org.apache.maven:maven                           -(inherited REPORTING)->   org.apache.maven.plugins:maven-checkstyle-plugin -(DEPENDENCY)->   org.apache.maven:maven-plugin-api   In this case, both the verify and the report goals are called   in a different lifecycle. Though the compiler-plugin has a valid usecase, although   that seems to work fine. We need to take versions and lifecycle into account. 
+1,0,0,0,0,0,0,//  Don't want the artifact's version in here, as this is stored in the directory above that 
+1,0,0,1,1,1,1,/*  * Use a regular expression search to find and resolve expressions within the POM. * * @author jdcasey Created on Feb 3, 2005 * TODO Consolidate this logic with the PluginParameterExpressionEvaluator, minus deprecations/bans.  */
+1,0,0,1,1,1,1,//  FIXME: Filter out the inherited == false stuff! 
+1,0,1,1,1,1,1,/*      * TODO pluginDescriptor classRealm and artifacts are set as a side effect of this     *      call, which is not nice.     * @throws PluginResolutionException      */
+1,0,0,0,0,0,0,//  We need to set the file here or the resolver will fail with an NPE, not fully equipped to deal   with multiple local repository implementations yet. 
+1,0,1,1,1,1,1,//  TODO if it was null, we really need to go find them now... or is this taken care of by the ordering? 
+1,0,0,0,0,0,0,//  This won't be valid, but it constructs something easy to read in the error message 
+1,0,1,1,1,1,1,//  TODO This should eventually be migrated to DefaultPathTranslator. 
+1,0,0,0,0,0,0,/*                      * NOTE: Other configurators like the map-oriented one don't call into the listener, so do it the                     * hard way.                      */
+1,0,0,1,1,1,1,/*  * Wraps an active project instance to be able to receive updates from its artifact without affecting the original * attributes of this artifact. * * @author <a href="mailto:brett@apache.org">Brett Porter</a> * TODO I think this exposes a design flaw in that the immutable and mutable parts of an artifact are in one class and * should be split. ie scope, file, etc depend on the context of use, whereas everything else is immutable.  */
+1,0,0,1,0,1,1,//  Some better conventions for the test poms needs to be created and each of these tests   that represent a verification of a specification item needs to be a couple lines at most.   The expressions help a lot, but we need a clean to pick up a directory of POMs, automatically load   them into a resolver, create the expression to extract the data to validate the Model, and the URI   to validate the properties. We also need a way to navigate from the Tex specification documents to 
+1,0,1,1,1,1,1,//  TODO classpath check doesn't belong here - that's the other method 
+1,0,1,1,1,1,1,//  TODO Not entirely the same message 
+1,0,1,1,1,1,1,//  TODO this could be a lot nicer... should really be in the snapshot transformation? 
+1,0,0,1,1,1,1,//  TODO should this be part of mediation? 
+1,0,1,1,1,1,1,//  FIXME: somehow report to the user   that there are too many '..' elements.   For now, ignore the extra '..'. 
+1,0,0,1,1,1,1,/*              * MNG-4900: Hack to workaround deficiency of legacy API which makes it impossible for plugins to access the             * global profile manager which is required to build a POM like a CLI invocation does. Failure to consider             * the activated profiles can cause repo declarations to be lost which in turn will result in artifact             * resolution failures, in particular when using the enhanced local repo which guards access to local files             * based on the configured remote repos.              */
+1,0,1,0,1,1,1,//  TODO without #, this could just be an evaluate call... 
+1,0,0,0,0,0,0,//    Builder, concurrency and parallelism     We preserve the existing main.methods for builder selection which is to look for various inputs in the threading   configuration. We don't have an easy way to allow a pluggable builder to provide its own configuration   parameters but this is sufficient for now. Ultimately we want components like Builders to provide a way to   extend the command line to accept its own configuration parameters.
+1,0,0,0,1,1,1,//  TODO ick. this forces the OCE that should have come from the previous call. It is still 
+1,0,0,1,0,1,1,// Maybe it's better to move some of those main.methods to separate class (SoC).
+1,0,1,1,1,1,1,//  TODO Not sure how best to set these for this implementation... 
+1,0,0,0,0,0,0,/*          * NOTE: This should be considered a quirk to support interop with Maven's legacy ArtifactDeployer which         * processes one artifact at a time and hence cannot associate the artifacts from the same project to use the         * same version index. Allowing the caller to pass in metadata from a previous deployment allows to re-establish         * the association between the artifacts of the same project.          */
+1,0,1,1,1,1,1,//  TODO shouldn't need a file intermediatary - improve wagon to take a stream 
+1,0,1,1,1,1,1,//  TODO should we deprecate? 
+1,0,0,0,0,0,0,//  shouldn't it be java-sources given the classifier?   shouldn't it be false given the classifier? 
+1,0,0,0,0,0,0,//  validation error, continue project building and delay failing to help IDEs   result.getProblems().addAll(e.getProblems()) ? 
+1,0,1,0,1,1,1,/*  * The bean containing the Mojo descriptor.<br> * For more information about the usage tag, have a look to: * <a href="https://maven.apache.org/developers/mojo-api-specification.html"> * https://maven.apache.org/developers/mojo-api-specification.html</a> * * TODO is there a need for the delegation of MavenMojoDescriptor to this? * Why not just extend ComponentDescriptor here?  */
+1,0,0,1,1,1,1,//  TODO add better exception that can detail the two conflicting artifacts 
+1,0,1,1,1,1,1,//  TODO Remove this! 
+1,0,0,1,1,1,1,//  TODO also do this logging for other metadata? 
+1,0,0,0,0,0,0,/*          * NOTE: From Artifact.hasClassifier(), an empty string and a null both denote "no classifier". However, some         * plugins only check for null, so be sure to nullify an empty classifier.          */
+1,0,1,0,1,1,1,//  TODO not sure that it should assume this, maybe the calls to addMetadata should pre-merge, then artifact   replaces? 
+1,0,0,0,0,0,0,//  Why are we just ignoring this exception? Are exceptions are being used for flow control 
+1,0,1,1,1,1,1,//  TODO This is too early for build extensions, so maybe just remove it? 
+1,0,0,1,0,1,1,/*          * The workspace/reactor is in flux so we better not assume definitive information for any of its         * artifacts/projects.          */
+1,0,0,0,0,0,0,//  blech! this isn't even intelligible as a method name. provided for   consistency... 
+1,0,1,0,1,1,1,/*  * Pseudo test to generate documentation fragment about supported CLI options. TODO such documentation generation code * should not be necessary as unit test but should be run during site generation (Velocity? Doxia macro?)  */
+1,0,1,1,1,1,1,//  TODO throw something instead? 
+0,0,0,0,0,0,0,//  will be reported via storeInlocalRepository 
+0,0,0,0,0,0,0,//         {              message.append( "There was 1 validation error: " );          }          else          {              message.append( "There was " + messages.size() + " validation errors: " + NEWLINE );          }   
+0,0,0,0,0,0,0,//  then relative path calculation will fail during build from disk but success when calculated from repo
+0,0,0,0,0,0,0,//  workspace 
+0,0,0,0,0,0,0,//  NOTE: Enforce recursive merge to trigger merging/inheritance logic for executions
+0,0,0,0,0,0,0,/*  (non-Javadoc)    * @see org.apache.maven.profiles.ProfileManager#explicitlyDeactivate(java.lang.String)     */
+0,0,0,0,0,0,0,//  Sun/Oracle advises to empty the char array 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Requirements   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  Arch 
+0,0,0,0,0,0,0,//  Comments 
+0,0,0,0,0,0,0,//  constants -------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  noop 
+0,0,0,0,0,0,0,//  USED BY REMOTE RESOURCES PLUGIN 
+0,0,0,0,0,0,0,//  meta-versions are not valid <version/> values...don't write them.
+0,0,0,0,0,0,0,//  Post 
+0,0,0,0,0,0,0,//  MNG-3769: the [probably relocated] artifact is excluded.   We could process exclusions on relocated artifact details in the   MavenMetadataSource.createArtifacts(..) step, BUT that would   require resolving the POM from the repository very early on in   the build.
+0,0,0,0,0,0,0,//  UpdatePolicy 
+0,0,0,0,0,0,0,//  disown the parent 
+0,0,0,0,0,0,0,//  ------------------------------------------------------------------------   ErrorArtifactExceptions: ArtifactResolutionExceptions   ------------------------------------------------------------------------
+0,0,0,0,0,0,0,//  @Configuration(source="org/apache/maven/lifecycle/lifecycles.xml") 
+0,0,0,0,0,0,0,//  phase 1 
+0,0,0,0,0,0,0,//  Was not an expression
+0,0,0,0,0,0,0,//  Includes 
+0,0,0,0,0,0,0,//    The plugin has a custom component configurator but does not have a custom mojo execution configurator   so fall back to the default mojo execution configurator.   
+0,0,0,0,0,0,0,//  We need to take in multiple lifecycles
+0,0,0,0,0,0,0,/*  MNG-3938  */
+0,0,0,0,0,0,0,//  v1-->v2 
+0,0,0,0,0,0,0,// [01] clean:clean  [02] resources:resources  [03] compiler:compile  [04] it:generate-metadata  [05] resources:testResources  [06] compiler:testCompile  [07] it:generate-test-metadata  [08] surefire:test  [09] jar:jar  [10] install:install   
+0,0,0,0,0,0,0,//    Acceptable versions for continuous delivery     changelist   revision   sha1   
+0,0,0,0,0,0,0,//  BASE64Encoder b64 = new BASE64Encoder(); 
+0,0,0,0,0,0,0,//  We want to eliminate any relative path nonsense and lock down the path so we   need to fully resolve it before any sub-modules use the path. This can happen   when you are using a custom settings.xml that contains a relative path entry   for the local repository setting. 
+0,0,0,0,0,0,0,//    We enter the session scope right after the MavenSession creation and before any of the   AbstractLifecycleParticipant lookups   so that @SessionScoped components can be @Injected into AbstractLifecycleParticipants.   
+0,0,0,0,0,0,0,/*              * MNG-2277, the check below compensates for our bad plugin support where we ended up with aggregator             * plugins that require dependency resolution although they usually run in phases of the build where project             * artifacts haven't been assembled yet. The prime example of this is "mvn release:prepare".              */
+0,0,0,0,0,0,0,//  exact matches win first 
+0,0,0,0,0,0,0,//  -------------------------------------------------------------------------------------   Alright, here's the justification for all the regexp wizardry below...     Continuum and other server-like apps may need to locate the user-level and   global-level settings somewhere other than ${user.home} and ${maven.home},   respectively. Using a simple replacement of these patterns will allow them   to specify the absolute path to these files in a customized components.xml   file. Ideally, we'd do full pattern-evaluation against the sysprops, but this   is a first step. There are several replacements below, in order to normalize   the path character before we operate on the string as a regex input, and   in order to avoid surprises with the File construction...   ------------------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  for the special case of a drive-relative Windows path, make sure it's absolute to save plugins from trouble 
+0,0,0,0,0,0,0,//  Path Utils 
+0,0,1,1,1,1,1,//  TODO figure out how to use the same PluginDescriptor when running mojos
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Reactor Failure Mode   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  populate the configuration section 
+0,0,0,0,0,0,0,//  this should never happen since we checked all possible error sources before but better be sure 
+0,0,0,0,0,0,0,//  Keep this class in sync with org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.GraphLogger 
+0,0,0,0,0,0,0,//  -------< groupId:artifactId >------- 
+0,0,0,0,0,0,0,/* MNG-3900 */
+0,0,0,0,0,0,0,//  Contributor 
+0,0,0,0,0,0,0,//  version but the restriction is identical 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------------------------------------------------       D E P R E C A T E D       ----------------------------------------------------------------------------------------------------------------     Everything below will be removed for Maven 4.0.0     ---------------------------------------------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  likely Boolean -> boolean, Short -> int etc. conversions, it's not the problem case we try to avoid 
+0,0,0,0,0,0,0,//  should have been AbstractToolchain... 
+0,0,0,0,0,0,0,//  last ANSI escape code is reset: no next color 
+0,0,0,0,0,0,0,//  guard against modification/removal of keys in the given properties (MNG-5670, MNG-6053, MNG-6105) 
+0,0,0,0,0,0,0,//  We only check for groupId/artifactId/version/classifier cause if there is another   module with the same groupId/artifactId/version/classifier this will fail the build   earlier like "Project '...' is duplicated in the reactor.   So it is sufficient to check only groupId/artifactId/version/classifier and not the   packaging type. 
+0,0,0,0,0,0,0,/*                      * Most existing extensions don't define exported packages, i.e. no classes are to be exposed to                     * plugins, yet the components provided by the extension (e.g. artifact handlers) must be                     * accessible, i.e. we still must import the extension realm into the project realm.                      */
+0,0,0,0,0,0,0,//  ok 
+0,0,0,0,0,0,0,// ------------------------------------------------------------------------------------------ 
+0,0,0,0,0,0,0,//  version skew drop back to resolution from the repository 
+0,0,0,0,0,0,0,//  aliases 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Goal specific configuration   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  Used by m2eclipse 
+0,0,0,0,0,0,0,//  Group id 
+0,0,0,0,0,0,0,//  normal for non-http wagons 
+0,0,0,0,0,0,0,//  phase 2 
+0,0,0,0,0,0,0,/*      * @see junit.framework.TestCase#setUp()      */
+0,0,0,0,0,0,0,//  2nd pass of initialization: resolve and build parent if necessary 
+0,0,0,0,0,0,0,// =================================================================================================== 
+0,0,0,0,0,0,0,//  no workspace resolver or workspace resolver returned null (i.e. model not in workspace) 
+0,0,0,0,0,0,0,//  to be processed in the outer catch block 
+0,0,0,0,0,0,0,//  hide constructor 
+0,0,0,0,0,0,0,//  -----------------------------------------------------------------------   , String version, String artifactUri ) 
+0,0,0,0,0,0,0,//  nothing to do. 
+0,0,0,0,0,0,0,//  NB this is live injected collection 
+0,0,0,0,0,0,0,//  The remaining are basically "for future expansion" 
+0,0,0,0,0,0,0,//  optional flag is not managed
+0,0,0,0,0,0,0,//  remove once createArtifacts() is removed 
+0,0,0,0,0,0,0,//  CHECKSTYLE_OFF: MagicNumber 
+0,0,0,0,0,0,0,/* MNG-1957 */
+0,0,0,0,0,0,0,/*  MNG-4102 */
+0,0,0,0,0,0,0,//  ignore. The parent artifact will handle metadata.   we must fail silently here to avoid problems with the artifact transformers.
+0,0,1,0,0,0,0,/*                  * NOTE: This is to provide a migration path for implementors of the legacy API which did not know about                 * getLifecycles().                  */
+0,0,0,0,0,0,0,//  lower than 2^63 
+0,0,0,0,0,0,0,//  "pluginPrefix:goal" or "groupId:artifactId[:version]:goal" 
+0,0,0,0,0,0,0,//                              
+0,0,0,0,0,0,0,//  of cause 
+0,0,0,0,0,0,0,//  add default toolchain 
+0,0,0,0,0,0,0,//  switch dominant with recessive 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Dependencies   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  ChildScmConnectionInheritAppendPath 
+0,0,0,0,0,0,0,// */ 
+0,0,0,0,0,0,0,//  this node 
+0,0,0,0,0,0,0,//  ----------[ packaging ]---------- 
+0,0,0,0,0,0,0,//  SnapshotRepository 
+0,0,0,0,0,0,0,//  avoid concurrent modification if someone else sets/removes an unrelated system property 
+0,0,0,0,0,0,0,//  3. the parent's <inherited/> flag is set to true 
+0,0,0,0,0,0,0,//  resolve plugin artifacts 
+0,0,0,0,0,0,0,//  Prefixes 
+0,0,0,0,0,0,0,//    Public API   
+0,0,0,0,0,0,0,//  Plugin management :: aggregate 
+0,0,0,0,0,0,0,//  USED BY DEPENDENCY PLUGIN, ARCHETYPE DOWNLOADER 
+0,0,0,0,0,0,0,//  DeveloperConnection 
+0,0,0,0,0,0,0,//  v1-->v3 
+0,0,0,0,0,0,0,//  Backward compat 
+0,0,0,0,0,0,0,//  parent references child with directory name (which is not artifact id) 
+0,0,0,0,0,0,0,//  It's a POM - we don't need to retrieve it first
+0,0,0,0,0,0,0,/*  MNG-3567 */
+0,0,0,1,1,1,1,//  TODO deep compare the lists
+0,0,0,0,0,0,0,//  Dependencies 
+0,0,0,0,0,0,0,//  Unsubscribe 
+0,0,0,0,0,0,0,//  ensure canonical order of standard lifecycles 
+0,0,0,0,0,0,0,//  This is being lazy instead of making interface 
+0,0,0,0,0,0,0,//  System 
+0,0,0,0,0,0,0,//  re-build pom with modified parent 
+0,0,0,0,0,0,0,//  added to retain compile artifactScope. Remove if you want compile inherited as runtime 
+0,0,0,0,0,0,0,/*  MNG-4008  */
+0,0,0,0,0,0,0,//  if we haven't added this arg to the buffer, and we ARE building an argument   buffer, then append it with a preceding space...again, not sure what else to   do other than collapse whitespace. 
+0,0,0,0,0,0,0,//  keep the checksum files from showing up on the download monitor... 
+0,0,0,0,0,0,0,//  TargetPath 
+0,0,0,0,0,0,0,//  only show msg if a change is actually taking place 
+0,0,0,0,0,0,0,//  overlaps 
+0,0,0,0,0,0,0,//  prime realm cache 
+0,0,0,0,0,0,0,//  ModelVersion 
+0,0,0,0,0,0,0,//  [groupId]:artifactId 
+0,0,0,0,0,0,0,//  Id 
+0,0,0,0,0,0,0,/*     * @see org.apache.maven.artifact.resolver.conflict.ConflictResolverFactory#getConflictResolver(java.lang.String)     */
+0,0,0,0,0,0,0,//  inheritance assembly 
+0,0,0,0,0,0,0,//  BuildBase 
+0,0,0,0,0,0,0,/*  getArtifact  */
+0,0,0,0,0,0,0,//  org.apache.maven.plugins:maven-remote-resources-plugin:1.0:process@executionId 
+0,0,0,0,0,0,0,//  still unreadable even in non-strict mode, rethrow original error 
+0,0,0,0,0,0,0,//  unset the firstRun flag, so we don't get caught in an infinite loop... 
+0,0,0,0,0,0,0,//  MNG-5670 guard against ConcurrentModificationException   MNG-6053 guard against key without value
+0,0,0,0,0,0,0,//  path was already absolute, just normalize file separator and we're done 
+0,0,0,0,0,0,0,//  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////     Project collection     //////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+0,0,0,0,0,0,0,//  changes above not being propagated to the map 
+0,0,0,0,0,0,0,//  collect drop list 
+0,0,0,0,0,0,0,/*  don't call createDependencyArtifact as it'll ignore test and provided scopes  */
+0,0,0,0,0,0,0,//  clear the calculated artifactMap 
+0,0,0,0,0,0,0,//  for each finished project 
+0,0,0,0,0,0,0,//  else fall back to default log level specified in conf   see https://issues.apache.org/jira/browse/MNG-2570 
+0,0,0,0,0,0,0,//  Plugin0 [plexus] 
+0,0,0,0,0,0,0,//  the order of these two is non-deterministic, based on when they're added to the reactor. 
+0,0,0,0,0,0,0,//  special case: if there is a windows drive letter, then keep the original return value 
+0,0,0,0,0,0,0,//  Not going to happen 
+0,0,0,0,0,0,0,//  Site 3.x 
+0,0,0,0,0,0,0,//  model path translation 
+0,0,0,0,0,0,0,//  org.apache.maven.its.mng4834:parent:0.1 
+0,0,0,0,0,0,0,//  Plugins 
+0,0,0,0,0,0,0,//  nop 
+0,0,0,0,0,0,0,//  Properties 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   I'm leaving the setting of system properties here as not to break   the SystemPropertyProfileActivator. This won't harm embedding. jvz.   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  add missing '/' between url and path 
+0,0,0,0,0,0,0,//  ExcludeDefaults 
+0,0,0,0,0,0,0,//    The projects need to be topologically after the participants have run their afterProjectsRead(session)   because the participant is free to change the dependencies of a project which can potentially change the   topological order of the projects, and therefore can potentially change the build order.     Note that participants may affect the topological order of the projects but it is   not expected that a participant will add or remove projects from the session.   
+0,0,0,0,0,0,0,//  Keep this class in sync with org.apache.maven.project.DefaultProjectDependenciesResolver.GraphLogger 
+0,0,0,0,0,0,0,//  main.methods ----------------------------------------------------------------
+0,0,0,0,0,0,0,//  ------------------------------------------------------------------------   Exceptions   ------------------------------------------------------------------------
+0,0,0,0,0,0,0,/*              * This logic (using filesystem, against wanted independence from the user environment) exists only for the             * sake of backward-compat with 2.x (MNG-5000). In general, it is wrong to             * base URL inheritance on the module directory names as this information is unavailable for POMs in the             * repository. In other words, modules where artifactId != moduleDirName will see different effective URLs             * depending on how the model was constructed (from filesystem or from repository).              */
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------------   We need to allow per execution user and global settings as the embedder   might be running in a mode where its executing many threads with totally   different settings.   ---------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  fail fast on RuntimeExceptions, Errors and "other" Throwables   assume these are system errors and further build is meaningless
+0,0,0,0,0,0,0,//  but ok from repo: local disk is ignored 
+0,1,0,1,1,1,1,//  end hack 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Options that are set on the command line become system properties   and therefore are set in the session properties. System properties   are most dominant.   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,// insert classifier only if it was used in the artifact 
+0,0,0,0,0,0,0,//  nothing here 
+0,0,0,0,0,0,0,/*     	 *       v2    	 *   v1<    	 *      v3-v4    	 *    	  */
+0,0,0,0,0,0,0,//  build project once 
+0,0,0,0,0,0,0,//    All of this needs to go away and be couched in terms of the execution request 
+0,0,0,0,0,0,0,//  build from disk expected to fail 
+0,0,0,0,0,0,0,/*  && s2 != null  */
+0,0,0,0,0,0,0,//  if we're building an argument, keep doing so. 
+0,0,0,0,0,0,0,//  MNG-3832: Aether (part of M3+) supports wildcard expressions for exclusions
+0,0,0,0,0,0,0,//  only set those on 2nd phase, ignore on 1st pass 
+0,0,0,0,0,0,0,//  Empirical data from 3.x, actual =40 
+0,0,0,0,0,0,0,//  Enabled 
+0,0,0,0,0,0,0,/*  MNG-3846 */
+0,0,0,0,0,0,0,//  else assume "never" 
+0,0,1,0,0,0,0,//    We expect at most 2 implementations to be available. The SettingsXmlConfigurationProcessor implementation   is always available in the core and likely always will be, but we may have another ConfigurationProcessor   present supplied by the user. The rule is that we only allow the execution of one ConfigurationProcessor.   If there is more than one then we execute the one supplied by the user, otherwise we execute the   the default SettingsXmlConfigurationProcessor. 
+0,0,0,0,0,0,0,//  Exclusions 
+0,0,0,0,0,0,0,//  -----------------------------------------------------------------------------------------------   Tests which exercise the lifecycle executor when it is dealing with default lifecycle phases.   ----------------------------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  For some reason with the introduction of MNG-1577 we have the case in Yoko where a depMan section has   something like the following:     <dependencyManagement>       <dependencies>           <!--  Yoko modules -->           <dependency>               <groupId>org.apache.yoko</groupId>               <artifactId>yoko-core</artifactId>               <version>${version}</version>           </dependency>   ...     And the range is not set so we'll check here and set it. jvz.
+0,0,0,0,0,0,0,//  System.err.println("Linked("+requestedScope+") 
+0,0,0,0,0,0,0,//  drive-relative Windows path 
+0,0,0,0,0,0,0,//  Checksum policy 
+0,0,0,0,0,0,0,//  does nothing 
+0,0,0,0,0,0,0,//  Mocks to inject into toolchainManager 
+0,0,0,1,0,1,1,//  Recursive (really to just process the top-level POM) 
+0,0,0,0,0,0,0,//  Needs to go away
+0,0,0,0,0,0,0,/*  MNG-2309 */
+0,0,0,0,0,0,0,//  these are local 
+0,0,0,0,0,0,0,/*  MNG-2591  */
+0,0,0,0,0,0,0,//  Optional 
+0,0,0,0,0,0,0,//  marker interface for cache keys 
+0,0,0,0,0,0,0,//  the declaring project MUST be listed after the plugin and its plugin-level dep, though. 
+0,0,0,0,0,0,0,//  sleep for 10ms just in case this is windows holding a file lock 
+0,0,0,0,0,0,0,//  Propagate the parallel flag to the root session and all of the cloned sessions in each project segment 
+0,0,0,0,0,0,0,//  we don't canonicalize on unix to avoid interfering with symlinks
+0,0,0,0,0,0,0,/*  MNG-4193  */
+0,0,0,0,0,0,0,//  notify listeners about "soft" project build failures only 
+0,0,0,0,0,0,0,//    1) Setup initial properties.     2) Validate local repository directory is accessible.     3) Create RepositorySystemSession.     4) Create MavenSession.     5) Execute AbstractLifecycleParticipant.afterSessionStart(session)     6) Get reactor projects looking for general POM errors     7) Create ProjectDependencyGraph using trimming which takes into account --projects and reactor mode.   This ensures that the projects passed into the ReactorReader are only those specified.     8) Create ReactorReader with the getProjectMap( projects ). NOTE that getProjectMap(projects) is the code that   checks for duplicate projects definitions in the build. Ideally this type of duplicate checking should be   part of getting the reactor projects in 6). The duplicate checking is conflated with getProjectMap(projects).     9) Execute AbstractLifecycleParticipant.afterProjectsRead(session)     10) Create ProjectDependencyGraph without trimming (as trimming was done in 7). A new topological sort is   required after the execution of 9) as the AbstractLifecycleParticipants are free to mutate the MavenProject   instances, which may change dependencies which can, in turn, affect the build order.     11) Execute LifecycleStarter.start() 
+0,0,0,0,0,0,0,//  local wins now, and irrelevant if not local as test/provided aren't transitive   assertEquals( "Check artifactScope", Artifact.SCOPE_RUNTIME, artifact.getArtifactScope() ); 
+0,0,0,0,0,0,0,//         child.setPluginRepositories(              ModelUtils.mergeRepositoryLists( child.getPluginRepositories(), parent.getPluginRepositories() ) ); 
+0,0,0,0,0,0,0,//  ignore, see above 
+0,0,0,0,0,0,0,/* - test projects for each of these- how to categorize the problems so that the id of the problem can be match to a page with descriptive help and the test  project- nice little sample projects that could be run in the core as well as integration testsAll Possible Errors- invalid lifecycle phase (maybe same as bad CLI param, though you were talking about embedder too)- <module> specified is not found- malformed settings- malformed POM- local repository not writable- remote repositories not available- artifact metadata missing- extension metadata missing- extension artifact missing- artifact metadata retrieval problem- version range violation- circular dependency- artifact missing- artifact retrieval exception- md5 checksum doesn't match for local artifact, need to redownload this- POM doesn't exist for a goal that requires one- parent POM missing (in both the repository + relative path)- component not foundPlugins:- plugin metadata missing- plugin metadata retrieval problem- plugin artifact missing- plugin artifact retrieval problem- plugin dependency metadata missing- plugin dependency metadata retrieval problem- plugin configuration problem- plugin execution failure due to something that is know to possibly go wrong (like compilation failure)- plugin execution error due to something that is not expected to go wrong (the compiler executable missing)- asking to use a plugin for which you do not have a version defined - tools to easily select versions- goal not found in a plugin (probably could list the ones that are)  */
+0,0,0,0,0,0,0,//  plugin management injection 
+0,0,0,0,0,0,0,//  would ever need this so it should not be exposed in a public API
+0,0,0,0,0,0,0,//  MNG-5509   See org.eclipse.aether.connector.wagon.WagonRepositoryConnector.connectWagon(Wagon)
+0,0,0,0,0,0,0,//    Publisher 
+0,0,0,0,0,0,0,//  ------------------------------------------------------------------------   Repositories   ------------------------------------------------------------------------ 
+0,0,0,0,0,0,0,//  This supports painless invocation by the Verifier during embedded execution of the core ITs 
+0,0,0,0,0,0,0,/*  (non-Javadoc)    * @see org.apache.maven.profiles.ProfileManager#getActiveProfiles()     */
+0,0,0,0,0,0,0,//  reactor failure modes 
+0,0,0,0,0,0,0,//  Extensions are accumulated 
+0,0,0,0,0,0,0,//  check all transitive deps of a compile dependency are compile scope, except for runtime and test 
+0,0,0,0,0,0,0,//  use the local copy, or if it doesn't exist - go to the remote repo for it 
+0,0,0,0,0,0,0,/*  && rootArtifact.getFile() == null  */
+0,0,0,0,0,0,0,//  ChecksumPolicy 
+0,0,0,0,0,0,0,//  , String version, String artifactUri ) 
+0,0,0,0,0,0,0,//  verifies profile applied 
+0,0,0,0,0,0,0,//  load the child project, which inherits from p0... 
+0,0,0,0,0,0,0,//  Cyclic Dependency Error 
+0,0,0,0,0,0,0,// InstallResult install( RepositorySystemSession session, InstallRequest request )                  throws InstallationException;   release, snapshot unique ou non unique, attachment 
+0,0,0,0,0,0,0,//  more english-friendly method...keep the code clean! :) 
+0,0,0,0,0,0,0,/*  artifacts  */
+0,0,0,0,0,0,0,//  Plugin1 [antlr] 
+0,0,0,0,0,0,0,//  Beer comes straight after package in stub, much like real life. 
+0,0,0,0,0,0,0,//  as they are not both null 
+0,0,0,0,0,0,0,//  if not then i need to grab the mojo descriptor and look at the phase that is specified 
+0,0,0,0,0,0,0,//  tests ------------------------------------------------------------------ 
+0,0,0,0,0,0,0,//  assume it won't ever be.
+0,0,0,0,0,0,0,//  versions with string lengths from 1 to 19 
+0,0,0,0,0,0,0,//  Update snapshots 
+0,0,0,0,0,0,0,//  +" has been terminated on this entry set\n-------------------\n"   +ins   +"\n-------------------\n"   ); 
+0,0,0,0,0,0,0,// [01] resources:resources  [02] compiler:compile  [03] it:generate-metadata  [04] resources:testResources  [05] compiler:testCompile  [06] plexus-component-metadata:generate-test-metadata  [07] surefire:test  [08] jar:jar   
+0,0,0,0,0,0,0,//  Metadata cannot be retrieved 
+0,0,0,1,1,1,1,//  TODO configure these on the repository 
+0,0,0,0,0,0,0,//  be sure we're testing the right class, i.e. DefaultVersionResolver.class 
+0,0,0,0,0,0,0,//  Cipher uses Strings 
+0,0,0,0,0,0,0,/*  MNG-3545  */
+0,0,0,0,0,0,0,//  check with getPom( baseName + "-expected" ) 
+0,0,0,0,0,0,0,//    Retriever 
+0,0,0,0,0,0,0,//  this will run at most twice. The first time, the firstRun flag is turned off, and if the retry flag   is set on the first run, it will be turned off and not re-set on the second try. This is because the 
+0,0,0,0,0,0,0,//  File 
+0,0,0,0,0,0,0,//  make sure IncludesArtifactFilter is not equal ExcludesArtifactFilter! 
+0,0,0,0,0,0,0,//  previously we cloned the artifact, but it is more efficient to just update the artifactScope   if problems are later discovered that the original object needs its original artifactScope value,    cloning may   again be appropriate 
+0,0,0,0,0,0,0,//  Length 11+ chars 
+0,0,0,0,0,0,0,//  very important to use the parentPlugins List, rather than parentContainer.getPlugins() 
+0,0,0,0,0,0,0,//  metadata is added via addPluginArtifactMetadata 
+0,0,0,0,0,0,0,//    Our settings.xml source is historically how we have configured Maven from the CLI so we are going to   have to honour its existence forever. So let's run it.   
+0,0,0,0,0,0,0,// LocalRepositoryManager newLocalRepositoryManager( LocalRepository localRepository ); 
+0,0,0,0,0,0,0,//  Base directory 
+0,0,0,0,0,0,0,//  multi projects build entry point 
+0,0,0,0,0,0,0,// VersionRangeResult resolveVersionRange( RepositorySystemSession session, VersionRangeRequest request )                  throws VersionRangeResolutionException; 
+0,0,0,0,0,0,0,//  Activation 
+0,0,0,0,0,0,0,//  initial try, use locally cached metadata 
+0,0,0,0,0,0,0,//  default: fail fast   default: true   default: false   optional   optional 
+0,0,0,0,0,0,0,/*  MNG-4102  */
+0,0,0,0,0,0,0,//  only merge plugin definition from the parent if at least one   of these is true:   1. we're not processing the plugins in an inheritance-based merge   2. the parent's <inherited/> flag is not set 
+0,0,0,0,0,0,0,//  parent references child with artifactId (which is not directory name) 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------     ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  The root artifact may, or may not be resolved so we need to check before we attempt to resolve.   This is often an artifact like a POM that is taken from disk and we already have hold of the   file reference. But this may be a Maven Plugin that we need to resolve from a remote repository   as well as its dependencies. 
+0,0,0,0,0,0,0,//  ChildSiteUrlInheritAppendPath 
+0,0,0,0,0,0,0,//  otherwise, we trim the trailing " and append to the buffer. 
+0,0,0,0,0,0,0,//  read poms separately 
+0,0,0,0,0,0,0,//  OutputDirectory 
+0,0,0,0,0,0,0,//  for performance, check digits instead of relying later on catching NumberFormatException 
+0,0,0,0,0,0,0,//  retain baseVersion 
+0,0,0,0,0,0,0,//  Organization 
+0,0,0,0,0,0,0,//  -----------------------------------------------------------------------------------------------   Tests which exercise the lifecycle executor when it is dealing with individual goals.   ----------------------------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  ------------------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  NOTE: There's no notion of taskSegment equality.
+0,0,0,0,0,0,0,//  Remove remaining TransferListener instances (checksum handlers removed in above finally clause) 
+0,0,0,0,0,0,0,//  NOTE: The case of a trailing quote is handled by nullifying the arg buffer. 
+0,0,0,0,0,0,0,// ------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//    Raw file transfers   
+0,0,0,0,0,0,0,//  We have metadata retrieval problems, or there are cycles that have been detected   so we give this back to the calling code and let them deal with this information   appropriately. 
+0,0,0,0,0,0,0,//  file system errors 
+0,0,0,0,0,0,0,//  Repository 
+0,0,0,0,0,0,0,//  ------------------------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  effective line, with indent and reset if end is colored 
+0,0,0,0,0,0,0,/*        At the moment, this class is totally immutable, and this is in line with thoughts about the       pre-calculated execution plan that stays the same during the execution.       If deciding to add mutable state to this class, it should be at least considered to       separate this into a separate mutable structure.      */
+0,0,0,0,0,0,0,//  pure user error, suppress stack trace 
+0,0,0,0,0,0,0,//  from here to the end of the method is dealing with merging of the <executions/> section. 
+0,0,0,0,0,0,0,//  Family 
+0,0,0,0,0,0,0,//  The system scoped dependencies will be present in the classloader for the plugin 
+0,0,0,0,0,0,0,//  It would be cool if there was a hook that i could use to setup a test environment.   I want to setup a local/remote repositories for testing but i don't want to have   to change them when i change the layout of the repositories. So i want to generate   the structure i want to test by using the artifact handler manager which dictates   the layout used for a particular artifact type. 
+0,0,0,0,0,0,0,//  start building an argument here. 
+0,0,0,0,0,0,0,//      
+0,0,0,0,0,0,0,//  this was a failed transfer, and we don't want to retry. 
+0,0,0,0,0,0,0,//  previous one is more dominant 
+0,0,0,0,0,0,0,//  Plugin groups 
+0,0,0,0,0,0,0,//  won't happen 
+0,0,0,0,0,0,0,//  We have no POM file.   
+0,0,0,0,0,0,0,//    We are taking as much as we can from the DefaultArtifact.equals(). The requested artifact has no file so   we want to remove that from the comparison.   
+0,0,0,0,0,0,0,//  Jdk 
+0,0,0,0,0,0,0,//  Site 
+0,0,0,0,0,0,0,//    Taken from LegacyRepositorySystem   
+0,0,0,0,0,0,0,//  We will attempt to get nab a system property as a way to specify a   parameter to a plugins. My particular case here is allowing the surefire   plugin to run a single test so I want to specify that class on the cli   as a parameter. 
+0,0,0,0,0,0,0,//  Tag 
+0,0,0,0,0,0,0,//    Run the user supplied ConfigurationProcessor   
+0,0,0,0,0,0,0,//  check all transitive deps of a default dependency are compile scope, except for runtime and test 
+0,0,0,0,0,0,0,//  Directory 
+0,0,0,0,0,0,0,/*          * NOTE: Not used by Maven core, only here to provide backward-compat with plugins like the Install Plugin.          */
+0,0,0,0,0,0,0,//                           String nonProxyHosts )      {          ProxyInfo proxyInfo = new ProxyInfo();          proxyInfo.setHost( host );          proxyInfo.setType( protocol );          proxyInfo.setPort( port );          proxyInfo.setNonProxyHosts( nonProxyHosts );          proxyInfo.setUserName( username );          proxyInfo.setPassword( password );            proxies.put( protocol, proxyInfo );            wagonManager.addProxy( protocol, host, port, username, password, nonProxyHosts );      } 
+0,0,0,0,0,0,0,//  Distribution 
+0,0,0,0,0,0,0,//  do nothing 
+0,0,0,0,0,0,0,//               TreeSet<MetadataGraphEdge> deps = new TreeSet<MetadataGraphEdge>(                          new Comparator<MetadataGraphEdge>()                          {                              public int compare( MetadataGraphEdge e1                                                , MetadataGraphEdge e2                                                )                              { 
+0,0,0,0,0,0,0,//  <groupId>:<artifactId>:<goal> 
+0,0,1,0,1,1,1,// TODO maven-site-plugin -- not used by the plugin directly, but used by Doxia Integration Tool & MPIR 
+0,0,0,0,0,0,0,//  This is the case where someone has executed a single goal from the command line   of the form:     mvn remote-resources:process     From the metadata stored on the server which has been created as part of a standard   Maven plugin deployment we will find the right PluginDescriptor from the remote   repository. 
+0,0,0,0,0,0,0,//  This is used by the SITE plugin. 
+0,0,0,0,0,0,0,//  inverse order 
+0,0,0,0,0,0,0,//  append childPathAdjustment and childDirectory to parent url 
+0,0,0,0,0,0,0,//  redirect stdout and stderr to file 
+0,0,0,0,0,0,0,//  The rest is deprecated   USED BY MAVEN ASSEMBLY PLUGIN 2.2-beta-2 
+0,0,0,0,0,0,0,//    Deprecated
+0,0,0,0,0,0,0,/*  s1 != null &&  */
+0,0,0,0,0,0,0,/* MNG- 4008 */
+0,0,0,0,0,0,0,/*  farthest = runtime  */
+0,0,1,1,1,1,1,//  We are going to take the project packaging and find all plugin in the default lifecycle and create   fully populated Plugin objects, including executions with goals and default configuration taken   from the plugin.xml inside a plugin.     TODO This whole method could probably removed by injecting lifeCyclePluginAnalyzer straight into client site.   TODO But for some reason the whole plexus appcontext refuses to start when I try this. 
+0,0,0,0,0,0,0,// ---------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//    New interface main.methods for the repository system.
+0,0,0,0,0,0,0,//  muxer.setThisModuleComplete( projectBuild ); 
+0,0,0,0,0,0,0,//  ArrayIndexOutOfBoundsException are typical indication of threading issues 
+0,0,0,0,0,0,0,// noinspection ObjectEquality 
+0,0,0,0,0,0,0,//  Used to import dependencyManagement dependencies 
+0,0,0,0,0,0,0,//  now add all options, except for -D with cli first then config file 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Online vs. Offline requirement   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  we want to see all top-level thread groups 
+0,0,0,0,0,0,0,//  Transfer listeners 
+0,0,0,0,0,0,0,//    Code taken from LegacyRepositorySystem   
+0,0,0,0,0,0,0,//  Reactor 
+0,0,0,0,0,0,0,//  update policy doesn't affect contents 
+0,0,0,0,0,0,0,//  the parent version is not a range, we have version skew, drop back to resolution from repo 
+0,0,0,0,0,0,0,// addParameterUsageInfo( expression, messageBuffer ); 
+0,0,0,0,0,0,0,//  Scope 
+0,0,0,0,0,0,0,//  url 
+0,0,0,0,0,0,0,//    Don't need any of this 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Plugins   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  Exists 
+0,0,0,0,0,0,0,//  1.1 > 1-sp 
+0,0,0,0,0,0,0,//  then relative path calculation will success during build from disk but fail when calculated from repo 
+0,0,0,0,0,0,0,//  We do this in here so we can checksum the artifact metadata too, otherwise it could be metadata itself 
+0,0,0,0,0,0,0,//  TestSourceDirectory 
+0,0,0,0,0,0,0,// DeployResult deploy( RepositorySystemSession session, DeployRequest request )                  throws DeploymentException; 
+0,0,0,0,0,0,0,//  Errors
+0,0,0,0,0,0,0,//  string tokenizer won't detect these and ignores them
+0,0,0,0,0,0,0,//  Contextualizable main.methods -----------------------------------------------
+0,0,0,0,0,0,0,/*  (non-Javadoc)    * @see org.apache.maven.profiles.ProfileManager#explicitlyActivate(java.lang.String)     */
+0,0,0,0,0,0,0,//  remove whitespaces at the end 
+0,1,0,0,0,0,0,//  would like to throw this, but we have crappy stuff in the repo 
+0,0,0,0,0,0,0,/*  MNG-786 */
+0,0,0,0,0,0,0,//  copy fields 
+0,0,0,0,0,0,0,//  Transfer Error
+0,0,0,0,0,0,0,//  continue the build 
+0,0,0,0,0,0,0,//  Beer comes straight after package in stub 
+0,0,0,0,0,0,0,//  NOTE: The check for missing plugin versions is handled directly by the model builder 
+0,0,0,0,0,0,0,//  qualifier is the whole version, including "-" 
+0,0,0,0,0,0,0,//  Building Project Name Version    [i/n] 
+0,0,0,0,0,0,0,//  InceptionYear 
+0,0,0,0,0,0,0,//  But it was reset by the call to setVersionRange on restricting the version 
+0,0,0,0,0,0,0,//  dependency management import 
+0,0,0,0,0,0,0,//    Here we just need to know that a version is fine to use but this validation we can do in our workspace   resolver.   
+0,0,0,0,0,0,0,//  write baseName + "-actual" 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Field validation   ---------------------------------------------------------------------- 
+0,0,1,0,0,0,0,// not sure it's necessary to provide a default toolchain here.  only version can be eventually supplied, and
+0,0,0,0,0,0,0,// fail( "should have failed since module reference == artifactId != directory name" ); 
+0,0,0,0,0,0,0,//  special case: if omitted // on protocol, keep path as is 
+0,0,0,0,0,0,0,//  the same instance can be provided multiple times under different Key's   deduplicate instances to avoid redundant beforeXXX/afterXXX callbacks 
+0,0,1,0,0,0,0,//  runtime exceptions are most likely bugs in maven, let them bubble up to the user 
+0,0,0,0,0,0,0,//  This is required by the surefire plugin 
+0,0,0,0,0,0,0,//  enables no-arg constructor 
+0,0,0,0,0,0,0,/* if_not[MAVEN4] */
+0,0,0,0,0,0,0,//  the args are easy, cli first then config file 
+0,0,0,0,0,0,0,//  version schemes not really supported: fully transformed as qualifier 
+0,0,0,0,0,0,0,//  1.1 > 1-1 
+0,0,0,0,0,0,0,//  test interpolation of basedir values in mojo configuration 
+0,0,0,0,0,0,0,//  Won't happen 
+0,0,0,0,0,0,0,//  read and validate raw model 
+0,0,0,0,0,0,0,//  verify 
+0,0,0,0,0,0,0,//  Empty path entry ("...//.."), remove. 
+0,0,0,1,1,1,1,// TODO remote-resources-plugin 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Object overrides   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  we update the build number anyway so that it doesn't get lost. It requires the timestamp to take effect 
+0,0,0,0,0,0,0,//  if this is the case of "-Dfoo=bar", then we need to adjust the buffer. 
+0,0,0,0,0,0,0,/*  MNG-3836 */
+0,0,0,0,0,0,0,//  validation error, continue project building and delay failing to help IDEs 
+0,0,0,0,0,0,0,//  MNG-1927, MNG-2124, MNG-3355:   If the build section is present and the project directory is non-null, we should make   sure interpolation of the directories below uses translated paths.   Afterward, we'll double back and translate any paths that weren't covered during interpolation via the   code below...
+0,0,0,0,0,0,0,//  override from command line 
+0,0,0,0,0,0,0,//  check with getPom( "module-path-not-artifactId-effective" ) 
+0,0,0,0,0,0,0,// -------------------------------------------------------------------  ------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  use key as is 
+0,0,0,0,0,0,0,//  ensure resulting url ends with slash if initial url was 
+0,0,0,0,0,0,0,//  DefaultProjectBuilder 
+0,0,1,0,0,0,0,//  Adding this back in for compatibility with the verifier that hard codes this option. 
+0,0,0,0,0,0,0,//  LOG STREAMS 
+0,0,0,0,0,0,0,//  Children 
+0,0,0,0,0,0,0,//  Message 
+0,0,0,0,0,0,0,//  Interactive 
+0,0,0,0,0,0,0,//  ordering 
+0,0,0,0,0,0,0,//  inceptionYear 
+0,0,0,0,0,0,0,//  Conflict Resolution 
+0,0,0,0,0,0,0,//  rethrow original errors and runtime exceptions 
+0,0,0,0,0,0,0,//  managedVersionMap 
+0,0,0,0,0,0,0,//  test and provided are not transitive, so exclude them 
+0,0,0,0,0,0,0,//  a1 = alpha-1, b1 = beta-1, m1 = milestone-1 
+0,0,1,0,0,0,0,//    Used by Tycho and will break users and force them to upgrade to Maven 3.1 so we should really leave   this here, possibly indefinitely. 
+0,0,0,0,0,0,0,//  ArtifactId is neither inherited nor injected 
+0,0,0,0,0,0,0,//  Missing 
+0,0,0,0,0,0,0,/*  MNG-3760 */
+0,0,0,0,0,0,0,//  Layout 
+0,0,0,0,0,0,0,//  system scope is historic only - and simple 
+0,0,0,0,0,0,0,/*  pluginArtifact  */
+0,0,0,0,0,0,0,//  ArtifactId 
+0,0,0,0,0,0,0,//  USED BY REMOTE RESOURCES PLUGIN, DEPENDENCY PLUGIN, SHADE PLUGIN 
+0,0,0,0,0,0,0,//  OrganizationUrl 
+0,0,0,0,0,0,0,/*  (non-Javadoc)    * @see org.apache.maven.profiles.ProfileManager#explicitlyActivate(java.util.List)     */
+0,0,0,1,1,1,1,//  TODO Consider throwing UnsupportedSomething on hashCode/equals
+0,0,0,0,0,0,0,//  invalid version range, so drop back to resolution from the repository 
+0,0,0,0,0,0,0,//  unless it's an entry point.   currently processing the entry point - it should not have any entry incident edges 
+0,0,0,0,0,0,0,//  use DefaultJavaToolChain for compatibility with maven 3.2.3 and earlier 
+0,0,0,0,0,0,0,//  Version Range Violation 
+0,0,0,0,0,0,0,//  no edges - don't need this vertex any more 
+0,0,0,0,0,0,0,//  schedule independent projects 
+0,0,0,0,0,0,0,//   <proxies>      <proxy>        <active>true</active>        <protocol>http</protocol>        <host>proxy.somewhere.com</host>        <port>8080</port>        <username>proxyuser</username>        <password>somepassword</password>        <nonProxyHosts>www.google.com|*.somewhere.com</nonProxyHosts>      </proxy>    </proxies> 
+0,0,0,0,0,0,0,//  Overwrite existing values in model properties. Otherwise it's not possible 
+0,0,0,0,0,0,0,//  -------------------------------------------------------------------------------------------   ------------------------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,/*  MNG-2591 */
+0,0,0,0,0,0,0,//  igorf: plugin realm comes later   assertNotNull( mojoDescriptor.getRealm() ); 
+0,0,0,0,0,0,0,//  RelativePath 
+0,0,0,0,0,0,0,//  valid - check if it is greater than the currently matched version 
+0,0,0,0,0,0,0,//  This appears only to be used in test code 
+0,0,0,0,0,0,0,//  [prefix]:[goal] 
+0,0,0,0,0,0,0,//  system scopes come through unchanged... 
+0,0,0,0,0,0,0,//  advance res2 
+0,0,0,0,0,0,0,//  Select an appropriate available version from the (now restricted) range   Note this version was selected before to get the appropriate POM 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------- 
+0,0,0,0,0,0,0,/*  MNG-3979  */
+0,0,0,0,0,0,0,//    Default to the standard multithreaded builder   
+0,0,0,0,0,0,0,//  we have a value, so it has to match the system value... 
+0,0,0,0,0,0,0,//  exports descriptors are entirely optional 
+0,0,0,0,0,0,0,//  Reset - only needed for 'getId'. 
+0,0,0,0,0,0,0,//  check for exact match 
+0,0,0,0,0,0,0,//  notice: extension and classifier not really used in this test... 
+0,0,0,0,0,0,0,//  Subscribe 
+0,0,0,0,0,0,0,//  DefaultGoal 
+0,0,0,0,0,0,0,//  if this fails, forget about it, we'll try to overwrite it anyway so no need 
+0,0,0,0,0,0,0,//  Don't use snapshot metadata for LATEST (which isSnapshot returns true for) 
+0,0,0,0,0,0,0,/*  MNG-6386  */
+0,0,0,0,0,0,0,//  PluginManagement 
+0,0,0,0,0,0,0,//  enables default constructor 
+0,0,0,0,0,0,0,//  ciManagement 
+0,0,0,0,0,0,0,//  advance res1 
+0,0,0,1,0,1,1,//    Be nice to whittle this down to Session, maybe add task segments to the session. The session really is the   the place to store reactor related information.   
+0,0,0,0,0,0,0,//  assertTrue( new DefaultArtifactVersion( "1.0-alpha10" ).compareTo( new DefaultArtifactVersion( "1.0-alpha1" ) ) > 0 ); 
+0,0,0,0,0,0,0,//  used by the site plugin 3.x 
+0,0,1,1,1,1,1,//  TODO figure out how to reuse ModelLocator.locatePom(File) here 
+0,0,0,0,0,0,0,//  Remove any previous repository with this Id 
+0,0,0,0,0,0,0,//  We retrieve the POM below in the retrieval step. 
+0,0,0,0,0,0,0,//  schedule dependent projects, if all of their requirements are met 
+0,0,0,0,0,0,0,/*  MNG-4129  */
+0,0,0,1,0,1,1,/*         LifecycleMappingsXpp3Reader reader = new LifecycleMappingsXpp3Reader();        LifecycleConfiguration config = reader.read( new InputStreamReader( getClass().getResourceAsStream( "/lifecycle.xml" ) ) );        assertEquals( "check number of lifecycles", 1, config.getLifecycles().size() );        Lifecycle l = (Lifecycle) config.getLifecycles().iterator().next();        assertEquals( "check id", "clover", l.getId() );        assertEquals( "check number of phases", 1, l.getPhases().size() );        Phase p = (Phase) l.getPhases().iterator().next();        assertEquals( "check id", "generate-sources", p.getId() );        assertEquals( "check number of executions", 1, p.getExecutions().size() );        Execution e = (Execution) p.getExecutions().iterator().next();        assertEquals( "check configuration", "true", ((Xpp3Dom) e.getConfiguration()).getChild( "debug" ).getValue() );        assertEquals( "check number of goals", 1, e.getGoals().size() );        String g = (String) e.getGoals().iterator().next();        assertEquals( "check goal", "clover:compiler", g );         */
+0,0,0,0,0,0,0,//  Start all the threads 
+0,0,0,0,0,0,0,//  this is a live injected collection 
+0,0,0,0,0,0,0,//    Internal   
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Dependency requirement   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  reportArtifacts 
+0,0,0,0,0,0,0,//  check all transitive deps of a provided dependency are provided scope, except for test 
+0,0,0,0,0,0,0,//  reset the retry flag. 
+0,0,0,0,0,0,0,//  overlap 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Parameters   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  ignore for now and delay failure to higher level processing 
+0,0,0,0,0,0,0,//  ConflictResolverFactory main.methods ----------------------------------------
+0,0,0,0,0,0,0,//  try to verify the SHA-1 checksum for this file. 
+0,0,0,0,0,0,0,//  clone source roots 
+0,0,0,0,0,0,0,//  NOTE: Enforce recursive merge to trigger merging/inheritance logic for executions as well
+0,0,0,0,0,0,0,//  if we need to update artifactScope of nearest to use farthest artifactScope, use the   nearest version, but farthest artifactScope 
+0,0,0,0,0,0,0,//  lifecycle phase 
+0,0,0,0,0,0,0,//  ignore plugin descriptor parsing errors at this point   these errors will reported during calculation of project build execution plan
+0,0,0,0,0,0,0,//  this should always be the case for non-super POM instances... 
+0,0,0,0,0,0,0,//  Test may fail if we get interrupted 
+0,0,0,0,0,0,0,//    Make sure the Maven home directory is an absolute path to save us from confusion with say drive-relative   Windows paths.   
+0,0,0,0,0,0,0,//  legacy support for maven-gpg-plugin:1.0 
+0,0,0,0,0,0,0,//  site 
+0,0,0,0,0,0,0,//    This should probably be a separate tool and not be baked into Maven.
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Project requirement   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  if we also fail to verify based on the MD5 checksum, and the checksum transfer/read   succeeded, then we need to determine whether to retry or handle it as a failure. 
+0,0,0,0,0,0,0,//  Not totally sure if this is needed for anything
+0,0,0,0,0,0,0,//  This is required right now. 
+0,0,0,0,0,0,0,//  fields ----------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  not critical here 
+0,0,0,0,0,0,0,//  ------------------------------------------------------------------------ 
+0,0,0,0,0,0,0,//  second try, refetch all (possibly outdated) metadata that wasn't updated in the first attempt 
+0,0,0,0,0,0,0,//        
+0,0,0,0,0,0,0,/*      * @see org.codehaus.plexus.PlexusTestCase#tearDown()      */
+0,0,0,0,0,0,0,//  MNG-4543
+0,0,0,0,0,0,0,//  ---------------------------------------------------------------------   --------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  Mirrors 
+0,0,0,0,0,0,0,//  otherwise it is ignore 
+0,0,0,0,0,0,0,//  Use the recommended version from the specified VersionRange since there is no   original recommended version 
+0,0,0,0,0,0,0,//  populate the provides section 
+0,0,0,0,0,0,0,/*  system and provided dependencies are not transitive  */
+0,0,0,0,0,0,0,//  Used by m2e but will be removed, really. 
+0,0,0,0,0,0,0,//  1 extra '/' to remove 
+0,0,0,0,0,0,0,//  Profiles 
+0,0,0,0,0,0,0,//  single entry in the classpath, populated from itself 
+0,0,0,0,0,0,0,//  reports configuration 
+0,0,0,0,0,0,0,//  Connection 
+0,0,0,0,0,0,0,//  Reports 
+0,0,0,0,0,0,0,/*  putArtifact  */
+0,0,0,0,0,0,0,//                             + project1.getScm().getDeveloperConnection() );            assertEquals( project1.getScm().getUrl(), "http://host/viewer?path=/p0/modules/p1" );          assertEquals( project1.getScm().getConnection(), "scm:svn:http://host/p0/modules/p1" );          assertEquals( project1.getScm().getDeveloperConnection(),                        "scm:svn:https://host/p0/modules/p1" );      } 
+0,0,0,0,0,0,0,//  touch file so that this is not checked again until interval has passed 
+0,0,0,0,0,0,0,//  Packaging 
+0,0,0,0,0,0,0,//  ------------------------------------------------------------------------   Circular Dependency Exceptions   ------------------------------------------------------------------------ 
+0,0,0,0,0,0,0,//  assertVersionOlder( "1.0-alpha-1-SNAPSHOT", "1.0-SNAPSHOT" ); 
+0,0,0,0,0,0,0,// ----------------------------------------------------------------------------------------------------  ---------------------------------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  cannot inherit from null parent. 
+0,0,0,0,0,0,0,//  remove the originating artifact if it is also in managed versions to avoid being modified during resolution 
+0,0,1,1,1,1,1,/*      * TODO share with DefaultPluginMappingManager.      */
+0,0,0,0,0,0,0,//  enable default constructor 
+0,0,0,0,0,0,0,//  we use a dedicated comparator because we control our model version scheme. 
+0,0,0,0,0,0,0,//  The fall-through indicates that the artifact cannot be found; 
+0,0,0,0,0,0,0,//  compare against each other (including itself) 
+0,0,0,0,0,0,0,//  delete the local copy so the old details aren't used. 
+0,0,0,0,0,0,0,//  drive-relative Windows path, don't align with base dir but with drive root 
+0,0,0,0,0,0,0,//  used by maven-dependency-tree and maven-dependency-plugin 
+0,0,0,0,0,0,0,//  -TC2.2 
+0,0,0,1,0,1,1,//  Needs to go away   These are really overrides now, projects defining dependencies for a plugin that override what is
+0,0,0,0,0,0,0,//  Plugins are aggregated if Plugin.inherit != false 
+0,0,0,0,0,0,0,//  profile injection 
+0,0,0,0,0,0,0,//  this block prevents MNG-1703 
+0,0,0,0,0,0,0,//  special case: if there is a windows drive letter using |, switch to : 
+0,0,0,0,0,0,0,//  refresh logger in case container got customized by spy 
+0,0,0,0,0,0,0,//  read projects together 
+0,0,0,0,0,0,0,//    Put in a bogus file to make sure missing files cause the resolution to fail. 
+0,0,0,0,0,0,0,//  Settings files 
+0,0,0,0,0,0,0,//  no mojo in this POM 
+0,0,0,1,1,1,1,//  TODO Copied from the DefaultInterpolator. We likely want to resurrect the PathTranslator or at least a   similar component for re-usage 
+0,0,0,0,0,0,0,//  make projects that depend on me, and projects that I depend on 
+0,0,0,0,0,0,0,//  forked phase 
+0,0,0,0,0,0,0,//  sisu uses realm imports to establish component visibility 
+0,0,0,0,0,0,0,//  First iteration - add initial id after version resolution. 
+0,0,0,0,0,0,0,// Needed to make this method package visible to make writing a unit test possible 
+0,0,0,0,0,0,0,//  Inherited 
+0,0,0,0,0,0,0,//  to avoid constant folding by the compiler, this field must *not* be final 
+0,0,0,0,0,0,0,/*  MNG-3944 */
+0,0,0,0,0,0,0,//  fill in domain md with actual version data 
+0,0,0,0,0,0,0,//  reports conversion to decoupled site plugin 
+0,0,0,0,0,0,0,//  specified in the plugin itself. 
+0,0,0,0,0,0,0,//          
+0,0,0,0,0,0,0,//  ------------------------------------------------------------------------     ------------------------------------------------------------------------ 
+0,0,0,0,0,0,0,/*  MNG-4070  */
+0,0,0,0,0,0,0,//  Servers 
+0,0,0,0,0,0,0,/*  farthest = test  */
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   I would like to be able to lookup the Mojo object using a key but   we have a limitation in modello that will be remedied shortly. So   for now I have to iterate through and see what we have.   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  Maybe do something ?
+0,0,0,0,0,0,0,/*  transformer  */
+0,0,0,0,0,0,0,// [01] clean:clean  [02] modello:xpp3-writer  [03] modello:java  [04] modello:xpp3-reader  [05] modello:xpp3-writer  [06] modello:java  [07] modello:xpp3-reader  [08] plugin:descriptor  [09] resources:resources  [10] compiler:compile  [11] resources:testResources  [12] compiler:testCompile  [13] surefire:test  [14] jar:jar  [15] plugin:addPluginArtifactMetadata  [16] install:install   
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Mojo execution   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  licenses 
+0,0,0,0,0,0,0,//  1-0 = 1- (normalize) = 1 
+0,0,0,0,0,0,0,//  Profiles are neither inherited nor injected 
+0,0,0,0,0,0,0,//  don't stop processing in case a future segment explicitly excludes this repo 
+0,0,1,0,0,0,0,/*                  * NOTE: This is a sanity check of the cache hit. If the cached parent POM was locally resolved, the                 * child's <relativePath> should point at that parent, too. If it doesn't, we ignore the cache and                 * resolve externally, to mimic the behavior if the cache didn't exist in the first place. Otherwise,                 * the cache would obscure a bad POM.                  */
+0,0,0,0,0,0,0,//  Roles 
+0,0,0,0,0,0,0,//  type is inherited from the super pom 
+0,0,0,0,0,0,0,/*  farthest = provided  */
+0,0,0,0,0,0,0,//    System scoped version which should 
+0,0,0,0,0,0,0,//  PluginNotFoundException, PluginResolutionException, PluginDescriptorParsingException,   CycleDetectedInPluginGraphException; 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Test and compile sourceroots.   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  check all transitive deps of a test dependency are test, except test and provided which is skipped 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Profile Activation   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  make sure repeated entries are skipped 
+0,0,0,0,0,0,0,//  flush the calculated artifactMap 
+0,0,0,0,0,0,0,//  null case is covered by canDetermineActivation(), so we can do a straight startsWith() here. 
+0,0,0,0,0,0,0,//  Maven 
+0,0,0,0,0,0,0,//  for instance if package produced nothing or classifier problems. 
+0,0,0,0,0,0,0,//  [MNG-6074] Maven should produce an error if no model version has been set in a POM file used to build an   effective model.     As of 3.4, the model version is mandatory even in raw models. The XML element still is optional in the   XML schema and this will not change anytime soon. We do not want to build effective models based on   models without a version starting with 3.4.
+0,0,0,0,0,0,0,//  USED BY SUREFIRE, DEPENDENCY PLUGIN 
+0,0,0,0,0,0,0,//  ChildScmUrlInheritAppendPath 
+0,0,0,0,0,0,0,//  NOTE: Some plugins like Surefire access this field directly!
+0,0,0,1,1,1,1,//  CHECKSTYLE_ON: LineLength   TODO Move me to Maven Shared Utils
+0,0,0,0,0,0,0,//  Reports :: aggregate 
+0,0,0,0,0,0,0,//  constructors ----------------------------------------------------------- 
+0,0,0,0,0,0,0,//  enable re-resolution 
+0,0,0,0,0,0,0,//  the metadata source looks up the default impl, so we have to trick it 
+0,0,0,0,0,0,0,//  url normalization 
+0,0,0,0,0,0,0,//  Also, we need to ensure that any exclusions it presents are   added to the artifact before we retrieve the metadata   for the artifact; otherwise we may end up with unwanted 
+0,0,0,0,0,0,0,//  ignore 
+0,0,0,0,0,0,0,//  this one should never happen in practice... 
+0,0,0,0,0,0,0,/*          * NOTE: This provides backward-compat with maven-deploy-plugin:2.4 which bypasses the repository factory when         * using an alternative deployment location.          */
+0,0,0,0,0,0,0,//  This will put this plugin last in the sorted map 
+0,0,0,0,0,0,0,/*     	 *       v2    	 *   v1<    	 *       v3-v4    	 *    	  */
+0,0,1,1,1,1,1,// TODO This prevents a cycle in the composition which shows us another problem we need to deal with.  @Requirement 
+0,0,0,0,0,0,0,//  we cannot set this directly in the MDO due to the interactions with dependency management 
+0,0,0,0,0,0,0,//  drive-relative Windows path, don't align with project directory but with drive root 
+0,0,0,0,0,0,0,//         throws Exception      {          File localRepo = getLocalRepositoryPath();            ArtifactFactory factory = (ArtifactFactory) lookup( ArtifactFactory.class );          Artifact artifact = factory.createProjectArtifact( "maven", "p1", "1.0" );            ArtifactRepositoryFactory repoFactory = (ArtifactRepositoryFactory) lookup( ArtifactRepositoryFactory.class );          ArtifactRepository localArtifactRepo = repoFactory.createLocalRepository( localRepo );            MavenProject project1 = getProjectBuilder().buildFromRepository( artifact, Collections.EMPTY_LIST, localArtifactRepo );   
+0,0,1,1,1,1,1,//  TODO should this be inside the above check? 
+0,0,1,0,1,1,1,//  TODO this should not be allowed to be null. 
+0,0,0,0,0,0,0,//  normalize separators 
+0,0,0,0,0,0,0,//  this tricks plexus-component-metadata generate required metadata 
+0,0,0,0,0,0,0,//  MNG-2123: null is a valid response to getSelectedVersion, don't
+0,0,0,0,0,0,0,//  LOG LEVEL 
+0,0,0,0,0,0,0,//  Deploy 
+0,0,0,0,0,0,0,//  The build has been set but we want to step in here and fill in   values that have not been set by the child. 
+0,0,0,0,1,1,1,/*  * Metadata for the artifact version directory of the repository. * * @author <a href="mailto:brett@apache.org">Brett Porter</a> * TODO split instantiation (versioning, plugin mappings) from definition  */
+0,0,0,0,0,0,0,//  Now the fully interpolated model is available: reconfigure the resolver 
+0,0,0,0,0,0,0,/*         Wait until we are sure the print-stream thread is running.          */
+0,0,0,0,0,0,0,/*  current POM rules all, if nearest is in current pom, do not update its artifactScope  */
+0,0,0,0,0,0,0,//  we need the null check for pre-build legacy plugins... 
+0,0,0,0,0,0,0,//  effective model validation 
+0,0,0,0,0,0,0,//  I'm not entirely sure about the order but this should do...
+0,0,0,0,0,0,0,//  calculated from request attributes. 
+0,0,0,0,0,0,0,//  this relies heavily on the equals() and hashCode() for ComponentDescriptor,   which uses role:roleHint for identity...and roleHint == goalPrefix:goal.   role does not vary for Mojos. 
+0,0,0,0,0,0,0,/*  (non-Javadoc)     * @see org.apache.maven.profiles.ProfileManager#addProfiles(java.util.List)      */
+0,0,0,0,0,0,0,//  Notifiers 
+0,0,0,0,0,0,0,//  special "aliases" a, b and m for alpha, beta and milestone 
+0,0,0,0,0,0,0,//  Type 
+0,0,0,0,0,0,0,//  check all transitive deps of a runtime dependency are runtime scope, except for test 
+0,0,0,0,0,0,0,//  Only select snapshots that are unresolved (eg 1.0-SNAPSHOT, not 1.0-20050607.123456) 
+0,0,0,0,0,0,0,//     {          setGroupId( af.getGroupId() );          setArtifactId( af.getArtifactId() );          setVersion( af.getVersion() );          setType( af.getType() );          setScope( af.getScope() );          setClassifier( af.getClassifier() );          //setUri( af.getDownloadUrl() );            this.resolved = af.isResolved();      } 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Components   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  this is the unusual version string, with 'H' in the middle 
+0,0,0,0,0,0,0,//  Exceptions 
+0,0,0,0,0,0,0,//  look for last ANSI escape sequence to check if nextColor 
+0,0,0,0,0,0,0,//  session may be different from rootSession seeded in DefaultMaven   explicitly seed the right session here to make sure it is used by Guice 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------------   Settings equivalents   ---------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Test artifact generation for unit tests   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Project building   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  dependencies. 
+0,0,0,0,0,0,0,//  NOTE: The PluginConfigurationExpander already merged the plugin-level config in 
+0,0,0,0,0,0,0,//  add eventual current color inherited from previous line 
+0,0,0,0,0,0,0,//            
+0,0,1,0,0,0,0,//  ----------------------------------------------------------------------------   I'm fully aware that the file could just be moved using File.rename but   there are bugs in various JVM that have problems doing this across   different filesystem. So we'll incur the small hit to actually copy   here and be safe. jvz.   ----------------------------------------------------------------------------
+0,0,0,0,0,0,0,//  first pass: build without building parent. 
+0,0,0,0,0,0,0,/*  Allow for this test running across midnight  */
+0,0,0,0,0,0,0,//    All the parts that were taken out of MavenProject for Maven 4.0.0   
+0,0,0,1,1,1,1,/*      * Parse maven-...-plugin.     *     * TODO move to plugin-tools-api as a default only      */
+0,0,0,0,0,0,0,/*  MNG-4000  */
+0,0,0,0,0,0,0,//  system scope come through unchanged... 
+0,0,0,0,0,0,0,//    Settings in core 
+0,0,0,0,0,0,0,//  MNG-1911 / MNG-5572: Building plugins with extensions cannot be part of reactor
+0,0,0,0,0,0,0,//  use this if we can, but prefer the original if possible 
+0,0,0,0,0,0,0,//  Either the original or the specified version ranges have no restrictions 
+0,0,0,0,0,0,0,//  Archive 
+0,0,0,0,0,0,0,//  This should probably be moved to a separate stub
+0,0,0,0,0,0,0,//  context of the container and thus the value would be interpolated by Plexus 
+0,0,0,0,0,0,0,/*      * @see org.codehaus.plexus.personality.plexus.lifecycle.phase.Contextualizable#contextualize(org.codehaus.plexus.context.Context)      */
+0,0,0,0,0,0,0,//  CHECKSTYLE_ON: MagicNumber 
+0,0,0,0,0,0,0,//  pluginArtifacts 
+0,0,0,0,0,0,0,//  if we're in the process of building up another arg, push it and start over.   this is for the case: "-Dfoo=bar "-Dfoo2=bar two" (note the first unterminated quote) 
+0,0,0,0,0,0,0,//  We have a prefix and goal     idea:idea 
+0,0,0,0,0,0,0,//  Maybe also make one with LifeCycleTasks 
+0,0,0,0,0,0,0,/*  * Allows core extensions to participate in Maven build session lifecycle. * * All callback main.methods (will) follow beforeXXX/afterXXX naming pattern to * indicate at what lifecycle point it is being called. * * @see <a href="https://maven.apache.org/examples/maven-3-lifecycle-extensions.html">example</a> * @see <a href="https://issues.apache.org/jira/browse/MNG-4224">MNG-4224</a> * @since 3.0-alpha-3  */
+0,0,0,0,0,0,0,//  calculated. 
+0,0,0,0,0,0,0,//  don't need a deep copy, they don't get modified or added/removed to/from - but make them unmodifiable to be 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------     p1 inherits from p0   p0 inherits from super model     or we can show it graphically as:     p1 ---> p0 --> super model     ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  an ordinary relative path, align with project directory 
+0,0,0,0,0,0,0,//  developers 
+0,0,0,0,0,0,0,/*  farthest = compile  */
+0,0,1,0,0,0,0,//    Used by Tycho and will break users and force them to upgrade to Maven 3.1 so we should really leave   this here, possibly indefinitely.   
+0,0,0,0,0,0,0,//  papa 
+0,0,0,0,0,0,0,//  eaten, handled by repo system 
+0,0,0,0,0,0,0,//  MNG-5368: Log a message instead of returning 'null' silently.
+0,0,0,0,0,0,0,/*         This will not work until the RR plugin is released to get rid of the binding to the reporting exception which is a mistake.        This happens after removing the reporting API from the core:        java.lang.NoClassDefFoundError: org/apache/maven/reporting/MavenReportException        MavenSession session = createMavenSession( getProject( "project-with-inheritance" ) );        String goal = "process";        Plugin plugin = new Plugin();        plugin.setGroupId( "org.apache.maven.plugins" );        plugin.setArtifactId( "maven-remote-resources-plugin" );        plugin.setVersion( "1.0-beta-2" );        MojoDescriptor mojoDescriptor = pluginManager.getMojoDescriptor( plugin, goal, session.getCurrentProject(), session.getLocalRepository() );        assertPluginDescriptor( mojoDescriptor, "org.apache.maven.plugins", "maven-remote-resources-plugin", "1.0-beta-2" );        MojoExecution mojoExecution = new MojoExecution( mojoDescriptor );        pluginManager.executeMojo( session, mojoExecution );         */
+0,0,0,0,0,0,0,//  We are doing something like "mvn clean:clean" where no version is specified but this   project we are working on has the version specified in the POM so the version should come from there. 
+0,0,0,0,0,0,0,//    If we're logging to a file then we don't want the console transfer listener as it will spew   download progress all over the place   
+0,0,0,0,0,0,0,// ----------------------------------------------------------------------------  ---------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  Name 
+0,0,0,0,0,0,0,//  This one we will eat when looking through remote repositories   because we want to cycle through them all before squawking. 
+0,0,0,0,0,0,0,/*                  * This is purely for backward-compat with 2.x where <extensions> consisting of a single artifact where                 * loaded into the core and hence available to plugins, in contrast to bigger extensions that were                 * loaded into a dedicated realm which is invisible to plugins (MNG-2749).                  */
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   System properties handling   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,// ------------------------------------------------------------------------ 
+0,0,0,0,0,0,0,//  MNG-6170: Only schedule other modules from reactor if we have more modules to build than one.
+0,0,0,0,0,0,0,//  If we're processing this merge as an inheritance, we have to build up a list of   plugins that were considered for inheritance. 
+0,0,0,0,0,0,0,//  Length 7-8 chars 
+0,0,0,0,0,0,0,//  calculated on-demand. 
+0,0,0,0,0,0,0,//  -----------------------------------------------------------------------------------------------   Testing help   ----------------------------------------------------------------------------------------------- 
+0,0,0,1,1,1,1,//  TODO configure on repository 
+0,0,0,0,0,0,0,//  same instance from spec cache 
+0,0,0,0,0,0,0,//    Deployer 
+0,0,0,0,0,0,0,//  -T2.2C 
+0,0,0,1,1,1,1,// TODO remove the update check manager  TODO separate into retriever and publisher  TODO remove hardcoding of checksum logic
+0,0,0,0,0,0,0,//  1.any < 1-1 
+0,0,0,0,0,0,0,//  forked goal 
+0,0,0,0,0,0,0,//  read .mvn/maven.config 
+0,0,0,0,0,0,0,//  we're going to parse this back in as XML so we need to escape XML markup 
+0,0,0,0,0,0,0,//  1-1 < 1.0.x 
+0,0,0,0,0,0,0,//  goal was missing - pass through to MojoNotFoundException 
+0,0,0,0,0,0,0,//  intentionally blank 
+0,0,0,0,0,0,0,//  ScriptSourceDirectory 
+0,0,0,0,0,0,0,//  reload plugin realm from cache 
+0,0,0,0,0,0,0,//  <groupId>:<artifactId>:<version>:<goal> 
+0,0,0,0,0,0,0,//  ReportSets 
+0,0,0,0,0,0,0,//  added to retain compile scope. Remove if you want compile inherited as runtime
+0,0,0,0,0,0,0,//  ISO 8601-compliant timestamp for machine readability 
+0,0,0,0,0,0,0,//  clear the inherited flag in the merge result. 
+0,0,0,0,0,0,0,/*     * @see org.apache.maven.artifact.resolver.conflict.ConflictResolver#resolveConflict(org.apache.maven.artifact.resolver.ResolutionNode,    *      org.apache.maven.artifact.resolver.ResolutionNode)     */
+0,0,0,0,0,0,0,//  lower than 2^31 
+0,0,0,0,0,0,0,//  sure! 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Top-level elements   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  We are forcing the use of the plugin realm for all lookups that might occur during   the lifecycle that is part of the lookup. Here we are specifically trying to keep   lookups that occur in contextualize calls in line with the right realm. 
+0,0,0,0,0,0,0,//  restore activation 
+0,0,0,0,0,0,0,/*  MNG-3925  */
+0,0,0,0,0,0,0,/* end[MAVEN4] */
+0,0,0,0,0,0,0,//  expected failure 
+0,0,0,0,0,0,0,//  default over to the main project builder... 
+0,0,0,0,0,0,0,//  remove null trailing items: 0, "", empty list 
+0,0,0,0,0,0,0,//  classical   now b < c, but before MNG-5568, we had b > c
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Delegate to the model   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,/*  MNG-3887  */
+0,0,0,0,0,0,0,//  description 
+0,0,0,0,0,0,0,//  clean 
+0,0,0,0,0,0,0,//  case insensitive 
+0,0,0,1,0,1,1,//  The two phases below are really for future expansion, some would say they lack a drink   The point being that they do not really have to match the "real" stuff,
+0,0,0,0,0,0,0,//  v3-->v4 
+0,0,0,0,0,0,0,//  for the anonymous classes 
+0,0,0,0,0,0,0,//  MNG-2861: match version can return null
+0,0,0,1,1,1,1,//  TODO test reversed restrictions on all below 
+0,0,0,0,0,0,0,// ------------------------------------------------------------------------  ------------------------------------------------------------------------ 
+0,0,0,0,0,0,0,// List<MetadataResult> resolveMetadata( RepositorySystemSession session,                                        Collection<? extends MetadataRequest> requests ); 
+0,0,0,0,0,0,0,//    Derive these from the URL   
+0,0,0,0,0,0,0,//  warn if it is set to anything other than ignore
+0,0,0,0,0,0,0,//  replace activation value with interpolated value 
+0,0,0,1,1,1,1,//  TODO 
+0,0,0,0,0,0,0,//  edge case - single vertex graph 
+0,0,0,0,0,0,0,//    Allow the builder to be overridden by the user if requested. The builders are now pluggable. 
+0,0,0,0,0,0,0,//  single project build entry point 
+0,0,0,0,0,0,0,//  The first definition wins. 
+0,0,0,0,0,0,0,/*  MNG-3984 */
+0,0,0,0,0,0,0,//  move on to next in r2 
+0,0,0,0,0,0,0,//  0 at the beginning of a number has a special handling 
+0,0,1,1,1,1,1,//  TODO Make multiple segments on projectBuildList 
+0,0,0,0,0,0,0,//  display progress [i/n] 
+0,0,0,0,0,0,0,//  5 January 2014 
+0,0,0,0,0,0,0,//  invalid 
+0,0,0,0,0,0,0,//  see if this is a negative match 
+0,0,0,0,0,0,0,//  If people want to deploy it 
+0,0,0,0,0,0,0,//  don't add if they are equal and one is not inclusive 
+0,0,0,0,0,0,0,//  We have everything that we need     org.apache.maven.plugins:maven-remote-resources-plugin:1.0:process     groupId   artifactId   version   goal   
+0,0,0,0,0,0,0,//  Length 9 chars 
+0,0,0,0,0,0,0,//  1-rc < 1, 1-ga > 1 
+0,0,0,1,1,1,1,//  org.apache.maven.plugins:maven-remote-resources-plugin:1.0:process   TODO take repo mans into account as one may be aggregating prefixes of many   TODO collect at the root of the repository, read the one at the root, and fetch remote if something is missing   or the user forces the issue
+0,0,0,0,0,0,0,//  Remove every checksum listener 
+0,0,0,0,0,0,0,//  if we find the original, use that 
+0,0,0,0,0,0,0,//  TestCase main.methods -------------------------------------------------------
+0,0,0,0,0,0,0,//  if this is shorter, then invert the compare and mul with -1 
+0,0,0,0,0,0,0,//  Build 
+0,0,0,0,0,0,0,// based on ModeBuildingResult.validationLevel 
+0,0,0,0,0,0,0,//  OS 
+0,0,0,0,0,0,0,//  MNG-2199: What else to check here ?
+0,0,0,0,0,0,0,//  Get local midnight boundary 
+0,0,0,0,0,0,0,//  If people are going to make their own lifecycles then we need to tell people how to namespace them correctly   so that they don't interfere with internally defined lifecycles. 
+0,0,0,0,0,0,0,//  finally add the CLI system properties 
+0,0,0,0,0,0,0,//  layer the creation of a project builder configuration with a request, but this will need to be   a Maven subclass because we don't want to couple maven to the project builder which we need to   separate. 
+0,0,0,0,0,0,0,/*  MNG-3937 */
+0,0,0,0,0,0,0,//  If there is no version to be found then we need to look in the repository metadata for   this plugin and see what's specified as the latest release. 
+0,0,0,0,0,0,0,/*  farthest = system  */
+0,0,0,0,0,0,0,//  leading / was previously stripped 
+0,0,0,0,0,0,0,//  not a proper url so returns false; 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   MavenProjectBuilder Implementation   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  if this fails, forget about it 
+0,0,0,0,0,0,0,//  Classifier 
+0,0,0,0,0,0,0,/*          * NOTE: Plugins like maven-release-plugin query the path to the settings.xml to pass it into a forked Maven and         * the CLI will fail when called with a non-existing settings, so be sure to only point at actual files. Having         * a null file should be harmless as this case matches general Maven 2.x behavior...          */
+0,0,0,0,0,0,0,//  Only used for testing 
+0,0,0,0,0,0,0,//  fallback to loose class files only if artifacts haven't been packaged yet   and only for plain old jars. Not war files, not ear files, not anything else. 
+0,0,0,0,0,0,0,/*  MNG-3877 */
+0,0,0,0,0,0,0,//  new-style report configuration already present: warn since this new style has been deprecated   in favor of classical reporting section MSITE-647 / MSITE-684 
+0,0,0,0,0,0,0,//  assertVersionOlder( "2.0.1-xyz-SNAPSHOT", "2.0.1-SNAPSHOT" ); 
+0,0,0,0,0,0,0,//  see DOXIASITETOOLS-167 & MPIR-349 
+0,0,0,0,0,0,0,//                                       return e2.getPomOrder() - e1.getPomOrder();                                  }                                    return e2.getDepth() - e1.getDepth();                              }                          }                      ); 
+0,0,0,0,0,0,0,//  profile activation 
+0,0,0,0,0,0,0,//  Now we expect the host 
+0,0,0,0,0,0,0,//    If we have a system scoped artifact then we do not want any searching in local or remote repositories   and we want artifact resolution to only return the system scoped artifact itself.
+0,0,0,0,0,0,0,//  When this happens we have a Maven 1.x POM, or some invalid POM.   It should have never found its way into Maven 2.x repository but it did. 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Logging   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  resembles a SNAPSHOT   10 digit number   15 digit number   20 digit number 
+0,0,0,0,0,0,0,//  LOG COLOR 
+0,0,0,0,0,0,0,//  Metadata cannot be found 
+0,0,0,0,0,0,0,//  test that mojo which does not require dependency resolution trigger no downloading of dependencies 
+0,0,0,0,0,0,0,//  Constructor 
+0,0,0,0,0,0,0,//  prevent additional checks of this artifact until it expires again 
+0,0,0,0,0,0,0,/*  MNG-3811 */
+0,0,0,0,0,0,0,// void manageArtifactVersion( Artifact artifact, Artifact replacement ); 
+0,0,0,0,0,0,0,// ---------------------------------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  Local repository 
+0,0,0,0,0,0,0,//  NOTE: Backward-compat with maven-help-plugin:2.1 
+0,0,0,0,0,0,0,//    At this point the DefaultModelBuildingListener has fired and it populates the   remote repositories with those found in the pom.xml, along with the existing externally   defined repositories.   
+0,0,0,0,0,0,0,// ------------------------------------------------------------------ 
+0,0,0,0,0,0,0,//    Maven4: We may want to evaluate how this is used but we add these separate as the    getExecutionProperties is deprecated in MavenSession.   
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Reactor Make Mode   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  this is the default behavior. 
+0,0,0,0,0,0,0,//  The CLI should win for defining properties 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   The local repository for this category of tests   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  After the collection we will have the artifact object in the result but they will not be resolved yet.
+0,0,0,0,0,0,0,//  move on to next in r1 
+0,0,0,0,0,0,0,//  This will catch cases like <version></version> or <version/> 
+0,0,0,0,0,0,0,//  since this list is a local one, and may have been modified during processing. 
+0,0,0,0,0,0,0,//  works, but we don't fail on cycles presently 
+0,0,0,0,0,0,0,//  Message below is checked for in the MNG-4463 core IT. 
+0,0,0,0,0,0,0,//  helper to determine if problems contain error 
+0,0,0,0,0,0,0,// assuming Type is available in current ClassLoader 
+0,0,0,0,0,0,0,//  enable no-arg constructor 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------------   Request   ---------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Accessors   ---------------------------------------------------------------------- 
+0,0,1,1,1,1,1,//  TODO use newest conflict resolver 
+0,0,0,0,0,0,0,//  These are cases where the artifact just isn't present in any of the remote repositories   because it wasn't deployed, or it was deployed in the wrong place.
+0,0,0,0,0,0,0,//    Ignore   
+0,0,0,0,0,0,0,//  this is expected 
+0,0,0,0,0,0,0,//  NOTE: Order counts here! 
+0,0,0,0,0,0,0,//  Relocation 
+0,0,0,0,0,0,0,//  No, this does not print to system.out. It's part of the test 
+0,0,0,0,0,0,0,//  Ensure it is not printed as 1.5.0 
+0,0,0,0,0,0,0,//  have been resolved. 
+0,0,0,0,0,0,0,//    Implementation   
+0,0,0,0,0,0,0,//  and catch here rather than have it return null
+0,0,0,0,0,0,0,//  groupId:artifactId -> (version -> vertex) 
+0,0,0,0,0,0,0,//  to delete on exit 
+0,0,0,0,0,0,0,/*          * This provides backward-compat with 2.x that allowed plugins like the maven-remote-resources-plugin:1.0 to         * populate the builder configuration with model repositories instead of artifact repositories.          */
+0,0,0,0,0,0,0,//  no edges - nothing to worry about 
+0,0,0,0,0,0,0,// no inspection unchecked
+0,0,0,0,0,0,0,//  We are doing something like "mvn resources:resources" where no version is specified but this   project we are working on has the version specified in the POM so the version should come from there. 
+0,0,0,0,0,0,0,//  assertVersionEqual( "2.0-0-SNAPSHOT", "2.0-SNAPSHOT" ); 
+0,0,0,0,0,0,0,//  do nothing for now 
+0,0,0,0,0,0,0,//  sanity checks 
+0,0,0,0,0,0,0,//  default: batch mode which goes along with interactive   default: false   default: false   default: warn 
+0,0,0,0,0,0,0,//  Don't consider the artifact's version in here, as this is stored in the directory above that 
+0,0,0,0,0,0,0,//    Parsing errors can happen during the processing of the arguments and we prefer not having to check if   the logger is null and construct this so we can use an SLF4J logger everywhere.   
+0,0,0,0,0,0,0,//  lifecycle bindings injection 
+0,0,0,0,0,0,0,//  muxer.associateThreadWithProjectSegment( projectBuild ); 
+0,0,0,0,0,0,0,//  We have everything that we need except the version     org.apache.maven.plugins:maven-remote-resources-plugin:???:process     groupId   artifactId   ???   goal   
+0,0,1,1,1,1,1,//  TODO figure out way to avoid duplicated message 
+0,0,0,0,0,0,0,//  ------------------------------------------------------------------------   Version Range Violations   ------------------------------------------------------------------------ 
+0,0,0,0,0,0,0,//  MNG-2123: if the previous node was not a range, then it wouldn't have any available   versions. We just clobbered the selected version above. (why? i have no idea.)   So since we are here and this is ranges we must go figure out the version (for a   third time...)
+0,0,0,0,0,0,0,//  Pre-store the checksums as any future puts will overwrite them 
+0,0,0,0,0,0,0,//  indications to use these in comparison 
+0,0,0,0,0,0,0,//  default cache does not track record usage 
+0,0,0,0,0,0,0,//  don't log it. 
+0,0,0,0,0,0,0,/*          * NOTE: Metadata at the g:a level contains a collection of available versions. After merging, we can't tell         * which repository provides which version so the metadata manager must not restrict the artifact resolution to         * the repository with the most recent updates.          */
+0,0,0,0,0,0,0,//  
+0,0,0,0,0,0,0,//  version 
+0,0,0,0,0,0,0,//  the test in question and vice versa. A little Eclipse plugin would do the trick. 
+0,0,0,0,0,0,0,//  entry point 
+0,0,0,0,0,0,0,//  now - drop vertices 
+0,0,0,0,0,0,0,//  ModelBase 
+0,0,0,0,0,0,0,//  if it already exists locally we were just trying to force it - ignore the update
+0,0,0,0,0,0,0,//  parentData.setModel( interpolatedParent ); 
+0,0,0,0,0,0,0,//  We don't consider the version range in the comparison, just the resolved version 
+0,0,0,0,0,0,0,/*          * Grab plugin executions that are bound to the selected lifecycle phases from project. The effective model of         * the project already contains the plugin executions induced by the project's packaging type. Remember, all         * phases of interest and only those are in the lifecycle mapping, if a phase has no value in the map, we are         * not interested in any of the executions bound to it.          */
+0,0,0,0,0,0,0,//  <mirrors>     <mirror>       <id>nexus</id>       <mirrorOf>*</mirrorOf>       <url>http://repository.sonatype.org/content/groups/public</url>     </mirror>   </mirrors> 
+0,0,0,0,0,0,0,//  This should take care of creating destination directory now on
+0,0,0,0,0,0,0,// -----------------------------------------------------------------------  ----------------------------------------------------------------------- 
+0,0,0,0,0,0,0,// void manageArtifactScope( Artifact artifact, Artifact replacement ); 
+0,0,0,0,0,0,0,//  really don't care if it failed here only log warning 
+0,0,0,0,0,0,0,/*          * Initialize mapping from lifecycle phase to bound mojos. The key set of this map denotes the phases the caller         * is interested in, i.e. all phases up to and including the specified phase.          */
+0,0,0,0,0,0,0,//  for each exception   - knowing what artifacts are missing   - project building exception   - invalid project model exception: list of markers   - xmlpull parser exception 
+0,0,0,0,0,0,0,//  Goals 
+0,0,0,0,0,0,0,//  We want to send the root artifact back in the result but we need to do this after the other dependencies 
+0,0,0,0,0,0,0,//  JDK8: this should be a call to map.merge( key, v, remapping ) 
+0,0,0,0,0,0,0,//  CHECKSTYLE_OFF: LineLength 
+0,0,0,0,0,0,0,//  SourceDirectory 
+0,0,0,0,0,0,0,/*  MNG-3827 */
+0,0,0,0,0,0,0,//  grab it first, because it's about to change... 
+0,0,0,0,0,0,0,//  Version 
+0,0,0,0,0,0,0,// SyncContext newSyncContext( RepositorySystemSession session, boolean shared ); 
+0,0,0,0,0,0,0,//  If it was optional and not a direct dependency,   we don't add it or its children, just allow the update of the version and artifactScope 
+0,0,0,0,0,0,0,//  MNG-2861: the artifact data has changed. If the available versions where previously   retrieved, we need to update it.
+0,0,0,0,0,0,0,//  should never happen because attributes have no children 
+0,0,0,0,0,0,0,//  Will show up last in the sorted map 
+0,0,0,0,0,0,0,//  DownloadUrl 
+0,0,0,0,0,0,0,//  NOTE: The upper-case packaging name is intentional, that's a special hinting mode used for certain tests 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Local repository   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  Content 
+0,0,0,0,0,0,0,//  Property 
+0,0,0,0,0,0,0,//  Scm 
+0,0,0,0,0,0,0,//  don't pull in the transitive deps of a system-scoped dependency. 
+0,0,0,0,0,0,0,//  Offline 
+0,0,0,1,1,1,1,//  TODO take repo mans into account as one may be aggregating prefixes of many   TODO collect at the root of the repository, read the one at the root, and fetch remote if something is missing   or the user forces the issue
+0,0,0,0,0,0,0,/*  MNG-3906 */
+0,0,0,0,0,0,0,//  Intentionally notNull because Super POM may not contain a modelId 
+0,0,0,0,0,0,0,//  modelVersion is neither inherited nor injected 
+0,0,0,0,0,0,0,//    Artifact Repository Creation 
+0,0,0,0,0,0,0,//  default cache does not track plugin usage 
+0,0,0,0,0,0,0,//  Install 
+0,0,0,0,0,0,0,//  This means a module which is build has a dependency which has the same   groupId, artifactId, version and classifier coordinates. This is in consequence   a self reference or in other words a circular reference which can not being resolved.
+0,0,0,0,0,0,0,//  These main.methods deal with construction intact Plugin object that look like they come from a standard   <plugin/> block in a Maven POM. We have to do some wiggling to pull the sources of information   together and this really shows the problem of constructing a sensible default configuration but   it's all encapsulated here so it appears normalized to the POM builder.
+0,0,0,0,0,0,0,//  Logging 
+0,0,0,0,0,0,0,//  --------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  groupId:artifactId:version -> project 
+0,0,0,0,0,0,0,//  resolve plugin version as necessary 
+0,0,0,0,0,0,0,//  no ide workspace artifact resolution 
+0,0,0,0,0,0,0,//  to define the version via command line: mvn -Drevision=6.5.7 ... 
+0,0,0,0,0,0,0,//  explicitly exclude. Set result and stop processing. 
+0,0,0,0,0,0,0,//  model interpolation 
+0,0,0,0,0,0,0,//  check for 'ALGO (name) = CHECKSUM' like used by openssl 
+0,0,0,0,0,0,0,//  used by the Maven ITs 
+0,0,0,0,0,0,0,//  MNG-4488 where let invalid parents slide on by
+0,0,0,0,0,0,0,//  clone properties modifyable by plugins in a forked lifecycle 
+0,0,0,0,0,0,0,//  default (or at least some of them) 
+0,0,0,0,0,0,0,/*  MNG-3886 */
+0,0,0,0,0,0,0,//    These settings values need to be removed and pushed down into a provider of configuration information   
+0,0,0,0,0,0,0,//  Version mediation 
+0,0,0,0,0,0,0,//  ArtifactFactory 
+0,0,0,0,0,0,0,//  plugins configuration 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Properties containing info about the currently running version of Maven   These override any corresponding properties set on the command line   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  We need to eat any quotes surrounding arguments... 
+0,0,0,0,0,0,0,//  relative path, e.g. "sub", "../sub" or "." 
+0,0,0,0,0,0,0,//  direct dependency retains its scope 
+0,0,0,0,0,0,0,//  prepare 
+0,0,0,0,0,0,0,//  correct 
+0,0,0,0,0,0,0,//  no op 
+0,0,0,1,0,1,1,//  NOTE: The lifecycle order can affect implied execution ids so we better be deterministic. 
+0,0,0,0,0,0,0,//  issueManagement 
+0,0,0,0,0,0,0,//  Locally installed file is newer, don't use the resolved version 
+0,0,0,0,0,0,0,//  Configuration 
+0,0,0,0,0,0,0,//  test restricting empty sets 
+0,0,0,0,0,0,0,//  Proxies 
+0,0,0,0,0,0,0,//  NOTE: To avoid inconsistencies, we'll use the TCCL exclusively for lookups 
+0,0,0,0,0,0,0,//    Desired order of precedence for local artifact repositories     Reactor   Workspace   User Local Repository 
+0,0,0,0,0,0,0,//  Currently disabled 
+0,0,0,0,0,0,0,//  CHECKSTYLE_ON: LineLength 
+0,0,0,0,0,0,0,//     /**       * Returns a list of {@link java.io.File}s which represents the bootstrap libraries for the       * runtime environment. The Bootstrap libraries include libraries in JRE's       * extension directory, if there are any.       *       * @return List       */      List getBootstrapLibraries();        /**       * Returns a list of {@link java.io.File}s which represent the libraries recognized by       * default by the platform. Usually it corresponds to contents of CLASSPATH       * environment variable.       *       * @return List       */      List getStandardLibraries();        /**       * Returns a {@link java.io.File}s which represent the locations of the source of the JDK,       * or an empty collection when the location is not set or is invalid.       *       * @return List       */      List getSourceDirectories();        /**       * Returns a {@link java.io.File}s which represent the locations of the Javadoc for this platform,       * or empty collection if the location is not set or invalid       *       * @return List       */      List getJavadocFolders(); 
+0,0,0,0,0,0,0,//  Here we will actually not have any artifacts because the ProjectDependenciesResolver is not involved here. So   right now it's not valid to ask for artifacts unless plugins require the artifacts. 
+0,0,0,0,0,0,0,//  model normalization 
+0,0,0,0,0,0,0,//  this case is not specified, might also return -1 
+0,0,0,0,0,0,0,//  if the POM didn't exist, retry if any repo is configured to always update 
+0,0,0,0,0,0,0,//  path is already absolute, we're done 
+0,0,0,0,0,0,0,//  Message below is checked for in the MNG-2199 core IT. 
+0,0,0,0,0,0,0,//  should never happen since checked isDigits(s) before  
+0,0,0,0,0,0,0,//  Prerequisites are neither inherited nor injected 
+0,0,0,0,0,0,0,//  USED BY MAVEN ASSEMBLY PLUGIN 
+0,0,0,0,0,0,0,//  set the recommended version 
+0,0,0,0,0,0,0,//  Description 
+0,0,0,0,0,0,0,// This will fail on a validation error if incorrect 
+0,0,0,0,0,0,0,/*     public int containerCountForUri( String uri )        throws IOException    {        Validate.notEmpty( uri, "uri can neither be null nor empty " );        ModelDataSource source = new DefaultModelDataSource();        source.init( domainModel.getModelProperties(), null );        return source.queryFor( uri ).size();    }	 */
+0,0,0,0,0,0,0,//  ignore if failed as we will overwrite 
+0,0,0,0,1,1,1,/*  * A conflict resolver factory that obtains instances from a plexus container. * * @author <a href="mailto:markhobson@gmail.com">Mark Hobson</a> * TODO you don't need the container in here with the active maps (jvz). * @since 3.0  */
+0,0,0,0,0,0,0,//  Parent is added as an edge, but must not cause a cycle - so we remove any other edges it has   in conflict 
+0,0,0,0,0,0,0,//  ChildProjectUrlInheritAppendPath 
+0,0,0,0,0,0,0,/*  avoid modifying the managed Versions parameter creating a new map  */
+0,0,0,0,0,0,0,//  record the error and mark the project as failed 
+0,0,0,0,0,0,0,/*  (non-Javadoc)    * @see org.apache.maven.profiles.ProfileManager#addProfile(org.apache.maven.model.Profile)     */
+0,0,0,0,0,0,0,/*  parent  */
+0,0,0,0,0,0,0,//  GroupId 
+0,0,0,0,1,1,1,//  TODO into artifactScope handler 
+0,0,0,0,0,0,0,//  Add the root artifact (as the first artifact to retain logical order of class path!) 
+0,0,0,0,0,0,0,//  Value 
+0,0,0,0,0,0,0,//  modify parent 
+0,0,0,0,0,0,0,//  check for external:* 
+0,0,0,0,0,0,0,//  release artifact repository 
+0,0,0,0,0,0,0,/* MNG-3938 */
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Configuration   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  TestOutputDirectory 
+0,0,0,0,0,0,0,// ------------------------------------------------------------------------------------------  ------------------------------------------------------------------------------------------ 
+0,0,0,0,0,0,0,// VersionResult resolveVersion( RepositorySystemSession session, VersionRequest request )                  throws VersionResolutionException; 
+0,0,0,0,0,0,0,//    These are the only main.methods we need in our primordial logger
+0,0,0,0,0,0,0,/*  farthest is runtime and nearest has lower priority, change to runtime  */
+0,0,1,0,0,0,0,//  extensions realm is expected to be fully setup at this point   any exception means a problem in maven code, not a user error 
+0,0,0,0,0,0,0,//  default 
+0,0,0,1,1,1,1,// TODO completely separate local and remote artifact repositories 
+0,0,0,0,0,0,0,//  remove everything after the first space (if available) 
+0,0,0,0,0,0,0,//  Excludes 
+0,0,0,0,0,0,0,//    The request has not set any local or remote repositories as the system scoped dependency being resolved should only   give us the dependency off the disk and nothing more. 
+0,0,0,0,0,0,0,//  used by maven-dependency-tree 
+0,0,0,0,0,0,0,//  ChildScmDeveloperConnectionInheritAppendPath 
+0,0,0,0,0,0,0,//  continue the build but ban all projects that depend on the failed one 
+0,0,0,0,0,0,0,//  expected 
+0,0,0,0,0,0,0,//  If this child node is a managed dependency, ensure   we are using the dependency management version   of this child if applicable b/c we want to use the   managed version's POM, *not* any other version's POM. 
+0,0,0,0,0,0,0,//  Here, we need to determine which policy to use. Release updateInterval will be used when   the metadata refers to a release artifact or meta-version, and snapshot updateInterval will be used when   it refers to a snapshot artifact or meta-version.   NOTE: Release metadata includes version information about artifacts that have been released, to allow   meta-versions like RELEASE and LATEST to resolve, and also to allow retrieval of the range of valid, released   artifacts available. 
+0,0,0,0,0,0,0,//  verify a few typical parameters are not duplicated 
+0,0,0,0,0,0,0,//  There is only a single threadsafe plugin here... 
+0,0,0,0,0,0,0,/*  MNG-3864 */
+0,0,0,0,0,0,0,//  -------------------------------------------------------------------------------------   ------------------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  consider the username&password because a repo manager might block artifacts depending on authorization 
+0,0,0,0,0,0,0,//  Use the original recommended version since it exists 
+0,0,0,0,0,0,0,//  This is like a filter but overrides all transitive versions 
+0,0,0,0,0,0,0,//  Can be both "LifeCycleTask" (clean/install) and "GoalTask" (org.mortbay.jetty:maven-jetty-plugin:6.1.19:run) 
+0,0,0,0,0,0,0,//  process the list 
+0,0,0,0,0,0,0,//  a Maven 1.x pom will not even   update the resource if we stop supporting modelVersion 4.0.0 
+0,0,0,0,0,0,0,//  guard against case where best-effort resolution for invalid models is requested 
+0,0,0,0,0,0,0,//                                 { 
+0,0,0,0,0,0,0,//  neither inherited nor injected 
+0,0,0,0,0,0,0,//  NOI18N 
+0,0,0,0,0,0,0,//  the default execution path only knows the DefaultModelProblemCollector,   only reason it's not in signature is because it's package private 
+0,0,0,0,0,0,0,//  this block verifies MNG-1703
+0,0,0,0,0,0,0,/* MNG-3995 */
+0,0,0,0,0,0,0,//  ------------------------------------------------------------------------   Local Repository     1. Use a value has been passed in via the configuration   2. Use value in the resultant settings   3. Use default value   ------------------------------------------------------------------------ 
+0,0,0,0,0,0,0,//  FinalName 
+0,0,0,0,0,0,0,//  consider the URL (instead of the id) as this most closely relates to the contents in the repo 
+0,0,0,0,0,0,0,//  Phase 
+0,0,0,0,0,0,0,//  no separator between number and character 
+0,0,0,0,0,0,0,// NOI18N 
+0,0,0,0,0,0,0,//  All projects are the statics from this class 
+0,0,0,0,0,0,0,//  Executions 
+0,0,0,0,0,0,0,//  dependency management injection 
+0,0,0,0,0,0,0,//  expected failure: wrong relative path calculation
+0,0,0,0,0,0,0,//  restore profiles with file activation to their value before full interpolation 
+0,0,0,0,0,0,0,//  if we're processing this as an inheritance-based merge, and   the parent's <inherited/> flag is not set, then we need to 
+0,0,0,0,0,0,0,/*  MNG-1995  */
+0,0,0,0,0,0,0,//  relocated dependency artifact is declared excluded, no need to add and recurse   further 
+0,0,0,0,0,0,0,//  default cache does not track extension usage 
+0,0,0,0,0,0,0,//  carry on 
+0,0,0,0,0,0,0,//  draw the NPE. 
+0,0,0,0,0,0,0,//  beware meta-versions! 
+0,0,0,0,0,0,0,//  extensionArtifacts 
+0,0,0,0,0,0,0,//  save profile activations before interpolation, since they are evaluated with limited scope 
+0,0,0,0,0,0,0,//  The parent version may have resolved to something different, so we take what we asked for...   instead of - child.setVersion( parent.getVersion() ); 
+0,0,0,0,0,0,0,//  We are going to take the project packaging and find all plugins in the default lifecycle and create   fully populated Plugin objects, including executions with goals and default configuration taken   from the plugin.xml inside a plugin.   
+0,0,0,0,0,0,0,// noinspection SimplifiableIfStatement 
+0,0,0,0,0,0,0,//  So now we have an url of the form file://<path> 
+0,0,0,0,0,0,0,//  execute 
+0,0,0,0,0,0,0,//  test a build where projects use different versions of the same plugin 
+0,0,0,0,0,0,0,// mkleint: does this need to be public?
+0,0,0,0,0,0,0,//  if the phase is specified then I don't have to go fetch the plugin yet and pull it down   to examine the phase it is associated to. 
+0,0,0,0,0,0,0,//  Resources 
+0,0,0,0,0,0,0,//  Url 
+0,0,0,0,0,0,0,//  USED BY INVOKER PLUGIN 
+0,0,0,0,0,0,0,/*  parentImports  */
+0,0,0,0,0,0,0,//  reinstate the download monitor... 
+0,0,0,0,0,0,0,//  if this IS NOT a ChecksumFailedException, it was a problem with transfer/read of the checksum   file...we'll try again with the MD5 checksum. 
+0,0,0,0,0,0,0,//  can't happen 
+0,0,0,0,0,0,0,/*  farthest is compile and nearest is not (has lower priority), change to compile  */
+0,0,0,0,0,0,0,//  Timing (remove this) 
+0,0,0,0,0,0,0,//  Filtering 
+0,0,0,0,0,0,0,//  assume it is not assignable from Collection or Map 
+0,0,0,0,0,0,0,//  TestResources 
+0,0,1,0,0,0,0,//  This test verifies the baseline structure used in subsequent tests. If this fails, the rest will fail. 
+0,0,0,0,0,0,0,/*  MNG-3943 */
+0,0,0,0,0,0,0,//  when model is read from repo, a stream is used, then pomFile == null   (has consequences in inheritance algorithm since getProjectDirectory() returns null) 
+0,0,0,0,0,0,0,//  we need to get the latest file for the project, not the artifact that was created at one point in time
+0,0,0,0,0,0,0,/* MNG-3803 */
+0,0,0,0,0,0,0,//  make a copy so the original in the POM doesn't get messed with 
+0,0,0,0,0,0,0,//  fix for MNG-2221 (assembly cache was not being populated for later reference): 
+0,0,0,0,0,0,0,//  USED BY MAVEN HELP PLUGIN 
+0,0,0,0,0,0,0,//  mailingLists 
+0,0,0,0,0,0,0,//  Attributes 
+0,0,0,0,0,0,0,//  Extensions 
+0,0,0,0,0,0,0,//  ------------------------------------------------------------------------   Artifact Transfer Mechanism   ------------------------------------------------------------------------ 
+0,0,1,0,0,0,0,/*                             NOTE: Users occasionally misuse the id "local" for remote repos which screws up the metadata                            of the local repository. This is especially troublesome during snapshot resolution so we try                            to handle that gracefully.                              */
+0,0,0,0,0,0,0,//  1.0 == 1, 1.1 > 1 
+0,0,0,0,0,0,0,//  this has to be a separate "if" statement, to capture the case of: "-Dfoo=bar" 
+0,0,0,0,0,0,0,//  if we catch a ChecksumFailedException, it means the transfer/read succeeded, but the    checksum doesn't match. This could be a problem with the server (ibiblio HTTP-200 error   page), so we'll try this up to two times. On the second try, we'll handle it as a bona-fide   error, based on the repository's checksum checking policy. 
+0,0,0,0,0,0,0,//  older wagons throw this. Just get() instead 
+0,0,0,0,0,0,0,//  same instance from version cache 
+0,0,0,0,1,1,1,// TODO turn an equivalent back on when the RR plugin is released. 
+0,0,0,0,0,0,0,//  SystemPath 
+0,0,0,0,0,0,0,//  If file could not be found or was not valid, start from scratch 
+0,0,0,0,0,0,0,/*                      * NOTE: We intentionally only support ${basedir} and not ${project.basedir} as the latter form                     * would suggest that other project.* expressions can be used which is however beyond the design.                      */
+0,0,0,0,0,0,0,//  an ordinary relative path, align with base dir 
+0,0,0,0,0,0,0,//  build the regular repos after extensions are loaded to allow for custom layouts 
+0,0,0,0,0,0,0,//  Email 
+0,0,0,0,0,0,0,//  protected main.methods ------------------------------------------------------
+0,0,0,0,0,0,0,//  !final 
+0,0,0,0,0,0,0,//  just to make sure all the bases are covered... 
+0,0,0,0,0,0,0,//  ConflictResolver main.methods -----------------------------------------------
+0,0,0,0,0,0,0,//  simple checks first to short circuit processing below. 
+0,0,1,0,1,1,1,//  TODO this checking for file == null happens because the resolver has been confused about the root 
+0,0,0,0,0,0,0,//  For a given project packaging find all the plugins that are bound to any registered   lifecycles. The project builder needs to now what default plugin information needs to be   merged into POM being built. Once the POM builder has this plugin information, versions can be assigned   by the POM builder because they will have to be defined in plugin management. Once this is setComplete then it   can be passed back so that the default configuration information can be populated.     We need to know the specific version so that we can lookup the right version of the plugin descriptor   which tells us what the default configuration is.   
+0,0,0,0,0,0,0,/*  (non-Javadoc)    * @see org.apache.maven.profiles.ProfileManager#explicitlyDeactivate(java.util.List)     */
+0,0,0,0,0,0,0,/*          * Determine the lifecycle that corresponds to the given phase.          */
+0,0,0,0,0,0,0,/*          * Probably is not worth it, but here I make sure I restore request         * to its original state.          */
+0,0,0,0,0,0,0,//  default does nothing 
+0,0,0,0,0,0,0,//  1-1 > 1-sp 
+0,0,0,0,0,0,0,//  Length 7 chars 
+0,0,0,0,0,0,0,//  if the POM has no file, we cached a missing artifact, only return the cached data if no update forced 
+0,0,0,0,0,0,0,//  local wins now, and irrelevant if not local as test/provided aren't transitive   assertEquals( "Check artifactScope", Artifact.SCOPE_COMPILE, artifact.getArtifactScope() ); 
+0,0,0,0,0,0,0,/*  MNG-3899  */
+0,0,0,0,0,0,0,//  Before we update the version of the artifact, we need to know   whether we are working on a transitive dependency or not. This   allows depMgmt to always override transitive dependencies, while   explicit child override depMgmt (viz. depMgmt should only   provide defaults to children, but should override transitives).   We can do this by calling isChildOfRootNode on the current node. 
+0,0,0,0,0,0,0,//  We leave in optional ones, but don't pick up its dependencies 
+0,0,0,0,0,0,0,/*  MNG-2174  */
+0,0,1,0,1,1,1,// TODO used by the Enforcer plugin 
+0,0,0,0,0,0,0,//  org.eclipse:emf:2.3.0-v200706262000   org.eclipse.wst.common_core.feature_2.0.0.v200706041905-7C78EK9E_EkMNfNOd2d8qq 
+0,0,0,0,0,0,0,//  Filters 
+0,0,0,0,0,0,0,//  Just hide the one method we want behind the RepositorySystem interface. 
+0,0,0,0,0,0,0,/*  MNG-2174 */
+0,0,0,0,0,0,0,//  The temporary file is named destination + ".tmp" and is done this way to ensure   that the temporary file is in the same file system as the destination because the   File.renameTo operation doesn't really work across file systems.   So we will attempt to do a File.renameTo for efficiency and atomicity, if this fails   then we will use a brute force copy and delete the temporary file. 
+0,0,0,0,0,0,0,//  snapshot artifact repository 
+0,0,0,0,0,0,0,//  don't allow construction. 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Artifact repository policies   ---------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  bad url just skip it here. It should have been validated already, but the wagon lookup will deal with it 
+0,0,0,0,0,0,0,//    Customizations available via the CLI   
+0,0,0,0,0,0,0,//  Map types of artifacts 
+0,0,0,0,0,0,0,//  create and cache extensions realms 
+0,0,0,0,0,0,0,//  make copy to get rid of needless overhead for dynamic lookups 
+0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Now that we have everything that we need we will fire up plexus and   bring the maven component to life for use.   ---------------------------------------------------------------------- 

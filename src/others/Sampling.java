@@ -1,7 +1,6 @@
 package others;
 
-import config.FileHandle;
-import config.Settings;
+import main.Settings;
 
 import java.util.*;
 

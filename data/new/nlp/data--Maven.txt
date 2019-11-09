@@ -1,0 +1,1219 @@
+SATD	 todo extensions like flex mojos use custom scopes like merged internal external etc order dont break backwardcompat with those only warn but dont error out 
+SATD	 todo this needs accept link returned link but its not used like that 
+SATD	 its the building the grandchild project having already cached the child project but not the parent project which causes the problem 
+SATD	 todo would like get rid this jvz 
+SATD	 note this should considered quirk support interop with mavens legacy artifactdeployer which processes one artifact time and hence cannot associate the artifacts from the same project use the same timestampbuildno for the snapshot versions allowing the caller pass metadata from previous deployment allows reestablish the association between the artifacts the same project 
+SATD	 todo really wondering where this method belongs smells like should mavenproject but for some reason isnt this localization kindof code smell 
+SATD	 todo hack because metadata isnt generated correctly and want run the maven have the 
+SATD	 todo this does not belong here 
+SATD	 this foul 
+SATD	 note theres and 
+SATD	 derive the path portion the given url param url the repository url return the basedir the repository todo need url decode for spaces 
+SATD	 todo restore these makes sense 
+SATD	 todo could the configuration passed lookup and the configurator known plexus via the descriptor that this method could entirely handled plexus lookup 
+SATD	 todo error reporting 
+SATD	 todo this replacing shouldnt necessary userhome should the 
+SATD	 todo currently this first wins but really should take the latest comparing either the snapshot timestamp some other timestamp later encoded into the metadata todo this needs repeated here the merging doesnt interfere with the written metadata wed much better having pristine input and ongoing metadata for merging instead 
+SATD	 todo what about wildcards just specifying groups versions 
+SATD	 todo use stringutils here 
+SATD	 todo from concurrency perspective this class not good the combination mutableimmutable state not nice 
+SATD	 todo probably want warn the user that building artifact with different values than 
+SATD	 not sure this last regexp was really intended disallow the usage network paths userhome directory unfortunately did removed and have not detected any problems yet path pathreplaceall 
+SATD	 todo better way than static this might hide messages reactor 
+SATD	 this exception thrown application attempts attach two the same artifacts single project author pgier author jdcasey todo make this checked exception and modify the api mavenprojecthelper currently this modification would create compatibility problems for existing plugins 
+SATD	 todo lifecycles being executed todo what runs each phase todo plugins that need downloading todo project dependencies that need downloading todo unfortunately the plugins need downloaded order get the pluginxml file need externalize this from the plugin archive todo this will the class that people get ides modify 
+SATD	 note for plugins that depend other plugin artifacts the plugin realm contains more than one plugin descriptor however only the first descriptor interest 
+SATD	 todo not sure about this here and may want getlog here wellinstead 
+SATD	 todo does this check need happen here had add the same call below when iterate child nodes will that suffice 
+SATD	 todo mng changes likely made this redundant 
+SATD	 todo move this plexusutils pathtool 
+SATD	 find the version this total hack see previous comment 
+SATD	 note this primarily keep backwardcompat with maven which did not validate that dependencies are unique within single pom upon multiple declarations just kept the last one but retained the order the first occurrence when were lenientcompat mode have deal with such broken poms and mimic the way works when were strict mode the removal duplicates just saves other merging steps from aftereffects and bogus error messages 
+SATD	 todo validate for 
+SATD	 mng neither have reserved all the above magic expressions nor their set fixedwellknown gets occasionally extended newer maven versions this imposes the risk for existing plugins unintentionally use such magic expression for ordinary system property here check whether ended with magic value that not compatible with the type the configured mojo parameter string could still converted the configurator leave those alone back off evaluating the expression from properties only 
+SATD	 this not ideal but there are events specifically for configuration from the cli which dont believe are really valid but there are its which assert the right events are published this needs supported the eventspydispatcher needs put the clirequest that can accessed configuration processors 
+SATD	 todo could use map maybe the parent did that for components too this too vulnerable 
+SATD	 todo current policy retain the original version this correct need strategies that handled elsewhere 
+SATD	 todo the configuration for the lifecycle needs externalized that can use the annotations properly for the wiring and reference and external source for the lifecycle configuration 
+SATD	 todo similar test should created test the dependency management basically all usages are affected mng 
+SATD	 todo shouldnt the versions merged across relocations 
+SATD	 todo this should not need handed off 
+SATD	 note this will not hit for maven projectxml incompatible schema 
+SATD	 todo push all common bits back plexus cli and prepare for transition guice dont need ways make clis 
+SATD	 metadata resolution exceptions 
+SATD	 todo why this using the context 
+SATD	 todo jul check this were using and there are aggregator tasks this will result weirdness 
+SATD	 validate versions arent inherited when using parent ranges the same way when read externally 
+SATD	 todo need externalize clirequest 
+SATD	 should get whole slew dependencies resolving this artifact transitively 
+SATD	 note should not inheriting status since this assessment the pom quality note should not inheriting relocation since this relates single pom 
+SATD	 todo could more efficient sorting the list and then moving along the restrictions order 
+SATD	 set the recommended version todo maybe its better just pass the range through retrieval and use transformation 
+SATD	 there are too many dont know which one run report the error 
+SATD	 any 
+SATD	 exception that occurs when artifact file used but has not been resolved author portera todo may better for artifactgetfile throw perhaps runtime exception 
+SATD	 todo log message throw exception 
+SATD	 note this exists merely for backwardcompat with legacystyle lifecycle definitions and allows configuration injection work instead failing 
+SATD	 this class needs stick around because was exposed the the remote resources plugin started using instead getting the repositories from the project 
+SATD	 maven quirk artifact always points the local repo regardless whether resolved not 
+SATD	 todo optimize maybe just rewrite the whole way aggregating mojos are being run 
+SATD	 note getid was added and such not implemented plugins compiled against apis 
+SATD	 todo dont catch exception 
+SATD	 todo use settings 
+SATD	 todo whether duplicates should removed looks like option for the generated merger 
+SATD	 todo these two tests display lack symmetry with respect the input which free form string and the mojo descriptor which comes back all the free form parsing needs done somewhere else this really the function the cli and then the preprocessing that output still needs fed into hinting process which helps flesh out the full specification the plugin the plugin manager should only deal concrete terms all version finding mumbo jumbo customization base functionality the plugin manager provides 
+SATD	 todo this will the basis the customizable lifecycle execution need figure this out quickly 
+SATD	 todo use the following two instead manageartifact todo remove interface 
+SATD	 have collected all the problems lets mimic the way the old code worked and just blow right here thats right lets just let rip right here and send big incomprehensible blob text unsuspecting users bad dog 
+SATD	 note see mng this causes problem but fixing may break more 
+SATD	 fixme this hacky what module directory doesnt match artifactid and parent coming from the repository 
+SATD	 note currently unchecked careful removing this trycatch this necessary avoid creating compatibility problems for existing plugins that use 
+SATD	 describes version transformation during artifact resolution author portera todo try and refactor remove abstract mainmethods not particular happy about current design 
+SATD	 return the required dependencies specified scope todo the name not intelligible 
+SATD	 todo shouldnt need double this work only done for simplicity handling recommended 
+SATD	 trying give loggers back bad idea ceki said notice self what was this method supposed 
+SATD	 todo kristian wonders this class really necessary and overlaps other concepts 
+SATD	 todo might better have sourceretrieve throw specific exception for this situation 
+SATD	 this really wagon something went wrong after successfully retrieved the metadata 
+SATD	 filter exclude from list artifact patterns author portera todo think this equiv exclusion set filter mavencore 
+SATD	 todo this only provide project for plugins that dont need project execute but need some the values from mavenproject ideally this should something internal and nothing outside maven 
+SATD	 todo why mvn adds dot paths 
+SATD	 todo introducing space herenot sure what else but collapse whitespace 
+SATD	 igorf way too many declared exceptions 
+SATD	 describes repository directory metadata author portera todo not happy about the store method they use this 
+SATD	 todo currently cannot tell which section contained the management information when the resolver provides this information these log messages should updated contain 
+SATD	 todo hack make the cycle detection the same for the new graph builder 
+SATD	 todo the antrun plugin has its own configurator the only plugin that does might need think about how that works todo remove the 
+SATD	 todo jvz why isnt all this checking the job the duty the workspace resolver know that have model that suitable yet more checks are done here and the one for the version problematic before because with parents ranges will never work this scenario 
+SATD	 todo the order the merged list could controlled attribute the model association targetfirst sourcefirst dominantfirst recessivefirst 
+SATD	 todo add better exception 
+SATD	 todo let the scope handler deal with this 
+SATD	 artifact not things like the stupid dummy artifact coming from surefire 
+SATD	 this just silly lookuplist should return empty list 
+SATD	 todo this needs colorized 
+SATD	 todo whether the merge continues recursively into existing node not could option for the generated merger 
+SATD	 specific problems during resolution that want account for limissing metadatali liversion range violationsli liversion circular dependenciesli limissing artifactsli linetworktransfer errorsli lifile system errors permissionsli author jason van zyl todo carlos all these possible hasexceptions and getexceptions mainmethods make the clients too complex requiring long list checks need create for the types exceptions 
+SATD	 todo this needs accept link returned link but its not used like that link 
+SATD	 mavenapi fixme the dag used not only used represent the dependency relation but also for parent buildplugin reports need multiple dags since dag can only handle type relationship properly usecase this detected cycle parent orgapachemavenmaven inherited reporting dependency this case both the verify and the report goals are called different lifecycle though the compilerplugin has valid usecase although that seems work fine need take versions and lifecycle into account 
+SATD	 dont want the artifacts version here this stored the directory above that 
+SATD	 use regular expression search find and resolve expressions within the pom author jdcasey created feb todo consolidate this logic with the minus deprecationsbans 
+SATD	 fixme filter out the inherited false stuff 
+SATD	 todo plugindescriptor classrealm and artifacts are set side effect this call which not nice throws 
+SATD	 need set the file here the resolver will fail with npe not fully equipped deal with multiple local repository implementations yet 
+SATD	 todo was null really need find them now this taken care the ordering 
+SATD	 this wont valid but constructs something easy read the error message 
+SATD	 todo this should eventually migrated 
+SATD	 note other configurators like the maporiented one dont call into the listener the hard way 
+SATD	 wraps active project instance able receive updates from its artifact without affecting the original attributes this artifact author portera todo think this exposes design flaw that the immutable and mutable parts artifact are one class and should split scope file etc depend the context use whereas everything else immutable 
+SATD	 some better conventions for the test poms needs created and each these tests that represent verification specification item needs couple lines most the expressions help lot but need clean pick directory poms automatically load them into resolver create the expression extract the data validate the model and the uri validate the properties also need way navigate from the tex specification documents 
+SATD	 todo classpath check doesnt belong here thats the other method 
+SATD	 todo not entirely the same message 
+SATD	 todo this could lot nicer should really the snapshot transformation 
+SATD	 todo should this part mediation 
+SATD	 fixme somehow report the user that there are too many elements for now ignore the extra 
+SATD	 mng hack workaround deficiency legacy api which makes impossible for plugins access the global profile manager which required build pom like cli invocation does failure consider the activated profiles can cause repo declarations lost which turn will result artifact resolution failures particular when using the enhanced local repo which guards access local files based the configured remote repos 
+SATD	 todo without this could just evaluate call 
+SATD	 builder concurrency and parallelism preserve the existing mainmethods for builder selection which look for various inputs the threading configuration dont have easy way allow pluggable builder provide its own configuration parameters but this sufficient for now ultimately want components like builders provide way extend the command line accept its own configuration parameters 
+SATD	 todo ick this forces the oce that should have come from the previous call still 
+SATD	 maybe its better move some those mainmethods separate class soc 
+SATD	 todo not sure how best set these for this implementation 
+SATD	 note this should considered quirk support interop with mavens legacy artifactdeployer which processes one artifact time and hence cannot associate the artifacts from the same project use the same version index allowing the caller pass metadata from previous deployment allows reestablish the association between the artifacts the same project 
+SATD	 todo shouldnt need file intermediatary improve wagon take stream 
+SATD	 todo should deprecate 
+SATD	 shouldnt javasources given the classifier shouldnt false given the classifier 
+SATD	 validation error continue project building and delay failing help ides 
+SATD	 the bean containing the mojo descriptorbr for more information about the usage tag have look todo there need for the delegation mavenmojodescriptor this why not just extend componentdescriptor here 
+SATD	 todo add better exception that can detail the two conflicting artifacts 
+SATD	 todo remove this 
+SATD	 todo also this logging for other metadata 
+SATD	 note from empty string and null both denote classifier however some plugins only check for null sure nullify empty classifier 
+SATD	 todo not sure that should assume this maybe the calls addmetadata should premerge then artifact replaces 
+SATD	 why are just ignoring this exception are exceptions are being used for flow control 
+SATD	 todo this too early for build extensions maybe just remove 
+SATD	 the workspacereactor flux better not assume definitive information for any its artifactsprojects 
+SATD	 blech this isnt even intelligible method name provided for consistency 
+SATD	 pseudo test generate documentation fragment about supported cli options todo such documentation generation code should not necessary unit test but should run during site generation velocity doxia macro 
+SATD	 todo throw something instead 
+WITHOUT_CLASSIFICATION	 will reported via 
+WITHOUT_CLASSIFICATION	 messageappend there was validation error else messageappend there was messagessize validation errors newline 
+WITHOUT_CLASSIFICATION	 then relative path calculation will fail during build from disk but success when calculated from repo 
+WITHOUT_CLASSIFICATION	 workspace 
+WITHOUT_CLASSIFICATION	 note enforce recursive merge trigger merginginheritance logic for executions 
+WITHOUT_CLASSIFICATION	 nonjavadoc see 
+WITHOUT_CLASSIFICATION	 sunoracle advises empty the char array 
+WITHOUT_CLASSIFICATION	 requirements 
+WITHOUT_CLASSIFICATION	 arch 
+WITHOUT_CLASSIFICATION	 comments 
+WITHOUT_CLASSIFICATION	 constants 
+WITHOUT_CLASSIFICATION	 noop 
+WITHOUT_CLASSIFICATION	 used remote resources plugin 
+WITHOUT_CLASSIFICATION	 metaversions are not valid version valuesdont write them 
+WITHOUT_CLASSIFICATION	 post 
+WITHOUT_CLASSIFICATION	 mng the probably relocated artifact excluded could process exclusions relocated artifact details the step but that would require resolving the pom from the repository very early the build 
+WITHOUT_CLASSIFICATION	 updatepolicy 
+WITHOUT_CLASSIFICATION	 disown the parent 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 phase 
+WITHOUT_CLASSIFICATION	 was not expression 
+WITHOUT_CLASSIFICATION	 includes 
+WITHOUT_CLASSIFICATION	 the plugin has custom component configurator but does not have custom mojo execution configurator fall back the default mojo execution configurator 
+WITHOUT_CLASSIFICATION	 need take multiple lifecycles 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 cleanclean resourcesresources compilercompile itgeneratemetadata compilertestcompile surefiretest jarjar installinstall 
+WITHOUT_CLASSIFICATION	 acceptable versions for continuous delivery changelist revision sha 
+WITHOUT_CLASSIFICATION	 baseencoder new baseencoder 
+WITHOUT_CLASSIFICATION	 want eliminate any relative path nonsense and lock down the path need fully resolve before any submodules use the path this can happen when you are using custom settingsxml that contains relative path entry for the local repository setting 
+WITHOUT_CLASSIFICATION	 enter the session scope right after the mavensession creation and before any the lookups that sessionscoped components can injected into 
+WITHOUT_CLASSIFICATION	 mng the check below compensates for our bad plugin support where ended with aggregator plugins that require dependency resolution although they usually run phases the build where project artifacts havent been assembled yet the prime example this mvn releaseprepare 
+WITHOUT_CLASSIFICATION	 exact matches win first 
+WITHOUT_CLASSIFICATION	 alright heres the justification for all the regexp wizardry below continuum and other serverlike apps may need locate the userlevel and globallevel settings somewhere other than userhome and mavenhome respectively using simple replacement these patterns will allow them specify the absolute path these files customized componentsxml file ideally wed full patternevaluation against the sysprops but this first step there are several replacements below order normalize the path character before operate the string regex input and order avoid surprises with the file construction 
+WITHOUT_CLASSIFICATION	 for the special case driverelative windows path make sure its absolute save plugins from trouble 
+WITHOUT_CLASSIFICATION	 path utils 
+WITHOUT_CLASSIFICATION	 todo figure out how use the same plugindescriptor when running mojos 
+WITHOUT_CLASSIFICATION	 reactor failure mode 
+WITHOUT_CLASSIFICATION	 populate the configuration section 
+WITHOUT_CLASSIFICATION	 this should never happen since checked all possible error sources before but better sure 
+WITHOUT_CLASSIFICATION	 keep this class sync with 
+WITHOUT_CLASSIFICATION	 groupidartifactid 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 contributor 
+WITHOUT_CLASSIFICATION	 version but the restriction identical 
+WITHOUT_CLASSIFICATION	 everything below will removed for maven 
+WITHOUT_CLASSIFICATION	 likely boolean boolean short int etc conversions its not the problem case try avoid 
+WITHOUT_CLASSIFICATION	 should have been abstracttoolchain 
+WITHOUT_CLASSIFICATION	 last ansi escape code reset next color 
+WITHOUT_CLASSIFICATION	 guard against modificationremoval keys the given properties mng mng mng 
+WITHOUT_CLASSIFICATION	 only check for cause there another module with the same this will fail the build earlier like project duplicated the reactor sufficient check only and not the packaging type 
+WITHOUT_CLASSIFICATION	 most existing extensions dont define exported packages classes are exposed plugins yet the components provided the extension artifact handlers must accessible still must import the extension realm into the project realm 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 version skew drop back resolution from the repository 
+WITHOUT_CLASSIFICATION	 aliases 
+WITHOUT_CLASSIFICATION	 goal specific configuration 
+WITHOUT_CLASSIFICATION	 used meclipse 
+WITHOUT_CLASSIFICATION	 group 
+WITHOUT_CLASSIFICATION	 normal for nonhttp wagons 
+WITHOUT_CLASSIFICATION	 phase 
+WITHOUT_CLASSIFICATION	 see 
+WITHOUT_CLASSIFICATION	 pass initialization resolve and build parent necessary 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 workspace resolver workspace resolver returned null model not workspace 
+WITHOUT_CLASSIFICATION	 processed the outer catch block 
+WITHOUT_CLASSIFICATION	 hide constructor 
+WITHOUT_CLASSIFICATION	 string version string artifacturi 
+WITHOUT_CLASSIFICATION	 nothing 
+WITHOUT_CLASSIFICATION	 this live injected collection 
+WITHOUT_CLASSIFICATION	 the remaining are basically for future expansion 
+WITHOUT_CLASSIFICATION	 optional flag not managed 
+WITHOUT_CLASSIFICATION	 remove once createartifacts removed 
+WITHOUT_CLASSIFICATION	 checkstyleoff magicnumber 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 ignore the parent artifact will handle metadata must fail silently here avoid problems with the artifact transformers 
+WITHOUT_CLASSIFICATION	 note this provide migration path for implementors the legacy api which did not know about getlifecycles 
+WITHOUT_CLASSIFICATION	 lower than 
+WITHOUT_CLASSIFICATION	 pluginprefixgoal 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 cause 
+WITHOUT_CLASSIFICATION	 add default toolchain 
+WITHOUT_CLASSIFICATION	 switch dominant with recessive 
+WITHOUT_CLASSIFICATION	 dependencies 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 this node 
+WITHOUT_CLASSIFICATION	 packaging 
+WITHOUT_CLASSIFICATION	 snapshotrepository 
+WITHOUT_CLASSIFICATION	 avoid concurrent modification someone else setsremoves unrelated system property 
+WITHOUT_CLASSIFICATION	 the parents inherited flag set true 
+WITHOUT_CLASSIFICATION	 resolve plugin artifacts 
+WITHOUT_CLASSIFICATION	 prefixes 
+WITHOUT_CLASSIFICATION	 public api 
+WITHOUT_CLASSIFICATION	 plugin management aggregate 
+WITHOUT_CLASSIFICATION	 used dependency plugin archetype downloader 
+WITHOUT_CLASSIFICATION	 developerconnection 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 backward compat 
+WITHOUT_CLASSIFICATION	 parent references child with directory name which not artifact 
+WITHOUT_CLASSIFICATION	 its pom dont need retrieve first 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 todo deep compare the lists 
+WITHOUT_CLASSIFICATION	 dependencies 
+WITHOUT_CLASSIFICATION	 unsubscribe 
+WITHOUT_CLASSIFICATION	 ensure canonical order standard lifecycles 
+WITHOUT_CLASSIFICATION	 this being lazy instead making interface 
+WITHOUT_CLASSIFICATION	 system 
+WITHOUT_CLASSIFICATION	 rebuild pom with modified parent 
+WITHOUT_CLASSIFICATION	 added retain compile artifactscope remove you want compile inherited runtime 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 havent added this arg the buffer and are building argument buffer then append with preceding spaceagain not sure what else other than collapse whitespace 
+WITHOUT_CLASSIFICATION	 keep the checksum files from showing the download monitor 
+WITHOUT_CLASSIFICATION	 targetpath 
+WITHOUT_CLASSIFICATION	 only show msg change actually taking place 
+WITHOUT_CLASSIFICATION	 overlaps 
+WITHOUT_CLASSIFICATION	 prime realm cache 
+WITHOUT_CLASSIFICATION	 modelversion 
+WITHOUT_CLASSIFICATION	 groupidartifactid 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 see 
+WITHOUT_CLASSIFICATION	 inheritance assembly 
+WITHOUT_CLASSIFICATION	 buildbase 
+WITHOUT_CLASSIFICATION	 getartifact 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 still unreadable even nonstrict mode rethrow original error 
+WITHOUT_CLASSIFICATION	 unset the firstrun flag dont get caught infinite loop 
+WITHOUT_CLASSIFICATION	 mng guard against mng guard against key without value 
+WITHOUT_CLASSIFICATION	 path was already absolute just normalize file separator and were done 
+WITHOUT_CLASSIFICATION	 project collection 
+WITHOUT_CLASSIFICATION	 changes above not being propagated the map 
+WITHOUT_CLASSIFICATION	 collect drop list 
+WITHOUT_CLASSIFICATION	 dont call itll ignore test and provided scopes 
+WITHOUT_CLASSIFICATION	 clear the calculated artifactmap 
+WITHOUT_CLASSIFICATION	 for each finished project 
+WITHOUT_CLASSIFICATION	 else fall back default log level specified conf see 
+WITHOUT_CLASSIFICATION	 plugin plexus 
+WITHOUT_CLASSIFICATION	 the order these two nondeterministic based when theyre added the reactor 
+WITHOUT_CLASSIFICATION	 special case there windows drive letter then keep the original return value 
+WITHOUT_CLASSIFICATION	 not going happen 
+WITHOUT_CLASSIFICATION	 site 
+WITHOUT_CLASSIFICATION	 model path translation 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 plugins 
+WITHOUT_CLASSIFICATION	 nop 
+WITHOUT_CLASSIFICATION	 properties 
+WITHOUT_CLASSIFICATION	 leaving the setting system properties here not break the this wont harm embedding jvz 
+WITHOUT_CLASSIFICATION	 add missing between url and path 
+WITHOUT_CLASSIFICATION	 excludedefaults 
+WITHOUT_CLASSIFICATION	 the projects need topologically after the participants have run their because the participant free change the dependencies project which can potentially change the topological order the projects and therefore can potentially change the build order note that participants may affect the topological order the projects but not expected that participant will add remove projects from the session 
+WITHOUT_CLASSIFICATION	 keep this class sync with 
+WITHOUT_CLASSIFICATION	 mainmethods 
+WITHOUT_CLASSIFICATION	 exceptions 
+WITHOUT_CLASSIFICATION	 this logic using filesystem against wanted independence from the user environment exists only for the sake backwardcompat with mng general wrong base url inheritance the module directory names this information unavailable for poms the repository other words modules where artifactid moduledirname will see different effective urls depending how the model was constructed from filesystem from repository 
+WITHOUT_CLASSIFICATION	 need allow per execution user and global settings the embedder might running mode where its executing many threads with totally different settings 
+WITHOUT_CLASSIFICATION	 fail fast runtimeexceptions errors and other throwables assume these are system errors and further build meaningless 
+WITHOUT_CLASSIFICATION	 but from repo local disk ignored 
+WITHOUT_CLASSIFICATION	 end hack 
+WITHOUT_CLASSIFICATION	 options that are set the command line become system properties and therefore are set the session properties system properties are most dominant 
+WITHOUT_CLASSIFICATION	 insert classifier only was used the artifact 
+WITHOUT_CLASSIFICATION	 nothing here 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 build project once 
+WITHOUT_CLASSIFICATION	 all this needs away and couched terms the execution request 
+WITHOUT_CLASSIFICATION	 build from disk expected fail 
+WITHOUT_CLASSIFICATION	 null 
+WITHOUT_CLASSIFICATION	 were building argument keep doing 
+WITHOUT_CLASSIFICATION	 mng aether part supports wildcard expressions for exclusions 
+WITHOUT_CLASSIFICATION	 only set those phase ignore pass 
+WITHOUT_CLASSIFICATION	 empirical data from actual 
+WITHOUT_CLASSIFICATION	 enabled 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 else assume never 
+WITHOUT_CLASSIFICATION	 expect most implementations available the implementation always available the core and likely always will but may have another present supplied the user the rule that only allow the execution one there more than one then execute the one supplied the user otherwise execute the the default 
+WITHOUT_CLASSIFICATION	 exclusions 
+WITHOUT_CLASSIFICATION	 tests which exercise the lifecycle executor when dealing with default lifecycle phases 
+WITHOUT_CLASSIFICATION	 for some reason with the introduction mng have the case yoko where depman section has something like the following dependencies yoko modules dependency dependency and the range not set well check here and set jvz 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 driverelative windows path 
+WITHOUT_CLASSIFICATION	 checksum policy 
+WITHOUT_CLASSIFICATION	 does nothing 
+WITHOUT_CLASSIFICATION	 mocks inject into toolchainmanager 
+WITHOUT_CLASSIFICATION	 recursive really just process the toplevel pom 
+WITHOUT_CLASSIFICATION	 needs away 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 these are local 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 optional 
+WITHOUT_CLASSIFICATION	 marker interface for cache keys 
+WITHOUT_CLASSIFICATION	 the declaring project must listed after the plugin and its pluginlevel dep though 
+WITHOUT_CLASSIFICATION	 sleep for just case this windows holding file lock 
+WITHOUT_CLASSIFICATION	 propagate the parallel flag the root session and all the cloned sessions each project segment 
+WITHOUT_CLASSIFICATION	 dont canonicalize unix avoid interfering with symlinks 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 notify listeners about soft project build failures only 
+WITHOUT_CLASSIFICATION	 setup initial properties validate local repository directory accessible create create mavensession execute get reactor projects looking for general pom errors create using trimming which takes into account projects and reactor mode this ensures that the projects passed into the reactorreader are only those specified create reactorreader with the getprojectmap projects note that the code that checks for duplicate projects definitions the build ideally this type duplicate checking should part getting the reactor projects the duplicate checking conflated with execute create without trimming trimming was done new topological sort required after the execution the are free mutate the mavenproject instances which may change dependencies which can turn affect the build order execute 
+WITHOUT_CLASSIFICATION	 local wins now and irrelevant not local testprovided arent transitive assertequals check artifactscope 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 ignore see above 
+WITHOUT_CLASSIFICATION	 test projects for each these how categorize the problems that the the problem can match page with descriptive help and the test project nice little sample projects that could run the core well integration testsall possible errors invalid lifecycle phase maybe same bad cli param though you were talking about embedder too module specified not found malformed settings malformed pom local repository not writable remote repositories not available artifact metadata missing extension metadata missing extension artifact missing artifact metadata retrieval problem version range violation circular dependency artifact missing artifact retrieval exception checksum doesnt match for local artifact need redownload this pom doesnt exist for goal that requires one parent pom missing both the repository relative path component not foundplugins plugin metadata missing plugin metadata retrieval problem plugin artifact missing plugin artifact retrieval problem plugin dependency metadata missing plugin dependency metadata retrieval problem plugin configuration problem plugin execution failure due something that know possibly wrong like compilation failure plugin execution error due something that not expected wrong the compiler executable missing asking use plugin for which you not have version defined tools easily select versions goal not found plugin probably could list the ones that are 
+WITHOUT_CLASSIFICATION	 plugin management injection 
+WITHOUT_CLASSIFICATION	 would ever need this should not exposed public api 
+WITHOUT_CLASSIFICATION	 mng see 
+WITHOUT_CLASSIFICATION	 publisher 
+WITHOUT_CLASSIFICATION	 repositories 
+WITHOUT_CLASSIFICATION	 this supports painless invocation the verifier during embedded execution the core its 
+WITHOUT_CLASSIFICATION	 nonjavadoc see 
+WITHOUT_CLASSIFICATION	 reactor failure modes 
+WITHOUT_CLASSIFICATION	 extensions are accumulated 
+WITHOUT_CLASSIFICATION	 check all transitive deps compile dependency are compile scope except for runtime and test 
+WITHOUT_CLASSIFICATION	 use the local copy doesnt exist the remote repo for 
+WITHOUT_CLASSIFICATION	 rootartifactgetfile null 
+WITHOUT_CLASSIFICATION	 checksumpolicy 
+WITHOUT_CLASSIFICATION	 string version string artifacturi 
+WITHOUT_CLASSIFICATION	 verifies profile applied 
+WITHOUT_CLASSIFICATION	 load the child project which inherits from 
+WITHOUT_CLASSIFICATION	 cyclic dependency error 
+WITHOUT_CLASSIFICATION	 installresult install session installrequest request throws release snapshot unique non unique attachment 
+WITHOUT_CLASSIFICATION	 more englishfriendly methodkeep the code clean 
+WITHOUT_CLASSIFICATION	 artifacts 
+WITHOUT_CLASSIFICATION	 plugin antlr 
+WITHOUT_CLASSIFICATION	 beer comes straight after package stub much like real life 
+WITHOUT_CLASSIFICATION	 they are not both null 
+WITHOUT_CLASSIFICATION	 not then need grab the mojo descriptor and look the phase that specified 
+WITHOUT_CLASSIFICATION	 tests 
+WITHOUT_CLASSIFICATION	 assume wont ever 
+WITHOUT_CLASSIFICATION	 versions with string lengths from 
+WITHOUT_CLASSIFICATION	 update snapshots 
+WITHOUT_CLASSIFICATION	 has been terminated this entry setnn ins 
+WITHOUT_CLASSIFICATION	 resourcesresources compilercompile itgeneratemetadata compilertestcompile surefiretest jarjar 
+WITHOUT_CLASSIFICATION	 metadata cannot retrieved 
+WITHOUT_CLASSIFICATION	 todo configure these the repository 
+WITHOUT_CLASSIFICATION	 sure were testing the right class 
+WITHOUT_CLASSIFICATION	 cipher uses strings 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 check with getpom basename expected 
+WITHOUT_CLASSIFICATION	 retriever 
+WITHOUT_CLASSIFICATION	 this will run most twice the first time the firstrun flag turned off and the retry flag set the first run will turned off and not reset the second try this because the 
+WITHOUT_CLASSIFICATION	 file 
+WITHOUT_CLASSIFICATION	 make sure not equal 
+WITHOUT_CLASSIFICATION	 previously cloned the artifact but more efficient just update the artifactscope problems are later discovered that the original object needs its original artifactscope value cloning may again appropriate 
+WITHOUT_CLASSIFICATION	 length chars 
+WITHOUT_CLASSIFICATION	 very important use the parentplugins list rather than 
+WITHOUT_CLASSIFICATION	 metadata added via 
+WITHOUT_CLASSIFICATION	 our settingsxml source historically how have configured maven from the cli are going have honour its existence forever lets run 
+WITHOUT_CLASSIFICATION	 localrepository localrepository 
+WITHOUT_CLASSIFICATION	 base directory 
+WITHOUT_CLASSIFICATION	 multi projects build entry point 
+WITHOUT_CLASSIFICATION	 versionrangeresult resolveversionrange session versionrangerequest request throws 
+WITHOUT_CLASSIFICATION	 activation 
+WITHOUT_CLASSIFICATION	 initial try use locally cached metadata 
+WITHOUT_CLASSIFICATION	 default fail fast default true default false optional optional 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 only merge plugin definition from the parent least one these true were not processing the plugins inheritancebased merge the parents inherited flag not set 
+WITHOUT_CLASSIFICATION	 parent references child with artifactid which not directory name 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 the root artifact may may not resolved need check before attempt resolve this often artifact like pom that taken from disk and already have hold the file reference but this may maven plugin that need resolve from remote repository well its dependencies 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 otherwise trim the trailing and append the buffer 
+WITHOUT_CLASSIFICATION	 read poms separately 
+WITHOUT_CLASSIFICATION	 outputdirectory 
+WITHOUT_CLASSIFICATION	 for performance check digits instead relying later catching 
+WITHOUT_CLASSIFICATION	 retain baseversion 
+WITHOUT_CLASSIFICATION	 organization 
+WITHOUT_CLASSIFICATION	 tests which exercise the lifecycle executor when dealing with individual goals 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 note theres notion tasksegment equality 
+WITHOUT_CLASSIFICATION	 remove remaining transferlistener instances checksum handlers removed above finally clause 
+WITHOUT_CLASSIFICATION	 note the case trailing quote handled nullifying the arg buffer 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 raw file transfers 
+WITHOUT_CLASSIFICATION	 have metadata retrieval problems there are cycles that have been detected give this back the calling code and let them deal with this information appropriately 
+WITHOUT_CLASSIFICATION	 file system errors 
+WITHOUT_CLASSIFICATION	 repository 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 effective line with indent and reset end colored 
+WITHOUT_CLASSIFICATION	 the moment this class totally immutable and this line with thoughts about the precalculated execution plan that stays the same during the execution deciding add mutable state this class should least considered separate this into separate mutable structure 
+WITHOUT_CLASSIFICATION	 pure user error suppress stack trace 
+WITHOUT_CLASSIFICATION	 from here the end the method dealing with merging the executions section 
+WITHOUT_CLASSIFICATION	 family 
+WITHOUT_CLASSIFICATION	 the system scoped dependencies will present the classloader for the plugin 
+WITHOUT_CLASSIFICATION	 would cool there was hook that could use setup test environment want setup localremote repositories for testing but dont want have change them when change the layout the repositories want generate the structure want test using the artifact handler manager which dictates the layout used for particular artifact type 
+WITHOUT_CLASSIFICATION	 start building argument here 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 this was failed transfer and dont want retry 
+WITHOUT_CLASSIFICATION	 previous one more dominant 
+WITHOUT_CLASSIFICATION	 plugin groups 
+WITHOUT_CLASSIFICATION	 wont happen 
+WITHOUT_CLASSIFICATION	 have pom file 
+WITHOUT_CLASSIFICATION	 are taking much can from the the requested artifact has file want remove that from the comparison 
+WITHOUT_CLASSIFICATION	 jdk 
+WITHOUT_CLASSIFICATION	 site 
+WITHOUT_CLASSIFICATION	 taken from 
+WITHOUT_CLASSIFICATION	 will attempt get nab system property way specify parameter plugins particular case here allowing the surefire plugin run single test want specify that class the cli parameter 
+WITHOUT_CLASSIFICATION	 tag 
+WITHOUT_CLASSIFICATION	 run the user supplied 
+WITHOUT_CLASSIFICATION	 check all transitive deps default dependency are compile scope except for runtime and test 
+WITHOUT_CLASSIFICATION	 directory 
+WITHOUT_CLASSIFICATION	 note not used maven core only here provide backwardcompat with plugins like the install plugin 
+WITHOUT_CLASSIFICATION	 string nonproxyhosts proxyinfo proxyinfo new proxyinfo proxyinfosethost host proxyinfosettype protocol proxyinfosetport port nonproxyhosts username password proxiesput protocol proxyinfo protocol host port username password nonproxyhosts 
+WITHOUT_CLASSIFICATION	 distribution 
+WITHOUT_CLASSIFICATION	 nothing 
+WITHOUT_CLASSIFICATION	 deps new new public int compare metadatagraphedge metadatagraphedge 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 todo mavensiteplugin not used the plugin directly but used doxia integration tool mpir 
+WITHOUT_CLASSIFICATION	 this the case where someone has executed single goal from the command line the form mvn from the metadata stored the server which has been created part standard maven plugin deployment will find the right plugindescriptor from the remote repository 
+WITHOUT_CLASSIFICATION	 this used the site plugin 
+WITHOUT_CLASSIFICATION	 inverse order 
+WITHOUT_CLASSIFICATION	 append childpathadjustment and childdirectory parent url 
+WITHOUT_CLASSIFICATION	 redirect stdout and stderr file 
+WITHOUT_CLASSIFICATION	 the rest deprecated used maven assembly plugin beta 
+WITHOUT_CLASSIFICATION	 deprecated 
+WITHOUT_CLASSIFICATION	 null 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 farthest runtime 
+WITHOUT_CLASSIFICATION	 are going take the project packaging and find all plugin the default lifecycle and create fully populated plugin objects including executions with goals and default configuration taken from the pluginxml inside plugin todo this whole method could probably removed injecting straight into client site todo but for some reason the whole plexus appcontext refuses start when try this 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 new interface mainmethods for the repository system 
+WITHOUT_CLASSIFICATION	 projectbuild 
+WITHOUT_CLASSIFICATION	 are typical indication threading issues 
+WITHOUT_CLASSIFICATION	 noinspection objectequality 
+WITHOUT_CLASSIFICATION	 used import dependencies 
+WITHOUT_CLASSIFICATION	 now add all options except for with cli first then config file 
+WITHOUT_CLASSIFICATION	 online offline requirement 
+WITHOUT_CLASSIFICATION	 want see all toplevel thread groups 
+WITHOUT_CLASSIFICATION	 transfer listeners 
+WITHOUT_CLASSIFICATION	 code taken from 
+WITHOUT_CLASSIFICATION	 reactor 
+WITHOUT_CLASSIFICATION	 update policy doesnt affect contents 
+WITHOUT_CLASSIFICATION	 the parent version not range have version skew drop back resolution from repo 
+WITHOUT_CLASSIFICATION	 expression messagebuffer 
+WITHOUT_CLASSIFICATION	 scope 
+WITHOUT_CLASSIFICATION	 url 
+WITHOUT_CLASSIFICATION	 dont need any this 
+WITHOUT_CLASSIFICATION	 plugins 
+WITHOUT_CLASSIFICATION	 exists 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 then relative path calculation will success during build from disk but fail when calculated from repo 
+WITHOUT_CLASSIFICATION	 this here can checksum the artifact metadata too otherwise could metadata itself 
+WITHOUT_CLASSIFICATION	 testsourcedirectory 
+WITHOUT_CLASSIFICATION	 deployresult deploy session deployrequest request throws deploymentexception 
+WITHOUT_CLASSIFICATION	 errors 
+WITHOUT_CLASSIFICATION	 string tokenizer wont detect these and ignores them 
+WITHOUT_CLASSIFICATION	 contextualizable mainmethods 
+WITHOUT_CLASSIFICATION	 nonjavadoc see 
+WITHOUT_CLASSIFICATION	 remove whitespaces the end 
+WITHOUT_CLASSIFICATION	 would like throw this but have crappy stuff the repo 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 copy fields 
+WITHOUT_CLASSIFICATION	 transfer error 
+WITHOUT_CLASSIFICATION	 continue the build 
+WITHOUT_CLASSIFICATION	 beer comes straight after package stub 
+WITHOUT_CLASSIFICATION	 note the check for missing plugin versions handled directly the model builder 
+WITHOUT_CLASSIFICATION	 qualifier the whole version including 
+WITHOUT_CLASSIFICATION	 building project name version 
+WITHOUT_CLASSIFICATION	 inceptionyear 
+WITHOUT_CLASSIFICATION	 but was reset the call setversionrange restricting the version 
+WITHOUT_CLASSIFICATION	 dependency management import 
+WITHOUT_CLASSIFICATION	 here just need know that version fine use but this validation can our workspace resolver 
+WITHOUT_CLASSIFICATION	 write basename actual 
+WITHOUT_CLASSIFICATION	 field validation 
+WITHOUT_CLASSIFICATION	 not sure its necessary provide default toolchain here only version can eventually supplied and 
+WITHOUT_CLASSIFICATION	 fail should have failed since module reference artifactid directory name 
+WITHOUT_CLASSIFICATION	 special case omitted protocol keep path 
+WITHOUT_CLASSIFICATION	 the same instance can provided multiple times under different keys deduplicate instances avoid redundant beforexxxafterxxx callbacks 
+WITHOUT_CLASSIFICATION	 runtime exceptions are most likely bugs maven let them bubble the user 
+WITHOUT_CLASSIFICATION	 this required the surefire plugin 
+WITHOUT_CLASSIFICATION	 enables noarg constructor 
+WITHOUT_CLASSIFICATION	 ifnotmaven 
+WITHOUT_CLASSIFICATION	 the args are easy cli first then config file 
+WITHOUT_CLASSIFICATION	 version schemes not really supported fully transformed qualifier 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 test interpolation basedir values mojo configuration 
+WITHOUT_CLASSIFICATION	 wont happen 
+WITHOUT_CLASSIFICATION	 read and validate raw model 
+WITHOUT_CLASSIFICATION	 verify 
+WITHOUT_CLASSIFICATION	 empty path entry remove 
+WITHOUT_CLASSIFICATION	 todo 
+WITHOUT_CLASSIFICATION	 object overrides 
+WITHOUT_CLASSIFICATION	 update the build number anyway that doesnt get lost requires the timestamp take effect 
+WITHOUT_CLASSIFICATION	 this the case dfoobar then need adjust the buffer 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 validation error continue project building and delay failing help ides 
+WITHOUT_CLASSIFICATION	 mng mng mng the build section present and the project directory nonnull should make sure interpolation the directories below uses translated paths afterward well double back and translate any paths that werent covered during interpolation via the code below 
+WITHOUT_CLASSIFICATION	 override from command line 
+WITHOUT_CLASSIFICATION	 check with getpom 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 use key 
+WITHOUT_CLASSIFICATION	 ensure resulting url ends with slash initial url was 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 adding this back for compatibility with the verifier that hard codes this option 
+WITHOUT_CLASSIFICATION	 log streams 
+WITHOUT_CLASSIFICATION	 children 
+WITHOUT_CLASSIFICATION	 message 
+WITHOUT_CLASSIFICATION	 interactive 
+WITHOUT_CLASSIFICATION	 ordering 
+WITHOUT_CLASSIFICATION	 inceptionyear 
+WITHOUT_CLASSIFICATION	 conflict resolution 
+WITHOUT_CLASSIFICATION	 rethrow original errors and runtime exceptions 
+WITHOUT_CLASSIFICATION	 managedversionmap 
+WITHOUT_CLASSIFICATION	 test and provided are not transitive exclude them 
+WITHOUT_CLASSIFICATION	 alpha beta milestone 
+WITHOUT_CLASSIFICATION	 used tycho and will break users and force them upgrade maven should really leave this here possibly indefinitely 
+WITHOUT_CLASSIFICATION	 artifactid neither inherited nor injected 
+WITHOUT_CLASSIFICATION	 missing 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 layout 
+WITHOUT_CLASSIFICATION	 system scope historic only and simple 
+WITHOUT_CLASSIFICATION	 pluginartifact 
+WITHOUT_CLASSIFICATION	 artifactid 
+WITHOUT_CLASSIFICATION	 used remote resources plugin dependency plugin shade plugin 
+WITHOUT_CLASSIFICATION	 organizationurl 
+WITHOUT_CLASSIFICATION	 nonjavadoc see 
+WITHOUT_CLASSIFICATION	 todo consider throwing hashcodeequals 
+WITHOUT_CLASSIFICATION	 invalid version range drop back resolution from the repository 
+WITHOUT_CLASSIFICATION	 unless its entry point currently processing the entry point should not have any entry incident edges 
+WITHOUT_CLASSIFICATION	 use for compatibility with maven and earlier 
+WITHOUT_CLASSIFICATION	 version range violation 
+WITHOUT_CLASSIFICATION	 edges dont need this vertex any more 
+WITHOUT_CLASSIFICATION	 schedule independent projects 
+WITHOUT_CLASSIFICATION	 proxies proxy activetrueactive portport proxy proxies 
+WITHOUT_CLASSIFICATION	 overwrite existing values model properties otherwise its not possible 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 igorf plugin realm comes later assertnotnull 
+WITHOUT_CLASSIFICATION	 relativepath 
+WITHOUT_CLASSIFICATION	 valid check greater than the currently matched version 
+WITHOUT_CLASSIFICATION	 this appears only used test code 
+WITHOUT_CLASSIFICATION	 prefixgoal 
+WITHOUT_CLASSIFICATION	 system scopes come through unchanged 
+WITHOUT_CLASSIFICATION	 advance res 
+WITHOUT_CLASSIFICATION	 select appropriate available version from the now restricted range note this version was selected before get the appropriate pom 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 default the standard multithreaded builder 
+WITHOUT_CLASSIFICATION	 have value has match the system value 
+WITHOUT_CLASSIFICATION	 exports descriptors are entirely optional 
+WITHOUT_CLASSIFICATION	 reset only needed for getid 
+WITHOUT_CLASSIFICATION	 check for exact match 
+WITHOUT_CLASSIFICATION	 notice extension and classifier not really used this test 
+WITHOUT_CLASSIFICATION	 subscribe 
+WITHOUT_CLASSIFICATION	 defaultgoal 
+WITHOUT_CLASSIFICATION	 this fails forget about well try overwrite anyway need 
+WITHOUT_CLASSIFICATION	 dont use snapshot metadata for latest which issnapshot returns true for 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 pluginmanagement 
+WITHOUT_CLASSIFICATION	 enables default constructor 
+WITHOUT_CLASSIFICATION	 cimanagement 
+WITHOUT_CLASSIFICATION	 advance res 
+WITHOUT_CLASSIFICATION	 nice whittle this down session maybe add task segments the session the session really the the place store reactor related information 
+WITHOUT_CLASSIFICATION	 asserttrue new alpha compareto new alpha 
+WITHOUT_CLASSIFICATION	 used the site plugin 
+WITHOUT_CLASSIFICATION	 todo figure out how reuse here 
+WITHOUT_CLASSIFICATION	 remove any previous repository with this 
+WITHOUT_CLASSIFICATION	 retrieve the pom below the retrieval step 
+WITHOUT_CLASSIFICATION	 schedule dependent projects all their requirements are met 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 reader new config readerread new inputstreamreader lifecyclexml assertequals check number lifecycles lifecycle lifecycle assertequals check clover lgetid assertequals check number phases lgetphasessize phase phase assertequals check generatesources pgetid assertequals check number executions pgetexecutionssize execution execution assertequals check configuration true xppdom debug getvalue assertequals check number goals egetgoalssize string string assertequals check goal clovercompiler 
+WITHOUT_CLASSIFICATION	 start all the threads 
+WITHOUT_CLASSIFICATION	 this live injected collection 
+WITHOUT_CLASSIFICATION	 internal 
+WITHOUT_CLASSIFICATION	 dependency requirement 
+WITHOUT_CLASSIFICATION	 reportartifacts 
+WITHOUT_CLASSIFICATION	 check all transitive deps provided dependency are provided scope except for test 
+WITHOUT_CLASSIFICATION	 reset the retry flag 
+WITHOUT_CLASSIFICATION	 overlap 
+WITHOUT_CLASSIFICATION	 parameters 
+WITHOUT_CLASSIFICATION	 ignore for now and delay failure higher level processing 
+WITHOUT_CLASSIFICATION	 mainmethods 
+WITHOUT_CLASSIFICATION	 try verify the sha checksum for this file 
+WITHOUT_CLASSIFICATION	 clone source roots 
+WITHOUT_CLASSIFICATION	 note enforce recursive merge trigger merginginheritance logic for executions well 
+WITHOUT_CLASSIFICATION	 need update artifactscope nearest use farthest artifactscope use the nearest version but farthest artifactscope 
+WITHOUT_CLASSIFICATION	 lifecycle phase 
+WITHOUT_CLASSIFICATION	 ignore plugin descriptor parsing errors this point these errors will reported during calculation project build execution plan 
+WITHOUT_CLASSIFICATION	 this should always the case for nonsuper pom instances 
+WITHOUT_CLASSIFICATION	 test may fail get interrupted 
+WITHOUT_CLASSIFICATION	 make sure the maven home directory absolute path save from confusion with say driverelative windows paths 
+WITHOUT_CLASSIFICATION	 legacy support for mavengpgplugin 
+WITHOUT_CLASSIFICATION	 site 
+WITHOUT_CLASSIFICATION	 this should probably separate tool and not baked into maven 
+WITHOUT_CLASSIFICATION	 project requirement 
+WITHOUT_CLASSIFICATION	 also fail verify based the checksum and the checksum transferread succeeded then need determine whether retry handle failure 
+WITHOUT_CLASSIFICATION	 not totally sure this needed for anything 
+WITHOUT_CLASSIFICATION	 this required right now 
+WITHOUT_CLASSIFICATION	 fields 
+WITHOUT_CLASSIFICATION	 not critical here 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 second try refetch all possibly outdated metadata that wasnt updated the first attempt 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 see 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 mirrors 
+WITHOUT_CLASSIFICATION	 otherwise ignore 
+WITHOUT_CLASSIFICATION	 use the recommended version from the specified versionrange since there original recommended version 
+WITHOUT_CLASSIFICATION	 populate the provides section 
+WITHOUT_CLASSIFICATION	 system and provided dependencies are not transitive 
+WITHOUT_CLASSIFICATION	 used but will removed really 
+WITHOUT_CLASSIFICATION	 extra remove 
+WITHOUT_CLASSIFICATION	 profiles 
+WITHOUT_CLASSIFICATION	 single entry the classpath populated from itself 
+WITHOUT_CLASSIFICATION	 reports configuration 
+WITHOUT_CLASSIFICATION	 connection 
+WITHOUT_CLASSIFICATION	 reports 
+WITHOUT_CLASSIFICATION	 putartifact 
+WITHOUT_CLASSIFICATION	 assertequals projectgetscmgeturl assertequals assertequals 
+WITHOUT_CLASSIFICATION	 touch file that this not checked again until interval has passed 
+WITHOUT_CLASSIFICATION	 packaging 
+WITHOUT_CLASSIFICATION	 circular dependency exceptions 
+WITHOUT_CLASSIFICATION	 assertversionolder alphasnapshot snapshot 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 cannot inherit from null parent 
+WITHOUT_CLASSIFICATION	 remove the originating artifact also managed versions avoid being modified during resolution 
+WITHOUT_CLASSIFICATION	 todo share with 
+WITHOUT_CLASSIFICATION	 enable default constructor 
+WITHOUT_CLASSIFICATION	 use dedicated comparator because control our model version scheme 
+WITHOUT_CLASSIFICATION	 the fallthrough indicates that the artifact cannot found 
+WITHOUT_CLASSIFICATION	 compare against each other including itself 
+WITHOUT_CLASSIFICATION	 delete the local copy the old details arent used 
+WITHOUT_CLASSIFICATION	 driverelative windows path dont align with base dir but with drive root 
+WITHOUT_CLASSIFICATION	 used mavendependencytree and 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 needs away these are really overrides now projects defining dependencies for plugin that override what 
+WITHOUT_CLASSIFICATION	 plugins are aggregated plugininherit false 
+WITHOUT_CLASSIFICATION	 profile injection 
+WITHOUT_CLASSIFICATION	 this block prevents mng 
+WITHOUT_CLASSIFICATION	 special case there windows drive letter using switch 
+WITHOUT_CLASSIFICATION	 refresh logger case container got customized spy 
+WITHOUT_CLASSIFICATION	 read projects together 
+WITHOUT_CLASSIFICATION	 put bogus file make sure missing files cause the resolution fail 
+WITHOUT_CLASSIFICATION	 settings files 
+WITHOUT_CLASSIFICATION	 mojo this pom 
+WITHOUT_CLASSIFICATION	 todo copied from the defaultinterpolator likely want resurrect the pathtranslator least similar component for reusage 
+WITHOUT_CLASSIFICATION	 make projects that depend and projects that depend 
+WITHOUT_CLASSIFICATION	 forked phase 
+WITHOUT_CLASSIFICATION	 sisu uses realm imports establish component visibility 
+WITHOUT_CLASSIFICATION	 first iteration add initial after version resolution 
+WITHOUT_CLASSIFICATION	 needed make this method package visible make writing unit test possible 
+WITHOUT_CLASSIFICATION	 inherited 
+WITHOUT_CLASSIFICATION	 avoid constant folding the compiler this field must not final 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 fill domain with actual version data 
+WITHOUT_CLASSIFICATION	 reports conversion decoupled site plugin 
+WITHOUT_CLASSIFICATION	 specified the plugin itself 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 servers 
+WITHOUT_CLASSIFICATION	 farthest test 
+WITHOUT_CLASSIFICATION	 would like able lookup the mojo object using key but have limitation modello that will remedied shortly for now have iterate through and see what have 
+WITHOUT_CLASSIFICATION	 maybe something 
+WITHOUT_CLASSIFICATION	 transformer 
+WITHOUT_CLASSIFICATION	 cleanclean modelloxppwriter modellojava modelloxppreader modelloxppwriter modellojava modelloxppreader plugindescriptor resourcesresources compilercompile compilertestcompile surefiretest jarjar installinstall 
+WITHOUT_CLASSIFICATION	 mojo execution 
+WITHOUT_CLASSIFICATION	 licenses 
+WITHOUT_CLASSIFICATION	 normalize 
+WITHOUT_CLASSIFICATION	 profiles are neither inherited nor injected 
+WITHOUT_CLASSIFICATION	 dont stop processing case future segment explicitly excludes this repo 
+WITHOUT_CLASSIFICATION	 note this sanity check the cache hit the cached parent pom was locally resolved the childs relativepath should point that parent too doesnt ignore the cache and resolve externally mimic the behavior the cache didnt exist the first place otherwise the cache would obscure bad pom 
+WITHOUT_CLASSIFICATION	 roles 
+WITHOUT_CLASSIFICATION	 type inherited from the super pom 
+WITHOUT_CLASSIFICATION	 farthest provided 
+WITHOUT_CLASSIFICATION	 system scoped version which should 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 test and compile sourceroots 
+WITHOUT_CLASSIFICATION	 check all transitive deps test dependency are test except test and provided which skipped 
+WITHOUT_CLASSIFICATION	 profile activation 
+WITHOUT_CLASSIFICATION	 make sure repeated entries are skipped 
+WITHOUT_CLASSIFICATION	 flush the calculated artifactmap 
+WITHOUT_CLASSIFICATION	 null case covered can straight startswith here 
+WITHOUT_CLASSIFICATION	 maven 
+WITHOUT_CLASSIFICATION	 for instance package produced nothing classifier problems 
+WITHOUT_CLASSIFICATION	 mng maven should produce error model version has been set pom file used build effective model the model version mandatory even raw models the xml element still optional the xml schema and this will not change anytime soon not want build effective models based models without version starting with 
+WITHOUT_CLASSIFICATION	 used surefire dependency plugin 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 note some plugins like surefire access this field directly 
+WITHOUT_CLASSIFICATION	 checkstyleon linelength todo move maven shared utils 
+WITHOUT_CLASSIFICATION	 reports aggregate 
+WITHOUT_CLASSIFICATION	 constructors 
+WITHOUT_CLASSIFICATION	 enable reresolution 
+WITHOUT_CLASSIFICATION	 the metadata source looks the default impl have trick 
+WITHOUT_CLASSIFICATION	 url normalization 
+WITHOUT_CLASSIFICATION	 also need ensure that any exclusions presents are added the artifact before retrieve the metadata for the artifact otherwise may end with unwanted 
+WITHOUT_CLASSIFICATION	 ignore 
+WITHOUT_CLASSIFICATION	 this one should never happen practice 
+WITHOUT_CLASSIFICATION	 note this provides backwardcompat with mavendeployplugin which bypasses the repository factory when using alternative deployment location 
+WITHOUT_CLASSIFICATION	 this will put this plugin last the sorted map 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 todo this prevents cycle the composition which shows another problem need deal with requirement 
+WITHOUT_CLASSIFICATION	 cannot set this directly the mdo due the interactions with dependency management 
+WITHOUT_CLASSIFICATION	 driverelative windows path dont align with project directory but with drive root 
+WITHOUT_CLASSIFICATION	 throws exception file localrepo artifactfactory factory artifactfactory lookup artifact artifact maven repofactory lookup artifactrepository localartifactrepo localrepo mavenproject project artifact localartifactrepo 
+WITHOUT_CLASSIFICATION	 todo should this inside the above check 
+WITHOUT_CLASSIFICATION	 todo this should not allowed null 
+WITHOUT_CLASSIFICATION	 normalize separators 
+WITHOUT_CLASSIFICATION	 this tricks generate required metadata 
+WITHOUT_CLASSIFICATION	 mng null valid response getselectedversion dont 
+WITHOUT_CLASSIFICATION	 log level 
+WITHOUT_CLASSIFICATION	 deploy 
+WITHOUT_CLASSIFICATION	 the build has been set but want step here and fill values that have not been set the child 
+WITHOUT_CLASSIFICATION	 metadata for the artifact version directory the repository author portera todo split instantiation versioning plugin mappings from definition 
+WITHOUT_CLASSIFICATION	 now the fully interpolated model available reconfigure the resolver 
+WITHOUT_CLASSIFICATION	 wait until are sure the printstream thread running 
+WITHOUT_CLASSIFICATION	 current pom rules all nearest current pom not update its artifactscope 
+WITHOUT_CLASSIFICATION	 need the null check for prebuild legacy plugins 
+WITHOUT_CLASSIFICATION	 effective model validation 
+WITHOUT_CLASSIFICATION	 not entirely sure about the order but this should 
+WITHOUT_CLASSIFICATION	 calculated from request attributes 
+WITHOUT_CLASSIFICATION	 this relies heavily the equals and hashcode for componentdescriptor which uses rolerolehint for identityand rolehint goalprefixgoal role does not vary for mojos 
+WITHOUT_CLASSIFICATION	 nonjavadoc see 
+WITHOUT_CLASSIFICATION	 notifiers 
+WITHOUT_CLASSIFICATION	 special aliases and for alpha beta and milestone 
+WITHOUT_CLASSIFICATION	 type 
+WITHOUT_CLASSIFICATION	 check all transitive deps runtime dependency are runtime scope except for test 
+WITHOUT_CLASSIFICATION	 only select snapshots that are unresolved snapshot not 
+WITHOUT_CLASSIFICATION	 setgroupid afgetgroupid setartifactid afgetartifactid setversion afgetversion settype afgettype setscope afgetscope setclassifier afgetclassifier seturi afgetdownloadurl thisresolved afisresolved 
+WITHOUT_CLASSIFICATION	 components 
+WITHOUT_CLASSIFICATION	 this the unusual version string with the middle 
+WITHOUT_CLASSIFICATION	 exceptions 
+WITHOUT_CLASSIFICATION	 look for last ansi escape sequence check nextcolor 
+WITHOUT_CLASSIFICATION	 session may different from rootsession seeded defaultmaven explicitly seed the right session here make sure used guice 
+WITHOUT_CLASSIFICATION	 settings equivalents 
+WITHOUT_CLASSIFICATION	 test artifact generation for unit tests 
+WITHOUT_CLASSIFICATION	 project building 
+WITHOUT_CLASSIFICATION	 dependencies 
+WITHOUT_CLASSIFICATION	 note the already merged the pluginlevel config 
+WITHOUT_CLASSIFICATION	 add eventual current color inherited from previous line 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 fully aware that the file could just moved using filerename but there are bugs various jvm that have problems doing this across different filesystem well incur the small hit actually copy here and safe jvz 
+WITHOUT_CLASSIFICATION	 first pass build without building parent 
+WITHOUT_CLASSIFICATION	 allow for this test running across midnight 
+WITHOUT_CLASSIFICATION	 all the parts that were taken out mavenproject for maven 
+WITHOUT_CLASSIFICATION	 parse mavenplugin todo move plugintoolsapi default only 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 system scope come through unchanged 
+WITHOUT_CLASSIFICATION	 settings core 
+WITHOUT_CLASSIFICATION	 mng mng building plugins with extensions cannot part reactor 
+WITHOUT_CLASSIFICATION	 use this can but prefer the original possible 
+WITHOUT_CLASSIFICATION	 either the original the specified version ranges have restrictions 
+WITHOUT_CLASSIFICATION	 archive 
+WITHOUT_CLASSIFICATION	 this should probably moved separate stub 
+WITHOUT_CLASSIFICATION	 context the container and thus the value would interpolated plexus 
+WITHOUT_CLASSIFICATION	 see 
+WITHOUT_CLASSIFICATION	 checkstyleon magicnumber 
+WITHOUT_CLASSIFICATION	 pluginartifacts 
+WITHOUT_CLASSIFICATION	 were the process building another arg push and start over this for the case dfoobar dfoobar two note the first unterminated quote 
+WITHOUT_CLASSIFICATION	 have prefix and goal ideaidea 
+WITHOUT_CLASSIFICATION	 maybe also make one with lifecycletasks 
+WITHOUT_CLASSIFICATION	 allows core extensions participate maven build session lifecycle all callback mainmethods will follow beforexxxafterxxx naming pattern indicate what lifecycle point being called see see since alpha 
+WITHOUT_CLASSIFICATION	 calculated 
+WITHOUT_CLASSIFICATION	 dont need deep copy they dont get modified addedremoved tofrom but make them unmodifiable 
+WITHOUT_CLASSIFICATION	 inherits from inherits from super model can show graphically super model 
+WITHOUT_CLASSIFICATION	 ordinary relative path align with project directory 
+WITHOUT_CLASSIFICATION	 developers 
+WITHOUT_CLASSIFICATION	 farthest compile 
+WITHOUT_CLASSIFICATION	 used tycho and will break users and force them upgrade maven should really leave this here possibly indefinitely 
+WITHOUT_CLASSIFICATION	 papa 
+WITHOUT_CLASSIFICATION	 eaten handled repo system 
+WITHOUT_CLASSIFICATION	 mng log message instead returning null silently 
+WITHOUT_CLASSIFICATION	 this will not work until the plugin released get rid the binding the reporting exception which mistake this happens after removing the reporting api from the core mavensession session createmavensession getproject string goal process plugin plugin new plugin pluginsetgroupid pluginsetartifactid pluginsetversion beta mojodescriptor mojodescriptor plugin goal mojodescriptor beta mojoexecution mojoexecution new mojoexecution mojodescriptor session mojoexecution 
+WITHOUT_CLASSIFICATION	 are doing something like mvn cleanclean where version specified but this project are working has the version specified the pom the version should come from there 
+WITHOUT_CLASSIFICATION	 were logging file then dont want the console transfer listener will spew download progress all over the place 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 name 
+WITHOUT_CLASSIFICATION	 this one will eat when looking through remote repositories because want cycle through them all before squawking 
+WITHOUT_CLASSIFICATION	 this purely for backwardcompat with where extensions consisting single artifact where loaded into the core and hence available plugins contrast bigger extensions that were loaded into dedicated realm which invisible plugins mng 
+WITHOUT_CLASSIFICATION	 system properties handling 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 mng only schedule other modules from reactor have more modules build than one 
+WITHOUT_CLASSIFICATION	 were processing this merge inheritance have build list plugins that were considered for inheritance 
+WITHOUT_CLASSIFICATION	 length chars 
+WITHOUT_CLASSIFICATION	 calculated ondemand 
+WITHOUT_CLASSIFICATION	 testing help 
+WITHOUT_CLASSIFICATION	 todo configure repository 
+WITHOUT_CLASSIFICATION	 same instance from spec cache 
+WITHOUT_CLASSIFICATION	 deployer 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 todo remove the update check manager todo separate into retriever and publisher todo remove hardcoding checksum logic 
+WITHOUT_CLASSIFICATION	 any 
+WITHOUT_CLASSIFICATION	 forked goal 
+WITHOUT_CLASSIFICATION	 read mvnmavenconfig 
+WITHOUT_CLASSIFICATION	 were going parse this back xml need escape xml markup 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 goal was missing pass through 
+WITHOUT_CLASSIFICATION	 intentionally blank 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 reload plugin realm from cache 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 reportsets 
+WITHOUT_CLASSIFICATION	 added retain compile scope remove you want compile inherited runtime 
+WITHOUT_CLASSIFICATION	 iso compliant timestamp for machine readability 
+WITHOUT_CLASSIFICATION	 clear the inherited flag the merge result 
+WITHOUT_CLASSIFICATION	 see 
+WITHOUT_CLASSIFICATION	 lower than 
+WITHOUT_CLASSIFICATION	 sure 
+WITHOUT_CLASSIFICATION	 toplevel elements 
+WITHOUT_CLASSIFICATION	 are forcing the use the plugin realm for all lookups that might occur during the lifecycle that part the lookup here are specifically trying keep lookups that occur contextualize calls line with the right realm 
+WITHOUT_CLASSIFICATION	 restore activation 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 endmaven 
+WITHOUT_CLASSIFICATION	 expected failure 
+WITHOUT_CLASSIFICATION	 default over the main project builder 
+WITHOUT_CLASSIFICATION	 remove null trailing items empty list 
+WITHOUT_CLASSIFICATION	 classical now but before mng had 
+WITHOUT_CLASSIFICATION	 delegate the model 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 description 
+WITHOUT_CLASSIFICATION	 clean 
+WITHOUT_CLASSIFICATION	 case insensitive 
+WITHOUT_CLASSIFICATION	 the two phases below are really for future expansion some would say they lack drink the point being that they not really have match the real stuff 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 for the anonymous classes 
+WITHOUT_CLASSIFICATION	 mng match version can return null 
+WITHOUT_CLASSIFICATION	 todo test reversed restrictions all below 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 listmetadataresult resolvemetadata session collection extends metadatarequest requests 
+WITHOUT_CLASSIFICATION	 derive these from the url 
+WITHOUT_CLASSIFICATION	 warn set anything other than ignore 
+WITHOUT_CLASSIFICATION	 replace activation value with interpolated value 
+WITHOUT_CLASSIFICATION	 todo 
+WITHOUT_CLASSIFICATION	 edge case single vertex graph 
+WITHOUT_CLASSIFICATION	 allow the builder overridden the user requested the builders are now pluggable 
+WITHOUT_CLASSIFICATION	 single project build entry point 
+WITHOUT_CLASSIFICATION	 the first definition wins 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 move next 
+WITHOUT_CLASSIFICATION	 the beginning number has special handling 
+WITHOUT_CLASSIFICATION	 todo make multiple segments projectbuildlist 
+WITHOUT_CLASSIFICATION	 display progress 
+WITHOUT_CLASSIFICATION	 january 
+WITHOUT_CLASSIFICATION	 invalid 
+WITHOUT_CLASSIFICATION	 see this negative match 
+WITHOUT_CLASSIFICATION	 people want deploy 
+WITHOUT_CLASSIFICATION	 dont add they are equal and one not inclusive 
+WITHOUT_CLASSIFICATION	 have everything that need groupid artifactid version goal 
+WITHOUT_CLASSIFICATION	 length chars 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 todo take repo mans into account one may aggregating prefixes many todo collect the root the repository read the one the root and fetch remote something missing the user forces the issue 
+WITHOUT_CLASSIFICATION	 remove every checksum listener 
+WITHOUT_CLASSIFICATION	 find the original use that 
+WITHOUT_CLASSIFICATION	 testcase mainmethods 
+WITHOUT_CLASSIFICATION	 this shorter then invert the compare and mul with 
+WITHOUT_CLASSIFICATION	 build 
+WITHOUT_CLASSIFICATION	 based 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 mng what else check here 
+WITHOUT_CLASSIFICATION	 get local midnight boundary 
+WITHOUT_CLASSIFICATION	 people are going make their own lifecycles then need tell people how namespace them correctly that they dont interfere with internally defined lifecycles 
+WITHOUT_CLASSIFICATION	 finally add the cli system properties 
+WITHOUT_CLASSIFICATION	 layer the creation project builder configuration with request but this will need maven subclass because dont want couple maven the project builder which need separate 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 there version found then need look the repository metadata for this plugin and see whats specified the latest release 
+WITHOUT_CLASSIFICATION	 farthest system 
+WITHOUT_CLASSIFICATION	 leading was previously stripped 
+WITHOUT_CLASSIFICATION	 not proper url returns false 
+WITHOUT_CLASSIFICATION	 mavenprojectbuilder implementation 
+WITHOUT_CLASSIFICATION	 this fails forget about 
+WITHOUT_CLASSIFICATION	 classifier 
+WITHOUT_CLASSIFICATION	 note plugins like mavenreleaseplugin query the path the settingsxml pass into forked maven and the cli will fail when called with nonexisting settings sure only point actual files having null file should harmless this case matches general maven behavior 
+WITHOUT_CLASSIFICATION	 only used for testing 
+WITHOUT_CLASSIFICATION	 fallback loose class files only artifacts havent been packaged yet and only for plain old jars not war files not ear files not anything else 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 newstyle report configuration already present warn since this new style has been deprecated favor classical reporting section msite msite 
+WITHOUT_CLASSIFICATION	 assertversionolder xyzsnapshot snapshot 
+WITHOUT_CLASSIFICATION	 see doxiasitetools mpir 
+WITHOUT_CLASSIFICATION	 return egetpomorder egetpomorder return egetdepth egetdepth 
+WITHOUT_CLASSIFICATION	 profile activation 
+WITHOUT_CLASSIFICATION	 now expect the host 
+WITHOUT_CLASSIFICATION	 have system scoped artifact then not want any searching local remote repositories and want artifact resolution only return the system scoped artifact itself 
+WITHOUT_CLASSIFICATION	 when this happens have maven pom some invalid pom should have never found its way into maven repository but did 
+WITHOUT_CLASSIFICATION	 logging 
+WITHOUT_CLASSIFICATION	 resembles snapshot digit number digit number digit number 
+WITHOUT_CLASSIFICATION	 log color 
+WITHOUT_CLASSIFICATION	 metadata cannot found 
+WITHOUT_CLASSIFICATION	 test that mojo which does not require dependency resolution trigger downloading dependencies 
+WITHOUT_CLASSIFICATION	 constructor 
+WITHOUT_CLASSIFICATION	 prevent additional checks this artifact until expires again 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 void artifact artifact artifact replacement 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 local repository 
+WITHOUT_CLASSIFICATION	 note backwardcompat with mavenhelpplugin 
+WITHOUT_CLASSIFICATION	 this point the has fired and populates the remote repositories with those found the pomxml along with the existing externally defined repositories 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 maven may want evaluate how this used but add these separate the deprecated mavensession 
+WITHOUT_CLASSIFICATION	 reactor make mode 
+WITHOUT_CLASSIFICATION	 this the default behavior 
+WITHOUT_CLASSIFICATION	 the cli should win for defining properties 
+WITHOUT_CLASSIFICATION	 the local repository for this category tests 
+WITHOUT_CLASSIFICATION	 after the collection will have the artifact object the result but they will not resolved yet 
+WITHOUT_CLASSIFICATION	 move next 
+WITHOUT_CLASSIFICATION	 this will catch cases like versionversion version 
+WITHOUT_CLASSIFICATION	 since this list local one and may have been modified during processing 
+WITHOUT_CLASSIFICATION	 works but dont fail cycles presently 
+WITHOUT_CLASSIFICATION	 message below checked for the mng core 
+WITHOUT_CLASSIFICATION	 helper determine problems contain error 
+WITHOUT_CLASSIFICATION	 assuming type available current classloader 
+WITHOUT_CLASSIFICATION	 enable noarg constructor 
+WITHOUT_CLASSIFICATION	 request 
+WITHOUT_CLASSIFICATION	 accessors 
+WITHOUT_CLASSIFICATION	 todo use newest conflict resolver 
+WITHOUT_CLASSIFICATION	 these are cases where the artifact just isnt present any the remote repositories because wasnt deployed was deployed the wrong place 
+WITHOUT_CLASSIFICATION	 ignore 
+WITHOUT_CLASSIFICATION	 this expected 
+WITHOUT_CLASSIFICATION	 note order counts here 
+WITHOUT_CLASSIFICATION	 relocation 
+WITHOUT_CLASSIFICATION	 this does not print systemout its part the test 
+WITHOUT_CLASSIFICATION	 ensure not printed 
+WITHOUT_CLASSIFICATION	 have been resolved 
+WITHOUT_CLASSIFICATION	 implementation 
+WITHOUT_CLASSIFICATION	 and catch here rather than have return null 
+WITHOUT_CLASSIFICATION	 groupidartifactid version vertex 
+WITHOUT_CLASSIFICATION	 delete exit 
+WITHOUT_CLASSIFICATION	 this provides backwardcompat with that allowed plugins like the populate the builder configuration with model repositories instead artifact repositories 
+WITHOUT_CLASSIFICATION	 edges nothing worry about 
+WITHOUT_CLASSIFICATION	 inspection unchecked 
+WITHOUT_CLASSIFICATION	 are doing something like mvn resourcesresources where version specified but this project are working has the version specified the pom the version should come from there 
+WITHOUT_CLASSIFICATION	 assertversionequal snapshot snapshot 
+WITHOUT_CLASSIFICATION	 nothing for now 
+WITHOUT_CLASSIFICATION	 sanity checks 
+WITHOUT_CLASSIFICATION	 default batch mode which goes along with interactive default false default false default warn 
+WITHOUT_CLASSIFICATION	 dont consider the artifacts version here this stored the directory above that 
+WITHOUT_CLASSIFICATION	 parsing errors can happen during the processing the arguments and prefer not having check the logger null and construct this can use slfj logger everywhere 
+WITHOUT_CLASSIFICATION	 lifecycle bindings injection 
+WITHOUT_CLASSIFICATION	 projectbuild 
+WITHOUT_CLASSIFICATION	 have everything that need except the version groupid artifactid goal 
+WITHOUT_CLASSIFICATION	 todo figure out way avoid duplicated message 
+WITHOUT_CLASSIFICATION	 version range violations 
+WITHOUT_CLASSIFICATION	 mng the previous node was not range then wouldnt have any available versions just clobbered the selected version above why have idea since are here and this ranges must figure out the version for third time 
+WITHOUT_CLASSIFICATION	 prestore the checksums any future puts will overwrite them 
+WITHOUT_CLASSIFICATION	 indications use these comparison 
+WITHOUT_CLASSIFICATION	 default cache does not track record usage 
+WITHOUT_CLASSIFICATION	 dont log 
+WITHOUT_CLASSIFICATION	 note metadata the level contains collection available versions after merging cant tell which repository provides which version the metadata manager must not restrict the artifact resolution the repository with the most recent updates 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 version 
+WITHOUT_CLASSIFICATION	 the test question and vice versa little eclipse plugin would the trick 
+WITHOUT_CLASSIFICATION	 entry point 
+WITHOUT_CLASSIFICATION	 now drop vertices 
+WITHOUT_CLASSIFICATION	 modelbase 
+WITHOUT_CLASSIFICATION	 already exists locally were just trying force ignore the update 
+WITHOUT_CLASSIFICATION	 parentdatasetmodel interpolatedparent 
+WITHOUT_CLASSIFICATION	 dont consider the version range the comparison just the resolved version 
+WITHOUT_CLASSIFICATION	 grab plugin executions that are bound the selected lifecycle phases from project the effective model the project already contains the plugin executions induced the projects packaging type remember all phases interest and only those are the lifecycle mapping phase has value the map are not interested any the executions bound 
+WITHOUT_CLASSIFICATION	 mirrors mirror idnexusid mirrorofmirrorof mirror mirrors 
+WITHOUT_CLASSIFICATION	 this should take care creating destination directory now 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 void manageartifactscope artifact artifact artifact replacement 
+WITHOUT_CLASSIFICATION	 really dont care failed here only log warning 
+WITHOUT_CLASSIFICATION	 initialize mapping from lifecycle phase bound mojos the key set this map denotes the phases the caller interested all phases and including the specified phase 
+WITHOUT_CLASSIFICATION	 for each exception knowing what artifacts are missing project building exception invalid project model exception list markers xmlpull parser exception 
+WITHOUT_CLASSIFICATION	 goals 
+WITHOUT_CLASSIFICATION	 want send the root artifact back the result but need this after the other dependencies 
+WITHOUT_CLASSIFICATION	 jdk this should call mapmerge key remapping 
+WITHOUT_CLASSIFICATION	 checkstyleoff linelength 
+WITHOUT_CLASSIFICATION	 sourcedirectory 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 grab first because its about change 
+WITHOUT_CLASSIFICATION	 version 
+WITHOUT_CLASSIFICATION	 synccontext newsynccontext session boolean shared 
+WITHOUT_CLASSIFICATION	 was optional and not direct dependency dont add its children just allow the update the version and artifactscope 
+WITHOUT_CLASSIFICATION	 mng the artifact data has changed the available versions where previously retrieved need update 
+WITHOUT_CLASSIFICATION	 should never happen because attributes have children 
+WITHOUT_CLASSIFICATION	 will show last the sorted map 
+WITHOUT_CLASSIFICATION	 downloadurl 
+WITHOUT_CLASSIFICATION	 note the uppercase packaging name intentional thats special hinting mode used for certain tests 
+WITHOUT_CLASSIFICATION	 local repository 
+WITHOUT_CLASSIFICATION	 content 
+WITHOUT_CLASSIFICATION	 property 
+WITHOUT_CLASSIFICATION	 scm 
+WITHOUT_CLASSIFICATION	 dont pull the transitive deps systemscoped dependency 
+WITHOUT_CLASSIFICATION	 offline 
+WITHOUT_CLASSIFICATION	 todo take repo mans into account one may aggregating prefixes many todo collect the root the repository read the one the root and fetch remote something missing the user forces the issue 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 intentionally notnull because super pom may not contain modelid 
+WITHOUT_CLASSIFICATION	 modelversion neither inherited nor injected 
+WITHOUT_CLASSIFICATION	 artifact repository creation 
+WITHOUT_CLASSIFICATION	 default cache does not track plugin usage 
+WITHOUT_CLASSIFICATION	 install 
+WITHOUT_CLASSIFICATION	 this means module which build has dependency which has the same groupid artifactid version and classifier coordinates this consequence self reference other words circular reference which can not being resolved 
+WITHOUT_CLASSIFICATION	 these mainmethods deal with construction intact plugin object that look like they come from standard plugin block maven pom have some wiggling pull the sources information together and this really shows the problem constructing sensible default configuration but its all encapsulated here appears normalized the pom builder 
+WITHOUT_CLASSIFICATION	 logging 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 project 
+WITHOUT_CLASSIFICATION	 resolve plugin version necessary 
+WITHOUT_CLASSIFICATION	 ide workspace artifact resolution 
+WITHOUT_CLASSIFICATION	 define the version via command line mvn drevision 
+WITHOUT_CLASSIFICATION	 explicitly exclude set result and stop processing 
+WITHOUT_CLASSIFICATION	 model interpolation 
+WITHOUT_CLASSIFICATION	 check for algo name checksum like used openssl 
+WITHOUT_CLASSIFICATION	 used the maven its 
+WITHOUT_CLASSIFICATION	 mng where let invalid parents slide 
+WITHOUT_CLASSIFICATION	 clone properties modifyable plugins forked lifecycle 
+WITHOUT_CLASSIFICATION	 default least some them 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 these settings values need removed and pushed down into provider configuration information 
+WITHOUT_CLASSIFICATION	 version mediation 
+WITHOUT_CLASSIFICATION	 artifactfactory 
+WITHOUT_CLASSIFICATION	 plugins configuration 
+WITHOUT_CLASSIFICATION	 properties containing info about the currently running version maven these override any corresponding properties set the command line 
+WITHOUT_CLASSIFICATION	 need eat any quotes surrounding arguments 
+WITHOUT_CLASSIFICATION	 relative path sub sub 
+WITHOUT_CLASSIFICATION	 direct dependency retains its scope 
+WITHOUT_CLASSIFICATION	 prepare 
+WITHOUT_CLASSIFICATION	 correct 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 note the lifecycle order can affect implied execution ids better deterministic 
+WITHOUT_CLASSIFICATION	 issuemanagement 
+WITHOUT_CLASSIFICATION	 locally installed file newer dont use the resolved version 
+WITHOUT_CLASSIFICATION	 configuration 
+WITHOUT_CLASSIFICATION	 test restricting empty sets 
+WITHOUT_CLASSIFICATION	 proxies 
+WITHOUT_CLASSIFICATION	 note avoid inconsistencies well use the tccl exclusively for lookups 
+WITHOUT_CLASSIFICATION	 desired order precedence for local artifact repositories reactor workspace user local repository 
+WITHOUT_CLASSIFICATION	 currently disabled 
+WITHOUT_CLASSIFICATION	 checkstyleon linelength 
+WITHOUT_CLASSIFICATION	 returns list link javaiofiles which represents the bootstrap libraries for the runtime environment the bootstrap libraries include libraries jres extension directory there are any return list list returns list link javaiofiles which represent the libraries recognized default the platform usually corresponds contents classpath environment variable return list list returns link javaiofiles which represent the locations the source the jdk empty collection when the location not set invalid return list list returns link javaiofiles which represent the locations the javadoc for this platform empty collection the location not set invalid return list list getjavadocfolders 
+WITHOUT_CLASSIFICATION	 here will actually not have any artifacts because the not involved here right now its not valid ask for artifacts unless plugins require the artifacts 
+WITHOUT_CLASSIFICATION	 model normalization 
+WITHOUT_CLASSIFICATION	 this case not specified might also return 
+WITHOUT_CLASSIFICATION	 the pom didnt exist retry any repo configured always update 
+WITHOUT_CLASSIFICATION	 path already absolute were done 
+WITHOUT_CLASSIFICATION	 message below checked for the mng core 
+WITHOUT_CLASSIFICATION	 should never happen since checked isdigitss before 
+WITHOUT_CLASSIFICATION	 prerequisites are neither inherited nor injected 
+WITHOUT_CLASSIFICATION	 used maven assembly plugin 
+WITHOUT_CLASSIFICATION	 set the recommended version 
+WITHOUT_CLASSIFICATION	 description 
+WITHOUT_CLASSIFICATION	 this will fail validation error incorrect 
+WITHOUT_CLASSIFICATION	 public int string uri throws ioexception validatenotempty uri uri can neither null nor empty modeldatasource source new sourceinit null return sourcequeryfor uri size 
+WITHOUT_CLASSIFICATION	 ignore failed will overwrite 
+WITHOUT_CLASSIFICATION	 conflict resolver factory that obtains instances from plexus container author hobsona todo you dont need the container here with the active maps jvz since 
+WITHOUT_CLASSIFICATION	 parent added edge but must not cause cycle remove any other edges has conflict 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 avoid modifying the managed versions parameter creating new map 
+WITHOUT_CLASSIFICATION	 record the error and mark the project failed 
+WITHOUT_CLASSIFICATION	 nonjavadoc see 
+WITHOUT_CLASSIFICATION	 parent 
+WITHOUT_CLASSIFICATION	 groupid 
+WITHOUT_CLASSIFICATION	 todo into artifactscope handler 
+WITHOUT_CLASSIFICATION	 add the root artifact the first artifact retain logical order class path 
+WITHOUT_CLASSIFICATION	 value 
+WITHOUT_CLASSIFICATION	 modify parent 
+WITHOUT_CLASSIFICATION	 check for external 
+WITHOUT_CLASSIFICATION	 release artifact repository 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 configuration 
+WITHOUT_CLASSIFICATION	 testoutputdirectory 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 versionresult resolveversion session versionrequest request throws 
+WITHOUT_CLASSIFICATION	 these are the only mainmethods need our primordial logger 
+WITHOUT_CLASSIFICATION	 farthest runtime and nearest has lower priority change runtime 
+WITHOUT_CLASSIFICATION	 extensions realm expected fully setup this point any exception means problem maven code not user error 
+WITHOUT_CLASSIFICATION	 default 
+WITHOUT_CLASSIFICATION	 todo completely separate local and remote artifact repositories 
+WITHOUT_CLASSIFICATION	 remove everything after the first space available 
+WITHOUT_CLASSIFICATION	 excludes 
+WITHOUT_CLASSIFICATION	 the request has not set any local remote repositories the system scoped dependency being resolved should only give the dependency off the disk and nothing more 
+WITHOUT_CLASSIFICATION	 used mavendependencytree 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 continue the build but ban all projects that depend the failed one 
+WITHOUT_CLASSIFICATION	 expected 
+WITHOUT_CLASSIFICATION	 this child node managed dependency ensure are using the dependency management version this child applicable want use the managed versions pom not any other versions pom 
+WITHOUT_CLASSIFICATION	 here need determine which policy use release updateinterval will used when the metadata refers release artifact metaversion and snapshot updateinterval will used when refers snapshot artifact metaversion note release metadata includes version information about artifacts that have been released allow metaversions like release and latest resolve and also allow retrieval the range valid released artifacts available 
+WITHOUT_CLASSIFICATION	 verify few typical parameters are not duplicated 
+WITHOUT_CLASSIFICATION	 there only single threadsafe plugin here 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 consider the usernamepassword because repo manager might block artifacts depending authorization 
+WITHOUT_CLASSIFICATION	 use the original recommended version since exists 
+WITHOUT_CLASSIFICATION	 this like filter but overrides all transitive versions 
+WITHOUT_CLASSIFICATION	 can both lifecycletask cleaninstall and goaltask 
+WITHOUT_CLASSIFICATION	 process the list 
+WITHOUT_CLASSIFICATION	 maven pom will not even update the resource stop supporting modelversion 
+WITHOUT_CLASSIFICATION	 guard against case where besteffort resolution for invalid models requested 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 neither inherited nor injected 
+WITHOUT_CLASSIFICATION	 noin 
+WITHOUT_CLASSIFICATION	 the default execution path only knows the only reason its not signature because its package private 
+WITHOUT_CLASSIFICATION	 this block verifies mng 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 local repository use value has been passed via the configuration use value the resultant settings use default value 
+WITHOUT_CLASSIFICATION	 finalname 
+WITHOUT_CLASSIFICATION	 consider the url instead the this most closely relates the contents the repo 
+WITHOUT_CLASSIFICATION	 phase 
+WITHOUT_CLASSIFICATION	 separator between number and character 
+WITHOUT_CLASSIFICATION	 noin 
+WITHOUT_CLASSIFICATION	 all projects are the statics from this class 
+WITHOUT_CLASSIFICATION	 executions 
+WITHOUT_CLASSIFICATION	 dependency management injection 
+WITHOUT_CLASSIFICATION	 expected failure wrong relative path calculation 
+WITHOUT_CLASSIFICATION	 restore profiles with file activation their value before full interpolation 
+WITHOUT_CLASSIFICATION	 were processing this inheritancebased merge and the parents inherited flag not set then need 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 relocated dependency artifact declared excluded need add and recurse further 
+WITHOUT_CLASSIFICATION	 default cache does not track extension usage 
+WITHOUT_CLASSIFICATION	 carry 
+WITHOUT_CLASSIFICATION	 draw the npe 
+WITHOUT_CLASSIFICATION	 beware metaversions 
+WITHOUT_CLASSIFICATION	 extensionartifacts 
+WITHOUT_CLASSIFICATION	 save profile activations before interpolation since they are evaluated with limited scope 
+WITHOUT_CLASSIFICATION	 the parent version may have resolved something different take what asked for instead childsetversion parentgetversion 
+WITHOUT_CLASSIFICATION	 are going take the project packaging and find all plugins the default lifecycle and create fully populated plugin objects including executions with goals and default configuration taken from the pluginxml inside plugin 
+WITHOUT_CLASSIFICATION	 noinspection 
+WITHOUT_CLASSIFICATION	 now have url the form filepath 
+WITHOUT_CLASSIFICATION	 execute 
+WITHOUT_CLASSIFICATION	 test build where projects use different versions the same plugin 
+WITHOUT_CLASSIFICATION	 mkleint does this need public 
+WITHOUT_CLASSIFICATION	 the phase specified then dont have fetch the plugin yet and pull down examine the phase associated 
+WITHOUT_CLASSIFICATION	 resources 
+WITHOUT_CLASSIFICATION	 url 
+WITHOUT_CLASSIFICATION	 used invoker plugin 
+WITHOUT_CLASSIFICATION	 parentimports 
+WITHOUT_CLASSIFICATION	 reinstate the download monitor 
+WITHOUT_CLASSIFICATION	 this not was problem with transferread the checksum filewell try again with the checksum 
+WITHOUT_CLASSIFICATION	 cant happen 
+WITHOUT_CLASSIFICATION	 farthest compile and nearest not has lower priority change compile 
+WITHOUT_CLASSIFICATION	 timing remove this 
+WITHOUT_CLASSIFICATION	 filtering 
+WITHOUT_CLASSIFICATION	 assume not assignable from collection map 
+WITHOUT_CLASSIFICATION	 testresources 
+WITHOUT_CLASSIFICATION	 this test verifies the baseline structure used subsequent tests this fails the rest will fail 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 when model read from repo stream used then pomfile null has consequences inheritance algorithm since getprojectdirectory returns null 
+WITHOUT_CLASSIFICATION	 need get the latest file for the project not the artifact that was created one point time 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 make copy the original the pom doesnt get messed with 
+WITHOUT_CLASSIFICATION	 fix for mng assembly cache was not being populated for later reference 
+WITHOUT_CLASSIFICATION	 used maven help plugin 
+WITHOUT_CLASSIFICATION	 mailinglists 
+WITHOUT_CLASSIFICATION	 attributes 
+WITHOUT_CLASSIFICATION	 extensions 
+WITHOUT_CLASSIFICATION	 artifact transfer mechanism 
+WITHOUT_CLASSIFICATION	 note users occasionally misuse the local for remote repos which screws the metadata the local repository this especially troublesome during snapshot resolution try handle that gracefully 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 this has separate statement capture the case dfoobar 
+WITHOUT_CLASSIFICATION	 catch means the transferread succeeded but the checksum doesnt match this could problem with the server ibiblio http error page well try this two times the second try well handle bonafide error based the repositorys checksum checking policy 
+WITHOUT_CLASSIFICATION	 older wagons throw this just get instead 
+WITHOUT_CLASSIFICATION	 same instance from version cache 
+WITHOUT_CLASSIFICATION	 todo turn equivalent back when the plugin released 
+WITHOUT_CLASSIFICATION	 systempath 
+WITHOUT_CLASSIFICATION	 file could not found was not valid start from scratch 
+WITHOUT_CLASSIFICATION	 note intentionally only support basedir and not projectbasedir the latter form would suggest that other project expressions can used which however beyond the design 
+WITHOUT_CLASSIFICATION	 ordinary relative path align with base dir 
+WITHOUT_CLASSIFICATION	 build the regular repos after extensions are loaded allow for custom layouts 
+WITHOUT_CLASSIFICATION	 email 
+WITHOUT_CLASSIFICATION	 protected mainmethods 
+WITHOUT_CLASSIFICATION	 final 
+WITHOUT_CLASSIFICATION	 just make sure all the bases are covered 
+WITHOUT_CLASSIFICATION	 conflictresolver mainmethods 
+WITHOUT_CLASSIFICATION	 simple checks first short circuit processing below 
+WITHOUT_CLASSIFICATION	 todo this checking for file null happens because the resolver has been confused about the root 
+WITHOUT_CLASSIFICATION	 for given project packaging find all the plugins that are bound any registered lifecycles the project builder needs now what default plugin information needs merged into pom being built once the pom builder has this plugin information versions can assigned the pom builder because they will have defined plugin management once this setcomplete then can passed back that the default configuration information can populated need know the specific version that can lookup the right version the plugin descriptor which tells what the default configuration 
+WITHOUT_CLASSIFICATION	 nonjavadoc see 
+WITHOUT_CLASSIFICATION	 determine the lifecycle that corresponds the given phase 
+WITHOUT_CLASSIFICATION	 probably not worth but here make sure restore request its original state 
+WITHOUT_CLASSIFICATION	 default does nothing 
+WITHOUT_CLASSIFICATION	 
+WITHOUT_CLASSIFICATION	 length chars 
+WITHOUT_CLASSIFICATION	 the pom has file cached missing artifact only return the cached data update forced 
+WITHOUT_CLASSIFICATION	 local wins now and irrelevant not local testprovided arent transitive assertequals check artifactscope 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 before update the version the artifact need know whether are working transitive dependency not this allows depmgmt always override transitive dependencies while explicit child override depmgmt viz depmgmt should only provide defaults children but should override transitives can this calling ischildofrootnode the current node 
+WITHOUT_CLASSIFICATION	 leave optional ones but dont pick its dependencies 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 todo used the enforcer plugin 
+WITHOUT_CLASSIFICATION	 orgeclipseemfv 
+WITHOUT_CLASSIFICATION	 filters 
+WITHOUT_CLASSIFICATION	 just hide the one method want behind the repositorysystem interface 
+WITHOUT_CLASSIFICATION	 mng 
+WITHOUT_CLASSIFICATION	 the temporary file named destination tmp and done this way ensure that the temporary file the same file system the destination because the filerenameto operation doesnt really work across file systems will attempt filerenameto for efficiency and atomicity this fails then will use brute force copy and delete the temporary file 
+WITHOUT_CLASSIFICATION	 snapshot artifact repository 
+WITHOUT_CLASSIFICATION	 dont allow construction 
+WITHOUT_CLASSIFICATION	 artifact repository policies 
+WITHOUT_CLASSIFICATION	 bad url just skip here should have been validated already but the wagon lookup will deal with 
+WITHOUT_CLASSIFICATION	 customizations available via the cli 
+WITHOUT_CLASSIFICATION	 map types artifacts 
+WITHOUT_CLASSIFICATION	 create and cache extensions realms 
+WITHOUT_CLASSIFICATION	 make copy get rid needless overhead for dynamic lookups 
+WITHOUT_CLASSIFICATION	 now that have everything that need will fire plexus and bring the maven component life for use 

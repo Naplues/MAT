@@ -1,0 +1,1648 @@
+oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
+1,0,0,0,0,0,0,//  IMPORTANT! For async scenario, we must remove context from current thread, so we always create a new RpcContext for the next invoke for the same thread. 
+1,0,1,1,1,1,1,//  TODO: 2017/8/30 to move somewhere else better 
+1,0,0,1,1,1,1,//  FIXME: now we need to check first, then load 
+1,0,1,1,1,1,1,//  TODO Context.SESSIONS is the best option here? (In jetty 9.x, it becomes ServletContextHandler.SESSIONS) 
+1,0,1,1,1,1,1,//  TODO move names to Constants 
+1,0,0,0,0,0,0,// ignore concurrent problem? 
+1,0,0,1,1,1,1,// TODO add this to provider config 
+1,0,0,0,0,0,0,//  special treatment of array values was suggested by 'lizongbo' 
+1,0,1,0,1,1,1,//  TODO we should leave this setting to slf4j 
+1,0,1,1,1,1,1,//  FIXME: when the thread pool is full, SERVER_THREADPOOL_EXHAUSTED_ERROR cannot return properly,   therefore the consumer side has to wait until gets timeout. This is a temporary solution to prevent   this scenario from happening, but a better solution should be considered later. 
+1,0,0,0,0,0,0,//  The initial value is null and the midway may be assigned to null, please use the local variable reference 
+1,0,1,1,1,1,1,//  FIXME REQUEST_CONTEXT 
+1,0,0,0,0,0,0,// is it possible to go here ? 
+1,0,0,0,0,0,0,//  for example, object transported on the wire doesn't implement Serializable 
+1,0,0,0,0,0,0,// bug: DUBBO-425 
+1,0,0,1,1,1,1,//  FIXME log error message in Codec and handle in caught() of IoHanndler? 
+1,0,1,0,0,0,0,// There may be some problem handling chinese (negative number recognition). Ignoring this problem, the backspace key is only meaningfully input in a real telnet program. 
+1,0,0,0,0,0,0,/*       This UT is unstable, consider remove it later.      @see https://github.com/apache/dubbo/issues/1787      */
+1,0,0,0,0,0,0,//  bug: DUBBO-132 
+1,0,1,0,1,1,1,//  TODO do more sophisticated exception handling and output 
+1,0,1,1,1,1,1,/*  * TODO for now kryo serialization doesn't deny classes that don't implement the serializable interface * * <pre> *     e.g. &lt;dubbo:protocol serialization="kryo" /&gt; * </pre>  */
+1,0,1,0,0,0,0,//  DELIM_START was escaped, thus should not be incremented 
+1,0,0,1,1,1,1,//  TODO users can override this mapper, but we just rely on the current priority strategy of resteasy 
+1,0,1,1,1,1,1,// FIXME: waiting for embedded Nacos suport, then we can open the switch. 
+1,0,0,0,1,1,1,// TODO generic invoker？ 
+1,0,0,1,1,1,1,/*      * FIXME, this instance will always be a type of DynamicConfiguration, ConfigCenterConfig will load the instance at startup and assign it to here.      */
+1,0,1,1,1,1,1,//  TODO Do not want to use spaces? See: DUBBO-502, URL class handles special conventions for special characters. 
+1,0,0,0,0,0,0,//  should destroy resource? 
+1,1,0,1,1,1,1,//  hack, use reflection to get the shared channel.
+1,0,1,0,1,1,1,//  TODO Notification failure does not restore mechanism guarantee 
+1,0,1,1,1,1,1,// TODO fix npe  context.isProviderSide(); 
+1,0,0,1,1,1,1,// TODO we needs use force writing to file so that buffer gets clear and new log can be written. 
+1,0,0,0,0,0,0,// Reselect before retry to avoid a change of candidate `invokers`.  NOTE: if `invokers` changed, then `invoked` also lose accuracy. 
+1,0,1,1,1,1,1,/*  * TODO load as SPI will be better?  */
+1,1,1,1,1,1,1,// fixme, reject exception can not be sent to consumer because thread pool is full, resulting in consumers waiting till timeout. 
+1,0,1,1,1,1,1,/*  * TODO refactor using mockito  */
+1,0,0,0,0,0,0,//  generally a client can only be closed once, here it is closed twice, counter is incorrect 
+1,0,1,0,1,1,1,// TODO A temporary solution to the problem that the exception information can not be sent to the opposite end after the thread pool is full. Need a refactoring  fix The thread pool is full, refuses to call, does not return, and causes the consumer to wait for time out 
+1,0,0,1,1,1,1,//  TODO in the future maybe we can just use a single rest client and connection manager 
+1,0,0,0,0,0,0,//  Caution!! 
+1,0,1,1,1,1,1,// TODO solve merge problem  = Constants.DEFAULT_STUB_EVENT; 
+1,1,1,1,1,1,1,//  FIXME: a hack to make org.apache.dubbo.remoting.exchange.support.DefaultFuture.closeChannel work 
+1,0,0,0,0,0,0,/*  is the buffer big enough?  */
+1,0,1,0,0,0,0,//  BUG: DUBBO-846 in version 2.0.9, config retry="false" on provider's method doesn't work 
+1,0,0,1,1,1,1,//  FIXME: this exposes the design flaw in RouterChain 
+1,0,1,1,1,1,1,//  FIXME RESPONSE_CONTEXT 
+1,0,0,0,1,1,1,//  TODO jetty will by default enable keepAlive so the xml config has no effect now 
+1,0,0,0,0,0,0,// cannot write == not Available ? 
+1,0,1,1,1,1,1,//  TODO Wrapper cannot handle this scenario correctly: the classname contains '$' 
+1,0,0,0,0,0,0,//  On server side, thrift can not handle exceptions not declared in idl 
+1,0,0,1,1,1,1,// TODO assert error log 
+1,0,1,1,1,1,1,/*  * This class represents an unfinished RPC call, it will hold some context information for this call, for example RpcContext and Invocation, * so that when the call finishes and the result returns, it can guarantee all the contexts being recovered as the same as when the call was made * before any callback is invoked. * <p> * TODO if it's reasonable or even right to keep a reference to Invocation? * <p> * As {@link Result} implements CompletionStage, {@link AsyncRpcResult} allows you to easily build a async filter chain whose status will be * driven entirely by the state of the underlying RPC call. * <p> * AsyncRpcResult does not contain any concrete value (except the underlying value bring by CompletableFuture), consider it as a status transfer node. * {@link #getValue()} and {@link #getException()} are all inherited from {@link Result} interface, implementing them are mainly * for compatibility consideration. Because many legacy {@link Filter} implementation are most possibly to call getValue directly.  */
+1,0,1,1,1,1,1,//  FIXME should put exception in future? 
+1,0,0,0,0,0,0,//  DUBBO-571 methods key in provider's URLONE doesn't contain the methods from inherited super interface 
+1,0,1,0,1,1,1,/*  * ContextFilterTest.java * TODO need to enhance assertion  */
+1,0,1,1,1,1,1,//  FIXME: this code looks useless 
+1,0,0,1,1,1,1,//  TODO due to dubbo's current architecture,   it will be called from registry protocol in the shutdown process and won't appear in logs 
+1,0,0,1,1,1,1,//  TODO can we load successfully for a different classloader?. 
+1,0,0,0,0,0,0,// The status input has a problem, and the read information is wrong when the serialization is serialized. 
+1,0,1,1,1,1,1,//  FIXME: not sure why AbstractReferenceConfig has both isGeneric and getGeneric 
+1,0,0,1,1,1,1,//  FIXME result is an AsyncRpcResult instance. 
+1,0,0,1,1,1,1,//  FIXME, should cancel and restart timer tasks if parameters in the new URL are different? 
+1,0,1,0,1,1,1,/*  * TODO Extract more code here if necessary  */
+1,0,1,1,1,1,1,//  FIXME RMI protocol doesn't support casting to EchoService yet. 
+1,0,0,0,0,0,0,//  dubbo's original impl can't support the use of ServletContext          server.addHandler(servletHandler); 
+1,0,0,0,0,0,0,//  Deprecated! Subscribe to override rules in 2.6.x or before. 
+1,0,0,1,1,1,1,//  Subscribe the override data   FIXME When the provider subscribes, it will affect the scene : a certain JVM exposes the service and call    the same service. Because the subscribed is cached key with the name of the service, it causes the 
+1,0,0,1,1,1,1,/*      * Should be called after Config was fully initialized.     * // FIXME: this method should be completely replaced by appendParameters     *     * @return     * @see AbstractConfig#appendParameters(Map, Object, String)     * <p>     * Notice! This method should include all properties in the returning map, treat @Parameter differently compared to appendParameters.      */
+1,0,1,1,1,1,1,// TODO Can the value returned by getChannel() be null? need improvement. 
+1,0,1,1,1,1,1,//  TODO, to support wildcards 
+1,0,1,1,1,1,1,//  FIXME: cannot guarantee the sequence of the merge result, check implementation in   MergeableClusterInvoker#invoke 
+1,0,1,1,1,1,1,//  FIXME Is there any need of failing back to Constants.ANY_VALUE or the first available method invokers when invokers is null? 
+1,0,0,1,1,1,1,//  TODO more configs to add 
+1,0,1,0,0,0,0,//  BuG: DUBBO-146 Provider doesn't have exception output, and consumer has timeout error when serialization fails
+1,0,0,1,1,1,1,//  FIXME There's no place to release connectionExecutor! 
+1,0,1,1,1,1,1,//  TODO: refactor it 
+1,0,0,0,0,0,0,//  If every invoker has the same weight? 
+1,0,1,0,1,1,1,/*  * TODO this may not be a pretty elegant solution, *  */
+1,0,0,1,1,1,1,//  FIXME log error info in Codec and put all error handle logic in IoHanndler? 
+1,0,0,0,0,0,0,//  can't shutdown nioEventLoopGroup because the method will be invoked when closing one channel but not a client,   but when and how to close the nioEventLoopGroup ?   nioEventLoopGroup.shutdownGracefully(); 
+1,0,1,1,1,1,1,/*  * FIXME: is this really necessary? PropertiesConfiguration should have already covered this: * @see PropertiesConfiguration * @See ConfigUtils#getProperty(String)  */
+1,0,0,1,1,1,1,/*      * the resident routers must being initialized before address notification.     * FIXME: this method should not be public      */
+1,0,0,0,1,1,1,//  TODO there may have duplicate refresh 
+1,1,1,1,1,1,1,// fixme replace this with better method 
+1,0,0,0,1,1,1,//  TODO for now we don't consider the differences of encoding and server limit 
+1,0,0,1,1,1,1,/*      * FIXME check @Parameter(required=true) and any conditions that need to match.      */
+1,0,0,0,0,0,0,/*           RMI needs extra parameter since it uses customized remote invocation object          The customized RemoteInvocation was firstly introduced in v2.6.3; The package was renamed to 'org.apache.*' since v2.7.0          Considering the above two conditions, we need to check before sending customized RemoteInvocation:          1. if the provider version is v2.7.0 or higher, send 'org.apache.dubbo.rpc.protocol.rmi.RmiRemoteInvocation'.          2. if the provider version is v2.6.3 or higher, send 'com.alibaba.dubbo.rpc.protocol.rmi.RmiRemoteInvocation'.          3. if the provider version is lower than v2.6.3, does not use customized RemoteInvocation.          */
+1,0,1,0,1,1,1,//  TODO exist concurrent gap 
+1,0,1,1,1,1,1,//  TODO: 2017/8/31 FIXME The thread pool should be used to refresh the address, otherwise the task may be accumulated. 
+1,0,1,0,1,1,1,/*      * If there's no dynamic tag rule being set, use static tag in URL.     * <p>     * A typical scenario is a Consumer using version 2.7.x calls Providers using version 2.6.x or lower,     * the Consumer should always respect the tag in provider URL regardless of whether a dynamic tag rule has been set to it or not.     * <p>     * TODO, to guarantee consistent behavior of interoperability between 2.6- and 2.7+, this method should has the same logic with the TagRouter in 2.6.x.     *     * @param invokers     * @param url     * @param invocation     * @param <T>     * @return      */
+0,0,0,0,0,0,0,//  Construct using org.apache.dubbo.common.serialize.protobuf.support.MapValue.Map.newBuilder() 
+0,0,0,0,0,0,0,//  1. No service provider 2. Service providers are disabled 
+0,0,0,0,0,0,0,//  closing closed means the process is being closed and close is finished 
+0,0,0,0,0,0,0,//  get data length. 
+0,0,0,0,0,0,0,//  The monitoring center is responsible for deleting outdated dirty data 
+0,0,0,0,0,0,0,//  Key-Value pair, stores both match and mismatch conditions 
+0,0,0,0,0,0,0,//  -default is not included 
+0,0,0,0,0,0,0,//  allow string arg to enum type, @see PojoUtils.realize0() 
+0,0,0,0,0,0,0,//  check length. 
+0,0,0,0,0,0,0,//         assertEquals(echo.$echo("test"), "test");          assertEquals(echo.$echo("abcdefg"), "abcdefg");          assertEquals(echo.$echo(1234), 1234); 
+0,0,0,0,0,0,0,/*  translate stored positions  */
+0,0,0,0,0,0,0,// final int length = PerformanceUtils.getIntProperty("length", 1024); 
+0,0,0,0,0,0,0,//  Dubbo RPC protocol version, for compatibility, it must not be between 2.0.10 ~ 2.6.2
+0,0,0,0,0,0,0,//  desc2name 
+0,0,0,0,0,0,0,//  The parameters of the test service query need to be with the providermerge.
+0,0,0,0,0,0,0,//  for test 
+0,0,0,0,0,0,0,//  for the exception not found in method's signature, print ERROR message in server's log. 
+0,0,0,0,0,0,0,// yyline = yychar = yycolumn = 0; 
+0,0,0,0,0,0,0,//  Use PBResponseType.newBuilder() to construct. 
+0,0,0,0,0,0,0,//  check duplicated candidate bean 
+0,0,0,0,0,0,0,// mark the future is sent 
+0,0,0,0,0,0,0,//  Remove async property to avoid being passed to the following invoke chain. 
+0,0,0,0,0,0,0,//  should not override
+0,0,0,0,0,0,0,//  This should never happen;
+0,0,0,0,0,0,0,//  other thread cancel this timeout or stop the timer. 
+0,0,0,0,0,0,0,/* invoker = protocol.refer( Demo.class, url );        Assertions.assertNotNull( invoker );        RpcInvocation invocation = new RpcInvocation();        invocation.setMethodName( "echoString" );        invocation.setParameterTypes( new Class<?>[]{ String.class } );        String arg = "Hello, World!";        invocation.setArguments( new Object[] { arg } );        Result result = invoker.invoke( invocation );        Assertions.assertEquals( arg, result.getResult() ); */
+0,0,0,0,0,0,0,//  "[[Ljava/lang/Object;" ==> "[[Ljava.lang.Object;" 
+0,0,0,0,0,0,0,//  search in caller's classloader 
+0,0,0,0,0,0,0,//  logging output 
+0,0,0,0,0,0,0,// Boundary condition test . 
+0,0,0,0,0,0,0,/*  first: make room (if you can)  */
+0,0,0,0,0,0,0,//  concurrent cache initialization 
+0,0,0,0,0,0,0,//  parameters 
+0,0,0,0,0,0,0,//  test timeout of lease 
+0,0,0,0,0,0,0,//  When starting the subscription center, 
+0,0,0,0,0,0,0,// Check whether the mock value is legal 
+0,0,0,0,0,0,0,//  take first one 
+0,0,0,0,0,0,0,//  null out prev, next and bucket to allow for GC. 
+0,0,0,0,0,0,0,//  Resolve placeholders 
+0,0,0,0,0,0,0,//  TEST Pb Service metaData builder 
+0,0,0,0,0,0,0,//  Start reconnection timer 
+0,0,0,0,0,0,0,//  If the Config Center is given the highest priority, it will override all the other configurations 
+0,0,0,0,0,0,0,// |10011111|20-stats=ok|id=0|length=0 
+0,0,0,0,0,0,0,//  begin to construct a NullPointerException with empty stackTrace 
+0,0,0,0,0,0,0,// Merged with this configuration 
+0,0,0,0,0,0,0,//  Healthy Instances 
+0,0,0,0,0,0,0,//  for test validation 
+0,0,0,0,0,0,0,//  ============================A gorgeous line of segmentation================================================ 
+0,0,0,0,0,0,0,// private int port; 
+0,0,0,0,0,0,0,//  ~ end of method decode 
+0,0,0,0,0,0,0,//   If the server side has synchronized data, just write a single machine 
+0,0,0,0,0,0,0,//  check for required fields   check for sub-struct validity 
+0,0,0,0,0,0,0,//  test recover 
+0,0,0,0,0,0,0,//  since security manager is not installed.
+0,0,0,0,0,0,0,//  parameter fields 
+0,0,0,0,0,0,0,//  The parameters of the provider for the inspection service need merge
+0,0,0,0,0,0,0,/*  If the Config Center product you use have some special parameters that is not covered by this class, you can add it to here.    For example, with XML:      <dubbo:config-center>           <dubbo:parameter key="{your key}" value="{your value}" />      </dubbo:config-center>      */
+0,0,0,0,0,0,0,//  Restore any other contexts in here if necessary.
+0,0,0,0,0,0,0,// cancel a future 
+0,0,0,0,0,0,0,//  If the bean is not initialized, invoke init()   issue: https://github.com/apache/dubbo/issues/3429 
+0,0,0,0,0,0,0,//  callback method when async-call has exception thrown 
+0,0,0,0,0,0,0,// check format of pattern 
+0,0,0,0,0,0,0,//  test all methods 
+0,0,0,0,0,0,0,//  ================== Util methods ================== 
+0,0,0,0,0,0,0,//  ======================================================     invoker related data preparing 
+0,0,0,0,0,0,0,//  from api 
+0,0,0,0,0,0,0,//  Should remain unchanged. 
+0,0,0,0,0,0,0,// Check the index of current selected invoker, if it's not the last one, choose the one at index+1. 
+0,0,0,0,0,0,0,//  Map<serviceName, List<notificationListener>> 
+0,0,0,0,0,0,0,// argument type 
+0,0,0,0,0,0,0,// default base64. 
+0,0,0,0,0,0,0,//  Record the index of the least active invoker in leastIndexes order 
+0,0,0,0,0,0,0,//  G for GET, and P for POST 
+0,0,0,0,0,0,0,//  1 : 9 : 6 
+0,0,0,0,0,0,0,//  callback method when async-call is invoked 
+0,0,0,0,0,0,0,//  write header. 
+0,0,0,0,0,0,0,//  copy reference 
+0,0,0,0,0,0,0,//  as proto3 only accept one protobuf parameter 
+0,0,0,0,0,0,0,//  First, try picking a invoker not in `selected`. 
+0,0,0,0,0,0,0,//  throw demo exception
+0,0,0,0,0,0,0,//  set category 
+0,0,0,0,0,0,0,//  merge override parameters 
+0,0,0,0,0,0,0,// SPI should be get from SpiExtensionFactory
+0,0,0,0,0,0,0,//  update registry 
+0,0,0,0,0,0,0,// test multiple urls 
+0,0,0,0,0,0,0,/*  (non-Javadoc)         * @see org.apache.dubbo.remoting.transport.support.ChannelHandlerAdapter#caught(org.apache.dubbo.remoting.Channel, java.lang.Throwable)          */
+0,0,0,0,0,0,0,//  decode object. 
+0,0,0,0,0,0,0,//  create 
+0,0,0,0,0,0,0,//  fall back to use method getResourceAsStream 
+0,0,0,0,0,0,0,//  add constructors 
+0,0,0,0,0,0,0,//  Notify the other threads waiting for the initialization at start(). 
+0,0,0,0,0,0,0,//  skip test. 
+0,0,0,0,0,0,0,//  Check the file change 
+0,0,0,0,0,0,0,//  if "getName" method is absent 
+0,0,0,0,0,0,0,//  update local exporter 
+0,0,0,0,0,0,0,//  Ignore those fields 
+0,0,0,0,0,0,0,//  save bind port, used as url's key later 
+0,0,0,0,0,0,0,//  ~ end of method destroy 
+0,0,0,0,0,0,0,//  impl constructor 
+0,0,0,0,0,0,0,//  For test purpose 
+0,0,0,0,0,0,0,//  AbstractChannelBuffer 
+0,0,0,0,0,0,0,//  handle nested generic type 
+0,0,0,0,0,0,0,//                  ^^^^^^^ Caution , parse as host 
+0,0,0,0,0,0,0,//  Local disk cache, where the special key value.registries records the list of registry centers, and the others are the list of notified service providers 
+0,0,0,0,0,0,0,// Initial value 0 
+0,0,0,0,0,0,0,//  If you only have a single redis, you need to take a rest to avoid overtaking a lot of CPU resources 
+0,0,0,0,0,0,0,//  service not found.
+0,0,0,0,0,0,0,// private int yycolumn; 
+0,0,0,0,0,0,0,//  callback method when async-call is returned 
+0,0,0,0,0,0,0,//  Reset the number of least active invokers 
+0,0,0,0,0,0,0,//  if it's declared as local reference   'scope=local' is equivalent to 'injvm=true', injvm will be deprecated in the future release 
+0,0,0,0,0,0,0,// change recycle time to 1 ms 
+0,0,0,0,0,0,0,//  The KV part of the condition expression 
+0,0,0,0,0,0,0,//  multicast ipv6 address, 
+0,0,0,0,0,0,0,//  .addParameter("refer.autodestroy", "true") 
+0,0,0,0,0,0,0,//  Any exception will be ignored to handle 
+0,0,0,0,0,0,0,//  only for attachments 
+0,0,0,0,0,0,0,//  check deleted invoker 
+0,0,0,0,0,0,0,//  guess version fro jar file name if nothing's found from MANIFEST.MF 
+0,0,0,0,0,0,0,//  skip multicast registry since we cannot connect to it via Socket 
+0,0,0,0,0,0,0,//     public List<URL> getBackupUrls() {          List<org.apache.dubbo.common.URL> res = super.getBackupUrls();          return res.stream().map(url -> new URL(url)).collect(Collectors.toList());      } 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(builder_scope:org.apache.dubbo.common.serialize.protobuf.model.PBResponseType) 
+0,0,0,0,0,0,0,//  ======================================================     test Start   ====================================================== 
+0,0,0,0,0,0,0,//  present in both local and remote, uses local url params 
+0,0,0,0,0,0,0,//  for reuse SerializeWriter buf 
+0,0,0,0,0,0,0,//  Bean compare 
+0,0,0,0,0,0,0,//  If (not every invoker has the same weight & at least one invoker's weight>0), select randomly based on    totalWeight. 
+0,0,0,0,0,0,0,//  check against type and superclasses 
+0,0,0,0,0,0,0,//  create request. 
+0,0,0,0,0,0,0,//  trim the leading "/" 
+0,0,0,0,0,0,0,//  timeout after 5 seconds. 
+0,0,0,0,0,0,0,//  add invocationid in async operation by default 
+0,0,0,0,0,0,0,//  Appends value array attributes 
+0,0,0,0,0,0,0,//  just add urls which needs retry. 
+0,0,0,0,0,0,0,//  Optional 
+0,0,0,0,0,0,0,/*  user code:  */
+0,0,0,0,0,0,0,//  Append backup parameter as other servers 
+0,0,0,0,0,0,0,//     public PropertyInjector getPropertyInjector() {          return propertyInjector;      } 
+0,0,0,0,0,0,0,//  Get invokers from cache, only runtime routers will be executed. 
+0,0,0,0,0,0,0,//  store back cached position 
+0,0,0,0,0,0,0,//  Use default configs defined explicitly on global configs 
+0,0,0,0,0,0,0,//  doesn't need to distinguish version for callback 
+0,0,0,0,0,0,0,//  Register @Reference Annotation Bean Processor 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(builder_scope:org.apache.dubbo.common.serialize.protobuf.model.PBRequestType) 
+0,0,0,0,0,0,0,//  allow repeats in siblings 
+0,0,0,0,0,0,0,//  test group 
+0,0,0,0,0,0,0,//  create Proxy class. 
+0,0,0,0,0,0,0,// zzAtBOL  = true; 
+0,0,0,0,0,0,0,//  If override url is not enabled or is invalid, just return. 
+0,0,0,0,0,0,0,//  this is a defensive operation to avoid client is closed by accident, the initial state of the client is false 
+0,0,0,0,0,0,0,//  current node 
+0,0,0,0,0,0,0,//  report same error when get is invoked for multiple times 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(interface_extends:org.apache.dubbo.common.serialize.protobuf.model.PBResponseType) 
+0,0,0,0,0,0,0,//  parameter callback rule: method-name.parameter-index(starting from 0).callback 
+0,0,0,0,0,0,0,/*  The namespace of the config center, generally it's used for multi-tenant,    but it's real meaning depends on the actual Config Center you use.     */
+0,0,0,0,0,0,0,//  available to test 
+0,0,0,0,0,0,0,//  no match category 
+0,0,0,0,0,0,0,//  now just added some very common classes 
+0,0,0,0,0,0,0,//  if it's callback service on client side 
+0,0,0,0,0,0,0,//  directly throw if it's dubbo exception 
+0,0,0,0,0,0,0,//  callback instance when async-call is invoked 
+0,0,0,0,0,0,0,//  Fill the unprocessedTimeouts so we can return them from stop() method. 
+0,0,0,0,0,0,0,//  since the rule can be changed by config center, we should copy one to use. 
+0,0,0,0,0,0,0,//  Null Point check 
+0,0,0,0,0,0,0,//  get status. 
+0,0,0,0,0,0,0,//  init table. 
+0,0,0,0,0,0,0,//  this UT maybe only works on particular platform, assert only when value is not null. 
+0,0,0,0,0,0,0,//  At least one single machine is available. 
+0,0,0,0,0,0,0,//  ~ end of loop method map 
+0,0,0,0,0,0,0,//  default deregister critical server after 
+0,0,0,0,0,0,0,//  encode response data or error message. 
+0,0,0,0,0,0,0,//         this.context = context;      }        public String getContext() {          return context;      } 
+0,0,0,0,0,0,0,//  Because it's a strictly round robin, so the abs delta should be < 10 too 
+0,0,0,0,0,0,0,//  header. 
+0,0,0,0,0,0,0,//  should output cost or not 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(builder_implements:org.apache.dubbo.common.serialize.protobuf.model.PhoneNumber) 
+0,0,0,0,0,0,0,//  confirm only 1 register success 
+0,0,0,0,0,0,0,//  should not happen here 
+0,0,0,0,0,0,0,//  this only works for servlet containers 
+0,0,0,0,0,0,0,//  column definition 
+0,0,0,0,0,0,0,//  it can be invoke successfully 
+0,0,0,0,0,0,0,//  check pong at client 
+0,0,0,0,0,0,0,//  create new decode table. 
+0,0,0,0,0,0,0,//  Integer representation of value 
+0,0,0,0,0,0,0,//  if only one empty 
+0,0,0,0,0,0,0,/*  Linux Pause  */
+0,0,0,0,0,0,0,// force:direct mock 
+0,0,0,0,0,0,0,// ignore concurrency problem 
+0,0,0,0,0,0,0,//  prevents grpc on sending watchResponse to a closed watch client. 
+0,0,0,0,0,0,0,//  the sumInvoker1 : sumInvoker2 approximately equal to 1: 9 
+0,0,0,0,0,0,0,//  #5 ReferenceBean (Field Injection #3) 
+0,0,0,0,0,0,0,//  add imported packages 
+0,0,1,1,1,1,1,/*      * <p>Repeat a String {@code repeat} times to form a     * new String, with a String separator injected each time. </p>     *     * <pre>     * StringUtils.repeat(null, null, 2) = null     * StringUtils.repeat(null, "x", 2)  = null     * StringUtils.repeat("", null, 0)   = ""     * StringUtils.repeat("", "", 2)     = ""     * StringUtils.repeat("", "x", 3)    = "xxx"     * StringUtils.repeat("?", ", ", 3)  = "?, ?, ?"     * </pre>     *     * @param str       the String to repeat, may be null     * @param separator the String to inject, may be null     * @param repeat    number of times to repeat str, negative treated as zero     * @return a new String consisting of the original String repeated,     * {@code null} if null String input     * @since 2.5      */
+0,0,0,0,0,0,0,//  <ip:port, channel> 
+0,0,0,0,0,0,0,//  init task and start timer. 
+0,0,0,0,0,0,0,//  generic invocation is not local reference 
+0,0,0,0,0,0,0,/*                  *  if we have no interface watcher listener,                 *  find the current listener or create one for the current root, put or get only once.                  */
+0,0,0,0,0,0,0,/*                                                  *  if new interface event arrived, we watch their direct children,                                                 *  eg: /dubbo/interface, /dubbo/interface and so on.                                                  */
+0,0,0,0,0,0,0,//  check if notify successfully 
+0,0,0,0,0,0,0,//  full list of addresses from registry, classified by method name. 
+0,0,0,0,0,0,0,//  List<U> urls = mockRegistry.getSubscribedUrls(); 
+0,0,0,0,0,0,0,// java.sql.Date 
+0,0,0,1,1,1,1,//  TODO for now just do xml output 
+0,0,0,0,0,0,0,//  check for primitive array types because they   unfortunately cannot be cast to Object[] 
+0,0,0,0,0,0,0,// r times [sleep] r 10 or r 10 100 
+0,0,0,0,0,0,0,//  Request a non-exists method
+0,0,0,0,0,0,0,// release mina resouces. 
+0,0,0,0,0,0,0,//         Thread.sleep(100000); 
+0,0,0,0,0,0,0,// verifyExporterUrlGeneration(regConfForService, regConfForServiceTable); 
+0,0,0,0,0,0,0,/*  Used to specify the key that your properties file mapping to, most of the time you do not need to change this parameter.    Notice that for Apollo, this parameter is meaningless, set the 'namespace' is enough.     */
+0,0,0,0,0,0,0,//  ================ complex POJO ============= 
+0,0,0,0,0,0,0,//  echo(int) 
+0,0,0,0,0,0,0,//  The sum of weights 
+0,0,0,0,0,0,0,//  cast to EchoService 
+0,0,0,0,0,0,0,//  end construct a NullPointerException with empty stackTrace 
+0,0,0,0,0,0,0,// test multiple unregisters 
+0,0,0,0,0,0,0,//  did not find parameter in URL type 
+0,0,1,1,1,1,1,//  TODO protocol 
+0,0,0,0,0,0,0,// can't find command 
+0,0,0,0,0,0,0,//  Every invoker has the same weight? 
+0,0,0,0,0,0,0,//  loop up before registry 
+0,0,0,0,0,0,0,//  Rely on reconnect timer to reconnect when AbstractClient.doConnect fails to init the connection 
+0,0,0,0,0,0,0,//  data to collect from url 
+0,0,0,0,0,0,0,//  normal case 
+0,0,0,0,0,0,0,//  Initialization at the time of injection, the assertion is not null   Initialization at the time of injection, the assertion is not null 
+0,0,0,0,0,0,0,//  duplicated jar is found
+0,0,0,0,0,0,0,//  from system property 
+0,0,0,0,0,0,0,//  tell tomcat to fail on startup failures. 
+0,0,0,0,0,0,0,//  Use PBRequestType.newBuilder() to construct. 
+0,0,0,0,0,0,0,//  The least active value of all invokers 
+0,0,0,0,0,0,0,//  it's a generic reference 
+0,0,0,0,0,0,0,/*  Windows Ctrl+C  */
+0,0,0,0,0,0,0,//  double check to avoid dup close 
+0,0,0,0,0,0,0,//  ======== Reference config default values, will take effect if reference's attribute is not set  ======== 
+0,0,0,0,0,0,0,//  onResponse callback 
+0,0,0,0,0,0,0,//  close once, counter counts down from 2 to 1, no warning occurs 
+0,0,0,0,0,0,0,//  if no failed report, wait how many times to run retry task. 
+0,0,0,0,0,0,0,//  magic 
+0,0,0,0,0,0,0,//     private Map<String, String> extraHttpHeaders	= new HashMap<String, String>(); 
+0,0,0,0,0,0,0,//  For testing purposes only 
+0,0,0,0,0,0,0,//  SUCCESS 
+0,0,0,0,0,0,0,//  still init for the same ReferenceConfig if the cache is different 
+0,0,0,0,0,0,0,//  not a registry url, must be direct invoke. 
+0,0,0,0,0,0,0,//  property of custom type or primitive type 
+0,0,0,0,0,0,0,//  Register center address 
+0,0,0,0,0,0,0,//  check if there's duplicated jar 
+0,0,0,0,0,0,0,//  default value 
+0,0,0,0,0,0,0,//  weightTestRpcStatus3 active is 1 
+0,0,0,0,0,0,0,//  Not equal 
+0,0,0,0,0,0,0,//  no match service interface 
+0,0,0,0,0,0,0,//  process implemented interfaces 
+0,0,0,0,0,0,0,// Make sure that the subscribe call has just been called once count.incrementAndGet after the call is completed  Wait for the timer. 
+0,0,0,0,0,0,0,//  dubbo check 
+0,0,0,0,0,0,0,//  double byte char 
+0,0,0,0,0,0,0,//  Close all invokers 
+0,0,0,0,0,0,0,//  ---- service statistics ----   invocation cost   current concurrent count 
+0,0,1,1,1,1,1,//  FIXME 
+0,0,0,0,0,0,0,//  present in local url but not in remote url 
+0,0,0,0,0,0,0,//  From Ancestor 
+0,0,0,0,0,0,0,//  backward compatibility 
+0,0,0,0,0,0,0,//  set magic number. 
+0,0,0,0,0,0,0,// ignore error 
+0,0,0,0,0,0,0,//  message 
+0,0,0,0,0,0,0,/* url = url.addParameter( "echoString." + Constants.TIMEOUT_KEY, Integer.MAX_VALUE );        invoker = protocol.refer( Demo.class, url );        org.junit.jupiter.api.Assertions.assertNotNull( invoker );        RpcInvocation invocation = new RpcInvocation();        invocation.setMethodName( "echoString" );        invocation.setParameterTypes( new Class<?>[]{ String.class } );        String arg = "Hello, World!";        invocation.setArguments( new Object[] { arg } );                invocation.setAttachment(Constants.INTERFACE_KEY, DemoImpl.class.getName());        Result result = invoker.invoke( invocation );        Assertions.assertNull( result.getResult() );        Assertions.assertTrue( result.getException() instanceof RpcException ); */
+0,0,0,0,0,0,0,//  asert empty 
+0,0,0,0,0,0,0,//  If a Key has no corresponding Value, then the Key also used as the Value. 
+0,0,0,0,0,0,0,//  Requires JDK 7 or higher, Foo<int[]> is no longer GenericArrayType 
+0,0,0,0,0,0,0,//  check && override if necessary 
+0,0,0,0,0,0,0,//  ReferenceBean should be initialized and get immediately 
+0,0,0,0,0,0,0,// add 300ms to ensure that the delayService has been exported 
+0,0,0,0,0,0,0,//  Growth of skipping times   If the number of skipping times increases by more than 10, take the random number 
+0,0,0,0,0,0,0,//  Read port from property 
+0,0,0,0,0,0,0,//  Tag request 
+0,0,0,0,0,0,0,//  "name" property is present 
+0,0,0,0,0,0,0,// this.listener = listener; 
+0,0,0,0,0,0,0,// .addParameter(Constants.ON_DISCONNECT_KEY, "disconnect") 
+0,0,0,0,0,0,0,//           ReferenceAnnotationBeanPostProcessor beanPostProcessor = context.getBean(BEAN_NAME,                  ReferenceAnnotationBeanPostProcessor.class);              Map<InjectionMetadata.InjectedElement, ReferenceBean<?>> referenceBeanMap =                  beanPostProcessor.getInjectedMethodReferenceBeanMap();   
+0,0,0,0,0,0,0,//  send heartbeat when read idle. 
+0,0,0,0,0,0,0,//  If the serialization key is json or fastjson 
+0,0,0,0,0,0,0,//  can use thrift codec only 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(builder_scope:Map) 
+0,0,0,0,0,0,0,//  2 invokers=================================== 
+0,0,0,0,0,0,0,//  If a task should be canceled we put this to another queue which will be processed on each tick.   So this means that we will have a GC latency of max. 1 tick duration which is good enough. This way 
+0,0,0,0,0,0,0,//  verify save group, save error 
+0,0,0,0,0,0,0,//  "Ljava/lang/Object;" ==> "java.lang.Object" 
+0,0,0,0,0,0,0,//         this.propertyInjector = factory.getInjectorFactory().createPropertyInjector(getScannableClass(), factory); 
+0,0,0,0,0,0,0,//  we need to read the local cache file for future Registry fault tolerance processing.
+0,0,0,0,0,0,0,//  this.listener = null; 
+0,0,0,0,0,0,0,//  registry port, not used as bind port by default 
+0,0,0,0,0,0,0,//  directly throw if it's JDK exception 
+0,0,0,0,0,0,0,//         invoker.destroy(); 
+0,0,0,0,0,0,0,//  Hessian2  
+0,0,0,0,0,0,0,//  register first 
+0,0,0,0,0,0,0,//  NetUtils.getLocalHost is the ip address consumer registered to registry. 
+0,0,0,0,0,0,0,// Check whether the mock class is a implementation of the interfaceClass, and if it has a default constructor 
+0,0,0,0,0,0,0,/*  * ScriptRouterFactory * <p> * Example URLS used by Script Router Factory： * <ol> * <li> script://registryAddress?type=js&rule=xxxx * <li> script:///path/to/routerfile.js?type=js&rule=xxxx * <li> script://D:\path\to\routerfile.js?type=js&rule=xxxx * <li> script://C:/path/to/routerfile.js?type=js&rule=xxxx * </ol> * The host value in URL points out the address of the source content of the Script Router，Registry、File etc *  */
+0,0,0,0,0,0,0,//  filter by dynamic tag group first 
+0,0,0,0,0,0,0,//  Merge the provider side parameters 
+0,0,0,0,0,0,0,//  multiple callbacks in the method 
+0,0,0,0,0,0,0,//  Sending a cancellation request to the server side 
+0,0,0,0,0,0,0,//  now we don't use the 'values' map to hold these objects 
+0,0,0,0,0,0,0,//  export to remote if the config is not local (export to local only when config is local) 
+0,0,0,0,0,0,0,//  handshake 
+0,0,0,0,0,0,0,// echo  
+0,0,0,0,0,0,0,//  replace the latest "," to be ")" 
+0,0,0,0,0,0,0,//             {"generic", "generic", "boolean", false, true, "", "", "", "", ""}, 
+0,0,0,0,0,0,0,//  we may want to avoid exposing the dubbo exception details to certain clients 
+0,0,0,0,0,0,0,//  if no notify URL, add empty protocol URL 
+0,0,0,0,0,0,0,//  dubbo request id 
+0,0,0,0,0,0,0,// this.listener = null; 
+0,0,0,0,0,0,0,// Map interface class change to HashMap implement 
+0,0,0,0,0,0,0,// check config conflict 
+0,0,0,0,0,0,0,//  read one byte to guess protocol 
+0,0,0,0,0,0,0,// Filter the parameters that do not need to be output in url(Starting with .) 
+0,0,0,0,0,0,0,//  test default 
+0,0,0,0,0,0,0,//  Other 
+0,0,0,0,0,0,0,//  use global group 'dubbo' if no group specified 
+0,0,0,0,0,0,0,//  verify compatibility when 2.0.5 invokes 2.0.3, enum in custom parameter 
+0,0,0,0,0,0,0,//  If protocol is configured at the reference side, only the matching protocol is selected 
+0,0,0,0,0,0,0,//  "setName" and "getName" methods are present   the param type is String   set bean name to the value of the "name" property 
+0,0,0,0,0,0,0,/*  The config center cluster, it's real meaning may very on different Config Center products.  */
+0,0,0,0,0,0,0,//  numRead < 0 
+0,0,0,0,0,0,0,//  from dubbo.properties 
+0,0,0,0,0,0,0,//  ipv4 multicast address 
+0,0,0,0,0,0,0,//  Get PropertySource mapped to 'dubbo.properties' in Spring Environment. 
+0,0,0,0,0,0,0,//  convert list to array 
+0,0,0,0,0,0,0,// The exception is thrown for the first time to see if the back will be called again to incrementAndGet 
+0,0,0,0,0,0,0,//  Nested collection or map. 
+0,0,0,0,0,0,0,//  ARG 
+0,0,0,0,0,0,0,//  Request timeout in milliseconds for register center 
+0,0,0,0,0,0,0,//  If all invokers have the same weight value or totalWeight=0, return evenly. 
+0,0,0,0,0,0,0,/*                   package was renamed to 'org.apache.dubbo' in v2.7.0, so only provider versions after v2.7.0 can                  recognize org.apache.xxx.HttpRemoteInvocation'.                  */
+0,0,0,0,0,0,0,//  export one service first, to test connection sharing 
+0,0,0,0,0,0,0,//  read the parameters 
+0,0,0,0,0,0,0,//  Map<serviceName, queryString> 
+0,0,0,0,0,0,0,// sync update cache file 
+0,0,0,0,0,0,0,//  Add since 2.7.0 
+0,0,0,0,0,0,0,//  return statement 
+0,0,0,0,0,0,0,//  Customized inject-object if necessary 
+0,0,0,0,0,0,0,//  ---- for service consumer ---- 
+0,0,0,0,0,0,0,//  Register DubboConfigAliasPostProcessor 
+0,0,0,0,0,0,0,//  let's rock it! 
+0,0,0,0,0,0,0,//  Set<invokerUrls> cache invokeUrls to invokers mapping. 
+0,0,0,0,0,0,0,//  careful 
+0,0,0,0,0,0,0,//  max allowed execute times 
+0,0,0,0,0,0,0,//  As long as one client is not available, you need to replace the unavailable client with the available one. 
+0,0,0,0,0,0,0,// java.util.Date 
+0,0,0,0,0,0,0,//  Defensive fault tolerance 
+0,0,0,0,0,0,0,//  As `javassist` have a strict restriction of argument types, request will fail if Invocation do not contains complete parameter type information 
+0,0,0,0,0,0,0,//  args 
+0,0,0,0,0,0,0,//  property without generic type should not be build ex method return List 
+0,0,0,0,0,0,0,//  padding 
+0,0,0,0,0,0,0,//  push name. 
+0,0,0,0,0,0,0,//  remove extra space at line's end 
+0,0,0,0,0,0,0,//  The service has a normal sync method signature, should get future from RpcContext. 
+0,0,0,0,0,0,0,//  check again 
+0,0,0,0,0,0,0,//  merged from dubbox 
+0,0,0,0,0,0,0,//             {"generic", "generic", "boolean", false, false, "", "", "", "", ""}, 
+0,0,0,0,0,0,0,// biz error should not throw and affect biz thread.
+0,0,0,0,0,0,0,//  unexport one service 
+0,0,0,0,0,0,0,// impl mock 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(builder_implements:org.apache.dubbo.common.serialize.protobuf.model.PBResponseType) 
+0,0,0,0,0,0,0,// 00000010-response/oneway/hearbeat=false/noset |20-stats=ok|id=0|length=0 
+0,0,0,0,0,0,0,//  Wait until the startTime is initialized by the worker. 
+0,0,0,0,0,0,0,//  asserts aliases 
+0,0,0,0,0,0,0,//  retry to offer the task into queue. 
+0,0,0,0,0,0,0,//  Check and connect to the metadata 
+0,0,0,0,0,0,0,//  send error message to Consumer, otherwise, Consumer will wait until timeout. 
+0,0,0,0,0,0,0,// create registry by spi/ioc 
+0,0,0,0,0,0,0,//  encoder 
+0,0,0,0,0,0,0,//  Impossible 
+0,0,0,0,0,0,0,//  version 1.0.0 represents Dubbo rpc protocol before v2.6.2 
+0,0,0,0,0,0,0,//  help for gc 
+0,0,0,0,0,0,0,//  id attribute appears since 2.7.3 
+0,0,0,0,0,0,0,// The address you see at the registry 
+0,0,0,0,0,0,0,//  Not in the cache, refer again 
+0,0,0,0,0,0,0,//  Resolve placeholder 
+0,0,0,0,0,0,0,// Allocating one in advance, this list is certain to be used. 
+0,0,0,0,0,0,0,// ================================================================================================ 
+0,0,0,0,0,0,0,//  check if unsubscribe successfully 
+0,0,0,0,0,0,0,// rate or interval has changed, rebuild 
+0,0,0,0,0,0,0,//  note: URL is value's type 
+0,0,0,0,0,0,0,//  true means to accept foreign IP 
+0,0,0,0,0,0,0,//             {"timeout", "registry.timeout", "int", 5000, 9000, "", "", "", "", ""},              {"file", "registry.file", "string", "", "regConfForServiceTable.log", "", "", "", "", ""},              {"wait", "registry.wait", "int", 0, 9000, "", "", "", "", ""},              {"transport", "registry.transporter", "string", "netty", "mina", "", "", "", "", ""}, 
+0,0,0,0,0,0,0,//  Password to login register center 
+0,0,0,0,0,0,0,//  replace ":" to "," 
+0,0,0,0,0,0,0,//  avoid creating too many connections， so add lock 
+0,0,0,0,0,0,0,//  init atomic reference 
+0,0,0,0,0,0,0,//             {"version", "version", "string", "0.0.0", "1.2.3", "", "", "", "", ""},              {"group", "group", "string", "", "HaominTest", "", "", "", "", ""}, 
+0,0,0,0,0,0,0,//  mock environment variables 
+0,0,0,0,0,0,0,//  window system don't support ":" in file name 
+0,0,0,0,0,0,0,//  load class 
+0,0,0,0,0,0,0,//  no need to generate multiple exporters for different channel in the same JVM, cache key cannot collide. 
+0,0,0,0,0,0,0,//  only used for javassist 
+0,0,0,0,0,0,0,//  The argument must be the concrete NacosServiceName 
+0,0,0,0,0,0,0,//  Enum property has two setting method.   skip setXXXValue(int value) 
+0,0,0,0,0,0,0,//  Remove the expired   Defensive fault tolerance 
+0,0,0,0,0,0,0,// init queue and executor 
+0,0,0,0,0,0,0,//  reconnect with a delay; avoiding immediate retry on a long connection downtime. 
+0,0,0,0,0,0,0,//  default is false 
+0,0,0,0,0,0,0,//  trigger delete after unavailable 
+0,0,0,0,0,0,0,//  We use 0 as an indicator for the uninitialized value here, so make sure it's not 0 when initialized. 
+0,0,0,0,0,0,0,//  reset status since connection is shared among invokers 
+0,0,0,0,0,0,0,//  instance will never delete or recreate. 
+0,0,0,0,0,0,0,/*                      *  if we are interested in special categories (providers, consumers, routers and so on),                     *  we find out the current container or create one for the url, put or get only once.                      */
+0,0,0,0,0,0,0,/*                      *  if we have no category watcher listener,                     *  we find out the current listener or create one for the current category, put or get only once.                      */
+0,0,0,0,0,0,0,//  encode 
+0,0,0,0,0,0,0,//  ignore 
+0,0,0,0,0,0,0,//  range cases 
+0,0,0,0,0,0,0,//  header length. 
+0,0,0,1,1,1,1,/*  * TODO Comment of ProtocolUtils  */
+0,0,0,0,0,0,0,//  item name. 
+0,0,0,0,0,0,0,//  containing all routers, reconstruct every time 'route://' urls change. 
+0,0,0,0,0,0,0,/*      * get unCollection unMap property name from setting method.<br/>     * ex:setXXX();<br/>     *     * @param methodName     * @return      */
+0,0,0,0,0,0,0,//  dynamic class tag interface. 
+0,0,0,0,0,0,0,// line 
+0,0,0,0,0,0,0,//  ignore default attribute value 
+0,0,0,0,0,0,0,//  Put the first least active invoker first in leastIndexes 
+0,0,0,0,0,0,0,// prevent other UT's failure 
+0,0,0,0,0,0,0,//  If override url has port, means it is a provider address. We want to control a specific provider with this override url, it may take effect on the specific provider instance or on consumers holding this provider instance. 
+0,0,0,0,0,0,0,//  Make sure if it is a copied buffer. 
+0,0,0,0,0,0,0,//  init queue and executor 
+0,0,0,0,0,0,0,//  we must disable the debug logging for production use 
+0,0,0,0,0,0,0,//  to false, which means it will invoke any providers without a tag unless it's explicitly disallowed. 
+0,0,0,0,0,0,0,// RegistryServer.reloadCache(); 
+0,0,0,0,0,0,0,//  @Parameter(key="key1", useKeyAsProperty=false) 
+0,0,0,0,0,0,0,//  NOTE: Hessian2 throws ArrayIndexOutOfBoundsException instead of IOException, let's live with this. 
+0,0,0,0,0,0,0,// dump every 10 minutes 
+0,0,0,0,0,0,0,//  ======== Deprecated ======== 
+0,0,0,0,0,0,0,//  empty protocol will default to 'dubbo' 
+0,0,0,0,0,0,0,//  collect data 
+0,0,0,0,0,0,0,//  The index of invokers having the same least active value (leastActive) 
+0,0,0,0,0,0,0,//  use interface class name list as key. 
+0,0,0,0,0,0,0,//  Map<url, Invoker> cache service url to invoker mapping. 
+0,0,0,0,0,0,0,//  client type setting. 
+0,0,0,0,0,0,0,//  Host 
+0,0,0,0,0,0,0,//  <component name or id, <data-name, data-value>> 
+0,0,0,0,0,0,0,//         Assertions.assertEquals(response.getProtocolVersion(), obj.getVersion()); 
+0,0,0,0,0,0,0,//  The number of invokers having the same least active value (leastActive) 
+0,0,0,0,0,0,0,//  currentPoolThreadSize >= max 
+0,0,0,0,0,0,0,//  List<String> addresses = tagRouterRule.filter(providerApp);   return all addresses in dynamic tag group. 
+0,0,0,0,0,0,0,//         tomcat.getConnector().setProperty(                  "minSpareThreads", String.valueOf(url.getParameter(Constants.THREADS_KEY, Constants.DEFAULT_THREADS))); 
+0,0,0,0,0,0,0,//  write object. 
+0,0,0,0,0,0,0,// java.sql.Timestamp 
+0,0,0,0,0,0,0,//  Object $invoke(String method, String[] parameterTypes, Object[] args) throws GenericException; 
+0,0,0,0,0,0,0,//  URL address separated regular expression for parsing the service provider URL list in the file cache 
+0,0,0,0,0,0,0,//  if value doesn't change, return immediately   value != null 
+0,0,0,0,0,0,0,//  retry task schedule period 
+0,0,0,0,0,0,0,//  Whether the consumer's machine has only one process   Multiple processes in the same machine cannot be unicast with unicast or there will be only one process receiving information
+0,0,0,0,0,0,0,//  ignore attribute name to skip 
+0,0,0,0,0,0,0,// 		assertThat(result.getName(), is("abc"));  		assertThat(result.getAge(), is(30)); 
+0,0,0,0,0,0,0,//  Process the component type of an array. 
+0,0,0,0,0,0,0,//  If none of the invokers has a local signal, pick the first one available. 
+0,0,0,0,0,0,0,//  pre-route and build cache, notice that route cache should build on original Invoker list. 
+0,0,0,0,0,0,0,//  path 
+0,0,0,0,0,0,0,// client side error 
+0,0,0,0,0,0,0,//  parseConfigurators will recognize app/service config automatically. 
+0,0,0,0,0,0,0,//  set codec. 
+0,0,0,0,0,0,0,// Two different methods should always use the same invoker every time. 
+0,0,0,0,0,0,0,//  Construct using org.apache.dubbo.common.serialize.protobuf.model.GooglePB.PhoneNumber.newBuilder() 
+0,0,0,0,0,0,0,//  process extended super class 
+0,0,0,0,0,0,0,//  cycle report the data switch 
+0,0,0,0,0,0,0,// callback interface 
+0,0,0,0,0,0,0,//  Start multiple threads 
+0,0,0,0,0,0,0,//  4. unexport service 
+0,0,0,0,0,0,0,//  message header length placeholder 
+0,0,0,0,0,0,0,//  impl methods. 
+0,0,0,0,0,0,0,/*  invalidate buffer     */
+0,0,0,0,0,0,0,/*     } */
+0,0,0,0,0,0,0,//  check if subscribe successfully 
+0,0,0,0,0,0,0,//  Try to get a cached definition 
+0,0,0,0,0,0,0,//  encode response verson ??          Assertions.assertEquals(response.getProtocolVersion(), obj.getVersion()); 
+0,0,0,0,0,0,0,//  setup 
+0,0,0,0,0,0,0,// Ensure that the main thread is online 
+0,0,0,0,0,0,0,//  Disable new tasks from being submitted 
+0,0,0,0,0,0,0,//  ~ end of loop map 
+0,0,0,0,0,0,0,//  draw one line 
+0,0,0,0,0,0,0,//  id MUST be present in AbstractConfig   id MUST NOT be equal to bean name   id MUST NOT be present in AliasRegistry 
+0,0,0,0,0,0,0,//  register, subscribe, notify, unsubscribe, unregister 
+0,0,0,0,0,0,0,//  test order 
+0,0,0,0,0,0,0,//  output one error every 5000 invocations. 
+0,0,0,0,0,0,0,//  1.0.0   Dubbo implementation version, usually is jar version. 
+0,0,0,0,0,0,0,//  Check and connect to the registry 
+0,0,0,0,0,0,0,//  check the file change 
+0,0,0,0,0,0,0,//  it's declared as remote reference 
+0,0,0,0,0,0,0,//  Close the unused Invoker 
+0,0,0,0,0,0,0,//  if the type is not primitive, we choose to believe what the invoker want is a null value 
+0,0,0,0,0,0,0,//  ======================================================     private helper 
+0,0,0,0,0,0,0,//  #1 ReferenceBean (Method Injection #1) 
+0,0,0,0,0,0,0,//  connect. 
+0,0,0,0,0,0,0,//  check for required fields 
+0,0,0,0,0,0,0,//  concurrent counter 
+0,0,0,0,0,0,0,//  must be executed after unsubscribing 
+0,0,0,0,0,0,0,/*   retry task map  */
+0,0,0,0,0,0,0,//  Compatible with the old version 
+0,0,0,0,0,0,0,// Check whether the mock value is legal, if it is illegal, throw exception 
+0,0,0,0,0,0,0,//  When modifying the configuration through override, you need to re-expose the newly modified service. 
+0,0,0,0,0,0,0,//             ex.printStackTrace(); 
+0,0,0,0,0,0,0,//  get Throwable class 
+0,0,0,0,0,0,0,//  message body 
+0,0,0,0,0,0,0,//  no welcome output for http protocol 
+0,0,0,0,0,0,0,//  protocol key is the second 
+0,0,0,0,0,0,0,//  check for required fields   alas, we cannot check 'arg' because it's a primitive and you chose the non-beans generator. 
+0,0,0,0,0,0,0,//  tab 
+0,0,0,0,0,0,0,//  Test @Transactional is present or not 
+0,0,0,0,0,0,0,//  Create client and build connection 
+0,0,0,0,0,0,0,//  here is non-biz exception, wrap it. 
+0,0,0,0,0,0,0,//  code.append("   }");   } 
+0,0,0,0,0,0,0,//  Make sure the buffer content is independent from each other. 
+0,0,0,0,0,0,0,//  The final root path would be: /configRootPath/"config" 
+0,0,0,0,0,0,0,//  parse bind port from environment 
+0,0,0,0,0,0,0,//  The lock for client acquisition process, lock the creation process of the client instance to prevent repeated clients 
+0,0,0,0,0,0,0,//  Add the timeout to the timeout queue which will be processed on the next tick.   During processing all the queued HashedWheelTimeouts will be added to the correct HashedWheelBucket. 
+0,0,0,0,0,0,0,//  Test my-registry2 bean presentation 
+0,0,0,0,0,0,0,// private boolean zzEOFDone; 
+0,0,0,0,0,0,0,//  first elements 
+0,0,0,0,0,0,0,// decide if we need to re-publish 
+0,0,0,0,0,0,0,//  state. 
+0,0,0,0,0,0,0,//  Start file save timer 
+0,0,0,0,0,0,0,//  header size 
+0,0,0,0,0,0,0,// Content 
+0,0,0,0,0,0,0,// fail-mock 
+0,0,0,0,0,0,0,//  and Update 
+0,0,0,0,0,0,0,//         url = url.addParameter( Constants.TIMEOUT_KEY, Integer.MAX_VALUE ); 
+0,0,0,0,0,0,0,// The registry is initially pushed to override only, and the dirctory state should be false because there is no invoker. 
+0,0,0,1,1,1,1,/*  * Default {@link HelloService} annotation with Spring's {@link Service} * and Dubbo's {@link org.apache.dubbo.config.annotation.Service} * * @since TODO  */
+0,0,0,0,0,0,0,//  the first invoker's weight 
+0,0,0,0,0,0,0,//  Save Error 
+0,0,0,0,0,0,0,//  if path is not the same as interface name then we should keep INTERFACE_KEY,   otherwise, the registry structure of zookeeper would be '/dubbo/path/providers',   but what we expect is '/dubbo/interface/providers' 
+0,0,0,0,0,0,0,// if protocol is only injvm ,not register 
+0,0,0,0,0,0,0,//  service name 
+0,0,0,0,0,0,0,//  com.alipay.test.TestService:1.0:group@dubbo 
+0,0,0,0,0,0,0,//  Trim all whitespace 
+0,0,0,0,0,0,0,//  one callback in the method 
+0,0,0,0,0,0,0,//  we can make again use of our MpscLinkedQueue and so minimize the locking / overhead as much as possible. 
+0,0,0,0,0,0,0,//  then unsubscribe 
+0,0,0,0,0,0,0,/*                      * at the first time, we want to pull already category and then watch their direct children,                     *  eg: /dubbo/interface/providers, /dubbo/interface/consumers and so on.                      */
+0,0,0,0,0,0,0,//  Timer for failure retry, regular check if there is a request for failure, and if there is, an unlimited retry 
+0,0,0,0,0,0,0,//  The parameters of the inspection registry need to be cleared 
+0,0,0,0,0,0,0,//  print ending separation line 
+0,0,0,0,0,0,0,// must equal the bytes 
+0,0,0,0,0,0,0,//  only for attachment 
+0,0,0,0,0,0,0,//  add methods 
+0,0,0,0,0,0,0,//  handle array generic type 
+0,0,0,0,0,0,0,//  "java.lang.Object" ==> "Ljava.lang.Object;" 
+0,0,0,0,0,0,0,//  for test content 
+0,0,1,0,1,1,1,//  TODO We only care the changes happened on a specific path level, for example    /dubbo/config/dubbo/configurators, other config changes not in this level will be ignored, 
+0,0,0,0,0,0,0,//  just for test 
+0,0,0,0,0,0,0,//  null url 
+0,0,0,0,0,0,0,//  create class 
+0,0,0,0,0,0,0,/*                  *  if we are interested in all interfaces,                 *  find out the current container or create one for the url, put or get only once.                  */
+0,0,0,0,0,0,0,//  null out prev and next to allow for GC. 
+0,0,0,0,0,0,0,//  Build pool with SoftReferences enabled (optional) 
+0,0,0,0,0,0,0,// final String onerror = PerformanceUtils.getProperty("onerror", "continue"); 
+0,0,0,0,0,0,0,// object to bytearray 
+0,0,0,0,0,0,0,//  remove module: "x.y.z" 
+0,0,0,0,0,0,0,//         consulRegistry.destroy();          assertThat(consulRegistry.isAvailable(), is(false)); 
+0,0,0,0,0,0,0,//  Asserts Null fields 
+0,0,0,0,0,0,0,//  More than one methods, mismatch 
+0,0,0,0,0,0,0,//  expect nothing happen 
+0,0,0,0,0,0,0,//  separator 
+0,0,0,0,0,0,0,//  providers 
+0,0,0,0,0,0,0,//         invoker.retryFailed();// when retry the invoker which get from failed map already is not the mocked invoker,so 
+0,0,0,0,0,0,0,//  lazy connect, need set send.reconnect = true, to avoid channel bad status. 
+0,0,0,0,0,0,0,//  Retry another server 
+0,0,0,0,0,0,0,// argument: index -1 represents not set 
+0,0,0,0,0,0,0,//  Accumulate the total weight of the least active invoker 
+0,0,0,0,0,0,0,//  2. export service and get url parameter string from db 
+0,0,0,0,0,0,0,//  Can be null 
+0,0,0,0,0,0,0,//  release port if used 
+0,0,0,0,0,0,0,//  received the cancel response 
+0,0,0,0,0,0,0,//  invoke id. 
+0,0,0,0,0,0,0,//  Subscribed services 
+0,0,0,0,0,0,0,//  visit all methods 
+0,0,0,0,0,0,0,// only decode necessary bytes 
+0,0,0,0,0,0,0,//  if protocol is not injvm checkRegistry 
+0,0,0,0,0,0,0,//  check if the output equals the input urls 
+0,0,0,0,0,0,0,//  convert argument type 
+0,0,0,0,0,0,0,/*  split CIDR to address and prefix part  */
+0,0,0,0,0,0,0,//  wait for timer to finish 
+0,0,0,0,0,0,0,//  send readonly event when server closes, it's enabled by default 
+0,0,0,0,0,0,0,//  Nacos use empty string as default name space, replace default namespace "dubbo" to "" 
+0,0,0,0,0,0,0,/*                  * at the first time, we want to pull already interface and then watch their direct children,                 *  eg: /dubbo/interface, /dubbo/interface and so on.                  */
+0,0,0,0,0,0,0,//  
+0,0,0,0,0,0,0,//  Decide the behaviour when initial connection try fails, 'true' means interrupt the whole process once fail. 
+0,0,0,0,0,0,0,//  method has no URL parameter 
+0,0,0,0,0,0,0,//  version 
+0,0,0,0,0,0,0,// test one url 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(interface_extends:org.apache.dubbo.common.serialize.protobuf.model.PBRequestType) 
+0,0,0,0,0,0,0,//  no need to call unexport() here, see   org.apache.dubbo.config.spring.extension.SpringExtensionFactory.ShutdownHookListener 
+0,0,0,0,0,0,0,//  ================ final field test ================ 
+0,0,0,0,0,0,0,//  Assertions.assertEquals("{\"code\":\"001\",\"message\":\"AAAAAAAA\"}", json); 
+0,0,0,0,0,0,0,//                 .setAttachments(attachments)  // merged from dubbox 
+0,0,0,0,0,0,0,// Avoid add the same invoker several times. 
+0,0,0,0,0,0,0,// private boolean zzAtBOL = true; 
+0,0,0,0,0,0,0,//  return default version if no version info is found 
+0,0,0,0,0,0,0,//  verify compatibility when 2.0.5 invokes 2.0.3 
+0,0,0,0,0,0,0,// SERVER 
+0,0,0,0,0,0,0,// decode argument ,may be callback 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(interface_extends:org.apache.dubbo.common.serialize.protobuf.model.PhoneNumber) 
+0,0,0,0,0,0,0,//             ReferenceBean<?> referenceBean = entry.getValue();                assertThat(referenceBean.getModule().getName(), is("defaultModule"));              assertThat(referenceBean.getMonitor(), not(nullValue()));          }      } 
+0,0,0,0,0,0,0,//  if not configured, connection is shared, otherwise, one connection for one service 
+0,0,0,0,0,0,0,// Avoid collision 
+0,0,0,0,0,0,0,// java.sql.Time 
+0,0,0,0,0,0,0,//                             rowbuf.append(" ");                          } 
+0,0,0,0,0,0,0,/*  error codes  */
+0,0,0,0,0,0,0,//  NOTE: It should be determined on the business level whether the `When condition` can be empty or not.
+0,0,0,0,0,0,0,// ====================================================== 
+0,0,0,0,0,0,0,//         super.destroy(); 
+0,0,0,0,0,0,0,// client can export a service which's only for server to invoke 
+0,0,0,0,0,0,0,//  by default, go through local reference if there's the service exposed locally 
+0,0,0,0,0,0,0,//  public field 
+0,0,0,0,0,0,0,//  write header.   write data. 
+0,0,0,0,0,0,0,//  subscribe first 
+0,0,0,0,0,0,0,//  The timeout was placed into a wrong slot. This should never happen. 
+0,0,0,0,0,0,0,//  url to registry 
+0,0,0,0,0,0,0,//  graceful close 
+0,0,0,0,0,0,0,//  retry again. If failed again, throw exception. 
+0,0,0,0,0,0,0,//  backward compatibility to spring 2.0.1 
+0,0,0,0,0,0,0,//  let's simply use url's hashcode to generate unique service id for now 
+0,0,0,0,0,0,0,/*  Linux Enter  */
+0,0,0,0,0,0,0,//  try to put the value 
+0,0,0,0,0,0,0,//  user customized class 
+0,0,0,0,0,0,0,//  jedis gets the result comparison 
+0,0,0,0,0,0,0,//  been invoked once, it's close status is false 
+0,0,0,0,0,0,0,//  Check whether url is to be applied to the current service 
+0,0,0,0,0,0,0,//  default true 
+0,0,0,0,0,0,0,//  We always return true for previously defined Router, that is, old Router doesn't support cache anymore.          return true; 
+0,0,0,0,0,0,0,//  replace "=" to "," 
+0,0,0,0,0,0,0,//  workerState can be 0 or 2 at this moment - let it always be 2. 
+0,0,0,0,0,0,0,//  message flag. 
+0,0,0,0,0,0,0,//  get the class def for obj and type 
+0,0,0,0,0,0,0,//             {"delay", "delay", "int", 0, 5, "", "", "", "", ""}, // not boolean 
+0,0,0,0,0,0,0,//  The parameter urls are sorted   Repeated url 
+0,0,0,0,0,0,0,//  Put new invoker in cache 
+0,0,0,0,0,0,0,//  no servicekey 
+0,0,0,0,0,0,0,//  Release the lock 
+0,0,0,0,0,0,0,//  getter method not found, throw
+0,0,0,0,0,0,0,//  The invoker wrap relation would be: RegistryAwareClusterInvoker(StaticDirectory) -> FailoverClusterInvoker(RegistryDirectory, will execute route) -> Invoker 
+0,0,0,0,0,0,0,//  create rpc invoker. 
+0,0,0,0,0,0,0,//  Filter out all the least active invokers 
+0,0,0,0,0,0,0,//  Protobuf property has two setting method.   skip setXXX(com.google.protobuf.Builder value) 
+0,0,0,0,0,0,0,//  inner nodes cache judgement 
+0,0,0,0,0,0,0,//  prepare 
+0,0,0,0,0,0,0,//         ExtensionLoader.getExtensionLoader(Ext9Empty.class).getSupportedExtensions(); 
+0,0,0,0,0,0,0,//  for previous dubbo version(2.0.10/020010~2.6.2/020602), this version is the jar's version, so they need to   be ignore 
+0,0,0,0,0,0,0,//  Dynamic param 
+0,0,0,0,0,0,0,// the fist element in `indexedVariables` is a set to keep all the InternalThreadLocal to remove  look at method `addToVariablesToRemove` 
+0,0,0,0,0,0,0,//  verify listener 
+0,0,0,0,0,0,0,// Simulation: all invokers are destroyed 
+0,0,0,0,0,0,0,//  Save 
+0,0,0,0,0,0,0,//  mark it's a callback, for troubleshooting 
+0,0,0,0,0,0,0,//  try to modify the key 
+0,0,0,0,0,0,0,// Start validation of parameter values 
+0,0,0,0,0,0,0,//  relatedQuery error, no id and email is passed, will trigger validation exception for both Save 
+0,0,0,0,0,0,0,// never mind if ephemeral 
+0,0,0,0,0,0,0,//  Create clients and build connections 
+0,0,0,0,0,0,0,//  If the clients is empty, then the first initialization is 
+0,0,0,0,0,0,0,//  in order to avoid closing a client multiple times, a counter is used in case of connection per jvm, every   time when client.close() is called, counter counts down once, and when counter reaches zero, client will be   closed. 
+0,0,0,0,0,0,0,//  Build and remove last ":" 
+0,0,0,0,0,0,0,//  Set interface 
+0,0,0,0,0,0,0,//  Load configuration from  system properties -> externalConfiguration -> RegistryConfig -> dubbo.properties 
+0,0,0,0,0,0,0,//  Try to match one by one 
+0,0,0,0,0,0,0,//  provider 
+0,0,0,0,0,0,0,// init history 
+0,0,0,0,0,0,0,//  Ignore - it will be ready very soon.
+0,0,0,0,0,0,0,//  directly throw if exception class and interface class are in the same jar file. 
+0,0,0,0,0,0,0,//  notify one invoker 
+0,0,0,0,0,0,0,// throw  ChannelEventRunnable.runtimeExeception(int logger) not in execute exception 
+0,0,0,0,0,0,0,//  find handler by message class. 
+0,0,0,0,0,0,0,//  process constructors, fields, methods 
+0,0,0,0,0,0,0,// The test call is independent of the path of the registry url 
+0,0,0,0,0,0,0,//  Set 
+0,0,0,0,0,0,0,//  log  output 
+0,0,0,0,0,0,0,//  Since we have subscribe testUrl, here should return a empty set instead of null 
+0,0,0,0,0,0,0,//  border 
+0,0,0,0,0,0,0,//  remove 'default.' prefix for configs from ConsumerConfig   appendParameters(map, consumer, Constants.DEFAULT_KEY); 
+0,0,0,0,0,0,0,//  Required 
+0,0,0,0,0,0,0,//  volatile, please copy reference to use 
+0,0,0,0,0,0,0,//  for backward compatibility   -Ddubbo.registry.address is now deprecated. 
+0,0,0,0,0,0,0,//  Return a invoker based on the random value. 
+0,0,0,0,0,0,0,//  fire event to all listeners 
+0,0,0,0,0,0,0,//  Process parameter types. 
+0,0,0,0,0,0,0,//  Reconnect the timer to check whether the connection is available at a time, and when unavailable, an infinite reconnection 
+0,0,0,0,0,0,0,//  remove path: "group-module-x.y.z" 
+0,0,0,0,0,0,0,//  save for later use 
+0,0,0,0,0,0,0,//  Performance tuned for 2.0 (JDK1.4) 
+0,0,0,0,0,0,0,// weight changed 
+0,0,0,0,0,0,0,//  BIO is not allowed since it has severe performance issue. 
+0,0,0,0,0,0,0,//  no match service version 
+0,0,0,0,0,0,0,//  get consumer's global configuration 
+0,0,0,0,0,0,0,//  @Parameter(exclude=true) 
+0,0,0,0,0,0,0,//  The null value is unallowed in the ConcurrentHashMap. 
+0,0,0,0,0,0,0,//  Ensure we don't schedule for past. 
+0,0,0,0,0,0,0,//  tree node 
+0,0,0,0,0,0,0,// private int yychar; 
+0,0,0,0,0,0,0,//  since the retry task will not be very much. 128 ticks is enough. 
+0,0,0,0,0,0,0,//  #3 ReferenceBean (Method Injection #2) 
+0,0,0,0,0,0,0,//  ephemeral is expired 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(class_scope:org.apache.dubbo.common.serialize.protobuf.model.PBRequestType) 
+0,0,0,0,0,0,0,//  has one sync callback 
+0,0,0,0,0,0,0,//  easy for mock 
+0,0,0,0,0,0,0,//  First page data 
+0,0,0,0,0,0,0,//  wildcard cases 
+0,0,0,0,0,0,0,//  currently for test purpose 
+0,0,0,0,0,0,0,//         Thread.sleep(100000);//for debug 
+0,0,0,0,0,0,0,//  override url with configurator from "override://" URL for dubbo 2.6 and before 
+0,0,0,0,0,0,0,//  support com.alibaba.dubbo.common.extension.Activate 
+0,0,0,0,0,0,0,//  data rows 
+0,0,0,0,0,0,0,// spin 
+0,0,0,0,0,0,0,//  2.8.x is reserved for dubbox 
+0,0,0,0,0,0,0,// do nothing 
+0,0,0,0,0,0,0,// fix:#4585 
+0,0,0,0,0,0,0,// not pass the condition 
+0,0,0,0,0,0,0,//       uncomment is unblock invoking          serviceURL = serviceURL.addParameter("yyy."+Constants.ASYNC_KEY,String.valueOf(true));          consumerUrl = consumerUrl.addParameter("yyy."+Constants.ASYNC_KEY,String.valueOf(true)); 
+0,0,0,0,0,0,0,//  mock protocol 
+0,0,0,0,0,0,0,/*  if not: blow it up  */
+0,0,0,0,0,0,0,// key value pair pattern. 
+0,0,0,0,0,0,0,//  all attributes of REFER_KEY 
+0,0,0,0,0,0,0,//  Remove all instances associated with this loader as well 
+0,0,1,0,0,0,0,//  If the server has entered the shutdown process, reject any new connection 
+0,0,0,0,0,0,0,//  set timeout status. 
+0,0,0,0,0,0,0,//  From Parent 
+0,0,0,0,0,0,0,//  This urls contain parameter and it donot inherit from the parameter of url in MultipleRegistry 
+0,0,0,0,0,0,0,// The current, may have been merged many times 
+0,0,0,0,0,0,0,//  setup attachment 
+0,0,0,0,0,0,0,//  decode response. 
+0,0,0,0,0,0,0,//  Start part of the condition expression. 
+0,0,0,0,0,0,0,//  if a url is specified, don't do local reference 
+0,0,0,0,0,0,0,//  available first 
+0,0,0,0,0,0,0,// The failedsubcribe corresponding key will be cleared when unsubscribing 
+0,0,0,0,0,0,0,//  without ROUTER_KEY, the first router should not be created. 
+0,0,0,0,0,0,0,//  search common-used logging frameworks 
+0,0,0,0,0,0,0,//  sorting makes it easy to compare between lists 
+0,0,0,0,0,0,0,//  wait close done. 
+0,0,0,0,0,0,0,//  biz exception 
+0,0,0,0,0,0,0,//  Bind annotation attributes 
+0,0,0,0,0,0,0,//  Max times to retry to save properties to local cache file 
+0,0,0,0,0,0,0,// set ip 
+0,0,0,0,0,0,0,//  inner class name include $. 
+0,0,0,0,0,0,0,//  property of map 
+0,0,0,0,0,0,0,//  response received, latch counts down to zero 
+0,0,0,0,0,0,0,//  for thrift codec 
+0,0,0,0,0,0,0,// must shutdown thread pool ,if not will lead to OOM 
+0,0,0,0,0,0,0,//         int timeout = ConfigUtils.getServerShutdownTimeout();          Thread.sleep(timeout + 1000);          assertEquals(false, exporter.getInvoker().isAvailable()); 
+0,0,0,0,0,0,0,//  Find all interfaces from the annotated class   To resolve an issue : https://github.com/apache/dubbo/issues/3251 
+0,0,0,0,0,0,0,//  unrefer 
+0,0,0,0,0,0,0,//  Cancel the reconnection timer 
+0,0,0,0,0,0,0,//  Remote @Service Bean 
+0,0,0,0,0,0,0,// The parameters can not be rereferenced 
+0,0,0,0,0,0,0,//  The Value in the KV part, if Value have more than one items.   Should be separated by ',' 
+0,0,0,0,0,0,0,// override 
+0,0,0,0,0,0,0,// ignore 
+0,0,0,0,0,0,0,//  The sequence would be: SystemConfiguration -> AbstractConfig -> AppExternalConfiguration -> ExternalConfiguration -> PropertiesConfiguration 
+0,0,0,0,0,0,0,//  have free worker. put task into queue to let the worker deal with task. 
+0,0,0,0,0,0,0,//  callback instance when async-call has exception thrown 
+0,0,0,0,0,0,0,// If the `invoker` is in the  `selected` or invoker is unavailable && availablecheck is true, reselect. 
+0,0,0,0,0,0,0,//  compile 
+0,0,0,0,0,0,0,//  retry loop.   last exception.   invoked invokers. 
+0,0,0,0,0,0,0,/*      * if {@link #key()} is specified, it will be used as the key for the annotated property when generating url.     * by default, this key will also be used to retrieve the config value:     * <pre>     * {@code     *  class ExampleConfig {     *      // Dubbo will try to get "dubbo.example.alias_for_item=xxx" from .properties, if you want to use the original property     *      // "dubbo.example.item=xxx", you need to set useKeyAsProperty=false.     *      @Parameter(key = "alias_for_item")     *      public getItem();     *  }     * }     *     * </pre>      */
+0,0,0,0,0,0,0,// Cached invoker urls, convenient for comparison 
+0,0,0,0,0,0,0,//  wildcard condition 
+0,0,0,0,0,0,0,//  toMergeMethodInvokerMap() will wrap some invokers having different groups, those wrapped invokers not should be routed. 
+0,0,0,0,0,0,0,//  release ClassGenerator 
+0,0,0,0,0,0,0,//                       ^^ only tow slash! 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(class_scope:Map) 
+0,0,0,0,0,0,0,//  Unavailable codes mean the system will be right back.   (e.g., can't connect, lost leader)   Treat Internal codes as if something failed, leaving the   system in an inconsistent state, but retrying could make progress.   (e.g., failed in middle of send, corrupted frame) 
+0,0,0,0,0,0,0,//  URL address separator, used in file cache, service provider URL separation 
+0,0,0,0,0,0,0,//  return immediately if there's no change 
+0,0,0,0,0,0,0,//  verify if it's idempotent 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(message_implements:org.apache.dubbo.common.serialize.protobuf.model.PBResponseType) 
+0,0,0,0,0,0,0,//  If there's no tagged providers that can match the current tagged request. force.tag is set by default 
+0,0,0,0,0,0,0,//  List 
+0,0,0,0,0,0,0,//  the total count 
+0,0,0,0,0,0,0,/*          * The fill length can not be less than 256, because by default, hessian reads 256 bytes from the stream each time.         * Refer Hessian2Input.readBuffer for more details          */
+0,0,0,0,0,0,0,//  Choose an invoker from all the least active invokers 
+0,0,0,0,0,0,0,/*  the .properties file under 'configFile' is global shared while .properties under this one is limited only to this application     */
+0,0,0,0,0,0,0,//  if client connect or disconnect to server, zookeeper will queue   watched event(Watcher.Event.EventType.None, .., path = null). 
+0,0,0,0,0,0,0,//  Copy from javassist.bytecode.annotation.Annotation.createMemberValue(ConstPool, CtClass); 
+0,0,0,0,0,0,0,//  must present 4 segments 
+0,0,0,0,0,0,0,//  for CuratorZookeeperClient 
+0,0,0,0,0,0,0,//  do refer 
+0,0,0,0,0,0,0,//  given that repeat(String, int) is quite optimized, better to rely on it than try and splice this into it 
+0,0,0,0,0,0,0,//  get URL directly 
+0,0,0,0,0,0,0,//  use 1st key, key1 
+0,0,0,0,0,0,0,//  limit input stream. 
+0,0,0,0,0,0,0,//  test old @Activate group 
+0,0,0,0,0,0,0,//  Double check whether or not it is connected 
+0,0,0,0,0,0,0,/*  * Serialization strategy interface that specifies a serializer. (SPI, Singleton, ThreadSafe) * * The default extension is hessian2 and the default serialization implementation of the dubbo protocol. * <pre> *     e.g. &lt;dubbo:protocol serialization="xxx" /&gt; * </pre>  */
+0,0,0,0,0,0,0,//  process all timeouts 
+0,0,0,0,0,0,0,// The same invoker, exporter that multiple exported are different 
+0,0,0,0,0,0,0,// exist overridden method 
+0,0,0,0,0,0,0,//  override url with configurator from configurators from "service-name.configurators" 
+0,0,0,0,0,0,0,//  fix issue#619 
+0,0,0,0,0,0,0,//  create service proxy 
+0,0,0,0,0,0,0,//  ======== protocol default values, it'll take effect when protocol's attributes are not set ======== 
+0,0,0,0,0,0,0,//  then unregister 
+0,0,0,0,0,0,0,//  never has a retry task. then start a new task for retry. 
+0,0,0,0,0,0,0,//  property of list 
+0,0,0,0,0,0,0,//  export to local if the config is not remote (export to remote only when config is remote) 
+0,0,0,0,0,0,0,//  log output 
+0,0,1,0,0,0,0,/*  * ValidationFilter invoke the validation by finding the right {@link Validator} instance based on the * configured <b>validation</b> attribute value of invoker url before the actual method invocation. * * <pre> *     e.g. &lt;dubbo:method name="save" validation="jvalidation" /&gt; *     In the above configuration a validation has been configured of type jvalidation. On invocation of method <b>save</b> *     dubbo will invoke {@link org.apache.dubbo.validation.support.jvalidation.JValidator} * </pre> * * To add a new type of validation * <pre> *     e.g. &lt;dubbo:method name="save" validation="special" /&gt; *     where "special" is representing a validator for special character. * </pre> * * developer needs to do * <br/> * 1)Implement a SpecialValidation.java class (package name xxx.yyy.zzz) either by implementing {@link Validation} or extending {@link org.apache.dubbo.validation.support.AbstractValidation} <br/> * 2)Implement a SpecialValidator.java class (package name xxx.yyy.zzz) <br/> * 3)Add an entry <b>special</b>=<b>xxx.yyy.zzz.SpecialValidation</b> under <b>META-INF folders org.apache.dubbo.validation.Validation file</b>. * * @see Validation * @see Validator * @see Filter * @see org.apache.dubbo.validation.support.AbstractValidation  */
+0,0,0,0,0,0,0,//  do not increment in method beforeExecute! 
+0,0,0,0,0,0,0,//  String property has two setting method.   skip setXXXBytes(com.google.protobuf.ByteString value) 
+0,0,0,0,0,0,0,//         kryo.setReferences(false); 
+0,0,0,0,0,0,0,// linux end 
+0,0,0,0,0,0,0,//  connection events 
+0,0,0,0,0,0,0,//  logger 
+0,0,0,0,0,0,0,//  Fall back to class name as cache key, for backwards compatibility with custom callers. 
+0,0,0,0,0,0,0,//  Record a failed registration request to a failed list, retry regularly 
+0,0,0,0,0,0,0,//  subscribe 
+0,0,0,0,0,0,0,//  get request id. 
+0,0,0,0,0,0,0,//  for sending over wire 
+0,0,0,0,0,0,0,//  onError callback 
+0,0,0,0,0,0,0,//  The sequence would be: SystemConfiguration -> AppExternalConfiguration -> ExternalConfiguration -> AbstractConfig -> PropertiesConfiguration 
+0,0,0,0,0,0,0,//  message header length 
+0,0,0,0,0,0,0,//  Use Default implementation 
+0,0,0,0,0,0,0,// proxieeClass = c; 
+0,0,0,0,0,0,0,//  Generate and write a response. 
+0,0,0,0,0,0,0,//  Wait a while for existing tasks to terminate 
+0,0,0,0,0,0,0,//  check ping & pong at server 
+0,0,0,0,0,0,0,//  Process string to char array for generic invoke   See   - https://github.com/apache/dubbo/issues/2003 
+0,0,0,1,0,1,1,//  if it's a callback, create proxy on client side, callback interface on client side can be invoked through channel   need get URL from channel and env when decode 
+0,0,0,0,0,0,0,//  Convert tickDuration to nanos. 
+0,0,0,0,0,0,0,//  getUsers 
+0,0,0,0,0,0,0,//  just add new valid channel to NettyChannel's cache 
+0,0,0,0,0,0,0,//  Config Center should always being started first. 
+0,0,0,0,0,0,0,// private int yyline; 
+0,0,0,0,0,0,0,//  because the two interfaces are initialized, the ReferenceCountExchangeClient reference counter is 2 
+0,0,0,0,0,0,0,//  Registers @Service Bean first 
+0,0,0,0,0,0,0,/* package */
+0,0,0,1,1,1,1,/*  * EventFilterTest.java * TODO rely on callback integration test for now  */
+0,0,0,0,0,0,0,//  Not match comparison 
+0,0,0,0,0,0,0,//  Append default category if absent 
+0,0,0,0,0,0,0,//  Remove all annotated-classes that have been registered 
+0,0,0,0,0,0,0,//  id 
+0,0,0,0,0,0,0,//  if it's auto resize, then calculate the possible max width 
+0,0,0,0,0,0,0,//  skip the setting method with Pb entity builder as parameter 
+0,0,0,0,0,0,0,//  Use Map.newBuilder() to construct. 
+0,0,0,0,0,0,0,//  The first time is inaccurate. 
+0,0,0,0,0,0,0,// change by fengting listener   {"listener", "exporter.listener", "string", "", "", "", "", "", "", ""},  {"filter", "service.filter", "string", "", "", "", "", "", "", ""}, 
+0,0,0,0,0,0,0,//  Local disk cache, where the special key value.registries records the list of metadata centers, and the others are the list of notified service providers 
+0,0,0,0,0,0,0,//  ~ end of else 
+0,0,0,0,0,0,0,//  is the concrete service name 
+0,0,0,0,0,0,0,//  verify cache, same result is returned for multiple invocations (in fact, the return value increases   on every invocation on the server side) 
+0,0,0,0,0,0,0,//  no separator is required for the first item 
+0,0,0,0,0,0,0,//  check for required fields of primitive type, which can't be checked in the validate method 
+0,0,0,0,0,0,0,//  destroy all the registries 
+0,0,0,0,0,0,0,//  Ignore all the exceptions and wait for the next retry 
+0,0,0,0,0,0,0,//  Bind 
+0,0,0,0,0,0,0,//  protocol key is the first 
+0,0,0,0,0,0,0,//  mark buffer is not empty 
+0,0,0,0,0,0,0,//  ======================================================     tests start   ======================================================   
+0,0,0,0,0,0,0,// to judge if we need to delay publish 
+0,0,0,0,0,0,0,//  message like : XxxService , XxxService 10 , XxxService xxxMethod , XxxService xxxMethod 10 
+0,0,0,0,0,0,0,//  Lock the registry access process to ensure a single instance of the registry 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(outer_class_scope) 
+0,0,0,0,0,0,0,//  @Adaptive example, do not specify a explicit key. 
+0,0,0,0,0,0,0,//  policy 
+0,0,0,0,0,0,0,//     ConcurrentMap<String, Channel> channels = new ConcurrentHashMap<String, Channel>(); 
+0,0,0,0,0,0,0,//  getAndIncrement() When it grows to MAX_VALUE, it will grow to MIN_VALUE, and the negative can be used as ID 
+0,0,0,0,0,0,0,//  Wait for connection 
+0,0,0,0,0,0,0,//  unsubscribe. 
+0,0,0,0,0,0,0,//             logger.warn(t.getMessage(), t);          } 
+0,0,0,0,0,0,0,// message like : xxxMethod, xxxMethod 10 
+0,0,0,0,0,0,0,//  File cache timing writing 
+0,0,0,0,0,0,0,//  register 
+0,0,0,0,0,0,0,//  server will close channel when server don't receive any heartbeat from client util timeout. 
+0,0,0,0,0,0,0,//  
+0,0,0,0,0,0,0,// exchangeClients[i] = Exchangers.connect(url,handler);
+0,0,0,0,0,0,0,//  if bind ip is not found in environment, keep looking up 
+0,0,0,0,0,0,0,//  monitor 
+0,0,0,0,0,0,0,//  Other events are passed down directly 
+0,0,0,0,0,0,0,//  by default, port to registry 
+0,0,0,0,0,0,0,//  Windows backspace echo 
+0,0,0,0,0,0,0,//  connection should be lazy 
+0,0,0,0,0,0,0,//  Do not check whether the connection is successful or not, always create Invoker! 
+0,0,0,0,0,0,0,//  if the pattern is subnet format, it will not be allowed to config port param in pattern. 
+0,0,0,0,0,0,0,//  Notified services 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(enum_scope:org.apache.dubbo.common.serialize.protobuf.model.PhoneType) 
+0,0,0,0,0,0,0,//  trigger ArrayMerger 
+0,0,0,0,0,0,0,//  no @Adaptive 
+0,0,0,0,0,0,0,//  reference retry init will add url to urls, lead to OOM   user specified URL, could be peer-to-peer address, or register center's address. 
+0,0,0,0,0,0,0,//  Delete Error 
+0,0,0,0,0,0,0,//  Get the active number of the invoker 
+0,0,0,0,0,0,0,//  one channel can have multiple callback instances, no need to re-export for different instance. 
+0,0,0,0,0,0,0,//  fill in message length and header length 
+0,0,0,0,0,0,0,//  callback limits 
+0,0,0,0,0,0,0,//  one of the properties of an argument is an instance of URL. 
+0,0,0,0,0,0,0,//  Sending a registration request to the server side 
+0,0,0,0,0,0,0,//  The field define the zookeeper server , including protocol, host, port, username, password 
+0,0,0,0,0,0,0,//  If The return value of "getName" method is not null 
+0,0,0,0,0,0,0,//  backspace 
+0,0,0,0,0,0,0,//  Convert Map to MutablePropertyValues 
+0,0,0,0,1,1,1,//  TODO get from ConfigManager first, only create if absent. 
+0,0,0,0,0,0,0,/*      * Decide which target extension to be injected. The name of the target extension is decided by the parameter passed     * in the URL, and the parameter names are given by this method.     * <p>     * If the specified parameters are not found from {@link URL}, then the default extension will be used for     * dependency injection (specified in its interface's {@link SPI}).     * <p>     * For example, given <code>String[] {"key1", "key2"}</code>:     * <ol>     * <li>find parameter 'key1' in URL, use its value as the extension's name</li>     * <li>try 'key2' for extension's name if 'key1' is not found (or its value is empty) in URL</li>     * <li>use default extension if 'key2' doesn't exist either</li>     * <li>otherwise, throw {@link IllegalStateException}</li>     * </ol>     * If the parameter names are empty, then a default parameter name is generated from interface's     * class name with the rule: divide classname from capital char into several parts, and separate the parts with     * dot '.', for example, for {@code org.apache.dubbo.xxx.YyyInvokerWrapper}, the generated name is     * <code>String[] {"yyy.invoker.wrapper"}</code>.     *     * @return parameter names in URL      */
+0,0,0,0,0,0,0,//  FIX
+0,0,0,0,0,0,0,//  20 is the default maxTotal of current PoolingClientConnectionManager 
+0,0,0,0,0,0,0,//  reach the most times of retry. 
+0,0,0,0,0,0,0,//  use RpcContextFilter
+0,0,0,0,0,0,0,//  Construct using org.apache.dubbo.common.serialize.protobuf.model.GooglePB.PBResponseType.newBuilder() 
+0,0,0,0,0,0,0,//  Create some data for test 
+0,0,0,0,0,0,0,//  make sure null and base64 encoded string can work 
+0,0,0,0,0,0,0,//  Expected
+0,0,0,0,0,0,0,//  maxHistory=0 Infinite history 
+0,0,0,0,0,0,0,// ctx.start(); 
+0,0,0,0,0,0,0,//  Make sure all properties are copied. 
+0,0,0,0,0,0,0,//  remove timeout that was either processed or cancelled by updating the linked-list 
+0,0,0,0,0,0,0,//  The escape character preceding the delimiter start is   itself escaped: "abc x:\\{}"   we have to consume one backward slash 
+0,0,0,0,0,0,0,//  directly throw if the exception appears in the signature 
+0,0,0,0,0,0,0,// int idx = server.indexOf(':'); 
+0,0,0,0,0,0,0,//  count down 
+0,0,0,0,0,0,0,//  Convert parameters into map 
+0,0,0,0,0,0,0,//  url to export locally 
+0,0,0,0,0,0,0,//  split service name to segments   (required) segments[0] = category   (required) segments[1] = serviceInterface   (optional) segments[2] = version   (optional) segments[3] = group 
+0,0,0,0,0,0,0,//  test message header length 
+0,0,0,0,0,0,0,//  cancel refer, directly remove from the map 
+0,0,0,0,0,0,0,//  unlikely but not impossible: read 0 characters, but not at end of stream 
+0,0,0,0,0,0,0,// stop timer 
+0,0,0,0,0,0,0,//  count up 
+0,0,0,0,0,0,0,//  init notify listener 
+0,0,0,0,0,0,0,/*                       The customized 'com.alibaba.dubbo.rpc.protocol.http.HttpRemoteInvocation' was firstly introduced                      in v2.6.3. The main purpose is to support transformation of attachments in HttpInvokerProtocol, see                      https://github.com/apache/dubbo/pull/1827. To guarantee interoperability with lower                      versions, we need to check if the provider is v2.6.3 or higher before sending customized                      HttpRemoteInvocation.                      */
+0,0,0,0,0,0,0,//  by default, reference local service if there is 
+0,0,0,0,0,0,0,// Merge the urls of configurators 
+0,0,0,0,0,0,0,//  get return type 
+0,0,0,0,0,0,0,//  transfer only max. 100000 timeouts per tick to prevent a thread to stale the workerThread when it just   adds new timeouts in a loop. 
+0,0,0,0,0,0,0,//  Listeners list for subscribed services 
+0,0,0,0,0,0,0,//  if null, will return the initialize value.  Assertions.assertNull(RpcContext.getContext()); 
+0,0,0,0,0,0,0,//  delete listener and register 
+0,0,0,0,0,0,0,// change db.index=1 
+0,0,0,0,0,0,0,// .addParameter(Constants.STUB_KEY, RegistryServiceStub.class.getName()) 
+0,0,0,0,0,0,0,//  cores theads are all alive. 
+0,0,0,0,0,0,0,//  Sum 
+0,0,0,0,0,0,0,//  Lock up the registry shutdown process 
+0,0,0,0,0,0,0,/* registryDirectory.notify(serviceUrls);        RouterChain routerChain = registryDirectory.getRouterChain();        //default invocation selector        Assertions.assertEquals(1 + 1, routers.size());        Assertions.assertTrue(ScriptRouter.class == routers.get(1).getClass() || ScriptRouter.class == routers.get(0).getClass());        registryDirectory.notify(new ArrayList<URL>());        routers = registryDirectory.getRouters();        Assertions.assertEquals(1 + 1, routers.size());        Assertions.assertTrue(ScriptRouter.class == routers.get(1).getClass() || ScriptRouter.class == routers.get(0).getClass());        serviceUrls.clear();        serviceUrls.add(routerurl.addParameter(Constants.ROUTER_KEY, Constants.ROUTER_TYPE_CLEAR));        registryDirectory.notify(serviceUrls);        routers = registryDirectory.getRouters();        Assertions.assertEquals(0 + 1, routers.size()); */
+0,0,0,0,0,0,0,//   subscription information to cover. 
+0,0,0,0,0,0,0,// export stub service 
+0,0,0,0,0,0,0,//  Record the weight the first least active invoker 
+0,0,0,0,0,0,0,//  Just pick an available invoker using loadbalance policy 
+0,0,0,0,0,0,0,/* , localContext */
+0,0,0,0,0,0,0,//  make sure first time callback successfully 
+0,0,0,0,0,0,0,// {"filter", "service.filter", "string", "", "", "", "", "", "", ""},  {"listener", "listener", "string", "", "", "", "", "", "", ""}, 
+0,0,0,0,0,0,0,//  ExchangeClient client = arrays.get(0); 
+0,0,0,0,0,0,0,//  ================ Array Type ================  
+0,0,0,0,0,0,0,//  check the setter/getter whether match 
+0,0,0,0,0,0,0,// If no mock was configured, return null directly 
+0,0,0,0,0,0,0,// The origin invoker 
+0,0,0,0,0,0,0,//  DUBBO-147 find all invoker instances which have been tried from RpcContext 
+0,0,0,0,0,0,0,//  test netty client 
+0,0,0,0,0,0,0,// {"mock", "mock", "string", "false", "dubbo.test.HelloServiceMock", "true", "", "", "", ""}, 
+0,0,0,0,0,0,0,//  unlock 
+0,0,0,0,0,0,0,//  create exception response. 
+0,0,0,0,0,0,0,//  no-op 
+0,0,0,0,0,0,0,//  escape 
+0,0,0,0,0,0,0,//  unregister. 
+0,0,0,0,0,0,0,//  no more variables   this is a simple string 
+0,0,0,0,0,0,0,// private ChannelListener listener; 
+0,0,0,0,0,0,0,//  range condition 
+0,0,0,0,0,0,0,//  server supports reset, use together with override 
+0,0,0,0,0,0,0,//  2.0.2 
+0,0,0,0,0,0,0,//  use CompareAndSet to sum 
+0,0,0,0,0,0,0,//  timeout in 15 seconds. 
+0,0,0,0,0,0,0,//  process width cache 
+0,0,0,0,0,0,0,//         // get arguments          Object arguments = ReflectionUtil.parseArguments(                  invocation.getMethod(), invocation.getArguments(), useNamedParams);            // invoke it          return jsonRpcHttpClient.invoke(                  invocation.getMethod().getName(),                  arguments,                  retType, extraHttpHeaders);
+0,0,0,0,0,0,0,//  clear buffer 
+0,0,0,0,0,0,0,//  init decoder map. 
+0,0,0,0,0,0,0,//  Ignore it. 
+0,0,0,0,0,0,0,//  init the object 
+0,0,0,0,0,0,0,/*  * Autogenerated by Dubbo Compiler (0.1.0) * <p> * Thrift (0.7.0) * <p> * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING  */
+0,0,0,0,0,0,0,//  ======================================================     data table manipulation utils 
+0,0,0,0,0,0,0,//  Sending a canceling subscription request to the server side 
+0,0,0,0,0,0,0,//  ignore error log 
+0,0,0,0,0,0,0,//  bind ip is used as registry ip by default 
+0,0,0,0,0,0,0,//  Allow to access   local reference 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(interface_extends:Map) 
+0,0,0,0,0,0,0,//  It's safe to declare it as singleton since it runs on single thread only 
+0,0,0,0,0,0,0,//  remain 
+0,0,0,0,0,0,0,//  find parameterized type 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(builder_implements:Map) 
+0,0,0,0,0,0,0,//  get translated positions and possibly new buffer 
+0,0,0,0,0,0,0,//  Null point check 
+0,0,0,0,0,0,0,//  do nothing 
+0,0,0,0,0,0,0,//         testStartupConfig();          testProviderConfig();          testPathCache();          testTreeCache();          testCuratorListener();         Thread.sleep(100000); 
+0,0,0,0,0,0,0,//  2. if there are some addresses that are not in any dynamic tag group, continue to filter using the   static tag group. 
+0,0,0,0,0,0,0,//  Each invoke has the same weight (only one invoker here) 
+0,0,0,0,0,0,0,//  connection error causes client to release all resources including current watcher
+0,0,0,0,0,0,0,//  assert tags 
+0,0,0,0,0,0,0,//  If it is the first invoker or the active number of the invoker is less than the current least active number 
+0,0,0,0,0,0,0,//  verify if the first cache item is expired in LRU cache 
+0,0,0,0,0,0,0,//  contributors: lizongbo: proposed special treatment of array parameter values   Joern Huxhorn: pointed out double[] omission, suggested deep array copy 
+0,0,0,0,0,0,0,//  @Parameter(key="key2", useKeyAsProperty=true) 
+0,0,0,0,0,0,0,//         URL consumerurl = serviceurl;          Invoker<DemoService> reference = protocol.refer(DemoService.class, consumerurl);          DemoService demoProxy = (DemoService)proxyFactory.createProxy(reference); 
+0,0,0,0,0,0,0,// configure the cache 
+0,0,0,0,0,0,0,// ignore overloaded method 
+0,0,0,0,0,0,0,//  export one service 
+0,0,0,0,0,0,0,//  Initialize the startTime. 
+0,0,0,0,0,0,0,//             {"", "", "", "", "", "", "", "", "", ""}, 
+0,0,0,0,0,0,0,//  loop up after registry 
+0,0,0,0,0,0,0,//  get version. 
+0,0,0,0,0,0,0,// Header 
+0,0,0,0,0,0,0,//  need to consider backward-compatibility if it's a callback 
+0,0,0,0,0,0,0,//  enable heartbeat by default 
+0,0,0,0,0,0,0,// excluded = true              {"filter", "service.filter", "string", "default", "-generic", "", "", "", "", ""},  excluded = true              {"listener", "exporter.listener", "string", "default", "-deprecated", "", "", "", "", ""},  {"", "", "", "", "", "", "", "", "", ""}, 
+0,0,0,0,0,0,0,//  backward compatibility for version 2.0.0 
+0,0,0,0,0,0,0,//  print inner separation lines 
+0,0,0,0,0,0,0,/*                                          *  because etcd3 does not support direct children watch events,                                         *  we should filter not interface events. if we watch /dubbo                                         *  and /dubbo/interface, when we put a key-value pair {/dubbo/interface/hello hello},                                         *  we will got events in watching path /dubbo.                                          */
+0,0,0,0,0,0,0,//  Save OK 
+0,0,0,0,0,0,0,//  return url.getServiceKey(); 
+0,0,0,0,0,0,0,//  Merge the consumer side parameters 
+0,0,0,0,0,0,0,//  empty protocol 
+0,0,0,0,0,0,0,//  valid port range is (0, 65535] 
+0,0,0,0,0,0,0,//  when return type is not the subclass of return type from the signature and not an interface 
+0,0,0,0,0,0,0,//  default time-to-live in millisecond 
+0,0,0,0,0,0,0,//  service name   method name 
+0,0,0,0,0,0,0,// int port = (int) (1000 * Math.random() + 10000); 
+0,0,0,0,0,0,0,/*  index in packed string   */
+0,0,0,0,0,0,0,//  Remove configurations from provider, some items should be affected by provider. 
+0,0,0,0,0,0,0,//  Do not need to close
+0,0,0,0,0,0,0,//  get cache by class loader. 
+0,0,0,0,0,0,0,//  No matching results 
+0,0,0,0,0,0,0,//  check if methods exist in the remote service interface 
+0,0,0,0,0,0,0,//  create XmlRpcHttpClient 
+0,0,0,0,0,0,0,//  Initialization at construction time, assertion not null   Initialization at construction time, assertion not null   Initialization at construction time, assertion not null   Initialization at construction time, assertion not null, and always assign non null value 
+0,0,0,0,0,0,0,//  cached fields: 
+0,0,0,0,0,0,0,//  present in both local and remote, but uses remote value. 
+0,0,0,0,0,0,0,//  use 1st key, protocol 
+0,0,0,0,0,0,0,//  3. - setRepeatedField(com.google.protobuf.Descriptors.FieldDescriptor field,int index,java.lang.Object value） 
+0,0,0,0,0,0,0,//  pop name. 
+0,0,0,0,0,0,0,// invoke method --> init client 
+0,0,0,0,0,0,0,//  loop methods, get override value and set the new value back to method 
+0,0,0,0,0,0,0,// onthrow callback not configured
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(class_scope:org.apache.dubbo.common.serialize.protobuf.model.PhoneNumber) 
+0,0,0,0,0,0,0,//  reset 
+0,0,0,0,0,0,0,//  Close old channel   copy reference 
+0,0,0,0,0,0,0,//  Construct using org.apache.dubbo.common.serialize.protobuf.model.GooglePB.PBRequestType.newBuilder() 
+0,0,0,0,0,0,0,//  Custom type 
+0,0,0,0,0,0,0,//  application 
+0,0,0,0,0,0,0,// decode 
+0,0,0,0,0,0,0,// init channel 
+0,0,0,0,0,0,0,//  set request and serialization flag. 
+0,0,0,0,0,0,0,//  to verify interfaceClass is an interface 
+0,0,0,0,0,0,0,// Clear first, previous test case will make sure that the right invoker2 will be used. 
+0,0,0,0,0,0,0,//  get stackTrace value 
+0,0,0,0,0,0,0,//  remove group: "module-x.y.z" 
+0,0,0,0,0,0,0,// value calculate 
+0,0,0,0,0,0,0,// Configured with mock 
+0,0,0,0,0,0,0,// The parameters are different and must be rereferenced. 
+0,0,0,0,0,0,0,//  never select invoker3 because it's active is more than invoker1 and invoker2 
+0,0,0,0,0,0,0,//  appender 
+0,0,0,0,0,0,0,//  Append first page into list 
+0,0,0,0,0,0,0,/*  Windows Enter  */
+0,0,0,0,0,0,0,//  do refer duplicated 
+0,0,0,0,0,0,0,//  counters 
+0,0,0,0,0,0,0,//  treat url and configuration differently, the value should always present in configuration though it may not need to present in url. 
+0,0,0,0,0,0,0,//  If more than 1 page 
+0,0,0,0,0,0,0,//  print first separation line 
+0,0,1,0,0,0,0,//  no need to generate adaptive class since there's no adaptive method found.
+0,0,0,0,0,0,0,//  array begin. 
+0,0,0,0,0,0,0,// when both mismatches and matches contain the same value, then using mismatches first 
+0,0,0,0,0,0,0,//  Primitive type 
+0,0,0,0,0,0,0,//  HeaderExchangeChannel.removeChannelIfDisconnected(channel); 
+0,0,0,0,0,0,0,// this will throw a exception
+0,0,0,0,0,0,0,//  ~ end of if 
+0,0,0,0,0,0,0,//  string   int   override 
+0,0,0,0,0,0,0,//  default db.index=0 
+0,0,0,0,0,0,0,//  send error message to Consumer, otherwise, Consumer will wait till timeout. 
+0,0,0,0,0,0,0,//  object begin. 
+0,0,0,0,0,0,0,//  if the timeout is the tail modify the tail to be the prev node. 
+0,0,0,0,0,0,0,// The listener of the consumer and the provider can be stored together, all based on the service name 
+0,0,0,0,0,0,0,/* client.request("world\r\n");        Future future = client.request("world", 10000);        String result = (String)future.get();        Assertions.assertEquals("Did you say 'world'?\r\n",result); */
+0,0,0,0,0,0,0,//  returns current version of Response to consumer side. 
+0,0,0,0,0,0,0,//  DemoServiceImpl with @Transactional 
+0,0,0,0,0,0,0,//  load classes 
+0,0,0,0,0,0,0,//  Generated by the protocol buffer compiler.  DO NOT EDIT!   source: GooglePB.proto 
+0,0,0,0,0,0,0,//  Test filter condition 
+0,0,0,0,0,0,0,//  Registers ReferenceAnnotationBeanPostProcessor 
+0,0,0,0,0,0,0,//  need separator for others 
+0,0,0,0,0,0,0,//  read server info from property 
+0,0,0,0,0,0,0,//  if field name end with List, should skip 
+0,0,0,0,0,0,0,//  The combination of directoryUrl and override is at the end of notify, which can't be handled here 
+0,0,0,0,0,0,0,/*  index in unpacked array  */
+0,0,0,0,0,0,0,//  For providers, this is used to enable custom proxy to generate invoker 
+0,0,0,0,0,0,0,// ////////////////////////////////////////////////////////// 
+0,0,0,0,0,0,0,//  forbid 
+0,0,0,0,0,0,0,// first add into the list   remove the individul param 
+0,0,0,0,0,0,0,//  this is only for compatibility 
+0,0,0,0,0,0,0,//  Cache check interval (second) 
+0,0,0,0,0,0,0,//  return 404 when fail to construct command context 
+0,0,0,0,0,0,0,// windows end 
+0,0,0,0,0,0,0,// zzEOFDone = false; 
+0,0,0,0,0,0,0,//  has pad char. 
+0,0,0,0,0,0,0,//  alignment 
+0,0,0,0,0,0,0,//  token type 
+0,0,0,0,0,0,0,// tmperately add a new invoker 
+0,0,0,0,0,0,0,//  if invoker is destroyed due to address refresh from registry, let's allow the current invoke to proceed 
+0,0,0,0,0,0,0,//  we use the loading status of DynamicConfiguration to decide whether ConfigCenter has been initiated. 
+0,0,0,0,0,0,0,//  refresh all configs here, 
+0,0,0,0,0,0,0,//  property defined as "repeated string" transform to ProtocolStringList,   should be build as List<String>.
+0,0,0,0,0,0,0,// Ensure that a new exporter instance is returned every time export 
+0,0,0,0,0,0,0,//  write array. 
+0,0,0,0,0,0,0,//  set thread pool. 
+0,0,0,0,0,0,0,//  registry 
+0,0,0,0,0,0,0,//  The Value in the KV part. 
+0,0,0,0,0,0,0,// override clean 
+0,0,0,0,0,0,0,//  ================ Primitive Type ================  
+0,0,0,0,0,0,0,// throw  ChannelEventRunnable.runtimeExeception(int logger) not in execute exception  (expected = RemotingException.class) 
+0,0,0,0,0,0,0,//  find version info from MANIFEST.MF first 
+0,0,0,0,0,0,0,//  save for 2.6.x compatibility, for example, TraceFilter in Zipkin uses com.alibaba.xxx.FutureAdapter 
+0,0,0,0,0,0,0,//  Use PhoneNumber.newBuilder() to construct. 
+0,0,0,0,0,0,0,//  this is used for tracing if instid has published service or not. 
+0,0,0,0,0,0,0,//             + "&"+Constants.CHANNEL_HANDLER_KEY+"=connection" 
+0,0,0,0,0,0,0,//  prevents grpc on sending error to a closed watch client. 
+0,0,0,0,0,0,0,//  format: "pid@hostname" 
+0,0,0,0,0,0,0,//  References "ref" property to annotated-@Service Bean 
+0,0,0,0,0,0,0,//  Config center has the highest priority 
+0,0,0,0,0,0,0,//  Must be even 
+0,0,1,0,0,0,0,//  do not touch this method, if you want terminate this stream. 
+0,0,0,0,0,0,0,//  Publish ServiceBeanExportedEvent 
+0,0,0,0,0,0,0,//  client can expose a service for server to invoke only. 
+0,0,0,0,0,0,0,//  Combine filters and listeners on Provider and Consumer 
+0,0,0,0,0,0,0,//  make the grpc call to watch the key 
+0,0,0,0,0,0,0,// bad object 
+0,0,0,0,0,0,0,//  the weight of every invokers 
+0,0,0,0,0,0,0,//  The weight of the first least active invoker 
+0,0,0,0,0,0,0,//  Normalize ticksPerWheel to power of two and initialize the wheel. 
+0,0,0,0,0,0,0,// encode resault check need decode 
+0,0,1,1,1,1,1,//  TODO figure out the meaning of cancel in DefaultFuture. 
+0,0,0,0,0,0,0,/*      * get map property name from setting method.<br/>     * ex: putAllXXX();<br/>     *     * @param methodName     * @return      */
+0,0,0,0,0,0,0,//  If @Service bean is local one 
+0,0,0,0,0,0,0,//  bad request 
+0,0,0,0,0,0,0,//  client has been replaced with lazy client. lazy client is fetched from referenceclientmap, and since it's 
+0,0,0,0,0,0,0,//  add scene judgement in windows environment Fix 2557 
+0,0,0,0,0,0,0,//  alive 1 second 
+0,0,0,0,0,0,0,//  collect timer for collecting statistics data 
+0,0,0,0,0,0,0,//  Decide to fail or to continue when failed to connect to remote server. 
+0,0,0,0,0,0,0,//  result field id is 0 
+0,0,0,0,0,0,0,//  handle response. 
+0,0,0,0,0,0,0,//  For test 
+0,0,0,0,0,0,0,//  header length 
+0,0,0,0,0,0,0,//  add fields 
+0,0,0,0,0,0,0,//  1. all addresses are in dynamic tag group, return empty list. 
+0,0,0,0,0,0,0,//  remove 'default.' prefix for configs from ProviderConfig   appendParameters(map, provider, Constants.DEFAULT_KEY); 
+0,0,0,0,0,0,0,/*  finally: fill the buffer with new input  */
+0,0,0,0,0,0,0,// Assertions.assertEquals("properties", overrideConfig.getUseKeyAsProperty()); 
+0,0,0,0,0,0,0,//  service3 interface is not equals server2 
+0,0,0,0,0,0,0,//  Was cancelled in the meantime. 
+0,0,0,0,0,0,0,/* ------------------------------------test invokers for weight--------------------------------------- */
+0,0,0,0,0,0,0,//  Registry Collection Map<RegistryAddress, Registry> 
+0,0,0,0,0,0,0,//  registry ip is not used for bind ip by default 
+0,0,0,0,0,0,0,//  ignore, there is no need any log here since some class implement the interface: EnvironmentAware,   ApplicationAware, etc. They only have setter method, otherwise will cause the error log during application start up. 
+0,0,0,0,0,0,0,// create a real instance to keep the attribute values; 
+0,0,0,0,0,0,0,//  Forbid to access 
+0,0,0,0,0,0,0,//  parse setXXX(String string) 
+0,0,0,0,0,0,0,//  add the tail string which contains no variables and return   the result. 
+0,0,0,0,0,0,0,//  process imported classes 
+0,0,0,0,0,0,0,//  First, pick the invoker (XXXClusterInvoker) that comes from the local registry, distinguish by a 'default' key. 
+0,0,0,0,0,0,0,//  if our future is success, mark the future to sent. 
+0,0,0,0,0,0,0,//  present in local url but not in remote url, parameters of remote url is empty 
+0,0,0,0,0,0,0,//  config 
+0,0,0,0,0,0,0,//  Finds all BeanDefinitionHolders of @Service whether @ComponentScan scans or not. 
+0,0,0,0,0,0,0,//  Exactly one method, match 
+0,0,0,0,0,0,0,/*  Linux Ctrl+C  */
+0,0,0,0,0,0,0,//  whether the channel is closed 
+0,0,0,0,0,0,0,//  Rethrow exception 
+0,0,0,0,0,0,0,//  then destroy, the multicast socket will be closed 
+0,0,0,0,0,0,0,//         Assertions.assertEquals(                  serviceURL.setPath(service).addParameters("check", "false", "interface", DemoService.class.getName(), REMOTE_APPLICATION_KEY, serviceURL.getParameter(APPLICATION_KEY))                  , invokers.get(0).getUrl()          ); 
+0,0,0,0,0,0,0,//  Translate url list to Invoker map 
+0,0,0,0,0,0,0,//  check if the output is generated by a fixed way 
+0,0,0,0,0,0,0,//  Alarm when spare memory < 2M 
+0,0,0,0,0,0,0,//  Reconnecting detection cycle: 3 seconds (unit:millisecond) 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(message_implements:Map) 
+0,0,0,0,0,0,0,//  set request id. 
+0,0,0,0,0,0,0,//  encode request data. 
+0,0,0,0,0,0,0,//  clear attachments which is binding to current thread. 
+0,0,0,0,0,0,0,//  jcache parameter is the full-qualified class name of SPI implementation 
+0,0,0,0,0,0,0,//  merge - configuration 
+0,0,0,0,0,0,0,// RegistryController.startRegistryIfAbsence(1); 
+0,0,0,1,0,1,1,//  decrease any way 
+0,0,0,0,0,0,0,//  isTypeMatch() is called to avoid duplicate and incorrect update, for example, we have two 'setGeneric' methods in ReferenceConfig. 
+0,0,0,0,0,0,0,// After pushing two provider, the directory state is restored to true 
+0,0,0,0,0,0,0,//  default watch timeout in millisecond 
+0,0,0,0,0,0,0,//  special logic for enum 
+0,0,0,0,0,0,0,//  destroy all the protocols 
+0,0,0,0,0,0,0,// get real invoked method name from invocation 
+0,0,0,0,0,0,0,//  Refresh Dubbo Environment 
+0,0,0,0,0,0,0,/*  error messages for the codes above  */
+0,0,0,0,0,0,0,//  send statistics data 
+0,0,0,0,0,0,0,//  decode request. 
+0,0,0,0,0,0,0,//  filter general setting method   1. - setUnknownFields( com.google.protobuf.UnknownFieldSet unknownFields)   2. - setField(com.google.protobuf.Descriptors.FieldDescriptor field,java.lang.Object value) 
+0,0,0,0,0,0,0,//  add dynamic class tag. 
+0,0,0,0,0,0,0,//  check extName == null?
+0,0,0,0,0,0,0,//  write 
+0,0,0,0,0,0,0,//  attachment will be bind to invocation 
+0,0,0,0,0,0,0,//  Because javassist compiles using the caller class loader, we should't use HelloService directly 
+0,0,0,0,0,0,0,// future.cancel(true); 
+0,0,0,0,0,0,0,//  Test multiple binding 
+0,0,0,0,0,0,0,//  notify flag 
+0,0,0,0,0,0,0,//     @Test 
+0,0,0,0,0,0,0,//  system may be recover later, current connect won't be lost 
+0,0,0,0,0,0,0,//  host is the same, sort by priority 
+0,0,0,0,0,0,0,//  Scheduled executor service 
+0,0,0,0,0,0,0,//  use interface's name as service path to export if it's not found on client side 
+0,0,0,0,0,0,0,//  whether to share connection 
+0,0,0,0,0,0,0,// ClassLoader - ClassPool 
+0,0,0,0,0,0,0,//  the latest latch just for 3. Because retry method has been removed. 
+0,0,0,0,0,0,0,//  Start server 
+0,0,0,0,0,0,0,//  Initially disable 
+0,0,0,0,0,0,0,//  all processed 
+0,0,0,0,0,0,0,// callback 
+0,0,1,1,1,1,1,// TODO SoftReference 
+0,0,0,0,0,0,0,//  required 
+0,0,0,0,0,0,0,// If the telnet data and request data are in the same data packet, we should guarantee that the receipt of request data won't be affected by the factor that telnet does not have an end characters. 
+0,0,0,0,0,0,0,//  Reset the active number of the current invoker to the least active number 
+0,0,0,0,0,0,0,//  copy -> modify -> update reference 
+0,0,0,0,0,0,0,//  value is not set, use the value generated from class name as the key 
+0,0,0,0,0,0,0,//  create Mixin class. 
+0,0,0,0,0,0,0,//                 protocol.readI32(); // skip the first message length 
+0,0,0,0,0,0,0,//  use 2nd key, protocol 
+0,0,0,0,0,0,0,//  say name 
+0,0,0,0,0,0,0,//  end of object. 
+0,0,0,0,0,0,0,// this.handler = null; 
+0,0,0,0,0,0,0,//  export service. 
+0,0,0,0,0,0,0,//  The name of bean annotated @Service 
+0,0,0,0,0,0,0,//     private final boolean isCallBack;      private final boolean isFuture; 
+0,0,0,1,1,1,1,/*      * This is used to convert a configuration nodePath into a key     * TODO doc     *     * @param path     * @return key (nodePath less the config root path)      */
+0,0,0,0,0,0,0,//  If current invoker's active value equals with leaseActive, then accumulating. 
+0,0,0,0,0,0,0,//  ~ 
+0,0,0,0,0,0,0,//  local injvm and registry protocol, so expected is 2 
+0,0,0,0,0,0,0,//                             activeLimitFilter.listener().onError(expected, invoker, invocation); 
+0,0,0,0,0,0,0,//  If the startup detection is opened, the Exception is thrown directly. 
+0,0,0,0,0,0,0,//  get users 
+0,0,0,0,0,0,0,// has nothing use 
+0,0,0,0,0,0,0,/*  ignore  */
+0,0,0,0,0,0,0,// Enabled by override rule 
+0,0,0,0,0,0,0,//  end of methods for 
+0,0,0,0,0,0,0,//  @Test 
+0,0,0,0,0,0,0,//  directly throw if it's checked exception 
+0,0,0,0,0,0,0,// test geturl 
+0,0,0,0,0,0,0,//  find server. 
+0,0,0,0,0,0,0,//  Port   Append backup parameter as other servers 
+0,0,0,0,0,0,0,//  service scope by default. 
+0,0,0,0,0,0,0,//  because helloServiceInvoker and demoServiceInvoker use share connect， so client list must be equal 
+0,0,0,0,0,0,0,//  returned port range is [30000, 39999] 
+0,0,0,0,0,0,0,//  ID 
+0,0,0,0,0,0,0,//  we want these objects to be as generic as possible 
+0,0,0,0,0,0,0,// sticky: invoker.isAvailable() should always be checked before using when availablecheck is true. 
+0,0,0,0,0,0,0,//  Log output 
+0,0,0,0,0,0,0,//  currently, the version value in Response records the version of Request 
+0,0,0,0,0,0,0,//  The lock for the acquisition process of the registry 
+0,0,1,1,1,1,1,// TODO response test 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(class_scope:org.apache.dubbo.common.serialize.protobuf.model.PBResponseType) 
+0,0,0,0,0,0,0,// Note the implicit contract (although the description is added to the interface declaration, but extensibility is a problem. The practice placed in the attachment needs to be improved)
+0,0,0,0,0,0,0,//  Initialization at construction time, assertion not null, and always assign non null value 
+0,0,0,0,0,0,0,// Assertions.assertEquals(ThriftCodec.getSeqId(), message.seqid); 
+0,0,0,0,0,0,0,// local invoke will return directly 
+0,0,0,0,0,0,0,//           invoker.destroy();          reference.destroy(); 
+0,0,0,0,0,0,0,//  add implemented interfaces 
+0,0,0,0,0,0,0,//  parse setXXX(com.google.protobuf.Message value) 
+0,0,0,0,0,0,0,//  create MixinInstance class. 
+0,0,0,0,0,0,0,//  by default, host to registry 
+0,0,0,0,0,0,0,//  If a method doesn't have a merger, only invoke one Group 
+0,0,0,0,0,0,0,//  test chinese 
+0,0,0,0,0,0,0,/*  List routers = registryDirectory.getRouters();        Assertions.assertEquals(1 + 1, routers.size());        serviceUrls.clear();        serviceUrls.add(routerurl.addParameter(Constants.ROUTER_KEY, Constants.ROUTER_TYPE_CLEAR));        registryDirectory.notify(serviceUrls);        routers = registryDirectory.getRouters();        Assertions.assertEquals(0 + 1, routers.size()); */
+0,0,0,0,0,0,0,//  for backward compatibility 
+0,0,0,0,0,0,0,//  found parameter in URL type 
+0,0,0,0,0,0,0,//  reput this task when catch exception. 
+0,0,0,0,0,0,0,//  assert addresses 
+0,0,0,0,0,0,0,//  If (not every invoker has the same weight & at least one invoker's weight>0), select randomly based on totalWeight. 
+0,0,0,0,0,0,0,/*      * get list property name from setting method.<br/>     * ex： getXXXList()<br/>     *     * @param methodName     * @return      */
+0,0,0,0,0,0,0,// .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, getTimeout()) 
+0,0,1,1,1,1,1,//  TODO optimization 
+0,0,0,0,0,0,0,//  return false to let executor create new worker. 
+0,0,0,0,0,0,0,//  3 invoker notifications=================================== 
+0,0,0,0,0,0,0,// {"local", "local", "string", "false", "HelloServiceLocal", "true", "", "", "", ""},  {"local", "local", "string", "false", "true", "", "", "", "", ""}, 
+0,0,0,0,0,0,0,//  Fixed router instances: ConfigConditionRouter, TagRouter, e.g., the rule for each instance may change but the 
+0,0,0,0,0,0,0,// test unsubscribe 
+0,0,0,0,0,0,0,//  return default version when any exception is thrown 
+0,0,0,0,0,0,0,// directory will return a list of normal invokers if Constants.INVOCATION_NEED_MOCK is present in invocation, otherwise, a list of mock invokers will return. 
+0,0,0,0,0,0,0,//  add heartbeat cycle to avoid unstable ut. 
+0,0,0,0,0,0,0,//  Prevent JVM from exiting 
+0,0,0,0,0,0,0,//  Prevent overflow. 
+0,0,0,0,0,0,0,//  don't export when none is configured 
+0,0,0,0,0,0,0,//  test value 
+0,0,0,0,0,0,0,//  #2 ReferenceBean (Field Injection #1) 
+0,0,0,0,0,0,0,//  From Child 
+0,0,0,0,0,0,0,//  local variable, convenient for debug 
+0,0,0,0,0,0,0,// Thread.sleep(20000); 
+0,0,0,0,0,0,0,// Need to be restored to the original providerUrl
+0,0,0,0,0,0,0,//  proceed invocation chain 
+0,0,0,0,0,0,0,//  due to the effect of LazyConnectExchangeClient, the client will be "revived" whenever there is a call. 
+0,0,0,0,0,0,0,//  Output, tps is not for accuracy, but it reflects the situation to a certain extent. 
+0,0,0,1,1,1,1,//  TODO 
+0,0,0,0,0,0,0,//  Can be unset. 
+0,0,0,0,0,0,0,//  getDesc 
+0,0,0,0,0,0,0,//  Compatible version 1.0  fix by tony.chenl DUBBO-44 
+0,0,0,0,0,0,0,//  init encoder map. 
+0,0,0,0,0,0,0,//  indent length 
+0,0,0,0,0,0,0,//  The last two parameters are reserved for compatibility with the old configuration 
+0,0,0,0,0,0,0,// no mock 
+0,0,0,0,0,0,0,//  registry url is available   use RegistryAwareCluster only when register's CLUSTER is available 
+0,0,0,0,0,0,0,//  e.g., version number 2.6.3 will convert to 2060300 
+0,0,0,0,0,0,0,//  we only process String properties for now 
+0,0,0,0,0,0,0,//  This object is going to be GCed and it is assumed the ship has sailed to do a proper shutdown. If   we have not yet shutdown then we want to make sure we decrement the active instance count. 
+0,0,0,1,1,1,1,//  TODO add this to provider config
+0,0,0,0,0,0,0,//  Test username or password contains "@" 
+0,0,0,0,0,0,0,//  No Category Parameter 
+0,0,0,0,0,0,0,//  you can customize name and type of client thread pool by THREAD_NAME_KEY and THREADPOOL_KEY in CommonConstants.   the handler will be warped: MultiMessageHandler->HeartbeatHandler->handler 
+0,0,0,0,0,0,0,//  callback instance when async-call is returned 
+0,0,0,0,0,0,0,//  export service 
+0,0,0,0,0,0,0,//  no need to new client again 
+0,0,0,0,0,0,0,/*  The group of the config center, generally it's used to identify an isolated space for a batch of config items,    but it's real meaning depends on the actual Config Center you use.     */
+0,0,0,0,0,0,0,//  The null value unallowed in the ConcurrentHashMap. 
+0,0,0,0,0,0,0,//  Set ignored* 
+0,0,0,0,0,0,0,// To solve the problem of RMI repeated exposure port conflicts, the services that have been exposed are no longer exposed.  providerurl <--> exporter 
+0,0,0,0,0,0,0,//  create proxy 
+0,0,0,0,0,0,0,//     private boolean isExternalServer; 
+0,0,0,0,0,0,0,// header 
+0,0,0,0,0,0,0,// if local service interface's method's return type is not instance of return value 
+0,0,0,0,0,0,0,// test one unregister 
+0,0,0,0,0,0,0,//  Get the weight of the invoker's configuration. The default value is 100. 
+0,0,0,0,0,0,0,// content 
+0,0,0,0,0,0,0,//  add default extension 
+0,0,0,0,0,0,0,//  not allow to save null, but allow to update with null which means not update the field 
+0,0,0,0,0,0,0,//  Queue 
+0,0,0,0,0,0,0,//  ~ end of loop field map 
+0,0,0,0,0,0,0,//  connectNum must be greater than or equal to 1 
+0,0,1,0,0,0,0,//  it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor. 
+0,0,0,0,0,0,0,//  ip:port -> ExchangeServer 
+0,0,0,0,0,0,0,// 32 8 first add space and then add backspace. 
+0,0,0,0,0,0,0,//  ~ end of catch 
+0,0,0,1,0,1,1,//  maybe url has many subscribed paths 
+0,0,0,0,0,0,0,//  check duplicate jar package 
+0,0,0,0,0,0,0,//  store back cached positions 
+0,0,0,0,0,0,0,//  Sending a subscription request to the server side 
+0,0,0,0,0,0,0,// .addLast("logging",new LoggingHandler(LogLevel.INFO))//for debug 
+0,0,0,0,0,0,0,//  decrease Time 
+0,0,0,0,0,0,0,//  Type of handle 
+0,0,0,0,0,0,0,//  use last registry url 
+0,0,0,0,0,0,0,//  currently we use a single header to hold the attachments so that the total attachment size limit is about 8k 
+0,0,0,0,0,0,0,//  create ProxyInstance class. 
+0,0,0,0,0,0,0,//  default value is true 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(message_implements:org.apache.dubbo.common.serialize.protobuf.model.PBRequestType) 
+0,0,0,0,0,0,0,//  ================ Complex Collection Type ================  
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(message_implements:org.apache.dubbo.common.serialize.protobuf.model.PhoneNumber) 
+0,0,0,0,0,0,0,//  get operate will throw a timeout exception, because the future is timeout. 
+0,0,0,0,0,0,0,// excluded = true 
+0,0,0,0,0,0,0,//  backward compatibility for the default value in old version's xsd 
+0,0,0,0,0,0,0,//  Check whether or not it is connected 
+0,0,0,0,0,0,0,//  cache time (second) 
+0,0,0,0,0,0,0,//  If the local @Service Bean exists, build a proxy of ReferenceBean 
+0,0,0,0,0,0,0,//  If no mock was configured, return null directly 
+0,0,0,0,0,0,0,//  module 
+0,0,0,0,0,0,0,// export an stub service for dispatching event 
+0,0,0,0,0,0,0,//  Customized parameters 
+0,0,0,0,0,0,0,//  ======================================================     data column definition 
+0,0,0,0,0,0,0,// convert error fail fast .  ignore concurrent problem. 
+0,0,0,0,0,0,0,// result dependent on method order. 
+0,0,0,0,0,0,0,// Test the matching of protocol and select only the matched protocol for refer 
+0,0,0,0,0,0,0,//  ignore NoNode Exception.
+0,0,0,0,0,0,0,//  ---- for service provider ---- 
+0,0,0,0,0,0,0,//  if this file exist, firstly delete it. 
+0,0,0,0,0,0,0,//  check parameters 
+0,0,0,0,0,0,0,// export invoker 
+0,0,0,0,0,0,0,//  check for required fields   alas, we cannot check 'id' because it's a primitive and you chose the non-beans generator.   check for sub-struct validity
+0,0,0,0,0,0,0,// Check if the localClass a constructor with parameter who's type is interfaceClass 
+0,0,0,0,0,0,0,//  load 
+0,0,0,0,0,0,0,// 00000010-response/oneway/hearbeat=false/hessian |20-stats=ok|id=0|length=0 
+0,0,0,0,0,0,0,//  blocking 
+0,0,0,0,0,0,0,//  if we are requesting for a Provider with a specific tag 
+0,0,0,0,0,0,0,//  pass attachments to result 
+0,0,0,0,0,0,0,//  ====================================================== 
+0,0,0,0,0,0,0,//  here a three shared connection is established between a consumer process and a provider process. 
+0,0,0,0,0,0,0,//  target the method, and get its signature 
+0,0,0,0,0,0,0,//  no methods 
+0,0,0,0,0,0,0,//  Is it synchronized to save the file
+0,0,0,0,0,0,0,//  URL cannot be transferred automatically from the server side to the client side by using API, instead,   it needs manually specified.
+0,0,0,0,0,0,0,//         provConf.setApplication(appConfForProvider); 
+0,0,0,0,0,0,0,//  may have concurrency issue 
+0,0,0,0,0,0,0,//  stores the configuration key-value pairs 
+0,0,0,0,0,0,0,//  the scope for referring/exporting a service, if it's local, it means searching in current JVM only. 
+0,0,0,0,0,0,0,// Failure can not be called to listener. 
+0,0,0,0,0,0,0,//  Let the client not reply to the heartbeat, and turn off automatic reconnect to simulate the client dropped. 
+0,0,0,0,0,0,0,//  group="a,b" or group="*" 
+0,0,0,0,0,0,0,// just for connected 
+0,0,0,0,0,0,0,//  continue 
+0,0,0,0,0,0,0,//  We will update our cache file after each notification.   When our Registry has a subscribe failure due to network jitter, we can return at least the existing cache URL. 
+0,0,0,0,0,0,0,//  protocol 
+0,0,0,0,0,0,0,//  consumer 
+0,0,0,0,0,0,0,//  we may already added some attachments into RpcContext before this filter (e.g. in rest protocol) 
+0,0,0,0,0,0,0,//  check if recover successfully 
+0,0,0,0,0,0,0,//  only update the state it will be removed from HashedWheelBucket on next tick. 
+0,0,0,0,0,0,0,//  handle request. 
+0,0,0,0,0,0,0,//  Mark the client into the closure process 
+0,0,0,0,0,0,0,//  Register CustomEditors for special fields 
+0,0,0,0,0,0,0,//  getName 
+0,0,0,0,0,0,0,//  message length placeholder 
+0,0,0,0,0,0,0,//  We will check enabled status inside each router. 
+0,0,0,0,0,0,0,//  default cache.size is 1000 for LRU, should have cache expired if invoke more than 1001 times 
+0,0,0,0,0,0,0,//  get statistics data 
+0,0,0,0,0,0,0,//  Registered services 
+0,0,0,0,0,0,0,//  save any parameter in registry that will be useful to the new url. 
+0,0,0,0,0,0,0,//  abnormal case  
+0,0,0,0,0,0,0,//  Quick check on the concurrent map first, with minimal locking. 
+0,0,0,0,0,0,0,//  if result is not null OR it's null but force=true, return result directly 
+0,0,0,0,0,0,0,//  Transform File URL into Script Route URL, and Load   file:///d:/path/to/route.js?router=script ==> script:///d:/path/to/route.js?type=js&rule=<file-content>   Replace original protocol (maybe 'file') with 'script'   Use file suffix to config script type, e.g., js, groovy ... 
+0,0,0,0,0,0,0,//  remove suffix ".jar": "path/to/group-module-x.y.z" 
+0,0,0,0,0,0,0,// 00000010-response/oneway/hearbeat=true |20-stats=ok|id=0|length=0 
+0,0,0,0,0,0,0,//  default or set void.class for purpose. 
+0,0,1,0,0,0,0,/*  * Marker for extension interface * <p/> * Changes on extension configuration file <br/> * Use <code>Protocol</code> as an example, its configuration file 'META-INF/dubbo/com.xxx.Protocol' is changes from: <br/> * <pre> *     com.foo.XxxProtocol *     com.foo.YyyProtocol * </pre> * <p> * to key-value pair <br/> * <pre> *     xxx=com.foo.XxxProtocol *     yyy=com.foo.YyyProtocol * </pre> * <br/> * The reason for this change is: * <p> * If there's third party library referenced by static field or by method in extension implementation, its class will * fail to initialize if the third party library doesn't exist. In this case, dubbo cannot figure out extension's id * therefore cannot be able to map the exception information with the extension, if the previous format is used. * <p/> * For example: * <p> * Fails to load Extension("mina"). When user configure to use mina, dubbo will complain the extension cannot be loaded, * instead of reporting which extract extension implementation fails and the extract reason. * </p> * * @deprecated because it's too general, switch to use {@link org.apache.dubbo.common.extension.SPI}  */
+0,0,0,0,0,0,0,//  wait timeout ms 
+0,0,0,0,0,0,0,// return directly 
+0,0,0,0,0,0,0,//  Initialize 
+0,0,1,0,1,1,1,//  TODO carries class info every time. 
+0,0,0,0,0,0,0,//  mock zookeeper://xxx?mock=return null 
+0,0,0,0,0,0,0,//  invoke 
+0,0,0,0,0,0,0,//  Username to login register center 
+0,0,0,0,0,0,0,//  Check the number of skipping times 
+0,0,0,0,0,0,0,//  interface cannot be null 
+0,0,0,0,0,0,0,//  override url don't have a port, means the ip override url specify is a consumer address or 0.0.0.0   1.If it is a consumer ip address, the intention is to control a specific consumer instance, it must takes effect at the consumer side, any provider received this override url should ignore;   2.If the ip is 0.0.0.0, this override url can be used on consumer, and also can be used on provider 
+0,0,0,0,0,0,0,//  ~ end of method serializeInternal 
+0,0,0,0,0,0,0,//  Try the next server 
+0,0,0,0,0,0,0,//  Instead of using Dubbo's configuration, I would suggest use the original configuration method Apollo provides.
+0,0,0,0,0,0,0,// private String host; 
+0,0,0,0,0,0,0,//  whether to auto resize 
+0,0,0,0,0,0,0,//  name2desc 
+0,0,0,0,0,0,0,//  take effect on all providers, so address must be 0.0.0.0, otherwise it won't flow to this if branch 
+0,0,0,0,0,0,0,// Test retries and 
+0,0,0,0,0,0,0,// just for one method 
+0,0,0,0,0,0,0,//  scheduled executor service 
+0,0,0,0,0,0,0,//  Process return type. 
+0,0,0,0,0,0,0,//             {"timeout", "registry.timeout", "int", 5000, 9000, "", "", "", "", ""},              {"file", "registry.file", "string", "", "regConfForServiceTable.log", "", "", "", "", ""},              {"wait", "registry.wait", "int", 0, 9000, "", "", "", "", ""},              {"transport", "registry.transporter", "string", "netty", "mina", "", "", "", "", ""},              {"subscribe", "subscribe", "boolean", true, false, "", "", "", "", ""}, 
+0,0,0,0,0,0,0,//  message length 
+0,0,0,0,0,0,0,//  short name condition 
+0,0,0,1,1,1,1,// TODO to calculate consumerAddressNum 
+0,0,0,0,0,0,0,//  add method, for verifying against method, automatic fallback (see dubbo protocol) 
+0,0,0,0,0,0,0,//  ==== Template method ==== 
+0,0,0,0,0,0,0,//  Test filter won't throw an exception 
+0,0,0,0,0,0,0,//  put into waiting map. 
+0,0,0,0,0,0,0,//  end of array. 
+0,0,0,0,0,0,0,//  clear first 
+0,0,0,0,0,0,0,//  Method routing and Other condition routing can work together 
+0,0,0,0,0,0,0,//  <method desc,method instance>   <constructor desc,constructor instance> 
+0,0,0,0,0,0,0,//  Since 2.6.6 https://github.com/apache/dubbo/issues/3193 
+0,0,0,1,1,1,1,//  TODO for now just do plain text output
+0,0,0,0,0,0,0,//  Since injvm protocol is configured explicitly, we don't need to set any extra flag, use normal refer process. 
+0,0,0,0,0,0,0,//  isset id assignments 
+0,0,0,0,0,0,0,// All of them are called 4 times. A successful attempt to lose 1. subscribe will not be done 
+0,0,0,0,0,0,0,//  parse setXXX(SomeEnum value) 
+0,0,0,0,0,0,0,//  ServiceBean Bean name 
+0,0,0,0,0,0,0,//     private PropertyInjector propertyInjector;      private String context = null; 
+0,0,0,0,0,0,0,//  to notify configurator/router changes 
+0,0,0,0,0,0,0,//  use 'zookeeper' as the default configcenter. 
+0,0,0,0,0,0,0,//  Add methods parameters 
+0,0,0,0,0,0,0,//  enable sending readonly event when server closes by default 
+0,0,0,0,0,0,0,//  append the characters following the last {} pair. 
+0,0,0,0,0,0,0,//  Check if "serialization id" passed from network matches the id on this side(only take effect for JDK serialization), for security purpose. 
+0,0,0,0,0,0,0,// The anyhost parameter of override may be added automatically, it can't change the judgement of changing url 
+0,0,0,0,0,0,0,//  Get properties under specified prefix from PropertySources 
+0,0,0,0,0,0,0,//  Reset totalWeight 
+0,0,0,0,0,0,0,//  DO NOTHING 
+0,0,0,0,0,0,0,//  Reconnection timer, regular check connection is available. If unavailable, unlimited reconnection. 
+0,0,0,0,0,0,0,//  need to configure if there's return value before the invocation in order to help invoker to judge if it's   necessary to return future.
+0,0,0,0,0,0,0,//  override url with configurator from configurator from "app-name.configurators" 
+0,0,0,0,0,0,0,//  No content , ignore directly 
+0,0,0,0,0,0,0,//  impossible 
+0,0,0,0,0,0,0,//  Local disk cache file 
+0,0,1,1,1,1,1,//  TODO how to assert thread action
+0,0,0,0,0,0,0,//  if not auto resize, return preset width 
+0,0,0,0,0,0,0,// =================================================================================== 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(builder_implements:org.apache.dubbo.common.serialize.protobuf.model.PBRequestType) 
+0,0,0,0,0,0,0,// All service providers can not be disabled through override. 
+0,0,0,0,0,0,0,//  biz exception. 
+0,0,0,0,0,0,0,// One is the same, one is different 
+0,0,0,0,0,0,0,//  create a new List of invokers 
+0,0,0,0,0,0,0,//  timeout check 
+0,0,0,0,0,0,0,//  keep every provider's category. 
+0,0,0,0,0,0,0,//  otherwise, wrap with RuntimeException and throw back to the client 
+0,0,0,0,0,0,0,//  Remove ServiceBean when it's exported 
+0,0,0,0,0,0,0,//  the number of pages 
+0,0,0,0,0,0,0,// init request string 
+0,0,0,0,0,0,0,// not set onreturn callback 
+0,0,0,0,0,0,0,//  BAD
+0,0,0,0,0,0,0,// final int concurrent = PerformanceUtils.getIntProperty("concurrent", 100);  int r = PerformanceUtils.getIntProperty("runs", 10000);  final int runs = r > 0 ? r : Integer.MAX_VALUE; 
+0,0,0,0,0,0,0,//  ================ Simple Type ================  
+0,0,0,0,0,0,0,//  register service3 should not trigger notify
+0,0,0,0,0,0,0,//  idleTimeout should be at least more than twice heartBeat because possible retries of client. 
+0,0,0,0,0,0,0,//  local reference 
+0,0,0,0,0,0,0,//  use 2nd key, key2 
+0,0,0,0,0,0,0,// ============================================================================================================================= 
+0,0,0,0,0,0,0,//         String serviceStr = ""; 
+0,0,0,0,0,0,0,//  ~ end of loop serverMap 
+0,0,0,0,0,0,0,//  [Issue] SpringStatusChecker execute errors on non-XML Spring configuration   issue : https://github.com/apache/dubbo/issues/3615   ignore GenericXmlApplicationContext
+0,0,0,0,0,0,0,//  magic header. 
+0,0,0,0,0,0,0,//  test recover nothing 
+0,0,0,0,0,0,0,//  1. fill corresponding config with data 
+0,0,0,0,0,0,0,//  receive a new packet   buffer 
+0,0,0,0,0,0,0,//  The sum of the warmup weights of all the least active invokers 
+0,0,0,0,0,0,0,//  Cache key is url that does not merge with consumer side parameters, regardless of how the consumer combines parameters, if the server url changes, then refer again 
+0,0,0,0,0,0,0,//         server.getDeployment().getMediaTypeMappings().put("xml", "application/xml"); 
+0,0,0,0,0,0,0,//   a method start with $ is illegal in soap          // cast to EchoService          EchoService echo = proxy.getProxy(protocol.refer(EchoService.class, URL.valueOf("webservice://127.0.0.1:9010/" + DemoService.class.getName() + "?client=netty"))); 
+0,0,0,0,0,0,0,//  Map<serviceName, Map<url, queryString>> 
+0,0,0,0,0,0,0,// record change 
+0,0,0,0,0,0,0,//  frame 
+0,0,0,0,0,0,0,//  If we got exactly one invoker having the least active value, return this invoker directly. 
+0,0,0,0,0,0,0,//  @@protoc_insertion_point(builder_scope:org.apache.dubbo.common.serialize.protobuf.model.PhoneNumber) 
+0,0,0,0,0,0,0,//  Get PropertySource mapped to 'application.dubbo.properties' in Spring Environment. 
+0,0,0,0,0,0,0,//         Thread.sleep(10000000); 
+0,0,0,0,0,0,0,//         java.util.Iterator<Registry> registryIterable = multipleRegistry.getServiceRegistries().values().iterator();          Registry firstRegistry = registryIterable.next();          Registry secondRegistry = registryIterable.next(); 
+0,0,0,0,0,0,0,//  if there's no bind port found from environment, keep looking up. 
+0,0,0,0,0,0,0,//  excluded 
+0,0,0,0,0,0,0,//  find URL getter method 
+0,0,0,0,0,0,0,//  Subscribe logic guarantees the first notify to return 
+0,0,0,0,0,0,0,//  java.lang.IllegalArgumentException: argument type mismatch 
+0,0,0,0,0,0,0,//         URL serviceUrl2 = URL.valueOf("http2://multiple2/" + SERVICE_NAME + "?notify=false&methods=test1,test2&category=providers"); 
+0,0,0,0,0,0,0,//  column width 
+0,0,0,0,0,0,0,/*  * Marker for extension interface * <p/> * Changes on extension configuration file <br/> * Use <code>Protocol</code> as an example, its configuration file 'META-INF/dubbo/com.xxx.Protocol' is changed from: <br/> * <pre> *     com.foo.XxxProtocol *     com.foo.YyyProtocol * </pre> * <p> * to key-value pair <br/> * <pre> *     xxx=com.foo.XxxProtocol *     yyy=com.foo.YyyProtocol * </pre> * <br/> * The reason for this change is: * <p> * If there's third party library referenced by static field or by method in extension implementation, its class will * fail to initialize if the third party library doesn't exist. In this case, dubbo cannot figure out extension's id * therefore cannot be able to map the exception information with the extension, if the previous format is used. * <p/> * For example: * <p> * Fails to load Extension("mina"). When user configure to use mina, dubbo will complain the extension cannot be loaded, * instead of reporting which extract extension implementation fails and the extract reason. * </p>  */
+0,0,0,0,0,0,0,//  check magic number. 
+0,0,0,0,0,0,0,// try-with-resources 
+0,0,0,0,0,0,0,//  If there is a client in the list that is no longer available, create a new one to replace him. 
+0,0,0,0,0,0,0,//  if timeout is also the tail we need to adjust the entry too 
+0,0,0,0,0,0,0,//  remove if not accept 
+0,0,0,0,0,0,0,//  Multiple values 
+0,0,0,0,0,0,0,//  #4 ReferenceBean (Field Injection #2) 
+0,0,0,0,0,0,0,//             channel.close(); 
+0,0,0,0,0,0,0,//  Number of invokers 
+0,0,0,0,0,0,0,//  binding attachments into invocation. 
+0,0,0,0,0,0,0,// test subscribe 
+0,0,0,0,0,0,0,/*  request|1111...|request  */
+0,0,0,0,0,0,0,//  this will not override, use 'key' instead, @Parameter(key="key1", useKeyAsProperty=false) 
+0,0,0,0,0,0,0,//  Just read one server's data 
+0,0,0,0,0,0,0,//  assemble URL from register center's configuration   if protocols not injvm checkRegistry 
+0,0,0,0,0,0,0,//  process GET request and POST request separately. Check url for GET, and check body for POST 
+0,0,0,0,0,0,0,//  add into default group 
+0,0,0,0,0,0,0,//  Delete OK 
+0,0,0,0,0,0,0,//  set response status. 
+0,0,0,0,0,0,0,//  Guard against overflow. 
+0,0,0,0,0,0,0,//  resolve future.awaitUninterruptibly() dead lock 
+0,0,0,0,0,0,0,//  reference should not be null, and is the implementation of the given interface
+0,0,0,0,0,0,0,//         final String canonicalName = clazz.getCanonicalName(); 
+0,0,0,0,0,0,0,//  We add listeners to make sure our out bound event is correct.   If our out bound event has an error (in most cases the encoder fails),   we need to have the request return directly instead of blocking the invoke process. 
+0,0,0,0,0,0,0,//  Port 
+0,0,0,0,0,0,0,//  FAILOVER: return all Providers without any tags.
+0,0,0,0,0,0,0,//  add initial values 
+0,0,0,0,0,0,0,//  re-throws the actual Exception. 
+0,0,0,0,0,0,0,//         consumerConf.setApplication(appConfForConsumer); 
+0,0,0,0,0,0,0,// Assertions.assertEquals(proxy.hashCode(), invoker.hashCode()); 
+0,0,0,0,0,0,0,//  Extend the expiration time   Defensive fault tolerance 
+0,0,0,0,0,0,0,//  dynamic tag group doesn't have any item about the requested app OR it's null after filtered by   dynamic tag group but force=false. check static tag 
+0,0,0,0,0,0,0,/*  indicate end of file  */
+0,0,0,0,0,0,0,//  String[] to Map 
+0,0,0,0,0,0,0,// queue.size  
+0,0,0,0,0,0,0,//  register Alias rather than a new bean name, in order to reduce duplicated beans 
+0,0,0,0,0,0,0,//  control char. 
+0,0,0,0,0,0,0,//  mark buffer is used, exit mark status! 
+0,0,0,0,0,0,0,//  Single Config Bindings 
+0,0,0,0,0,0,0,//  Every least active invoker has the same weight value?
+0,0,0,0,0,0,0,//  never return 0 even if n1 equals n2, otherwise, o1 and o2 will override each other in collection like HashSet 

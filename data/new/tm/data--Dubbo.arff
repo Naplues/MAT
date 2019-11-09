@@ -1,0 +1,1654 @@
+@relation 'technicalDebt'
+
+@attribute Text string
+@attribute class-att {negative,positive}
+
+@data
+
+'important for async scenario must remove context from current thread always create new rpccontext for the next invoke for the same thread ',positive
+'todo move somewhere else better ',positive
+'fixme now need check first then load ',positive
+'todo contextsessions the best option here jetty becomes ',positive
+'todo move names constants ',positive
+'ignore concurrent problem ',positive
+'todo add this provider config ',positive
+'special treatment array values was suggested lizongbo ',positive
+'todo should leave this setting slfj ',positive
+'fixme when the thread pool full cannot return properly therefore the consumer side has wait until gets timeout this temporary solution prevent this scenario from happening but better solution should considered later ',positive
+'the initial value null and the midway may assigned null please use the local variable reference ',positive
+'fixme requestcontext ',positive
+'possible here ',positive
+'for example object transported the wire doesnt implement serializable ',positive
+'bug dubbo ',positive
+'fixme log error message codec and handle caught iohanndler ',positive
+'there may some problem handling chinese negative number recognition ignoring this problem the backspace key only meaningfully input real telnet program ',positive
+'this unstable consider remove later see ',positive
+'bug dubbo ',positive
+'todo more sophisticated exception handling and output ',positive
+'todo for now kryo serialization doesnt deny classes that dont implement the serializable interface pre ltdubboprotocol serializationkryo pre ',positive
+'delimstart was escaped thus should not incremented ',positive
+'todo users can override this mapper but just rely the current priority strategy resteasy ',positive
+'fixme waiting for embedded nacos suport then can open the switch ',positive
+'todo generic invoker ',positive
+'fixme this instance will always type configcenterconfig will load the instance startup and assign here ',positive
+'todo not want use spaces see dubbo url class handles special conventions for special characters ',positive
+'should destroy resource ',positive
+'hack use reflection get the shared channel ',positive
+'todo notification failure does not restore mechanism guarantee ',positive
+'todo fix npe ',positive
+'todo needs use force writing file that buffer gets clear and new log can written ',positive
+'reselect before retry avoid change candidate invokers note invokers changed then invoked also lose accuracy ',positive
+'todo load spi will better ',positive
+'fixme reject exception can not sent consumer because thread pool full resulting consumers waiting till timeout ',positive
+'todo refactor using mockito ',positive
+'generally client can only closed once here closed twice counter incorrect ',positive
+'todo temporary solution the problem that the exception information can not sent the opposite end after the thread pool full need refactoring fix the thread pool full refuses call does not return and causes the consumer wait for time out ',positive
+'todo the future maybe can just use single rest client and connection manager ',positive
+'caution ',positive
+'todo solve merge problem ',positive
+'fixme hack make work ',positive
+'the buffer big enough ',positive
+'bug dubbo version config retryfalse providers method doesnt work ',positive
+'fixme this exposes the design flaw routerchain ',positive
+'fixme responsecontext ',positive
+'todo jetty will default enable keepalive the xml config has effect now ',positive
+'cannot write not available ',positive
+'todo wrapper cannot handle this scenario correctly the classname contains ',positive
+'server side thrift can not handle exceptions not declared idl ',positive
+'todo assert error log ',positive
+'this class represents unfinished rpc call will hold some context information for this call for example rpccontext and invocation that when the call finishes and the result returns can guarantee all the contexts being recovered the same when the call was made before any callback invoked todo its reasonable even right keep reference invocation link result implements completionstage link asyncrpcresult allows you easily build async filter chain whose status will driven entirely the state the underlying rpc call asyncrpcresult does not contain any concrete value except the underlying value bring completablefuture consider status transfer node link getvalue and link getexception are all inherited from link result interface implementing them are mainly for compatibility consideration because many legacy link filter implementation are most possibly call getvalue directly ',positive
+'fixme should put exception future ',positive
+'dubbo methods key providers urlone doesnt contain the methods from inherited super interface ',positive
+'todo need enhance assertion ',positive
+'fixme this code looks useless ',positive
+'todo due dubbos current architecture will called from registry protocol the shutdown process and wont appear logs ',positive
+'todo can load successfully for different classloader ',positive
+'the status input has problem and the read information wrong when the serialization serialized ',positive
+'fixme not sure why has both isgeneric and getgeneric ',positive
+'fixme result asyncrpcresult instance ',positive
+'fixme should cancel and restart timer tasks parameters the new url are different ',positive
+'todo extract more code here necessary ',positive
+'fixme rmi protocol doesnt support casting echoservice yet ',positive
+'dubbos original impl cant support the use servletcontext ',positive
+'deprecated subscribe override rules before ',positive
+'subscribe the override data fixme when the provider subscribes will affect the scene certain jvm exposes the service and call the same service because the subscribed cached key with the name the service causes the ',positive
+'should called after config was fully initialized fixme this method should completely replaced appendparameters return see object string notice this method should include all properties the returning map treat parameter differently compared appendparameters ',positive
+'todo can the value returned getchannel null need improvement ',positive
+'todo support wildcards ',positive
+'fixme cannot guarantee the sequence the merge result check implementation ',positive
+'fixme there any need failing back constantsanyvalue the first available method invokers when invokers null ',positive
+'todo more configs add ',positive
+'bug dubbo provider doesnt have exception output and consumer has timeout error when serialization fails ',positive
+'fixme theres place release connectionexecutor ',positive
+'todo refactor ',positive
+'every invoker has the same weight ',positive
+'todo this may not pretty elegant solution ',positive
+'fixme log error info codec and put all error handle logic iohanndler ',positive
+'cant shutdown nioeventloopgroup because the method will invoked when closing one channel but not client but when and how close the nioeventloopgroup ',positive
+'fixme this really necessary should have already covered this see see ',positive
+'the resident routers must being initialized before address notification fixme this method should not public ',positive
+'todo there may have duplicate refresh ',positive
+'fixme replace this with better method ',positive
+'todo for now dont consider the differences encoding and server limit ',positive
+'fixme check and any conditions that need match ',positive
+'rmi needs extra parameter since uses customized remote invocation object the customized remoteinvocation was firstly introduced the package was renamed orgapache since considering the above two conditions need check before sending customized remoteinvocation the provider version higher send the provider version higher send the provider version lower than does not use customized remoteinvocation ',positive
+'todo exist concurrent gap ',positive
+'todo fixme the thread pool should used refresh the address otherwise the task may accumulated ',positive
+'theres dynamic tag rule being set use static tag url typical scenario consumer using version calls providers using version lower the consumer should always respect the tag provider url regardless whether dynamic tag rule has been set not todo guarantee consistent behavior interoperability between and this method should has the same logic with the tagrouter param invokers param url param invocation param return ',positive
+'construct using ',negative
+'service provider service providers are disabled ',negative
+'closing closed means the process being closed and close finished ',negative
+'get data length ',negative
+'the monitoring center responsible for deleting outdated dirty data ',negative
+'keyvalue pair stores both match and mismatch conditions ',negative
+'default not included ',negative
+'allow string arg enum type see pojoutilsrealize ',negative
+'check length ',negative
+'test abcdefg ',negative
+'translate stored positions ',negative
+'final int length ',negative
+'dubbo rpc protocol version for compatibility must not between ',negative
+'descname ',negative
+'the parameters the test service query need with the providermerge ',negative
+'for test ',negative
+'for the exception not found methods signature print error message servers log ',negative
+'yyline yychar yycolumn ',negative
+'use construct ',negative
+'check duplicated candidate bean ',negative
+'mark the future sent ',negative
+'remove async property avoid being passed the following invoke chain ',negative
+'should not override ',negative
+'this should never happen ',negative
+'other thread cancel this timeout stop the timer ',negative
+'invoker protocolrefer democlass url invoker rpcinvocation invocation new rpcinvocation echostring new class stringclass string arg hello world new object arg result result invokerinvoke invocation arg resultgetresult ',negative
+'ljavalangobject ljavalangobject ',negative
+'search callers classloader ',negative
+'logging output ',negative
+'boundary condition test ',negative
+'first make room you can ',negative
+'concurrent cache initialization ',negative
+'parameters ',negative
+'test timeout lease ',negative
+'when starting the subscription center ',negative
+'check whether the mock value legal ',negative
+'take first one ',negative
+'null out prev next and bucket allow for ',negative
+'resolve placeholders ',negative
+'test service metadata builder ',negative
+'start reconnection timer ',negative
+'the config center given the highest priority will override all the other configurations ',negative
+'statsokidlength ',negative
+'begin construct with empty stacktrace ',negative
+'merged with this configuration ',negative
+'healthy instances ',negative
+'for test validation ',negative
+'gorgeous line segmentation ',negative
+'private int port ',negative
+'end method decode ',negative
+'the server side has synchronized data just write single machine ',negative
+'check for required fields check for substruct validity ',negative
+'test recover ',negative
+'since security manager not installed ',negative
+'parameter fields ',negative
+'the parameters the provider for the inspection service need merge ',negative
+'the config center product you use have some special parameters that not covered this class you can add here for example with xml dubboconfigcenter dubboparameter keyyour key valueyour value dubboconfigcenter ',negative
+'restore any other contexts here necessary ',negative
+'cancel future ',negative
+'the bean not initialized invoke init issue ',negative
+'callback method when asynccall has exception thrown ',negative
+'check format pattern ',negative
+'test all methods ',negative
+'util methods ',negative
+'invoker related data preparing ',negative
+'from api ',negative
+'should remain unchanged ',negative
+'check the index current selected invoker its not the last one choose the one index ',negative
+'mapservicename ',negative
+'argument type ',negative
+'default base ',negative
+'record the index the least active invoker leastindexes order ',negative
+'for get and for post ',negative
+'',negative
+'callback method when asynccall invoked ',negative
+'write header ',negative
+'copy reference ',negative
+'proto only accept one protobuf parameter ',negative
+'first try picking invoker not selected ',negative
+'throw demo exception ',negative
+'set category ',negative
+'merge override parameters ',negative
+'spi should get from spiextensionfactory ',negative
+'update registry ',negative
+'test multiple urls ',negative
+'nonjavadoc see javalangthrowable ',negative
+'decode object ',negative
+'create ',negative
+'fall back use method getresourceasstream ',negative
+'add constructors ',negative
+'notify the other threads waiting for the initialization start ',negative
+'skip test ',negative
+'check the file change ',negative
+'getname method absent ',negative
+'update local exporter ',negative
+'ignore those fields ',negative
+'save bind port used urls key later ',negative
+'end method destroy ',negative
+'impl constructor ',negative
+'for test purpose ',negative
+'',negative
+'handle nested generic type ',negative
+'caution parse host ',negative
+'local disk cache where the special key valueregistries records the list registry centers and the others are the list notified service providers ',negative
+'initial value ',negative
+'you only have single redis you need take rest avoid overtaking lot cpu resources ',negative
+'service not found ',negative
+'private int yycolumn ',negative
+'callback method when asynccall returned ',negative
+'reset the number least active invokers ',negative
+'its declared local reference scopelocal equivalent injvmtrue injvm will deprecated the future release ',negative
+'change recycle time ',negative
+'the part the condition expression ',negative
+'multicast ipv address ',negative
+'true ',negative
+'any exception will ignored handle ',negative
+'only for attachments ',negative
+'check deleted invoker ',negative
+'guess version fro jar file name nothings found from manifestmf ',negative
+'skip multicast registry since cannot connect via socket ',negative
+'public listurl getbackupurls res supergetbackupurls return resstreammapurl new ',negative
+'',negative
+'test start ',negative
+'present both local and remote uses local url params ',negative
+'for reuse serializewriter buf ',negative
+'bean compare ',negative
+'not every invoker has the same weight least one invokers weight select randomly based totalweight ',negative
+'check against type and superclasses ',negative
+'create request ',negative
+'trim the leading ',negative
+'timeout after seconds ',negative
+'add invocationid async operation default ',negative
+'appends value array attributes ',negative
+'just add urls which needs retry ',negative
+'optional ',negative
+'user code ',negative
+'append backup parameter other servers ',negative
+'public propertyinjector getpropertyinjector return propertyinjector ',negative
+'get invokers from cache only runtime routers will executed ',negative
+'store back cached position ',negative
+'use default configs defined explicitly global configs ',negative
+'doesnt need distinguish version for callback ',negative
+'register reference annotation bean processor ',negative
+'',negative
+'allow repeats siblings ',negative
+'test group ',negative
+'create proxy class ',negative
+'zzatbol true ',negative
+'override url not enabled invalid just return ',negative
+'this defensive operation avoid client closed accident the initial state the client false ',negative
+'current node ',negative
+'report same error when get invoked for multiple times ',negative
+'',negative
+'parameter callback rule from callback ',negative
+'the namespace the config center generally its used for multitenant but its real meaning depends the actual config center you use ',negative
+'available test ',negative
+'match category ',negative
+'now just added some very common classes ',negative
+'its callback service client side ',negative
+'directly throw its dubbo exception ',negative
+'callback instance when asynccall invoked ',negative
+'fill the unprocessedtimeouts can return them from stop method ',negative
+'since the rule can changed config center should copy one use ',negative
+'null point check ',negative
+'get status ',negative
+'init table ',negative
+'this maybe only works particular platform assert only when value not null ',negative
+'least one single machine available ',negative
+'end loop method map ',negative
+'default deregister critical server after ',negative
+'encode response data error message ',negative
+'thiscontext context public string getcontext return context ',negative
+'because its strictly round robin the abs delta should too ',negative
+'header ',negative
+'should output cost not ',negative
+'',negative
+'confirm only register success ',negative
+'should not happen here ',negative
+'this only works for servlet containers ',negative
+'column definition ',negative
+'can invoke successfully ',negative
+'check pong client ',negative
+'create new decode table ',negative
+'integer representation value ',negative
+'only one empty ',negative
+'linux pause ',negative
+'forcedirect mock ',negative
+'ignore concurrency problem ',negative
+'prevents grpc sending watchresponse closed watch client ',negative
+'the suminvoker suminvoker approximately equal ',negative
+'referencebean field injection ',negative
+'add imported packages ',negative
+'prepeat string code repeat times form new string with string separator injected each time pre null null null stringutilsrepeat null stringutilsrepeat stringutilsrepeat xxx stringutilsrepeat pre param str the string repeat may null param separator the string inject may null param repeat number times repeat str negative treated zero return new string consisting the original string repeated code null null string input since ',negative
+'ipport channel ',negative
+'init task and start timer ',negative
+'generic invocation not local reference ',negative
+'have interface watcher listener find the current listener create one for the current root put get only once ',negative
+'new interface event arrived watch their direct children dubbointerface dubbointerface and ',negative
+'check notify successfully ',negative
+'full list addresses from registry classified method name ',negative
+'listu urls ',negative
+'javasqldate ',negative
+'todo for now just xml output ',negative
+'check for primitive array types because they unfortunately cannot cast object ',negative
+'times sleep ',negative
+'request nonexists method ',negative
+'release mina resouces ',negative
+'threadsleep ',negative
+'',negative
+'used specify the key that your properties file mapping most the time you not need change this parameter notice that for apollo this parameter meaningless set the namespace enough ',negative
+'complex pojo ',negative
+'echoint ',negative
+'the sum weights ',negative
+'cast echoservice ',negative
+'end construct with empty stacktrace ',negative
+'test multiple unregisters ',negative
+'did not find parameter url type ',negative
+'todo protocol ',negative
+'cant find command ',negative
+'every invoker has the same weight ',negative
+'loop before registry ',negative
+'rely reconnect timer reconnect when fails init the connection ',negative
+'data collect from url ',negative
+'normal case ',negative
+'initialization the time injection the assertion not null initialization the time injection the assertion not null ',negative
+'duplicated jar found ',negative
+'from system property ',negative
+'tell tomcat fail startup failures ',negative
+'use construct ',negative
+'the least active value all invokers ',negative
+'its generic reference ',negative
+'windows ctrlc ',negative
+'double check avoid dup close ',negative
+'reference config default values will take effect references attribute not set ',negative
+'onresponse callback ',negative
+'close once counter counts down from warning occurs ',negative
+'failed report wait how many times run retry task ',negative
+'magic ',negative
+'private mapstring string extrahttpheaders new hashmapstring string ',negative
+'for testing purposes only ',negative
+'success ',negative
+'still init for the same referenceconfig the cache different ',negative
+'not registry url must direct invoke ',negative
+'property custom type primitive type ',negative
+'register center address ',negative
+'check theres duplicated jar ',negative
+'default value ',negative
+'weighttestrpcstatus active ',negative
+'not equal ',negative
+'match service interface ',negative
+'process implemented interfaces ',negative
+'make sure that the subscribe call has just been called once after the call completed wait for the timer ',negative
+'dubbo check ',negative
+'double byte char ',negative
+'close all invokers ',negative
+'service statistics invocation cost current concurrent count ',negative
+'fixme ',negative
+'present local url but not remote url ',negative
+'from ancestor ',negative
+'backward compatibility ',negative
+'set magic number ',negative
+'ignore error ',negative
+'message ',negative
+'url urladdparameter echostring constantstimeoutkey integermaxvalue invoker protocolrefer democlass url invoker rpcinvocation invocation new rpcinvocation echostring new class stringclass string arg hello world new object arg result result invokerinvoke invocation resultgetresult resultgetexception instanceof rpcexception ',negative
+'asert empty ',negative
+'key has corresponding value then the key also used the value ',negative
+'requires jdk higher fooint longer genericarraytype ',negative
+'check override necessary ',negative
+'referencebean should initialized and get immediately ',negative
+'add ensure that the delayservice has been exported ',negative
+'growth skipping times the number skipping times increases more than take the random number ',negative
+'read port from property ',negative
+'tag request ',negative
+'name property present ',negative
+'thislistener listener ',negative
+'disconnect ',negative
+'beanpostprocessor referencebean referencebeanmap ',negative
+'send heartbeat when read idle ',negative
+'the serialization key json fastjson ',negative
+'can use thrift codec only ',negative
+'',negative
+'invokers ',negative
+'task should canceled put this another queue which will processed each tick this means that will have latency max tick duration which good enough this way ',negative
+'verify save group save error ',negative
+'ljavalangobject javalangobject ',negative
+'factory ',negative
+'need read the local cache file for future registry fault tolerance processing ',negative
+'thislistener null ',negative
+'registry port not used bind port default ',negative
+'directly throw its jdk exception ',negative
+'invokerdestroy ',negative
+'hessian ',negative
+'register first ',negative
+'the address consumer registered registry ',negative
+'check whether the mock class implementation the interfaceclass and has default constructor ',negative
+'scriptrouterfactory example urls used script router factory the host value url points out the address the source content the script routerregistryfile etc ',negative
+'filter dynamic tag group first ',negative
+'merge the provider side parameters ',negative
+'multiple callbacks the method ',negative
+'sending cancellation request the server side ',negative
+'now dont use the values map hold these objects ',negative
+'export remote the config not local export local only when config local ',negative
+'handshake ',negative
+'echo ',negative
+'replace the latest ',negative
+'generic generic boolean false true ',negative
+'may want avoid exposing the dubbo exception details certain clients ',negative
+'notify url add empty protocol url ',negative
+'dubbo request ',negative
+'thislistener null ',negative
+'map interface class change hashmap implement ',negative
+'check config conflict ',negative
+'read one byte guess protocol ',negative
+'filter the parameters that not need output urlstarting with ',negative
+'test default ',negative
+'other ',negative
+'use global group dubbo group specified ',negative
+'verify compatibility when invokes enum custom parameter ',negative
+'protocol configured the reference side only the matching protocol selected ',negative
+'setname and getname methods are present the param type string set bean name the value the name property ',negative
+'the config center cluster its real meaning may very different config center products ',negative
+'numread ',negative
+'from dubboproperties ',negative
+'ipv multicast address ',negative
+'get propertysource mapped dubboproperties spring environment ',negative
+'convert list array ',negative
+'the exception thrown for the first time see the back will called again incrementandget ',negative
+'nested collection map ',negative
+'arg ',negative
+'request timeout milliseconds for register center ',negative
+'all invokers have the same weight value totalweight return evenly ',negative
+'package was renamed orgapachedubbo only provider versions after can recognize ',negative
+'export one service first test connection sharing ',negative
+'read the parameters ',negative
+'mapservicename querystring ',negative
+'sync update cache file ',negative
+'add since ',negative
+'return statement ',negative
+'customized injectobject necessary ',negative
+'for service consumer ',negative
+'register ',negative
+'lets rock ',negative
+'setinvokerurls cache invokeurls invokers mapping ',negative
+'careful ',negative
+'max allowed execute times ',negative
+'long one client not available you need replace the unavailable client with the available one ',negative
+'javautildate ',negative
+'defensive fault tolerance ',negative
+'javassist have strict restriction argument types request will fail invocation not contains complete parameter type information ',negative
+'args ',negative
+'property without generic type should not build method return list ',negative
+'padding ',negative
+'push name ',negative
+'remove extra space lines end ',negative
+'the service has normal sync method signature should get future from rpccontext ',negative
+'check again ',negative
+'merged from dubbox ',negative
+'generic generic boolean false false ',negative
+'biz error should not throw and affect biz thread ',negative
+'unexport one service ',negative
+'impl mock ',negative
+'',negative
+'statsokidlength ',negative
+'wait until the starttime initialized the worker ',negative
+'asserts aliases ',negative
+'retry offer the task into queue ',negative
+'check and connect the metadata ',negative
+'send error message consumer otherwise consumer will wait until timeout ',negative
+'create registry spiioc ',negative
+'encoder ',negative
+'impossible ',negative
+'version represents dubbo rpc protocol before ',negative
+'help for ',negative
+'attribute appears since ',negative
+'the address you see the registry ',negative
+'not the cache refer again ',negative
+'resolve placeholder ',negative
+'allocating one advance this list certain used ',negative
+'',negative
+'check unsubscribe successfully ',negative
+'rate interval has changed rebuild ',negative
+'note url values type ',negative
+'true means accept foreign ',negative
+'timeout registrytimeout int file registryfile string wait registrywait int transport registrytransporter string netty mina ',negative
+'password login register center ',negative
+'replace ',negative
+'avoid creating too many connections add lock ',negative
+'init atomic reference ',negative
+'version version string group group string haomintest ',negative
+'mock environment variables ',negative
+'window system dont support file name ',negative
+'load class ',negative
+'need generate multiple exporters for different channel the same jvm cache key cannot collide ',negative
+'only used for javassist ',negative
+'the argument must the concrete nacosservicename ',negative
+'enum property has two setting method skip setxxxvalueint value ',negative
+'remove the expired defensive fault tolerance ',negative
+'init queue and executor ',negative
+'reconnect with delay avoiding immediate retry long connection downtime ',negative
+'default false ',negative
+'trigger delete after unavailable ',negative
+'use indicator for the uninitialized value here make sure its not when initialized ',negative
+'reset status since connection shared among invokers ',negative
+'instance will never delete recreate ',negative
+'are interested special categories providers consumers routers and find out the current container create one for the url put get only once ',negative
+'have category watcher listener find out the current listener create one for the current category put get only once ',negative
+'encode ',negative
+'ignore ',negative
+'range cases ',negative
+'header length ',negative
+'todo comment protocolutils ',negative
+'item name ',negative
+'containing all routers reconstruct every time route urls change ',negative
+'get uncollection unmap property name from setting methodbr exsetxxxbr param methodname return ',negative
+'dynamic class tag interface ',negative
+'line ',negative
+'ignore default attribute value ',negative
+'put the first least active invoker first leastindexes ',negative
+'prevent other uts failure ',negative
+'override url has port means provider address want control specific provider with this override url may take effect the specific provider instance consumers holding this provider instance ',negative
+'make sure copied buffer ',negative
+'init queue and executor ',negative
+'must disable the debug logging for production use ',negative
+'false which means will invoke any providers without tag unless its explicitly disallowed ',negative
+'',negative
+'parameterkeykey ',negative
+'note hessian throws instead ioexception lets live with this ',negative
+'dump every minutes ',negative
+'deprecated ',negative
+'empty protocol will default dubbo ',negative
+'collect data ',negative
+'the index invokers having the same least active value leastactive ',negative
+'use interface class name list key ',negative
+'mapurl invoker cache service url invoker mapping ',negative
+'client type setting ',negative
+'host ',negative
+'component name dataname datavalue ',negative
+'objgetversion ',negative
+'the number invokers having the same least active value leastactive ',negative
+'max ',negative
+'liststring addresses return all addresses dynamic tag group ',negative
+'minsparethreads ',negative
+'write object ',negative
+'javasqltimestamp ',negative
+'object invokestring method string parametertypes object args throws genericexception ',negative
+'url address separated regular expression for parsing the service provider url list the file cache ',negative
+'value doesnt change return immediately value null ',negative
+'retry task schedule period ',negative
+'whether the consumers machine has only one process multiple processes the same machine cannot unicast with unicast there will only one process receiving information ',negative
+'ignore attribute name skip ',negative
+'isabc ',negative
+'process the component type array ',negative
+'none the invokers has local signal pick the first one available ',negative
+'preroute and build cache notice that route cache should build original invoker list ',negative
+'path ',negative
+'client side error ',negative
+'parseconfigurators will recognize appservice config automatically ',negative
+'set codec ',negative
+'two different methods should always use the same invoker every time ',negative
+'construct using ',negative
+'process extended super class ',negative
+'cycle report the data switch ',negative
+'callback interface ',negative
+'start multiple threads ',negative
+'unexport service ',negative
+'message header length placeholder ',negative
+'impl methods ',negative
+'invalidate buffer ',negative
+'',negative
+'check subscribe successfully ',negative
+'try get cached definition ',negative
+'encode response verson objgetversion ',negative
+'setup ',negative
+'ensure that the main thread online ',negative
+'disable new tasks from being submitted ',negative
+'end loop map ',negative
+'draw one line ',negative
+'must present abstractconfig must not equal bean name must not present aliasregistry ',negative
+'register subscribe notify unsubscribe unregister ',negative
+'test order ',negative
+'output one error every invocations ',negative
+'dubbo implementation version usually jar version ',negative
+'check and connect the registry ',negative
+'check the file change ',negative
+'its declared remote reference ',negative
+'close the unused invoker ',negative
+'the type not primitive choose believe what the invoker want null value ',negative
+'private helper ',negative
+'referencebean method injection ',negative
+'connect ',negative
+'check for required fields ',negative
+'concurrent counter ',negative
+'must executed after unsubscribing ',negative
+'retry task map ',negative
+'compatible with the old version ',negative
+'check whether the mock value legal illegal throw exception ',negative
+'when modifying the configuration through override you need reexpose the newly modified service ',negative
+'exprintstacktrace ',negative
+'get throwable class ',negative
+'message body ',negative
+'welcome output for http protocol ',negative
+'protocol key the second ',negative
+'check for required fields alas cannot check arg because its primitive and you chose the nonbeans generator ',negative
+'tab ',negative
+'test transactional present not ',negative
+'create client and build connection ',negative
+'here nonbiz exception wrap ',negative
+'codeappend ',negative
+'make sure the buffer content independent from each other ',negative
+'the final root path would ',negative
+'parse bind port from environment ',negative
+'the lock for client acquisition process lock the creation process the client instance prevent repeated clients ',negative
+'add the timeout the timeout queue which will processed the next tick during processing all the queued hashedwheeltimeouts will added the correct hashedwheelbucket ',negative
+'test myregistry bean presentation ',negative
+'private boolean zzeofdone ',negative
+'first elements ',negative
+'decide need republish ',negative
+'state ',negative
+'start file save timer ',negative
+'header size ',negative
+'content ',negative
+'failmock ',negative
+'and update ',negative
+'url urladdparameter constantstimeoutkey integermaxvalue ',negative
+'the registry initially pushed override only and the dirctory state should false because there invoker ',negative
+'default link helloservice annotation with springs link service and dubbos link since todo ',negative
+'the first invokers weight ',negative
+'save error ',negative
+'path not the same interface name then should keep interfacekey otherwise the registry structure zookeeper would dubbopathproviders but what expect ',negative
+'protocol only injvm not register ',negative
+'service name ',negative
+'',negative
+'trim all whitespace ',negative
+'one callback the method ',negative
+'can make again use our mpsclinkedqueue and minimize the locking overhead much possible ',negative
+'then unsubscribe ',negative
+'the first time want pull already category and then watch their direct children and ',negative
+'timer for failure retry regular check there request for failure and there unlimited retry ',negative
+'the parameters the inspection registry need cleared ',negative
+'print ending separation line ',negative
+'must equal the bytes ',negative
+'only for attachment ',negative
+'add methods ',negative
+'handle array generic type ',negative
+'javalangobject ljavalangobject ',negative
+'for test content ',negative
+'todo only care the changes happened specific path level for example other config changes not this level will ignored ',negative
+'just for test ',negative
+'null url ',negative
+'create class ',negative
+'are interested all interfaces find out the current container create one for the url put get only once ',negative
+'null out prev and next allow for ',negative
+'build pool with softreferences enabled optional ',negative
+'final string onerror continue ',negative
+'object bytearray ',negative
+'remove module xyz ',negative
+'isfalse ',negative
+'asserts null fields ',negative
+'more than one methods mismatch ',negative
+'expect nothing happen ',negative
+'separator ',negative
+'providers ',negative
+'invokerretryfailed when retry the invoker which get from failed map already not the mocked invokerso ',negative
+'lazy connect need set sendreconnect true avoid channel bad status ',negative
+'retry another server ',negative
+'argument index represents not set ',negative
+'accumulate the total weight the least active invoker ',negative
+'export service and get url parameter string from ',negative
+'can null ',negative
+'release port used ',negative
+'received the cancel response ',negative
+'invoke ',negative
+'subscribed services ',negative
+'visit all methods ',negative
+'only decode necessary bytes ',negative
+'protocol not injvm checkregistry ',negative
+'check the output equals the input urls ',negative
+'convert argument type ',negative
+'split cidr address and prefix part ',negative
+'wait for timer finish ',negative
+'send readonly event when server closes its enabled default ',negative
+'nacos use empty string default name space replace default namespace dubbo ',negative
+'the first time want pull already interface and then watch their direct children dubbointerface dubbointerface and ',negative
+'',negative
+'decide the behaviour when initial connection try fails true means interrupt the whole process once fail ',negative
+'method has url parameter ',negative
+'version ',negative
+'test one url ',negative
+'',negative
+'need call unexport here see ',negative
+'final field test ',negative
+'json ',negative
+'merged from dubbox ',negative
+'avoid add the same invoker several times ',negative
+'private boolean zzatbol true ',negative
+'return default version version info found ',negative
+'verify compatibility when invokes ',negative
+'server ',negative
+'decode argument may callback ',negative
+'',negative
+'referencebean referencebean entrygetvalue isdefaultmodule notnullvalue ',negative
+'not configured connection shared otherwise one connection for one service ',negative
+'avoid collision ',negative
+'javasqltime ',negative
+'rowbufappend ',negative
+'error codes ',negative
+'note should determined the business level whether the when condition can empty not ',negative
+'',negative
+'superdestroy ',negative
+'client can export service whichs only for server invoke ',negative
+'default through local reference theres the service exposed locally ',negative
+'public field ',negative
+'write header write data ',negative
+'subscribe first ',negative
+'the timeout was placed into wrong slot this should never happen ',negative
+'url registry ',negative
+'graceful close ',negative
+'retry again failed again throw exception ',negative
+'backward compatibility spring ',negative
+'lets simply use urls hashcode generate unique service for now ',negative
+'linux enter ',negative
+'try put the value ',negative
+'user customized class ',negative
+'jedis gets the result comparison ',negative
+'been invoked once its close status false ',negative
+'check whether url applied the current service ',negative
+'default true ',negative
+'always return true for previously defined router that old router doesnt support cache anymore return true ',negative
+'replace ',negative
+'workerstate can this moment let always ',negative
+'message flag ',negative
+'get the class def for obj and type ',negative
+'delay delay int not boolean ',negative
+'the parameter urls are sorted repeated url ',negative
+'put new invoker cache ',negative
+'servicekey ',negative
+'release the lock ',negative
+'getter method not found throw ',negative
+'the invoker wrap relation would will execute route invoker ',negative
+'create rpc invoker ',negative
+'filter out all the least active invokers ',negative
+'protobuf property has two setting method skip value ',negative
+'inner nodes cache judgement ',negative
+'prepare ',negative
+'',negative
+'for previous dubbo version this version the jars version they need ignore ',negative
+'dynamic param ',negative
+'the fist element indexedvariables set keep all the internalthreadlocal remove look method ',negative
+'verify listener ',negative
+'simulation all invokers are destroyed ',negative
+'save ',negative
+'mark its callback for troubleshooting ',negative
+'try modify the key ',negative
+'start validation parameter values ',negative
+'relatedquery error and email passed will trigger validation exception for both save ',negative
+'never mind ephemeral ',negative
+'create clients and build connections ',negative
+'the clients empty then the first initialization ',negative
+'order avoid closing client multiple times counter used case connection per jvm every time when clientclose called counter counts down once and when counter reaches zero client will closed ',negative
+'build and remove last ',negative
+'set interface ',negative
+'load configuration from system properties registryconfig dubboproperties ',negative
+'try match one one ',negative
+'provider ',negative
+'init history ',negative
+'ignore will ready very soon ',negative
+'directly throw exception class and interface class are the same jar file ',negative
+'notify one invoker ',negative
+'throw logger not execute exception ',negative
+'find handler message class ',negative
+'process constructors fields methods ',negative
+'the test call independent the path the registry url ',negative
+'set ',negative
+'log output ',negative
+'since have subscribe testurl here should return empty set instead null ',negative
+'border ',negative
+'remove default prefix for configs from consumerconfig appendparametersmap consumer constantsdefaultkey ',negative
+'required ',negative
+'volatile please copy reference use ',negative
+'for backward compatibility now deprecated ',negative
+'return invoker based the random value ',negative
+'fire event all listeners ',negative
+'process parameter types ',negative
+'reconnect the timer check whether the connection available time and when unavailable infinite reconnection ',negative
+'remove path groupmodulexyz ',negative
+'save for later use ',negative
+'performance tuned for jdk ',negative
+'weight changed ',negative
+'bio not allowed since has severe performance issue ',negative
+'match service version ',negative
+'get consumers global configuration ',negative
+'',negative
+'the null value unallowed the concurrenthashmap ',negative
+'ensure dont schedule for past ',negative
+'tree node ',negative
+'private int yychar ',negative
+'since the retry task will not very much ticks enough ',negative
+'referencebean method injection ',negative
+'ephemeral expired ',negative
+'',negative
+'has one sync callback ',negative
+'easy for mock ',negative
+'first page data ',negative
+'wildcard cases ',negative
+'currently for test purpose ',negative
+'threadsleepfor debug ',negative
+'override url with configurator from override url for dubbo and before ',negative
+'support ',negative
+'data rows ',negative
+'spin ',negative
+'reserved for dubbox ',negative
+'nothing ',negative
+'fix ',negative
+'not pass the condition ',negative
+'uncomment unblock invoking serviceurl consumerurl ',negative
+'mock protocol ',negative
+'not blow ',negative
+'key value pair pattern ',negative
+'all attributes referkey ',negative
+'remove all instances associated with this loader well ',negative
+'the server has entered the shutdown process reject any new connection ',negative
+'set timeout status ',negative
+'from parent ',negative
+'this urls contain parameter and donot inherit from the parameter url multipleregistry ',negative
+'the current may have been merged many times ',negative
+'setup attachment ',negative
+'decode response ',negative
+'start part the condition expression ',negative
+'url specified dont local reference ',negative
+'available first ',negative
+'the failedsubcribe corresponding key will cleared when unsubscribing ',negative
+'without routerkey the first router should not created ',negative
+'search commonused logging frameworks ',negative
+'sorting makes easy compare between lists ',negative
+'wait close done ',negative
+'biz exception ',negative
+'bind annotation attributes ',negative
+'max times retry save properties local cache file ',negative
+'set ',negative
+'inner class name include ',negative
+'property map ',negative
+'response received latch counts down zero ',negative
+'for thrift codec ',negative
+'must shutdown thread pool not will lead oom ',negative
+'int timeout threadsleeptimeout assertequalsfalse ',negative
+'find all interfaces from the annotated class resolve issue ',negative
+'unrefer ',negative
+'cancel the reconnection timer ',negative
+'remote service bean ',negative
+'the parameters can not rereferenced ',negative
+'the value the part value have more than one items should separated ',negative
+'override ',negative
+'ignore ',negative
+'the sequence would systemconfiguration abstractconfig ',negative
+'have free worker put task into queue let the worker deal with task ',negative
+'callback instance when asynccall has exception thrown ',negative
+'the invoker the selected invoker unavailable availablecheck true reselect ',negative
+'compile ',negative
+'retry loop last exception invoked invokers ',negative
+'link key specified will used the key for the annotated property when generating url default this key will also used retrieve the config value pre code class exampleconfig dubbo will try get from properties you want use the original property dubboexampleitemxxx you need set parameterkey aliasforitem public getitem pre ',negative
+'cached invoker urls convenient for comparison ',negative
+'wildcard condition ',negative
+'will wrap some invokers having different groups those wrapped invokers not should routed ',negative
+'release classgenerator ',negative
+'only tow slash ',negative
+'',negative
+'unavailable codes mean the system will right back cant connect lost leader treat internal codes something failed leaving the system inconsistent state but retrying could make progress failed middle send corrupted frame ',negative
+'url address separator used file cache service provider url separation ',negative
+'return immediately theres change ',negative
+'verify its idempotent ',negative
+'',negative
+'theres tagged providers that can match the current tagged request forcetag set default ',negative
+'list ',negative
+'the total count ',negative
+'the fill length can not less than because default hessian reads bytes from the stream each time refer for more details ',negative
+'choose invoker from all the least active invokers ',negative
+'the properties file under configfile global shared while properties under this one limited only this application ',negative
+'client connect disconnect server zookeeper will queue watched path null ',negative
+'copy from ctclass ',negative
+'must present segments ',negative
+'for ',negative
+'refer ',negative
+'given that repeatstring int quite optimized better rely than try and splice this into ',negative
+'get url directly ',negative
+'use key key ',negative
+'limit input stream ',negative
+'test old activate group ',negative
+'double check whether not connected ',negative
+'serialization strategy interface that specifies serializer spi singleton threadsafe the default extension hessian and the default serialization implementation the dubbo protocol pre ltdubboprotocol serializationxxx pre ',negative
+'process all timeouts ',negative
+'the same invoker exporter that multiple exported are different ',negative
+'exist overridden method ',negative
+'override url with configurator from configurators from ',negative
+'fix issue ',negative
+'create service proxy ',negative
+'protocol default values itll take effect when protocols attributes are not set ',negative
+'then unregister ',negative
+'never has retry task then start new task for retry ',negative
+'property list ',negative
+'export local the config not remote export remote only when config remote ',negative
+'log output ',negative
+'validationfilter invoke the validation finding the right link validator instance based the configured bvalidationb attribute value invoker url before the actual method invocation pre ltdubbomethod namesave the above configuration validation has been configured type jvalidation invocation method bsaveb dubbo will invoke link pre add new type validation pre ltdubbomethod namesave validationspecial where special representing validator for special character pre developer needs implement class package name xxxyyyzzz either implementing link validation extending link implement class package name xxxyyyzzz add entry under bmetainf folders fileb see validation see validator see filter see ',negative
+'not increment method beforeexecute ',negative
+'string property has two setting method skip value ',negative
+'',negative
+'linux end ',negative
+'connection events ',negative
+'logger ',negative
+'fall back class name cache key for backwards compatibility with custom callers ',negative
+'record failed registration request failed list retry regularly ',negative
+'subscribe ',negative
+'get request ',negative
+'for sending over wire ',negative
+'onerror callback ',negative
+'the sequence would systemconfiguration abstractconfig ',negative
+'message header length ',negative
+'use default implementation ',negative
+'proxieeclass ',negative
+'generate and write response ',negative
+'wait while for existing tasks terminate ',negative
+'check ping pong server ',negative
+'process string char array for generic invoke see ',negative
+'its callback create proxy client side callback interface client side can invoked through channel need get url from channel and env when decode ',negative
+'convert tickduration nanos ',negative
+'getusers ',negative
+'just add new valid channel nettychannels cache ',negative
+'config center should always being started first ',negative
+'private int yyline ',negative
+'because the two interfaces are initialized the reference counter ',negative
+'registers service bean first ',negative
+'package ',negative
+'eventfiltertestjava todo rely callback integration test for now ',negative
+'not match comparison ',negative
+'append default category absent ',negative
+'remove all annotatedclasses that have been registered ',negative
+'',negative
+'its auto resize then calculate the possible max width ',negative
+'skip the setting method with entity builder parameter ',negative
+'use mapnewbuilder construct ',negative
+'the first time inaccurate ',negative
+'change fengting listener listener exporterlistener string filter servicefilter string ',negative
+'local disk cache where the special key valueregistries records the list metadata centers and the others are the list notified service providers ',negative
+'end else ',negative
+'the concrete service name ',negative
+'verify cache same result returned for multiple invocations fact the return value increases every invocation the server side ',negative
+'separator required for the first item ',negative
+'check for required fields primitive type which cant checked the validate method ',negative
+'destroy all the registries ',negative
+'ignore all the exceptions and wait for the next retry ',negative
+'bind ',negative
+'protocol key the first ',negative
+'mark buffer not empty ',negative
+'tests start ',negative
+'judge need delay publish ',negative
+'message like xxxservice xxxservice xxxservice xxxmethod xxxservice xxxmethod ',negative
+'lock the registry access process ensure single instance the registry ',negative
+'',negative
+'adaptive example not specify explicit key ',negative
+'policy ',negative
+'concurrentmapstring channel channels new channel ',negative
+'getandincrement when grows maxvalue will grow minvalue and the negative can used ',negative
+'wait for connection ',negative
+'unsubscribe ',negative
+'',negative
+'message like xxxmethod xxxmethod ',negative
+'file cache timing writing ',negative
+'register ',negative
+'server will close channel when server dont receive any heartbeat from client util timeout ',negative
+'',negative
+'exchangeclientsi ',negative
+'bind not found environment keep looking ',negative
+'monitor ',negative
+'other events are passed down directly ',negative
+'default port registry ',negative
+'windows backspace echo ',negative
+'connection should lazy ',negative
+'not check whether the connection successful not always create invoker ',negative
+'the pattern subnet format will not allowed config port param pattern ',negative
+'notified services ',negative
+'',negative
+'trigger arraymerger ',negative
+'adaptive ',negative
+'reference retry init will add url urls lead oom user specified url could peertopeer address register centers address ',negative
+'delete error ',negative
+'get the active number the invoker ',negative
+'one channel can have multiple callback instances need reexport for different instance ',negative
+'fill message length and header length ',negative
+'callback limits ',negative
+'one the properties argument instance url ',negative
+'sending registration request the server side ',negative
+'the field define the zookeeper server including protocol host port username password ',negative
+'the return value getname method not null ',negative
+'backspace ',negative
+'convert map ',negative
+'todo get from configmanager first only create absent ',negative
+'decide which target extension injected the name the target extension decided the parameter passed the url and the parameter names are given this method the specified parameters are not found from link url then the default extension will used for dependency injection specified its interfaces link spi for example given codestring key keycode lifind parameter key url use its value the extensions nameli litry key for extensions name key not found its value empty urlli liuse default extension key doesnt exist eitherli liotherwise throw link the parameter names are empty then default parameter name generated from interfaces class name with the rule divide classname from capital char into several parts and separate the parts with dot for example for code the generated name codestring return parameter names url ',negative
+'fix ',negative
+'the default maxtotal current ',negative
+'reach the most times retry ',negative
+'use rpccontextfilter ',negative
+'construct using ',negative
+'create some data for test ',negative
+'make sure null and base encoded string can work ',negative
+'expected ',negative
+'maxhistory infinite history ',negative
+'ctxstart ',negative
+'make sure all properties are copied ',negative
+'remove timeout that was either processed cancelled updating the linkedlist ',negative
+'the escape character preceding the delimiter start itself escaped abc have consume one backward slash ',negative
+'directly throw the exception appears the signature ',negative
+'int idx serverindexof ',negative
+'count down ',negative
+'convert parameters into map ',negative
+'url export locally ',negative
+'split service name segments required segments category required segments serviceinterface optional segments version optional segments group ',negative
+'test message header length ',negative
+'cancel refer directly remove from the map ',negative
+'unlikely but not impossible read characters but not end stream ',negative
+'stop timer ',negative
+'count ',negative
+'init notify listener ',negative
+'the customized was firstly introduced the main purpose support transformation attachments httpinvokerprotocol see guarantee interoperability with lower versions need check the provider higher before sending customized ',negative
+'default reference local service there ',negative
+'merge the urls configurators ',negative
+'get return type ',negative
+'transfer only max timeouts per tick prevent thread stale the workerthread when just adds new timeouts loop ',negative
+'listeners list for subscribed services ',negative
+'null will return the initialize value ',negative
+'delete listener and register ',negative
+'change dbindex ',negative
+'',negative
+'cores theads are all alive ',negative
+'sum ',negative
+'lock the registry shutdown process ',negative
+'routerchain routerchain default invocation selector routerssize routersgetgetclass scriptrouterclass routersgetgetclass arraylisturl routers routerssize routersgetgetclass scriptrouterclass routersgetgetclass serviceurlsclear routers routerssize ',negative
+'subscription information cover ',negative
+'export stub service ',negative
+'record the weight the first least active invoker ',negative
+'just pick available invoker using loadbalance policy ',negative
+'localcontext ',negative
+'make sure first time callback successfully ',negative
+'filter servicefilter string listener listener string ',negative
+'exchangeclient client arraysget ',negative
+'array type ',negative
+'check the settergetter whether match ',negative
+'mock was configured return null directly ',negative
+'the origin invoker ',negative
+'dubbo find all invoker instances which have been tried from rpccontext ',negative
+'test netty client ',negative
+'mock mock string false true ',negative
+'unlock ',negative
+'create exception response ',negative
+'noop ',negative
+'escape ',negative
+'unregister ',negative
+'more variables this simple string ',negative
+'private channellistener listener ',negative
+'range condition ',negative
+'server supports reset use together with override ',negative
+'',negative
+'use compareandset sum ',negative
+'timeout seconds ',negative
+'process width cache ',negative
+'get arguments object arguments invocationgetmethod usenamedparams invoke return arguments rettype extrahttpheaders ',negative
+'clear buffer ',negative
+'init decoder map ',negative
+'ignore ',negative
+'init the object ',negative
+'autogenerated dubbo compiler thrift not edit unless you are sure that you know what you are doing ',negative
+'data table manipulation utils ',negative
+'sending canceling subscription request the server side ',negative
+'ignore error log ',negative
+'bind used registry default ',negative
+'allow access local reference ',negative
+'',negative
+'its safe declare singleton since runs single thread only ',negative
+'remain ',negative
+'find parameterized type ',negative
+'',negative
+'get translated positions and possibly new buffer ',negative
+'null point check ',negative
+'nothing ',negative
+'teststartupconfig testproviderconfig testpathcache testtreecache testcuratorlistener threadsleep ',negative
+'there are some addresses that are not any dynamic tag group continue filter using the static tag group ',negative
+'each invoke has the same weight only one invoker here ',negative
+'connection error causes client release all resources including current watcher ',negative
+'assert tags ',negative
+'the first invoker the active number the invoker less than the current least active number ',negative
+'verify the first cache item expired lru cache ',negative
+'contributors lizongbo proposed special treatment array parameter values joern huxhorn pointed out double omission suggested deep array copy ',negative
+'parameterkeykey ',negative
+'url consumerurl serviceurl invokerdemoservice reference consumerurl demoservice demoproxy ',negative
+'configure the cache ',negative
+'ignore overloaded method ',negative
+'export one service ',negative
+'initialize the starttime ',negative
+'',negative
+'loop after registry ',negative
+'get version ',negative
+'header ',negative
+'need consider its callback ',negative
+'enable heartbeat default ',negative
+'excluded true filter servicefilter string default generic excluded true listener exporterlistener string default deprecated ',negative
+'backward compatibility for version ',negative
+'print inner separation lines ',negative
+'because etcd does not support direct children watch events should filter not interface events watch dubbo and dubbointerface when put keyvalue pair dubbointerfacehello hello will got events watching path dubbo ',negative
+'save ',negative
+'return urlgetservicekey ',negative
+'merge the consumer side parameters ',negative
+'empty protocol ',negative
+'valid port range ',negative
+'when return type not the subclass return type from the signature and not interface ',negative
+'default timetolive millisecond ',negative
+'service name method name ',negative
+'int port int mathrandom ',negative
+'index packed string ',negative
+'remove configurations from provider some items should affected provider ',negative
+'not need close ',negative
+'get cache class loader ',negative
+'matching results ',negative
+'check methods exist the remote service interface ',negative
+'create xmlrpchttpclient ',negative
+'initialization construction time assertion not null initialization construction time assertion not null initialization construction time assertion not null initialization construction time assertion not null and always assign non null value ',negative
+'cached fields ',negative
+'present both local and remote but uses remote value ',negative
+'use key protocol ',negative
+'fieldint indexjavalangobject value ',negative
+'pop name ',negative
+'invoke method init client ',negative
+'loop methods get override value and set the new value back method ',negative
+'onthrow callback not configured ',negative
+'',negative
+'reset ',negative
+'close old channel copy reference ',negative
+'construct using ',negative
+'custom type ',negative
+'application ',negative
+'decode ',negative
+'init channel ',negative
+'set request and serialization flag ',negative
+'verify interfaceclass interface ',negative
+'clear first previous test case will make sure that the right invoker will used ',negative
+'get stacktrace value ',negative
+'remove group modulexyz ',negative
+'value calculate ',negative
+'configured with mock ',negative
+'the parameters are different and must rereferenced ',negative
+'never select invoker because its active more than invoker and invoker ',negative
+'appender ',negative
+'append first page into list ',negative
+'windows enter ',negative
+'refer duplicated ',negative
+'counters ',negative
+'treat url and configuration differently the value should always present configuration though may not need present url ',negative
+'more than page ',negative
+'print first separation line ',negative
+'need generate adaptive class since theres adaptive method found ',negative
+'array begin ',negative
+'when both mismatches and matches contain the same value then using mismatches first ',negative
+'primitive type ',negative
+'',negative
+'this will throw exception ',negative
+'end ',negative
+'string int override ',negative
+'default dbindex ',negative
+'send error message consumer otherwise consumer will wait till timeout ',negative
+'object begin ',negative
+'the timeout the tail modify the tail the prev node ',negative
+'the listener the consumer and the provider can stored together all based the service name ',negative
+'future future clientrequestworld string result stringfutureget you say worldrnresult ',negative
+'returns current version response consumer side ',negative
+'demoserviceimpl with transactional ',negative
+'load classes ',negative
+'generated the protocol buffer compiler not edit source googlepbproto ',negative
+'test filter condition ',negative
+'registers ',negative
+'need separator for others ',negative
+'read server info from property ',negative
+'field name end with list should skip ',negative
+'the combination directoryurl and override the end notify which cant handled here ',negative
+'index unpacked array ',negative
+'for providers this used enable custom proxy generate invoker ',negative
+'',negative
+'forbid ',negative
+'first add into the list remove the individul param ',negative
+'this only for compatibility ',negative
+'cache check interval second ',negative
+'return when fail construct command context ',negative
+'windows end ',negative
+'zzeofdone false ',negative
+'has pad char ',negative
+'alignment ',negative
+'token type ',negative
+'tmperately add new invoker ',negative
+'invoker destroyed due address refresh from registry lets allow the current invoke proceed ',negative
+'use the loading status decide whether configcenter has been initiated ',negative
+'refresh all configs here ',negative
+'property defined repeated string transform protocolstringlist should build liststring ',negative
+'ensure that new exporter instance returned every time export ',negative
+'write array ',negative
+'set thread pool ',negative
+'registry ',negative
+'the value the part ',negative
+'override clean ',negative
+'primitive type ',negative
+'throw logger not execute exception expected ',negative
+'find version info from manifestmf first ',negative
+'save for compatibility for example tracefilter zipkin uses ',negative
+'use construct ',negative
+'this used for tracing instid has published service not ',negative
+'',negative
+'prevents grpc sending error closed watch client ',negative
+'format pidhostname ',negative
+'references ref property annotatedservice bean ',negative
+'config center has the highest priority ',negative
+'must even ',negative
+'not touch this method you want terminate this stream ',negative
+'publish ',negative
+'client can expose service for server invoke only ',negative
+'combine filters and listeners provider and consumer ',negative
+'make the grpc call watch the key ',negative
+'bad object ',negative
+'the weight every invokers ',negative
+'the weight the first least active invoker ',negative
+'normalize ticksperwheel power two and initialize the wheel ',negative
+'encode resault check need decode ',negative
+'todo figure out the meaning cancel defaultfuture ',negative
+'get map property name from setting methodbr putallxxxbr param methodname return ',negative
+'service bean local one ',negative
+'bad request ',negative
+'client has been replaced with lazy client lazy client fetched from referenceclientmap and since its ',negative
+'add scene judgement windows environment fix ',negative
+'alive second ',negative
+'collect timer for collecting statistics data ',negative
+'decide fail continue when failed connect remote server ',negative
+'result field ',negative
+'handle response ',negative
+'for test ',negative
+'header length ',negative
+'add fields ',negative
+'all addresses are dynamic tag group return empty list ',negative
+'remove default prefix for configs from providerconfig appendparametersmap provider constantsdefaultkey ',negative
+'finally fill the buffer with new input ',negative
+'',negative
+'service interface not equals server ',negative
+'was cancelled the meantime ',negative
+'test invokers for weight ',negative
+'registry collection mapregistryaddress registry ',negative
+'registry not used for bind default ',negative
+'ignore there need any log here since some class implement the interface environmentaware applicationaware etc they only have setter method otherwise will cause the error log during application start ',negative
+'create real instance keep the attribute values ',negative
+'forbid access ',negative
+'parse setxxxstring string ',negative
+'add the tail string which contains variables and return the result ',negative
+'process imported classes ',negative
+'first pick the invoker xxxclusterinvoker that comes from the local registry distinguish default key ',negative
+'our future success mark the future sent ',negative
+'present local url but not remote url parameters remote url empty ',negative
+'config ',negative
+'finds all service whether componentscan scans not ',negative
+'exactly one method match ',negative
+'linux ctrlc ',negative
+'whether the channel closed ',negative
+'rethrow exception ',negative
+'then destroy the multicast socket will closed ',negative
+'false interface invokersgetgeturl ',negative
+'translate url list invoker map ',negative
+'check the output generated fixed way ',negative
+'alarm when spare memory ',negative
+'reconnecting detection cycle seconds unitmillisecond ',negative
+'',negative
+'set request ',negative
+'encode request data ',negative
+'clear attachments which binding current thread ',negative
+'jcache parameter the fullqualified class name spi implementation ',negative
+'merge configuration ',negative
+'',negative
+'decrease any way ',negative
+'istypematch called avoid duplicate and incorrect update for example have two setgeneric methods referenceconfig ',negative
+'after pushing two provider the directory state restored true ',negative
+'default watch timeout millisecond ',negative
+'special logic for enum ',negative
+'destroy all the protocols ',negative
+'get real invoked method name from invocation ',negative
+'refresh dubbo environment ',negative
+'error messages for the codes above ',negative
+'send statistics data ',negative
+'decode request ',negative
+'filter general setting method setunknownfields unknownfields fieldjavalangobject value ',negative
+'add dynamic class tag ',negative
+'check extname null ',negative
+'write ',negative
+'attachment will bind invocation ',negative
+'because javassist compiles using the caller class loader shouldt use helloservice directly ',negative
+'futurecanceltrue ',negative
+'test multiple binding ',negative
+'notify flag ',negative
+'test ',negative
+'system may recover later current connect wont lost ',negative
+'host the same sort priority ',negative
+'scheduled executor service ',negative
+'use interfaces name service path export its not found client side ',negative
+'whether share connection ',negative
+'classloader classpool ',negative
+'the latest latch just for because retry method has been removed ',negative
+'start server ',negative
+'initially disable ',negative
+'all processed ',negative
+'callback ',negative
+'todo softreference ',negative
+'required ',negative
+'the telnet data and request data are the same data packet should guarantee that the receipt request data wont affected the factor that telnet does not have end characters ',negative
+'reset the active number the current invoker the least active number ',negative
+'copy modify update reference ',negative
+'value not set use the value generated from class name the key ',negative
+'create mixin class ',negative
+'protocolreadi skip the first message length ',negative
+'use key protocol ',negative
+'say name ',negative
+'end object ',negative
+'thishandler null ',negative
+'export service ',negative
+'the name bean annotated service ',negative
+'private final boolean iscallback private final boolean isfuture ',negative
+'this used convert configuration nodepath into key todo doc param path return key nodepath less the config root path ',negative
+'current invokers active value equals with leaseactive then accumulating ',negative
+'',negative
+'local injvm and registry protocol expected ',negative
+'invoker invocation ',negative
+'the startup detection opened the exception thrown directly ',negative
+'get users ',negative
+'has nothing use ',negative
+'ignore ',negative
+'enabled override rule ',negative
+'end methods for ',negative
+'test ',negative
+'directly throw its checked exception ',negative
+'test geturl ',negative
+'find server ',negative
+'port append backup parameter other servers ',negative
+'service scope default ',negative
+'because helloserviceinvoker and demoserviceinvoker use share connect client list must equal ',negative
+'returned port range ',negative
+'',negative
+'want these objects generic possible ',negative
+'sticky invokerisavailable should always checked before using when availablecheck true ',negative
+'log output ',negative
+'currently the version value response records the version request ',negative
+'the lock for the acquisition process the registry ',negative
+'todo response test ',negative
+'',negative
+'note the implicit contract although the description added the interface declaration but extensibility problem the practice placed the attachment needs improved ',negative
+'initialization construction time assertion not null and always assign non null value ',negative
+'messageseqid ',negative
+'local invoke will return directly ',negative
+'invokerdestroy referencedestroy ',negative
+'add implemented interfaces ',negative
+'parse value ',negative
+'create mixininstance class ',negative
+'default host registry ',negative
+'method doesnt have merger only invoke one group ',negative
+'test chinese ',negative
+'list routers routerssize serviceurlsclear routers routerssize ',negative
+'for backward compatibility ',negative
+'found parameter url type ',negative
+'reput this task when catch exception ',negative
+'assert addresses ',negative
+'not every invoker has the same weight least one invokers weight select randomly based totalweight ',negative
+'get list property name from setting methodbr getxxxlistbr param methodname return ',negative
+'gettimeout ',negative
+'todo optimization ',negative
+'return false let executor create new worker ',negative
+'invoker notifications ',negative
+'local local string false helloservicelocal true local local string false true ',negative
+'fixed router instances tagrouter the rule for each instance may change but the ',negative
+'test unsubscribe ',negative
+'return default version when any exception thrown ',negative
+'directory will return list normal invokers present invocation otherwise list mock invokers will return ',negative
+'add heartbeat cycle avoid unstable ',negative
+'prevent jvm from exiting ',negative
+'prevent overflow ',negative
+'dont export when none configured ',negative
+'test value ',negative
+'referencebean field injection ',negative
+'from child ',negative
+'local variable convenient for debug ',negative
+'threadsleep ',negative
+'need restored the original providerurl ',negative
+'proceed invocation chain ',negative
+'due the effect the client will revived whenever there call ',negative
+'output tps not for accuracy but reflects the situation certain extent ',negative
+'todo ',negative
+'can unset ',negative
+'getdesc ',negative
+'compatible version fix tonychenl dubbo ',negative
+'init encoder map ',negative
+'indent length ',negative
+'the last two parameters are reserved for compatibility with the old configuration ',negative
+'mock ',negative
+'registry url available use only when registers cluster available ',negative
+'version number will convert ',negative
+'only process string properties for now ',negative
+'this object going gced and assumed the ship has sailed proper shutdown have not yet shutdown then want make sure decrement the active instance count ',negative
+'todo add this provider config ',negative
+'test username password contains ',negative
+'category parameter ',negative
+'you can customize name and type client thread pool threadnamekey and threadpoolkey commonconstants the handler will warped ',negative
+'callback instance when asynccall returned ',negative
+'export service ',negative
+'need new client again ',negative
+'the group the config center generally its used identify isolated space for batch config items but its real meaning depends the actual config center you use ',negative
+'the null value unallowed the concurrenthashmap ',negative
+'set ignored ',negative
+'solve the problem rmi repeated exposure port conflicts the services that have been exposed are longer exposed providerurl exporter ',negative
+'create proxy ',negative
+'private boolean isexternalserver ',negative
+'header ',negative
+'local service interfaces methods return type not instance return value ',negative
+'test one unregister ',negative
+'get the weight the invokers configuration the default value ',negative
+'content ',negative
+'add default extension ',negative
+'not allow save null but allow update with null which means not update the field ',negative
+'queue ',negative
+'end loop field map ',negative
+'connectnum must greater than equal ',negative
+'doesnt seem like you should have this but java serialization wacky and doesnt call the default constructor ',negative
+'ipport exchangeserver ',negative
+'first add space and then add backspace ',negative
+'end catch ',negative
+'maybe url has many subscribed paths ',negative
+'check duplicate jar package ',negative
+'store back cached positions ',negative
+'sending subscription request the server side ',negative
+'addlastloggingnew debug ',negative
+'decrease time ',negative
+'type handle ',negative
+'use last registry url ',negative
+'currently use single header hold the attachments that the total attachment size limit about ',negative
+'create proxyinstance class ',negative
+'default value true ',negative
+'',negative
+'complex collection type ',negative
+'',negative
+'get operate will throw timeout exception because the future timeout ',negative
+'excluded true ',negative
+'backward compatibility for the default value old versions xsd ',negative
+'check whether not connected ',negative
+'cache time second ',negative
+'the local service bean exists build proxy referencebean ',negative
+'mock was configured return null directly ',negative
+'module ',negative
+'export stub service for dispatching event ',negative
+'customized parameters ',negative
+'data column definition ',negative
+'convert error fail fast ignore concurrent problem ',negative
+'result dependent method order ',negative
+'test the matching protocol and select only the matched protocol for refer ',negative
+'ignore nonode exception ',negative
+'for service provider ',negative
+'this file exist firstly delete ',negative
+'check parameters ',negative
+'export invoker ',negative
+'check for required fields alas cannot check because its primitive and you chose the nonbeans generator check for substruct validity ',negative
+'check the localclass constructor with parameter whos type interfaceclass ',negative
+'load ',negative
+'statsokidlength ',negative
+'blocking ',negative
+'are requesting for provider with specific tag ',negative
+'pass attachments result ',negative
+'',negative
+'here three shared connection established between consumer process and provider process ',negative
+'target the method and get its signature ',negative
+'methods ',negative
+'synchronized save the file ',negative
+'url cannot transferred automatically from the server side the client side using api instead needs manually specified ',negative
+'',negative
+'may have concurrency issue ',negative
+'stores the configuration keyvalue pairs ',negative
+'the scope for referringexporting service its local means searching current jvm only ',negative
+'failure can not called listener ',negative
+'let the client not reply the heartbeat and turn off automatic reconnect simulate the client dropped ',negative
+'groupab group ',negative
+'just for connected ',negative
+'continue ',negative
+'will update our cache file after each notification when our registry has subscribe failure due network jitter can return least the existing cache url ',negative
+'protocol ',negative
+'consumer ',negative
+'may already added some attachments into rpccontext before this filter rest protocol ',negative
+'check recover successfully ',negative
+'only update the state will removed from hashedwheelbucket next tick ',negative
+'handle request ',negative
+'mark the client into the closure process ',negative
+'register customeditors for special fields ',negative
+'getname ',negative
+'message length placeholder ',negative
+'will check enabled status inside each router ',negative
+'default cachesize for lru should have cache expired invoke more than times ',negative
+'get statistics data ',negative
+'registered services ',negative
+'save any parameter registry that will useful the new url ',negative
+'abnormal case ',negative
+'quick check the concurrent map first with minimal locking ',negative
+'result not null its null but forcetrue return result directly ',negative
+'transform file url into script route url and load replace original protocol maybe file with script use file suffix config script type groovy ',negative
+'remove suffix jar ',negative
+'statsokidlength ',negative
+'default set voidclass for purpose ',negative
+'marker for extension interface changes extension configuration file use codeprotocolcode example its configuration file changes from pre comfooxxxprotocol comfooyyyprotocol pre keyvalue pair pre pre the reason for this change theres third party library referenced static field method extension implementation its class will fail initialize the third party library doesnt exist this case dubbo cannot figure out extensions therefore cannot able map the exception information with the extension the previous format used for example fails load extensionmina when user configure use mina dubbo will complain the extension cannot loaded instead reporting which extract extension implementation fails and the extract reason deprecated because its too general switch use link ',negative
+'wait timeout ',negative
+'return directly ',negative
+'initialize ',negative
+'todo carries class info every time ',negative
+'mock null ',negative
+'invoke ',negative
+'username login register center ',negative
+'check the number skipping times ',negative
+'interface cannot null ',negative
+'override url dont have port means the override url specify consumer address consumer address the intention control specific consumer instance must takes effect the consumer side any provider received this override url should ignore the this override url can used consumer and also can used provider ',negative
+'end method serializeinternal ',negative
+'try the next server ',negative
+'instead using dubbos configuration would suggest use the original configuration method apollo provides ',negative
+'private string host ',negative
+'whether auto resize ',negative
+'namedesc ',negative
+'take effect all providers address must otherwise wont flow this branch ',negative
+'test retries and ',negative
+'just for one method ',negative
+'scheduled executor service ',negative
+'process return type ',negative
+'timeout registrytimeout int file registryfile string wait registrywait int transport registrytransporter string netty mina subscribe subscribe boolean true false ',negative
+'message length ',negative
+'short name condition ',negative
+'todo calculate consumeraddressnum ',negative
+'add method for verifying against method automatic fallback see dubbo protocol ',negative
+'template method ',negative
+'test filter wont throw exception ',negative
+'put into waiting map ',negative
+'end array ',negative
+'clear first ',negative
+'method routing and other condition routing can work together ',negative
+'method descmethod instance constructor descconstructor instance ',negative
+'since ',negative
+'todo for now just plain text output ',negative
+'since injvm protocol configured explicitly dont need set any extra flag use normal refer process ',negative
+'isset assignments ',negative
+'all them are called times successful attempt lose subscribe will not done ',negative
+'parse setxxxsomeenum value ',negative
+'servicebean bean name ',negative
+'private propertyinjector propertyinjector private string context null ',negative
+'notify configuratorrouter changes ',negative
+'use zookeeper the default configcenter ',negative
+'add methods parameters ',negative
+'enable sending readonly event when server closes default ',negative
+'append the characters following the last pair ',negative
+'check serialization passed from network matches the this sideonly take effect for jdk serialization for security purpose ',negative
+'the anyhost parameter override may added automatically cant change the judgement changing url ',negative
+'get properties under specified prefix from propertysources ',negative
+'reset totalweight ',negative
+'nothing ',negative
+'reconnection timer regular check connection available unavailable unlimited reconnection ',negative
+'need configure theres return value before the invocation order help invoker judge its necessary return future ',negative
+'override url with configurator from configurator from ',negative
+'content ignore directly ',negative
+'impossible ',negative
+'local disk cache file ',negative
+'todo how assert thread action ',negative
+'not auto resize return preset width ',negative
+'',negative
+'',negative
+'all service providers can not disabled through override ',negative
+'biz exception ',negative
+'one the same one different ',negative
+'create new list invokers ',negative
+'timeout check ',negative
+'keep every providers category ',negative
+'otherwise wrap with runtimeexception and throw back the client ',negative
+'remove servicebean when its exported ',negative
+'the number pages ',negative
+'init request string ',negative
+'not set onreturn callback ',negative
+'bad ',negative
+'final int concurrent int final int runs integermaxvalue ',negative
+'simple type ',negative
+'register service should not trigger notify ',negative
+'idletimeout should least more than twice heartbeat because possible retries client ',negative
+'local reference ',negative
+'use key key ',negative
+'',negative
+'string servicestr ',negative
+'end loop servermap ',negative
+'issue springstatuschecker execute errors nonxml spring configuration issue ignore ',negative
+'magic header ',negative
+'test recover nothing ',negative
+'fill corresponding config with data ',negative
+'receive new packet buffer ',negative
+'the sum the warmup weights all the least active invokers ',negative
+'cache key url that does not merge with consumer side parameters regardless how the consumer combines parameters the server url changes then refer again ',negative
+'applicationxml ',negative
+'method start with illegal soap cast echoservice echoservice echo clientnetty ',negative
+'mapservicename mapurl querystring ',negative
+'record change ',negative
+'frame ',negative
+'got exactly one invoker having the least active value return this invoker directly ',negative
+'',negative
+'get propertysource mapped spring environment ',negative
+'threadsleep ',negative
+'registryiterable registry firstregistry registry secondregistry ',negative
+'theres bind port found from environment keep looking ',negative
+'excluded ',negative
+'find url getter method ',negative
+'subscribe logic guarantees the first notify return ',negative
+'argument type mismatch ',negative
+'url serviceurl servicename ',negative
+'column width ',negative
+'marker for extension interface changes extension configuration file use codeprotocolcode example its configuration file changed from pre comfooxxxprotocol comfooyyyprotocol pre keyvalue pair pre pre the reason for this change theres third party library referenced static field method extension implementation its class will fail initialize the third party library doesnt exist this case dubbo cannot figure out extensions therefore cannot able map the exception information with the extension the previous format used for example fails load extensionmina when user configure use mina dubbo will complain the extension cannot loaded instead reporting which extract extension implementation fails and the extract reason ',negative
+'check magic number ',negative
+'trywithresources ',negative
+'there client the list that longer available create new one replace him ',negative
+'timeout also the tail need adjust the entry too ',negative
+'remove not accept ',negative
+'multiple values ',negative
+'referencebean field injection ',negative
+'channelclose ',negative
+'number invokers ',negative
+'binding attachments into invocation ',negative
+'test subscribe ',negative
+'requestrequest ',negative
+'this will not override use key instead parameterkeykey ',negative
+'just read one servers data ',negative
+'assemble url from register centers configuration protocols not injvm checkregistry ',negative
+'process get request and post request separately check url for get and check body for post ',negative
+'add into default group ',negative
+'delete ',negative
+'set response status ',negative
+'guard against overflow ',negative
+'resolve dead lock ',negative
+'reference should not null and the implementation the given interface ',negative
+'final string canonicalname ',negative
+'add listeners make sure our out bound event correct our out bound event has error most cases the encoder fails need have the request return directly instead blocking the invoke process ',negative
+'port ',negative
+'failover return all providers without any tags ',negative
+'add initial values ',negative
+'rethrows the actual exception ',negative
+'',negative
+'invokerhashcode ',negative
+'extend the expiration time defensive fault tolerance ',negative
+'dynamic tag group doesnt have any item about the requested app its null after filtered dynamic tag group but forcefalse check static tag ',negative
+'indicate end file ',negative
+'string map ',negative
+'queuesize ',negative
+'register alias rather than new bean name order reduce duplicated beans ',negative
+'control char ',negative
+'mark buffer used exit mark status ',negative
+'single config bindings ',negative
+'every least active invoker has the same weight value ',negative
+'never return even equals otherwise and will override each other collection like hashset ',negative

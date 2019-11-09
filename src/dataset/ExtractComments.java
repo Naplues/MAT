@@ -15,6 +15,18 @@ import java.util.regex.Pattern;
 
 public class ExtractComments {
 
+    // methodPath
+    // ---- GitRepo
+    // ---- ---- Proj1
+    // ---- ---- Proj2
+    // ---- ---- ....
+    // ---- Project
+    // ---- ---- Proj1
+    // ---- ---- Proj2
+    // ---- ---- ....
+    // ---- Comment
+    // ---- ---- Proj1.csv
+    // ---- ---- Proj2.csv
     // C:\Users\GZQ\Desktop\SATD\Dataset\
     // The file path of the program
     public static String rootPath = "C:\\Users\\GZQ\\Desktop\\SATD\\Dataset\\";
@@ -66,8 +78,19 @@ public class ExtractComments {
 
         // 1. Extract Java files from Git repository
         //extractJavaFile();
-        // 2. Extract Comments from Java Files
-        extractComments();
+        // 2. Extract Comments from Java Files   !!! Only run once
+        //extractComments();
+
+        // 3. Manually label the comments...
+
+        // 4. Ranking the result according to Labels !!! Only run once
+        rankingComments();
+        exportDataset();
+
+        // 5. Manually check the labels
+
+        // 6. Output the dataset
+
     }
 
 
@@ -178,6 +201,7 @@ public class ExtractComments {
         preProcess(commentFolder);
         File[] projects = new File(projectFolder).listFiles();
         if (projects == null) return;
+        int allNumber = 0;
         for (File project : projects) {
             File[] files = new File(project.getPath()).listFiles();
             if (files == null) return;
@@ -211,12 +235,12 @@ public class ExtractComments {
 
                             // Heuristics 2: Long comments
                             if (currLineNumber != lastLineNumber + 1) {
-                                // 不是连续的单行注释 当前注释不在上一注释的下一行
+                                // not a single line comment
                                 // 存储上一个单行注释 并且将当前注释加入缓冲区
                                 if (!lastLineComment.equals("")) duplicatedComments.add(lastLineComment);
                                 lastLineComment = COMMENT_LINE + ", // " + comment.getContent() + " ";
                             } else {
-                                // 是连续的单行注释 当前注释在上一注释的下一行
+                                // is a single line comment
                                 // 将该注释续在上一注释的后面, 不存储当前注释
                                 lastLineComment += " " + comment.getContent() + " ";
                             }
@@ -258,15 +282,81 @@ public class ExtractComments {
             int afterFiltering = 0;
             for (String line : duplicatedComments) {
                 if (line.trim().equals("//") || line.trim().equals("")) continue;
-                text.append(" ,").append(line).append("\n");
+                text.append(", ").append(line).append("\n");
                 afterFiltering++;
             }
+            allNumber += afterFiltering;
             writeStringToFile(commentFolder, project.getName() + ".csv", text.toString());
             System.out.println(project.getName() + "\t" + files.length + " files,\tTotal: " + total + ",\tAfter Filtering: " + afterFiltering);
         } // End for each project
 
-        System.out.println("Extract Finish.");
+        System.out.println("Extract Finish. Total " + allNumber);
     }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////  2. Ranking Comments  ////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static void rankingComments() {
+        String labeledPath = "data/new/labeled/";
+        String rankedPath = "data/new/ranked/";
+        File[] projects = new File(labeledPath).listFiles();
+        for (File project : projects) {
+            StringBuilder comment_0 = new StringBuilder();
+            StringBuilder comment_1 = new StringBuilder();
+            StringBuilder comment_2 = new StringBuilder();
+
+            List<String> lines = readFileToLines(project.getPath());
+            for (int i = 1; i < lines.size(); i++) {
+                String[] temp = lines.get(i).split(",");
+                if (temp.length < 3) continue;
+                if (temp[0].equals("0")) comment_0.append(lines.get(i)).append("\n");
+                if (temp[0].equals("1")) comment_1.append(lines.get(i)).append("\n");
+                if (temp[0].equals("2")) comment_2.append(lines.get(i)).append("\n");
+            }
+            writeStringToFile(rankedPath, project.getName(), comment_1.toString() + comment_2.toString() + comment_0.toString());
+        }
+        System.out.println("Ranked finish!");
+    }
+
+    /**
+     * 将标好的数据导出
+     * comments
+     * projects
+     * labels
+     */
+    public static void exportDataset() {
+        String rankedPath = "data/new/ranked/";
+        String originPath = "data/new/origin/";
+        File[] projects = new File(rankedPath).listFiles();
+
+        StringBuilder comments = new StringBuilder();
+        StringBuilder projectNames = new StringBuilder();
+        StringBuilder labels = new StringBuilder();
+
+        for (File project : projects) {
+            List<String> lines = readFileToLines(project.getPath());
+            for (int i = 1; i < lines.size(); i++) {
+                String[] temp = lines.get(i).split(",");
+                if (temp.length < 3) continue;
+
+                projectNames.append(project.getName().split("-")[0]).append("\n");
+
+                comments.append(lines.get(i).replace(temp[0] + "," + temp[1] + ", ", "")).append("\n");
+
+                if (temp[0].equals("1")) labels.append("SATD");
+                else labels.append("WITHOUT_CLASSIFICATION");
+                labels.append("\n");
+            }
+        }
+        writeStringToFile(originPath, "projects", projectNames.toString());
+        writeStringToFile(originPath, "comments", comments.toString());
+        writeStringToFile(originPath, "labels", labels.toString());
+
+        System.out.println("Export success!");
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////  File IO Process Methods  //////////////////////////////////////
