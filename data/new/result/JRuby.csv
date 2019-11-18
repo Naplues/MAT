@@ -2,29 +2,29 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// we basically ignore protocol. let someone report it...
 1,0,1,1,1,1,1,// SSS FIXME: Is this correct?
 1,0,1,1,1,1,1,// FIXME: I use a for block to implement END node because we need a proc which captures // its enclosing scope.   ForBlock now represents these node and should be renamed.
-1,0,1,1,1,1,1,// SSS FIXME: 1. Is the ordering correct? (poll before next)
+1,0,0,1,1,1,1,// SSS FIXME: 1. Is the ordering correct? (poll before next)
 1,0,0,0,0,0,0,// We use a highly uncommon string to represent the paragraph delimiter (100% soln not worth it)
 1,0,1,1,1,1,1,// add a "self" recv here // TODO: is this right?
-1,0,1,0,1,1,1,// TODO: // MRI behavior: Call "+" or "add", depending on the call. // But this leads to exceptions when Floats are added. See: // http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/17374 // return callCoerced(context, op, b, true); -- this is MRI behavior. // We'll use ours for now, thus providing an ability to add Floats.
+1,0,0,0,1,1,1,// TODO: // MRI behavior: Call "+" or "add", depending on the call. // But this leads to exceptions when Floats are added. See: // http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/17374 // return callCoerced(context, op, b, true); -- this is MRI behavior. // We'll use ours for now, thus providing an ability to add Floats.
 1,0,1,1,1,1,1,// SSS FIXME: Is this correctly placed ... at the end of the loop iteration?
 1,0,1,1,1,1,1,// TODO: Ruby reuses this logic for other "write" behavior by checking if it's an IO and calling write again
 1,0,1,1,1,1,1,// SSS FIXME: Where does this go? // m.setLinePosition(arrayNode.getPosition());
 1,0,1,1,0,1,1,// it would be nice (and logical!) if exponent form  // behaved like E/e, and decimal form behaved like f, // but no such luck. hence:
 1,0,1,1,1,1,1,// SSS FIXME: These should get normally compiled or initialized some other way ...  // SSS FIXME: Parent/super-type info is incorrect! // These are just placeholders for now .. this needs to be updated with *real* class objects later!
-1,0,1,1,1,1,1,// TODO: NOT_ALLOCATABLE_ALLOCATOR is probably ok here. Confirm. JRUBY-415
+1,0,0,1,1,1,1,// TODO: NOT_ALLOCATABLE_ALLOCATOR is probably ok here. Confirm. JRUBY-415
 1,0,1,1,1,1,1,// SSS FIXME: I could make IR_Loop a scope too ... semantically, it is a scope, but, functionally, not sure if this is required yet ...
-1,0,1,0,0,0,0,// this covers the rare case of lower-case class names (and thus will // fail 99.999% of the time). fortunately, we'll only do this once per // package name. (and seriously, folks, look into best practices...)
-1,0,0,1,1,1,1,// SSS FIXME: Should this be a string literal or a string? // Dummy class for the script
+1,0,0,0,0,0,0,// this covers the rare case of lower-case class names (and thus will // fail 99.999% of the time). fortunately, we'll only do this once per // package name. (and seriously, folks, look into best practices...)
+1,0,1,1,1,1,1,// SSS FIXME: Should this be a string literal or a string? // Dummy class for the script
 1,0,1,1,1,1,1,// TODO should this be deprecated ? (to be efficient, internals should deal with RubyHash directly)
-1,0,1,1,1,1,1,// SSS FIXME: Does int suffice, or do we need long?
+1,0,0,1,1,1,1,// SSS FIXME: Does int suffice, or do we need long?
 1,0,0,0,0,0,0,// modules are included with a shim class; we must find that shim to handle super() appropriately
-1,0,1,1,1,1,1,// Reset value map if this instruction is the start/end of a basic block // // Right now, calls are considered hard boundaries for optimization and // information cannot be propagated across them! // // SSS FIXME: Rather than treat all calls with a broad brush, what we need // is to capture different attributes about a call : //   - uses closures //   - known call target //   - can modify scope, //   - etc. // // This information is probably already present in the AST Inspector
+1,0,0,1,1,1,1,// Reset value map if this instruction is the start/end of a basic block // // Right now, calls are considered hard boundaries for optimization and // information cannot be propagated across them! // // SSS FIXME: Rather than treat all calls with a broad brush, what we need // is to capture different attributes about a call : //   - uses closures //   - known call target //   - can modify scope, //   - etc. // // This information is probably already present in the AST Inspector
 1,0,1,1,1,1,1,// TODO: Determine whether we should perhaps store non-singleton class // in the implementationClass
 1,0,1,1,1,1,1,// SSS FIXME: Correct?  Where does closure arg come from?
 1,0,1,1,1,1,1,/* FIXME: Consider fixing node_assign itself rather than single case*/
 1,0,0,1,1,1,1,// SSS FIXME: Should I have a reference to the IR_loop that is being retried?
 1,1,1,1,1,1,1,// temporary hack to handle non-Ruby values // will come up with better solution shortly
-1,0,0,0,0,0,0,// Simplify the variables too -- to keep these variables in sync with what is actually used in the when clauses // This is not required for correctness reasons, but only for performance reasons.
+1,0,1,0,0,0,0,// Simplify the variables too -- to keep these variables in sync with what is actually used in the when clauses // This is not required for correctness reasons, but only for performance reasons.
 1,0,0,0,0,0,0,// Must be called from main thread (it is currently, but this bothers me)
 1,0,1,1,1,1,1,// CON FIXME: I don't know how to make case be an expression...does that // logic need to go here?
 1,0,1,1,1,1,1,// FIXME: legal here? may want UnsupportedOperationException
@@ -41,7 +41,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// FIXME: We should not be regenerating this over and over
 1,0,1,0,1,1,1,// XXX: This check previously used callMethod("==") to check for equality between classes // when scanning the hierarchy. However the == check may be safe; we should only ever have // one instance bound to a given type/constant. If it's found to be unsafe, examine ways // to avoid the == call.
 1,0,1,1,1,1,1,// TODO: why are we duplicating the constants here, and then in // File::Constants below? File::Constants is included in IO.
-1,0,0,1,1,1,1,// A cloned method now belongs to a new class.  Set it. // TODO: Make DynamicMethod immutable
+1,0,1,1,1,1,1,// A cloned method now belongs to a new class.  Set it. // TODO: Make DynamicMethod immutable
 1,0,1,1,1,1,1,// TODO: These were missing, so we're not handling them elsewhere?
 1,0,1,1,1,1,1,// TODO: cache?
 1,0,1,1,1,1,1,// FIXME: wtf is this? Why would these use the class?
@@ -53,7 +53,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// FIXME: I think this chunk is equivalent to MRI id2name (and not our public method  // id2name).  Make into method if used more than once.
 1,0,1,1,1,1,1,// FIXME: This is probably not very efficient, since it loads all methods for each call
 1,0,1,1,1,1,1,/* Hack in to replace usual readline with this */
-1,0,0,1,1,1,1,// if we get here, we found a matching method, use it // TODO: choose narrowest method by continuing to search
+1,0,0,0,1,1,1,// if we get here, we found a matching method, use it // TODO: choose narrowest method by continuing to search
 1,0,1,1,1,1,1,// TODO: this is kinda gross
 1,0,0,1,1,1,1,// FIXME: In order for Thread to play well with the standard 'new' behavior, // it must provide an allocator that can create empty object instances which // initialize then fills with appropriate data.
 1,0,0,1,0,1,1,// these extra arrays are really unfortunate; split some of these paths out to eliminate?
@@ -63,7 +63,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// SSS FIXME: This should never get called for constant svalues
 1,1,1,1,1,1,1,"/*         * TODO: This version is better than the hackish previous one. Windows         *       behavior needs to be defined though. I suppose this version         *       could be improved more too.         * TODO: /etc/passwd is also inadequate for MacOSX since it does not         *       use /etc/passwd for regular user accounts         */"
 1,0,1,1,1,1,1,// FIXME: There's some code duplication here with RubyObject#inspect
-1,0,1,1,1,1,1,// for visibility checking without requiring frame self // TODO: don't bother passing when fcall or vcall, and adjust callsite appropriately
+1,0,1,0,1,1,1,// for visibility checking without requiring frame self // TODO: don't bother passing when fcall or vcall, and adjust callsite appropriately
 1,0,1,1,1,1,1,// FIXME: figure out why we get null sometimes
 1,0,1,0,1,1,1,// Hacky: Advance position to eat newline here....
 1,0,0,0,0,0,0,// need to reexamine this
@@ -83,8 +83,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// FIXME: not very efficient
 1,0,0,0,0,0,0,// This is GROSS, but Java API's aren't ISO 8601 compliant at all
 1,0,1,1,1,1,1,// TODO: is this correct ?
-1,0,1,1,0,1,1,/* Workaround for JRUBY-2326 (MRI does not enter this production for some reason)*/
-1,0,0,1,1,1,1,// Create block for this iter node // FIXME: We shouldn't use the current scope if it's not actually from the same hierarchy of static scopes
+1,0,1,0,0,0,0,/* Workaround for JRUBY-2326 (MRI does not enter this production for some reason)*/
+1,0,1,1,1,1,1,// Create block for this iter node // FIXME: We shouldn't use the current scope if it's not actually from the same hierarchy of static scopes
 1,0,1,1,1,1,1,/* SSS FIXME: Do we need to check if l is same as whatever popped? */
 1,0,1,0,1,1,1,// SSS FIXME: Where is this set up?  How is this diff from ClassVarDeclNode??
 1,0,1,1,1,1,1,// Fixme: Do we need the check or does Main.java not call this...they should consolidate
@@ -92,22 +92,22 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// FIXME: This worries me a bit, since it could allocate a lot with a large newLength
 1,0,1,1,1,1,1,// TODO: This filtering is kind of gross...it would be nice to get some parser help here
 1,0,0,1,1,1,1,// TODO: decompose getJavaPackageModule so we don't parse fullName
-1,0,0,1,1,1,1,// FIXME: Get rid of laziness and handle restricted access elsewhere
-1,0,1,1,1,1,1,// TODO: for now, we use a faithful // reimplementation of MRI's algorithm, // but should use UTF8Encoding facilities // from Joni, once it starts prefroming // UTF-8 content validation.
+1,0,1,1,1,1,1,// FIXME: Get rid of laziness and handle restricted access elsewhere
+1,0,1,0,1,1,1,// TODO: for now, we use a faithful // reimplementation of MRI's algorithm, // but should use UTF8Encoding facilities // from Joni, once it starts prefroming // UTF-8 content validation.
 1,1,1,0,1,1,1,// if we don't have opt args, start after args (they will be assigned later) // this is for crap like def foo(a = (b = true; 1)) which numbers b before a // FIXME: only starting after required args, since opt args may access others // and rest args conflicts with compileRoot using "0" to indicate [] signature.
 1,0,1,1,1,1,1,// FIXME: Determine if a real allocator is needed here. Do people want to extend // JavaClass? Do we want them to do that? Can you Class.new(JavaClass)? Should // you be able to? // TODO: NOT_ALLOCATABLE_ALLOCATOR is probably ok here, since we don't intend for people to monkey with // this type and it can't be marshalled. Confirm. JRUBY-415
 1,0,0,0,0,0,0,// grrr, arghh, want to subclass sun.misc.FloatingDecimal, but can't, // so we must do all this (the next 70 lines of code), which has already // been done by FloatingDecimal.
 1,0,1,1,1,1,1,// FIXME: do we really want 'declared' methods?  includes private/protected, and does _not_ // include superclass methods.  also, the getDeclared calls may throw SecurityException if // we're running under a restrictive security policy.
 1,1,1,1,1,1,1,// small hack to save a cast later on
 1,0,1,1,0,1,1,// This is perhaps innefficient timewise?  Optimal spacewise
-1,0,1,1,1,1,1,// TODO: confirm expected args are IRubyObject (or similar)
-1,0,1,1,1,1,1,// There's not a compelling reason to keep JavaClass instances in a weak map // (any proxies created are [were] kept in a non-weak map, so in most cases they will // stick around anyway), and some good reasons not to (JavaClass creation is // expensive, for one; many lookups are performed when passing parameters to/from // methods; etc.). // TODO: faster custom concurrent map
+1,0,0,1,1,1,1,// TODO: confirm expected args are IRubyObject (or similar)
+1,0,1,0,1,1,1,// There's not a compelling reason to keep JavaClass instances in a weak map // (any proxies created are [were] kept in a non-weak map, so in most cases they will // stick around anyway), and some good reasons not to (JavaClass creation is // expensive, for one; many lookups are performed when passing parameters to/from // methods; etc.). // TODO: faster custom concurrent map
 1,0,1,1,1,1,1,// TODO: check for Java reserved names and raise exception if encountered
-1,0,0,1,1,1,1,// FIXME: JRUBY-3188 ends up with condition returning null...quick fix until I can dig into it
+1,0,1,1,1,1,1,// FIXME: JRUBY-3188 ends up with condition returning null...quick fix until I can dig into it
 1,0,1,1,0,1,1,// Workaround for a bug in Sun's JDK 1.5.x, see // http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6303753
 1,0,1,1,1,1,1,// FIXME weakref.rb also does caller(2) here for the backtrace
 1,0,1,1,1,1,1,// FIXME: Remove this from grammars.
-1,0,0,1,1,1,1,// TODO: It's perhaps just a coincidence that all the channels for // which we should raise are instanceof SelectableChannel, since // stdio is not...so this bothers me slightly. -CON
+1,0,1,1,1,1,1,// TODO: It's perhaps just a coincidence that all the channels for // which we should raise are instanceof SelectableChannel, since // stdio is not...so this bothers me slightly. -CON
 1,0,1,1,1,1,1,// FIXME: Not sure what the semantics of transfer are //cFiber.defineFastMethod("transfer", cb.getFastOptMethod("transfer"));
 1,0,1,1,1,1,1,// FIXME: This is pretty gross; we should have a cleaner initialization // that doesn't depend on package-visible fields and ideally is atomic, // probably using an immutable structure we replace all at once. // lazy, null when no groups defined
 1,0,1,0,0,0,0,// This is a dummy scope; we should find a way to make that more explicit
@@ -115,16 +115,16 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/** rb_obj_id     *     * Return the internal id of an object.     *     * FIXME: Should this be renamed to match its ruby name?     */"
 1,0,1,1,1,1,1,// again, shouldn't happen. TODO: might want to throw exception instead.
 1,0,1,1,1,1,1,// FIXME: Maybe not best place, but move it to a good home
-1,0,1,1,1,1,1,// TODO: NOT_ALLOCATABLE_ALLOCATOR may be ok here, but it's unclear how Structs // work with marshalling. Confirm behavior and ensure we're doing this correctly. JRUBY-415
+1,0,0,1,1,1,1,// TODO: NOT_ALLOCATABLE_ALLOCATOR may be ok here, but it's unclear how Structs // work with marshalling. Confirm behavior and ensure we're doing this correctly. JRUBY-415
 1,0,1,1,1,1,1,//TODO: Should next and return also catch here?
 1,0,0,0,0,0,0,// We always prepend an org.jruby.proxy package to the beginning // because java and javax packages are protected and signed // jars prevent us generating new classes with those package // names. See JRUBY-2439.
-1,0,1,1,1,1,1,// TODO: we should be able to optimize this quite a bit post-1.0.  JavaClass already // has all the methods organized by method name; the next version (supporting protected // methods/fields) will have them organized even further. So collectMethods here can // just lookup the overridden methods in the JavaClass map, should be much faster.
+1,0,1,0,1,1,1,// TODO: we should be able to optimize this quite a bit post-1.0.  JavaClass already // has all the methods organized by method name; the next version (supporting protected // methods/fields) will have them organized even further. So collectMethods here can // just lookup the overridden methods in the JavaClass map, should be much faster.
 1,0,0,0,0,0,0,// index for the item // this could probably be more efficient, bailing out on assigning args past the end?
 1,0,0,1,1,1,1,// TODO: make more efficient by not creating IRubyArray[]
 1,0,1,1,1,1,1,"/** rb_mod_remove_cvar     *     * FIXME: any good reason to have two identical methods? (same as remove_class_variable)     */"
 1,0,0,0,0,0,0,// from DUP_SETUP // rb_copy_generic_ivar from DUP_SETUP here ...unlikely..
 1,0,1,1,1,1,1,// If it's a single-arg when but contains an array, we know it's a real literal array // FIXME: This is a gross way to figure it out; parser help similar to yield argument passing (expandArguments) would be better
-1,0,1,1,1,1,1,// TODO: Only setAccessible to account for pattern found by // accessing constants included from a non-public interface. // (aka java.util.zip.ZipConstants being implemented by many // classes)
+1,0,1,0,1,1,1,// TODO: Only setAccessible to account for pattern found by // accessing constants included from a non-public interface. // (aka java.util.zip.ZipConstants being implemented by many // classes)
 1,0,1,0,1,1,1,// not intended to be called directly by users (private) // OLD TODO from Ruby code: // This should be implemented in JavaClass.java, where we can // check for reserved Ruby names, conflicting methods, etc.
 1,0,0,1,1,1,1,// FIXME: Don't allow multiple threads to do this at once
 1,0,1,1,1,1,1,// TODO: Bleeding runtime into parser.  Arity may be should be in parser (to keep bleeding oneway)
@@ -144,7 +144,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// TODO: callback for value would be more efficient, but unlikely to be a big cost (constants are rarely assigned)
 1,0,1,1,1,1,1,// FIXME: this should go somewhere more generic -- maybe IdUtil
 1,0,1,1,1,1,1,// SSS FIXME: Move this code to some utils area .. or probably there is already a method for this in some jruby utils class // Holy cow!  Just to append two darned arrays!
-1,0,0,0,1,1,1,// TODO: set our metaclass to target's class (i.e. scary!)
+1,0,0,1,1,1,1,// TODO: set our metaclass to target's class (i.e. scary!)
 1,0,1,1,1,1,1,// add 'new' with full signature, so it's guaranteed to be directly accessible // TODO: no need for this to be a full, formal JVM signature
 1,0,0,0,0,0,0,// context is null, wipe out the SoftReference (this could be done with a reference queue)
 1,0,1,1,1,1,1,// TODO: remove
@@ -155,7 +155,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: NOT_ALLOCATABLE_ALLOCATOR is probably ok here, since we don't intend for people to monkey with // this type and it can't be marshalled. Confirm. JRUBY-415
 1,0,1,1,1,1,1,// SSS FIXME: Can this return anything other than nil?
 1,0,0,0,1,1,1,// XXX: const lookup can trigger const_missing; is that enough to warrant it always being executed?
-1,0,0,0,1,1,1,// TODO: Should frozen error have its own distinct class?  If not should more share?
+1,0,1,0,1,1,1,// TODO: Should frozen error have its own distinct class?  If not should more share?
 1,0,1,1,1,1,1,// TODO: Only used by interface implementation; eliminate it
 1,0,0,1,1,1,1,// FIXME: null check is removable once we figure out how to assign to unset named block args
 1,0,1,0,0,0,0,// For JRUBY-2759, when MET choose CET timezone to work around Joda
@@ -169,13 +169,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// FIXME: Clearing read buffer here...is this appropriate?
 1,0,1,1,1,1,1,// TODO: specifying soft refs, may want to compare memory consumption, // behavior with weak refs (specify WEAK in place of SOFT below)
 1,0,1,1,1,1,1,/* FIXME: lose syntactical elements here (and others like this)*/
-1,0,1,0,0,0,0,// ENEBO: Totally weird naming (in MRI is not allocated and is a local var name)
+1,0,0,0,0,0,0,// ENEBO: Totally weird naming (in MRI is not allocated and is a local var name)
 1,0,1,1,1,1,1,// FIXME: This doesn't actually support anything but String
 1,0,1,1,1,1,1,// up to ten, stuff into tmp locals, load in reverse order, and assign // FIXME: There's probably a slightly smarter way, but is it important?
 1,0,1,0,1,1,1,// XXX: do something?
 1,0,1,1,1,1,1,// TODO: Only setAccessible to account for pattern found by // accessing constants included from a non-public interface. // (aka java.util.zip.ZipConstants being implemented by many // classes) // TODO: not sure we need this at all, since we only expose // public fields. //field.setAccessible(true);
 1,0,1,1,1,1,1,// FIXME we want to eliminate these type casts when possible
-1,0,0,1,1,1,1,// HACK: force clinit to be created
+1,0,1,1,1,1,1,// HACK: force clinit to be created
 1,0,1,1,1,1,1,// FIXME: If true array is common enough we should pre-allocate and stick somewhere
 1,0,0,1,1,1,1,// optional args, so we have IRubyObject[] // TODO: confirm
 1,0,1,1,1,1,1,// TODO: This is almost RubyModule#instance_methods on the metaClass.  Perhaps refactor.
@@ -183,10 +183,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: factor this chunk as in MRI/YARV GETASTER
 1,0,1,1,1,1,1,// exit monitor before making call // FIXME: this not being in a finally is a little worrisome
 1,0,1,1,1,1,1,// self = args[0] // SSS FIXME: Verify that this is correct
-1,0,0,1,0,1,1,// This is for JRUBY-2988, since after a suspend the terminal seems // to need to be reinitialized. Since we can't easily detect suspension, // initialize after every readline. Probably not fast, but this is for // interactive terminals anyway...so who cares?
-1,0,0,1,1,1,1,// TODO: do above but not below for additional newline nodes
+1,0,0,0,0,0,0,// This is for JRUBY-2988, since after a suspend the terminal seems // to need to be reinitialized. Since we can't easily detect suspension, // initialize after every readline. Probably not fast, but this is for // interactive terminals anyway...so who cares?
+1,0,1,1,1,1,1,// TODO: do above but not below for additional newline nodes
 1,0,1,1,1,1,1,// SSS FIXME: Receiver -- this is the class meta object basically? // Operand receiver = build(defsNode.getReceiverNode(), s);
-1,0,0,1,1,1,1,// FIXME This whole thing could probably be implemented as a module and // mixed into appropriate classes, especially if it uses either // IOInput/OutputStream or is smart about the kind of IO-like object // it's being used against.
+1,0,1,1,1,1,1,// FIXME This whole thing could probably be implemented as a module and // mixed into appropriate classes, especially if it uses either // IOInput/OutputStream or is smart about the kind of IO-like object // it's being used against.
 1,1,1,1,1,1,1,// FIXME: bit of a kludge here (non-interface classes assigned to both // class and module fields). simplifies proxy extender code, will go away // when JI is overhauled (and proxy extenders are deprecated).
 1,0,1,1,1,1,1,// FIXME: what should these really be? Numeric?       assert x instanceof RubyComplex && y instanceof RubyComplex;
 1,0,0,0,0,0,0,// we're depending on the side effect of the load, which loads the class but does not turn it into a script // I don't like it, but until we restructure the code a bit more, we'll need to quietly let it by here.
@@ -201,20 +201,20 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,// The implementations of these are all bonus (see TODO above)  I was going // to throw an error from these, but it appears to be the wrong place to // do it.
 1,0,1,0,1,1,1,// entry exists, proxy doesn't match. replace. // this could happen if old proxy was gc'ed // TODO: raise exception if stored proxy is non-null? (not gc'ed)
 1,0,1,1,1,1,1,// TODO: better algorithm to set precision needed
-1,0,1,1,1,1,1,"/** * SSS FIXME: Used anywhere?  I don't see calls to this anywhere    public Operand buildDAsgnAssignment(Node node, IR_Scope s) {        DAsgnNode dasgnNode = (DAsgnNode) node;        s.getVariableCompiler().assignLocalVariable(dasgnNode.getIndex(), dasgnNode.getDepth());    }**/"
+1,0,0,1,1,1,1,"/** * SSS FIXME: Used anywhere?  I don't see calls to this anywhere    public Operand buildDAsgnAssignment(Node node, IR_Scope s) {        DAsgnNode dasgnNode = (DAsgnNode) node;        s.getVariableCompiler().assignLocalVariable(dasgnNode.getIndex(), dasgnNode.getDepth());    }**/"
 1,0,1,1,1,1,1,// TODO: Make this more intelligible value
 1,0,1,1,1,1,1,// TODO: Split this into two sub-classes so that name and constNode can be specified seperately.
 1,0,1,1,0,1,1,// Not sure how well this works, but it works much better than // just currentTimeMillis by itself.
 1,1,1,1,1,1,1,// FIXME: This is copied code from RubyArray.  Both RE, Struct, and Array should share one impl // This is also hacky since I construct ruby objects to access ruby arrays through aref instead // of something lower.
 1,0,1,1,1,1,1,// FIXME: No, I don't like it.
-1,0,1,0,1,1,1,// arguments compilers always create IRubyObject[], but we want to use RubyArray.concat here; // FIXME: as a result, this is NOT efficient, since it creates and then later unwraps an array
+1,0,1,1,1,1,1,// arguments compilers always create IRubyObject[], but we want to use RubyArray.concat here; // FIXME: as a result, this is NOT efficient, since it creates and then later unwraps an array
 1,0,1,1,1,1,1,// SSS FIXME: What is the difference between ClassVarAsgnNode & ClassVarDeclNode
 1,0,1,1,1,1,1,// FIXME: set up a CallConfiguration for this
 1,0,0,1,1,1,1,// TODO: reads/writes from frame // TODO: information on scoping // TODO: visibility?
 1,0,1,1,1,1,1,// FIXME: This is almost entirely duplicated from Main.java
 1,0,0,0,0,0,0,// we might need to perform a DST correction
-1,0,1,0,1,1,1,// FIXME: How much more obtuse can this be? // Heredoc already parsed this and saved string...Do not parse..just return
-1,0,0,0,0,0,0,// this needs to be split, since conditional calling #inherited doesn't fit standard ruby semantics
+1,0,1,1,1,1,1,// FIXME: How much more obtuse can this be? // Heredoc already parsed this and saved string...Do not parse..just return
+1,0,1,0,0,0,0,// this needs to be split, since conditional calling #inherited doesn't fit standard ruby semantics
 1,0,1,0,1,1,1,// XXX: Again, screwy evaling under previous frame's scope
 1,0,0,0,1,1,1,// SSS FIXME: Maybe this is not really a concern after all ... // Nesting level of this scope in the lexical nesting of scopes in the current file -- this is not to be confused // with semantic nesting of scopes across files. // // Consider this code in a file f // class M1::M2::M3::C  //   ... // end // // So, C is at lexical nesting level of 1 (the file script is at 0) in the file 'f' // Semantically it is at level 3 (M1, M2, M3 are at 0,1,2). // // This is primarily used to ensure that variable names don't clash! // i.e. definition of %v_1 in a closure shouldn't override the use of %v_1 from the parent scope! //    private int _lexicalNestingLevel;
 1,0,0,1,1,1,1,// actual type does not exactly match method return type, re-get converter // FIXME: when the only autoconversions are primitives, this won't be needed
@@ -233,11 +233,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/*     * Fixme:  This does not have exact same semantics as RubyArray.join, but they     * probably could be consolidated (perhaps as join(args[], sep, doChomp)).     */"
 1,0,0,0,0,0,0,// lame generics issues: making Segment class static and manually // inserting cache reference to work around various problems generically // referencing methods/vars across classes.
 1,0,1,1,1,1,1,// FIXME:  This determine module is in a strange location and should somehow be in block
-1,0,0,1,1,1,1,// TODO? I think this ends up propagating from normal Java exceptions // sys_fail(openFile.getPath())
+1,0,1,1,1,1,1,// TODO? I think this ends up propagating from normal Java exceptions // sys_fail(openFile.getPath())
 1,0,0,0,0,0,0,// this seems unlikely to happen unless it's a totally bogus fileno // ...so do we even need to bother trying to create one?
-1,0,0,1,1,1,1,// TODO: turn off the negative? will return -0.0 in lax mode
-1,0,0,1,1,1,1,// TODO: list.subList(from, to).clear() is supposed to clear the sublist from the list. // How can we support this operation?
-1,1,1,0,0,0,0,// see note below re: 2-field kludge
+1,0,1,1,1,1,1,// TODO: turn off the negative? will return -0.0 in lax mode
+1,0,1,1,1,1,1,// TODO: list.subList(from, to).clear() is supposed to clear the sublist from the list. // How can we support this operation?
+1,1,0,0,0,0,0,// see note below re: 2-field kludge
 1,1,1,1,1,1,1,// We're not setting the provider or anything, but it seems that BouncyCastle does some internal things in its // provider's constructor which require it to be executed in a secure context. // Ideally this hack should be removed. See JRUBY-3919 and this BC bug: //   http://www.bouncycastle.org/jira/browse/BJA-227
 1,1,1,1,1,1,1,// this is a rather ugly hack, but similar to MRI. See hash.c:ruby_setenv and similar in MRI // we search all keys for a case-insensitive match, and use that
 1,0,1,0,1,1,1,// TODO: WRONG - get interfaces from class
@@ -253,7 +253,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO this should entry into error handling somewhere
 1,0,1,1,1,1,1,// TODO: make this do specific-arity calling
 1,0,1,1,1,1,1,// SSS FIXME: What happens to the add class in this case??
-1,0,1,1,1,1,1,// SSS FIXME: Are we guaranteed that we splats dont head to multiple-assignment nodes!  i.e. |*(a,b)|?
+1,0,0,1,1,1,1,// SSS FIXME: Are we guaranteed that we splats dont head to multiple-assignment nodes!  i.e. |*(a,b)|?
 1,0,1,1,1,1,1,// TODO: catch exception if constant is already set by other // thread
 1,0,1,1,1,1,1,// TODO: Implement tty? and isatty.  We have no real capability to // determine this from java, but if we could set tty status, then // we could invoke jruby differently to allow stdin to return true // on this.  This would allow things like cgi.rb to work properly.
 1,0,1,1,1,1,1,// FIXME: We should be getting this from the runtime rather than assume none? //return runtime.getEncodingService().getEncoding(runtime.getDefaultExternalEncoding());
@@ -265,22 +265,22 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,// SSS FIXME: Token can be final for a method -- implying that the token is only for this particular implementation of the method // But, if the mehod is modified, we create a new method object which in turn gets a new token.  What makes sense??  Intuitively, // it seems the first one ... but let us see ... // Current code version token for this method -- can change during execution as methods get redefined!
 1,0,1,1,1,1,1,// TODO: It would be nice to throw a better error for this
 1,0,0,0,1,1,1,// set up a field for the CacheEntry // TODO: make this an array so it's not as much class metadata; similar to AbstractScript stuff
-1,0,1,1,1,1,1,// TODO: newTypeError does not offer enough for ruby error string...
+1,0,1,0,1,1,1,// TODO: newTypeError does not offer enough for ruby error string...
 1,0,1,1,1,1,1,// SSS FIXME: I added this in.  Is this correct?
-1,0,0,1,1,1,1,// upper-case package name // TODO: top-level upper-case package was supported in the previous (Ruby-based) // implementation, so leaving as is.  see note at #getProxyOrPackageUnderPackage // re: future approach below the top-level.
+1,0,1,1,1,1,1,// upper-case package name // TODO: top-level upper-case package was supported in the previous (Ruby-based) // implementation, so leaving as is.  see note at #getProxyOrPackageUnderPackage // re: future approach below the top-level.
 1,0,1,1,1,1,1,// TODO: wire into new exception handling mechanism
-1,0,1,1,1,1,1,// TODO: This is also defined in the MetaClass too...Consolidate somewhere.
+1,0,0,1,1,1,1,// TODO: This is also defined in the MetaClass too...Consolidate somewhere.
 1,0,0,1,1,1,1,// FIXME: ConstDecl could be two seperate classes (or done differently since constNode and name // never exist at the same time.
 1,0,1,0,1,1,1,// TODO: number formatting here, MRI uses "%-.10g", 1.4 API is a must?
 1,0,1,1,1,1,1,// TODO: need to get this back into the method signature...now is too late...
 1,0,1,1,1,1,1,// super calls from proxies must use reflected method // FIXME: possible to make handles do the superclass call?
 1,0,1,1,1,1,1,// TODO: better error handling
-1,0,0,1,1,1,1,// SSS FIXME: Should this be Operand or CompoundString? // Can it happen that symbols are built out of other than compound strings?   // Or can it happen during optimizations that this becomes a generic operand?
+1,0,1,1,1,1,1,// SSS FIXME: Should this be Operand or CompoundString? // Can it happen that symbols are built out of other than compound strings?   // Or can it happen during optimizations that this becomes a generic operand?
 1,0,0,1,1,1,1,// FIXME: We should really not be creating the dynamic scope for the root // of the AST before parsing.  This makes us end up needing to readjust // this dynamic scope coming out of parse (and for local static scopes it // will always happen because of $~ and $_). // FIXME: Because we end up adjusting this after-the-fact, we can't use // any of the specific-size scopes.
 1,0,0,1,1,1,1,// TODO: not sure that we should skip calling join() altogether. // Thread.join() has some implications for Java Memory Model, etc.
 1,1,1,1,1,1,1,// hack to get right style for input
 1,0,1,1,1,1,1,// If variables were added then we may need to grow the dynamic scope to match the static // one. // FIXME: Make this so we only need to check this for blockScope != null.  We cannot // currently since we create the DynamicScope for a LocalStaticScope before parse begins. // Refactoring should make this fixable.
-1,0,1,0,1,1,1,// SSS FIXME: This method (at least in the context of multiple assignment) is a little weird. // It calls regular to_ary on the object.  But, if it encounters a method_missing, the value // is inserted into an 1-element array! // try "a,b,c = 1" first; then define Fixnum.to_ary method and try it again. // Ex: http://gist.github.com/163551
+1,0,1,1,1,1,1,// SSS FIXME: This method (at least in the context of multiple assignment) is a little weird. // It calls regular to_ary on the object.  But, if it encounters a method_missing, the value // is inserted into an 1-element array! // try "a,b,c = 1" first; then define Fixnum.to_ary method and try it again. // Ex: http://gist.github.com/163551
 1,0,1,1,1,1,1,// FIXME: potentially could just use ByteList here?
 1,0,1,1,1,1,1,// ignore; job was cancelled // FIXME: Is this ok?
 1,0,0,1,1,1,1,// regular division with some default precision // TODO: proper algorithm to set the precision
@@ -295,7 +295,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// TODO: CLONE_SETUP here
 1,0,0,1,1,1,1,// TODO: must override in RubyModule to pick up constants
 1,0,1,1,1,1,1,// TODO: non-strict option
-1,0,1,0,1,1,1,// TODO: adjust length so it won't fall in the middle  // of a multi-byte character. MRI's sprintf.c uses tables // in a modified version of regex.c, which assume some // particular  encoding for a given installation/application. // (See regex.c#re_mbcinit in ruby-1.8.5-p12)  // // This is only an issue if the user specifies a precision // that causes the string to be truncated. The same issue // would arise taking a substring of a ByteList-backed RubyString.
+1,0,0,0,1,1,1,// TODO: adjust length so it won't fall in the middle  // of a multi-byte character. MRI's sprintf.c uses tables // in a modified version of regex.c, which assume some // particular  encoding for a given installation/application. // (See regex.c#re_mbcinit in ruby-1.8.5-p12)  // // This is only an issue if the user specifies a precision // that causes the string to be truncated. The same issue // would arise taking a substring of a ByteList-backed RubyString.
 1,0,1,1,1,1,1,// FIXME: \r logic needed
 1,0,1,1,1,1,1,// TODO: note lack of command.com support for Win 9x...
 1,0,1,1,1,1,1,// TODO: no need to calculate every time.
@@ -320,7 +320,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: other reserved names?
 1,0,1,1,1,1,1,// TODO: better detection when path is absolute or not. // If the path isn't absolute, then prepend the current working // directory to the path.
 1,0,0,1,1,1,1,// TODO: deal with varargs
-1,0,1,1,1,1,1,// TODO: Store BEGIN and END information into this node
+1,0,0,1,1,1,1,// TODO: Store BEGIN and END information into this node
 1,0,1,1,1,1,1,// TODO: ruby locks the string here
 1,0,1,1,1,1,1,// TODO: put these nil guards into tree (bigger than I want to do right now)
 1,0,1,1,1,1,1,// FIXME: Should we make this work with platform's locale, // or continue hardcoding US?
@@ -329,18 +329,18 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: add trace call?
 1,0,1,1,1,1,1,// TODO: call ruby method
 1,0,1,1,1,1,1,// TODO: build arg list based on number of args, optionals, etc
-1,0,0,1,1,1,1,// TODO: check for ascii string
+1,0,1,1,1,1,1,// TODO: check for ascii string
 1,0,1,1,1,1,1,// SSS FIXME: Traverse up the scope hierarchy to find the constant as long as the parent is a static scope
 1,0,1,0,1,1,1,/* xxx shouldn't check if valid option variable */
-1,0,0,1,1,1,1,// SSS FIXME: Should I be returning the operand constructed here?
+1,0,1,1,1,1,1,// SSS FIXME: Should I be returning the operand constructed here?
 1,0,1,1,1,1,1,/* FIXME: arg_concat missing for opt_call_args*/
 1,0,1,1,1,1,1,// TODO: Add IR instructions for checking method arity! // s.getVariableCompiler().checkMethodArity(required, opt, rest);
 1,0,1,1,1,1,1,// TODO: Add safety check for taintedness
 1,0,1,1,1,1,1,// FIXME: Ruby 1.9 post args code needs to come here
-1,0,1,1,1,1,1,// TODO: Make sure all appropriate open flags are added to this check.
+1,0,1,0,1,1,1,// TODO: Make sure all appropriate open flags are added to this check.
 1,0,0,1,1,1,1,// SSS: FIXME: Somewhere here, we need to record information the type of this operand as String
 1,0,1,0,1,1,1,// XXX: Check if it's appropriate type?
-1,0,1,1,1,1,1,// FIXME: Translate this call below! // s.unwrapPassedBlock();
+1,0,0,1,1,1,1,// FIXME: Translate this call below! // s.unwrapPassedBlock();
 1,0,0,0,1,1,1,//subList.clear(); // Sublist is supposed to share same backing store as list...TODO in RubyArray. //assertTrue(list.size() == 1);
 1,0,1,1,1,1,1,// SSS FIXME: We need to build debug information tracking into the IR in some fashion // So, these methods below would have to have equivalents in IR_Scope implementations.
 1,0,0,0,0,0,0,// FIX replace type() == ... with isInstanceOf(...)
@@ -348,7 +348,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// SSS FIXME: Pick one of bytelist or string, or add internal conversion methods to convert to the default representation
 1,0,0,1,1,1,1,// TODO: check if too many open files, GC and try again
 1,0,1,1,1,1,1,// SSS FIXME: Cannot optimize this without assuming that Range.to_ary method has not redefined. // So for now, return null!
-1,0,1,1,1,1,1,// TODO: This and recacheRespondsTo needed to be synchronized for JRUBY-3466, // but this degraded performance nearly 2x. It's still faster than MRI, but // a reanalysis of this code may show a faster way to ensure we're caching // safely.
+1,0,1,0,1,1,1,// TODO: This and recacheRespondsTo needed to be synchronized for JRUBY-3466, // but this degraded performance nearly 2x. It's still faster than MRI, but // a reanalysis of this code may show a faster way to ensure we're caching // safely.
 1,0,0,1,1,1,1,// SSS FIXME: To be done
 1,0,1,1,1,1,1,/* FIXME: arg_concat logic missing for opt_call_args*/
 1,0,1,1,1,1,1,//TODO: implement, won't do this now
@@ -359,25 +359,25 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: this code should really check if a Ruby equals method is implemented or not.
 1,0,1,1,1,1,1,// TODO: Ruby unlocks the string here
 1,0,1,0,1,1,1,// if not already defined, we add a 'new' that guesses at which signature to use // TODO: just adding first one right now...add in signature-guessing logic
-1,0,1,1,1,1,1,// FIXME: Make thread pool threads daemons if necessary
+1,0,0,1,1,1,1,// FIXME: Make thread pool threads daemons if necessary
 1,0,0,0,1,1,1,// filter out any Java primitive names // TODO: should check against all Java reserved names here, not just primitives
-1,0,1,1,1,1,1,// TODO: we can probably release our references to the constantFields // array and static/instance callback hashes at this point.
-1,0,1,0,1,1,1,// Do not clone cached methods // FIXME: MRI copies all methods here
-1,0,0,1,1,1,1,// TODO: check safe, taint on incoming string
+1,0,0,1,1,1,1,// TODO: we can probably release our references to the constantFields // array and static/instance callback hashes at this point.
+1,0,1,1,1,1,1,// Do not clone cached methods // FIXME: MRI copies all methods here
+1,0,1,1,1,1,1,// TODO: check safe, taint on incoming string
 1,0,1,1,1,1,1,/* TODO: MRI is just a when node.  We need this extra logic for IDE consumers (null in casenode statement should be implicit nil)*/
 1,0,0,1,1,1,1,// TODO: Formalize conversion mechanisms between Java and Ruby
 1,0,1,1,1,1,1,//FIXME: When we get JNA3 we need to properly write this to errno.
 1,0,1,1,1,1,1,// TODO: turn off readable? am I reading this right? // This only seems to be used while duping below, since modes gets // reset to actual modes afterward //fptr->mode &= (m & FMODE_READABLE) ? ~FMODE_READABLE : ~FMODE_WRITABLE;
 1,0,1,1,1,1,1,// TODO: Someday, enable.
-1,0,1,0,0,0,0,// Bunch of methods still not implemented
-1,0,1,1,1,1,1,// TODO: make it cross runtime safe by COW or eager copy
+1,0,0,0,0,0,0,// Bunch of methods still not implemented
+1,0,0,1,1,1,1,// TODO: make it cross runtime safe by COW or eager copy
 1,0,0,1,1,1,1,// TODO: don't calculate the same value 3 times
-1,0,1,1,1,1,1,// TODO: notify threads waiting on descriptors/IO? probably not...
-1,0,1,1,1,1,1,// FIXME: This needs to happen for lambdas //            args.checkArgCount(runtime, parameters.length);
+1,0,0,1,1,1,1,// TODO: notify threads waiting on descriptors/IO? probably not...
+1,0,0,1,1,1,1,// FIXME: This needs to happen for lambdas //            args.checkArgCount(runtime, parameters.length);
 1,0,0,1,1,1,1,// FIXME: add text mode to mode flags
 1,0,1,1,1,1,1,// TODO: Something about pipe buffer length here
 1,0,1,1,1,1,1,// TODO: MRI also can hadle Bignum here
-1,0,0,1,1,1,1,// TODO: handle errors in buffered write by retrying until finished or file is closed
+1,0,1,0,1,1,1,// TODO: handle errors in buffered write by retrying until finished or file is closed
 1,0,1,1,1,1,1,// TODO: this isn't handling multibyte yet
 1,0,1,1,1,1,1,// TODO: SafeStringValue here
 1,0,1,1,1,1,1,// TODO: This should be something else like a tCHAR
@@ -410,7 +410,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// CON: popen is a case where I think we should just always shell out.
 0,0,0,0,0,0,0,// end of variable scope
 0,0,0,0,0,0,0,//  '_' in number just ignored
-0,0,0,0,0,0,0,// MRI 1.8.5-p12 doesn't support 1-char strings, but // YARV 0.4.1 does. I don't think it hurts to include // this; sprintf('%c','a') is nicer than sprintf('%c','a'[0])
+0,0,1,0,0,0,0,// MRI 1.8.5-p12 doesn't support 1-char strings, but // YARV 0.4.1 does. I don't think it hurts to include // this; sprintf('%c','a') is nicer than sprintf('%c','a'[0])
 0,0,0,0,0,0,0,// &foo are not getting set from somewhere...I want the following assert to be true though //assert variableValues[offset] != null : "Getting unassigned: " + staticScope.getVariables()[offset];
 0,0,0,0,0,0,0,// check arity in the variable-arity version
 0,0,0,1,0,1,1,// The reason why we need the stream is to be able to invoke available() on it. // STDIN in Java is non-interruptible, non-selectable, and attempt to read // on such stream might lead to thread being blocked without *any* way to unblock it. // That's where available() comes it, so at least we could check whether // anything is available to be read without blocking.
@@ -439,7 +439,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// "head" must have no non-trivial assigns (array groupings, basically)
 0,0,0,0,0,0,0,// truncate can't lengthen files, so we save position, seek/write, and go back
 0,0,0,0,0,0,0,// class could not be found nor generated; give up on JIT and bail out
-0,0,0,1,0,1,1,// A scoped location of this variable (high 16 bits is how many scopes down and low 16 bits // is what index in the right scope to set the value.
+0,0,1,0,0,0,0,// A scoped location of this variable (high 16 bits is how many scopes down and low 16 bits // is what index in the right scope to set the value.
 0,0,0,0,0,0,0,// sizes must match
 0,0,0,0,0,0,0,// oh, well, it was worth a try. go let // Double/FloatingDecimal handle it
 0,0,0,0,0,0,0,// if we get here, no optz cases work; fall back on unoptz.
@@ -450,7 +450,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Without a flush Ant will miss some of our output
 0,0,0,0,0,0,0,// intDigits isn't used here, but if it were, it would be 1
 0,0,0,0,0,0,0,// create the closure class and instantiate it
-0,0,1,0,0,0,0,// ignore; I don't like doing it, but it seems like we // really just need to make all channels non-blocking by // default and use select when implementing blocking ops, // so if this remains set non-blocking, perhaps it's not // such a big deal...
+0,0,1,1,0,1,1,// ignore; I don't like doing it, but it seems like we // really just need to make all channels non-blocking by // default and use select when implementing blocking ops, // so if this remains set non-blocking, perhaps it's not // such a big deal...
 0,0,0,0,0,0,0,// no-arg constructor using static references to Ruby and RubyClass
 0,0,0,0,0,0,0,// create the default thread group
 0,0,0,0,0,0,0,// there should only be one more thread in thread group than before we started
@@ -477,7 +477,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// create method for toplevel of script
 0,0,0,0,0,0,0,// We promote our box to being its own box since we're changing // visibilities, and need it to be reflected on this method object // independent of any other sharing the box.
 0,0,0,0,0,0,0,// [recv]
-0,0,0,0,0,0,0,// Has the method that is calling super received a block argument
+0,0,1,0,0,0,0,// Has the method that is calling super received a block argument
 0,0,0,0,0,0,0,// ARGF, $< object
 0,0,0,1,1,1,1,// done // done // done // Nothing to do for 1.8 // done // done // done // done // done // done // done? // done // done // done // done // done // done // done // done // done // done // done //            case DEFINEDNODE: return buildDefined(node, m); // Incomplete // done // done // done // done // done // done // done // done //            case ENSURENODE: return buildEnsureNode(node, m); // DEFERRED // done // done // done // done //            case FLIPNODE: return buildFlip(node, m); // SSS FIXME: What code generates this AST? // done // done // done // done // done // done // done // done // done // done // done // done // done // done // done // done // done // done? // done // done // done // done // done // done -- partially //            case OPELEMENTASGNNODE: return buildOpElementAsgn(node, m); // DEFERRED SSS FIXME: What code generates this AST? // done //            case POSTEXENODE: return buildPostExe(node, m); // DEFERRED //            case PREEXENODE: return buildPreExe(node, m); // DEFERRED // done?? // done
 0,0,0,0,0,0,0,// OK, we now have the significand in digits[0...nDigits] // and the exponent in exponent.  We're ready to format.
@@ -503,7 +503,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// fall back on env entry for USER
 0,0,0,0,0,0,0,// compile into array
 0,0,0,0,0,0,0,// index for the item
-0,0,1,0,0,0,0,// double-testing args.length here, but it avoids duplicating the proc-setup code in two places
+0,0,0,0,0,0,0,// double-testing args.length here, but it avoids duplicating the proc-setup code in two places
 0,0,0,0,0,0,0,// call getpwent to fail early if unsupported
 0,0,0,0,0,0,0,// we force argParamCount to 1 since we always know we'll have [] args
 0,0,0,0,0,0,0,// perform assignment for the next node
@@ -538,7 +538,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//reopen
 0,0,0,0,0,0,0,// long, big-endian
 0,0,0,0,0,0,0,//System.err.println(" stringToLong/converted c=" + c);
-0,0,0,0,0,0,0,// In certain places, like grep, we don't use real frames for the // call blocks. This has the effect of not setting the backref in // the correct frame - this delta is activated to the place where // the grep is running in so that the backref will be set in an // appropriate place.
+0,0,1,0,0,0,0,// In certain places, like grep, we don't use real frames for the // call blocks. This has the effect of not setting the backref in // the correct frame - this delta is activated to the place where // the grep is running in so that the backref will be set in an // appropriate place.
 0,0,0,0,0,0,0,// ARGF methods
 0,0,0,0,0,0,0,// do nothing, allow loop to redo
 0,0,0,0,0,0,0,//System.err.println(" stringToLong/reading c=" + data[s]);
@@ -593,7 +593,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// set to default thread group
 0,0,0,0,0,0,0,// Check the visibility of the previous frame, which will be the frame in which the class is being eval'ed
 0,0,0,0,0,0,0,// optimistic pass - calculate value as digits are processed // digits - lax rules // decimal digits - lax rules // exponent sign/digits - lax rules // digits - strict rules // decimal digits - strict rules // exponent sign/digits - strict rules // complete calculation if possible
-0,0,1,0,0,0,0,// in this mode, '.' is always printed
+0,0,0,0,0,0,0,// in this mode, '.' is always printed
 0,0,0,0,0,0,0,// line 1669
 0,0,0,0,0,0,0,// 4 -> e+nn / e-nn
 0,0,0,0,0,0,0,// let RescuedBlock continue
@@ -778,7 +778,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Make sure the appropriate scope has proper size. See JRUBY-2046.
 0,0,0,0,0,0,0,// wait until thread has completed
 0,0,0,0,0,0,0,// @JRubyMethod(name = "complex?")
-0,0,1,0,0,0,0,// // Synchronize and re-check to avoid creating more than one Selector per provider //
+0,0,0,0,0,0,0,// // Synchronize and re-check to avoid creating more than one Selector per provider //
 0,0,0,0,0,0,0,// Populate up to shorter of calling arguments or local parameters in the block
 0,0,0,0,0,0,0,// @JRubyMethod(name = "inexact?")
 0,0,0,0,0,0,0,// We use file test since it is faster than a stat; also euid == uid in Java always
@@ -914,7 +914,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// load block from [] version of method
 0,0,0,0,0,0,0,// Our values holder (name of variables are kept in staticScope)
 0,0,0,0,0,0,0,// no number
-0,0,0,0,0,0,0,// To turn a module into an "interface collection" we add a class instance // variable to hold the list of interfaces, and modify append_features // for this module to call append_features on each of those interfaces as // well
+0,0,1,0,0,0,0,// To turn a module into an "interface collection" we add a class instance // variable to hold the list of interfaces, and modify append_features // for this module to call append_features on each of those interfaces as // well
 0,0,0,0,0,0,0,// states
 0,0,0,0,0,0,0,// how far ahead we are when reading
 0,0,0,0,0,0,0,//System.err.println("calculateLength()/str=" + str);
@@ -923,7 +923,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// we need to collect all methods, though we'll only // install the ones that are named in this class
 0,0,0,0,0,0,0,// Portion of line right after beginning marker
 0,0,0,0,0,0,0,// In case when the number of occurences is // explicitly specified, we have to read up // the remaining garbage after the '\0' to // satisfy the requested pattern.
-0,0,0,1,0,1,1,// We define an actual list to get around bug in java integration (1387115)
+0,0,0,0,0,0,0,// We define an actual list to get around bug in java integration (1387115)
 0,0,0,0,0,0,0,// rb_iterate((VALUE(*)_((VALUE)))str_step, (VALUE)args, step_i, (VALUE)iter);
 0,0,0,0,0,0,0,// string has it's own ByteList, but it's pointing to a shared buffer (byte[])
 0,0,0,0,0,0,0,//System.err.println(" stringToLong=" + val);
@@ -946,7 +946,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Class method
 0,0,0,0,0,0,0,// not synchronizing these methods, no harm if these values get set more // than once. // (also note that there's no chance of getting a partially initialized // class/module, as happens-before is guaranteed by volatile write/read // of constants table.)
 0,0,0,0,0,0,0,// For b.foo
-0,0,0,0,0,0,0,// Does this method define code?  // Default is yes -- which basically leads to pessimistic but safe optimizations // But, for library and internal methods, this might be false.
+0,0,1,0,0,0,0,// Does this method define code?  // Default is yes -- which basically leads to pessimistic but safe optimizations // But, for library and internal methods, this might be false.
 0,0,0,0,0,0,0,// not closing from finalize
 0,0,0,0,0,0,0,// Note: this method produces meaningful results // only for RubyIO objects. For everything else returns 0.
 0,0,0,0,0,0,0,// We yield here to hopefully permit the target thread to schedule // MRI immediately schedules it, so this is close but not exact
@@ -960,12 +960,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// fields used for direct (optimistic) calculation // number of significant digits, updated as parsed // zeroes that may go to significand or exponent // offset of decimal pt from start (-1 -> no decimal) // significand, updated as parsed // exponent, updated as parsed
 0,0,0,1,1,1,1,// add (potentially) overridden names to the key. // TODO: see note above re: optimizations
 0,0,0,0,0,0,0,// we reached the end
-0,0,1,0,0,0,0,// declared type returns the qualified name without $ for inner classes!!!
+0,0,0,0,0,0,0,// declared type returns the qualified name without $ for inner classes!!!
 0,0,0,0,0,0,0,// goto next bucket
 0,0,0,0,0,0,0,// MRI behavior: value given in seconds; converted to Float; less // than or equal to zero returns immediately; returns nil
 0,0,0,0,0,0,0,// we reached the end of a list
 0,0,0,0,0,0,0,// rest arg must be splatted
-0,0,1,1,1,1,1,// TODO: varargs?
+0,0,0,1,1,1,1,// TODO: varargs?
 0,0,0,0,0,0,0,"/*     * This method exists for us to break up multiple expression when nodes (e.g. when 1,2,3:)     * into individual whenNodes.  The primary reason for this is to ensure lazy evaluation of     * the arguments (when foo,bar,gar:) to prevent side-effects.  In the old code this was done     * using nested when statements, which was awful for interpreter and compilation.     *     * Notes: This has semantic equivalence but will not be lexically equivalent.  Compiler     * needs to detect same bodies to simplify bytecode generated.     */"
 0,0,1,0,0,0,0,// note all fields are final -- rehash creates new entries when necessary. // as documented in java.util.concurrent.ConcurrentHashMap.java, that will // statistically affect only a small percentage (< 20%) of entries for a given rehash.
 0,0,0,0,0,0,0,// remove leading whitespace (includes _ for lax) // get sign, if any
@@ -1065,11 +1065,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// RetryJump, CacheEntry, ThreadContext, IRubyObject, IRubyObject
 0,0,0,0,0,0,0,// other java proxy classes added under their superclass' java proxy
 0,0,0,0,0,0,0,// line 1217
-0,0,0,0,0,0,0,"/* ============================     * Here are hash internals     * (This could be extracted to a separate class but it's not too large though)     * ============================     */"
-0,0,1,0,0,0,0,// If the next scope out has the same binding scope as this scope it means // we are evaling within an eval and in that case we should be sharing the same // binding scope.
+0,0,1,0,0,0,0,"/* ============================     * Here are hash internals     * (This could be extracted to a separate class but it's not too large though)     * ============================     */"
+0,0,0,0,0,0,0,// If the next scope out has the same binding scope as this scope it means // we are evaling within an eval and in that case we should be sharing the same // binding scope.
 0,0,0,0,0,0,0,// Atomic integers for symbol and method IDs
 0,0,0,0,0,0,0,// IRubyObject, DynamicMethod, RubyClass, CacheEntry, ThreadContext, IRubyObject, IRubyObject, String
-0,0,0,0,0,0,0,// If we know what method was being called, strip everything // before the call. This hides the JRuby and reflection internals.
+0,0,1,0,0,0,0,// If we know what method was being called, strip everything // before the call. This hides the JRuby and reflection internals.
 0,0,0,0,0,0,0,// The replacement "new" allocates and inits the Ruby object as before, but // also instantiates our proxified Java object by calling __jcreate!
 0,0,0,0,0,0,0,// Can't support the rest with Java
 0,0,0,0,0,0,0,// limit the length of negatives if possible (also faster)
@@ -1080,7 +1080,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// An atomic long for generating DynamicMethod serial numbers
 0,0,0,0,0,0,0,// line 794
 0,0,0,0,0,0,0,/* \C-X, \C-\M-X */
-0,0,0,0,0,0,0,// By default, call instructions cannot be deleted even if their results aren't used by anyone // unless we know more about what the call is, what it does, etc. // Similarly for evals, stores, returns.
+0,0,1,0,0,0,0,// By default, call instructions cannot be deleted even if their results aren't used by anyone // unless we know more about what the call is, what it does, etc. // Similarly for evals, stores, returns.
 0,0,0,0,0,0,0,// MRI behavior: always check whether the file is writable // or not, even if we are to write 0 bytes.
 0,0,0,0,0,0,0,// assuming the user wants a collection of interfaces that can be // included together. make it so.
 0,0,0,0,0,0,0,// this covers primitives and (unlikely) lower-case class names
@@ -1113,7 +1113,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* note nemes_gamma can return Double.POSITIVE_INFINITY or Double.NEGATIVE_INFINITY         * when value is an integer less than 1.         * We treat 0 as a special case to avoid Domain error.         */"
 0,0,0,0,0,0,0,// This while loop is for restarting the block call in case a 'redo' fires.
 0,0,0,0,0,0,0,/* \OOO */
-0,0,1,0,0,0,0,// the converters handle not only primitive types but also their boxed versions, so we should check // if we have a converter before checking for isPrimitive()
+0,0,0,0,0,0,0,// the converters handle not only primitive types but also their boxed versions, so we should check // if we have a converter before checking for isPrimitive()
 0,0,0,0,0,0,0,// line 537
 0,0,0,0,0,0,0,// bindings scopes must always be ManyVars scopes since evals can grow them
 0,0,0,0,0,0,0,// CRuby uses sprintf(buf, "%.*g", FLOAT_DIG, d); // This pattern adjusts the output of String.pattern("%g") to mimic // the C version.
@@ -1175,7 +1175,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// the instant at which we will ask dtz what the difference between DST and // standard time is
 0,0,0,0,0,0,0,// finally handling for abnormal exit
 0,0,0,0,0,0,0,// line 735
-0,0,1,0,0,0,0,// Java Doubles are 64 bit long:
+0,0,0,0,0,0,0,// Java Doubles are 64 bit long:
 0,0,0,0,0,0,0,/* $': string after last match */
 0,0,0,0,0,0,0,// "." dir is used for relative path loads from a given file, as in require '../foo/bar'
 0,0,0,0,0,0,0,// fall back to system JCA providers
@@ -1189,7 +1189,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Build closure body and return the result of the closure
 0,0,0,0,0,0,0,// MRI behavior: we don't print errno for actual Errno errors
 0,0,0,0,0,0,0,// Numeric.equal
-0,0,0,0,0,0,0,// copy and splat arguments out of the scope to use for zsuper call
+0,0,1,0,0,0,0,// copy and splat arguments out of the scope to use for zsuper call
 0,0,0,0,0,0,0,// leave it null and fall back on our normal invocation logic
 0,0,0,0,0,0,0,// set of utility methods for Java-based proxy objects
 0,0,0,0,0,0,0,//reset the $loadTestvar
@@ -1256,10 +1256,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// at end
 0,0,0,0,0,0,0,// unsigned int, native // unsigned long, native
 0,0,0,0,0,0,0,/* bang: true, no match, no substitution */
-0,0,0,0,0,0,0,// We only need to pass in current scope if we are evaluating as a block (which // is only done for evals).  We need to pass this in so that we can appropriately scope // down to captured scopes when we are parsing.
+0,0,1,0,0,0,0,// We only need to pass in current scope if we are evaluating as a block (which // is only done for evals).  We need to pass this in so that we can appropriately scope // down to captured scopes when we are parsing.
 0,0,0,0,0,0,0,// Note: MRI has a very non-trivial way of calculating the precision, // so we use very simple approximation here:
 0,0,0,0,0,0,0,// We do this b/c make_tmpname might be overridden
-0,0,1,0,0,0,0,// MRI ignores seek errors, presumably for unseekable files like // serial ports (JRUBY-2979), so we shall too.
+0,0,0,0,0,0,0,// MRI ignores seek errors, presumably for unseekable files like // serial ports (JRUBY-2979), so we shall too.
 0,0,0,0,0,0,0,// advance to first entry
 0,0,0,0,0,0,0,// remove us from old superclass's child classes
 0,0,0,0,0,0,0,// self // method name
@@ -1291,7 +1291,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// We always open this rw since we can only open it r or rw.
 0,0,0,0,0,0,0,// JRUBY-1000, fail early when attempting to subclass a final Java class; // solved here by adding an exception-throwing "inherited"
 0,0,0,0,0,0,0,// otherwise fall back on system temp location
-0,0,0,0,0,0,0,// This point is only reached if there was an exception handler installed.
+0,0,1,0,0,0,0,// This point is only reached if there was an exception handler installed.
 0,0,0,0,0,0,0,// shift the decimal point just to the right of the digit to be rounded to (divide by 10**(abs(scale))) // -1 -> 10's digit, -2 -> 100's digit, etc.
 0,0,0,0,0,0,0,// line 1213
 0,0,0,0,0,0,0,// add us to new superclass's child classes
@@ -1465,7 +1465,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Rubygems is too specific on host cpu so until we have real need lets default to universal //setConfig(configHash, "arch", System.getProperty("os.arch") + "-java" + System.getProperty("java.specification.version"));
 0,0,0,0,0,0,0,// invalid ranges result in an empty string
 0,0,0,0,0,0,0,// close process output // See JRUBY-3405; hooking up to parent process stdin caused // problems for IRB etc using stdin.
-0,0,1,0,0,0,0,// This is needed to unpack stuff
+0,0,0,0,0,0,0,// This is needed to unpack stuff
 0,0,0,0,0,0,0,// refresh call adapter, since it matters if this is iter-based or not
 0,0,0,0,0,0,0,// Add property name aliases
 0,0,0,0,0,0,0,// Rehash the table if the threshold is exceeded
@@ -1475,7 +1475,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// 128K seems to be the minimum at which the stat+seek is faster than reallocation
 0,0,0,0,0,0,0,// ruby interpreter compatibilty // Usage: ruby [switches] [--] [programfile] [arguments])
 0,0,0,0,0,0,0,// Define System.getProperties() in ENV_JAVA
-0,0,0,0,0,0,0,// This point is only reached if there was an exception handler // installed.
+0,0,1,0,0,0,0,// This point is only reached if there was an exception handler // installed.
 0,0,0,0,0,0,0,// @JRubyMethod(name = "exact?")
 0,0,0,0,0,0,0,// terminate and advance buffer when we find our char
 0,0,0,0,0,0,0,// If there's no second argument, simply use the working directory  // of the runtime.
@@ -1492,7 +1492,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Setting the loader needs to reset the class cache
 0,0,0,0,0,0,0,// make sure the main stream is set to null
 0,0,0,0,0,0,0,// Until we get a little more solid on 1.9 support we will only run interpreted mode
-0,0,1,0,0,0,0,// This method is intended only for defining new classes in Ruby code, // so it uses the allocator of the specified superclass or default to // the Object allocator. It should NOT be used to define classes that require a native allocator.
+0,0,0,0,0,0,0,// This method is intended only for defining new classes in Ruby code, // so it uses the allocator of the specified superclass or default to // the Object allocator. It should NOT be used to define classes that require a native allocator.
 0,0,0,0,0,0,0,//yySindex 889
 0,0,0,0,0,0,0,//yyGindex 136
 0,0,0,0,0,0,0,// backspace
@@ -1514,7 +1514,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Initial v - the reciprocal // v0 = 1/(2*x)
 0,0,0,0,0,0,0,// Estimate the square root with the foremost 62 bits of squarD // bi and scale are a tandem
 0,0,0,0,0,0,0,// MRI issuses warning here on (RBIGNUM(x)->len * SIZEOF_BDIGITS * yy > 1024*1024)
-0,0,1,0,0,0,0,// Function not used...but it gets rid of unused warnings in Eclipse (we do call those methods // from Ruby so they are not really unused).
+0,0,0,0,0,0,0,// Function not used...but it gets rid of unused warnings in Eclipse (we do call those methods // from Ruby so they are not really unused).
 0,0,0,0,0,0,0,// Collect iteration precisions beforehand
 0,0,0,0,0,0,0,// skip this one, probably no 'ls' (windows)
 0,0,0,0,0,0,0,// just in case, add a bit of extra precision
@@ -1577,7 +1577,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// add alias to meta
 0,0,0,0,0,0,0,// snapshot of contents of directory // current position in directory
 0,0,0,0,0,0,0,// if channel is already closed, we're no longer valid
-0,0,0,0,0,0,0,// Exclusive locks in Java require the channel to be writable, otherwise // an exception is thrown (terminating JRuby execution). // But flock behavior of MRI is that it allows // exclusive locks even on non-writable file. So we convert exclusive // lock to shared lock if the channel is not writable, to better match // the MRI behavior.
+0,0,0,1,0,1,1,// Exclusive locks in Java require the channel to be writable, otherwise // an exception is thrown (terminating JRuby execution). // But flock behavior of MRI is that it allows // exclusive locks even on non-writable file. So we convert exclusive // lock to shared lock if the channel is not writable, to better match // the MRI behavior.
 0,0,0,0,0,0,0,// zero args, no block; do nothing
 0,0,0,0,0,0,0,// We don't support .so, but some stdlib require .so directly // replace it with .jar to look for an extension type we do support
 0,0,0,0,0,0,0,// store previous exception for restoration if we rescue something
@@ -1630,8 +1630,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//this relies on the Ruby rounding enumerations == Java ones, which they (currently) all are
 0,0,0,0,0,0,0,// it's either as converted as we can make it via above logic or it's // not one of the types we convert, so just pass it out as-is without wrapping
 0,0,0,0,0,0,0,// a gotcha
-0,0,0,0,0,0,0,//////////////////////////////////////////////////////////////////////////// // Now we provide default impls of a number of signatures. For each arity, // we first generate a non-block version of the method, which just adds // NULL_BLOCK and re-calls, allowing e.g. compiled code, which always can // potentially take a block, to only generate the block-receiving signature // and still avoid arg boxing. // // We then provide default implementations of each block-accepting method // that in turn call the IRubyObject[]+Block version of call. This then // finally falls back on the minimum implementation requirement for // dynamic method handles. ////////////////////////////////////////////////////////////////////////////
-0,0,1,0,0,0,0,// We get canonical path to try and flatten the path out. // a dir '/subdir/..' should return as '/' // cnutter: Do we want to flatten path out?
+0,0,1,0,0,0,0,//////////////////////////////////////////////////////////////////////////// // Now we provide default impls of a number of signatures. For each arity, // we first generate a non-block version of the method, which just adds // NULL_BLOCK and re-calls, allowing e.g. compiled code, which always can // potentially take a block, to only generate the block-receiving signature // and still avoid arg boxing. // // We then provide default implementations of each block-accepting method // that in turn call the IRubyObject[]+Block version of call. This then // finally falls back on the minimum implementation requirement for // dynamic method handles. ////////////////////////////////////////////////////////////////////////////
+0,0,0,0,0,0,0,// We get canonical path to try and flatten the path out. // a dir '/subdir/..' should return as '/' // cnutter: Do we want to flatten path out?
 0,0,0,0,0,0,0,// base
 0,0,0,0,0,0,0,// Used for the 'redo' command
 0,0,0,0,0,0,0,// By default, NO_FLUSH
@@ -1642,7 +1642,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// No passed in block, lets check next outer frame for one ('Proc.new')
 0,0,0,0,0,0,0,// line 551
 0,0,0,0,0,0,0,// This looks wrong, but it's the way MRI does it.
-0,0,1,0,0,0,0,// for future compatibility as constructors move toward not accepting metaclass?
+0,0,0,0,0,0,0,// for future compatibility as constructors move toward not accepting metaclass?
 0,0,0,0,0,0,0,// NOTE: The indicies here match exactly the signal values; do not reorder
 0,0,0,0,0,0,0,// rb_exc_new3
 0,0,0,0,0,0,0,// visit a label to start scoping for local vars in this method
@@ -1655,16 +1655,16 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// BigInteger required a sign byte in incoming array
 0,0,0,0,0,0,0,// modified to match how hash is calculated in 1.8.2
 0,0,0,0,0,0,0,// retry handling in the rescue block
-0,0,0,1,0,1,1,// We only want IO objects with valid streams (better to error now).
+0,0,0,0,0,0,0,// We only want IO objects with valid streams (better to error now).
 0,0,0,0,0,0,0,// float number of seconds
-0,0,1,0,0,0,0,// If we define a class in Ruby, but later want to allow it to be defined in Java, // the allocator needs to be updated
+0,0,0,0,0,0,0,// If we define a class in Ruby, but later want to allow it to be defined in Java, // the allocator needs to be updated
 0,0,0,0,0,0,0,// We can just use dt, since it is immutable
 0,0,0,0,0,0,0,// For JDK 1.4 we can use "cal.getTimeInMillis()"
 0,0,0,0,0,0,0,// set up with min values and then add to allow rolling over
 0,0,0,0,0,0,0,// Pad with a 0
 0,0,0,0,0,0,0,// MRI accepts additional wday argument which appears to be ignored.
 0,0,0,0,0,0,0,// if we might be moving this time from !DST -> DST, the offset is assumed // to be the same as it was just before we last moved from DST -> !DST
-0,0,1,0,0,0,0,// no bignorm here needed
+0,0,0,0,0,0,0,// no bignorm here needed
 0,0,0,0,0,0,0,// Ignores usec if 8 args (for compatibility with parsedate) or if not supplied.
 0,0,0,0,0,0,0,/* Time class methods */
 0,0,0,0,0,0,0,/* If the value will fit in a Fixnum, return one of those. */
@@ -1812,7 +1812,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// ?<  | boolean | True if the modification time of file1 is prior to that of file2
 0,0,0,0,0,0,0,// Error info is per-thread
 0,0,0,0,0,0,0,// new interrupt, to hopefully wake it out of any blocking IO
-0,0,0,0,0,0,0,// init errorInfo to nil
+0,0,1,0,0,0,0,// init errorInfo to nil
 0,0,0,0,0,0,0,// If this thread is sleeping or stopped, wake it
 0,0,0,0,0,0,0,// JRUBY-2380, associate thread early so it shows up in Thread.list right away, in case it doesn't run immediately
 0,0,0,0,0,0,0,// for Thread::start, which does not call the subclass's initialize
@@ -1874,7 +1874,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// next as regular file
 0,0,0,0,0,0,0,// Do nothing.  FD_CLOEXEC has no meaning in JVM since we cannot really exec. // And why the hell does webrick pass this in as a first argument!!!!!
 0,0,0,0,0,0,0,// dup2 new fd into self to preserve fileno and references to it
-0,0,1,1,1,1,1,// TODO: READ_CHECK from MRI
+0,0,0,1,1,1,1,// TODO: READ_CHECK from MRI
 0,0,0,0,0,0,0,// Not exposed by filetest, but so similiar in nature that it is stored here
 0,0,0,0,0,0,0,// confirm we're not reopening self's channel
 0,0,0,0,0,0,0,// default options
@@ -1894,7 +1894,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//Everything written
 0,0,0,0,0,0,0,// Of course this isn't particularly useful.
 0,0,1,1,1,1,1,// TODO: read into buffer using all the fread logic //        int read = openFile.getMainStream().fread(buffer);
-0,0,1,0,0,0,0,// cleanup, raising errors if any
+0,0,0,0,0,0,0,// cleanup, raising errors if any
 0,0,0,0,0,0,0,//        ByteList buffer = null;
 0,0,0,0,0,0,0,// Length to read
 0,0,0,0,0,0,0,// Do nothing.  FD_CLOEXEC has no meaning in JVM since we cannot really exec.
@@ -1947,14 +1947,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// module/singleton methods are all defined public
 0,0,1,1,0,1,1,// just using required is broken...but no more broken than before zsuper refactoring
 0,0,0,0,0,0,0,// update all hierarchies into which this module has been included
-0,0,1,0,0,0,0,// This method is intended only for defining new modules in Ruby code
+0,0,0,0,0,0,0,// This method is intended only for defining new modules in Ruby code
 0,0,0,0,0,0,0,// need to skip IncludedModuleWrappers
 0,0,0,0,0,0,0,// reopen a java module
 0,0,1,1,1,1,1,// FIXME warning
 0,0,0,0,0,0,0,// reopen a java class
 0,0,1,0,0,0,0,// for zsupers in define_method (blech!) we tell the proc scope to act as the "argument" scope
 0,0,1,1,1,1,1,//FIXME warning
-0,0,0,0,0,0,0,// class and module bodies default to public, so make the block's visibility public. JRUBY-1185.
+0,0,1,0,0,0,0,// class and module bodies default to public, so make the block's visibility public. JRUBY-1185.
 0,0,0,0,0,0,0,// ignore error
 0,0,0,0,0,0,0,// if the insertion point is a class, update subclass lists
 0,0,0,0,0,0,0,// build a list of all modules to consider for inclusion
@@ -1971,7 +1971,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// returns the stored value without processing undefs (autoloads)
 0,0,0,0,0,0,0,// line 723
 0,0,0,0,0,0,0,// MRI has extra pointer which makes our code look a little bit // more strange in // comparison
-0,0,1,0,0,0,0,// Tempory buffer to build up a potential token.  Consumer takes responsibility to reset  // this before use.
+0,0,0,0,0,0,0,// Tempory buffer to build up a potential token.  Consumer takes responsibility to reset  // this before use.
 0,0,0,0,0,0,0,// JRUBY-914: Java 1.4 BigDecimal does not allow a negative scale, so we have to simulate it
 0,0,0,0,0,0,0,// line 691
 0,0,0,0,0,0,0,// removes and returns the stored value without processing undefs (autoloads)
@@ -2215,7 +2215,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// long, slow way causes disabling for defined
 0,0,0,0,0,0,0,// unwrap newline nodes to get their actual type
 0,0,0,0,0,0,0,// splatted when, can't do it yet
-0,0,1,0,0,0,0,// one arg but it's an array, treat it as a proper array
+0,0,0,0,0,0,0,// one arg but it's an array, treat it as a proper array
 0,0,0,0,0,0,0,// otherwise, use normal args compiler
 0,0,0,0,0,0,0,// these are all simple cases that don't require the heavier defined logic
 0,0,0,0,0,0,0,//[RubyClass]
@@ -2478,13 +2478,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Indicate that we are done processing the loop
 0,0,0,0,0,0,0,// ------- Abstract methods without a default implementation -------
 0,0,0,0,0,0,0,// Check if we can optimize this call based on the receiving method and receiver type // Use the simplified receiver!
-0,0,1,0,0,0,0,// Optimize some core class method calls for constant values
+0,0,0,0,0,0,0,// Optimize some core class method calls for constant values
 0,0,0,0,0,0,0,// If the cfg of the method is around, print the CFG!
 0,0,0,0,0,0,0,/* -------------- Public fields and methods below ---------------- */
 0,0,0,0,0,0,0,// If we got a simplified value, mark the call dead and insert a copy in its place!
 0,0,0,0,0,0,0,// Readline
 0,0,0,0,0,0,0,// Dataflow problem with which this node is associated // CFG node for which this node contains info.
-0,0,0,0,0,0,0,// If the call has been optimized away in the previous step, it is no longer a hard boundary for opts!
+0,0,1,0,0,0,0,// If the call has been optimized away in the previous step, it is no longer a hard boundary for opts!
 0,0,0,0,0,0,0,/* --------- Protected fields/methods below --------- */
 0,0,0,0,0,0,0,/* ----------- Public abstract methods ---------- */
 0,0,0,0,0,0,0,// line 574
@@ -2530,7 +2530,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// line 466
 0,0,0,0,0,0,0,// By default, no simplifications!
 0,0,0,0,0,0,0,// line 445
-0,0,0,0,0,0,0,// Can this call lead to ruby code getting modified?   // If we don't know what method we are calling, we assume it can (pessimistic, but safe!) // If we do know the target method, we ask the method itself whether it modifies ruby code
+0,0,1,0,0,0,0,// Can this call lead to ruby code getting modified?   // If we don't know what method we are calling, we assume it can (pessimistic, but safe!) // If we do know the target method, we ask the method itself whether it modifies ruby code
 0,0,0,0,0,0,0,// line 397
 0,0,0,0,0,0,0,// line 345
 0,0,0,0,0,0,0,// line 1571
@@ -2624,7 +2624,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Assemble a [ :name, offset ] array
 0,0,0,0,0,0,0,// Create the ordered list of field names from the map
 0,0,0,0,0,0,0,// line 1550
-0,0,1,0,0,0,0,// No auto cleanup needed
+0,0,0,0,0,0,0,// No auto cleanup needed
 0,0,0,0,0,0,0,// keep a reference to avoid the memory being freed
 0,0,0,0,0,0,0,// line 1299
 0,0,0,0,0,0,0,// line 1477
@@ -2836,7 +2836,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// double first because it's what float claims to be
 0,0,0,0,0,0,0,// end of scoping for closure's vars
 0,0,0,0,0,0,0,// dummy bodies for default impls
-0,0,0,0,0,0,0,// walk all superclasses aggregating interfaces
+0,0,1,0,0,0,0,// walk all superclasses aggregating interfaces
 0,0,0,0,0,0,0,// Look through all mappings to find a match entry for this field
 0,0,0,0,0,0,0,// Hit a non-java proxy class (included Modules can be a cause of this...skip)
 0,0,0,0,0,0,0,// We could not find all of them print out first one (we could print them all?)
@@ -2959,7 +2959,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// if more than 4 locals, get and populate the locals array too
 0,0,0,0,0,0,0,// Create list of interfaces to proxy (and make sure they really are interfaces)
 0,0,0,0,0,0,0,// line 1313
-0,0,0,0,0,0,0,// hashcode is a combination of the interfaces and the Ruby class we're using // to implement them
+0,0,1,0,0,0,0,// hashcode is a combination of the interfaces and the Ruby class we're using // to implement them
 0,0,0,0,0,0,0,// add name to call site list
 0,0,0,0,0,0,0,// generate fixnums initialization code
 0,0,0,0,0,0,0,// normal new class implementing interfaces
@@ -3249,7 +3249,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//Do not add an empty string node
 0,0,0,0,0,0,0,// LOCALVAR
 0,0,0,0,0,0,0,/* MRI: range_op */
-0,0,0,1,1,1,1,// FIXME: DSTR,EVSTR,STR: warning "string literal in condition"
+0,0,1,1,1,1,1,// FIXME: DSTR,EVSTR,STR: warning "string literal in condition"
 0,0,0,0,0,0,0,"/*case SELFNODE:                handleUselessWarn(node, ""self""); return;*/"
 0,0,0,0,0,0,0,// tail must be EvStrNode at this point
 0,0,0,0,0,0,0,// ?d  | boolean | True if file1 exists and is a directory
@@ -3403,13 +3403,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// new instance to invoke run against
 0,0,0,0,0,0,0,// line 2000
 0,0,0,0,0,0,0,// Is this thread currently with in a function trace?
-0,0,0,0,0,0,0,// Is this thread currently doing an defined? defined should set things like $!
+0,0,1,0,0,0,0,// Is this thread currently doing an defined? defined should set things like $!
 0,0,0,0,0,0,0,// line 1972
 0,0,0,0,0,0,0,// line 1942
 0,0,0,0,0,0,0,// line 1963
 0,0,0,0,0,0,0,// framed invokers will have Ruby frames associated with them
 0,0,0,0,0,0,0,// if it's not a rescue or ensure, there's a frame associated, so decrement
-0,0,0,0,0,0,0,// TOPLEVEL self and a few others want a top-level scope.  We create this one right // away and then pass it into top-level parse so it ends up being the top level.
+0,0,1,0,0,0,0,// TOPLEVEL self and a few others want a top-level scope.  We create this one right // away and then pass it into top-level parse so it ends up being the top level.
 0,0,0,0,0,0,0,// File where current executing unit is being evaluated
 0,0,0,0,0,0,0,// Line where current executing unit is being evaluated
 0,0,0,0,0,0,0,//////////////////// CATCH MANAGEMENT ////////////////////////
@@ -3429,7 +3429,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// popen callers wants to be able to read, provide subprocess in directly
 0,0,0,0,0,0,0,// Frame matches one of our markers for "interpreted" calls
 0,0,0,0,0,0,0,// line 1776
-0,0,1,0,0,0,0,// Try to load from classpath without prefix. "A/b.rb" will not load as  // "./A/b.rb" in a jar file.
+0,0,0,0,0,0,0,// Try to load from classpath without prefix. "A/b.rb" will not load as  // "./A/b.rb" in a jar file.
 0,0,0,0,0,0,0,// line 1828
 0,0,0,0,0,0,0,// just push the same empty scope, since we won't use one
 0,0,0,0,0,0,0,// Frame is extraneous runtime information, skip it unless debug
@@ -3438,7 +3438,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//            assert false : "can this happen?";
 0,0,0,0,0,0,0,// binary typed calls
 0,0,0,0,0,0,0,// Highest reserved id
-0,0,0,0,0,0,0,// This should only be called by 1.8 (1.9 subclasses this to handle unusedBlock).
+0,0,1,0,0,0,0,// This should only be called by 1.8 (1.9 subclasses this to handle unusedBlock).
 0,0,1,0,0,0,0,// Not sure if this is actually possible, but better safe than sorry
 0,0,0,0,0,0,0,// line 391
 0,0,0,0,0,0,0,// with block literal (iter)
@@ -3536,7 +3536,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// should invoke seek on realIo
 0,0,0,0,0,0,0,// Remove any relative prefix, e.g. "./foo/bar" becomes "foo/bar".
 0,0,0,0,0,0,0,// hmm...
-0,0,0,0,0,0,0,// allow MainExitException to propagate out for exec and friends
+0,0,1,0,0,0,0,// allow MainExitException to propagate out for exec and friends
 0,0,0,0,0,0,0,// otherwise load the library we've found
 0,0,0,0,0,0,0,// if given path is absolute, just try it as-is (with extensions) and no load path
 0,0,0,0,0,0,0,// if it's a ./ baseName, use CWD logic
@@ -3552,14 +3552,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// otherwise, try to load from classpath (Note: Jar resources always uses '/')
 0,0,0,0,0,0,0,// line 1519
 0,0,0,0,0,0,0,// Make sure this is not a directory or unavailable in some way
-0,0,1,0,0,0,0,// signed short, native
+0,0,0,0,0,0,0,// signed short, native
 0,0,0,0,0,0,0,//            write('S');
 0,0,0,0,0,0,0,// end loop
 0,0,0,0,0,0,0,// flush afer whole dump is complete
 0,0,0,0,0,0,0,// object has instance vars and isn't a class, get a snapshot to be marshalled // and output the ivar header here
 0,0,0,0,0,0,0,/* Directories and unavailable resources are not able to open a stream. */
 0,0,0,0,0,0,0,// line 1433
-0,0,1,0,0,0,0,// object is a custom class that extended one of the native types other than Object
+0,0,0,0,0,0,0,// object is a custom class that extended one of the native types other than Object
 0,0,0,0,0,0,0,/* Only accept an open brace if there is a close */
 0,0,0,0,0,0,0,// call the proc, but not for symbols
 0,0,0,0,0,0,0,// w_unique
@@ -3569,7 +3569,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// line 1381
 0,0,0,0,0,0,0,// sic
 0,0,0,0,1,1,1,// XXX: 0xffff0000 on BE?
-0,0,1,0,0,0,0,// unsigned short, native
+0,0,0,0,0,0,0,// unsigned short, native
 0,0,0,0,0,0,0,// line 1493
 0,0,0,0,0,0,0,// int, native // long, native
 0,0,0,0,0,0,0,// RubySignal
@@ -3620,7 +3620,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// unsigned char
 0,0,0,0,0,0,0,// signed char
 0,0,0,0,0,0,0,// signed short, little-endian
-0,0,1,0,0,0,0,// 64-bit number, native (as fixnum)
+0,0,0,0,0,0,0,// 64-bit number, native (as fixnum)
 0,0,0,0,0,0,0,// Possible Checksum Byte
 0,0,0,0,0,0,0,// unsigned int, native
 0,0,0,0,0,0,0,// int, native

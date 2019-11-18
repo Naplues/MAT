@@ -2,44 +2,44 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  IMPORTANT! For async scenario, we must remove context from current thread, so we always create a new RpcContext for the next invoke for the same thread. 
 1,0,1,1,1,1,1,//  TODO: 2017/8/30 to move somewhere else better 
 1,0,0,1,1,1,1,//  FIXME: now we need to check first, then load 
-1,0,1,1,1,1,1,//  TODO Context.SESSIONS is the best option here? (In jetty 9.x, it becomes ServletContextHandler.SESSIONS) 
-1,0,1,1,1,1,1,//  TODO move names to Constants 
+1,0,0,1,1,1,1,//  TODO Context.SESSIONS is the best option here? (In jetty 9.x, it becomes ServletContextHandler.SESSIONS) 
+1,0,0,1,1,1,1,//  TODO move names to Constants 
 1,0,0,0,0,0,0,// ignore concurrent problem? 
 1,0,0,1,1,1,1,// TODO add this to provider config 
 1,0,0,0,0,0,0,//  special treatment of array values was suggested by 'lizongbo' 
-1,0,1,0,1,1,1,//  TODO we should leave this setting to slf4j 
+1,0,0,1,1,1,1,//  TODO we should leave this setting to slf4j 
 1,0,1,1,1,1,1,//  FIXME: when the thread pool is full, SERVER_THREADPOOL_EXHAUSTED_ERROR cannot return properly,   therefore the consumer side has to wait until gets timeout. This is a temporary solution to prevent   this scenario from happening, but a better solution should be considered later. 
 1,0,0,0,0,0,0,//  The initial value is null and the midway may be assigned to null, please use the local variable reference 
 1,0,1,1,1,1,1,//  FIXME REQUEST_CONTEXT 
 1,0,0,0,0,0,0,// is it possible to go here ? 
 1,0,0,0,0,0,0,//  for example, object transported on the wire doesn't implement Serializable 
 1,0,0,0,0,0,0,// bug: DUBBO-425 
-1,0,0,1,1,1,1,//  FIXME log error message in Codec and handle in caught() of IoHanndler? 
+1,0,1,1,1,1,1,//  FIXME log error message in Codec and handle in caught() of IoHanndler? 
 1,0,1,0,0,0,0,// There may be some problem handling chinese (negative number recognition). Ignoring this problem, the backspace key is only meaningfully input in a real telnet program. 
 1,0,0,0,0,0,0,/*       This UT is unstable, consider remove it later.      @see https://github.com/apache/dubbo/issues/1787      */
 1,0,0,0,0,0,0,//  bug: DUBBO-132 
 1,0,1,0,1,1,1,//  TODO do more sophisticated exception handling and output 
 1,0,1,1,1,1,1,/*  * TODO for now kryo serialization doesn't deny classes that don't implement the serializable interface * * <pre> *     e.g. &lt;dubbo:protocol serialization="kryo" /&gt; * </pre>  */
-1,0,1,0,0,0,0,//  DELIM_START was escaped, thus should not be incremented 
+1,0,0,0,0,0,0,//  DELIM_START was escaped, thus should not be incremented 
 1,0,0,1,1,1,1,//  TODO users can override this mapper, but we just rely on the current priority strategy of resteasy 
 1,0,1,1,1,1,1,// FIXME: waiting for embedded Nacos suport, then we can open the switch. 
 1,0,0,0,1,1,1,// TODO generic invoker？ 
-1,0,0,1,1,1,1,/*      * FIXME, this instance will always be a type of DynamicConfiguration, ConfigCenterConfig will load the instance at startup and assign it to here.      */
+1,0,1,1,1,1,1,/*      * FIXME, this instance will always be a type of DynamicConfiguration, ConfigCenterConfig will load the instance at startup and assign it to here.      */
 1,0,1,1,1,1,1,//  TODO Do not want to use spaces? See: DUBBO-502, URL class handles special conventions for special characters. 
 1,0,0,0,0,0,0,//  should destroy resource? 
-1,1,0,1,1,1,1,//  hack, use reflection to get the shared channel.
-1,0,1,0,1,1,1,//  TODO Notification failure does not restore mechanism guarantee 
+1,1,1,1,1,1,1,//  hack, use reflection to get the shared channel.
+1,0,1,1,1,1,1,//  TODO Notification failure does not restore mechanism guarantee 
 1,0,1,1,1,1,1,// TODO fix npe  context.isProviderSide(); 
-1,0,0,1,1,1,1,// TODO we needs use force writing to file so that buffer gets clear and new log can be written. 
+1,0,0,0,1,1,1,// TODO we needs use force writing to file so that buffer gets clear and new log can be written. 
 1,0,0,0,0,0,0,// Reselect before retry to avoid a change of candidate `invokers`.  NOTE: if `invokers` changed, then `invoked` also lose accuracy. 
 1,0,1,1,1,1,1,/*  * TODO load as SPI will be better?  */
 1,1,1,1,1,1,1,// fixme, reject exception can not be sent to consumer because thread pool is full, resulting in consumers waiting till timeout. 
 1,0,1,1,1,1,1,/*  * TODO refactor using mockito  */
 1,0,0,0,0,0,0,//  generally a client can only be closed once, here it is closed twice, counter is incorrect 
-1,0,1,0,1,1,1,// TODO A temporary solution to the problem that the exception information can not be sent to the opposite end after the thread pool is full. Need a refactoring  fix The thread pool is full, refuses to call, does not return, and causes the consumer to wait for time out 
-1,0,0,1,1,1,1,//  TODO in the future maybe we can just use a single rest client and connection manager 
+1,0,0,1,1,1,1,// TODO A temporary solution to the problem that the exception information can not be sent to the opposite end after the thread pool is full. Need a refactoring  fix The thread pool is full, refuses to call, does not return, and causes the consumer to wait for time out 
+1,0,1,1,1,1,1,//  TODO in the future maybe we can just use a single rest client and connection manager 
 1,0,0,0,0,0,0,//  Caution!! 
-1,0,1,1,1,1,1,// TODO solve merge problem  = Constants.DEFAULT_STUB_EVENT; 
+1,0,0,1,1,1,1,// TODO solve merge problem  = Constants.DEFAULT_STUB_EVENT; 
 1,1,1,1,1,1,1,//  FIXME: a hack to make org.apache.dubbo.remoting.exchange.support.DefaultFuture.closeChannel work 
 1,0,0,0,0,0,0,/*  is the buffer big enough?  */
 1,0,1,0,0,0,0,//  BUG: DUBBO-846 in version 2.0.9, config retry="false" on provider's method doesn't work 
@@ -50,17 +50,17 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO Wrapper cannot handle this scenario correctly: the classname contains '$' 
 1,0,0,0,0,0,0,//  On server side, thrift can not handle exceptions not declared in idl 
 1,0,0,1,1,1,1,// TODO assert error log 
-1,0,1,1,1,1,1,/*  * This class represents an unfinished RPC call, it will hold some context information for this call, for example RpcContext and Invocation, * so that when the call finishes and the result returns, it can guarantee all the contexts being recovered as the same as when the call was made * before any callback is invoked. * <p> * TODO if it's reasonable or even right to keep a reference to Invocation? * <p> * As {@link Result} implements CompletionStage, {@link AsyncRpcResult} allows you to easily build a async filter chain whose status will be * driven entirely by the state of the underlying RPC call. * <p> * AsyncRpcResult does not contain any concrete value (except the underlying value bring by CompletableFuture), consider it as a status transfer node. * {@link #getValue()} and {@link #getException()} are all inherited from {@link Result} interface, implementing them are mainly * for compatibility consideration. Because many legacy {@link Filter} implementation are most possibly to call getValue directly.  */
+1,0,1,0,1,1,1,/*  * This class represents an unfinished RPC call, it will hold some context information for this call, for example RpcContext and Invocation, * so that when the call finishes and the result returns, it can guarantee all the contexts being recovered as the same as when the call was made * before any callback is invoked. * <p> * TODO if it's reasonable or even right to keep a reference to Invocation? * <p> * As {@link Result} implements CompletionStage, {@link AsyncRpcResult} allows you to easily build a async filter chain whose status will be * driven entirely by the state of the underlying RPC call. * <p> * AsyncRpcResult does not contain any concrete value (except the underlying value bring by CompletableFuture), consider it as a status transfer node. * {@link #getValue()} and {@link #getException()} are all inherited from {@link Result} interface, implementing them are mainly * for compatibility consideration. Because many legacy {@link Filter} implementation are most possibly to call getValue directly.  */
 1,0,1,1,1,1,1,//  FIXME should put exception in future? 
 1,0,0,0,0,0,0,//  DUBBO-571 methods key in provider's URLONE doesn't contain the methods from inherited super interface 
 1,0,1,0,1,1,1,/*  * ContextFilterTest.java * TODO need to enhance assertion  */
-1,0,1,1,1,1,1,//  FIXME: this code looks useless 
+1,0,0,1,1,1,1,//  FIXME: this code looks useless 
 1,0,0,1,1,1,1,//  TODO due to dubbo's current architecture,   it will be called from registry protocol in the shutdown process and won't appear in logs 
-1,0,0,1,1,1,1,//  TODO can we load successfully for a different classloader?. 
+1,0,1,1,1,1,1,//  TODO can we load successfully for a different classloader?. 
 1,0,0,0,0,0,0,// The status input has a problem, and the read information is wrong when the serialization is serialized. 
 1,0,1,1,1,1,1,//  FIXME: not sure why AbstractReferenceConfig has both isGeneric and getGeneric 
-1,0,0,1,1,1,1,//  FIXME result is an AsyncRpcResult instance. 
-1,0,0,1,1,1,1,//  FIXME, should cancel and restart timer tasks if parameters in the new URL are different? 
+1,0,1,1,1,1,1,//  FIXME result is an AsyncRpcResult instance. 
+1,0,1,1,1,1,1,//  FIXME, should cancel and restart timer tasks if parameters in the new URL are different? 
 1,0,1,0,1,1,1,/*  * TODO Extract more code here if necessary  */
 1,0,1,1,1,1,1,//  FIXME RMI protocol doesn't support casting to EchoService yet. 
 1,0,0,0,0,0,0,//  dubbo's original impl can't support the use of ServletContext          server.addHandler(servletHandler); 
@@ -72,21 +72,21 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  FIXME: cannot guarantee the sequence of the merge result, check implementation in   MergeableClusterInvoker#invoke 
 1,0,1,1,1,1,1,//  FIXME Is there any need of failing back to Constants.ANY_VALUE or the first available method invokers when invokers is null? 
 1,0,0,1,1,1,1,//  TODO more configs to add 
-1,0,1,0,0,0,0,//  BuG: DUBBO-146 Provider doesn't have exception output, and consumer has timeout error when serialization fails
-1,0,0,1,1,1,1,//  FIXME There's no place to release connectionExecutor! 
+1,0,0,0,0,0,0,//  BuG: DUBBO-146 Provider doesn't have exception output, and consumer has timeout error when serialization fails
+1,0,1,1,1,1,1,//  FIXME There's no place to release connectionExecutor! 
 1,0,1,1,1,1,1,//  TODO: refactor it 
 1,0,0,0,0,0,0,//  If every invoker has the same weight? 
-1,0,1,0,1,1,1,/*  * TODO this may not be a pretty elegant solution, *  */
+1,0,1,1,1,1,1,/*  * TODO this may not be a pretty elegant solution, *  */
 1,0,0,1,1,1,1,//  FIXME log error info in Codec and put all error handle logic in IoHanndler? 
 1,0,0,0,0,0,0,//  can't shutdown nioEventLoopGroup because the method will be invoked when closing one channel but not a client,   but when and how to close the nioEventLoopGroup ?   nioEventLoopGroup.shutdownGracefully(); 
 1,0,1,1,1,1,1,/*  * FIXME: is this really necessary? PropertiesConfiguration should have already covered this: * @see PropertiesConfiguration * @See ConfigUtils#getProperty(String)  */
 1,0,0,1,1,1,1,/*      * the resident routers must being initialized before address notification.     * FIXME: this method should not be public      */
 1,0,0,0,1,1,1,//  TODO there may have duplicate refresh 
 1,1,1,1,1,1,1,// fixme replace this with better method 
-1,0,0,0,1,1,1,//  TODO for now we don't consider the differences of encoding and server limit 
-1,0,0,1,1,1,1,/*      * FIXME check @Parameter(required=true) and any conditions that need to match.      */
+1,0,0,1,1,1,1,//  TODO for now we don't consider the differences of encoding and server limit 
+1,0,1,1,1,1,1,/*      * FIXME check @Parameter(required=true) and any conditions that need to match.      */
 1,0,0,0,0,0,0,/*           RMI needs extra parameter since it uses customized remote invocation object          The customized RemoteInvocation was firstly introduced in v2.6.3; The package was renamed to 'org.apache.*' since v2.7.0          Considering the above two conditions, we need to check before sending customized RemoteInvocation:          1. if the provider version is v2.7.0 or higher, send 'org.apache.dubbo.rpc.protocol.rmi.RmiRemoteInvocation'.          2. if the provider version is v2.6.3 or higher, send 'com.alibaba.dubbo.rpc.protocol.rmi.RmiRemoteInvocation'.          3. if the provider version is lower than v2.6.3, does not use customized RemoteInvocation.          */
-1,0,1,0,1,1,1,//  TODO exist concurrent gap 
+1,0,1,1,1,1,1,//  TODO exist concurrent gap 
 1,0,1,1,1,1,1,//  TODO: 2017/8/31 FIXME The thread pool should be used to refresh the address, otherwise the task may be accumulated. 
 1,0,1,0,1,1,1,/*      * If there's no dynamic tag rule being set, use static tag in URL.     * <p>     * A typical scenario is a Consumer using version 2.7.x calls Providers using version 2.6.x or lower,     * the Consumer should always respect the tag in provider URL regardless of whether a dynamic tag rule has been set to it or not.     * <p>     * TODO, to guarantee consistent behavior of interoperability between 2.6- and 2.7+, this method should has the same logic with the TagRouter in 2.6.x.     *     * @param invokers     * @param url     * @param invocation     * @param <T>     * @return      */
 0,0,0,0,0,0,0,//  Construct using org.apache.dubbo.common.serialize.protobuf.support.MapValue.Map.newBuilder() 
@@ -281,12 +281,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  the sumInvoker1 : sumInvoker2 approximately equal to 1: 9 
 0,0,0,0,0,0,0,//  #5 ReferenceBean (Field Injection #3) 
 0,0,0,0,0,0,0,//  add imported packages 
-0,0,1,1,1,1,1,/*      * <p>Repeat a String {@code repeat} times to form a     * new String, with a String separator injected each time. </p>     *     * <pre>     * StringUtils.repeat(null, null, 2) = null     * StringUtils.repeat(null, "x", 2)  = null     * StringUtils.repeat("", null, 0)   = ""     * StringUtils.repeat("", "", 2)     = ""     * StringUtils.repeat("", "x", 3)    = "xxx"     * StringUtils.repeat("?", ", ", 3)  = "?, ?, ?"     * </pre>     *     * @param str       the String to repeat, may be null     * @param separator the String to inject, may be null     * @param repeat    number of times to repeat str, negative treated as zero     * @return a new String consisting of the original String repeated,     * {@code null} if null String input     * @since 2.5      */
+0,0,0,0,1,1,1,/*      * <p>Repeat a String {@code repeat} times to form a     * new String, with a String separator injected each time. </p>     *     * <pre>     * StringUtils.repeat(null, null, 2) = null     * StringUtils.repeat(null, "x", 2)  = null     * StringUtils.repeat("", null, 0)   = ""     * StringUtils.repeat("", "", 2)     = ""     * StringUtils.repeat("", "x", 3)    = "xxx"     * StringUtils.repeat("?", ", ", 3)  = "?, ?, ?"     * </pre>     *     * @param str       the String to repeat, may be null     * @param separator the String to inject, may be null     * @param repeat    number of times to repeat str, negative treated as zero     * @return a new String consisting of the original String repeated,     * {@code null} if null String input     * @since 2.5      */
 0,0,0,0,0,0,0,//  <ip:port, channel> 
 0,0,0,0,0,0,0,//  init task and start timer. 
 0,0,0,0,0,0,0,//  generic invocation is not local reference 
 0,0,0,0,0,0,0,/*                  *  if we have no interface watcher listener,                 *  find the current listener or create one for the current root, put or get only once.                  */
-0,0,0,0,0,0,0,/*                                                  *  if new interface event arrived, we watch their direct children,                                                 *  eg: /dubbo/interface, /dubbo/interface and so on.                                                  */
+0,0,1,0,0,0,0,/*                                                  *  if new interface event arrived, we watch their direct children,                                                 *  eg: /dubbo/interface, /dubbo/interface and so on.                                                  */
 0,0,0,0,0,0,0,//  check if notify successfully 
 0,0,0,0,0,0,0,//  full list of addresses from registry, classified by method name. 
 0,0,0,0,0,0,0,//  List<U> urls = mockRegistry.getSubscribedUrls(); 
@@ -306,7 +306,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  end construct a NullPointerException with empty stackTrace 
 0,0,0,0,0,0,0,// test multiple unregisters 
 0,0,0,0,0,0,0,//  did not find parameter in URL type 
-0,0,1,1,1,1,1,//  TODO protocol 
+0,0,0,1,1,1,1,//  TODO protocol 
 0,0,0,0,0,0,0,// can't find command 
 0,0,0,0,0,0,0,//  Every invoker has the same weight? 
 0,0,0,0,0,0,0,//  loop up before registry 
@@ -345,7 +345,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  double byte char 
 0,0,0,0,0,0,0,//  Close all invokers 
 0,0,0,0,0,0,0,//  ---- service statistics ----   invocation cost   current concurrent count 
-0,0,1,1,1,1,1,//  FIXME 
+0,0,0,1,1,1,1,//  FIXME 
 0,0,0,0,0,0,0,//  present in local url but not in remote url 
 0,0,0,0,0,0,0,//  From Ancestor 
 0,0,0,0,0,0,0,//  backward compatibility 
@@ -635,7 +635,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  handle array generic type 
 0,0,0,0,0,0,0,//  "java.lang.Object" ==> "Ljava.lang.Object;" 
 0,0,0,0,0,0,0,//  for test content 
-0,0,1,0,1,1,1,//  TODO We only care the changes happened on a specific path level, for example    /dubbo/config/dubbo/configurators, other config changes not in this level will be ignored, 
+0,0,0,0,1,1,1,//  TODO We only care the changes happened on a specific path level, for example    /dubbo/config/dubbo/configurators, other config changes not in this level will be ignored, 
 0,0,0,0,0,0,0,//  just for test 
 0,0,0,0,0,0,0,//  null url 
 0,0,0,0,0,0,0,//  create class 
@@ -695,7 +695,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// java.sql.Time 
 0,0,0,0,0,0,0,//                             rowbuf.append(" ");                          } 
 0,0,0,0,0,0,0,/*  error codes  */
-0,0,0,0,0,0,0,//  NOTE: It should be determined on the business level whether the `When condition` can be empty or not.
+0,0,1,0,0,0,0,//  NOTE: It should be determined on the business level whether the `When condition` can be empty or not.
 0,0,0,0,0,0,0,// ====================================================== 
 0,0,0,0,0,0,0,//         super.destroy(); 
 0,0,0,0,0,0,0,// client can export a service which's only for server to invoke 
@@ -718,7 +718,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  default true 
 0,0,0,0,0,0,0,//  We always return true for previously defined Router, that is, old Router doesn't support cache anymore.          return true; 
 0,0,0,0,0,0,0,//  replace "=" to "," 
-0,0,0,0,0,0,0,//  workerState can be 0 or 2 at this moment - let it always be 2. 
+0,0,1,0,0,0,0,//  workerState can be 0 or 2 at this moment - let it always be 2. 
 0,0,0,0,0,0,0,//  message flag. 
 0,0,0,0,0,0,0,//  get the class def for obj and type 
 0,0,0,0,0,0,0,//             {"delay", "delay", "int", 0, 5, "", "", "", "", ""}, // not boolean 
@@ -809,7 +809,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// key value pair pattern. 
 0,0,0,0,0,0,0,//  all attributes of REFER_KEY 
 0,0,0,0,0,0,0,//  Remove all instances associated with this loader as well 
-0,0,1,0,0,0,0,//  If the server has entered the shutdown process, reject any new connection 
+0,0,0,0,0,0,0,//  If the server has entered the shutdown process, reject any new connection 
 0,0,0,0,0,0,0,//  set timeout status. 
 0,0,0,0,0,0,0,//  From Parent 
 0,0,0,0,0,0,0,//  This urls contain parameter and it donot inherit from the parameter of url in MultipleRegistry 
@@ -871,7 +871,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  must present 4 segments 
 0,0,0,0,0,0,0,//  for CuratorZookeeperClient 
 0,0,0,0,0,0,0,//  do refer 
-0,0,0,0,0,0,0,//  given that repeat(String, int) is quite optimized, better to rely on it than try and splice this into it 
+0,0,0,1,0,1,1,//  given that repeat(String, int) is quite optimized, better to rely on it than try and splice this into it 
 0,0,0,0,0,0,0,//  get URL directly 
 0,0,0,0,0,0,0,//  use 1st key, key1 
 0,0,0,0,0,0,0,//  limit input stream. 
@@ -890,7 +890,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  property of list 
 0,0,0,0,0,0,0,//  export to local if the config is not remote (export to remote only when config is remote) 
 0,0,0,0,0,0,0,//  log output 
-0,0,1,0,0,0,0,/*  * ValidationFilter invoke the validation by finding the right {@link Validator} instance based on the * configured <b>validation</b> attribute value of invoker url before the actual method invocation. * * <pre> *     e.g. &lt;dubbo:method name="save" validation="jvalidation" /&gt; *     In the above configuration a validation has been configured of type jvalidation. On invocation of method <b>save</b> *     dubbo will invoke {@link org.apache.dubbo.validation.support.jvalidation.JValidator} * </pre> * * To add a new type of validation * <pre> *     e.g. &lt;dubbo:method name="save" validation="special" /&gt; *     where "special" is representing a validator for special character. * </pre> * * developer needs to do * <br/> * 1)Implement a SpecialValidation.java class (package name xxx.yyy.zzz) either by implementing {@link Validation} or extending {@link org.apache.dubbo.validation.support.AbstractValidation} <br/> * 2)Implement a SpecialValidator.java class (package name xxx.yyy.zzz) <br/> * 3)Add an entry <b>special</b>=<b>xxx.yyy.zzz.SpecialValidation</b> under <b>META-INF folders org.apache.dubbo.validation.Validation file</b>. * * @see Validation * @see Validator * @see Filter * @see org.apache.dubbo.validation.support.AbstractValidation  */
+0,0,0,0,0,0,0,/*  * ValidationFilter invoke the validation by finding the right {@link Validator} instance based on the * configured <b>validation</b> attribute value of invoker url before the actual method invocation. * * <pre> *     e.g. &lt;dubbo:method name="save" validation="jvalidation" /&gt; *     In the above configuration a validation has been configured of type jvalidation. On invocation of method <b>save</b> *     dubbo will invoke {@link org.apache.dubbo.validation.support.jvalidation.JValidator} * </pre> * * To add a new type of validation * <pre> *     e.g. &lt;dubbo:method name="save" validation="special" /&gt; *     where "special" is representing a validator for special character. * </pre> * * developer needs to do * <br/> * 1)Implement a SpecialValidation.java class (package name xxx.yyy.zzz) either by implementing {@link Validation} or extending {@link org.apache.dubbo.validation.support.AbstractValidation} <br/> * 2)Implement a SpecialValidator.java class (package name xxx.yyy.zzz) <br/> * 3)Add an entry <b>special</b>=<b>xxx.yyy.zzz.SpecialValidation</b> under <b>META-INF folders org.apache.dubbo.validation.Validation file</b>. * * @see Validation * @see Validator * @see Filter * @see org.apache.dubbo.validation.support.AbstractValidation  */
 0,0,0,0,0,0,0,//  do not increment in method beforeExecute! 
 0,0,0,0,0,0,0,//  String property has two setting method.   skip setXXXBytes(com.google.protobuf.ByteString value) 
 0,0,0,0,0,0,0,//         kryo.setReferences(false); 
@@ -911,7 +911,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Wait a while for existing tasks to terminate 
 0,0,0,0,0,0,0,//  check ping & pong at server 
 0,0,0,0,0,0,0,//  Process string to char array for generic invoke   See   - https://github.com/apache/dubbo/issues/2003 
-0,0,0,1,0,1,1,//  if it's a callback, create proxy on client side, callback interface on client side can be invoked through channel   need get URL from channel and env when decode 
+0,0,0,0,0,0,0,//  if it's a callback, create proxy on client side, callback interface on client side can be invoked through channel   need get URL from channel and env when decode 
 0,0,0,0,0,0,0,//  Convert tickDuration to nanos. 
 0,0,0,0,0,0,0,//  getUsers 
 0,0,0,0,0,0,0,//  just add new valid channel to NettyChannel's cache 
@@ -1006,7 +1006,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  split service name to segments   (required) segments[0] = category   (required) segments[1] = serviceInterface   (optional) segments[2] = version   (optional) segments[3] = group 
 0,0,0,0,0,0,0,//  test message header length 
 0,0,0,0,0,0,0,//  cancel refer, directly remove from the map 
-0,0,0,0,0,0,0,//  unlikely but not impossible: read 0 characters, but not at end of stream 
+0,0,1,0,0,0,0,//  unlikely but not impossible: read 0 characters, but not at end of stream 
 0,0,0,0,0,0,0,// stop timer 
 0,0,0,0,0,0,0,//  count up 
 0,0,0,0,0,0,0,//  init notify listener 
@@ -1094,7 +1094,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// excluded = true              {"filter", "service.filter", "string", "default", "-generic", "", "", "", "", ""},  excluded = true              {"listener", "exporter.listener", "string", "default", "-deprecated", "", "", "", "", ""},  {"", "", "", "", "", "", "", "", "", ""}, 
 0,0,0,0,0,0,0,//  backward compatibility for version 2.0.0 
 0,0,0,0,0,0,0,//  print inner separation lines 
-0,0,0,0,0,0,0,/*                                          *  because etcd3 does not support direct children watch events,                                         *  we should filter not interface events. if we watch /dubbo                                         *  and /dubbo/interface, when we put a key-value pair {/dubbo/interface/hello hello},                                         *  we will got events in watching path /dubbo.                                          */
+0,0,1,0,0,0,0,/*                                          *  because etcd3 does not support direct children watch events,                                         *  we should filter not interface events. if we watch /dubbo                                         *  and /dubbo/interface, when we put a key-value pair {/dubbo/interface/hello hello},                                         *  we will got events in watching path /dubbo.                                          */
 0,0,0,0,0,0,0,//  Save OK 
 0,0,0,0,0,0,0,//  return url.getServiceKey(); 
 0,0,0,0,0,0,0,//  Merge the consumer side parameters 
@@ -1205,7 +1205,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  References "ref" property to annotated-@Service Bean 
 0,0,0,0,0,0,0,//  Config center has the highest priority 
 0,0,0,0,0,0,0,//  Must be even 
-0,0,1,0,0,0,0,//  do not touch this method, if you want terminate this stream. 
+0,0,0,0,0,0,0,//  do not touch this method, if you want terminate this stream. 
 0,0,0,0,0,0,0,//  Publish ServiceBeanExportedEvent 
 0,0,0,0,0,0,0,//  client can expose a service for server to invoke only. 
 0,0,0,0,0,0,0,//  Combine filters and listeners on Provider and Consumer 
@@ -1266,7 +1266,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  jcache parameter is the full-qualified class name of SPI implementation 
 0,0,0,0,0,0,0,//  merge - configuration 
 0,0,0,0,0,0,0,// RegistryController.startRegistryIfAbsence(1); 
-0,0,0,1,0,1,1,//  decrease any way 
+0,0,0,0,0,0,0,//  decrease any way 
 0,0,0,0,0,0,0,//  isTypeMatch() is called to avoid duplicate and incorrect update, for example, we have two 'setGeneric' methods in ReferenceConfig. 
 0,0,0,0,0,0,0,// After pushing two provider, the directory state is restored to true 
 0,0,0,0,0,0,0,//  default watch timeout in millisecond 
@@ -1298,7 +1298,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Initially disable 
 0,0,0,0,0,0,0,//  all processed 
 0,0,0,0,0,0,0,// callback 
-0,0,1,1,1,1,1,// TODO SoftReference 
+0,0,0,1,1,1,1,// TODO SoftReference 
 0,0,0,0,0,0,0,//  required 
 0,0,0,0,0,0,0,// If the telnet data and request data are in the same data packet, we should guarantee that the receipt of request data won't be affected by the factor that telnet does not have an end characters. 
 0,0,0,0,0,0,0,//  Reset the active number of the current invoker to the least active number 
@@ -1313,7 +1313,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  export service. 
 0,0,0,0,0,0,0,//  The name of bean annotated @Service 
 0,0,0,0,0,0,0,//     private final boolean isCallBack;      private final boolean isFuture; 
-0,0,0,1,1,1,1,/*      * This is used to convert a configuration nodePath into a key     * TODO doc     *     * @param path     * @return key (nodePath less the config root path)      */
+0,0,1,1,1,1,1,/*      * This is used to convert a configuration nodePath into a key     * TODO doc     *     * @param path     * @return key (nodePath less the config root path)      */
 0,0,0,0,0,0,0,//  If current invoker's active value equals with leaseActive, then accumulating. 
 0,0,0,0,0,0,0,//  ~ 
 0,0,0,0,0,0,0,//  local injvm and registry protocol, so expected is 2 

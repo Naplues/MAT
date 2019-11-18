@@ -30,10 +30,12 @@ public class Settings {
 */
             "Dubbo",
             "Gradle",
+            "Groovy",
             "Maven",
             "SpringFramework",
             "Storm",
-            "Zookeeper"
+            "Tomcat",
+            "Zookeeper",
     };
 
 

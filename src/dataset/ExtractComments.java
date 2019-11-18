@@ -27,7 +27,7 @@ public class ExtractComments {
     // ---- Comment
     // ---- ---- Proj1.csv
     // ---- ---- Proj2.csv
-    // C:\Users\GZQ\Desktop\SATD\Dataset\
+    // Default rootPath C:\Users\GZQ\Desktop\SATD\Dataset\
     // The file path of the program
     public static String rootPath = "C:\\Users\\GZQ\\Desktop\\SATD\\Dataset\\";
     // This directory stores the git repository of all projects. There is a subdirectory for each project.
@@ -75,6 +75,10 @@ public class ExtractComments {
      * @param args args
      */
     public static void main(String[] args) {
+        System.out.println("Starting: ");
+        // Delete existing folders
+        //preProcess(projectFolder);
+        //preProcess(commentFolder);
 
         // 1. Extract Java files from Git repository
         //extractJavaFile();
@@ -85,11 +89,11 @@ public class ExtractComments {
 
         // 4. Ranking the result according to Labels !!! Only run once
         rankingComments();
-        exportDataset();
 
         // 5. Manually check the labels
 
         // 6. Output the dataset
+        exportDataset();
 
     }
 
@@ -102,12 +106,13 @@ public class ExtractComments {
      * 提取所有项目文件,把项目源码文件提取到一个统一的项目路径下
      */
     public static void extractJavaFile() {
-        preProcess(ExtractComments.projectFolder);
         File projectRootFile = new File(gitrepoFolder);
         File[] projectArray = projectRootFile.listFiles();
+
         if (projectArray != null) {
             for (int i = 0; i < projectArray.length; i++) {
                 //单个项目源码文件的路径
+                System.out.println(projectArray[i].getName());
                 String eachProjectDstPath = projectFolder + File.separator + projectArray[i].getName();
                 preProcess(eachProjectDstPath);
                 // extract java file
@@ -197,8 +202,15 @@ public class ExtractComments {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+    /**
+     * Extracting and filtering comments according to five heuristics
+     * Heuristics 1: License comments
+     * Heuristics 2: Long comments
+     * Heuristics 3: Commented source codes
+     * Heuristics 4: Automatically generated comments
+     * Heuristics 5: Java Doc Comments
+     */
     public static void extractComments() {
-        preProcess(commentFolder);
         File[] projects = new File(projectFolder).listFiles();
         if (projects == null) return;
         int allNumber = 0;
@@ -227,6 +239,7 @@ public class ExtractComments {
                         if (comment.getContent().contains("Auto-generated constructor stub")
                                 || comment.getContent().contains("Auto-generated method stub")
                                 || comment.getContent().contains("Auto-generated catch block")
+                            // || comment.getContent().contains("(non-Javadoc)")
                         ) continue;
 
                         ///////////////////////////////////////////////// Processing Line Comment //////////////////////
@@ -281,7 +294,7 @@ public class ExtractComments {
             StringBuilder text = new StringBuilder("Label, Type, Content\n"); //"Label, Type, Content\n"
             int afterFiltering = 0;
             for (String line : duplicatedComments) {
-                if (line.trim().equals("//") || line.trim().equals("")) continue;
+                if (line.trim().equals(", Line, //") || line.trim().equals("")) continue;
                 text.append(", ").append(line).append("\n");
                 afterFiltering++;
             }

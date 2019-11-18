@@ -15,7 +15,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// in milli-seconds // TODO: properties?
 1,0,1,1,1,1,1,//TODO - move to JOrphanUtils?
 1,0,1,0,0,0,0,// N.B. Needs to implement Visualizer so that TestBeanGUI can find the correct GUI class
-1,0,0,1,0,1,1,// Can be null (not sure why)
+1,0,0,0,0,0,0,// Can be null (not sure why)
 1,0,1,1,1,1,1,//TODO implement other non-text types
 1,0,1,1,1,1,1,// TODO this is not populated currently
 1,0,1,1,1,1,1,// N.B. Needs to implement Visualizer so that TestBeanGUI can find the correct GUI class // TODO - remove UnsharedComponent ? Probably does not make sense for a TestBean.
@@ -44,13 +44,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO work out how to search the XML pane
 1,0,1,1,1,1,1,// TODO is this sensible?
 1,0,0,0,0,0,0,// Should we return fragment as text, rather than text of fragment?
-1,0,1,1,0,1,1,"/*         * Not clear what can cause this ? conflicting versions perhaps         */"
+1,0,0,0,0,0,0,"/*         * Not clear what can cause this ? conflicting versions perhaps         */"
 1,0,1,1,1,1,1,//TODO replace with proper Exception // return with an error
 1,0,0,1,1,1,1,//TODO: validate contentType for reasonable types?
 1,0,0,1,1,1,1,"/*     * Mask values for TEST_TYPE TODO: remove either MATCH or CONTAINS - they     * are mutually exckusive     */"
 1,0,1,1,1,1,1,// TODO ought to be a FileChooser ...
 1,0,0,0,0,0,0,// Allow JMeter to render frames (and relative images) // Must be done after setContentType [Why?]
-1,0,0,1,1,1,1,// TODO - is this used? (apart from test code)
+1,0,1,0,1,1,1,// TODO - is this used? (apart from test code)
 1,0,1,1,1,1,1,// TODO: should this be clearData()?
 1,0,1,1,1,1,1,"/**     * Provide a description of this timer class.     *     * TODO: Is this ever used? I can't remember where. Remove if it isn't --     * TODO: or obtain text from bean's displayName or shortDescription.     *     * @return the description of this timer class.     */"
 1,0,1,1,1,1,1,"/*             * Provide dummy implementations to suppress download and display of             * related resources: - FRAMEs - IMAGEs TODO create better dummy             * displays TODO suppress LINK somehow             */"
@@ -63,22 +63,22 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// Hack to resolve ModuleControllers in non GUI mode
 1,0,1,1,1,1,1,// add a system property so samplers can check to see if JMeter // is running in NonGui mode // $NON-NLS-1$ // TODO - why does it create a new instance?
 1,0,0,0,0,0,0,// Should we run a beanshell script on startup? // $NON-NLS-1$
-1,1,0,0,1,1,1,"/*         * A little hack - add each listener to the start of the list - this         * ensures that the thread running the show is the first listener and         * can modify certain values before other listeners are called.         */"
+1,1,1,0,1,1,1,"/*         * A little hack - add each listener to the start of the list - this         * ensures that the thread running the show is the first listener and         * can modify certain values before other listeners are called.         */"
 1,0,1,1,1,1,1,// TODO: move this to components -- the only reason why it's in core is because // it's used as a guinea pig by a couple of tests.
-1,0,1,1,1,1,1,// TODO this bit of code needs to be tidied up // Unfortunately ModuleController is in components, not core // Bug 47165
+1,0,0,1,1,1,1,// TODO this bit of code needs to be tidied up // Unfortunately ModuleController is in components, not core // Bug 47165
 1,0,1,1,1,1,1,// TODO: This class looks a lot like ArgumentsPanel. What exactly is the // difference? Could they be combined? // Note: it seems that this class is not actually used ...
 1,0,1,1,1,1,1,// TODO does not appear to be used
 1,0,1,1,1,1,1,"/*         * Ensure that the sample variables are correctly initialised for each run.         * TODO is this the best way to do this? should it be done elsewhere ?         */"
 1,0,0,0,0,0,0,"/*             * Add fix for Deadlocks, see:             *              * See https://issues.apache.org/bugzilla/show_bug.cgi?id=48350            */"
 1,0,1,1,1,1,1,// Hack to allow external control
 1,0,0,1,1,1,1,// TODO - why use space?
-1,0,1,1,1,1,1,// TODO should this also clear isDynamic, rawParameters, permanentResults?
-1,0,1,1,1,1,1,// TODO should level be more than debug ?
+1,0,0,1,1,1,1,// TODO should this also clear isDynamic, rawParameters, permanentResults?
+1,0,0,1,1,1,1,// TODO should level be more than debug ?
 1,0,1,0,0,0,0,// This is effectively the same as saver.toXML(Object, Writer) except we get to provide the DataHolder // Don't know why there is no method for this in the XStream class
 1,0,1,1,1,1,1,// TODO fix up for Nimbus LAF
 1,0,1,1,1,1,1,"/** * FIXME Why is searchTF not getting focus correctly after having been setVisible(false) once */"
 1,0,1,1,1,1,1,// MenuBar related methods // TODO: Do we really need to have all these menubar methods duplicated // here? Perhaps we can make the menu bar accessible through GuiPackage?
-1,0,0,1,1,1,1,// Hack to get full modifier value
+1,0,1,1,1,1,1,// Hack to get full modifier value
 1,0,1,1,1,1,1,"/*     * TODO consider removing this method, and providing method wrappers instead.     * This would allow the Gui package to do any additional clearups if required,     * as has been done with clearTestPlan()    */"
 1,0,0,0,0,0,0,//Maybe do nothing at all?
 1,0,0,0,0,0,0,"/*     * NOTUSED private void initButtonMap() { }     */"
@@ -90,7 +90,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// not used
 1,0,1,1,1,1,1,// TODO - perhaps save other items such as headers?
 1,0,1,1,1,1,1,// TODO should class implement SampleListener?
-1,0,1,0,1,1,1,// Settings; readResolve sets these from the server/client values as appropriate // TODO would be nice to make these final; not 100% sure volatile is needed as not changed after creation
+1,0,1,1,1,1,1,// Settings; readResolve sets these from the server/client values as appropriate // TODO would be nice to make these final; not 100% sure volatile is needed as not changed after creation
 1,0,0,0,0,0,0,// should the samples be aggregated on thread name or thread group (default) ?
 1,0,0,0,0,0,0,// Make it easier to enter a tab (can use \<tab> but that is awkward)
 1,0,1,1,1,1,1,// TODO turn into method?
@@ -99,13 +99,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//TODO clazz is probably always the same as testclass
 1,0,1,1,1,1,1,// TODO - should this be restored?
 1,0,1,1,1,1,1,//TODO provide proper name?
-1,0,1,1,1,1,1,// TODO: does it matter that an empty line will terminate the loop? // CSV output files should never contain empty lines, so probably // not // If so, then need to check whether the reader is at EOF
+1,0,0,0,1,1,1,// TODO: does it matter that an empty line will terminate the loop? // CSV output files should never contain empty lines, so probably // not // If so, then need to check whether the reader is at EOF
 1,0,0,1,1,1,1,"/*     * TODO - convert to work more like upgrade.properties/NameUpdater.java     *     * Special processing is carried out for the Header Class The String     * property TestElement.name is converted to Header.name for example:     * <elementProp name=""User-Agent""     * elementType=""org.apache.jmeter.protocol.http.control.Header""> <stringProp     * name=""Header.value"">Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29</stringProp>     * <stringProp name=""TestElement.name"">User-Agent</stringProp>     * </elementProp> becomes <elementProp name=""User-Agent""     * elementType=""org.apache.jmeter.protocol.http.control.Header""> <stringProp     * name=""Header.value"">Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29</stringProp>     * <stringProp name=""Header.name"">User-Agent</stringProp> </elementProp>     */"
 1,1,1,1,1,1,1,"/*     * These must be set before reading/writing the XML. Rather a hack, but     * saves changing all the method calls to include an extra variable.     *     * AFAIK the variables should only be accessed from one thread, so no need to synchronize.     */"
 1,0,1,1,1,1,1,// TODO: should this be restored?
 1,0,1,1,1,1,1,// TODO: not used - make private?
 1,0,1,1,1,1,1,// TODO appears to duplicate the threadName field in SampleResult
-1,0,1,0,0,0,0,// Yuck: TIFFImageEncoder uses Error to report runtime problems
+1,0,0,0,0,0,0,// Yuck: TIFFImageEncoder uses Error to report runtime problems
 1,0,0,0,0,0,0,// a check, just in case:
 1,0,1,1,1,1,1,// TODO is this the right thing to do?
 1,0,1,1,1,1,1,// results.setResponseCode("???"); TODO what code should be set here?
@@ -116,7 +116,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,// I guess this can happen as a result of a bad // file read? In this case, it would be better to replace the // incorrect value with anything valid, e.g. the default value // for the property. // But for the time being, I just prefer to be aware of any // problems occuring here, most likely programming errors, // so I'll bail out. // (MS Note) Can't bail out - newly create elements have blank // values and must get the defaults. // Also, when loading previous versions of jmeter test scripts, // some values // may not be right, and should get default values - MS // TODO: review this and possibly change to:
 1,0,0,1,1,1,1,// TODO does not work yet; need to determine the sample type
 1,0,0,0,0,0,0,// Temporary fix to allow default protocol to be changed
-1,0,0,1,1,1,1,//TODO consider using private logs for each derived class
+1,0,1,1,1,1,1,//TODO consider using private logs for each derived class
 1,0,0,0,0,0,0,// Does not appear to be used yet
 1,0,0,0,0,0,0,// Remember to change this when the class changes ...
 1,1,1,1,1,1,1,// TODO temporary hack to avoid unnecessary bug reports for subclasses
@@ -124,14 +124,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO Is this silent exception intended
 1,0,1,1,1,1,1,"/*     * The following variables are set by StandardJMeterEngine.     * This is done before start() is called, so the values will be published to the thread safely     * TODO - consider passing them to the constructor, so that they can be made final     * (to avoid adding lots of parameters, perhaps have a parameter wrapper object.     */"
 1,0,1,1,1,1,1,// TODO should this set the thread names for all the subsamples? // might be more efficient than fetching the name elsewehere
-1,0,1,0,0,0,0,"/*         * Setting SamplingStarted before the contollers are initialised allows         * them to access the running values of functions and variables (however         * it does not seem to help with the listeners)         */"
+1,0,0,0,0,0,0,"/*         * Setting SamplingStarted before the contollers are initialised allows         * them to access the running values of functions and variables (however         * it does not seem to help with the listeners)         */"
 1,0,1,1,1,1,1,// TODO: remove this useless Entry parameter
 1,0,1,1,1,1,1,// TODO fix this when there is a real implementation
 1,0,0,1,1,1,1,// TODO only clear the relevant entry - if possible...
 1,0,0,0,0,0,0,// Surely this is always null in the constructor?
 1,0,1,1,1,1,1,// TODO why not use the super class value?
-1,0,0,1,1,1,1,// TODO - does not appear to be called directly
-1,0,1,1,1,1,1,"/** * Custom TrustManager ignores all certificate errors * * TODO: implement conditional checking and logging * * (Derived from AuthSSLX509TrustManager in HttpClient contrib directory) */"
+1,0,1,1,1,1,1,// TODO - does not appear to be called directly
+1,0,0,0,1,1,1,"/** * Custom TrustManager ignores all certificate errors * * TODO: implement conditional checking and logging * * (Derived from AuthSSLX509TrustManager in HttpClient contrib directory) */"
 1,0,1,1,1,1,1,// Maps to contain page and form encodings // TODO - do these really need to be shared between all Proxy instances?
 1,0,0,0,0,0,0,// NOTE: Source and line arguments are nonsense in a call(). //       Any way to make these arguments *sensible?
 1,0,0,0,0,0,0,// Is it an exception wrapped in a JavaScriptException?
@@ -156,13 +156,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO improve the error handling
 1,0,0,1,1,1,1,"/**     * Add logTargets to root logger     * FIXME What's the clean way to add a LogTarget afterwards ?     * @param logTargets LogTarget array     */"
 1,1,1,1,1,1,1,// hack to reduce the need to load every class in non-GUI mode, which only needs functions // TODO perhaps use BCEL to scan class files instead? // class name should contain this string // class name should not contain this string
-1,0,1,1,1,1,1,"/*             * TODO: Exact ordering is only required for some tests; change the             * comparison to do a set compare where necessary.             */"
+1,0,0,1,1,1,1,"/*             * TODO: Exact ordering is only required for some tests; change the             * comparison to do a set compare where necessary.             */"
 1,0,1,1,1,1,1,// TODO field always true, what for ?
 1,0,1,1,1,1,1,// TODO - improve this check
 1,0,1,1,1,1,1,// TODO - could this be return?
 1,0,0,0,0,0,0,//very wrong.
 1,0,1,1,1,1,1,// TODO - should this be a failure?
-1,0,1,1,1,1,1,"/*     * Wrapper to convert a JUnit4 class into a TestCase     *     *  TODO - work out how to convert JUnit4 assertions so they are treated as failures rather than errors     */"
+1,0,0,1,1,1,1,"/*     * Wrapper to convert a JUnit4 class into a TestCase     *     *  TODO - work out how to convert JUnit4 assertions so they are treated as failures rather than errors     */"
 1,0,1,1,1,1,1,// TODO should really return most specific (i.e. longest) match.
 1,0,1,1,1,1,1,// TODO - should this be done for embedded usage? // Note: the element is a ConfigTestElement when used standalone, so we cannot use FTPSampler access methods
 1,0,0,0,1,1,1,// TODO: replace all this url2 mess with a proper method // "areEquivalent(url1, url2)" that // would also ignore case in protocol and host names, etc. -- use that // method in the CookieManager too.
@@ -175,9 +175,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/*         * TODO improve string version to better match browser behaviour? e.g.         * do browsers regard http://host/ and http://Host:80/ as the same? If         * so, it would be better to reflect this in the string         */"
 1,0,0,1,0,1,1,// Code also allows for LF only (not sure why - perhaps because the test code uses it?)
 1,0,1,1,1,1,1,// TODO: find a way to avoid the cost of creating a String here -- // probably a new PatternMatcherInput working on a byte[] would do // better.
-1,0,1,1,1,1,1,// TODO should setBaseForScript be called here rather than above?
+1,0,0,1,1,1,1,// TODO should setBaseForScript be called here rather than above?
 1,0,1,0,1,1,1,// Java 1.6.0_22+ no longer allows Content-Length to be set, so don't check it. // See: http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6996110 // TODO any point in checking the other headers?
-1,0,0,1,1,1,1,// SampleEvent is not passed JMeterVariables, because they don't make sense for Proxy Recording // TODO - is this the correct threadgroup name?
+1,0,1,1,1,1,1,// SampleEvent is not passed JMeterVariables, because they don't make sense for Proxy Recording // TODO - is this the correct threadgroup name?
 1,0,1,1,1,1,1,// TODO needs cleaning up
 1,0,1,1,1,1,1,// $NON-NLS-1$ TODO should this be a variable?
 1,0,1,1,1,1,1,// TODO replace repeated substr() above and below with more efficient method.
@@ -190,9 +190,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// Could we drop the Sync here?
 1,0,0,1,1,1,1,// TODO - should LF-only EOL be allowed?
 1,0,1,1,1,1,1,// DirContext dc = //TODO perhaps return this?
-1,0,1,1,1,1,1,// $NON-NLS-1$ // TODO - change to use URL version? Will this affect test plans?
+1,0,1,0,1,1,1,// $NON-NLS-1$ // TODO - change to use URL version? Will this affect test plans?
 1,0,1,1,1,1,1,// TODO specify collection type without breaking callers
-1,0,1,1,1,1,1,// TODO - can this eever happen?
+1,0,0,1,1,1,1,// TODO - can this eever happen?
 1,0,1,0,1,1,1,// All form parameter always have text/plain as mime type //TODO make this a parameter?
 1,0,1,1,1,1,1,// $NON-NLS-1$ // TODO can this be obtained from the file somehow?
 1,0,0,0,0,0,0,// Does not appear to be used
@@ -207,20 +207,20 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: make static?
 1,0,1,1,1,1,1,// Hack to allow entire URL to be provided in host field
 1,0,0,0,1,1,1,// TODO Should this be OK ? //assertEquals(contentEncoding, s.getContentEncoding()); // Check arguments // We should have one argument, with the value equal to the post body
-1,0,0,1,1,1,1,// TODO downcase UPPER case non-final variables
+1,0,1,1,1,1,1,// TODO downcase UPPER case non-final variables
 1,0,1,1,1,1,1,// TODO - belongs elsewhere
 1,0,1,1,1,1,1,// TODO can this happen?
-1,0,0,0,1,1,1,// TODO needed here because currently done on sample completion in JMeterThread, // but that only catches top-level samples.
+1,0,0,1,1,1,1,// TODO needed here because currently done on sample completion in JMeterThread, // but that only catches top-level samples.
 1,0,1,1,1,1,1,// TODO : This is a bit fragile
 1,0,1,0,1,1,1,// TODO is this correct? // If this is not the first file we can't write its header now // for simplicity we always save it, even if there is only one file
 1,0,1,1,1,1,1,// TODO - should this return something else?
 1,1,1,1,1,1,1,// Don't allow override of Content-Length // This helps with SoapSampler hack too // TODO - what other headers are not allowed?
 1,0,1,1,1,1,1,//$NON-NLS-1$ TODO should this be variable?
-1,0,1,1,1,1,1,// TODO - is this the correct default?
+1,0,0,1,1,1,1,// TODO - is this the correct default?
 1,0,0,1,1,1,1,// TODO do we need to add a charset for the file contents? // $NON-NLS-1$
-1,0,0,0,1,1,1,// TODO merge put and post methods as far as possible. // e.g. post checks for multipart form/files, and if not, invokes sendData(HttpEntityEnclosingRequestBase)
+1,0,1,0,1,1,1,// TODO merge put and post methods as far as possible. // e.g. post checks for multipart form/files, and if not, invokes sendData(HttpEntityEnclosingRequestBase)
 1,0,1,1,1,1,1,// Get the content length, it tells us how much data to read // TODO : Maybe support chunked encoding, then we cannot rely on content length
-1,0,1,1,1,1,1,// TODO: is this the correct default?
+1,0,0,1,1,1,1,// TODO: is this the correct default?
 1,0,1,1,1,1,1,// TODO should we allow mimetype only?
 1,0,1,0,1,1,1,"/*     * TODO should these fields be public?     * They don't appear to be used externally.     *      * Also, are they any different from HTTPConstants.GET etc. ?     * In some cases they seem to be used as the method name from the Tomcat log.     * However the RMETHOD field is used as the value for HTTPSamplerBase.METHOD,     * for which HTTPConstants is most approriate.     */"
 1,0,1,1,1,1,1,// NOTUSED org.apache.jmeter.monitor.model.Status st = // TODO - charset?
@@ -234,14 +234,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// TODO set different status if not enough messages found?
 1,0,1,1,1,1,1,"/** * FIXME BROKEN CODE */"
 1,0,0,0,0,0,0,// NOTUSED private String chosenFile;
-1,0,1,0,1,1,1,"/* * Find all beans out there and check their resource property files: - Check * that non-default property files don't have any extra keys. - Check all * necessary properties are defined at least in the default property file, * except for beans whose name contains ""Experimental"" or ""Alpha"".  *  * TODO: - Check property files don't have duplicate keys (is this important) *  */"
+1,0,0,0,1,1,1,"/* * Find all beans out there and check their resource property files: - Check * that non-default property files don't have any extra keys. - Check all * necessary properties are defined at least in the default property file, * except for beans whose name contains ""Experimental"" or ""Alpha"".  *  * TODO: - Check property files don't have duplicate keys (is this important) *  */"
 1,0,1,1,0,1,1,// This could perhaps be a variable name
 1,0,0,0,0,0,0,// Should we add the "_" separator?
 1,0,1,1,1,1,1,// TODO - should we skip processing here?
 1,0,1,1,1,1,1,//TODO add some real tests now that split() has been removed
-1,0,0,0,0,0,0,// NOT USED transient protected ThreadGroup THREADGROUP = null; // Anyway, was this supposed to be the class from java.lang, or // jmeter.threads?
+1,0,1,0,0,0,0,// NOT USED transient protected ThreadGroup THREADGROUP = null; // Anyway, was this supposed to be the class from java.lang, or // jmeter.threads?
 1,0,0,0,0,0,0,// all the others could be private too?
-1,0,1,1,1,1,1,// TODO can this ever happen?
+1,0,0,1,1,1,1,// TODO can this ever happen?
 1,0,0,1,1,1,1,// TODO fetch list of languages from a file? // N.B. Changes to language list need to be reflected in // resources/PackageTest.java
 1,0,1,1,1,1,1,//TODO: move to utils class (JMeterUtils?)
 1,0,1,1,1,1,1,// TODO: do we need to implement any kind of connection pooling? // If so, which connections should be shared? // Should threads share connections to the same destination? // What about cross-thread sharing?
@@ -254,11 +254,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// How many classes can we assign from? // TODO: there must be a nicer way...
 1,0,0,0,0,0,0,// Should the TestBean be hidden?
 1,0,1,1,1,1,1,// TODO - why lower case? OK to use the default Locale?
-1,1,0,1,1,1,1,//A hack to make user-defined variables in the testplan element more dynamic
+1,1,1,1,1,1,1,//A hack to make user-defined variables in the testplan element more dynamic
 1,0,1,1,1,1,1,// HACK: force the controller to load its tree
 1,0,0,0,0,0,0,// It might be useful also to make this available in the 'Request' tab, for // when posting JSON.
 1,0,0,0,0,0,0,// should header be saved with the data? //$NON-NLS-1$
-1,0,0,1,1,1,1,// Showing large strings can be VERY costly, so we will avoid // doing so if the response // data is larger than 200K. TODO: instead, we could delay doing // the result.setText // call until the user chooses the "Response data" tab. Plus we // could warn the user // if this happens and revert the choice if he doesn't confirm // he's ready to wait.
+1,0,1,0,1,1,1,// Showing large strings can be VERY costly, so we will avoid // doing so if the response // data is larger than 200K. TODO: instead, we could delay doing // the result.setText // call until the user chooses the "Response data" tab. Plus we // could warn the user // if this happens and revert the choice if he doesn't confirm // he's ready to wait.
 1,0,1,1,1,1,1,// TODO strings should be resources
 1,0,0,1,1,1,1,// result.setError(true); // TODO is this the correct strategy? // throw exception; // allow assertion to pass
 1,0,1,0,0,0,0,// Why does this not call guiInstance.clearTestPlan() ? // Is there a reason for not clearing everything?
@@ -268,17 +268,17 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: fetch this once as per vars above?
 1,0,1,1,1,1,1,// TODO: add and delete not currently supported // $NON-NLS-1$
 1,0,0,0,0,0,0,// Fix path to allow the use of UNC URLs
-1,0,1,1,1,1,1,// TODO should this use setDone()? // TODO should this use setFirst()?
+1,0,0,1,1,1,1,// TODO should this use setDone()? // TODO should this use setFirst()?
 1,0,1,1,1,1,1,// Set the overall status for the transaction sample // TODO: improve, e.g. by adding counts to the SampleResult class
 1,0,0,0,0,0,0,// Should we exit at end of the test? (only applies to server, because host is non-null)
 1,0,0,0,0,0,0,"/*         * Have we reached the reporting boundary?         * Need to allow for a margin of error, otherwise can miss the slot.         * Also need to check we've not hit the window already         */"
 1,0,0,1,1,1,1,// TODO save hostname; save sample type (plain or http)
-1,0,1,0,1,1,1,// Allow the mimetype of the file to control the content type // This is not obvious in GUI if you are not uploading any files, // but just sending the content of nameless parameters // TODO: needs a multiple file upload scenerio
+1,0,0,0,1,1,1,// Allow the mimetype of the file to control the content type // This is not obvious in GUI if you are not uploading any files, // but just sending the content of nameless parameters // TODO: needs a multiple file upload scenerio
 1,0,0,0,0,0,0,// REMIND: convert arg list Vectors here?
 1,0,1,0,1,1,1,// It is chunked transfer encoding, which we do not really support yet. // So we just read without blocking, because we do not know when to // stop reading, so we cannot block // TODO propery implement support for chunked transfer, i.e. to // know when we have read the whole request, and therefore allow // the reading to block
 1,0,1,1,1,1,1,// TODO handle filenames
 1,0,0,0,0,0,0,// not yet handled
-1,0,1,0,1,1,1,// TODO - should check that error has been logged...
+1,0,1,1,1,1,1,// TODO - should check that error has been logged...
 1,0,1,0,1,1,1,// Don't allow override of Content-Length // TODO - what other headers are not allowed?
 1,0,1,1,1,1,1,// TODO ? perhaps note connection so it can be disconnected at end of test?
 0,0,0,0,0,0,0,// Check request headers
@@ -289,7 +289,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// return with an error
 0,0,0,0,0,0,0,"/*     * Low-level (recursive) routine to define the method - if not already defined.     * Synchronized to protect access to methodToInvoke.     */"
 0,0,0,0,0,0,0,// regular expression used to match against embedded resource URLs
-0,0,1,0,0,0,0,// Don't save this - only needed for processing CSV headers currently
+0,0,0,0,0,0,0,// Don't save this - only needed for processing CSV headers currently
 0,0,0,0,0,0,0,// flush
 0,0,0,0,0,0,0,"/*     * Test method for 'org.apache.jmeter.protocol.http.sampler.postWriter.setHeaders(URLConnection, HTTPSampler)'     */"
 0,0,0,0,0,0,0,// OPTIONAL TASKS
@@ -297,14 +297,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// flag - if all machines within a given domain can access the variable. //(from http://www.cookiecentral.com/faq/ 3.5)
 0,0,0,0,0,0,0,///////////////// End of standard field accessors /////////////////////
 0,0,0,0,0,0,0,"/*         * Run tidy.         */"
-0,0,0,0,0,0,0,// Get appropriate sender class governed by the behaviour set in the JMeter property
+0,0,1,0,0,0,0,// Get appropriate sender class governed by the behaviour set in the JMeter property
 0,0,0,0,0,0,0,// Column numbers - must agree with order above
 0,0,0,0,0,0,0,// We don't want this passed on to browser
 0,0,0,0,0,0,0,// return with no error
 0,0,0,0,0,0,0,// Fix the content length
 0,0,0,0,0,0,0,// only http and https are supported
 0,0,0,0,0,0,0,// Obtain another URL with an explicit port:
-0,0,1,0,0,0,0,"/*     * Constructor is initially called once for each occurrence in the test plan     * For GUI, several more instances are created Then clear is called at start     * of test Called several times during test startup The name will not     * necessarily have been set at this point.     */"
+0,0,0,0,0,0,0,"/*     * Constructor is initially called once for each occurrence in the test plan     * For GUI, several more instances are created Then clear is called at start     * of test Called several times during test startup The name will not     * necessarily have been set at this point.     */"
 0,0,0,0,0,0,0,// write output to file
 0,0,0,0,0,0,0,"/*     * For use by SaveService only.     *     * @param stamp -     *            this may be a start time or an end time     * @param elapsed     */"
 0,0,0,0,0,0,0,// this should never happen // anyway, we'll continue with url2 set to null.
@@ -343,7 +343,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * (non-Javadoc) A new instance is created for each thread group, and the     * clone() method is then called to create copies for each thread in a     * thread group. This means that the lock object is common to a thread     * group; separate thread groups have separate locks. If this is not     * intended, the lock object could be made static.     *     * @see java.lang.Object#clone()     */"
 0,0,0,0,0,0,0,// we have a single character; could be a token // it is a token
 0,0,0,0,0,0,0,// no error as default
-0,0,0,0,0,0,0,"/*                     * Now check for invalid message format: if string contains {0}                     * and ' there may be a problem, so do a format with dummy                     * parameters and check if there is a { in the output. A bit                     * crude, but should be enough for now.                     */"
+0,0,1,0,0,0,0,"/*                     * Now check for invalid message format: if string contains {0}                     * and ' there may be a problem, so do a format with dummy                     * parameters and check if there is a { in the output. A bit                     * crude, but should be enough for now.                     */"
 0,0,0,0,0,0,0,// The test object, i.e. the instance of the class containing the test method // This is the same as testCase for JUnit3 tests // but different for JUnit4 tests which use a wrapper
 0,0,0,0,0,0,0,// Mask should contain all types (but not NOT)
 0,0,0,0,0,0,0,// we have to check and make sure the constructor is // accessible. if we didn't it would throw an exception // and cause a NPE.
@@ -444,7 +444,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// NOOP
 0,0,0,0,0,0,0,// $NON-NLS-1$ //- JMX file attributes
 0,0,0,0,0,0,0,/* Implements JMeterGUIComponent.createTestElement() */
-0,0,0,0,0,0,0,"/*     *     * The string is made private so the compiler can't propagate it into     * JMeterUtils. (Java compilers may make copies of final variables)     *     * This ensures that JMeterUtils always gets the correct     * version, even if JMeterUtils is not re-compiled during the build.     */"
+0,0,1,0,0,0,0,"/*     *     * The string is made private so the compiler can't propagate it into     * JMeterUtils. (Java compilers may make copies of final variables)     *     * This ensures that JMeterUtils always gets the correct     * version, even if JMeterUtils is not re-compiled during the build.     */"
 0,0,0,0,0,0,0,/* Implements JMeterGUIComponent.modifyTestElement(TestElement) */
 0,0,0,0,0,0,0,// Must agree with the order of entries in the drop-down // created in ProxyControlGui.createGroupingPanel() //private static final int GROUPING_NO_GROUPS = 0;
 0,0,0,0,0,0,0,// Enable DELETE (which may already be enabled, but it won't hurt)
@@ -468,7 +468,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// @see TestRegexFunction for unit tests
 0,0,0,0,0,0,0,// If a table cell is being edited, we should accept the current // value and stop the editing before adding a new row.
 0,0,0,0,0,0,0,// elements have empty nodeValue, but we are usually interested in their content
-0,0,0,1,0,1,1,// It is the most common post request, with parameter name and values // We also assume this if no content type is present, to be most backwards compatible, // but maybe we should only parse arguments if the content type is as expected //standard name=value postData
+0,0,0,0,0,0,0,// It is the most common post request, with parameter name and values // We also assume this if no content type is present, to be most backwards compatible, // but maybe we should only parse arguments if the content type is as expected //standard name=value postData
 0,0,0,0,0,0,0,// Disable the DELETE and SAVE buttons if no rows remaining // after delete.
 0,0,0,0,0,0,0,// Set the file uploads
 0,0,0,0,0,0,0,// preset to default impl
@@ -488,7 +488,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
 0,0,0,0,0,0,0,//this.setDaemon(true);
 0,0,0,0,0,0,0,// desc.add("Use fully qualified host name: TRUE/FALSE (Default FALSE)"); //$NON-NLS-1$
-0,0,1,1,0,1,1,// We really should never get here // because eval will throw an exception // if xpath is invalid, but whatever, better // safe
+0,0,0,1,0,1,1,// We really should never get here // because eval will throw an exception // if xpath is invalid, but whatever, better // safe
 0,0,0,0,0,0,0,// Check if we know the encoding of the page
 0,0,0,0,0,0,0,// doctype
 0,0,0,0,0,0,0,// Now parse the DOM tree
@@ -541,7 +541,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Use null for url to simulate that HttpRequestHdr do not // know the encoding for the page. Specify contentEncoding, so the // request is "sent" using that encoding
 0,0,0,0,0,0,0,//        super(new JMeterTreeNode(new WorkBenchGui().createTestElement(), null)); //        TestElement tp = new TestPlanGui().createTestElement(); //        initTree(tp);
 0,0,0,0,0,0,0,// $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // e.g. "Transfer-Encoding: chunked", which is processed automatically by the underlying protocol // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ pseudo-header for reporting Local Address // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // For handling caching // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ //e.g. public, max-age=259200 //e.g. Date Header of response
-0,0,1,0,0,0,0,// Cannot use getThreadContext() as not cloned per thread
+0,0,0,0,0,0,0,// Cannot use getThreadContext() as not cloned per thread
 0,0,0,0,0,0,0,"/*     * Although the lock appears to be an instance lock, in fact the lock is     * shared between all threads in a thread group, but different thread groups     * have different locks - see the clone() method below     *     * The lock ensures that all the variables are processed together, which is     * important for functions such as __CSVRead and _StringFromFile.     */"
 0,0,0,0,0,0,0,// revert
 0,0,0,0,0,0,0,// Check if the include pattern is matched
@@ -682,7 +682,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// keystore for SSL keys; fixed at config except for dynamic host key generation
 0,0,0,0,0,0,0,// trailing string is not empty
 0,0,0,0,0,0,0,// safer to start afresh
-0,0,1,0,0,0,0,// This class is not cloned per thread, so this is shared
+0,0,0,0,0,0,0,// This class is not cloned per thread, so this is shared
 0,0,0,0,0,0,0,"/*     * nextInt(n) returns values in the range [0,n),     * so n must be set to max-min+1     */"
 0,0,0,0,0,0,0,// most likely this is because of a certificate error
 0,0,0,0,0,0,0,// This can overflow
@@ -766,7 +766,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// $NON-NLS-1$ // throughput.addActionListener(this);
 0,0,0,0,0,0,0,// Form encoding has priority over page encoding
 0,0,0,0,0,0,0,// start/end index default value for string getters and setters
-0,0,0,0,0,0,0,// Not implemented: public static final String SAVE = "save_as"; // Not implemented: public static final String SAVE_ALL = "save_all"; // Not implemented: public static final String SAVE_TO_PREVIOUS = "save";
+0,0,1,0,0,0,0,// Not implemented: public static final String SAVE = "save_as"; // Not implemented: public static final String SAVE_ALL = "save_all"; // Not implemented: public static final String SAVE_TO_PREVIOUS = "save";
 0,0,0,0,0,0,0,//$NON_NLS-1$
 0,0,0,0,0,0,0,// implements UnsharedComponent
 0,0,0,0,0,0,0,// Although the default is not the same as for the string value, it is only used internally
@@ -812,7 +812,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Set the current value:
 0,0,0,0,0,0,0,// Check if we know the encoding of the form
 0,0,0,0,0,0,0,// can share these
-0,0,1,0,0,0,0,"/*         * Don't redirect the following:         * 300 = Multiple choice         * 304 = Not Modified         * 305 = Use Proxy         * 306 = (Unused)         */"
+0,0,0,0,0,0,0,"/*         * Don't redirect the following:         * 300 = Multiple choice         * 304 = Not Modified         * 305 = Use Proxy         * 306 = (Unused)         */"
 0,0,0,0,0,0,0,// get the start of the file
 0,0,0,0,0,0,0,// Preserve original case
 0,0,0,0,0,0,0,// Fetch some variables
@@ -948,7 +948,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Lookup key - must agree with all the values used to create the HttpClient.
 0,0,0,0,0,0,0,// Set the content encoding
 0,0,0,0,0,0,0,// One-time init for this client
-0,0,1,0,0,0,0,// This class is not serialised // The interpreter instance for this class
+0,0,0,0,0,0,0,// This class is not serialised // The interpreter instance for this class
 0,0,0,0,0,0,0,// set retry count
 0,0,0,0,0,0,0,// Check if the request itself tells us what the encoding is
 0,0,0,0,0,0,0,// Override the defualt schemes as necessary
@@ -974,7 +974,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Helper class so we can generate request data without dumping entire file contents
 0,0,0,0,0,0,0,// parse other header lines, looking for Content-Length
 0,0,0,0,0,0,0,// encoding does not really matter here
-0,0,0,1,1,1,1,// TODO - charset?
+0,0,1,1,1,1,1,// TODO - charset?
 0,0,0,0,0,0,0,"/*             * Create a Header Manager to ensure that the browsers headers are             * captured and sent to the server             */"
 0,0,0,0,0,0,0,// If a content encoding is specified, we use that as the // encoding of any parameter values
 0,0,0,0,0,0,0,// Save the last valid content length one
@@ -1013,7 +1013,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// saved copy of first line for error reports
 0,0,0,0,0,0,0,// Add the parameters
 0,0,0,0,0,0,0,// Use the default encoding for urls
-0,0,1,0,0,0,0,"/*         * Reset Locale if necessary so other locales are properly handled         */"
+0,0,0,0,0,0,0,"/*         * Reset Locale if necessary so other locales are properly handled         */"
 0,0,0,0,0,0,0,// The value is already encoded by the user // Must decode the value now, so that when the // httpclient encodes it, we end up with the same value // as the user had entered.
 0,0,0,0,0,0,0,// Add the parameter, httpclient will urlencode it
 0,0,0,0,0,0,0,// inclusion filter assumes most of // the files are not wanted, therefore // usefile is set to false unless it // matches.
@@ -1145,7 +1145,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// If there is no difference, we mark it as not needing encoding
 0,0,0,0,0,0,0,// Element tags. Must be unique. Keep sorted. //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
 0,0,0,0,0,0,0,// this is only possible for 3rd party controllers by default
-0,0,0,0,0,0,0,// This can't happen (how should utf8 not be supported!?!), // so just throw an Error:
+0,0,1,0,0,0,0,// This can't happen (how should utf8 not be supported!?!), // so just throw an Error:
 0,0,0,0,0,0,0,// boolean toReturn = true;
 0,0,0,0,0,0,0,// allow use of relative file URLs
 0,0,0,0,0,0,0,//$NON-NLS-1$ //-- End of names used in JMX files
@@ -1360,7 +1360,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Ensure transient object is created by the server
 0,0,0,0,0,0,0,// draw the Y axis
 0,0,0,0,0,0,0,// add a \r\n
-0,0,0,1,0,1,1,// the test plan has to have more than 200 samples // for it to generate half way decent distribution // graph. the larger the sample, the better the // results.
+0,0,0,0,0,0,0,// the test plan has to have more than 200 samples // for it to generate half way decent distribution // graph. the larger the sample, the better the // results.
 0,0,0,0,0,0,0,// e.g. some kinds of invalid URL
 0,0,0,0,0,0,0,// Set up the graph with header, footer, Y axis and graph display
 0,0,0,0,0,0,0,// DELAY DEVIATION
@@ -1414,7 +1414,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Used for per-thread/user numbers
 0,0,0,0,0,0,0,// For example: // jar:file:/JMeter/lib/ext/ApacheJMeter_core.jar!/org/apache/jmeter/util/JMeterVersion.class // or if using an IDE         // file:/workspaces/JMeter/build/core/org/apache/jmeter/util/JMeterVersion.class
 0,0,0,0,0,0,0,// Used by SampleSaveConfigurationConverter.unmarshall()
-0,0,0,0,0,0,0,"/*     * Implementation notes:     *     * All of the methods in this class are currently read-only. If update     * methods are included in the future, they should be defined so that a     * single instance of JavaSamplerContext can be associated with each thread.     * Therefore, no synchronization should be needed. The same instance should     * be used for the call to setupTest, all calls to runTest, and the call to     * teardownTest.     */"
+0,0,1,0,0,0,0,"/*     * Implementation notes:     *     * All of the methods in this class are currently read-only. If update     * methods are included in the future, they should be defined so that a     * single instance of JavaSamplerContext can be associated with each thread.     * Therefore, no synchronization should be needed. The same instance should     * be used for the call to setupTest, all calls to runTest, and the call to     * teardownTest.     */"
 0,0,0,0,0,0,0,// Note that sampleStarted() and sampleStopped() is not made to appear // in synch with sampleOccured() when replaying held samples. // For now this is not critical since sampleStarted() and sampleStopped() // is not used, but it may become an issue in the future. Then these // events must also be stored so that replay of all events may occur and // in the right order. Each stored event must then be tagged with something // that lets you distinguish between occured, started and ended.
 0,0,0,0,0,0,0,// Test ignore trailing split characters // Ignore adjacent delimiters
 0,0,0,0,0,0,0,// Resource names for column headers // $NON-NLS-1$
@@ -1506,7 +1506,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Delete any properties whose name converts to the empty string
 0,0,0,0,0,0,0,// Column renderers
 0,0,0,0,0,0,0,// Use this instead of getLabelResource() otherwise getDocAnchor() below does not work
-0,0,0,0,1,1,1,// Retrieve the formatted data using the same encoding used to create it // TODO - charset? // Write the actual file content
+0,0,1,0,1,1,1,// Retrieve the formatted data using the same encoding used to create it // TODO - charset? // Write the actual file content
 0,0,0,0,0,0,0,// Note this test will fail if a property is added or // removed to any of the components used in the test // files. The way to solve this is to appropriately change // the test file.
 0,0,0,0,0,0,0,// We just add placeholder text for file content // $NON-NLS-1$ // Write the end of multipart file
 0,0,0,0,0,0,0,// =================================== CSV quote/unquote handling // ==============================
@@ -1563,7 +1563,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// $NON-NLS-1$ // $NON-NLS-1$ // default is not in range of a byte
 0,0,0,0,0,0,0,// Force reload data
 0,0,0,0,0,0,0,"/*         * Consider using Apache commons pool to create a pool of document         * builders or make sure XMLParserUtils creates builders efficiently.         */"
-0,0,0,0,0,0,0,"/*     * This method uses Apache soap util to create the proper DOM elements.     *     * @return Element     */"
+0,0,1,0,0,0,0,"/*     * This method uses Apache soap util to create the proper DOM elements.     *     * @return Element     */"
 0,0,0,0,0,0,0,// Not 'else if' because forceReloadData
 0,0,0,0,0,0,0,// Reload data from file
 0,0,0,0,0,0,0,// Reload data form internal list of results
@@ -1750,7 +1750,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// log.info(getLabel()+" "+getFilename());
 0,0,0,0,0,0,0,// The property name to be used to look up the display string
 0,0,0,0,0,0,0,// Set response data
-0,0,1,0,0,0,0,"/*     * Constructor is initially called once for each occurrence in the test plan.     * For GUI, several more instances are created.     * Then clear is called at start of test.     * Called several times during test startup.     * The name will not necessarily have been set at this point.     */"
+0,0,0,0,0,0,0,"/*     * Constructor is initially called once for each occurrence in the test plan.     * For GUI, several more instances are created.     * Then clear is called at start of test.     * Called several times during test startup.     * The name will not necessarily have been set at this point.     */"
 0,0,0,0,0,0,0,// script can also use setResponseData() so long as it returns null
 0,0,0,0,0,0,0,// This assumes the header names are all single words with no spaces // word followed by 0 or more repeats of (non-word char + word) // where the non-word char (\2) is the same // e.g. abc|def|ghi but not abd|def~ghi // $NON-NLS-1$ // last entries may be quoted strings
 0,0,0,0,0,0,0,// Set if we were successful or not
@@ -1780,7 +1780,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Execute the sample. In this case sleep for the // specified time.
 0,0,0,0,0,0,0,// read 1st line // read 5 lines + restart to file begin // line 2 // line 3 // line 4 // line 5 // return to 2nd line (first line is names)
 0,0,0,0,0,0,0,// String used to indicate a null value
-0,0,1,0,0,0,0,// Decent value for timers
+0,0,0,0,0,0,0,// Decent value for timers
 0,0,0,0,0,0,0,// read-only after class init
 0,0,0,0,0,0,0,// Find the data sent to the mirror server, which the mirror server is sending back to us // We assume the headers are in ISO_8859_1, and the body can be in any content encoding. // Therefore we get the data sent in ISO_8859_1, to be able to determine the end of the // header part, and then we just construct a byte array to hold the body part, not taking // encoding of the body into consideration, because it can contain file data, which is // sent as raw byte data
 0,0,0,0,0,0,0,// based on e291. Getting the Name of a JDBC Type from javaalmanac.com // http://javaalmanac.com/egs/java.sql/JdbcInt2Str.html
@@ -2029,7 +2029,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// If the -j  or -l flag is set to LAST or LAST.log|LAST.jtl, then the last loaded file name is used to // generate the log file name by removing .JMX and replacing it with .log|.jtl
 0,0,0,0,0,0,0,// sampleOccurred is called from multiple threads; not safe to write from multiple threads. // also decouples the file IO from sample generation
 0,0,0,0,0,0,0,// ci (degree 1)
-0,0,1,0,0,0,0,// Note: this is only used to implement TestIterationListener#testIterationStart // Since this is a frequent event, it makes sense to create the list once rather than scanning each time // The memory used will be released when the thread finishes
+0,0,0,0,0,0,0,// Note: this is only used to implement TestIterationListener#testIterationStart // Since this is a frequent event, it makes sense to create the list once rather than scanning each time // The memory used will be released when the thread finishes
 0,0,0,0,0,0,0,// For In build test case using this counter // create the new entry in the server
 0,0,0,0,0,0,0,// Make sure decoding // follows input file
 0,0,0,0,0,0,0,// Forget about all GUIs we've created so far: we'll need to re-created // them all!
@@ -2038,8 +2038,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// default is 1 // default is 0
 0,0,0,0,0,0,0,// Support original property name // $NON-NLS-1$
 0,0,0,0,0,0,0,// replace (update) attribute //$NON-NLS-1$ //$NON-NLS-2$ // add mobile phone number attribute //$NON-NLS-1$ //$NON-NLS-2$
-0,0,0,0,0,0,0,// A CallableStatement can return more than 1 ResultSets // plus a number of update counts.
-0,0,0,1,1,1,1,// TODO Charset ?
+0,0,1,0,0,0,0,// A CallableStatement can return more than 1 ResultSets // plus a number of update counts.
+0,0,1,1,1,1,1,// TODO Charset ?
 0,0,0,0,0,0,0,// record headers size to allow HTTPSampleResult.getBytes() with different options // $NON-NLS-1$ $NON-NLS-2$ // add 2 for a '\r\n' at end of headers (before data)
 0,0,0,0,0,0,0,// These are values for the TEST attribute above // $NON-NLS-1$
 0,0,0,0,0,0,0,// $NON-NLS-1$ // end of TEST values
@@ -2096,7 +2096,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// @GuardedBy("this") // Buffered reader
 0,0,0,0,0,0,0,// Close connection
 0,0,0,0,0,0,0,// not been set by any child samples
-0,0,0,0,0,0,0,// Labels - don't make these static, else language change will not work
+0,0,1,0,0,0,0,// Labels - don't make these static, else language change will not work
 0,0,0,0,0,0,0,//Strip the response data before writing, but only for a successful request.
 0,0,0,0,0,0,0,"/*     * Predefined format patterns, selected by the property log_format_type (see     * jmeter.properties) The new-line is added later     */"
 0,0,0,0,0,0,0,"/*     * Helper method to set up the GUI screen     */"
@@ -2228,7 +2228,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Not in cache, so create new one and cache it
 0,0,0,0,0,0,0,// For use by the server script
 0,0,0,0,0,0,0,// Do stuff we cannot do as part of threadStarted()
-0,0,1,0,0,0,0,// Don't wrap this error - display it as is
+0,0,0,0,0,0,0,// Don't wrap this error - display it as is
 0,0,0,0,0,0,0,//is derived from properties only
 0,0,0,0,0,0,0,// optional processing instruction for line 2; e.g. // <?xml-stylesheet type="text/xsl" href="../extras/jmeter-results-detail-report_21.xsl"?> // $NON_NLS-1$
 0,0,0,0,0,0,0,"/*         *  Simple test with single Selection controller         *  Generic Controller         *  + Sampler ""before""         *  + Switch Controller         *  + + Sampler ""zero""         *  + + Sampler ""one""         *  + + Sampler ""two""         *  + + Sampler ""three""         *  + Sampler ""after""         */"
@@ -2258,7 +2258,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Deliberate use of deprecated method
 0,0,0,0,0,0,0,//    private static Configuration getConfiguration(AssertionResult assResult) { //        DefaultConfiguration config = new DefaultConfiguration(ASSERTION_RESULT_TAG_NAME, "JMeter Save Service"); // //        config.setAttribute(FAILURE_MESSAGE, assResult.getFailureMessage()); //        config.setAttribute(ERROR, "" + assResult.isError()); //        config.setAttribute(FAILURE, "" + assResult.isFailure()); //        return config; //    }
 0,0,0,0,0,0,0,// see if this works // it did not, let's try some other formats
-0,0,0,0,0,0,0,"/*     * Class to handle generating the delimited string. - adds the delimiter     * if not the first call - quotes any strings that require it     */"
+0,0,1,0,0,0,0,"/*     * Class to handle generating the delimited string. - adds the delimiter     * if not the first call - quotes any strings that require it     */"
 0,0,0,0,0,0,0,// The outer sample and the inner loop samples
 0,0,0,0,0,0,0,//$NON-NLS-1$ //$NON-NLS-1$ $NON-NLS-2$ $NON-NLS-3$ //$NON-NLS-1$
 0,0,0,0,0,0,0,// It is the sub sampler of the transaction that will be sampled
@@ -2352,9 +2352,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// clear result tab on Ctrl-E
 0,0,0,0,0,0,0,// throws HeadlessException
 0,0,0,0,0,0,0,// OPTIONS MENU // $NON-NLS-1$ // $NON-NLS-1$
-0,0,1,0,0,0,0,// N.B. setParameters is called before the test proper is started, // and thus variables are not interpreted at this point // So defer the file open until later to allow variable file names to be // used.
+0,0,0,0,0,0,0,// N.B. setParameters is called before the test proper is started, // and thus variables are not interpreted at this point // So defer the file open until later to allow variable file names to be // used.
 0,0,0,0,0,0,0,// Must return a valid node, or may generate an NPE
-0,0,0,1,0,1,1,"/*         * Need to reset the containers for repeated runs; about the only way         * for functions to detect that a run is starting seems to be the         * setParameters() call.         */"
+0,0,1,0,0,0,0,"/*         * Need to reset the containers for repeated runs; about the only way         * for functions to detect that a run is starting seems to be the         * setParameters() call.         */"
 0,0,0,0,0,0,0,// RUN MENU // $NON-NLS-1$
 0,0,0,0,0,0,0,// // Override the implementations of the superclass, forwarding all methods // from the CellEditor interface to our delegate. //
 0,0,0,0,0,0,0,// EDIT MENU // $NON-NLS-1$ // From the Java Look and Feel Guidelines: If all items in a menu // are disabled, then disable the menu. Makes sense.
@@ -2538,7 +2538,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// No text
 0,0,0,0,0,0,0,// Test fragment
 0,0,0,0,0,0,0,// Now get its text
-0,0,1,0,0,0,0,// There aren't any
+0,0,0,0,0,0,0,// There aren't any
 0,0,0,0,0,0,0,// Try to get data from subresult // Needed for addSubResult()
 0,0,0,0,0,0,0,// Get data from both
 0,0,0,0,0,0,0,// get data from child
@@ -2560,7 +2560,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// col2, line 2, *B
 0,0,0,0,0,0,0,// XPathFileContainer tests
 0,0,0,0,0,0,0,// Remove the disabled items // For GUI runs this is done in Start.java
-0,0,1,0,0,0,0,// This cannot be a JMeter class variable, because properties // are not initialised until later.
+0,0,0,0,0,0,0,// This cannot be a JMeter class variable, because properties // are not initialised until later.
 0,0,0,0,0,0,0,// Use same XPath for both threads
 0,0,0,0,0,0,0,//String s =
 0,0,0,0,0,0,0,// prevent accidental use of is below
@@ -2772,7 +2772,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Check path
 0,0,0,0,0,0,0,// Check query
 0,0,0,0,0,0,0,// LOOP LABEL // $NON-NLS-1$
-0,0,1,0,0,0,0,// Find the data sent to the mirror server, which the mirror server is sending back to us // We assume the headers are in ISO_8859_1, and the body can be in any content encoding.
+0,0,0,0,0,0,0,// Find the data sent to the mirror server, which the mirror server is sending back to us // We assume the headers are in ISO_8859_1, and the body can be in any content encoding.
 0,0,0,0,0,0,0,// SECONDS LABEL // $NON-NLS-1$
 0,0,0,0,0,0,0,// This check-box defines whether to save  WorkBench content or not
 0,0,0,0,0,0,0,// No divider was found
@@ -2797,7 +2797,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// $NON-NLS-1$ $NON-NLS-2$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$
 0,0,0,0,0,0,0,// Called by JMeter ListenToTest if remoteStop is true
 0,0,0,0,0,0,0,// Sent later
-0,0,1,0,0,0,0,// Should we create our own copy of the RMI registry?
+0,0,0,0,0,0,0,// Should we create our own copy of the RMI registry?
 0,0,0,0,0,0,0,// Trailing file
 0,0,0,0,0,0,0,// Create this object using the specified port (0 means anonymous)
 0,0,0,0,0,0,0,// Trailing directory
@@ -2805,7 +2805,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,1,0,1,1,// should perhaps be log.warn, but this causes the client-server test to fail
 0,0,0,0,0,0,0,// odd chars
 0,0,0,0,0,0,0,// invalid
-0,0,1,0,0,0,0,// Throw an Exception to ensure caller knows ...
+0,0,0,0,0,0,0,// Throw an Exception to ensure caller knows ...
 0,0,0,0,0,0,0,// Check illegal array lengths
 0,0,0,0,0,0,0,// close window where another remote client might jump in
 0,0,0,0,0,0,0,// messages.properties
@@ -2891,7 +2891,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Will be null if StopTest thread has started
 0,0,0,0,0,0,0,// Done -- we're working with an editable property.
 0,0,0,0,0,0,0,//throw new Error("No default bundle for class " + className);
-0,0,1,0,0,0,0,// Needs to be run in a separate thread to allow RMI call to return OK
+0,0,0,0,0,0,0,// Needs to be run in a separate thread to allow RMI call to return OK
 0,0,0,0,0,0,0,// tweak.
 0,0,0,0,0,0,0,// Allow RMI to complete
 0,0,0,0,0,0,0,// Test needs to run in this package in order to give access to AbstractTestElement.addProperty()
@@ -3045,7 +3045,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* (non-Javadoc)     * @see org.apache.jmeter.gui.action.AbstractAction#getActionNames()     */"
 0,0,0,0,0,0,0,// .equals caused // NPE
 0,0,0,0,0,0,0,"/* (non-Javadoc)     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)     */"
-0,0,1,0,0,0,0,// Limit the length of the menu text if needed
+0,0,0,0,0,0,0,// Limit the length of the menu text if needed
 0,0,0,0,0,0,0,// If we are merging in another test plan, we know the test plan is dirty now
 0,0,0,0,0,0,0,// Only check if we have not found any differences so far
 0,0,0,0,0,0,0,// a well-bahaved browser is supposed to send 'Connection: close' // with the last request to an HTTP server. Instead, most browsers // leave it to the server to close the connection after their // timeout period. Leave it to the JMeter user to decide.
@@ -3061,7 +3061,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// headerManager was set, so let's set the connection // to use it.
 0,0,0,0,0,0,0,// Check if the user wants to revert
 0,0,0,0,0,0,0,// Close the current project
-0,0,1,0,0,0,0,// the document should only have one service node // if it doesn't it may not work!
+0,0,0,0,0,0,0,// the document should only have one service node // if it doesn't it may not work!
 0,0,0,0,0,0,0,// new WSDLHelper("http://localhost/WSTest/WSTest.asmx?WSDL"); // new WSDLHelper("http://localhost/AxisWSDL.xml"); //new WSDLHelper("http://localhost:8080/WSMyUpper.wsdl"); //new WSDLHelper("http://localhost:8080/test.wsdl");
 0,0,0,0,0,0,0,// There's little point saving the manager between invocations // as we need to reset most of the beans anyway
 0,0,0,0,0,0,0,// Reload the project
@@ -3075,7 +3075,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Bottom buttons bar
 0,0,0,0,0,0,0,// center position and 50% of screen size
 0,0,0,0,0,0,0,// Created by XStream reading templates.xml
-0,0,1,0,0,0,0,"/*         * N.B. Must use LinkedHashMap for field type         * XStream creates a plain HashMap if one uses Map as the field type.         */"
+0,0,0,0,0,0,0,"/*         * N.B. Must use LinkedHashMap for field type         * XStream creates a plain HashMap if one uses Map as the field type.         */"
 0,0,0,0,0,0,0,// templates i
 0,0,0,0,0,0,0,"/*     * ------------------------------------------------------------------------     * Fields     * ------------------------------------------------------------------------     */"
 0,0,0,0,0,0,0,// field TemplateManager#templates  // $NON-NLS-1$
@@ -3200,7 +3200,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//this.setPreferredSize(new Dimension(400,150));
 0,0,0,0,0,0,0,// i.e. bypass the Functors
 0,0,0,0,0,0,0,// Mainly needed for unit test Serialisable tests
-0,0,1,0,0,0,0,"/*     * Ensure that a report is not skipped if we are slightly late in checking     * the time.     */"
+0,0,0,0,0,0,0,"/*     * Ensure that a report is not skipped if we are slightly late in checking     * the time.     */"
 0,0,0,0,0,0,0,"/*     * This map allows summarisers with the same name to contribute to the same totals.     */"
 0,0,0,0,0,0,0,//@GuardedBy("accumulators") - needed to ensure consistency between this and instanceCount
 0,0,0,0,0,0,0,//@GuardedBy("accumulators") // number of active tests
@@ -3222,7 +3222,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// draw axis
 0,0,0,0,0,0,0,// draw data lines
 0,0,0,0,0,0,0,// e.g. in non-GUI mode
-0,0,1,0,0,0,0,// This string is used to identify local test runs, so must not be a valid host name // $NON-NLS-1$
+0,0,0,0,0,0,0,// This string is used to identify local test runs, so must not be a valid host name // $NON-NLS-1$
 0,0,0,0,0,0,0,// Static variables
 0,0,0,0,0,0,0,// Lock used to guard static mutable variables
 0,0,0,0,0,0,0,//@GuardedBy("LOCK")
@@ -3295,7 +3295,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* empty arrays which can be returned instead of null */
 0,0,0,0,0,0,0,// Never return null
 0,0,0,0,0,0,0,// e.g. text/html; charset=utf-8
-0,0,1,1,1,1,1,// TODO timeStamp == 0 means either not yet initialised or no stamp available (e.g. when loading a results file)
+0,0,0,1,1,1,1,// TODO timeStamp == 0 means either not yet initialised or no stamp available (e.g. when loading a results file)
 0,0,0,0,0,0,0,// Allow for non-sample time
 0,0,0,0,0,0,0,// Don't return null if not set
 0,0,0,0,0,0,0,//@GuardedBy("this"")
@@ -3521,7 +3521,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// will revert to last valid value if invalid
 0,0,0,0,0,0,0,// Replace a string with its translation, if one exists
 0,0,0,0,0,0,0,// not sure if null is passed in but no harm in setting it
-0,0,0,0,0,0,0,// A quick verification, just in case:
+0,0,1,0,0,0,0,// A quick verification, just in case:
 0,0,0,0,0,0,0,// Get the beanInfo:
 0,0,0,0,0,0,0,// Fetch data from screen fields
 0,0,0,0,0,0,0,// Copy all property values from the map into the element:
@@ -3704,7 +3704,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Redisplay.
 0,0,0,0,0,0,0,// Empty arrays are immutable
 0,0,0,0,0,0,0,// End Method
-0,0,1,0,0,0,0,// Empty value // $NON-NLS-1$
+0,0,0,0,0,0,0,// Empty value // $NON-NLS-1$
 0,0,0,0,0,0,0,// If not empty then script in ScriptText will be compiled and cached
 0,0,0,0,0,0,0,// LRUMap does not support generics (yet)
 0,0,0,0,0,0,0,// For use in debugging:
@@ -3788,7 +3788,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Parameters are stored here
 0,0,0,0,0,0,0,// For unit tests, see TestJexlFunction
 0,0,0,0,0,0,0,// String or Integer
-0,0,0,1,0,1,1,// List of parsers to test. Should probably be derived automatically
+0,0,0,0,0,0,0,// List of parsers to test. Should probably be derived automatically
 0,0,0,0,0,0,0,// A HTTP GET request, with encoding not known
 0,0,0,0,0,0,0,"/*             * N.B. Stop reading the file if we get a blank line: This allows             * for trailing comments in the file             */"
 0,0,0,0,0,0,0,// Now evaluate the script, getting the result
@@ -3806,7 +3806,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// A HTTP GET request, with ISO-8859-1 encoding
 0,0,0,0,0,0,0,// @GuardedBy("this") // needed for error messages
 0,0,0,0,0,0,0,// @GuardedBy("this") // should we try to open the file?
-0,0,1,0,0,0,0,// Have we used myCurrent yet? // Set to 1 if start number is missing (to allow for end without start)
+0,0,0,0,0,0,0,// Have we used myCurrent yet? // Set to 1 if start number is missing (to allow for end without start)
 0,0,0,0,0,0,0,// Low chances to be non numeric, we parse
 0,0,0,0,0,0,0,// Don't process invalid numbers
 0,0,0,0,0,0,0,// Don't process invalid numbers (including "")
@@ -3878,10 +3878,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Make sure the hashCode depends on the order as well
 0,0,0,0,0,0,0,// super-class does not use generics
 0,0,0,0,0,0,0,// Check sample increments OK
-0,0,0,0,0,0,0,// This will only work with an Applet .class file. // Ideally, this should be upgraded to work with Objects (IE) // and archives (.jar and .zip) files as well.
+0,0,1,0,0,0,0,// This will only work with an Applet .class file. // Ideally, this should be upgraded to work with Objects (IE) // and archives (.jar and .zip) files as well.
 0,0,0,0,0,0,0,// this occurs when id == 0 and user has not supplied a descriptor // for arguments
 0,0,0,0,0,0,0,// if get to an arg barrier then return to normal mode // else continue accumulating options
-0,0,1,0,0,0,0,// Used for the RuntimeException to short-circuit the traversal // $NON-NLS-1$
+0,0,0,0,0,0,0,// Used for the RuntimeException to short-circuit the traversal // $NON-NLS-1$
 0,0,0,0,0,0,0,// N.B. The keys can be either JMeterTreeNode or TestElement
 0,0,0,0,0,0,0,// do nothing - means object is found
 0,0,0,0,0,0,0,// end method
@@ -3943,7 +3943,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//        p.add(makeMainPanel(), BorderLayout.CENTER); // Force a minimum table height of 70 pixels
 0,0,0,0,0,0,0,// Methondname must always be provided.
 0,0,0,0,0,0,0,"/*     * If non-null, then any argument list passed to invoke() will be ignored.     */"
-0,0,0,0,0,0,0,"/*     * This depends on the class or invokee and either args or types;     * it is set once by doCreateMethod(), which must be the only method to access it.    */"
+0,0,1,0,0,0,0,"/*     * This depends on the class or invokee and either args or types;     * it is set once by doCreateMethod(), which must be the only method to access it.    */"
 0,0,0,0,0,0,0,// If class not provided, default to invokee class, else null
 0,0,0,0,0,0,0,// If types not provided, default to argument types, else null
 0,0,0,0,0,0,0,// static only
@@ -3999,7 +3999,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Convert JUnit4 failure to Junit3 style
 0,0,0,0,0,0,0,// copy the original stack trace
 0,0,0,0,0,0,0,// we should log a warning, but allow the test to keep running
-0,0,1,0,0,0,0,// this should be externalized to the properties
+0,0,0,0,0,0,0,// this should be externalized to the properties
 0,0,0,0,0,0,0,// probably should not happen
 0,0,0,0,0,0,0,// ensure correctly set on initial display // ensure correctly set on initial display
 0,0,0,0,0,0,0,// if the string constructor is not null, we use it. // if the string constructor is null, we use the empty // constructor to get a new instance
@@ -4110,7 +4110,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// is the Sample the correct size?
 0,0,0,0,0,0,0,// Use the name of the test element, otherwise cannot enable/disable debug from the GUI
 0,0,0,0,0,0,0,// Check how much of the body we have already read as part of reading // the headers // We subtract two bytes for the crlf divider between header and body
-0,0,0,0,0,0,0,// The reqest has no body, or it has a transfer encoding we do not support. // In either case, we read any data available
+0,0,1,0,0,0,0,// The reqest has no body, or it has a transfer encoding we do not support. // In either case, we read any data available
 0,0,0,0,0,0,0,// We use multi-line mask so can prefix the line with ^ // $NON-NLS-1$ $NON-NLS-2$
 0,0,0,0,0,0,0,// the signer certificate
 0,0,0,0,0,0,0,"/*     * @param response @return     */"
