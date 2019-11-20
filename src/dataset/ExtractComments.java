@@ -14,7 +14,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExtractComments {
+
     // The structure of directory
+
     // methodPath
     // ---- GitRepo
     // ---- ---- Proj1
@@ -83,12 +85,12 @@ public class ExtractComments {
         // 1. Extract Java files from Git repository
         //extractJavaFile();
         // 2. Extract Comments from Java Files   !!! Only run once
-        extractComments();
+        //extractComments();
 
         // 3. Manually label the comments...
 
         // 4. Ranking the result according to Labels !!! Only run once
-        //rankingComments();
+        rankingComments();
 
         // 5. Manually check the labels
 
@@ -318,17 +320,15 @@ public class ExtractComments {
         for (File project : projects) {
             StringBuilder comment_0 = new StringBuilder();
             StringBuilder comment_1 = new StringBuilder();
-            StringBuilder comment_2 = new StringBuilder();
 
             List<String> lines = readFileToLines(project.getPath());
+
             for (int i = 1; i < lines.size(); i++) {
                 String[] temp = lines.get(i).split(",");
-                if (temp.length < 3) continue;
                 if (temp[0].equals("0")) comment_0.append(lines.get(i)).append("\n");
                 if (temp[0].equals("1")) comment_1.append(lines.get(i)).append("\n");
-                if (temp[0].equals("2")) comment_2.append(lines.get(i)).append("\n");
             }
-            writeStringToFile(rankedPath, project.getName(), comment_1.toString() + comment_2.toString() + comment_0.toString());
+            writeStringToFile(rankedPath, project.getName(), comment_1.toString() + comment_0.toString());
         }
         System.out.println("Ranked finish!");
     }

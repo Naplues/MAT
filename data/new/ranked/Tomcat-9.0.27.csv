@@ -61,6 +61,7 @@
 1, Line, //  The JDBC spec requires that a statement close any open   ResultSet's when it is closed.   FIXME The PreparedStatement we're wrapping should handle this for us.   See DBCP-10 for what could happen when ResultSets are closed twice. 
 1, JavaDoc, /*  * A message that represents a drawing action. * Note that we use primitive types instead of Point, Color etc. * to reduce object allocation.<br><br> * * TODO: But a Color objects needs to be created anyway for drawing this * onto a Graphics2D object, so this probably does not save much.  */
 1, Line, //  FIXME: Feature idea. Add support for patterns (ex: WEB-INF/*,          WEB-INF/*.xml), where we would only check if at least one          resource is newer than app.timestamp 
+1, Line, // Jasper incorrectly SMAPs certain Nodes, giving them an  outputStartLine of 0.  This can cause a fatal error in  optimizeLineSection, making it impossible for Jasper to  compile the JSP.  Until we can fix the underlying
 1, Line, //  XXX TODO: Source code line length   XXX TODO: More JavaDoc   XXX Optional: Add support for com.sun.management specific mbean                 (http://docs.oracle.com/javase/7/docs/jre/api/management/extension/index.html)   XXX Optional: Wire additional public static methods implemented here                 to the manager (think about manager access roles!)                   setLoggerLevel(),                   setVerboseClassLoading(),                   setThreadContentionMonitoringEnabled(),                   setThreadCpuTimeEnabled(),                   resetPeakThreadCount(),                   setVerboseGarbageCollection()                   gc(),                   resetPeakUsage(),                   setUsageThreshold(),                   setCollectionUsageThreshold() 
 1, JavaDoc, /*      * TODO SERVLET3 - Add comments     * @param className TODO     * @throws UnsupportedOperationException    If called from a     *    {@link ServletContextListener#contextInitialized(ServletContextEvent)}     *    method of a {@link ServletContextListener} that was not defined in a     *    web.xml file, a web-fragment.xml file nor annotated with     *    {@link javax.servlet.annotation.WebListener}. For example, a     *    {@link ServletContextListener} defined in a TLD would not be able to     *    use this method.     * @since Servlet 3.0      */
 1, Line, //  XXX Group ?? Use Group + Type 
@@ -270,7 +271,6 @@
 1, Line, //  Dummy implementation 
 1, JavaDoc, /*      * TODO SERVLET3 - Add comments     * @param wrappedType The class to compare to the class of the wrapped     *                    request     * @return <code>true</code> if the request wrapped by this wrapper (or     *         series of wrappers) is the same type as the supplied type,     *         otherwise <code>false</code>     * @since Servlet 3.0      */
 1, Line, // create the map to hold our stats  however TODO we need to improve the eviction  selection 
-2, Line, // Jasper incorrectly SMAPs certain Nodes, giving them an  outputStartLine of 0.  This can cause a fatal error in  optimizeLineSection, making it impossible for Jasper to  compile the JSP.  Until we can fix the underlying 
 0, Line, //  Enable SO_LINGER to ensure close() only returns when TCP closing   handshake completes 
 0, Block, /*      * Fallback ::= '/>' | ( `>' S? `<jsp:body>' ( ( S? ( Char* - ( Char* `</jsp:body>' ) ) `</jsp:body>'     * S? ) | <TRANSLATION_ERROR> ) `</jsp:fallback>' ) | ( '>' ( Char* - (     * Char* '</jsp:fallback>' ) ) '</jsp:fallback>' )      */
 0, Line, // else 
@@ -1105,6 +1105,7 @@
 0, Line, //  Exceptions 
 0, Line, //  update the auto commit flag 
 0, Line, //  Read the global ref addr 
+0, Line, //  Optimization:   If len-avail < length (i.e. after we fill the buffer with what we   can, the remaining will fit in the buffer) we'll just copy the first   part, flush, then copy the second part - 1 write and still have some   space for more. We'll still have 2 writes, but we write more on the first.
 0, Line, //  1owwwwww 
 0, Line, // There's no way to specify this with SimpleDateFormat  translate.put("U","week in year with first Sunday as first day..."); 
 0, Line, //  30-3f 0-9   40-4f A-O 
@@ -4552,6 +4553,7 @@
 0, Line, //  Buffer depleted ? 
 0, Line, //  Default ContentType processing is deferred until after the page has 
 0, Block, /*          * extract the session id path element (if it exists in the given url)          */
+0, Line, //  Accept again on a new thread since countUpOrAwaitConnection may block
 0, Line, //  Note: BufferedReader.readLine() strips new lines 
 0, Line, //  close() can be triggered by a wide range of scenarios. It is far   simpler just to always use a dispatch than it is to try and track   whether or not this method was called by the same thread that   triggered the write 
 0, Line, //  check required interceptors 
@@ -9164,6 +9166,7 @@
 0, Line, //  Skip threads that have already died 
 0, Line, //  No functional change 
 0, Block, /*      * {@link FileInputStream#read(byte[])} and related methods are all native     * methods so it isn't immediately obvious if they are thread-safe or not.     *     * <pre>     * Windows JDK 1.6.0_22_x64 - Thread safe     * OSX     JDK 1.6.0_22_x64 - Not thread safe     * OSX     JDK 1.7.0_51_x64 - Not thread safe     * </pre>     *     * Therefore, have to assume that {@link FileInputStream#read(byte[])} is     * not thread safe.      */
+0, Line, //  ping
 0, Line, //  Sub-protocols 
 0, Line, //  handle ordered libs directly, ... 
 0, Line, //  now compute some delays - beware of the units! 
@@ -10131,6 +10134,7 @@
 0, Line, //  Instantiate the required listeners 
 0, Line, //  Set available status depending upon startup success 
 0, Line, //  Consume extra bytes. 
+0, Line, //  numActive has changed
 0, Line, //  Now at the start of the mechType list. 
 0, Line, //  Check for leaks triggered by ThreadLocals loaded by this class loader 
 0, Line, // ------------------------------------------------------------------------------                CONSTRUCTORS  ------------------------------------------------------------------------------ 
@@ -11712,6 +11716,7 @@
 0, Line, //  on ci.apache.org so allow a margin and use 20. 
 0, Line, //  override headers 
 0, Line, //  Pause connectors first 
+0, Line, //  First fall-back. See if current directory is a bin directory   in a normal Tomcat install
 0, Line, //  TODO 
 0, Line, //  Is there a saved principal? 
 0, Line, //  Reached end of stream before SNI could be processed. 

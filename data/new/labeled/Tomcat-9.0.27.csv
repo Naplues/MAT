@@ -859,7 +859,7 @@ Label, Type, Content
 0, Line, //  Exceptions 
 0, Line, //  update the auto commit flag 
 0, Line, //  Read the global ref addr 
-, Line, //  Optimization:   If len-avail < length (i.e. after we fill the buffer with what we   can, the remaining will fit in the buffer) we'll just copy the first   part, flush, then copy the second part - 1 write and still have some   space for more. We'll still have 2 writes, but we write more on the first. 
+0, Line, //  Optimization:   If len-avail < length (i.e. after we fill the buffer with what we   can, the remaining will fit in the buffer) we'll just copy the first   part, flush, then copy the second part - 1 write and still have some   space for more. We'll still have 2 writes, but we write more on the first.
 0, Line, //  1owwwwww 
 0, Line, // There's no way to specify this with SimpleDateFormat  translate.put("U","week in year with first Sunday as first day..."); 
 0, Line, //  30-3f 0-9   40-4f A-O 
@@ -2376,7 +2376,7 @@ Label, Type, Content
 0, Line, // pause, once or twice 
 0, Line, // XByteBuffer buffer = new XByteBuffer(b.length+128,false); 
 0, Line, //  Header   length 
-2, Line, // Jasper incorrectly SMAPs certain Nodes, giving them an  outputStartLine of 0.  This can cause a fatal error in  optimizeLineSection, making it impossible for Jasper to  compile the JSP.  Until we can fix the underlying 
+1, Line, // Jasper incorrectly SMAPs certain Nodes, giving them an  outputStartLine of 0.  This can cause a fatal error in  optimizeLineSection, making it impossible for Jasper to  compile the JSP.  Until we can fix the underlying
 0, Line, //  }) 
 0, Line, //  Encoding names should all be ASCII 
 0, Line, //  Check for a full URI (including protocol://host:port/) 
@@ -4384,7 +4384,7 @@ Label, Type, Content
 0, Line, //  Buffer depleted ? 
 0, Line, //  Default ContentType processing is deferred until after the page has 
 0, Block, /*          * extract the session id path element (if it exists in the given url)          */
-s, Line, //  Accept again on a new thread since countUpOrAwaitConnection may block 
+0, Line, //  Accept again on a new thread since countUpOrAwaitConnection may block
 0, Line, //  Note: BufferedReader.readLine() strips new lines 
 0, Line, //  close() can be triggered by a wide range of scenarios. It is far   simpler just to always use a dispatch than it is to try and track   whether or not this method was called by the same thread that   triggered the write 
 0, Line, //  check required interceptors 
@@ -9096,7 +9096,7 @@ s, Line, //  Accept again on a new thread since countUpOrAwaitConnection may blo
 0, Line, //  Skip threads that have already died 
 0, Line, //  No functional change 
 0, Block, /*      * {@link FileInputStream#read(byte[])} and related methods are all native     * methods so it isn't immediately obvious if they are thread-safe or not.     *     * <pre>     * Windows JDK 1.6.0_22_x64 - Thread safe     * OSX     JDK 1.6.0_22_x64 - Not thread safe     * OSX     JDK 1.7.0_51_x64 - Not thread safe     * </pre>     *     * Therefore, have to assume that {@link FileInputStream#read(byte[])} is     * not thread safe.      */
-00, Line, //  ping 
+0, Line, //  ping
 0, Line, //  Sub-protocols 
 0, Line, //  handle ordered libs directly, ... 
 0, Line, //  now compute some delays - beware of the units! 
@@ -10086,7 +10086,7 @@ s, Line, //  Accept again on a new thread since countUpOrAwaitConnection may blo
 0, Line, //  Instantiate the required listeners 
 0, Line, //  Set available status depending upon startup success 
 0, Line, //  Consume extra bytes. 
-00, Line, //  numActive has changed 
+0, Line, //  numActive has changed
 0, Line, //  Now at the start of the mechType list. 
 0, Line, //  Check for leaks triggered by ThreadLocals loaded by this class loader 
 0, Line, // ------------------------------------------------------------------------------                CONSTRUCTORS  ------------------------------------------------------------------------------ 
@@ -11704,7 +11704,7 @@ s, Line, //  Accept again on a new thread since countUpOrAwaitConnection may blo
 0, Line, //  on ci.apache.org so allow a margin and use 20. 
 0, Line, //  override headers 
 0, Line, //  Pause connectors first 
-, Line, //  First fall-back. See if current directory is a bin directory   in a normal Tomcat install 
+0, Line, //  First fall-back. See if current directory is a bin directory   in a normal Tomcat install
 0, Line, //  TODO 
 0, Line, //  Is there a saved principal? 
 0, Line, //  Reached end of stream before SNI could be processed. 

@@ -421,6 +421,7 @@
 0, Line, //  flag if the classes or its members are annotated 
 0, Line, //  result on the stack, which we can remove now if inside a constructor. 
 0, Line, //  because of type inferrence, we must perform an additional check if the right expression   is an empty list expression ([]). In that case and only in that case, the inferred type   will be wrong, so we will prefer the left type 
+0, Line, //  if the receiver is "this" or "implicit this", then we must make sure that the compatible   methods are only static if we are in a static context   if we are not in a static context but the current receiver is a static class, we must   ensure that all methods are either static or declared by the current receiver or a superclass
 0, Line, //  script-string-to-generated Class map 
 0, Line, //             Number n = (Number) newValue;              newValue = Integer.valueOf(n.intValue());          }          array [normaliseIndex(idx,array.length)] = ((Integer)newValue).intValue();          return (Integer) newValue;      }        public static Long putAt(long[] array, int idx, Object newValue) { 
 0, Line, //  internal helper method 
@@ -3523,6 +3524,7 @@
 0, Line, //  method is in current class, nothing to be done 
 0, Line, //  warning: treating Java chars as "String" in Groovy 
 0, Line, // noop  white 
+0, Block, /*      * Reclassify nodes in each list to new Map.  Because we are     * using power-of-two expansion, the elements from each 0bin     * must either stay at same index, or move to     * oldCapacity+index. We also eliminate unnecessary node     * creation by catching cases where old nodes can be reused     * because their next fields won't change. Statistically, at     * the default threshold, only about one-sixth of them need     * cloning. (The nodes they replace will be garbage     * collectible as soon as they are no longer referenced by any     * reader thread that may be in the midst of traversing table     * right now.)      */
 0, Line, //  Find largest index j with a[j] < a[j+1] 
 0, Line, //  2nd arg false below: though not usual, allow setter with non-void return type 
 0, Line, //  The location in the buffer is chosen in a racy fashion as the increment   is not atomic with the insertion. This means that concurrent reads can   overlap and overwrite one another, resulting in a lossy buffer. 

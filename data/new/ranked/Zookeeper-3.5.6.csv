@@ -621,6 +621,8 @@
 0, Line, // PASS 
 0, Line, //  this replicates NC - close the output stream before reading 
 0, Line, //  No command specified, print links to all commands instead 
+0, Line, //  Apply to db directly if we haven't taken the snapshot
+0, Line, //  Check if stopped while request was on queue
 0, Line, //  a session should automatically expire after an amount of time 
 0, Line, //  with 0-padding in the filename 
 0, Line, //  we are the final link in the chain 
@@ -2521,6 +2523,7 @@
 0, Line, //  Instead of starting roZk immediately, wait some grace   period before we decide we're partitioned.     Thread is used here because otherwise it would require   changes in each of election strategy classes which is 
 0, Line, //  This should never happen 
 0, Line, //  LOG.warn("Ack>>> cxid = " + request.cxid + " type = " +   request.type + " id = " + request.sessionId);   request.addRQRec(">prop"); 
+0, Line, //  Default constructor
 0, Line, //  This method can return empty iterator if the requested zxid 
 0, Line, //  log at error level as we are returning a marshalling   error to the user 
 0, Line, //  if we have read data from the file, and it matchs the timep pattern 

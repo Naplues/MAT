@@ -606,7 +606,7 @@ Label, Type, Content
 1, Line, //  todo: add LIMIT 1 instead of count - should be more efficient 
 0, Line, //  For completed instances 
 0, Line, //  print out the cbo info 
-, Block, /*  * Interface Design: * A TableFunction provides 2 interfaces of execution 'Batch' and 'Streaming'. * - In Batch mode the contract is Partition in - Partition Out * - In Streaming mode the contract is a stream of processRow calls - each of which may return 0 or more rows. *  * A Partition is not just a batch of rows, it enables more than a single iteration of * the i/p data: multiple passes, arbitrary access of input rows, relative navigation between * rows(for e.g. lead/lag fns). Most PTFs will work in batch mode. *  * The Streaming mode gives up on the capabilities of Partitions for the benefit of smaller footprint, * and faster processing. Window Function processing is an e.g. of this: when there are only Ranking * functions each row needs to be accessed once in the order it is provided; hence there is no need  * to hold all input rows in a Partition. The 'pattern' is: any time you want to only enhance/enrich  * an Input Row Streaming mode is the right choice. This is the fundamental difference between Ranking * fns and UDAFs: Ranking functions keep the original data intact whereas UDAF only return aggregate * information. *  * Finally we have provided a 'mixed' mode where a non Streaming TableFunction can provide its output * as an Iterator. As far as we can tell, this is a special case for Windowing handling. If Windowing * is the only or last TableFunction in a chain, it makes no sense to collect the output rows into a  * output Partition. We justify the pollution of the api by the observation that Windowing is a very  * common use case. *   */
+0, Block, /*  * Interface Design: * A TableFunction provides 2 interfaces of execution 'Batch' and 'Streaming'. * - In Batch mode the contract is Partition in - Partition Out * - In Streaming mode the contract is a stream of processRow calls - each of which may return 0 or more rows. *  * A Partition is not just a batch of rows, it enables more than a single iteration of * the i/p data: multiple passes, arbitrary access of input rows, relative navigation between * rows(for e.g. lead/lag fns). Most PTFs will work in batch mode. *  * The Streaming mode gives up on the capabilities of Partitions for the benefit of smaller footprint, * and faster processing. Window Function processing is an e.g. of this: when there are only Ranking * functions each row needs to be accessed once in the order it is provided; hence there is no need  * to hold all input rows in a Partition. The 'pattern' is: any time you want to only enhance/enrich  * an Input Row Streaming mode is the right choice. This is the fundamental difference between Ranking * fns and UDAFs: Ranking functions keep the original data intact whereas UDAF only return aggregate * information. *  * Finally we have provided a 'mixed' mode where a non Streaming TableFunction can provide its output * as an Iterator. As far as we can tell, this is a special case for Windowing handling. If Windowing * is the only or last TableFunction in a chain, it makes no sense to collect the output rows into a  * output Partition. We justify the pollution of the api by the observation that Windowing is a very  * common use case. *   */
 0, Block, /*  It's valid case if a partition:  */
 0, Line, //  Finally we remove the expression from the tree 
 0, Line, //  these 5 delims passed as serde params 
@@ -3587,7 +3587,7 @@ Label, Type, Content
 0, Line, //  if our dbName is equal, but tableName is blank, we're interested in this db-level event 
 0, Line, //  if doAs is not enabled, we pass the principal/keypad to spark-submit in order to   support the possible delegation token renewal in Spark 
 0, Line, //  max we allow tez to pick 
-, Block, /*    * Setup our 2nd batch with the same "column schema" as the output columns plus any scratch   * columns since the overflow batch will get forwarded to children operators.    */
+0, Block, /*    * Setup our 2nd batch with the same "column schema" as the output columns plus any scratch   * columns since the overflow batch will get forwarded to children operators.    */
 0, Line, //  MY_STRING_ENUM_MAP 
 0, Line, // this is to handle syn(pos) where pos < headerEnd. 
 0, Line, // cut prefix from hive's map key 
@@ -7973,7 +7973,7 @@ Label, Type, Content
 0, Line, // match if there is filter (sq_count_check) as right input of a join which is left   input of another join 
 0, Line, //  splits are equal to number of files in worst case) 
 0, Block, /*    * A Unit Test convenience method for putting the key into the hash table using the   * actual type.    */
-, Line, //  We called reserveMemory so we know that there's memory waiting for us somewhere.   However, we have a class of rare race conditions related to the order of locking/checking of   different allocation areas. Simple case - say we have 2 arenas, 256Kb available in arena 2.   We look at arena 1; someone deallocs 256Kb from arena 1 and allocs the same from arena 2;   we look at arena 2 and find no memory. Or, for single arena, 2 threads reserve 256k each,   and a single 1Mb block is available. When the 1st thread locks the 1Mb freelist, the 2nd one   might have already examined the 256k and 512k lists, finding nothing. Blocks placed by (1)   into smaller lists after its split is done will not be found by (2); given that freelist   locks don't overlap, (2) may even run completely between the time (1) takes out the 1Mb   block and the time it returns the remaining 768Kb.   Two solutions to this are some form of cross-thread helping (threads putting "demand"   into some sort of queues that deallocate and split will examine), or having and "actor"   allocator thread (or threads per arena).   The 2nd one is probably much simpler and will allow us to get rid of a lot of sync code. 
+0, Line, //  We called reserveMemory so we know that there's memory waiting for us somewhere.   However, we have a class of rare race conditions related to the order of locking/checking of   different allocation areas. Simple case - say we have 2 arenas, 256Kb available in arena 2.   We look at arena 1; someone deallocs 256Kb from arena 1 and allocs the same from arena 2;   we look at arena 2 and find no memory. Or, for single arena, 2 threads reserve 256k each,   and a single 1Mb block is available. When the 1st thread locks the 1Mb freelist, the 2nd one   might have already examined the 256k and 512k lists, finding nothing. Blocks placed by (1)   into smaller lists after its split is done will not be found by (2); given that freelist   locks don't overlap, (2) may even run completely between the time (1) takes out the 1Mb   block and the time it returns the remaining 768Kb.   Two solutions to this are some form of cross-thread helping (threads putting "demand"   into some sort of queues that deallocate and split will examine), or having and "actor"   allocator thread (or threads per arena).   The 2nd one is probably much simpler and will allow us to get rid of a lot of sync code.
 0, Block, /*  1 files x 100 size for 1 splits  */
 0, Line, //  Accurate int value cannot be obtained. 
 0, Line, //  save some positional state 
@@ -9052,7 +9052,7 @@ Label, Type, Content
 0, Block, /*  * Specialized class for doing a vectorized map join that is an outer join on Multi-Key * using a hash map.  */
 0, Line, //  If we fell through to here this is not a valid type conversion 
 0, Line, //  Assumptions:   precision >= scale   scale >= 0 
-, Line, //  TODO Why is the queue name set again. It has already been setup via setQueueName. Do only one of the two. 
+1, Line, //  TODO Why is the queue name set again. It has already been setup via setQueueName. Do only one of the two.
 0, Line, //  If statsObjOld is found, we can merge. 
 0, Line, //  test add_partitions 
 0, Line, //  -1 special case.  Unsigned magnitude 1 - two's compliment adjustment 1 = 0. 
@@ -13286,7 +13286,7 @@ Label, Type, Content
 0, Line, //  number of registers - 2^p 
 0, Block, /*  * Test submission of concurrent job requests with the controlled number of concurrent * Requests. Verify that we get busy exception and appropriate message.  */
 0, Line, //  If the child has a different schema, we create a Project operator between them both,   as we cannot prune the columns in the GroupBy operator 
-, Line, //  go through each element of the map 
+0, Line, //  go through each element of the map
 0, Line, //  One serialized key for 1 or more rows for the duplicate keys. 
 0, Line, //  For backwards compatibility, since some threads used to be hard coded but only run if   frequency was > 0 
 0, Line, //  Sum all non-null double column values; maintain isGroupResultNull. 
@@ -15249,7 +15249,7 @@ Label, Type, Content
 0, Line, //                           MRConfig.SHUFFLE_SSL_ENABLED_DEFAULT)) {          LOG.info("Encrypted shuffle is enabled.");          sslFactory = new SSLFactory(SSLFactory.Mode.SERVER, conf);          sslFactory.init();        } 
 0, Line, //  Cache patternkey.matcher(path).matches() 
 0, Line, //  We are now positioned at the end of this field's bytes. 
-, Line, //  A previous solution is based on tableAlias and colAlias, which is   unsafe, esp. when CBO generates derived table names. see HIVE-13602.   For correctness purpose, we only trust colExpMap.   We assume that CBO can do the constantPropagation before this function is   called to help improve the performance.   UnionOperator, LimitOperator and FilterOperator are special, they should already be   column-position aligned. 
+1, Line, //  A previous solution is based on tableAlias and colAlias, which is   unsafe, esp. when CBO generates derived table names. see HIVE-13602.   For correctness purpose, we only trust colExpMap.   We assume that CBO can do the constantPropagation before this function is   called to help improve the performance.   UnionOperator, LimitOperator and FilterOperator are special, they should already be   column-position aligned.
 0, Line, // clean up 
 0, Line, //  The exception has been logged by the lower layer. 
 0, Line, //  Try to construct an object 
@@ -27952,7 +27952,7 @@ Label, Type, Content
 0, Line, //  Need to go in and check if any of the tasks is running in LLAP mode. 
 0, Line, //  Contains results from last processed input record. 
 0, Line, //  Remove the operators till a certain depth. 
-, Line, //  If the user has HIVEMERGEMAPREDFILES set to false, the idea was the   number of reducers are few, so the number of files anyway are small.   However, with this optimization, we are increasing the number of files   possibly by a big margin. So, merge aggresively. 
+0, Line, //  If the user has HIVEMERGEMAPREDFILES set to false, the idea was the   number of reducers are few, so the number of files anyway are small.   However, with this optimization, we are increasing the number of files   possibly by a big margin. So, merge aggresively.
 0, Line, //  only worry about getting schema if we are dealing with Avro 
 0, Line, //  full precision 
 0, Line, //  This assumes LLAP cluster owner is always the HS2 user. 
