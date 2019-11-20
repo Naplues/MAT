@@ -1,7 +1,7 @@
 oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO factor up into GenBaseImpl //
 1,0,0,0,0,0,0,// EATM Call the deprecated method which does the same thing  // but might have an override in older code.
-1,0,1,0,0,0,0,// Unused?
+1,0,0,0,0,0,0,// Unused?
 1,0,1,1,1,1,1,// TODO factor up into GenBaseImpl? //
 1,0,0,1,0,1,1,// call workaround
 1,0,1,1,1,1,1,// TODO deprecate (since getPluginClass() is no longer called) //
@@ -12,15 +12,15 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//DMS should we let this exception out?
 1,0,0,0,0,0,0,//DMS What if Eclipse is running, but an invalid facade has been specified?  We still should format code, use encoding,...
 1,0,0,0,0,0,0,//DMS  Do a better job with specific exceptions? Just use chained RuntimeExceptions?
-1,0,1,0,0,0,0,// If the delegate URI can be handled as a file,  // we'll hope that renaming it will be really efficient. //
+1,0,0,0,0,0,0,// If the delegate URI can be handled as a file,  // we'll hope that renaming it will be really efficient. //
 1,0,1,1,0,1,1,//DMS Why not this? //new SubProgressMonitor(progressMonitor, 1));
 1,0,0,0,0,0,0,// Assume that it's an attribute for now. // It will/could become a reference if the type resolves to an EClass. //
 1,0,0,0,0,0,0,// Do nothing for now, and avoid propagating the exception.   // How should builders handle cancel?
 1,0,0,0,0,0,0,// this is a fall-back, however, this should never be called
-1,0,1,1,1,1,1,// TODO fix the space above
+1,0,0,1,1,1,1,// TODO fix the space above
 1,0,1,1,1,1,1,// TODO REMOVE THIS BOGUS EMPTY LINE
 1,0,1,1,1,1,1,// TODO handle class cast exception better.
-1,0,1,0,0,0,0,// I don't know if we should be run this deferred  // because we might have to give the editor a chance to process the viewer update events  // and hence to update the views first. //  //
+1,0,0,0,0,0,0,// I don't know if we should be run this deferred  // because we might have to give the editor a chance to process the viewer update events  // and hence to update the views first. //  //
 1,1,1,1,1,1,1,// This is a big festering hack to make the images the right size from the start. //
 1,0,0,0,0,0,0,// EATM Demand create metadata; needs to depend on processing mode...
 1,0,1,1,1,1,1,// TODO This is really quite attrocious since there is code that will assume an iterator that returns strings!
@@ -31,7 +31,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// EATM this would be wrong.
 1,0,0,0,0,0,0,// REVISIT: Remove this code.
 1,0,0,0,0,0,0,// The label is not used. //
-1,1,1,0,0,0,0,// Motif kludge: we would get something random instead of null. //
+1,1,0,0,0,0,0,// Motif kludge: we would get something random instead of null. //
 1,0,1,1,1,1,1,// TODO So what should be the eType be now? //
 1,0,0,0,0,0,0,// This runs the operation, and shows progress. // (It appears to be a bad thing to fork this onto another thread.) //
 1,1,1,0,1,1,1,// EATM Kind of hacky.
@@ -51,7 +51,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// Because of the old factoring approach in the create method,  // it might be the case that the state of the old value has changed by the time we get here, // and in that case, we don't want to duplicate the removals in this code. //
 1,0,0,0,0,0,0,// REVISIT: Remove this code. // Store port value as string instead of integer.
 1,0,1,1,1,1,1,// TODO // This is faster than many charAt() calls. //
-1,0,0,0,0,0,0,//REVISIT: do we really need to support block names as in Unicode 3.1 //         or we can just create all the names in IsBLOCKNAME format (XML Schema REC)? //
+1,0,1,0,0,0,0,//REVISIT: do we really need to support block names as in Unicode 3.1 //         or we can just create all the names in IsBLOCKNAME format (XML Schema REC)? //
 1,0,0,1,0,1,1,// Bubble sort // Why? -- In many cases, //         this.ranges has few elements.
 1,0,1,1,0,1,1,// Per Schema 1.0 it is not clear if the result returned should be a valid URI.  // For the future if we plant to support IRIs then it is better not to massage // the initialValue.  // We should thought consider where would be the best way to validate anyURI values -- EL
 1,0,1,1,1,1,1,// Note that the way they are sorted, the values of index[i++] always increase, // so the objects are added from right to left in the list. // // EATM  TODO // // We could make this more efficient by grouping the adds when indices increment by one, // so that a single grouped notification would result. //
@@ -67,7 +67,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// TODO handle situation when ASTJNode is removed (compilationUnit is null)
 1,0,0,0,0,0,0,//TBD return super classes of classes in this package that come from a delegate package.
 1,0,0,0,0,0,0,// if current char is comma, insert line break after it // // we should be able to find the comma because the range for enum constants includes all trailing comments up to the separator // if TargetSourceRangeComputer of ASTRewrite changes, this logic should change to skip comments // see org.eclipse.emf.codegen.merge.java.facade.ast.CommentAwareSourceRangeComputer#getEnumConstantSourceRange(ASTNode)
-1,0,1,1,1,1,1,// TODO translation
+1,0,0,1,1,1,1,// TODO translation
 1,0,1,1,1,1,1,// TODO Binary incompatibility; an old override must override putAll.
 1,0,0,0,0,0,0,// This runs the options, and shows progress. // (It appears to be a bad thing to fork this onto another thread.) //
 1,0,0,0,0,0,0,// we should be able to find the comma because the range for enum constants includes all preceding comments up to the previous constant // if TargetSourceRangeComputer of ASTRewrite changes, this logic should change to skip comments // see org.eclipse.emf.codegen.merge.java.facade.ast.CommentAwareSourceRangeComputer#getEnumConstantSourceRange(ASTNode)
@@ -143,7 +143,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Fill 3 of value (byte) -19
 0,0,0,0,0,0,0,// for enum constants use special range
 0,0,0,0,0,0,0,//ETypedElement
-0,0,0,0,0,0,0,// So if the resolved object is also present... //
+0,0,1,0,0,0,0,// So if the resolved object is also present... //
 0,0,0,0,0,0,0,//EcorePackage
 0,0,0,0,0,0,0,// Subclasses may override this method
 0,0,0,0,0,0,0,// Create resource
@@ -166,7 +166,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Make sure the collections aren't identical... //
 0,0,0,0,0,0,0,// Initialize enums and add enum literals
 0,0,0,0,0,0,0,// Add supertypes to classes
-0,0,0,0,0,0,0,//FB used to check for parent != null. // Need to find the top most model object not including the resource. // parent instanceof Eobject only checks for trees in model object space.
+0,0,1,0,0,0,0,//FB used to check for parent != null. // Need to find the top most model object not including the resource. // parent instanceof Eobject only checks for trees in model object space.
 0,0,0,0,0,0,0,// FeatureMapEntry
 0,0,0,0,0,0,0,// Do the work within an operation because this is a long running activity that modifies the workbench. //
 0,0,0,0,0,0,0,// ResourceChange
@@ -362,19 +362,19 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,//FB The following method is copied from com.ibm.etools.b2b.util.StringUtility //FB because the mapping framework cannot have a dependency on b2b. What we really //FB need to do is get methods like this moved to vabase so that everyone can //FB use them. // change all occurrences of oldPat to newPat
 0,0,0,0,0,0,0,// If it is changing... //
 0,0,0,0,0,0,0,// Test for a same document reference that would usually be handled as an IDREF. //
-0,0,0,0,0,0,0,// Check for scheme, which must be before '/', '?' or '#'. Also handle // names with DOS drive letters ('D:'), so 1-character schemes are not // allowed.
+0,0,1,0,0,0,0,// Check for scheme, which must be before '/', '?' or '#'. Also handle // names with DOS drive letters ('D:'), so 1-character schemes are not // allowed.
 0,0,0,0,0,0,0,// Need not to call setSource() because // a caller can not access this match instance.
 0,0,0,0,0,0,0,// Only creates the other pages if there is something that can be edited //
 0,0,0,0,0,0,0,// Create the listener on demand. //
 0,0,0,0,0,0,0,"/*           * The pattern contains a fixed string.           * The engine checks with Boyer-Moore whether the text contains the fixed string or not.           * If not, it return with false.           */"
 0,0,0,0,0,0,0,// handler.unparsedEntityDecl(name, publicId, systemId, notationName);
 0,0,0,0,0,0,0,// Ignore close since we don't want to let the parser close the stream when it's done.
-0,0,0,0,0,0,0,// We'll try adding a shallow copy of the clipboard contents, instead of a full copy. // Note: we can't just try adding the clipboard contents itself, because the copy may be a //       different type then what's on the clipboard (e.g. EJB Field -> RDB Column). //
+0,0,1,0,0,0,0,// We'll try adding a shallow copy of the clipboard contents, instead of a full copy. // Note: we can't just try adding the clipboard contents itself, because the copy may be a //       different type then what's on the clipboard (e.g. EJB Field -> RDB Column). //
 0,0,0,0,0,0,0,"/*           * The pattern has only fixed string.           * The engine uses Boyer-Moore.           */"
 0,0,0,0,0,0,0,// Fill 6 of value (byte) -87 // Fill 3 of value (byte) 33 // Fill 2 of value (byte) -87 // Fill 2 of value (byte) 33 // Fill 3 of value (byte) -87 // Fill 8 of value (byte) 33 // Fill 2 of value (byte) -87 // Fill 4 of value (byte) 33 // Fill 2 of value (byte) -19
 0,0,0,0,0,0,0,// handler.notationDecl(name, publicId, systemId);
 0,0,0,0,0,0,0,// EDate is far too often overridden to provide a different mapping, and therefor the default is somewhat obscure. // So, it's best to delegate to the factory. //
-0,0,0,0,0,0,0,// This seems to be a pretty sweet formula that supports good growth. // Adding an object to a list will create a list of capacity 4,  // which is just about the average list size. //
+0,0,1,0,0,0,0,// This seems to be a pretty sweet formula that supports good growth. // Adding an object to a list will create a list of capacity 4,  // which is just about the average list size. //
 0,0,0,0,0,0,0,"/*     *  Convert attribute values:     *  & to &amp;     *  < to &lt;     *  "" to &quot;     *  \t to &#x9;     *  \n to &#xA;     *  \r to &#xD;     */"
 0,0,0,0,0,0,0,// caching parser does not parse 2nd file in the same way (javadoc of package for example) // hence, new parser is created every time this method is called
 0,0,0,0,0,0,0,// Fill 7 of value (byte) -19 // Fill 3 of value (byte) 33 // Fill 4 of value (byte) -19 // Fill 2 of value (byte) 33 // Fill 6 of value (byte) -19 // Fill 4 of value (byte) 33 // Fill 13 of value (byte) -19 // Fill 5 of value (byte) 33 // Fill 3 of value (byte) -19
@@ -452,7 +452,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Create a proper feature map entry. //
 0,0,0,0,0,0,0,// set original node of annotations (to allow get methods to work correctly)
 0,0,0,0,0,0,0,// Determine all the bundles that this project depends on. //
-0,0,1,0,0,0,0,// This call should get the files checked out from version control if the project is a 'team' project. //
+0,0,0,0,0,0,0,// This call should get the files checked out from version control if the project is a 'team' project. //
 0,0,0,0,0,0,0,// Like isStringType(), but still returns true even if multiplicity-many. //
 0,0,0,0,0,0,0,// Reverse the objects to attach and detach lists. //
 0,0,0,0,0,0,0,// this.offset points the next of '?'. // modifiers ::= [imsw]* ('-' [imsw]*)? ':'
@@ -466,7 +466,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// there is only whitespace on this line - no need for line break
 0,0,0,0,0,0,0,// This handles Rose 2003 format, e.g., // Logical View::JavaException[40722F9D0294] //
 0,0,0,0,0,0,0,// for STRING
-0,0,1,0,0,0,0,// move all children to the type, converting enum constants to fields // // fields that are created by conversion from enum constants must be inserted after // the last final field that is used in constructors for initializers
+0,0,0,0,0,0,0,// move all children to the type, converting enum constants to fields // // fields that are created by conversion from enum constants must be inserted after // the last final field that is used in constructors for initializers
 0,0,0,0,0,0,0,// ESCAPE U+001B // FORM FEED U+000C // LINE FEED U+000A // CRRIAGE RETURN U+000D // HORIZONTAL TABULATION U+0009 //case 'v':  c = 0x0b;  break; // VERTICAL TABULATION U+000B
 0,0,0,0,0,0,0,// Add JETBuilder //
 0,0,0,0,0,0,0,// Literal char // . // XY // X|Y|Z // X* // [a-zA-Z] etc. // [^a-zA-Z] etc. // (X) or (?:X) // // ^ $ \b \B \< \> \A \Z \z // *? +? // strings // back references // (?=...) // (?!...) // (?<=...) // (?<!...) // (?>...) // (?ims-ims:...) // (?(...)yes|no)
@@ -558,7 +558,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The include failed, so if there is an alternative, we don't skip it. //
 0,0,0,0,0,0,0,// Fill 8 of value (byte) -19 // Fill 2 of value (byte) 33 // Fill 2 of value (byte) -19 // Fill 2 of value (byte) 33 // Fill 22 of value (byte) -19
 0,0,0,0,0,0,0,// At development time, the real factory may not be available. Just return null. //
-0,0,1,0,0,0,0,// This pop is safe because a section couldn't have been started without an include that pushed. //
+0,0,0,0,0,0,0,// This pop is safe because a section couldn't have been started without an include that pushed. //
 0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.eclipse.emf.codegen.merge.java.facade.FacadeHelper#doConvertToNode(java.lang.Object)   */"
 0,0,0,0,0,0,0,/*16A0..16FF;*/
 0,0,0,0,0,0,0,// Cannot start with a '.', '-', or end with a '-'.
@@ -611,7 +611,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Start listening to the new one. //
 0,0,0,0,0,0,0,// Add ASCII Letters and ASCII Hex Numbers
 0,0,0,0,0,0,0,// Create the source and target JDOMs. //
-0,0,1,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)}  * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object  * and proceeding up the inheritance hierarchy * until a non-null result is returned,  * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.edit.tree.TreePackage * @generated */"
+0,0,0,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)}  * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object  * and proceeding up the inheritance hierarchy * until a non-null result is returned,  * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.edit.tree.TreePackage * @generated */"
 0,0,0,0,0,0,0,//ADD THOSE MANUALLY //F0000..FFFFD; "Private Use", //100000..10FFFD; "Private Use" //FFF0..FFFD; "Specials",
 0,0,0,0,0,0,0,// Neither 'scheme:' or 'scheme:#fragment' are valid URIs.
 0,0,0,0,0,0,0,// Create a pattern dictionary for each. //
@@ -644,7 +644,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Fill 7 of value (byte) 33 // Fill 38 of value (byte) -19 // Fill 10 of value (byte) 33 // Fill 17 of value (byte) -87
 0,0,0,0,0,0,0,// Determine if an index is assigned. //
 0,0,0,0,0,0,0,// Determine the index. //
-0,0,1,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)}  * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object  * and proceeding up the inheritance hierarchy * until a non-null result is returned,  * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage * @generated */"
+0,0,0,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)}  * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object  * and proceeding up the inheritance hierarchy * until a non-null result is returned,  * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage * @generated */"
 0,0,0,0,0,0,0,// If it's newly allocated, add a new value, and indicate there was no previous value. //
 0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.eclipse.emf.codegen.merge.java.facade.ast.ASTJAbstractType#getChildren()   */"
 0,0,0,0,0,0,0,// Don't use 'cotinue' for this loop. // single-range | from-to-range | subtraction
@@ -719,7 +719,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// This returns a name like employeeNumber formatted like 'Employee Number' // This returns the same as getCapName unless it starts with "is" in which case the "is" is stripped  // This returns the name to be used in accessor method names; it's the same as getCapName, unless this is the key or value of a map entry, for which "Typed" is prepended // This returns the name of the get array-based accessor method for the list feature. // This returns the name of the get accessor method for the feature, i.e., either "is" or "get" is prefixed to getAccessorName
 0,0,0,0,0,0,0,// For a many-to-many association, the command can only be undoable if the value or owner is last in its // respective list, since the undo will include an inverse add.  So, if the value is last, but the owner is // not, we create an undoable compound command that removes from the opposite end and then inserts the new // value. //
 0,0,0,0,0,0,0,// eVirtualIndexBits[offset] = newIndexBits;
-0,0,0,0,0,0,0,// If there is no list to add to, no collection or an empty collection from which to add, or the index is out of range... //
+0,0,1,0,0,0,0,// If there is no list to add to, no collection or an empty collection from which to add, or the index is out of range... //
 0,0,0,0,0,0,0,// eVirtualValues = newValues;
 0,0,0,0,0,0,0,// This is package,  // so check the package information if this is in cat file. // If it is, then load the .cat file into the tree thereby traversing it; // otherwise, just traverse the tree. //
 0,0,0,0,0,0,0,// no device: use base's
@@ -742,7 +742,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Remember it. //
 0,0,0,0,0,0,0,// Either delegate the call or return nothing. //
 0,0,0,0,0,0,0,// Now we could check that the adapter implements interface ITableItemFontProvider. //
-0,0,0,0,0,0,0,// It's okay for there not be a precompiled template, so fail quietly.
+0,0,1,0,0,0,0,// It's okay for there not be a precompiled template, so fail quietly.
 0,0,0,0,0,0,0,// We don't need to encode here because the only platform resource URIs in the map are for projects // whose names are the same as corresponding plug-in IDs, and hence never need to be encoded // (see EcorePlugin.computePlatformResourceToPlatformPluginMap()). //
 0,0,0,0,0,0,0,// There must be at least one match. //
 0,0,0,0,0,0,0,"/*     * (non-Javadoc) Method declared on Dialog.     */"
@@ -765,7 +765,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Adapter Factory</b> for the model. * It provides an adapter <code>createXXX</code> method for each class of the model. * <!-- end-user-doc --> * @see org.eclipse.emf.mapping.ecore2xml.Ecore2XMLPackage * @generated */"
 0,0,0,0,0,0,0,// Otherwise, the source should be available now as event.data, and we // can create the command. //
 0,0,0,0,0,0,0,// Either the IEditingDomainItemProvider or ITreeItemContentProvider item provider interface can give us // the children. //
-0,0,1,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)} * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object * and proceeding up the inheritance hierarchy * until a non-null result is returned, * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.mapping.ecore2xml.Ecore2XMLPackage * @generated */"
+0,0,0,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)} * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object * and proceeding up the inheritance hierarchy * until a non-null result is returned, * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.mapping.ecore2xml.Ecore2XMLPackage * @generated */"
 0,0,0,0,0,0,0,//GenModelFactory
 0,0,0,0,0,0,0,// current document reference: keep no path or query
 0,0,0,0,0,0,0,// Ignore if there is not substantial change. //
@@ -801,10 +801,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Continue to compute the offset.
 0,0,0,0,0,0,0,// Defer the handling of the opposite. //
 0,0,0,0,0,0,0,// this guard is for extra security, but should not be necessary
-0,0,0,0,0,0,0,// Do this first for better error message during setEParameterProperties. //
+0,0,1,1,0,1,1,// Do this first for better error message during setEParameterProperties. //
 0,0,0,0,0,0,0,// set properties
 0,0,0,0,0,0,0,// Index counters into indices1, indices2, and indices.  //
-0,0,0,0,0,0,0,// Just remember it; it's encoded later during execution, which is more efficient. //
+0,0,1,0,0,0,0,// Just remember it; it's encoded later during execution, which is more efficient. //
 0,0,0,0,0,0,0,// Remove objects from the owner list by index, starting from the end. //
 0,0,0,0,0,0,0,//GenModelFactoryImpl
 0,0,0,0,0,0,0,// We don't want to insert an object before or after itself... //
@@ -813,14 +813,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// This is the feedback we use to indicate drop on; it will only be used if the command is executable. //
 0,0,0,0,0,0,0,// Get the resource parent, if its a file. //
 0,0,0,0,0,0,0,// We'd like the collection of replacements selected after this replace completes. //
-0,0,1,0,0,0,0,// Repeatedly select the lower index and corresponding object, and advance past the selected pair. //
+0,0,0,0,0,0,0,// Repeatedly select the lower index and corresponding object, and advance past the selected pair. //
 0,0,0,0,0,0,0,// Wrap any new children and add them to the map. Remove each current child from the set of old children. //
 0,0,0,0,0,0,0,// Ignore this soft dependency when it's not satisfied.
 0,0,0,0,0,0,0,// Simply remove the object from the owner list. //
 0,0,0,0,0,0,0,// Make up a unique new name here. //
 0,0,0,0,0,0,0,// Prepare for CreateChild item addition or removal. //
-0,0,1,0,0,0,0,// Check all the siblings to see which if any should now be nested under this new mapping. // The are accumulated into a list so that they can be removed as a single command with a single notification. //
-0,0,1,0,0,0,0,// J9 2.2 has problems assigning null to a Class variable. //
+0,0,0,0,0,0,0,// Check all the siblings to see which if any should now be nested under this new mapping. // The are accumulated into a list so that they can be removed as a single command with a single notification. //
+0,0,0,0,0,0,0,// J9 2.2 has problems assigning null to a Class variable. //
 0,0,0,0,0,0,0,// always returns original value
 0,0,0,0,0,0,0,// Use the original to do the add, but only if it's of the same type as the copy. // This ensures that if there is conversion being done as part of the copy, // as would be the case for a cross domain copy in the mapping framework, // that we do actually use the converted instance. //
 0,0,0,0,0,0,0,// add added super interfaces to the array
@@ -849,7 +849,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Generate actions for selection; populate and redraw the menus. //
 0,0,0,0,0,0,0,// Draw ellipses, offset if down. //
 0,0,0,0,0,0,0,// Empty extension to limit the effect of suppressing the deprecation warning.
-0,0,1,0,0,0,0,"/*  protected Command createSetCommand(EditingDomain domain, Object owner, Object feature, Object value)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, SetCommand.class, new CommandParameter(owner, feature, value));  }  protected Command createCopyCommand(EditingDomain domain, Object owner, CopyCommand.Helper helper)  {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, CopyCommand.class, new CommandParameter(owner, null, helper));  }  protected Command createCreateCopyCommand(EditingDomain domain, Object owner, CopyCommand.Helper helper)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, CreateCopyCommand.class, new CommandParameter(owner, null, helper));  }  protected Command createInitializeCopyCommand(EditingDomain domain, Object owner, CopyCommand.Helper helper)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, InitializeCopyCommand.class, new CommandParameter(owner, null, helper));  }  protected Command createRemoveCommand(EditingDomain domain, Object owner, Object feature, Collection collection)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, RemoveCommand.class, new CommandParameter(owner, feature, collection));  }  protected Command createReplaceCommand(EditingDomain domain, Object owner, Object feature, Object value, Collection collection)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, ReplaceCommand.class, new CommandParameter(owner, feature, value, collection));  }  protected Command createAddCommand(EditingDomain domain, Object owner, Object feature, Collection collection, int index)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, ReplaceCommand.class, new CommandParameter(owner, feature, collection, index));  }  protected Command createMoveCommand(EditingDomain domain, Object owner, Object feature, Object value, int index)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, ReplaceCommand.class, new CommandParameter(owner, feature, value, index));  }  protected Command createDragAndDropCommand    (EditingDomain domain, Object owner, float location, int operations, int operation, Collection collection)  {    DragAndDropCommand.Detail detail = new DragAndDropCommand.Detail(location, operations, operation);    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, DragAndDropCommand.class, new CommandParameter(owner, detail, collection));  }*/"
+0,0,0,0,0,0,0,"/*  protected Command createSetCommand(EditingDomain domain, Object owner, Object feature, Object value)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, SetCommand.class, new CommandParameter(owner, feature, value));  }  protected Command createCopyCommand(EditingDomain domain, Object owner, CopyCommand.Helper helper)  {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, CopyCommand.class, new CommandParameter(owner, null, helper));  }  protected Command createCreateCopyCommand(EditingDomain domain, Object owner, CopyCommand.Helper helper)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, CreateCopyCommand.class, new CommandParameter(owner, null, helper));  }  protected Command createInitializeCopyCommand(EditingDomain domain, Object owner, CopyCommand.Helper helper)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, InitializeCopyCommand.class, new CommandParameter(owner, null, helper));  }  protected Command createRemoveCommand(EditingDomain domain, Object owner, Object feature, Collection collection)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, RemoveCommand.class, new CommandParameter(owner, feature, collection));  }  protected Command createReplaceCommand(EditingDomain domain, Object owner, Object feature, Object value, Collection collection)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, ReplaceCommand.class, new CommandParameter(owner, feature, value, collection));  }  protected Command createAddCommand(EditingDomain domain, Object owner, Object feature, Collection collection, int index)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, ReplaceCommand.class, new CommandParameter(owner, feature, collection, index));  }  protected Command createMoveCommand(EditingDomain domain, Object owner, Object feature, Object value, int index)   {    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, ReplaceCommand.class, new CommandParameter(owner, feature, value, index));  }  protected Command createDragAndDropCommand    (EditingDomain domain, Object owner, float location, int operations, int operation, Collection collection)  {    DragAndDropCommand.Detail detail = new DragAndDropCommand.Detail(location, operations, operation);    return       ((IEditingDomainItemProvider)decoratedItemProvider).createCommand        (owner, domain, DragAndDropCommand.class, new CommandParameter(owner, detail, collection));  }*/"
 0,0,0,0,0,0,0,// Iterate over all the plugin IDs to determine the dependency closure. // The list grows as the plugins are visited. //
 0,0,0,0,0,0,0,// Look into SubContributionItems //
 0,0,0,0,0,0,0,// else keep device, path, and query
@@ -886,7 +886,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// matching devices and no path removal
 0,0,0,0,0,0,0,// Clear the import manager
 0,0,0,0,0,0,0,// order genPackages by putting firstGenPackage (if non-null) first
-0,0,1,0,0,0,0,// Remember the viewer and listen to SWT.DragDetect to alert the start of the drag operation. //
+0,0,0,0,0,0,0,// Remember the viewer and listen to SWT.DragDetect to alert the start of the drag operation. //
 0,0,0,0,0,0,0,//GenFeatureImpl
 0,0,0,0,0,0,0,"/*        text = new Text(composite, SWT.SINGLE | SWT.BORDER);        text.setLayoutData(new GridData(GridData.GRAB_HORIZONTAL                | GridData.HORIZONTAL_ALIGN_FILL));*/"
 0,0,0,0,0,0,0,// If the value is null, the key is a referenced object
@@ -947,7 +947,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// It's definitely a package if expected constants eNAME, eNS_PREFIX, or eNS_URI appear. //
 0,0,0,0,0,0,0,// bottom-label-case
 0,0,0,0,0,0,0,// This ensures that the CreateCopyCommand will be executed by StrictCompoundCommand.prepare(). //
-0,0,0,0,0,0,0,// Do not allow an existing build.properties to be overwritten, as the tests project is originally generated from scratch. //
+0,0,1,0,0,0,0,// Do not allow an existing build.properties to be overwritten, as the tests project is originally generated from scratch. //
 0,0,0,0,0,0,0,// Fill 16 of value (byte) -87 // Fill 3 of value (byte) 33 // Fill 4 of value (byte) -87 // Fill 3 of value (byte) 33 // Fill 10 of value (byte) -19 // Fill 2 of value (byte) -87 // Fill 2 of value (byte) 33 // Fill 10 of value (byte) -87 // Fill 17 of value (byte) 33 // Fill 3 of value (byte) -87
 0,0,0,0,0,0,0,// Handle eOpposite specially. //
 0,0,0,0,0,0,0,// If this owned object is equal to one from the collection... //
@@ -986,14 +986,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Ignore the exception and return false.
 0,0,0,0,0,0,0,// note: query != null -> hierarchical
 0,0,0,0,0,0,0,//return value == null || validate(value, URIC_HI, URIC_LO, true, true);
-0,0,1,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)}  * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object  * and proceeding up the inheritance hierarchy * until a non-null result is returned,  * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.mapping.MappingPackage * @generated */"
+0,0,0,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)}  * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object  * and proceeding up the inheritance hierarchy * until a non-null result is returned,  * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.mapping.MappingPackage * @generated */"
 0,0,0,0,0,0,0,//datatype
-0,0,1,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)} * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object * and proceeding up the inheritance hierarchy * until a non-null result is returned, * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.ecore.change.ChangePackage * @generated */"
-0,0,1,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)}  * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object  * and proceeding up the inheritance hierarchy * until a non-null result is returned,  * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.ecore.EcorePackage * @generated */"
+0,0,0,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)} * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object * and proceeding up the inheritance hierarchy * until a non-null result is returned, * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.ecore.change.ChangePackage * @generated */"
+0,0,0,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)}  * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object  * and proceeding up the inheritance hierarchy * until a non-null result is returned,  * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.ecore.EcorePackage * @generated */"
 0,0,0,0,0,0,0,"/*   * (non-Javadoc)   *    * @see org.eclipse.emf.ecore.util.ExtendedMetaData#getName(org.eclipse.emf.ecore.EClassifier)   */"
-0,0,1,0,0,0,0,// We do not want to diagnose any error that have already been diagnosed by a super type. //
+0,0,0,0,0,0,0,// We do not want to diagnose any error that have already been diagnosed by a super type. //
 0,0,0,0,0,0,0,// Creates the model from the editor input //
-0,0,1,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)} * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object * and proceeding up the inheritance hierarchy * until a non-null result is returned, * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.mapping.ecore2ecore.Ecore2EcorePackage * @generated */"
+0,0,0,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)} * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object * and proceeding up the inheritance hierarchy * until a non-null result is returned, * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.mapping.ecore2ecore.Ecore2EcorePackage * @generated */"
 0,0,0,0,0,0,0,// Tests the non-null string value to see if it contains only ASCII // characters in the set represented by the specified 128-bit bitmask, // as well as, optionally, non-ASCII characters 0xA0 and above, and, // also optionally, escape sequences of % followed by two hex digits. // This method is used for the new, strict URI validation that is not // not currently in place.
 0,0,0,0,0,0,0,// If the workbench part changes... //
 0,0,0,0,0,0,0,/* backward compatibility with old generated overrides */
@@ -1081,7 +1081,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// return the line number of the start of the node
 0,0,0,0,0,0,0,//MappingPackageImpl
 0,0,0,0,0,0,0,// revert all current edits for this node
-0,0,0,0,0,0,0,// this line has been commented out, return next line number
+0,0,1,0,0,0,0,// this line has been commented out, return next line number
 0,0,0,0,0,0,0,// Find the appropriate parent mapping, which at the very least, should be the mapping root itself. //
 0,0,0,0,0,0,0,// if there is anything after the node on the same line, insert line break
 0,0,0,0,0,0,0,// Separators for parsing a URI string.
@@ -1198,7 +1198,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// mark the node to be removed
 0,0,0,0,0,0,0,// We'll rethrow the original exception, not this one.
 0,0,0,0,0,0,0,// if are dealing with original, not cloned node
-0,0,1,0,0,0,0,// CellEditor.setValue() calls isCorrect() to validate the value that is about to be set. We are doing conversion // between the value and a corresponding string, and we would usually like to validate the string. Because // setValue() is final, we cannot do that conversion there, so we need to record what we're trying to validate and // work around the problem in isCorrect(). //
+0,0,0,0,0,0,0,// CellEditor.setValue() calls isCorrect() to validate the value that is about to be set. We are doing conversion // between the value and a corresponding string, and we would usually like to validate the string. Because // setValue() is final, we cannot do that conversion there, so we need to record what we're trying to validate and // work around the problem in isCorrect(). //
 0,0,0,0,0,0,0,// stringValue not null, nodeValue is null
 0,0,0,0,0,0,0,"/*   * If this is an {@link #isIRI IRI}, converts it to a strict ASCII URI,   * using the procedure described in Section 3.1 of the   * <a href=""http://www.w3.org/International/iri-edit/draft-duerst-iri-09.txt"">IRI   * Draft RFC</a>.  Otherwise, this URI, itself, is returned.   *   * This unused code is included for possible future use...   */"
 0,0,0,0,0,0,0,// insert new values
@@ -1413,7 +1413,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// reset text edits; since this node is processed successfully, there is no need to revert these changes
 0,0,0,0,0,0,0,// EEnumImpl overrides this to do nothing. // The only case that is special is when a more specific instance of AbstractEnumerator is generated/reused. //
 0,0,0,0,0,0,0,// This forces the feature ids to be assigned. //
-0,0,0,0,0,0,0,// Interprets escaped characters within the string according to Java // literal rules, with two exceptions: an unescaped " does not terminate // the string, and a \ not followed by b, t, n, f, r, ", ', u, or an octal // digit is taken literally, not as an error
+0,0,1,0,0,0,0,// Interprets escaped characters within the string according to Java // literal rules, with two exceptions: an unescaped " does not terminate // the string, and a \ not followed by b, t, n, f, r, ", ', u, or an octal // digit is taken literally, not as an error
 0,0,0,0,0,0,0,// We can use == for EObjects and EnumLiterals. //
 0,0,0,0,0,0,0,// A standalone base is a valid URI according to spec
 0,0,0,0,0,0,0,// This is needed for internal bootstrapping of EGenericType's default value for eRawType. // It's simply not available before Ecore is constructed so we make it available and then patch what's missing. //
@@ -1518,7 +1518,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Compute the holder of the proxy //
 0,0,0,0,0,0,0,// Move the resolved object to the right place, remove the proxy, and we're done. //
 0,0,0,0,0,0,0,// EATM temporary for debug purposes only. //
-0,0,1,0,0,0,0,// The proxy needs to be replaced in a way that updates both ends of the reference. //
+0,0,0,0,0,0,0,// The proxy needs to be replaced in a way that updates both ends of the reference. //
 0,0,0,0,0,0,0,// // Implement LexicalHandler methods //
 0,0,0,0,0,0,0,// At least set the references that we were able to resolve, if any. //
 0,0,0,0,0,0,0,// We won't need to process this again later.
@@ -1692,7 +1692,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The methods were matched by a process that doesn't consider the // parameters
 0,0,0,0,0,0,0,/*02B0..02FF;*/
 0,0,0,0,0,0,0,// Look for the annotation with the matching source. //
-0,0,0,0,0,0,0,// We can't find the class, so we don't want this class loader, // but instead want the last result that was able to load the class. //
+0,0,1,0,0,0,0,// We can't find the class, so we don't want this class loader, // but instead want the last result that was able to load the class. //
 0,0,0,0,0,0,0,// Don't push method annotations into redirected methods. //
 0,0,0,0,0,0,0,// Create a resource for this file. //
 0,0,0,0,0,0,0,// This just notifies those things that are affected by the section. //
@@ -1784,7 +1784,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Load the model and if it's not one already considered, e.g., a local version in the workspace, process its GenPackages. //
 0,0,0,0,0,0,0,//Check if they are PAD characters //Two PAD e.g. 3c[Pad][Pad] //last 4 bits should be zero
 0,0,0,0,0,0,0,// IViewPart view = getViewPart(); // titleLabel.setText(view.getTitle()); // titleLabel.setImage(view.getTitleImage());
-0,0,1,0,0,0,0,// If we don't already have it, try to get the source early. We can't give // feedback if it's not available yet (this is platform-dependent). //
+0,0,0,0,0,0,0,// If we don't already have it, try to get the source early. We can't give // feedback if it's not available yet (this is platform-dependent). //
 0,0,0,0,0,0,0,// Adding new aliases as proposed in // http://lists.w3.org/Archives/Public/ietf-charset/2002JulSep/0058.html
 0,0,0,0,0,0,0,// form integral number of 6-bit groups
 0,0,0,0,0,0,0,// This implementation was changed to not introduce multi line content.
@@ -1903,7 +1903,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//fireNotifyChanged(msg.getNotifier(), msg.getEventType(), msg.getFeature(), msg.getOldValue(), msg.getNewValue(), msg.getPosition());
 0,0,0,0,0,0,0,// If this entry isn't the end marker  // and isn't the matching one that we are replacing... //
 0,0,0,0,0,0,0,// Fill 10 of value (byte) -87 // Fill 39 of value (byte) 33 // Fill 2 of value (byte) -19
-0,0,1,0,0,0,0,// Simple cases: no mix-ins for no inheritance or for a single base class. //
+0,0,0,0,0,0,0,// Simple cases: no mix-ins for no inheritance or for a single base class. //
 0,0,0,0,0,0,0,// Fill 2 of value (byte) 33
 0,0,0,0,0,0,0,// Mix-ins are everything after the base class. //
 0,0,0,0,0,0,0,// This is for the in2out feature. //
@@ -1972,7 +1972,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Don't do replacement if we just did one, or if previous line // ended with a semicolon. //
 0,0,0,0,0,0,0,// Don't do replacement if previous line ended with a comment. //
 0,0,0,0,0,0,0,// Returns the upper half bitmask for all the ASCII characters in the given // string.
-0,0,0,1,0,1,1,// We can't undo it, so we'd better give up. //
+0,0,1,1,0,1,1,// We can't undo it, so we'd better give up. //
 0,0,0,0,0,0,0,// If the path isn't within the root of the archive,  // create a new URI for the folder location of the archive,  // so we can look in the folder that contains it. //
 0,0,0,0,0,0,0,// Platform.resolve() doesn't work if the project is encoded. //
 0,0,0,0,0,0,0,// There must be at least one archive path. //
@@ -2085,7 +2085,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Possible scope for the ChangeRecorder
 0,0,0,0,0,0,0,// If the location is near the boundary, we'll start by trying to do a drop insert. //
 0,0,0,0,0,0,0,// boolean isGenerateEditPlugin(); // boolean isGenerateEditorPlugin();
-0,0,0,0,0,0,0,// If there isn't something obviously wrong with the arguments... //
+0,0,1,0,0,0,0,// If there isn't something obviously wrong with the arguments... //
 0,0,0,0,0,0,0,// We'll default to this. //
 0,0,0,0,0,0,0,// Create commands to create copies of the children. //
 0,0,0,0,0,0,0,// Prepare the right type of operation. //
@@ -2101,7 +2101,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// This is the name of the model. //
 0,0,0,0,0,0,0,// And add the copy. //
 0,0,0,0,0,0,0,// Copy the collection //
-0,0,0,0,0,0,0,// We don't want to copy insert an object before or after itself... //
+0,0,1,0,0,0,0,// We don't want to copy insert an object before or after itself... //
 0,0,0,0,0,0,0,// Just remove the objects and add them. //
 0,0,0,0,0,0,0,// if optimize // if collection
 0,0,0,0,0,0,0,// This can execute if there is an owner list and a collection and the owner list contains all the objects of the collection. //
@@ -2184,7 +2184,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//FunctionPairImpl
 0,0,0,0,0,0,0,// When the value is changed, the property sheet page doesn't update the property sheet viewer input // before refreshing, and this gets called on the obsolete wrapper. So, we need to read directly from the // model object. // //return needsEncoding(feature) ? encode((String)getEntryValue()) : getEntryValue();
 0,0,0,0,0,0,0,//MappingPackage ePackage = ((MappingRoot)msg.getNotifier()).ePackageMapping();
-0,0,1,0,0,0,0,// If the last object was deleted and the selection was in the property sheet view, the obsolete wrapper will // reference past the end of the list. //
+0,0,0,0,0,0,0,// If the last object was deleted and the selection was in the property sheet view, the obsolete wrapper will // reference past the end of the list. //
 0,0,0,0,0,0,0,// Fill in the array with labels. //
 0,0,0,0,0,0,0,"/*      ResourceSet resourceSet = (ResourceSet)object;      childrenFeatures.add(ResourcePackage.eINSTANCE.getResourceSet_Resources());*/"
 0,0,1,0,0,0,0,// First, try an existing implementation of getChildReference().  This provides backwards compatibility if that // method, now deprecated, was overridden. //
@@ -2219,7 +2219,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// It's just a single value //
 0,0,0,0,0,0,0,// Consume the rest of the appropriate children. //
 0,0,0,0,0,0,0,// The "suffix" can actually be a substitution pattern for the package name. //
-0,0,1,0,0,0,0,// Correct the index, if necessary. //
+0,0,0,0,0,0,0,// Correct the index, if necessary. //
 0,0,0,0,0,0,0,// Create a command for this feature, //
 0,0,0,0,0,0,0,// Compute the relative index as best as possible. //
 0,0,0,0,0,0,0,// Create a command for this feature,  //
@@ -2368,7 +2368,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// It's definitely a package if it was declared as such. //
 0,0,0,0,0,0,0,// Additional attributes and references may be defined directly on the interface in order to allow the // get accessor method to have suppressed visibility. //
 0,0,0,0,0,0,0,// Walk the methods. //
-0,0,1,0,0,0,0,// This will catch inherited features, or additional things we don't want to worry about.
+0,0,0,0,0,0,0,// This will catch inherited features, or additional things we don't want to worry about.
 0,0,0,0,0,0,0,// Find Packages and Factories
 0,0,0,0,0,0,0,// Otherwise it's treated as an EEnum //
 0,0,0,0,0,0,0,// Handle the type, multiplicity and other ETypedElement attributes. //
@@ -2391,7 +2391,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The type can be augmented by specifying the it explicitly in the annotation. // This mostly makes sense only for many-valued typed elements, where the Java // type is a list and the item type needs to be specified. //
 0,0,0,0,0,0,0,// continue with default processing
 0,0,0,0,0,0,0,// Allow the value to be defined by an annotation or by the field's initializer //
-0,0,1,0,0,0,0,// We want to resolve to this. //
+0,0,0,0,0,0,0,// We want to resolve to this. //
 0,0,0,0,0,0,0,// Returns the lower half bitmask for all ASCII characters between the two // given characters, inclusive.
 0,0,0,0,0,0,0,// But, if name doesn't expand into field name, ignore it. //
 0,0,0,0,0,0,0,// Returns the upper half bitmask for all AsCII characters between the two // given characters, inclusive.
@@ -2407,7 +2407,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The package not in a .cat file. //
 0,0,0,0,0,0,0,// See if we already have the EDataType. //
 0,0,0,0,0,0,0,// The package is in a .cat file. //
-0,0,0,0,0,0,0,// It's okay for there not be a precompiled template, so fail quietly. // exception.printStackTrace();
+0,0,1,0,0,0,0,// It's okay for there not be a precompiled template, so fail quietly. // exception.printStackTrace();
 0,0,0,0,0,0,0,// Returns whether the given character is in the set specified by the given // bitmask.
 0,0,0,0,0,0,0,// If we still don't have one, we'll have to settle for a demand created EDataType or EClass, // so create a new EClassifier with a nice unique name. //
 0,0,0,0,0,0,0,// If we don't have one yet, maybe it's one of the special types... //
@@ -2444,7 +2444,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//MappingFactory
 0,0,0,0,0,0,0,// Remove zero width non-breaking space, which may be used as a byte order marker,  // and may be ignored according to the Unicode FAQ: http://www.unicode.org/unicode/faq/utf_bom.html#38 //
 0,0,0,0,0,0,0,// A container must be transient. //
-0,0,1,0,0,0,0,// Temporary WAS/WSAD migration option. //
+0,0,0,0,0,0,0,// Temporary WAS/WSAD migration option. //
 0,0,0,0,0,0,0,// It was not found in the model class so check if primitive type. //
 0,0,0,0,0,0,0,// setup attribute and parameter type //
 0,0,0,0,0,0,0,// Convert attributes of with EClass type to references. //
@@ -2562,7 +2562,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// EATM  // Foreign Model
 0,0,0,0,0,0,0,// Any features from one package that delegate to features in another. //
 0,0,0,0,0,0,0,// If there are features delegating across packages, add only those that aren't already being generated. //
-0,0,0,0,0,0,0,// a single separator, possibly preceded by some parent reference // segments, is redundant
+0,0,1,0,0,0,0,// a single separator, possibly preceded by some parent reference // segments, is redundant
 0,0,0,0,0,0,0,// an empty path needs to be replaced by a single "." if there is no // query, to distinguish it from a current document reference
 0,0,0,0,0,0,0,// Collapses non-ending empty segments, parent references, and self // references in a non-relative path, returning the same path that would // be produced from the base hierarchical URI as part of a resolve.
 0,0,0,0,0,0,0,// if the path is non-empty and originally ended in an empty segment, a // parent reference, or a self reference, add a trailing separator
@@ -2582,5 +2582,5 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Encodes the given string, replacing each ASCII character that is not in // the set specified by the 128-bit bitmask and each non-ASCII character // below 0xA0 by an escape sequence of % followed by two hex digits.  If // % is not in the set but ignoreEscaped is true, then % will not be encoded // iff it already begins a valid escape sequence.
 0,0,0,0,0,0,0,// Tests whether an escape occurs in the given string, starting at index i. // An escape sequence is a % followed by two hex digits.
 0,0,0,0,0,0,0,// Multiple jet directives.
-0,0,1,0,0,0,0,// There's no reason they aren't equal, so they are. //
+0,0,0,0,0,0,0,// There's no reason they aren't equal, so they are. //
 0,0,0,0,0,0,0,// If the set states are the same, and the values of the feature are the structurally equal, they are equal. //

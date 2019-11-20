@@ -2,7 +2,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// this may be negative
 1,0,1,1,1,1,1,// TODO: to be implemented
 1,0,1,1,1,1,1,// TODO:  the subplot areas needs to be moved out of the plot into the plot //        state
-1,0,1,1,1,1,1,//TODO: shift block down to bottom
+1,0,0,1,1,1,1,//TODO: shift block down to bottom
 1,0,1,1,1,1,1,// TODO: it might be a good idea to keep a reference to the color // specified in setPaint() or setColor(), rather than creating a // new object every time getPaint() is called.
 1,0,0,1,1,1,1,// TODO: for now we are ignoring the height constraint
 1,0,1,1,1,1,1,// first determine the size of the chart rendering area... // TODO workout insets for SWT
@@ -10,11 +10,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: this must be wrong...
 1,0,0,1,1,1,1,// TODO: we didn't check the width yet
 1,1,0,1,1,1,1,// hack to ensure the newly created awt fonts will be rendered with the // same height as the swt one
-1,0,1,1,1,1,1,//TODO: shift block right by half
-1,0,0,1,1,1,1,// FIXME: need a locale as well as a timezone
+1,0,0,1,1,1,1,//TODO: shift block right by half
+1,0,1,1,1,1,1,// FIXME: need a locale as well as a timezone
 1,0,1,1,1,1,1,//TODO: shift block over to right
 1,0,0,0,0,0,0,// do we need to update the crosshair values?
-1,0,0,1,1,1,1,// TODO find a better localization key
+1,0,1,1,1,1,1,// TODO find a better localization key
 1,0,1,1,1,1,1,// TODO:  this attribute should be transferred to the renderer state.
 1,0,1,1,1,1,1,// FIXME: implement this, low priority
 1,0,1,1,1,1,1,// FIXME: the XYItemRenderer interface doesn't specify the // getAnnotations() method but it should
@@ -27,13 +27,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//FIXME we should really assert a value here
 1,0,0,0,0,0,0,// TO DO:  these annotations only work with XYPlot, see if it is possible to // make ContourPlot a subclass of XYPlot (DG);
 1,0,1,1,1,1,1,//FIXME we should really assert a value
-1,0,0,0,0,0,0,// not strictly necessary, since the // renderer set for the // parent plot is not used
+1,0,1,0,0,0,0,// not strictly necessary, since the // renderer set for the // parent plot is not used
 1,0,1,1,1,1,1,// TODO : complete this
-1,0,1,1,1,1,1,// TODO: fix output when this flag is set to true
-1,0,1,1,1,1,1,// TODO:  move the above to the plot state
+1,0,0,1,1,1,1,// TODO: fix output when this flag is set to true
+1,0,0,1,1,1,1,// TODO:  move the above to the plot state
 1,0,1,1,1,1,1,// FIXME:  this code means that it is not possible to use more than // one domain axis for the combined plots...
 1,0,0,1,0,1,1,// end of workaround
-1,0,1,1,1,1,1,// TODO: could change this to itemFillPaint().  For backwards // compatibility, it might require a useFillPaint flag.
+1,0,0,1,1,1,1,// TODO: could change this to itemFillPaint().  For backwards // compatibility, it might require a useFillPaint flag.
 1,0,0,0,0,0,0,// a redraw should NOT trigger another change event
 1,0,0,0,0,0,0,// unused in parent
 1,0,1,1,1,1,1,// TODO: In JFreeChart 1.2.0, put this method in the // CategoryItemRenderer interface
@@ -44,7 +44,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// FIXME: the renderer interface doesn't have the drawDomainLine() // method, so we have to rely on the renderer being a subclass of // AbstractXYItemRenderer (which is lame)
 1,0,1,1,1,1,1,// FIXME: this attribute is not used - deprecate?
 1,0,1,1,1,1,1,// TODO: by coding the event with some information about what changed // in the dataset, we could make the recalculation of the interval // more efficient in some cases (for instance, if the change is // just an update to a y-value, then the x-interval doesn't need // updating)...
-1,0,1,0,0,0,0,// the method we want isn't in the CategoryItemRenderer // interface...
+1,0,0,0,0,0,0,// the method we want isn't in the CategoryItemRenderer // interface...
 1,0,1,1,1,1,1,// FIXME: what if value is null on next line?
 1,0,1,1,1,1,1,// TODO:  this needs to move into the renderer state
 1,0,1,1,1,1,1,//TODO: implement this method properly
@@ -76,26 +76,26 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// this may be obsolete (not used anywhere)
 1,0,1,1,1,1,1,// TODO: is this a good idea?
 1,1,1,0,0,0,0,/// a kludge to make everything work when no rows returned
-1,0,0,1,1,1,1,//TODO: shift block down by half
+1,0,1,1,1,1,1,//TODO: shift block down by half
 1,0,1,1,1,1,1,// FIXME better ask the renderer instead of DatasetUtilities
 1,0,1,1,1,1,1,// TODO: implement the entity for the annotation
 1,0,0,0,0,0,0,// needs to be improved !!!
 1,0,0,0,0,0,0,// not used by plot
-1,0,0,1,1,1,1,// FIXME:  need a locale as well as a timezone
+1,0,1,1,1,1,1,// FIXME:  need a locale as well as a timezone
 1,0,1,1,1,1,1,// TODO: For JFreeChart 1.2.0, this method should go in the //       ShapeUtilities class
 1,0,0,0,0,0,0,// we'll have to use the method in the interface, but // this doesn't have the paint and stroke settings...
 1,0,1,1,1,1,1,// FIXME: Check that there isn't already a series with the same key
-1,0,0,1,0,1,1,// I know it's bad to create object. better idea?
+1,0,1,1,0,1,1,// I know it's bad to create object. better idea?
 1,0,1,1,1,1,1,// FIXME: clone generator
 1,0,1,1,1,1,1,// TODO: use a generator here
 1,0,0,1,1,1,1,// TODO: I think we need to make sure the keys are actually cloned, // whereas the paint instances are always immutable so they're OK
 1,0,0,1,1,1,1,// FIXME: draw outliers
-1,0,0,1,1,1,1,// TODO: I think we need to make sure the keys are actually cloned, // whereas the stroke instances are always immutable so they're OK
+1,0,1,1,1,1,1,// TODO: I think we need to make sure the keys are actually cloned, // whereas the stroke instances are always immutable so they're OK
 1,0,1,0,0,0,0,// not implemented
 1,0,0,1,1,1,1,"/**     * Returns a string representing the week (e.g. ""Week 9, 2002"").     *     * TODO: look at internationalisation.     *     * @return A string representing the week.     */"
 1,0,1,1,1,1,1,// FIXME: show a dialog with the error
 1,0,0,1,1,1,1,// TODO: draw the interval marker with a 3D effect
-1,0,0,1,1,1,1,// TODO: add serialization support for images
+1,0,1,1,1,1,1,// TODO: add serialization support for images
 1,0,0,0,0,0,0,// could make this configurable
 1,0,0,1,1,1,1,// TODO see if we need to apply some line color and style to the // axis traces
 1,0,1,1,1,1,1,// FIXME:  implement this...
@@ -120,7 +120,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Dispose of any fonts we have created
 0,0,0,0,0,0,0,// CASE 1 : Comparing to another TimeSeriesDataPair object // -------------------------------------------------------
 0,0,0,0,0,0,0,//empty cell // row 2
-0,0,1,0,0,0,0,// The following angle calc will ensure there isn't a top // vertical axis - this may be useful if you don't want any // given criteria to 'appear' move important than the // others.. //  + (getDirection().getFactor() //        * (cat + 0.5) * 360 / catCount);
+0,0,0,0,0,0,0,// The following angle calc will ensure there isn't a top // vertical axis - this may be useful if you don't want any // given criteria to 'appear' move important than the // others.. //  + (getDirection().getFactor() //        * (cat + 0.5) * 360 / catCount);
 0,0,0,0,0,0,0,// Create the color-change dialog
 0,0,0,0,0,0,0,// draw the item labels if there are any...
 0,0,0,0,0,0,0,// build second tab
@@ -573,7 +573,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// this is the last period, but it is only partially visible // so check that the label will fit before displaying it...
 0,0,0,0,0,0,0,// TBLRC // 00010 - right item only
 0,0,0,0,0,0,0,// check that there is some data to display...
-0,0,0,0,0,0,0,// FIXED / FIXED
+0,0,0,1,0,1,1,// FIXED / FIXED
 0,0,0,0,0,0,0,// CASE 1 : Comparing to another TimeSeriesDataItem object // -------------------------------------------------------
 0,0,0,0,0,0,0,// TBLRC // 10111
 0,0,0,0,0,0,0,//only 1 power of 10 value, it's > 0 and its resulting // tick value will be larger than lower bound of data //decrement to generate more ticks
@@ -699,7 +699,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// rowRenderingOrder...
 0,0,0,0,0,0,0,// a key that hasn't been mapped should return the default group
 0,0,0,0,0,0,0,// background range markers...
-0,0,0,0,0,0,0,// this should never happen with the existing code, but throw // an exception in case future changes make it possible...
+0,0,1,0,0,0,0,// this should never happen with the existing code, but throw // an exception in case future changes make it possible...
 0,0,0,0,0,0,0,// rangeCrosshairValue
 0,0,0,0,0,0,0,// default is to notify listeners when the // chart changes
 0,0,0,0,0,0,0,//parameter value is < -10 //calculate log using positive value:
@@ -1539,7 +1539,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// anti-aliasing
 0,0,0,0,0,0,0,// rangeCrosshairPaint
 0,0,0,0,0,0,0,// draw outliers
-0,0,0,1,1,1,1,// FIXME: add setBasePaint(int, Paint, boolean)?
+0,0,1,1,1,1,1,// FIXME: add setBasePaint(int, Paint, boolean)?
 0,0,0,0,0,0,0,// ITEM URL GENERATOR
 0,0,0,0,0,0,0,/* BufferedImage img =*/
 0,0,0,0,0,0,0,//SerialUtilities.writeImage(this.image, stream);
@@ -1639,7 +1639,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//for each tick to be displayed
 0,0,0,0,0,0,0,//if autorange still below minimum then adjust by 1% // (can be needed when minRange is very small):
 0,0,0,0,0,0,0,//not "1e#"-type label // if positive exponent then // make integer
-0,0,0,0,0,0,0,//not "log10"-type label
+0,0,1,0,0,0,0,//not "log10"-type label
 0,0,0,0,0,0,0,//tick value is 1.0 and 0.0 is within data range //set tick value to zero //indicate zero tick
 0,0,0,0,0,0,0,//small log values in use
 0,0,0,0,0,0,0,// did not do zero tick last iteration
@@ -1725,9 +1725,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// must be top or bottom
 0,0,0,0,0,0,0,// From outlier array sort out which are outliers and put these into a // list If there are any farouts, set the flag on the // OutlierListCollection
 0,0,0,0,0,0,0,// zap the buffer onto the canvas...
-0,0,0,0,0,0,0,// avoid possible sun.dc.pr.PRException: endPath: bad path
+0,0,1,0,0,0,0,// avoid possible sun.dc.pr.PRException: endPath: bad path
 0,0,0,0,0,0,0,// null is handled fine here...
-0,0,1,0,0,0,0,// place in this row (truncated) anyway
+0,0,0,0,0,0,0,// place in this row (truncated) anyway
 0,0,0,0,0,0,0,// find optimum height, then map to range
 0,0,0,0,0,0,0,//Block b = (Block) blocks.get(i);
 0,0,0,0,0,0,0,// can safely ignore
@@ -1782,7 +1782,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// set the width and height of non-shared axis of all sub-plots
 0,0,0,0,0,0,0,// calculate sub-plot area
 0,0,0,0,0,0,0,// default preserves previous // behaviour
-0,0,0,0,0,0,0,// the range axis is deserialized before the subplots, so its value // range is likely to be incorrect...
+0,0,1,0,0,0,0,// the range axis is deserialized before the subplots, so its value // range is likely to be incorrect...
 0,0,0,0,0,0,0,// the pie area defines the circle/ellipse for regular pie sections. // it is defined by shrinking the explodeArea by the explodeMargin // factor.
 0,0,0,0,0,0,0,// draw all the charts
 0,0,0,0,0,0,0,// the explode area defines the max circle/ellipse for the exploded pie // sections. // it is defined by shrinking the linkArea by the linkMargin factor.
@@ -1894,7 +1894,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// now check that the chart is usable...
 0,0,0,0,0,0,0,// do nothing, because the plot is not pannable along the domain axes
 0,0,0,0,0,0,0,// provides a 'no action' default
-0,0,0,0,0,0,0,// draw the range grid lines, if any...
+0,0,1,0,0,0,0,// draw the range grid lines, if any...
 0,0,0,0,0,0,0,// stroke sequence
 0,0,0,0,0,0,0,// AxisLocation is immutable, so we can just copy the maps
 0,0,0,0,0,0,0,// some subclasses override this method completely, so don't put // anything here that *must* be done
@@ -1998,7 +1998,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// first, expand the viewing area into a drawing frame
 0,0,0,0,0,0,0,// now do the minor tick marks
 0,0,0,0,0,0,0,// otherwise look up the stroke table
-0,0,1,0,0,0,0,// now fetch the row data - need to bear in mind that the row // structure may not have an entry for the column key, but that we // have already checked that the key is valid for the 2D structure
+0,0,0,0,0,0,0,// now fetch the row data - need to bear in mind that the row // structure may not have an entry for the column key, but that we // have already checked that the key is valid for the 2D structure
 0,0,0,0,0,0,0,// SERIES VISIBLE (not yet respected by all renderers)
 0,0,0,0,0,0,0,// otherwise look up the position list
 0,0,0,0,0,0,0,// OUTLINE PAINT //////////////////////////////////////////////////////////
@@ -2043,7 +2043,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// end class wafermaprenderer
 0,0,0,0,0,0,0,// when the x-values are descending, the upper bound is found by // comparing against xLow
 0,0,0,0,0,0,0,// handle negative value
-0,0,0,1,1,1,1,// FIXME: calculate xxLeft and xxRight
+0,0,1,1,1,1,1,// FIXME: calculate xxLeft and xxRight
 0,0,0,0,0,0,0,// end foreach map entry // end else
 0,0,0,0,0,0,0,// handle positive value
 0,0,0,0,0,0,0,// RIGHT POLYGON
@@ -2085,7 +2085,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// cases 9, 10, 11 and 12
 0,0,0,0,0,0,0,// draw background image, if there is one...
 0,0,0,0,0,0,0,//ChartEditorManager.getChartEditor(canvas.getDisplay(), this.chart);
-0,0,0,1,1,1,1,// FIXME: add setSeriesOutlinePaint(int, Paint, boolean)?
+0,0,1,1,1,1,1,// FIXME: add setSeriesOutlinePaint(int, Paint, boolean)?
 0,0,1,1,1,1,1,// FIXME: add setBaseItemLabelPaint(Paint, boolean) ?
 0,0,0,0,0,0,0,// DRAW THE BARS...
 0,0,0,0,0,0,0,// nothing is drawn for null values...
@@ -2108,25 +2108,25 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//plotOutlinePaint;
 0,0,0,0,0,0,0,//// OUTLINE PAINT /////////////////////////////////////////////////////////
 0,0,0,0,0,0,0,// x1's flat bar
-0,0,0,1,1,1,1,// FIXME: add setSeriesShape(int, Shape, boolean) ?
+0,0,1,1,1,1,1,// FIXME: add setSeriesShape(int, Shape, boolean) ?
 0,0,0,0,0,0,0,// BAR WIDTH
 0,0,0,0,0,0,0,//// PAINT /////////////////////////////////////////////////////////////////
-0,0,1,1,0,1,1,"/* =========================================================== * JFreeChart : a free chart library for the Java(tm) platform * =========================================================== * * (C) Copyright 2000-2013, by Object Refinery Limited and Contributors. * * Project Info:  http://www.jfree.org/jfreechart/index.html * * This library is free software; you can redistribute it and/or modify it * under the terms of the GNU Lesser General Public License as published by * the Free Software Foundation; either version 2.1 of the License, or * (at your option) any later version. * * This library is distributed in the hope that it will be useful, but * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public * License for more details. * * You should have received a copy of the GNU Lesser General Public * License along with this library; if not, write to the Free Software * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, * USA. * * [Oracle and Java are registered trademarks of Oracle and/or its affiliates.  * Other names may be trademarks of their respective owners.] * * ------------------------- * CategoryItemRenderer.java * ------------------------- * * (C) Copyright 2001-2011, by Object Refinery Limited and Contributors. * * Original Author:  David Gilbert (for Object Refinery Limited); * Contributor(s):   Mark Watson (www.markwatson.com); * * Changes * ------- * 23-Oct-2001 : Version 1 (DG); * 16-Jan-2002 : Renamed HorizontalCategoryItemRenderer.java *               --> CategoryItemRenderer.java (DG); * 05-Feb-2002 : Changed return type of the drawCategoryItem method from void *               to Shape, as part of the tooltips implementation (DG) * *               NOTE (30-May-2002) : this has subsequently been changed back *               to void, tooltips are now collected along with entities in *               ChartRenderingInfo (DG); * * 14-Mar-2002 : Added the initialise method, and changed all bar plots to use *               this renderer (DG); * 23-May-2002 : Added ChartRenderingInfo to the initialise method (DG); * 29-May-2002 : Added the getAxisArea(Rectangle2D) method (DG); * 06-Jun-2002 : Updated Javadoc comments (DG); * 26-Jun-2002 : Added range axis to the initialise method (DG); * 24-Sep-2002 : Added getLegendItem() method (DG); * 23-Oct-2002 : Added methods to get/setToolTipGenerator (DG); * 05-Nov-2002 : Replaced references to CategoryDataset with TableDataset (DG); * 06-Nov-2002 : Added the domain axis to the drawCategoryItem method.  Renamed *               drawCategoryItem() --> drawItem() (DG); * 20-Nov-2002 : Changed signature of drawItem() method to reflect use of *               TableDataset (DG); * 26-Nov-2002 : Replaced the isStacked() method with the getRangeType() *               method (DG); * 08-Jan-2003 : Changed getSeriesCount() --> getRowCount() and *               getCategoryCount() --> getColumnCount() (DG); * 09-Jan-2003 : Changed name of grid-line methods (DG); * 21-Jan-2003 : Merged TableDataset with CategoryDataset (DG); * 10-Apr-2003 : Changed CategoryDataset to KeyedValues2DDataset in *               drawItem() method (DG); * 29-Apr-2003 : Eliminated Renderer interface (DG); * 02-Sep-2003 : Fix for bug 790407 (DG); * 16-Sep-2003 : Changed ChartRenderingInfo --> PlotRenderingInfo (DG); * 20-Oct-2003 : Added setOutlinePaint() method (DG); * 06-Feb-2004 : Added missing methods, and moved deprecated methods (DG); * 19-Feb-2004 : Added extra setXXXLabelsVisible() methods (DG); * 29-Apr-2004 : Changed Integer --> int in initialise() method (DG); * 18-May-2004 : Added methods for item label paint (DG); * 05-Nov-2004 : Added getPassCount() method and 'pass' parameter to drawItem() *               method (DG); * 07-Jan-2005 : Renamed getRangeExtent() --> findRangeBounds (DG); * 11-Jan-2005 : Removed deprecated code in preparation for 1.0.0 release (DG); * 23-Feb-2005 : Now extends LegendItemSource (DG); * 20-Apr-2005 : Renamed CategoryLabelGenerator *               --> CategoryItemLabelGenerator (DG); * 20-May-2005 : Added drawDomainMarker() method (DG); * ------------- JFREECHART 1.0.x --------------------------------------------- * 20-Feb-2007 : Updated API docs (DG); * 19-Apr-2007 : Deprecated seriesVisible and seriesVisibleInLegend flags (DG); * 20-Apr-2007 : Deprecated paint, fillPaint, outlinePaint, stroke, *               outlineStroke, shape, itemLabelsVisible, itemLabelFont, *               itemLabelPaint, positiveItemLabelPosition, *               negativeItemLabelPosition and createEntities override *               fields (DG); * 26-Jun-2008 : Added new method required for crosshair support - THIS CHANGES *               THE API as of version 1.0.11 (DG); * */"
+0,0,0,1,0,1,1,"/* =========================================================== * JFreeChart : a free chart library for the Java(tm) platform * =========================================================== * * (C) Copyright 2000-2013, by Object Refinery Limited and Contributors. * * Project Info:  http://www.jfree.org/jfreechart/index.html * * This library is free software; you can redistribute it and/or modify it * under the terms of the GNU Lesser General Public License as published by * the Free Software Foundation; either version 2.1 of the License, or * (at your option) any later version. * * This library is distributed in the hope that it will be useful, but * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public * License for more details. * * You should have received a copy of the GNU Lesser General Public * License along with this library; if not, write to the Free Software * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, * USA. * * [Oracle and Java are registered trademarks of Oracle and/or its affiliates.  * Other names may be trademarks of their respective owners.] * * ------------------------- * CategoryItemRenderer.java * ------------------------- * * (C) Copyright 2001-2011, by Object Refinery Limited and Contributors. * * Original Author:  David Gilbert (for Object Refinery Limited); * Contributor(s):   Mark Watson (www.markwatson.com); * * Changes * ------- * 23-Oct-2001 : Version 1 (DG); * 16-Jan-2002 : Renamed HorizontalCategoryItemRenderer.java *               --> CategoryItemRenderer.java (DG); * 05-Feb-2002 : Changed return type of the drawCategoryItem method from void *               to Shape, as part of the tooltips implementation (DG) * *               NOTE (30-May-2002) : this has subsequently been changed back *               to void, tooltips are now collected along with entities in *               ChartRenderingInfo (DG); * * 14-Mar-2002 : Added the initialise method, and changed all bar plots to use *               this renderer (DG); * 23-May-2002 : Added ChartRenderingInfo to the initialise method (DG); * 29-May-2002 : Added the getAxisArea(Rectangle2D) method (DG); * 06-Jun-2002 : Updated Javadoc comments (DG); * 26-Jun-2002 : Added range axis to the initialise method (DG); * 24-Sep-2002 : Added getLegendItem() method (DG); * 23-Oct-2002 : Added methods to get/setToolTipGenerator (DG); * 05-Nov-2002 : Replaced references to CategoryDataset with TableDataset (DG); * 06-Nov-2002 : Added the domain axis to the drawCategoryItem method.  Renamed *               drawCategoryItem() --> drawItem() (DG); * 20-Nov-2002 : Changed signature of drawItem() method to reflect use of *               TableDataset (DG); * 26-Nov-2002 : Replaced the isStacked() method with the getRangeType() *               method (DG); * 08-Jan-2003 : Changed getSeriesCount() --> getRowCount() and *               getCategoryCount() --> getColumnCount() (DG); * 09-Jan-2003 : Changed name of grid-line methods (DG); * 21-Jan-2003 : Merged TableDataset with CategoryDataset (DG); * 10-Apr-2003 : Changed CategoryDataset to KeyedValues2DDataset in *               drawItem() method (DG); * 29-Apr-2003 : Eliminated Renderer interface (DG); * 02-Sep-2003 : Fix for bug 790407 (DG); * 16-Sep-2003 : Changed ChartRenderingInfo --> PlotRenderingInfo (DG); * 20-Oct-2003 : Added setOutlinePaint() method (DG); * 06-Feb-2004 : Added missing methods, and moved deprecated methods (DG); * 19-Feb-2004 : Added extra setXXXLabelsVisible() methods (DG); * 29-Apr-2004 : Changed Integer --> int in initialise() method (DG); * 18-May-2004 : Added methods for item label paint (DG); * 05-Nov-2004 : Added getPassCount() method and 'pass' parameter to drawItem() *               method (DG); * 07-Jan-2005 : Renamed getRangeExtent() --> findRangeBounds (DG); * 11-Jan-2005 : Removed deprecated code in preparation for 1.0.0 release (DG); * 23-Feb-2005 : Now extends LegendItemSource (DG); * 20-Apr-2005 : Renamed CategoryLabelGenerator *               --> CategoryItemLabelGenerator (DG); * 20-May-2005 : Added drawDomainMarker() method (DG); * ------------- JFREECHART 1.0.x --------------------------------------------- * 20-Feb-2007 : Updated API docs (DG); * 19-Apr-2007 : Deprecated seriesVisible and seriesVisibleInLegend flags (DG); * 20-Apr-2007 : Deprecated paint, fillPaint, outlinePaint, stroke, *               outlineStroke, shape, itemLabelsVisible, itemLabelFont, *               itemLabelPaint, positiveItemLabelPosition, *               negativeItemLabelPosition and createEntities override *               fields (DG); * 26-Jun-2008 : Added new method required for crosshair support - THIS CHANGES *               THE API as of version 1.0.11 (DG); * */"
 0,0,0,0,0,0,0,// The next 3 functions override the base-class implementation of // the DomainInfo interface.  Using saved limits (updated by // each updateTime() call), improves performance. //
 0,0,0,0,0,0,0,// BAR HEIGHT
 0,0,0,0,0,0,0,// row 2: outline color
-0,0,0,1,1,1,1,// FIXME: add setSeriesPaint(int, Paint, boolean)?
+0,0,1,1,1,1,1,// FIXME: add setSeriesPaint(int, Paint, boolean)?
 0,0,0,0,0,0,0,//// FILL PAINT /////////////////////////////////////////////////////////
-0,0,0,1,1,1,1,// FIXME: add setSeriesStroke(int, Stroke, boolean) ?
+0,0,1,1,1,1,1,// FIXME: add setSeriesStroke(int, Stroke, boolean) ?
 0,0,0,0,0,0,0,//// STROKE ////////////////////////////////////////////////////////////////
-0,0,0,1,1,1,1,// FIXME: add setBaseShape(Shape, boolean) ?
+0,0,1,1,1,1,1,// FIXME: add setBaseShape(Shape, boolean) ?
 0,0,1,1,1,1,1,// FIXME: add setBaseOutlinePaint(Paint, boolean)?
 0,0,0,0,0,0,0,// ITEM LABELS VISIBLE
 0,0,0,0,0,0,0,//// OUTLINE STROKE ////////////////////////////////////////////////////////
 0,0,1,1,1,1,1,// FIXME: add setSeriesItemLabelGenerator(int, CategoryItemLabelGenerator, //            boolean)
 0,0,0,0,0,0,0,//// ITEM LABEL FONT  //////////////////////////////////////////////////////
 0,0,1,1,1,1,1,// FIXME: add setBaseItemLabelFont(Font, boolean) ?
-0,0,0,1,1,1,1,// FIXME: add setSeriesItemLabelPaint(int, Paint, boolean) ?
+0,0,1,1,1,1,1,// FIXME: add setSeriesItemLabelPaint(int, Paint, boolean) ?
 0,0,0,0,0,0,0,/*&& state.getBarWidth() > renderer.BAR_OUTLINE_WIDTH_THRESHOLD*/
 0,0,0,1,1,1,1,// FIXME: add setSeriesItemLabelFont(int, Font, boolean) ?
 0,0,0,0,0,0,0,// create an actual polygon
@@ -2438,7 +2438,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// remaining lines contain a row key and data values
 0,0,0,0,0,0,0,// create an array holding the group indices for each series...
 0,0,0,0,0,0,0,// if the initial averaging period is to be excluded, then // calculate the index of the // first data item to have an average calculated...
-0,0,1,0,0,0,0,// Cached values used for interface RangeInfo: (note minValue pinned at 0) //   A single set of extrema covers the entire SeriesCollection
+0,0,0,0,0,0,0,// Cached values used for interface RangeInfo: (note minValue pinned at 0) //   A single set of extrema covers the entire SeriesCollection
 0,0,0,0,0,0,0,// Avoid IndexOutOfBoundsException:
 0,0,0,0,0,0,0,/// Expand the following for all defined TimePeriods:
 0,0,0,0,0,0,0,///  .. etc....

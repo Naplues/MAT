@@ -16,7 +16,7 @@ public class Settings {
 
 
     public static String[] projectNames = {
-/*
+
             "Ant",
             "ArgoUML",
             "Columba",
@@ -27,11 +27,13 @@ public class Settings {
             "JMeter",
             "JRuby",
             "SQuirrel",
-*/
+
             "Dubbo",
             "Gradle",
             "Groovy",
+            "Hive",
             "Maven",
+            "Poi",
             "SpringFramework",
             "Storm",
             "Tomcat",

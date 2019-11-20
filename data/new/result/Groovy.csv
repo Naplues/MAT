@@ -1,54 +1,54 @@
 oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
-1,0,1,0,1,1,1,//  todo: inner class nodes don't have an objectInitializers field available 
+1,0,1,1,1,1,1,//  todo: inner class nodes don't have an objectInitializers field available 
 1,0,0,0,0,0,0,//         currently char isn't found due to a bug, so go with Object 
 1,0,0,0,0,0,0,/* dummy receiver: */
-1,0,0,1,1,1,1,//  TODO check specified type is assignable from declared param type?   ClassNode type = getMemberClassValue(namedParam, "type"); 
-1,0,0,1,1,1,1,/*  todo these special cases should be special MetaClasses maybe  */
-1,0,0,1,1,1,1,//  @todo - refactor pulling generic parser interface up 
+1,0,1,1,1,1,1,//  TODO check specified type is assignable from declared param type?   ClassNode type = getMemberClassValue(namedParam, "type"); 
+1,0,1,1,1,1,1,/*  todo these special cases should be special MetaClasses maybe  */
+1,0,1,1,1,1,1,//  @todo - refactor pulling generic parser interface up 
 1,1,0,1,1,1,1,//  hack to reformat other groovydoc block tags (@see, @return, @param, @throws, @author, @since) into html 
-1,0,0,1,1,1,1,/*  To swap two children of node t...     *     *<pre>     *   (t)     *    |     *    |     *   (a) -- (b)     *     * t.down = firstNode     * a.right = b     * b.right = null     *</pre>     * becomes     *<pre>     *   (t)     *    |     *    |     *   (b) -- (a)     *     * t.down = b     * a.right = null     * b.right = a     *</pre>     *     * todo - build API of basic tree mutations like this method.      */
+1,0,1,1,1,1,1,/*  To swap two children of node t...     *     *<pre>     *   (t)     *    |     *    |     *   (a) -- (b)     *     * t.down = firstNode     * a.right = b     * b.right = null     *</pre>     * becomes     *<pre>     *   (t)     *    |     *    |     *   (b) -- (a)     *     * t.down = b     * a.right = null     * b.right = a     *</pre>     *     * todo - build API of basic tree mutations like this method.      */
 1,0,1,1,1,1,1,// TODO: in case of the array we could maybe make a partial check 
-1,0,0,0,1,1,1,//  TODO: maybe define a Throwable and use it here instead of Object 
-1,0,1,0,1,1,1,// TODO: change that to get the correct scope 
+1,0,1,1,1,1,1,//  TODO: maybe define a Throwable and use it here instead of Object 
+1,0,1,1,1,1,1,// TODO: change that to get the correct scope 
 1,0,1,0,1,1,1,/*  * @todo multi threaded compiling of the same class but with different roots * for compilation... T1 compiles A, which uses B, T2 compiles B... mark A and B * as parsed and then synchronize compilation. Problems: How to synchronize? * How to get error messages? *  */
-1,0,0,0,0,0,0,// workaround for Groovy-835 
-1,0,1,1,0,1,1,// There HAS to be a better way to do this! 
+1,0,0,1,0,1,1,// workaround for Groovy-835 
+1,0,0,1,0,1,1,// There HAS to be a better way to do this! 
 1,0,0,0,0,0,0,//  Groovy allows more characters than Character.isValidJavaIdentifier() would allow   if we find a good way to encode special chars we could remove (some of) these checks 
-1,0,1,0,1,1,1,//  TODO: this might not do enough or too much   But it is a good start without spreading logic everywhere 
+1,0,1,1,1,1,1,//  TODO: this might not do enough or too much   But it is a good start without spreading logic everywhere 
 1,1,1,1,1,1,1,//  hack warning! fragile! TODO find a better way 
-1,0,1,0,1,1,1,/*      * TODO: Should return the URI for this source, but we can't know what it is here.     *     * @return null      */
-1,0,1,0,1,1,1,//  TODO includes? excludes? 
+1,0,1,1,1,1,1,/*      * TODO: Should return the URI for this source, but we can't know what it is here.     *     * @return null      */
+1,0,0,1,1,1,1,//  TODO includes? excludes? 
 1,0,1,1,1,1,1,//  cast with explicit weaker generics for now to keep jdk6 happy, TODO: find better fix 
-1,0,0,1,1,1,1,// TODO: report multiple missing labels of the same name only once? 
-1,0,0,1,1,1,1,//  GROOVY-6337 HACK: in case newly created field is @Lazy 
-1,0,0,0,1,1,1,//  ignore   TODO should use a low priority logger 
-1,0,0,0,1,1,1,//  TODO the buffer is not read up to the end, but up to length - 6 
+1,0,1,1,1,1,1,// TODO: report multiple missing labels of the same name only once? 
+1,0,1,1,1,1,1,//  GROOVY-6337 HACK: in case newly created field is @Lazy 
+1,0,1,1,1,1,1,//  ignore   TODO should use a low priority logger 
+1,0,1,1,1,1,1,//  TODO the buffer is not read up to the end, but up to length - 6 
 1,0,1,1,1,1,1,//  FIXME no implementation?          SoftDoubleKeyMap.Entry val = (SoftDoubleKeyMap.Entry) assignableMap.getOrPut(klazz, aClass, null); 
 1,0,1,1,1,1,1,//  todo: this might not work correctly for absolute paths 
-1,0,1,0,1,1,1,// TODO: don't ignore inner static classes completely 
+1,0,1,1,1,1,1,// TODO: don't ignore inner static classes completely 
 1,0,1,1,1,1,1,//  TODO store this on root node? reset bodyText? 
-1,0,1,0,1,1,1,//  TODO use PackageNode instead here? 
+1,0,0,1,1,1,1,//  TODO use PackageNode instead here? 
 1,0,0,1,1,1,1,//  TODO: move somewhere else GROOVY-1874 
 1,0,1,1,1,1,1,//  TODO consider moving initcode to <clinit> and remaking field final 
-1,0,0,0,1,1,1,// TODO: inner classes mean a different this-type. This is ignored here! 
-1,0,0,0,0,0,0,//  this is only correct in this context here, normally   we would have to compile against compareTo if available   but since we don't compile here, this one is enough 
+1,0,0,1,1,1,1,// TODO: inner classes mean a different this-type. This is ignored here! 
+1,0,1,0,0,0,0,//  this is only correct in this context here, normally   we would have to compile against compareTo if available   but since we don't compile here, this one is enough 
 1,0,1,1,1,1,1,//    FIXME: Use List<String> here, current version is not safe   
 1,1,1,1,1,1,1,//  temporary hack 
 1,0,1,1,1,1,1,//  todo windows?? 
-1,0,0,1,1,1,1,//    HACK: For now force all classes to compile, so we pick up stub changes 
+1,0,1,1,1,1,1,//    HACK: For now force all classes to compile, so we pick up stub changes 
 1,0,0,0,1,1,1,//  TODO instead of catching Object<T> here stop it from being placed into type in first place 
 1,0,1,1,1,1,1,//  TODO should we check package node doesn't already exist? conflict? 
-1,0,0,0,1,1,1,//  TODO: For GROOVY-2599 do we need something like below but it breaks other things              return (String) invokeMethod(arguments, "toString", EMPTY_ARGS); 
+1,0,1,1,1,1,1,//  TODO: For GROOVY-2599 do we need something like below but it breaks other things              return (String) invokeMethod(arguments, "toString", EMPTY_ARGS); 
 1,0,1,1,1,1,1,//  TODO make EmptyExpression work   partially works but not if only thing in script   return EmptyExpression.INSTANCE; 
-1,0,0,1,1,1,1,//  todo - possibly check for line/col with values of 0 or less... 
+1,0,1,1,1,1,1,//  todo - possibly check for line/col with values of 0 or less... 
 1,0,1,1,1,1,1,// TODO: this method should really return some kind of meta ClassNode   representing the combination of all bounds. The code here, just picks   something out to be able to proceed and is not actually correct 
-1,0,1,0,0,0,0,/*      * NOTE: as per the class javadoc, this class doesn't obey the normal equals/hashCode contract.     * The following field and method could assist some scenarios which required a similar sort of contract     * (but between equals and the custom canonicalHashCode). Currently commented out since we haven't     * found a real need. We will likely remove this commented out code if no usage is identified soon.      */
+1,0,0,0,0,0,0,/*      * NOTE: as per the class javadoc, this class doesn't obey the normal equals/hashCode contract.     * The following field and method could assist some scenarios which required a similar sort of contract     * (but between equals and the custom canonicalHashCode). Currently commented out since we haven't     * found a real need. We will likely remove this commented out code if no usage is identified soon.      */
 1,0,1,1,1,1,1,/*      * Represents GenericsType name     * TODO In order to distinguish GenericsType with same name(See GROOVY-8409), we should add a property to keep the declaring class.     *     * fixing GROOVY-8409 steps:     * 1) change the signature of constructor GenericsTypeName to `GenericsTypeName(String name, ClassNode declaringClass)`     * 2) try to fix all compilation errors(if `GenericsType` has declaringClass property, the step would be a bit easy to fix...)     * 3) run all tests to see whether the change breaks anything     * 4) if all tests pass, congratulations! but if some tests are broken, try to debug and find why...     *     * We should find a way to set declaring class for `GenericsType` first, it can be completed at the resolving phase.      */
 1,0,1,0,1,1,1,// todo we should flag this when the path is created that this is a field not a prop...   try direct method... 
 1,0,1,1,1,1,1,// TODO: maybe implement the case localDistance==distance 
 1,1,1,1,1,1,1,//  major hack here...! 
 1,0,1,1,1,1,1,//  getTarget(var) can be null in buggy xform code, e.g. Spock <= 1.1   TODO consider removing fixVar once Spock 1.2 is released - replace with informational exception? 
-1,0,0,0,1,1,1,//  TODO: enforce stricter behavior?   given Map.Entry is an interface, we get a proxy which gives us lots   of flexibility but sometimes the error messages might be unexpected 
+1,0,1,1,1,1,1,//  TODO: enforce stricter behavior?   given Map.Entry is an interface, we get a proxy which gives us lots   of flexibility but sometimes the error messages might be unexpected 
 1,0,1,1,1,1,1,// TODO: maybe do something here? 
 1,0,1,1,1,1,1,// TODO: more cases here 
 1,0,1,1,1,1,1,//  TODO refactor to retain richer type information rather than converting to String 
@@ -59,11 +59,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  should we use a finer grained lock than this? 
 1,0,0,0,0,0,0,//  it's better to cache class instances by the source code   GCL will load the unique class instance for the same source code   and avoid occupying Permanent Area/Metaspace repeatedly 
 1,0,0,0,0,0,0,//  is method object correct type? 
-1,0,0,1,0,1,1,//  A little bit of paranoid checking here? Most drivers will throw BatchUpdateException perhaps? 
+1,0,1,1,0,1,1,//  A little bit of paranoid checking here? Most drivers will throw BatchUpdateException perhaps? 
 1,0,0,0,0,0,0,//  ... fits badly ? 
-1,0,1,0,1,1,1,// TODO After 1.1 we should introspect the meta property and set editable to false if the property is read only 
-1,0,0,0,1,1,1,// TODO: replace with normal String, p not needed 
-1,0,0,0,1,1,1,//  @todo should try with just a node as the child 
+1,0,0,1,1,1,1,// TODO After 1.1 we should introspect the meta property and set editable to false if the property is read only 
+1,0,1,1,1,1,1,// TODO: replace with normal String, p not needed 
+1,0,1,1,1,1,1,//  @todo should try with just a node as the child 
 1,1,1,1,1,1,1,//  hack warning!   TODO handle , and ) when they occur within Strings 
 1,0,1,1,1,1,1,//  TODO: this method is very similar to StaticTypesCheckingSupport#extractGenericsConnections,   but operates on ClassNodes instead of GenericsType 
 1,0,1,0,1,1,1,// TODO: set correct type here   if setting type and a methodcall is the last expression in a method,   then the method will return null if the method itself is not void too!   (in bytecode after call: aconst_null, areturn) 
@@ -73,36 +73,36 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  we can't have a specialized version of call(Object...) because the dispatch logic in ClosureMetaClass   is too complex! 
 1,0,1,1,1,1,1,// TODO: implement 
 1,0,1,0,1,1,1,//  Don't do this in static initializer because we may never be needed.   TODO: Put this lineSeparator property somewhere everyone can use it. 
-1,0,1,0,0,0,0,/*      * NOTE: as per the class javadoc, this class doesn't obey the normal equals/hashCode contract.     * The following field and method could assist some scenarios which required a similar sort of contract     * (but between fastEquals and the custom fastHashCode). Currently commented out since we haven't     * found a real need. We will likely remove this commented out code if no usage is identified soon.      */
+1,0,0,0,0,0,0,/*      * NOTE: as per the class javadoc, this class doesn't obey the normal equals/hashCode contract.     * The following field and method could assist some scenarios which required a similar sort of contract     * (but between fastEquals and the custom fastHashCode). Currently commented out since we haven't     * found a real need. We will likely remove this commented out code if no usage is identified soon.      */
 1,0,0,0,0,0,0,//  this should always be the case, but adding a test is safer 
 1,0,1,1,1,1,1,//  TODO: not sure why but groovy.ui.view.BasicContentPane#buildOutputArea classDoc is null 
-1,0,1,0,1,1,1,//  todo: the check for isWildcard should be replaced with a more complete check 
-1,0,1,0,1,1,1,//  TODO: is it safe to remove this? What was the original intention? 
-1,0,1,0,1,1,1,//  TODO is this needed so we can click through on default values?      @Override 
+1,0,1,1,1,1,1,//  todo: the check for isWildcard should be replaced with a more complete check 
+1,0,1,1,1,1,1,//  TODO: is it safe to remove this? What was the original intention? 
+1,0,1,1,1,1,1,//  TODO is this needed so we can click through on default values?      @Override 
 1,0,1,1,1,1,1,//  TODO implement below if/when needed 
 1,0,1,1,1,1,1,//  TODO expose this for stream based stripping? 
-1,0,1,0,1,1,1,//  RFC 2045 says that I'm allowed to take the presence of   these characters as evidence of data corruption   So I will   TODO: change this exception type 
+1,0,1,1,1,1,1,//  RFC 2045 says that I'm allowed to take the presence of   these characters as evidence of data corruption   So I will   TODO: change this exception type 
 1,0,1,1,1,1,1,// todo: doesn't parse correctly...   assertEquals("class Foo<T super C> {T t}",pretty("class Foo<T super C> {T t}")); 
-1,0,0,0,1,1,1,//  todo : confirm that TYPE_LOWER_BOUNDS does not have multiple children 
-1,0,0,1,1,1,1,//  todo: handle vargs! 
+1,0,1,0,1,1,1,//  todo : confirm that TYPE_LOWER_BOUNDS does not have multiple children 
+1,0,1,1,1,1,1,//  todo: handle vargs! 
 1,0,1,1,1,1,1,//  TODO: can STCV be made smarter to avoid this check? 
-1,0,1,0,1,1,1,// TODO: maybe use more specialized type here 
+1,0,1,1,1,1,1,// TODO: maybe use more specialized type here 
 1,0,1,0,1,1,1,//  TODO make this a method to be called from TupleConstructor xform, add check for 'defaults'? 
 1,0,0,0,0,0,0,//  normally we would do the following   handle = MethodHandles.dropArguments(handle,0,Class.class);   but because there is a bug in invokedynamic in all jdk7 versions    maybe use Unsafe.ensureClassInitialized 
-1,0,0,1,1,1,1,//  TODO this really should find "best" match or find all matches and complain about ambiguity if more than one   TODO handle getAt with more than one parameter   TODO handle default getAt methods on Java 8 interfaces 
+1,0,1,1,1,1,1,//  TODO this really should find "best" match or find all matches and complain about ambiguity if more than one   TODO handle getAt with more than one parameter   TODO handle default getAt methods on Java 8 interfaces 
 1,0,0,0,0,0,0,//  is method name correct? 
 1,0,0,0,1,1,1,/*      * Compiler configuration.     * <p>     * Used to specify the debug output to print stacktraces in case something fails.     * TODO: Could probably be reused to specify the encoding of the files to load or other properties.      */
 1,0,0,1,1,1,1,// TODO: the case of a NoClassDefFoundError needs a bit more research   a simple recompilation is not possible it seems. The current class   we are searching for is there, so we should mark that somehow.   Basically the missing class needs to be completely compiled before   we can again search for the current name. 
-1,0,0,1,1,1,1,//  TODO below will be deleted once we fix type checker to understand   readonly Map otherwise seen as Map<String, Serializable> 
+1,0,1,1,1,1,1,//  TODO below will be deleted once we fix type checker to understand   readonly Map otherwise seen as Map<String, Serializable> 
 1,0,0,0,0,0,0,//  GROOVY-5814: Immutable is not compatible with @CompileStatic 
-1,0,0,0,1,1,1,//  todo: remove after putAt(Splice) gets deleted 
+1,0,0,1,1,1,1,//  todo: remove after putAt(Splice) gets deleted 
 1,0,0,1,1,1,1,// TODO in Groovy 2.0 use varargs? 
 1,0,1,1,1,1,1,//  TODO expose this for other usage scenarios, e.g. stream based stripping? 
-1,0,0,0,0,0,0,/*     A better set of more complete tests of everything below is on the way!     */
+1,0,0,1,0,1,1,/*     A better set of more complete tests of everything below is on the way!     */
 1,0,1,1,1,1,1,//  todo - the visitor doesn't always take PrintStreams as constructor params!  Could be a more reusable implementation than this... 
 1,0,1,1,1,1,1,//  TODO: remove this visit 
 1,0,1,1,1,1,1,//  TODO we might wanna only try to resolve the name if we are   on the left hand side of an expression or before a dot? 
-1,0,0,0,1,1,1,//  TODO GroovyDoc doesn't parse this file as our java.g doesn't handle this JDK7 syntax 
+1,0,0,1,1,1,1,//  TODO GroovyDoc doesn't parse this file as our java.g doesn't handle this JDK7 syntax 
 1,1,1,1,1,1,1,//  Convenience hack: try convert single-char strings to ints 
 1,0,0,0,0,0,0,//  not thread safe 
 1,0,1,1,1,1,1,//  TODO refactor PIPE to be BITWISE_OR 
@@ -111,7 +111,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO should we make ProxyGenerator singleton? 
 1,0,1,1,1,1,1,// TODO: this Object[] can be constant 
 1,0,1,0,0,0,0,/*  here is a different implementation that uses getProperties(). I have left         * it commented out because it returns a slightly different list of properties;         * i.e. it does not return privates. I don't know what dump() really should be doing,         * although IMO showing private fields is a no-no          */
-1,0,1,0,1,1,1,//  TODO also check for phase after sourceUnit.getPhase()? but will be ignored anyway?   TODO we should only copy those annotations with FIELD_TARGET but haven't visited annotations   and gathered target info at this phase, so we can't do this:   return annotation.isTargetAllowed(AnnotationNode.FIELD_TARGET);   instead just don't copy ourselves for now 
+1,0,1,1,1,1,1,//  TODO also check for phase after sourceUnit.getPhase()? but will be ignored anyway?   TODO we should only copy those annotations with FIELD_TARGET but haven't visited annotations   and gathered target info at this phase, so we can't do this:   return annotation.isTargetAllowed(AnnotationNode.FIELD_TARGET);   instead just don't copy ourselves for now 
 1,0,0,1,1,1,1,// todo: these fail because regexp_literals are converted into string_literals on the antlr AST 
 1,0,1,1,1,1,1,//  TODO remove this once we support declarations in the while condition 
 1,0,1,1,1,1,1,//  TODO: have to think about how to optimize this! 
@@ -123,93 +123,93 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  should we throw invalid binding exception?  or fail quietly? 
 1,0,0,1,1,1,1,//  todo: is there anything to do with the module ??? 
 1,0,1,1,1,1,1,// TODO: we should consider calling this one directly for MetaClassImpl,        then we save the new method selection 
-1,0,0,1,1,1,1,//  todo will 'super' be allowed in non-parentheses method call styles? 
+1,0,1,1,1,1,1,//  todo will 'super' be allowed in non-parentheses method call styles? 
 1,0,0,0,1,1,1,// todo AntlrParserPlugin: Unexpected node type: '.' found when expecting type: an identifier   fails after parser 
 1,0,1,1,1,1,1,//                     TODO: should be better check for case when only diff in modifiers can be SYNTHETIC flag                      && method.getModifiers() == aMethod.getModifiers() 
-1,0,0,0,1,1,1,//  TODO: checking for isThisOrSuper is enough for AttributeExpression, but if this is moved into   visitAttributeOrProperty to handle attributes and properties equally, then the extended check should be done 
+1,0,1,1,1,1,1,//  TODO: checking for isThisOrSuper is enough for AttributeExpression, but if this is moved into   visitAttributeOrProperty to handle attributes and properties equally, then the extended check should be done 
 1,0,1,1,1,1,1,// TODO: These are the arguments for -p and -i.  Why are we searching using Groovy script extensions?   Where is this documented? 
-1,0,0,1,1,1,1,//  TODO decide if we should support VOLATILE 
+1,0,1,1,1,1,1,//  TODO decide if we should support VOLATILE 
 1,0,0,0,0,0,0,//  the groovy.compiler.strictNames system property is experimental and may change default value or be removed in a future version of Groovy 
 1,0,1,1,1,1,1,//  TODO: delete this constant? 
-1,0,1,0,1,1,1,//  TODO track Deprecated usage and give a warning? 
-1,0,1,0,0,0,0,//  fail early with a direct message if possible') 
+1,0,1,1,1,1,1,//  TODO track Deprecated usage and give a warning? 
+1,0,0,0,0,0,0,//  fail early with a direct message if possible') 
 1,0,0,1,1,1,1,//  Java2Groovy produces a slightly different tree structure (TODO fix converter or java.g instead?) 
-1,0,1,0,1,1,1,// TODO: maybe use a different bootstrap method since no arguments are needed here 
-1,0,0,0,1,1,1,/*          * TODO : Enable auto ".groovy" extension replacing here!         * http://cvs.groovy.codehaus.org/viewrep/groovy/groovy/groovy-core/src/main/groovy/servlet/GroovyServlet.java?r=1.10#l259          */
-1,0,0,0,1,1,1,//  TODO: spread safe should be handled inside 
-1,0,0,1,1,1,1,//  TODO: do we need to lock down things like: $ownClass 
-1,0,0,0,1,1,1,//  todo : are there other import types that can be specified? 
+1,0,1,1,1,1,1,// TODO: maybe use a different bootstrap method since no arguments are needed here 
+1,0,0,1,1,1,1,/*          * TODO : Enable auto ".groovy" extension replacing here!         * http://cvs.groovy.codehaus.org/viewrep/groovy/groovy/groovy-core/src/main/groovy/servlet/GroovyServlet.java?r=1.10#l259          */
+1,0,1,1,1,1,1,//  TODO: spread safe should be handled inside 
+1,0,1,1,1,1,1,//  TODO: do we need to lock down things like: $ownClass 
+1,0,1,0,1,1,1,//  todo : are there other import types that can be specified? 
 1,0,1,1,1,1,1,//  TODO consider creating an element for this 
 1,0,0,1,0,1,1,//  try to get a better error message location based on the property 
-1,0,0,0,1,1,1,//  TODO: add more tests in here (is there a way to share snippets with SourcePrinterTest?) 
+1,0,1,1,1,1,1,//  TODO: add more tests in here (is there a way to share snippets with SourcePrinterTest?) 
 1,0,1,1,1,1,1,// TODO: create a WriteOnlyException class? 
 1,0,1,1,1,1,1,//  TODO: if our code can never access inspect in this way, it would be better 
-1,0,1,1,1,1,1,//  TODO: investigate the trait exclusion a bit further, needed otherwise   CallMethodOfTraitInsideClosureAndClosureParamTypeInference fails saying   not static method can't be called from a static context 
+1,0,1,0,1,1,1,//  TODO: investigate the trait exclusion a bit further, needed otherwise   CallMethodOfTraitInsideClosureAndClosureParamTypeInference fails saying   not static method can't be called from a static context 
 1,0,1,1,1,1,1,// TODO: need errors for write-only too! 
-1,0,1,0,1,1,1,// TODO: optimize: add guard based on type Closure 
-1,0,0,1,1,1,1,//  TODO fix 
-1,0,0,1,1,1,1,//  TODO remove? 
-1,0,1,0,1,1,1,//  todo: should this be directly handled by getPlainNodeReference? 
-1,0,0,0,1,1,1,// TODO: apply generics on parameter[0]?                                  storeType(pexp, setter.getParameters()[0].getType()); 
+1,0,0,1,1,1,1,// TODO: optimize: add guard based on type Closure 
+1,0,1,1,1,1,1,//  TODO fix 
+1,0,1,1,1,1,1,//  TODO remove? 
+1,0,1,1,1,1,1,//  todo: should this be directly handled by getPlainNodeReference? 
+1,0,1,1,1,1,1,// TODO: apply generics on parameter[0]?                                  storeType(pexp, setter.getParameters()[0].getType()); 
 1,0,1,1,1,1,1,// TODO: more than one lower bound for wildcards? 
 1,0,0,0,0,0,0,//  BUG! exception in phase 'conversion' in source unit 'Script1.groovy' null   fails after parser 
-1,0,1,0,1,1,1,//  TODO: Add methods like addMetaConstructor, addMetaAttribute, addMetaAnnotation etc. 
+1,0,1,1,1,1,1,//  TODO: Add methods like addMetaConstructor, addMetaAttribute, addMetaAnnotation etc. 
 1,0,1,1,1,1,1,//  todo: above is not quite the spacing I would expect, but good enough for now...   todo not yet implemented in parser: assertEquals("(new Outer()).super()", pretty("(new Outer()).super()")); 
-1,0,0,0,0,0,0,//  GROOVY-7316 : it is an apparently legal thing to allow this. It's not type safe, 
-1,0,0,1,1,1,1,//  TODO handle ACC_SYNTHETIC for enum method parameters? 
-1,0,1,0,1,1,1,//  TODO: change this exception type 
-1,0,1,0,1,1,1,//  by default use GrapeIvy  TODO META-INF/services resolver? 
-1,0,0,0,0,0,0,//  this is a limitation that must be removed in a future version   we cannot check generic type arguments if there are default parameters! 
-1,0,1,0,1,1,1,//  todo : type inference on maps and lists, if possible 
+1,0,1,0,0,0,0,//  GROOVY-7316 : it is an apparently legal thing to allow this. It's not type safe, 
+1,0,1,1,1,1,1,//  TODO handle ACC_SYNTHETIC for enum method parameters? 
+1,0,1,1,1,1,1,//  TODO: change this exception type 
+1,0,1,1,1,1,1,//  by default use GrapeIvy  TODO META-INF/services resolver? 
+1,0,1,0,0,0,0,//  this is a limitation that must be removed in a future version   we cannot check generic type arguments if there are default parameters! 
+1,0,1,1,1,1,1,//  todo : type inference on maps and lists, if possible 
 1,0,1,1,1,1,1,//  HACK: JavaStubGenerator could have snuck in a constructor we don't want 
-1,0,1,0,1,1,1,// TODO: apply right generics here! 
-1,0,0,1,1,1,1,// TODO: get the type's of the expressions to specify the   list type to List<X> if possible. 
+1,0,1,1,1,1,1,// TODO: apply right generics here! 
+1,0,1,1,1,1,1,// TODO: get the type's of the expressions to specify the   list type to List<X> if possible. 
 1,0,1,1,1,1,1,//  TODO a better way to do this? 
 1,0,1,1,1,1,1,//  TODO make @CS lookup smarter so that we don't need both these maps 
-1,0,1,0,1,1,1,// TODO: that is just a quick prototype, not the real thing! 
+1,0,1,1,1,1,1,// TODO: that is just a quick prototype, not the real thing! 
 1,0,0,1,1,1,1,//  TODO IllegalArgumentException for marginChar.length() > 1 ? Or support String as marker? 
-1,0,0,1,1,1,1,// todo, the spacing here is... unusual 
+1,0,1,1,1,1,1,// todo, the spacing here is... unusual 
 1,0,0,0,0,0,0,//  should we check interfaces as well?  if so at what level? 
 1,0,1,0,1,1,1,//  TODO add generics support so this can be used for @EAHC 
 1,0,0,0,0,0,0,//  since the calling code will push the type again, we better remove it here 
-1,0,0,0,1,1,1,//  cater for explicit href in e.g. @see, TODO: push this earlier? 
+1,0,0,1,1,1,1,//  cater for explicit href in e.g. @see, TODO: push this earlier? 
 1,0,0,1,1,1,1,// TODO: if rhs is VariableSlotLoader already, then skip crating a new one 
-1,0,1,0,1,1,1,//  todo: inner class nodes don't have a constructors field available 
+1,0,1,1,1,1,1,//  todo: inner class nodes don't have a constructors field available 
 1,0,1,1,1,1,1,//  FRICKIN' HACK!!!!! For some reason, deleting a string at offset 0   does not get done properly, so first replace and remove after parsing 
-1,0,0,0,1,1,1,//  note: def not needed in parameter declarations, but it is valid  todo: is it ok to strip out 'def' from parameter declarations? 
+1,0,1,0,1,1,1,//  note: def not needed in parameter declarations, but it is valid  todo: is it ok to strip out 'def' from parameter declarations? 
 1,0,1,1,1,1,1,// TODO: get the type's of the expressions to specify the   map type to Map<X> if possible. 
-1,0,0,0,1,1,1,// todo spacing is odd, c.f. last space in class vs interface above 
-1,0,1,0,1,1,1,//  todo - 17 July 2006 - test fine, however this parses but causes error in AntlrParserPlugin   fails after parser 
+1,0,0,1,1,1,1,// todo spacing is odd, c.f. last space in class vs interface above 
+1,0,0,1,1,1,1,//  todo - 17 July 2006 - test fine, however this parses but causes error in AntlrParserPlugin   fails after parser 
 1,0,1,1,1,1,1,//  TODO expose this for stream based scenarios? 
 1,0,1,1,1,1,1,//  TODO This is the only area where this MetaClass needs to do some interception because Groovy's current   MetaClass uses hard coded references to the java.lang.reflect.Constructor class so you can't simply   inject Constructor like you can do properties, methods and fields. When Groovy's MetaClassImpl is   refactored we can fix this 
 1,0,1,1,1,1,1,//  TODO: is there a better way to do this? 
-1,0,0,0,1,1,1,//  TODO FIX if empty, AssertionWriter fails because source text is null 
+1,0,0,1,1,1,1,//  TODO FIX if empty, AssertionWriter fails because source text is null 
 1,0,1,0,1,1,1,//  TODO this won't strictly be true when using list expansion in argument calls 
-1,0,1,1,0,1,1,//  should always be the case, but safe guard is better 
+1,0,0,1,0,1,1,//  should always be the case, but safe guard is better 
 1,0,1,1,1,1,1,// TODO: remove this method if possible by switchpoint usage 
 1,0,0,0,0,0,0,//  are we a local variable?   it should not be an explicitly "this" qualified method call   and the current class should have a possible method 
-1,0,0,1,1,1,1,//  TODO: move somewhere else 
+1,0,1,1,1,1,1,//  TODO: move somewhere else 
 1,0,1,1,1,1,1,//  TODO: Shouldn't these extensions be kept elsewhere?  What about CompilerConfiguration?   This method probably shouldn't be in GroovyMain either. 
 1,0,0,0,0,0,0,/*  Should we make the following method private?  */
 1,0,1,1,1,1,1,// FIXME the warning message will NPE with what I have :( 
 1,0,1,1,1,1,1,//  TODO need returnType.qualifiedTypeName() here 
 1,0,1,1,1,1,1,// FIXME: do we really want this() to create a new object regardless   the position.. for example not as first statement in a constructor   this=first statement in constructor is handled by specialConstructorCallExpression 
 1,0,1,1,1,1,1,/*  *  todo: order methods alphabetically (implement compareTo enough?)  */
-1,0,0,1,1,1,1,//  todo: performance would be better if we created a StringBuilder 
-1,0,1,0,1,1,1,//  TODO remove dupe with SimpleGroovyType 
+1,0,1,1,1,1,1,//  todo: performance would be better if we created a StringBuilder 
+1,0,0,1,1,1,1,//  TODO remove dupe with SimpleGroovyType 
 1,0,1,1,1,1,1,// TODO: more finals? 
 1,1,1,1,1,1,1,//  ugly hack   type definition, i.e.   int[] x; 
-1,0,0,0,1,1,1,//  GROOVY-8914: pre-compiled classes lose synthetic boolean - TODO fix earlier as per GROOVY-4346 then remove extra check here 
-1,0,0,0,1,1,1,//  TODO: Should we have some unified function like PrintWriter.checkError()? 
-1,0,0,1,1,1,1,// TODO: check if this part is actually used 
+1,0,0,1,1,1,1,//  GROOVY-8914: pre-compiled classes lose synthetic boolean - TODO fix earlier as per GROOVY-4346 then remove extra check here 
+1,0,1,1,1,1,1,//  TODO: Should we have some unified function like PrintWriter.checkError()? 
+1,0,1,1,1,1,1,// TODO: check if this part is actually used 
 1,0,1,1,1,1,1,//  todo: above is not quite the spacing I would expect, but good enough for now... 
-1,0,1,0,1,1,1,//  TODO consider moving next two statements "up a level", i.e. have just one more widely invoked 
-1,0,1,0,1,1,1,//  TODO: this should go away once we have proper tags 
-1,0,1,0,1,1,1,/*  @todo we should check if we have the property with the metaClass instead of try/catch   */
+1,0,1,1,1,1,1,//  TODO consider moving next two statements "up a level", i.e. have just one more widely invoked 
+1,0,1,1,1,1,1,//  TODO: this should go away once we have proper tags 
+1,0,1,1,1,1,1,/*  @todo we should check if we have the property with the metaClass instead of try/catch   */
 1,1,1,1,1,1,1,//  TODO shouldn't really be treating annotation fields as methods - remove this hack 
 1,0,0,1,1,1,1,//  TODO intern types?   TODO configureAST(...) 
-1,0,1,0,1,1,1,//  todo - inline open block is great, but it doesn't work as one would expect (yet). (c.f. with)   slist inside a method body (needed label to distinguish from a closure)   slist inside each case body... 
-1,0,0,0,1,1,1,/*              * TODO treble equal?             return binaryExpression(Types.COMPARE_IDENTICAL, node);             case ???:             return binaryExpression(Types.LOGICAL_AND_EQUAL, node);             case ???:             return binaryExpression(Types.LOGICAL_OR_EQUAL, node);              */
+1,0,0,0,1,1,1,//  todo - inline open block is great, but it doesn't work as one would expect (yet). (c.f. with)   slist inside a method body (needed label to distinguish from a closure)   slist inside each case body... 
+1,0,1,1,1,1,1,/*              * TODO treble equal?             return binaryExpression(Types.COMPARE_IDENTICAL, node);             case ???:             return binaryExpression(Types.LOGICAL_AND_EQUAL, node);             case ???:             return binaryExpression(Types.LOGICAL_OR_EQUAL, node);              */
 1,0,1,1,1,1,1,//  FIXME:  What should we use as the base URI?   It is unlikely we get to this point with a relative URI since making a URL   from will make it absolute I think.  But lets handle the simple case of   using file paths and turning that into an absolute file URI.   So we will use the current working directory as the base. 
 1,0,0,1,1,1,1,// todo the following is legal Java, but pretty strange...?   fails after parser 
 1,0,1,1,1,1,1,//  TODO should this really be static???   cleared on build(), to be safe 
@@ -219,35 +219,35 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  GROOVY-8174: we'd like stricter checking here but many drivers currently in use just aren't consistent enough, so we log 
 1,0,1,1,1,1,1,//  Create one script per socket connection.   This is purposefully not caching the Script   so that the script source file can be changed on the fly,   as each connection is made to the server.  FIXME: Groovy has other mechanisms specifically for watching to see if source code changes.   We should probably be using that here.   See also the comment about the fact we recompile a script that can't change. 
 1,0,0,1,1,1,1,// todo test newlines inside strings somehow... 
-1,0,1,0,1,1,1,// TODO: maybe use more special type StringBuffer here 
-1,0,0,0,0,0,0,/*              * Other internal error. Perhaps syntax?!              */
+1,0,1,1,1,1,1,// TODO: maybe use more special type StringBuffer here 
+1,0,0,1,0,1,1,/*              * Other internal error. Perhaps syntax?!              */
 1,0,0,0,0,0,0,/*               Currently leaving BigInteger and BigDecimal in list but see:              http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6348370              Also, Color is not final so while not normally used with child              classes, it isn't strictly immutable. Use at your own risk.              This list can by extended by providing "known immutable" classes              via Immutable.knownImmutableClasses              */
-1,0,1,0,1,1,1,//  todo - incomplete, as body of do...while... should be executed at least once, which this doesn't provide. 
+1,0,1,1,1,1,1,//  todo - incomplete, as body of do...while... should be executed at least once, which this doesn't provide. 
 1,0,0,0,0,0,0,//  we found multiple matching methods   this is a problem, because we can use only one   if it is a getter, then use the most general return   type to decide which method to use. If it is a setter 
-1,0,0,0,1,1,1,//  todo: replace with a real fast path unary expression helper when available 
+1,0,0,1,1,1,1,//  todo: replace with a real fast path unary expression helper when available 
 1,0,1,0,1,1,1,// TODO: if we would know exactly which paths require the exceptions        and which paths not, we can sometimes save this guard  
-1,0,1,0,1,1,1,// TODO (blackdrag): this if branch needs a rework. There should be no direct method calls be produced, the   handling of this/super could be much simplified (see visitAttributeExpression), the field accessibility check   could be moved directly into the search, which would also no longer require the GroovyBugError then   the outer class field access seems to be without any tests (if there are tests for that, then the code   here is dead code) 
+1,0,1,1,1,1,1,// TODO (blackdrag): this if branch needs a rework. There should be no direct method calls be produced, the   handling of this/super could be much simplified (see visitAttributeExpression), the field accessibility check   could be moved directly into the search, which would also no longer require the GroovyBugError then   the outer class field access seems to be without any tests (if there are tests for that, then the code   here is dead code) 
 1,0,0,1,1,1,1,//  TODO don't allow override? 
 1,0,1,1,1,1,1,//  todo need process multi 
 1,0,0,0,0,0,0,//  does this operator make any sense? 
-1,0,1,0,1,1,1,/*  @todo we should use the real Josh Bloch algorithm here  */
+1,0,1,1,1,1,1,/*  @todo we should use the real Josh Bloch algorithm here  */
 1,0,0,0,0,0,0,//  we have a duplicate class!   One possibility for this is, that we declared a script and a   class in the same file and named the class like the file 
-1,0,1,0,1,1,1,/*                      * todo there is no CompileUnit in scope so class name                     * checking won't work but that mostly affects the bytecode                     * generation rather than viewing the AST                      */
+1,0,0,1,1,1,1,/*                      * todo there is no CompileUnit in scope so class name                     * checking won't work but that mostly affects the bytecode                     * generation rather than viewing the AST                      */
 1,0,1,1,1,1,1,/*  @todo maybe a double dispatch thing to handle new large numbers?  */
 1,0,1,1,1,1,1,// TODO: This logic mostly duplicates InvokerHelper.createScript.  They should probably be unified. 
 1,0,1,0,1,1,1,/*      * Should be called when descending into a loop that defines     * also a scope. Calls pushVariableScope and prepares labels     * for a loop structure. Creates a element for the state stack     * so pop has to be called later, TODO: @Deprecate      */
-1,0,1,0,1,1,1,//  TODO check that we reset everything here 
-1,0,1,1,1,1,1,//  TODO Jochen: replace with new MetaMethod 
-1,0,0,1,1,1,1,//  todo is ',' deprecated now?  assertEquals("assert b == true , 99", pretty("assert b==true,99")); 
+1,0,1,1,1,1,1,//  TODO check that we reset everything here 
+1,0,0,1,1,1,1,//  TODO Jochen: replace with new MetaMethod 
+1,0,1,1,1,1,1,//  todo is ',' deprecated now?  assertEquals("assert b == true , 99", pretty("assert b==true,99")); 
 1,0,1,1,1,1,1,//   TODO: I (ait) don't know why these strange tricks needed and comment following as it effects some Grails tests 
 1,0,1,1,1,1,1,// TODO: implement int operations for this 
 1,0,1,0,1,1,1,//  TODO: should be able to remove the klazz field once 2.5 becomes the mainline release   Gradle has a cleanup mechanism in place to reflectively access this klazz field.   The klazz field is being kept for compatibility so as to not break builds that depend   on versions of Groovy after the field was changed to a WeakReference (classRef).  It   appears that Gradle only performs the cleanup when it detects a groovy version of 2.4.x,   so the klazz field and placeholder Sentinel class can likely be safely removed once   the release version bumps to 2.5 (or beyond).   See:   https://github.com/gradle/gradle/blob/711f64/subprojects/core/src/main/java/org/gradle/api/internal/classloading/LeakyOnJava7GroovySystemLoader.java#L74 
-1,0,0,1,1,1,1,//  todo suspicious spacing in the following assertion 
+1,0,1,1,1,1,1,//  todo suspicious spacing in the following assertion 
 1,0,0,0,0,0,0,// more than one matching method found --> ambiguous! 
 1,0,0,0,0,0,0,//         "The method 'java.lang.Object vo()' has an incorrect modifier volatile."; 
-1,0,0,1,1,1,1,// todo should the colon be postfixed to the label? 
+1,0,1,1,1,1,1,// todo should the colon be postfixed to the label? 
 1,0,0,1,0,1,1,//  Bad enough to have side effects but worse if their behavior is wonky. 
-1,0,0,1,1,1,1,//  TODO could be made more efficient by using a reverse index 
+1,0,1,1,1,1,1,//  TODO could be made more efficient by using a reverse index 
 1,0,1,1,1,1,1,// TODO: Cater for comments? 
 0,0,0,0,0,0,0,// lines.add(new StringBuilder()); // dummy row for position [0] in the List 
 0,0,0,0,0,0,0,/*     * true if either \n or \r     */
@@ -269,7 +269,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,// NOTE: we might return false here even if we found a class,        because  we want to give a possible script a chance to        recompile. This can only be done if the loader was not 
 0,0,0,0,0,0,0,//  check if we have \r\n like on Windows   if it's not \r\n we reset, otherwise, the \n is just consummed 
 0,0,0,0,0,0,0,//  Make sure we switch over to callback manager 
-0,0,1,0,1,1,1,/*      * Should be called when descending into a loop that does     * not define a scope. Creates a element for the state stack     * so pop has to be called later, TODO: @Deprecate      */
+0,0,1,1,1,1,1,/*      * Should be called when descending into a loop that does     * not define a scope. Creates a element for the state stack     * so pop has to be called later, TODO: @Deprecate      */
 0,0,0,0,0,0,0,/*                              * Here we just additionally tried to find another no-arg mixin method of the same name and register that as well, if found.                             * Safe to ignore a MethodSelectionException in this additional exercise. (GROOVY-4999)                              */
 0,0,0,0,0,0,0,//  add method:   PropertyChangeListener[] getPropertyChangeListeners() {     return this$propertyChangeSupport.getPropertyChangeListeners 
 0,0,0,0,0,0,0,//  visit SlComment()     never visited/created by parser 
@@ -338,7 +338,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  if the type name was resolved before, we can try the successfully resolved packages first, which are much less and very likely successful to resolve.   As a result, we can avoid trying other default import packages and further resolving, which can improve the resolving performance to some extent. 
 0,0,0,0,0,0,0,//  delegate the get operation to the metaproperty 
 0,0,0,0,0,0,0,//  only case left is arguments.length == parameterTypes.length 
-0,0,0,0,1,1,1,//  TODO get normal resolving to set declaring class 
+0,0,0,1,1,1,1,//  TODO get normal resolving to set declaring class 
 0,0,0,0,0,0,0,/*      * A hashCode function that pairs with fastEquals, following the normal equals/hashCode contract.     *     * @return the calculated hash code      */
 0,0,0,0,0,0,0,//  set the delegate to FBS so the closure closes over the builder 
 0,0,0,0,0,0,0,//  value could not be placed on existing lines, so place it on new line(s) 
@@ -348,7 +348,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  easier to massage here than in the grammar 
 0,0,0,0,0,0,0,// ---------------------------------------------                    boolean  --------------------------------------------- 
 0,0,0,0,0,0,0,//  set the args as they might have gotten Newify transformed GROOVY-3491 
-0,0,1,0,0,0,0,//  this is why shouldFail {} exists in Groovy tests 
+0,0,1,1,0,1,1,//  this is why shouldFail {} exists in Groovy tests 
 0,0,0,0,0,0,0,// This is an arbitrary value, picked as a reasonable choice for a rounding point 
 0,0,0,0,0,0,0,//  now, inner class node access to outer class fields 
 0,0,0,0,0,0,0,/* * The Computer Language Benchmarks Game* http://shootout.alioth.debian.org/** Based on contribution of Eckehard Berns* Based on code by Heiner Marxen* and the ATS version by Hongwei Xi* convert to Java by The Anh Tran */
@@ -364,11 +364,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//    Fill slots with nulls, if necessary. 
 0,0,0,0,0,0,0,//  Note that this getBoolean access may well be synced... 
 0,0,0,0,0,0,0,//  hand crank it so we can add our own compiler configuration 
-0,0,0,1,1,1,1,//  TODO remove 
+0,0,1,1,1,1,1,//  TODO remove 
 0,0,0,0,0,0,0,//  this function will 'correctly' print first 30 permutations 
 0,0,0,0,0,0,0,//  verify if passing -Xlint in compilerarg had its effect 
 0,0,0,0,0,0,0,//  the original program used:   Hashtable ht = new Hashtable();   John Olsson points out that Hashtable is for synchronized access   and we should use instead: 
-0,0,0,0,1,1,1,/*          * TODO: Remove after JDK9 is the minimum JDK supported         *         * JDK9+ correctly accounts for the synthetic parameter and when it becomes         * the minimum version this method should no longer be required.          */
+0,0,1,1,1,1,1,/*          * TODO: Remove after JDK9 is the minimum JDK supported         *         * JDK9+ correctly accounts for the synthetic parameter and when it becomes         * the minimum version this method should no longer be required.          */
 0,0,0,0,0,0,0,//  push this operation to master list and then process it. 
 0,0,0,0,0,0,0,//  the number of arguments is correct, but if the last argument   is no array we have to wrap it in a array. If the last argument   is null, then we don't have to do anything 
 0,0,0,0,0,0,0,// ---------------------------------------------------------------------------   LOOP SIMPLIFICATION FOR SourceUnit OPERATIONS 
@@ -387,7 +387,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  treat like a singleton list as per Java 
 0,0,0,0,0,0,0,//  primitive to primitive conversion. Those case are also solved by explicitCastArguments. 
 0,0,0,0,0,0,0,//  to finally see if the parameter and the argument fit together,   we use the provided information to transform the parameter 
-0,0,0,0,0,0,0,//  we should produce a clean placeholder ClassNode here 
+0,0,1,0,0,0,0,//  we should produce a clean placeholder ClassNode here 
 0,0,0,0,0,0,0,/*      * Intercepts a setXXX call     *     * @param object   The target object     * @param property The property to set     * @param newValue The new value      */
 0,0,0,0,0,0,0,/*  * The Computer Language Benchmarks Game * http://shootout.alioth.debian.org/ * * contributed by Anthony Donnefort * redone by Enotus 2010-11-20  */
 0,0,0,0,0,0,0,//  in case of the "in" operator, the receiver and the arguments are reversed   so we use the reversedExpression and get the target method from it 
@@ -399,7 +399,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  ------------------ double[] ------------------ 
 0,0,0,0,0,0,0,//  ------------------ byte[] ------------------ 
 0,0,0,0,0,0,0,//  ignore out-of-order write operations 
-0,0,0,0,1,1,1,// TODO: one day we could try return the previously registered Closure listener for easy removal 
+0,0,1,1,1,1,1,// TODO: one day we could try return the previously registered Closure listener for easy removal 
 0,0,0,0,0,0,0,//  visit ShComment()    never visited/created by parser 
 0,0,0,0,0,0,0,//  Set up the script context 
 0,0,0,0,0,0,0,//  order matters here! 
@@ -452,7 +452,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  add method: void removeVetoableChangeListener(name, listener) 
 0,0,0,0,0,0,0,//  current label for break 
 0,0,0,0,0,0,0,//  create lexer 
-0,0,1,0,0,0,0,//  if emptyBody == true, then we generate an empty body instead throwing error on unimplemented methods 
+0,0,0,0,0,0,0,//  if emptyBody == true, then we generate an empty body instead throwing error on unimplemented methods 
 0,0,0,0,0,0,0,//  tag::java_method_selection_body[]   ...   <1>   <2>   <3>   end::java_method_selection_body[] 
 0,0,0,0,0,0,0,/*  multiply vector v by matrix A  */
 0,0,0,0,0,0,0,//  mark all methods as visited. We can't do this in visitMethod because the type checker 
@@ -507,7 +507,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//    Get the class and calculate its filesystem name   
 0,0,0,0,0,0,0,//  in case there's nothing else, invoke the object's own invokeMethod() 
 0,0,0,0,0,0,0,//  check for propertyMissing provided through a category 
-0,0,1,0,0,0,0,//  copy annotations from field to dummy field 
+0,0,0,0,0,0,0,//  copy annotations from field to dummy field 
 0,0,0,0,0,0,0,//  let's use the field expression if it's available 
 0,0,0,0,0,0,0,// mv.visitInsn(NOP); 
 0,0,0,0,0,0,0,//  passed as the first argument implicitly. 
@@ -535,7 +535,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//         @Override 
 0,0,0,0,0,0,0,//  a type inference has been made on a variable whose type was defined in an instanceof block   we erase available information with the new type 
 0,0,0,0,0,0,0,//  we are done if we are now in the declaring class 
-0,0,1,0,0,0,0,// interfaces have no constructors, but this code expects one,  so create a dummy and don't add it to the class node 
+0,0,0,0,0,0,0,// interfaces have no constructors, but this code expects one,  so create a dummy and don't add it to the class node 
 0,0,0,0,0,0,0,//  test for JDK9 JIGSAW 
 0,0,0,0,0,0,0,//  $Id: fibo.java,v 1.3 2005-04-25 19:01:38 igouy-guest Exp $   http://www.bagley.org/~doug/shootout/ 
 0,0,0,0,0,0,0,//  getMap() already loaded using a null classloader 
@@ -565,9 +565,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// ---------------------------------------------------------------------------   TYPE HIERARCHIES 
 0,0,0,0,0,0,0,//  a MME was ensued here stating no 't.start()' was available 
 0,0,0,0,0,0,0,//  simple check on being subclass 
-0,0,0,0,1,1,1,//  @todo - remove classic references from the TCK 
+0,0,0,1,1,1,1,//  @todo - remove classic references from the TCK 
 0,0,0,0,0,0,0,//  but it is allowed... 
-0,0,1,0,0,0,0,//  The phase in which the failures occurred   The *Unit object this exception wraps 
+0,0,0,0,0,0,0,//  The phase in which the failures occurred   The *Unit object this exception wraps 
 0,0,0,0,0,0,0,//  for additional options to be passed to javac. 
 0,0,0,0,0,0,0,// (element.getReturnType() == Void.class || element.getReturnType() == Void.TYPE) && 
 0,0,0,0,0,0,0,//  nothing to do in that case 
@@ -600,7 +600,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,1,1,1,1,//  todo: replace this simple idea of default class name 
 0,0,0,0,0,0,0,//  trying to guess the concrete list type and create a new instance from it 
 0,0,0,0,0,0,0,//  Destructive! 
-0,0,0,1,1,1,1,//  TODO: replace with stream-based version 
+0,0,1,1,1,1,1,//  TODO: replace with stream-based version 
 0,0,0,0,0,0,0,//  empty quote '' 
 0,0,0,0,0,0,0,//  create a local variable to hold the old value from the getter 
 0,0,0,0,0,0,0,//  we cannot just wrap in a List as we support primitive type arrays 
@@ -677,7 +677,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  done will only be true if we ran out of data without seeing the match character 
 0,0,0,0,0,0,0,//  same for the catch parts 
 0,0,0,0,0,0,0,//  we should implement the field helper interface too 
-0,0,0,0,0,0,0,//  here we don't care if the method exists or not we assume the   developer is responsible and wants to override methods where necessary 
+0,0,1,0,0,0,0,//  here we don't care if the method exists or not we assume the   developer is responsible and wants to override methods where necessary 
 0,0,0,0,0,0,0,//  various helpers in order to avoid a potential very big class 
 0,0,0,0,0,0,0,//  @interface Foo{ int bar()... 
 0,0,0,0,0,0,0,//  return true if a property is found 
@@ -685,7 +685,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  no over-runs... 
 0,0,0,0,0,0,0,//       0     1     2     3     4     5     6     7 
 0,0,0,0,0,0,0,//  expressions = constructor call arguments 
-0,0,0,0,0,0,0,// we opt for not doing anthing here...we just do not get context if  this happens 
+0,0,1,0,0,0,0,// we opt for not doing anthing here...we just do not get context if  this happens 
 0,0,0,0,0,0,0,/*  (non-Javadoc)    * @see org.xml.sax.XMLReader#getErrorHandler()     */
 0,0,0,0,0,0,0,//  add method:   void addVetoableChangeListener(listener) {       this$vetoableChangeSupport.addVetoableChangeListener(listener) 
 0,0,0,0,0,0,0,//  The eviction support 
@@ -712,7 +712,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  on an assignment everything that can be done by a GroovyCast is allowed 
 0,0,0,0,0,0,0,//  both candidate method and receiver have generic information so a check is possible 
 0,0,0,0,0,0,0,//  No need to check the arguments against an array constructor: it just needs to exist. The array is   created through coercion or by specifying its dimension(s), anyway, and would not match an   arbitrary number of parameters. 
-0,0,1,0,0,0,0,//  FIX_JDK9 remove this exemption for JDK9 
+0,0,0,0,0,0,0,//  FIX_JDK9 remove this exemption for JDK9 
 0,0,0,0,0,0,0,//   make sure we are adding to correct list 
 0,0,0,0,0,0,0,//  ----------------------------- inner classes -------------------------------------- 
 0,0,0,0,0,0,0,//  lazily initialized factory 
@@ -726,7 +726,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// ---------------------------------------------------------------------------   NODE IDENTIFICATION AND MEANING 
 0,0,0,0,0,0,0,//  try inner classes 
 0,0,0,0,0,0,0,/*  (non-Javadoc)     * @see groovy.lang.MetaClass#setAttribute(java.lang.Object, java.lang.String, java.lang.Object)      */
-0,0,0,0,0,0,0,//  This method only exists as a workaround for GROOVY-6094 
+0,0,0,1,0,1,1,//  This method only exists as a workaround for GROOVY-6094 
 0,0,0,0,0,0,0,//  This shouldn't happen, but this is the same default used by   BufferedWriter on a security exception. 
 0,0,0,0,0,0,0,//  to avoid default initialization 
 0,0,0,0,0,0,0,/*      * A NumberRange's canonicalHashCode is based on hashCode values of the discrete items it represents.     * When two NumberRange's are equal they will have the same canonicalHashCode value.     * Numerical values which Groovy deems equal have the same hashCode during this calculation.     * So currently (0..3).equals(0.0..3.0) yet they have different hashCode values. This breaks     * the normal equals/hashCode contract which is a weakness in Groovy's '==' operator. However     * the contract isn't broken between equals and canonicalHashCode.     *     * @return the hashCode value      */
@@ -763,7 +763,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  load return value 
 0,0,0,0,0,0,0,//  check interfaces at this level first 
 0,0,0,0,0,0,0,//  check if a super class has @Bindable annotations 
-0,0,0,0,0,0,0,// can't cache the script because the context may be different.  but don't bother loading parsing the class again 
+0,0,1,0,0,0,0,// can't cache the script because the context may be different.  but don't bother loading parsing the class again 
 0,0,0,0,0,0,0,//  specifies the interfaces implemented by a class   specifies the base class/interface for a new one   method variable points to the current instance   method variable points to the base instance   type comparator   deprecated; identifies a property   used to create a new instance of a class 
 0,0,0,0,0,0,0,// ----------------------------------------------------------------------   generic set method  ---------------------------------------------------------------------- 
 0,0,0,0,0,0,0,//  unwrap the Object[] and make transformations if needed   that means, to duplicate the Object[], make a cast with possible   unboxing and then swap it with the Object[] for each parameter 
@@ -810,7 +810,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  ==================================================   ClipBoard   ================================================== 
 0,0,0,0,0,0,0,//  the actual type identified by the lexer   an interpretation applied to the token after the fact 
 0,0,0,0,0,0,0,//  itself in the list of receivers already; 
-0,0,0,1,1,1,1,//  todo: reliable way to call the transformer  parentNode.visit(trn); 
+0,0,1,1,1,1,1,//  todo: reliable way to call the transformer  parentNode.visit(trn); 
 0,0,0,0,0,0,0,/* Integer[9] */
 0,0,0,0,0,0,0,//  to not record the underlying MapExpression twice,   we disable the assertion tracker   see https://issues.apache.org/jira/browse/GROOVY-3421 
 0,0,0,0,0,0,0,// throws FileNotFoundException, IllegalArgumentException { 
@@ -893,7 +893,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  private implementation methods  ------------------------------------------------------------------------- 
 0,0,0,0,0,0,0,//  (like @BaseScript) that could change this.  But this is cautious and anticipates possible compiler changes. 
 0,0,0,0,0,0,0,//  operands are on the stack already 
-0,0,0,0,0,0,0,//  correct receiver for inner class   we assume the receiver is an instance of the declaring class of the    candidate method, but findMethod returns also outer class methods   for that receiver. For now we skip receiver based checks in that case 
+0,0,1,0,0,0,0,//  correct receiver for inner class   we assume the receiver is an instance of the declaring class of the    candidate method, but findMethod returns also outer class methods   for that receiver. For now we skip receiver based checks in that case 
 0,0,0,0,0,0,0,//  and those are not hierarchical we can't use them for making an absolute URI. 
 0,0,0,0,0,0,0,// ---------------------------------------------------------------------------   OUTPUT 
 0,0,0,0,0,0,0,//  couldn't find compiler - try to find tools.jar   based on java.home setting 
@@ -927,7 +927,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  would this branch ever be true? 
 0,0,0,0,0,0,0,//  def $toStringFirst = true 
 0,0,0,0,0,0,0,//  Get verbosity hint. 
-0,0,1,0,0,0,0,//  NOTE: timeStamp constants shouldn't belong to Verifier but kept here   for binary compatibility 
+0,0,0,0,0,0,0,//  NOTE: timeStamp constants shouldn't belong to Verifier but kept here   for binary compatibility 
 0,0,0,0,0,0,0,//         assertEquals("println([$x, x, y])", pretty("println([$x, x, y])")); // fails after parser // not in java      } 
 0,0,0,0,0,0,0,//  correcting declaring class for extension methods: 
 0,0,0,0,0,0,0,//  GROOVY-5202   there might be a non public listener of some kind   we skip that here 
@@ -958,7 +958,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  to our list 
 0,0,0,0,0,0,0,//  LITERAL, this, true, false, null   SIMPLE_EXPRESSION, and various molecules 
 0,0,0,0,0,0,0,//  dummy methods 
-0,0,0,0,0,0,0,/*              * Iterate over the classpath provided to groovyc, and add any missing path             * entries to the AntClassLoader.  This is a workaround, since for some reason             * 'directory' classpath entries were not added to the AntClassLoader' classpath.              */
+0,0,0,1,0,1,1,/*              * Iterate over the classpath provided to groovyc, and add any missing path             * entries to the AntClassLoader.  This is a workaround, since for some reason             * 'directory' classpath entries were not added to the AntClassLoader' classpath.              */
 0,0,0,0,0,0,0,// ---------------------------------------------------------------------------   FACTORIES 
 0,0,0,0,0,0,0,//  jth character of t   ith character of s   cost 
 0,0,0,0,0,0,0,//  don't bind if we are half set up, quietly stop 
@@ -1079,21 +1079,21 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  we put the old dependencies into local cache so createCompilationUnit   can pick it up. We put that entry under the name "." 
 0,0,0,0,0,0,0,//  means we can't get to system clipboard, so create app level one 
 0,0,0,0,0,0,0,//  set the script source position 
-0,0,0,0,0,0,0,//  workaround for GROOVY-6095 
+0,0,0,1,0,1,1,//  workaround for GROOVY-6095 
 0,0,0,0,0,0,0,//  The overall AST for this CompilationUnit.   The classes generated during classgen. 
-0,0,0,0,0,0,0,//  To make a connection to the SAM class we use that new information   to replace the generics in the SAM type parameter of the target 
+0,0,1,0,0,0,0,//  To make a connection to the SAM class we use that new information   to replace the generics in the SAM type parameter of the target 
 0,0,0,0,0,0,0,/*  (non-Javadoc)     * @see groovy.lang.MetaClass#setProperty(java.lang.Object, java.lang.String, java.lang.Object)      */
 0,0,0,0,0,0,0,//  dquote-tab-dquote 
 0,0,0,0,0,0,0,//  Copy stream to stream 
 0,0,0,0,0,0,0,//  default statement can be grouped with previous case 
-0,0,1,1,1,1,1,/*      * Worker method for the {@link #escapeJavaScript(String)} method.     *     * @param str String to escape values in, may be null     * @param escapeSingleQuotes escapes single quotes if <code>true</code>     * @param escapeForwardSlash TODO     * @return the escaped string      */
+0,0,0,1,1,1,1,/*      * Worker method for the {@link #escapeJavaScript(String)} method.     *     * @param str String to escape values in, may be null     * @param escapeSingleQuotes escapes single quotes if <code>true</code>     * @param escapeForwardSlash TODO     * @return the escaped string      */
 0,0,0,0,0,0,0,//  Write out number of buckets 
 0,0,0,0,0,0,0,//  Used to store the real access modifiers for inner classes 
 0,0,0,0,0,0,0,//  naive 
 0,0,0,0,0,0,0,//  command line arguments could not be parsed 
 0,0,0,0,0,0,0,/*              * Resource not found.              */
 0,0,0,0,0,0,0,//  let's create a dynamic proxy 
-0,0,1,0,0,0,0,//  potentially add default constructor to class docs (but not interfaces) 
+0,0,0,0,0,0,0,//  potentially add default constructor to class docs (but not interfaces) 
 0,0,0,0,0,0,0,// guard checks 
 0,0,0,0,0,0,0,//  then let's use the current working directory, since the repo can be relative to that. 
 0,0,0,0,0,0,0,/* final */
@@ -1112,7 +1112,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  No instances, static methods only 
 0,0,0,0,0,0,0,//   --------------------------------------------------------                Property handling super: get    -------------------------------------------------------- 
 0,0,0,0,0,0,0,//  Optional configuration data 
-0,0,0,0,1,1,1,//  TODO account for default params giving multiple signatures 
+0,0,1,1,1,1,1,//  TODO account for default params giving multiple signatures 
 0,0,0,0,0,0,0,/*     * Methods on Integer to implement 1.week, 4.days etc.     */
 0,0,0,0,0,0,0,//  assignment for subscript 
 0,0,0,0,0,0,0,/*  ---------------- Concurrent Map Support --------------  */
@@ -1127,7 +1127,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  ignore, will try lazy reference 
 0,0,0,0,0,0,0,/*  (non-Javadoc)         * @see groovy.lang.GroovyObject#setProperty(java.lang.String, java.lang.Object)          */
 0,0,0,0,0,0,0,//  use Iterator.hasNext() to check for available inner classes 
-0,0,0,0,0,0,0,//  and understandability of this solution over more complex but efficient alternatives) 
+0,0,0,1,0,1,1,//  and understandability of this solution over more complex but efficient alternatives) 
 0,0,0,0,0,0,0,//  Interchange a[j] and a[k] 
 0,0,0,0,0,0,0,//  Properties   ---------------------------------------------------------------------- 
 0,0,0,0,0,0,0,//  Find index k such that a[k] is smallest integer 
@@ -1136,7 +1136,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  force check of modifier conflicts 
 0,0,0,0,0,0,0,//  in theory, there can only be one annotation of that type 
 0,0,0,0,0,0,0,//  the break statement is only allowed inside loops or switches   fails after parser 
-0,0,0,0,1,1,1,//  TODO GROOVY-5011 handle case of @Override on a property 
+0,0,0,1,1,1,1,//  TODO GROOVY-5011 handle case of @Override on a property 
 0,0,0,0,0,0,0,//  package private 
 0,0,0,0,0,0,0,//  on the stack 
 0,0,0,0,0,0,0,//  Allow the msg to be a Throwable, and handle it properly if no cause is given 
@@ -1152,7 +1152,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  let us save that value for the return 
 0,0,0,0,0,0,0,//  In order to divide tasks 'equally' for many threads, permut generation   strategy is different than that of original single thread. 
 0,0,0,0,0,0,0,//  no MOP methods if not a child of GroovyObject 
-0,0,0,0,1,1,1,//     public GroovyTypeVariable[] typeParameters() {/*todo*/return null;} // not supported in groovy      public GroovyParamTag[] typeParamTags() {/*todo*/return null;} // not supported in groovy 
+0,0,1,0,1,1,1,//     public GroovyTypeVariable[] typeParameters() {/*todo*/return null;} // not supported in groovy      public GroovyParamTag[] typeParamTags() {/*todo*/return null;} // not supported in groovy 
 0,0,0,0,0,0,0,//       * final GroovyCastException 
 0,0,0,0,0,0,0,//  group 1: tag name, group 2: tag body 
 0,0,0,0,0,0,0,//  cannot infer, return list type 
@@ -1240,7 +1240,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  implementation of methods 
 0,0,0,0,0,0,0,//  store copy in temporary variable 
 0,0,0,0,0,0,0,//  append to right side of Li2 (reversing list) 
-0,0,1,0,0,0,0,//  Direct instantiation of classes without imports will therefore also fail if this option is enabled 
+0,0,0,0,0,0,0,//  Direct instantiation of classes without imports will therefore also fail if this option is enabled 
 0,0,0,0,0,0,0,//  pass 
 0,0,0,0,0,0,0,//  true == replace 
 0,0,0,0,0,0,0,//  we do not do our name mangling to find an inner class   if the type is a ConstructedClassWithPackage, because in this case we   are resolving the name at a different place already 
@@ -1263,7 +1263,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  not in java 
 0,0,0,0,0,0,0,//  Have to call fireTestStared/fireTestFinished via reflection as they unfortunately have protected access in Project 
 0,0,0,0,0,0,0,//  If they want to use a name other than than "run", then make the change. 
-0,0,0,0,0,0,0,// the below is a quirk, we do this so that every non-string-section is prefixed by  the same number of characters (the others have "out<<\"\"\"${"), this allows us to  figure out the exception row and column later on 
+0,0,1,0,0,0,0,// the below is a quirk, we do this so that every non-string-section is prefixed by  the same number of characters (the others have "out<<\"\"\"${"), this allows us to  figure out the exception row and column later on 
 0,0,0,0,0,0,0,/* DIV */
 0,0,0,0,0,0,0,//  search for nested class 
 0,0,0,0,0,0,0,//  package level templates 
@@ -1329,7 +1329,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  not a script, try running through run method but properties will not be available 
 0,0,0,0,0,0,0,//  Otherwise try the older method based on the constructor's call expression 
 0,0,0,0,0,0,0,//  JDK 9 and above correctly report 4   assertEquals(3, ctor.getParameterAnnotations().length); //[],[@Anno1,@Anno2],[@Anno2] 
-0,0,0,0,0,0,0,//  workaround for generated code in enums which use .next() returning a Number 
+0,0,1,1,0,1,1,//  workaround for generated code in enums which use .next() returning a Number 
 0,0,0,0,0,0,0,//  ----------------------------------------------------   deprecate in parser?: 'continue' allowed in closures 
 0,0,0,0,0,0,0,//  if it is not static and we do no static access 
 0,0,0,0,0,0,0,/*  double quote  */
@@ -1372,7 +1372,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  obsolete? 
 0,0,0,0,0,0,0,//   --------------------------------------------------------                normal field handling : set    -------------------------------------------------------- 
 0,0,0,0,0,0,0,//    KEYWORDS: CONTROL STRUCTURES 
-0,0,0,1,1,1,1,//  todo - allow locale to be passed in 
+0,0,1,1,1,1,1,//  todo - allow locale to be passed in 
 0,0,0,0,0,0,0,//  do nothing, but clear the value recorder 
 0,0,0,0,0,0,0,//  a similar method exists, we need a super bridge   trait$super$foo(Class currentTrait, ...) 
 0,0,0,0,1,1,1,//     public GroovyThrowsTag[] throwsTags() {/*todo*/return null;}      public GroovyTypeVariable[] typeParameters() {/*todo*/return null;}      public GroovyParamTag[] typeParamTags() {/*todo*/return null;} 
@@ -1462,7 +1462,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  All objects should have been collected 
 0,0,0,0,0,0,0,//  will need the extra for isNaN call if required 
 0,0,0,0,0,0,0,//  method body should be: 
-0,0,1,0,0,0,0,//  "."-"<<"   cast, ternary, and closure expression   new, this, super, instanceof, true, false, null   LITERAL   "[" 
+0,0,0,0,0,0,0,//  "."-"<<"   cast, ternary, and closure expression   new, this, super, instanceof, true, false, null   LITERAL   "[" 
 0,0,0,0,0,0,0,//  if the class not is an inner class node, there are chances that the call to super is already added   so we must ensure not to add it twice (see GROOVY-4471) 
 0,0,0,0,0,0,0,/* jes this may be rewritten to use the new getProperties() stuff         * but the original pulls out private variables, whereas getProperties()         * does not. What's the real use of dump() here?          */
 0,0,0,0,0,0,0,//  need to call here here because we used the static target type   it won't be done otherwise because handle.type() == callSite.type() 
@@ -1521,7 +1521,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  make the first fetch lazy too 
 0,0,0,0,0,0,0,//  add the super call 
 0,0,0,0,0,0,0,//  Swallow exception - does not exist locally 
-0,0,0,0,0,0,0,//  look at the interfaces, there's a chance that a method is not implemented and we should not hide the   error from the compiler 
+0,0,1,0,0,0,0,//  look at the interfaces, there's a chance that a method is not implemented and we should not hide the   error from the compiler 
 0,0,0,0,0,0,0,//    call the closure corresponding to the tag 
 0,0,0,0,0,0,0,//  if not null this instance is handled as proxy 
 0,0,0,0,0,0,0,//  let's add a getter & setter 
@@ -1543,7 +1543,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// trying to determine the base class of the collections  special case for Numbers 
 0,0,0,0,0,0,0,/*      * Parse the Groovy code contained in the GroovyCodeSource as a privileged operation (i.e. do not     * require the code source to have specific compile time permissions) and return the resulting class.      */
 0,0,0,0,0,0,0,//  set parent afterwards 
-0,0,0,0,0,0,0,/*                  * fix for GROOVY-2284                 * seems like AntClassLoader doesn't check if the file                 * may not exist in the classpath yet                  */
+0,0,1,0,0,0,0,/*                  * fix for GROOVY-2284                 * seems like AntClassLoader doesn't check if the file                 * may not exist in the classpath yet                  */
 0,0,0,0,0,0,0,//  integer   decimal 
 0,0,0,0,0,0,0,//  add a document listener, to hint whether the line number gutter has to be repainted   when the number of lines changes 
 0,0,0,0,0,0,0,// find the type of the field; if it's a setter, need to get the type of the params 
@@ -1562,7 +1562,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  for typical user math when a non-terminating result would otherwise occur. 
 0,0,0,0,0,0,0,//  =, +=, etc.   ==, ===, >, <, etc.   +, -, / *, %, plus the LOGICAL_OPERATORS   ||, &&, !   .., ...   =~, etc.   ., ->   |, &, <<, >>, >>>, ^, ~ 
 0,0,0,0,0,0,0,//  index of the last variable on stack 
-0,0,1,0,0,0,0,//  this test depends deeply on the String.next implementation   009.next is 00:, not 010 
+0,0,0,0,0,0,0,//  this test depends deeply on the String.next implementation   009.next is 00:, not 010 
 0,0,0,0,0,0,0,//         dup_x1:     ---           dup_x2:     aab  -> baab          dup2_x1:    abb  -> bbabb          dup2_x2:    aabb -> bbaabb          b = top element, a = element under b          top element at right   aa   aabb   aabb -> bbaa   bbaabb   bbaa 
 0,0,0,0,0,0,0,//  we only need one of these that can be reused over and over. 
 0,0,0,0,0,0,0,//  we cannot a target for the constructor call, since we cannot easily   check the meta class of the other class   setMethodTarget(call, "<init>", call.getArguments(), false); 
@@ -1582,7 +1582,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  helper method for getAt and putAt 
 0,0,0,0,0,0,0,//  otherwise make up a new tag and check it has not been used before 
 0,0,0,0,0,0,0,//  Wrong list or interference 
-0,0,0,0,0,0,0,//  workaround for map-style checks putting setter info on wrong AST nodes 
+0,0,1,1,0,1,1,//  workaround for map-style checks putting setter info on wrong AST nodes 
 0,0,0,0,0,0,0,//  Discard all pending reads 
 0,0,0,0,0,0,0,//  check that first item is now SIZE 
 0,0,0,0,1,1,1,//  xxx br defmacro 
@@ -1665,7 +1665,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Only attempt to render our self if our super-class is resolved, else wait for it 
 0,0,0,0,0,0,0,//  Do nothing. 
 0,0,0,0,0,0,0,//  assume we have a script 
-0,0,0,0,0,0,0,//  we create separate method lists just to be able to print out   a nice error message to the user   a method is accessible if it is static, or if we are not in a static context and it is   declared by the current receiver or a superclass 
+0,0,1,0,0,0,0,//  we create separate method lists just to be able to print out   a nice error message to the user   a method is accessible if it is static, or if we are not in a static context and it is   declared by the current receiver or a superclass 
 0,0,0,0,0,0,0,//  and the getters and setters 
 0,0,0,0,0,0,0,//  check module static imports (for static inner classes) 
 0,0,0,0,0,0,0,//   --------------------------------------------------------                normal Property handling : set    -------------------------------------------------------- 
@@ -1704,7 +1704,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  only false when this classNode is constructed from a class 
 0,0,0,0,0,0,0,// correct SAM type for generics  sam = applyGenericsContext(placeholders, sam); 
 0,0,0,0,0,0,0,//  we're using node metadata here in order to fix GROOVY-6094   without breaking external APIs 
-0,0,0,0,1,1,1,//  TODO remove dup with SimpleGroovyClassDoc 
+0,0,1,1,1,1,1,//  TODO remove dup with SimpleGroovyClassDoc 
 0,0,0,0,0,0,0,//  if we have to delegate to another object, generate the appropriate delegate field 
 0,0,0,0,0,0,0,//  GROOVY-5580, it is still possible that we're calling a superinterface property 
 0,0,0,0,0,0,0,//  for thread safety, grab local copy 
@@ -1772,7 +1772,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  temporarily store the delegation strategy and the delegate type 
 0,0,0,0,0,0,0,//  iterate through the rows and add each one to the layout... 
 0,0,0,0,0,0,0,//  already registered 
-0,0,1,0,0,0,0,//  we have to handle here different cases in which we do no   transformations. We depend on our method selection to have   selected only a compatible method, that means for a null   argument we don't have to do anything. Same of course is if   the argument is an instance of the parameter type. We also   exclude boxing, since the MethodHandles will do that part   already for us. Another case is the conversion of a primitive   to another primitive or of the wrappers, or a combination of    these. This is also handled already. What is left is the    GString conversion and the number conversions. 
+0,0,0,0,0,0,0,//  we have to handle here different cases in which we do no   transformations. We depend on our method selection to have   selected only a compatible method, that means for a null   argument we don't have to do anything. Same of course is if   the argument is an instance of the parameter type. We also   exclude boxing, since the MethodHandles will do that part   already for us. Another case is the conversion of a primitive   to another primitive or of the wrappers, or a combination of    these. This is also handled already. What is left is the    GString conversion and the number conversions. 
 0,0,0,0,0,0,0,//  loop body 
 0,0,0,0,0,0,0,//  The exception source of the message, if any 
 0,0,0,0,0,0,0,//  this used to be synchronized, but we also used to remove the   metaclass.  Since adding the metaclass is now a side effect, we   don't need to ensure the meta-class won't be observed and don't   need to hide the side effect. 
@@ -1824,7 +1824,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//   this.$delegate$closure$methodName.call(new Object[] { method arguments }) 
 0,0,0,0,0,0,0,//  Look for closure valued variable in the  
 0,0,0,0,0,0,0,//  create previous() method, code:      Day previous() {          int ordinal = ordinal().previous() 
-0,0,0,0,0,0,0,//  this super class stuff is for Java 1.4 support only   it isn't needed on a 5.0 VM 
+0,0,1,0,0,0,0,//  this super class stuff is for Java 1.4 support only   it isn't needed on a 5.0 VM 
 0,0,0,0,0,0,0,//  in case of a precompiled class, the outerclass is unknown 
 0,0,0,0,0,0,0,//             int result = 17;              result = result * 31 + (reverse ? 1 : 0);              result = result * 31 + (inclusive ? 1 : 0); 
 0,0,0,0,0,0,0,/* float[13] */
@@ -1852,14 +1852,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  if we lazily create default values, use 'null' as placeholder 
 0,0,0,0,0,0,0,//  copy arguments that are not a varg 
 0,0,0,0,0,0,0,//  the document buffer and segment 
-0,0,0,0,0,0,0,//  direct method call paths 
+0,0,1,0,0,0,0,//  direct method call paths 
 0,0,0,0,0,0,0,//  add fields 
 0,0,0,0,0,0,0,//  let's make the constructor 
 0,0,0,0,0,0,0,//  identifiers, primitive types   identifiers, primitive types except void 
 0,0,0,0,0,0,0,//  default packages do not contain classes like these 
 0,0,0,0,0,0,0,//  things like com.sun.org.apache.xerces.internal.dom.DeferredElementNSImpl   do implement Element, NodeList and Node. But here we prefer element,   so we force the usage of Element. Without this DOMCategoryTest may fail   in strange ways 
 0,0,0,0,0,0,0,//  resolve property types 
-0,0,0,0,0,0,0,// could be more efficient by compiling expressions in advance. 
+0,0,1,0,0,0,0,// could be more efficient by compiling expressions in advance. 
 0,0,0,0,0,0,0,// There may be more than 1 failure:  iterate to ensure that they all match the missingPermission. 
 0,0,0,0,0,0,0,//  we drop the receiver, which might be a Class (invocation on Class)   or it might be an object (static method invocation on instance)   Object.class handles both cases at once 
 0,0,0,0,0,0,0,//    Store Access   
@@ -1868,9 +1868,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  cached data 
 0,0,0,0,0,0,0,//  Scheduler will run foerever 
 0,0,0,0,0,0,0,//  currently not looking for PropertyExpression: dealt with at runtime using ReadOnlyPropertyException 
-0,0,0,1,0,1,1,//  look if really compare 
+0,0,0,0,0,0,0,//  look if really compare 
 0,0,0,0,0,0,0,//  another case we want to check here is if we are in a   nested class A$B$C and want to access B without   qualifying it by A.B. A alone will work, since that   is the qualified (minus package) name of that class   anyway.  
-0,0,0,0,0,0,0,//  set super class and generics info   "enum X" -> class X extends Enum<X> 
+0,0,1,0,0,0,0,//  set super class and generics info   "enum X" -> class X extends Enum<X> 
 0,0,0,0,0,0,0,//  May happen on JDK8 and below. We add elements to the front of the array to account for the synthetic params:   - for an inner class we expect one param to account for the synthetic outer reference   - for an enum we expect two params to account for the synthetic name and ordinal 
 0,0,0,0,0,0,0,/* Character[7] */
 0,0,0,0,0,0,0,/*      * If a main method is provided by user, account for it under run() as scripts generate their own 'main' so they can run.        */
@@ -2017,7 +2017,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  deprecated 
 0,0,0,0,0,0,0,//  getInitialExpression above will be null if not in same source unit   so instead set within (static) initializer 
 0,0,0,0,0,0,0,//  update max_flip foreach flipping position 
-0,0,1,1,0,1,1,//  prefer super method if it matches better 
+0,0,0,1,0,1,1,//  prefer super method if it matches better 
 0,0,0,0,0,0,0,//  tag::precompiled_java_extension[] 
 0,0,0,0,0,0,0,//  import is like "import static foo.Bar.method"   packageName is really class name in this case 
 0,0,0,0,0,0,0,//  reset any out of bounds requests 
@@ -2047,7 +2047,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  GROOVY-8819 
 0,0,0,0,0,0,0,//  $Id: random.java,v 1.2 2004-08-14 08:19:19 bfulgham Exp $   http://shootout.alioth.debian.org/     Brent Fulgham:  Changed to use 32-bit integers (like the C   version), based on a suggestion by Yonik Seeley. 
 0,0,0,0,0,0,0,//    This element is preceded by CDATA if keepIgnorableWhitespace is false (the default setting) and   it's not whitespace add it to the body   Note that, according to the XML spec, we should preserve the CDATA if it's all whitespace   but for the sort of work I'm doing ignoring the whitespace is preferable   
-0,0,1,0,0,0,0,//  since indy does not give us the runtime types   we produce first a dummy call site, which then changes the target to one,   that does the method selection including the direct call to the   real method. 
+0,0,0,0,0,0,0,//  since indy does not give us the runtime types   we produce first a dummy call site, which then changes the target to one,   that does the method selection including the direct call to the   real method. 
 0,0,0,0,0,0,0,//  Note: old closure syntax using LOR is deprecated, and also never creates/visits a LOR node 
 0,0,0,0,0,0,0,//  unpack argument from Object[] 
 0,0,0,0,0,0,0,//  other cases don't need storing, so nothing to be done for them 
@@ -2093,7 +2093,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  cheat and borrow first param for result as we don't use it anyway 
 0,0,0,0,0,0,0,//  now delete directory itself 
 0,0,0,0,0,0,0,/*  package-private for use in builders  */
-0,0,0,0,0,0,0,/*  for later class resolution  */
+0,0,1,0,0,0,0,/*  for later class resolution  */
 0,0,0,0,0,0,0,/*  = 0  */
 0,0,0,0,0,0,0,//  falls-back on default encoding 
 0,0,0,0,0,0,0,//  ... parse command line arguments 
@@ -2103,17 +2103,17 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//    Ensure the path is ready for the file 
 0,0,0,0,0,0,0,/*  Don't eat EOL chars in sections - as they are valid instruction separators.                 * See https://issues.apache.org/jira/browse/GROOVY-980                  */
 0,0,0,0,0,0,0,//  local is kept as hard reference to avoid garbage collection 
-0,0,0,0,1,1,1,//  From Hacker's Delight, Chapter 3, Harry S. Warren Jr. 
+0,0,1,0,1,1,1,//  From Hacker's Delight, Chapter 3, Harry S. Warren Jr. 
 0,0,0,0,0,0,0,//  insert at beginning so we have the classloader set up before the class is called 
 0,0,0,0,0,0,0,//  first check normal number of parameters 
 0,0,0,0,0,0,0,//  a proxy is supposed to be a concrete class, so it cannot extend an interface.   If the provided superclass is an interface, then we replace the superclass with Object 
-0,0,0,1,1,1,1,// TODO: other cases 
+0,0,1,1,1,1,1,// TODO: other cases 
 0,0,0,0,0,0,0,//  generate a new method 
 0,0,0,0,0,0,0,//  Same as "0.0". 
 0,0,0,0,0,0,0,/* int[8] */
 0,0,0,0,0,0,0,//  only print out if we are being used for template generation 
 0,0,0,0,0,0,0,//  compare against the field but call isXXXExpression() instead. 
-0,1,0,1,1,1,1,//  {@link processing hack} 
+0,1,1,1,1,1,1,//  {@link processing hack} 
 0,0,0,0,0,0,0,//  The String from which we produce Readers. 
 0,0,0,0,0,0,0,/*      * Intercepts a getXXX call and returns a result. The result is replaced by the     * real value if doGet() return false     *     * @param object   The target object     * @param property The property to get     * @return A value supplied by the interceptor      */
 0,0,0,0,0,0,0,//  next we get the block parameter types and set the generics   information just like before 
@@ -2148,13 +2148,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  parameter, in case of an extension method we must not.  
 0,0,0,0,0,0,0,//         }          return (Byte) primitiveArrayPut(array, idx, newValue);      }        public static Character putAt(char[] array, int idx, Object newValue) { 
 0,0,0,0,0,0,0,//  3 operands, the array, the index and the value! 
-0,0,0,0,0,0,0,/*         Start off at the apparently correct bin.  If entry is found, we       need to check after a barrier anyway.  If not found, we need a       barrier to check if we are actually in right bin. So either       way, we encounter only one barrier unless we need to retry.       And we only need to fully synchronize if there have been       concurrent modifications.     */
+0,0,1,0,0,0,0,/*         Start off at the apparently correct bin.  If entry is found, we       need to check after a barrier anyway.  If not found, we need a       barrier to check if we are actually in right bin. So either       way, we encounter only one barrier unless we need to retry.       And we only need to fully synchronize if there have been       concurrent modifications.     */
 0,0,0,0,0,0,0,//  so we can create the curried closure 
 0,0,0,0,0,0,0,//  Source file encoding 
 0,0,0,0,0,0,0,//  remove local variable 
 0,0,0,0,0,0,0,//  !=   ===   !==   ==   <   <=   >   >=   <=> 
 0,0,0,0,0,0,0,//  in groovy, methods and classes are assumed public, unless informed otherwise 
-0,0,0,1,0,1,1,//  Because we can not rely on 3rd party library(excluding antlr, asm), we have to implement our own utils such as the `inverse` method...   Actually `BiMap` of Guava and `BidiMap` of commons-collections are both suitable for this scenario. 
+0,0,0,0,0,0,0,//  Because we can not rely on 3rd party library(excluding antlr, asm), we have to implement our own utils such as the `inverse` method...   Actually `BiMap` of Guava and `BidiMap` of commons-collections are both suitable for this scenario. 
 0,0,0,0,0,0,0,//  annotation closure; replaced with this specific class literal to cover the   case where annotation type uses Class<? extends Closure> for the closure's type 
 0,0,0,0,0,0,0,//                     element = new MetaBeanProperty(mp.getName(), mp.getType(), mp.getGetter(), null);                  } 
 0,0,0,0,0,0,0,// toURI().toURL() will encode, but toURL() will not. 
@@ -2238,7 +2238,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  if we reach this point, this means the interface is new 
 0,0,0,0,0,0,0,//  standard chooser for cases if it is not a single method and if it is   not the standard closure. 
 0,0,0,0,0,0,0,//  we are not at the end of the buffer 
-0,0,0,1,1,1,1,//  load receiver if not static invocation   todo: fix inner class case 
+0,0,1,1,1,1,1,//  load receiver if not static invocation   todo: fix inner class case 
 0,0,1,1,1,1,1,// TODO: add support for super here too 
 0,0,0,0,0,0,0,//  verify component type 
 0,0,0,0,0,0,0,//  for methodMissing, first parameter should be String type - to allow overriding of this method without   type String explicitly specified for first parameter (missing method name) - GROOVY-2951 
@@ -2298,7 +2298,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  this may happen under Windows because getResource is case insensitive under that OS! 
 0,0,0,0,0,0,0,/*  (non-Javadoc)         * @see groovy.lang.Closure#getParameterTypes()          */
 0,0,0,0,0,0,0,// LOGME ignore the failure 
-0,0,0,0,0,0,0,//  perhaps it's a meta-annotation, e.g. jqwik @Example is annotated with @Property 
+0,0,0,1,0,1,1,//  perhaps it's a meta-annotation, e.g. jqwik @Example is annotated with @Property 
 0,0,0,0,0,0,0,//  The scheduler for cooperative Multithreading 
 0,0,0,0,0,0,0,//  or if there is already a @MapConstructor annotation 
 0,0,0,0,0,0,0,//  new value is already on stack, so nothing to do here 
@@ -2334,7 +2334,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  in master list of other phases and keep processing them for this phase. 
 0,0,0,0,0,0,0,//  Return flipping times 
 0,0,0,0,0,0,0,//  can't check volatile here as it doubles up with bridge 
-0,0,1,0,0,0,0,//  to select the constructor we need also the number of   available constructors and the class we want to make 
+0,0,0,0,0,0,0,//  to select the constructor we need also the number of   available constructors and the class we want to make 
 0,0,0,0,0,0,0,//  use last one if we stored a character 
 0,0,0,0,0,0,0,//  For compatibility, ignore exceptions from getInputStream() call 
 0,0,0,0,0,0,0,/*  unhandled types from from org.codehaus.groovy.syntax.Types    public static final int LOGICAL_OR                  = 162;   // ||    public static final int LOGICAL_AND                 = 164;   // &&    public static final int DIVIDE                      = 203;   // /    public static final int STAR_STAR                   = 206;   // **    public static final int POWER                       = STAR_STAR;   //        public static final int PLUS_EQUAL                  = 210;   // +=    public static final int MINUS_EQUAL                 = 211;   // -=    public static final int MULTIPLY_EQUAL              = 212;   // *=    public static final int DIVIDE_EQUAL                = 213;   // /=    public static final int INTDIV_EQUAL                = 214;   // \=    public static final int MOD_EQUAL                   = 215;   // %=    public static final int POWER_EQUAL                 = 216;   // **=    public static final int PLUS_PLUS                   = 250;   // ++    public static final int PREFIX_PLUS_PLUS            = 251;   // ++    public static final int POSTFIX_PLUS_PLUS           = 252;   // ++    public static final int PREFIX_PLUS                 = 253;   // +    public static final int MINUS_MINUS                 = 260;   // --    public static final int PREFIX_MINUS_MINUS          = 261;   // --    public static final int POSTFIX_MINUS_MINUS         = 262;   // --    public static final int PREFIX_MINUS                = 263;   // - (negation) */
@@ -2375,7 +2375,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  We need to guarantee that any existing reads of old Map can   proceed. So we cannot yet null out each bin. 
 0,0,0,0,0,0,0,//  GROOVY-6590: wrap primitive types 
 0,0,0,0,0,0,0,//  if there are no groovy statements between the enclosing Groovy tags   then read groovy statements in from a text file using the src attribute 
-0,0,0,0,0,0,0,//  we must use the redirect node, otherwise InnerClassNode would not have the "correct" type 
+0,0,1,0,0,0,0,//  we must use the redirect node, otherwise InnerClassNode would not have the "correct" type 
 0,0,0,0,0,0,0,// WE USE THIS AS REUSABLE         
 0,0,0,0,0,0,0,//  force Object super class 
 0,0,0,0,0,0,0,//  define "owning" task as wrapper to avoid having tasks added to the target   but it needs to be an UnknownElement and no access is available from   task to its original UnknownElement  
@@ -2384,7 +2384,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  execute fold: 
 0,0,0,0,0,0,0,//  visitLiteralExtends     token type "extends" only used by parser, never visited/created directly 
 0,0,0,0,0,0,0,//  invokes the super class constructor 
-0,0,0,1,1,1,1,// todo: this should parse... assertEquals("private static <T> void foo(List<T> list){}", pretty("private static <T> void foo(List<T> list){}")); 
+0,0,1,1,1,1,1,// todo: this should parse... assertEquals("private static <T> void foo(List<T> list){}", pretty("private static <T> void foo(List<T> list){}")); 
 0,0,0,0,0,0,0,//  no exception info for Groovy MetaMethods 
 0,0,0,0,0,0,0,//  so the only possible return type is Object 
 0,0,0,0,0,0,0,//  visit rcurly()     token type RCURLY only used inside parser, never visited/created 
@@ -2414,10 +2414,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  if left expression is a closure shared variable, we should check it twice   see GROOVY-5874 
 0,0,0,0,0,0,0,//  let's look for methods with 1 argument which matches the type of the   arguments 
 0,0,0,0,0,0,0,/*          *  Damage must be overridden whenever the paint method is overridden         *  (The damaged area is the area the caret is painted in. We must         *  consider the area for the default caret and this caret)          */
-0,0,0,1,0,1,1,//  The original code converted to decimal string this way: 
+0,0,0,0,0,0,0,//  The original code converted to decimal string this way: 
 0,0,0,0,0,0,0,//  For a placeholder, a type based on the generics type is used for the compatibility check, to match on   the actual bounds and not the name of the placeholder. 
 0,0,0,0,0,0,0,//  handle interfaces 
-0,0,1,0,0,0,0,//  if there isn't any argument, we can make invocation faster using the cached constructor 
+0,0,0,0,0,0,0,//  if there isn't any argument, we can make invocation faster using the cached constructor 
 0,0,0,0,0,0,0,/*  if the map is null, then we create it.  */
 0,0,0,0,0,0,0,//  declared beans should just be available 
 0,0,0,0,0,0,0,/*  (non-Javadoc)    * @see groovy.lang.MetaClass#getProperties()     */
@@ -2430,7 +2430,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  set other optimizations options to false here 
 0,0,0,0,0,0,0,//  visit receiver 
 0,0,0,0,0,0,0,/*  ******** java.time.Duration extension methods ********  */
-0,0,0,0,0,0,0,//  workaround for GROOVY-6834: accessing a parameter which is not yet seen in scope 
+0,0,1,1,0,1,1,//  workaround for GROOVY-6834: accessing a parameter which is not yet seen in scope 
 0,0,0,0,0,0,0,//  to keep stack height put a null on stack 
 0,0,0,0,0,0,0,//  if expr is of READONLY_PROPERTY_RETURN type, then it means we are on a missing property 
 0,0,0,0,0,0,0,//  null indicates a static method which may still need generics correction 
@@ -2475,7 +2475,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  add all classpaths that compilation unit sees 
 0,0,0,0,0,0,0,//    Requested script/template file has not been the target of a    RequestDispatcher.include(). Reconstruct its path from the request's   getServletPath() and getPathInfo() results. 
 0,0,0,0,0,0,0,//       (     )     *     +     ,     -     .     / 
-0,0,0,0,0,0,0,/*          * Some drivers (Oracle classes12.zip) have difficulty resolving data         * type if setObject(null). We will modify the query to pass 'null', 'is         * null', and 'is not null'          */
+0,0,1,0,0,0,0,/*          * Some drivers (Oracle classes12.zip) have difficulty resolving data         * type if setObject(null). We will modify the query to pass 'null', 'is         * null', and 'is not null'          */
 0,0,0,0,0,0,0,//  if original Integer meta class 
 0,0,0,0,0,0,0,//  gather and sort all unvisited AST nodes 
 0,0,0,0,0,0,0,//  current label for continue 
@@ -2535,7 +2535,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  any of those otherwise 
 0,0,0,0,0,0,0,//  or Class typed variable 
 0,0,0,0,0,0,0,// noinspection GroovyConditionalCanBeElvis 
-0,0,1,0,0,0,0,//  The rewrite we do is causing some troubles with type checking, which will   not be able to perform closure parameter type inference   so we store the replacement, which will be done *after* type checking. 
+0,0,0,0,0,0,0,//  The rewrite we do is causing some troubles with type checking, which will   not be able to perform closure parameter type inference   so we store the replacement, which will be done *after* type checking. 
 0,0,0,0,0,0,0,//  check for local synthetics 
 0,0,0,0,0,0,0,//  visitNls     new lines are used by parser, but are not created on the AST,     they can be implied by the source code line/column information 
 0,0,0,0,0,0,0,//  reflective proxy generation, since we need a ConvertedClosure but have only a normal Closure, we need to create that wrapper object as well 
@@ -2556,7 +2556,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*  (non-Javadoc)        * @see java.io.Writer#close()         */
 0,0,0,0,0,0,0,/*  The iterator over the FileSet objects  */
 0,0,0,0,0,0,0,//  iterate over all interfaces to check if any corresponds to the bound we are   comparing to 
-0,0,0,1,1,1,1,//  todo : other cases 
+0,0,1,1,1,1,1,//  todo : other cases 
 0,0,0,0,0,0,0,//  may happen if generic type is Foo<T extends Foo> and classnode is Foo -> Foo 
 0,0,0,0,0,0,0,//         assertEquals("with (myObject) {x = 1}", pretty("with(myObject) {x = 1}")); // fails after parser // not in java      } 
 0,0,0,0,0,0,0,//  visit init 
@@ -2572,7 +2572,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//             System.err.println("e.getMessage() = " + e.getMessage()); 
 0,0,0,0,0,0,0,//  make sure a new list is returned each time 
 0,0,0,0,0,0,0,//  invokes the specified method/function on the given object. 
-0,0,0,0,1,1,1,//  TODO : Parse pattern compile flags (literal names). 
+0,0,0,1,1,1,1,//  TODO : Parse pattern compile flags (literal names). 
 0,0,0,0,0,0,0,//  stores the current binary expression. This is used when assignments are made with a null object, for type 
 0,0,0,0,0,0,0,//  enforce yield, so we have something to interrupt 
 0,0,0,0,0,0,0,//  the following code will basically do this:   Map<String,Closure> impl = Collections.singletonMap(method.getName(),arg);   return ProxyGenerator.INSTANCE.instantiateAggregate(impl,Collections.singletonList(clazz));   TO_SAMTRAIT_PROXY is a handle (Object,Object,ProxyGenerator,Class)GroovyObject   where the second object is the input closure, everything else   needs to be provide and is in remaining order: method name,   ProxyGenerator.INSTANCE and singletonList(parameter) 
@@ -2603,10 +2603,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  parent will care about when children perform 
 0,0,0,0,0,0,0,//  <<   >>   >>> 
 0,0,0,0,0,0,0,//  Simplify common case of {expr} to expr. 
-0,0,0,0,0,0,0,//  we have here different generics contexts we have to deal with.   There is firstly the context given through the class, and the method.   The method context may hide generics given through the class, but use  
+0,0,1,0,0,0,0,//  we have here different generics contexts we have to deal with.   There is firstly the context given through the class, and the method.   The method context may hide generics given through the class, but use  
 0,0,0,0,0,0,0,//  here we must check if the right number is short enough to fit in the left type 
 0,0,0,0,0,0,0,//  treat the case Ant is run through Maven, and 
-0,0,1,1,1,1,1,/*      * Worker method for the {@link #escapeJavaScript(String)} method.     *      * @param out writer to receive the escaped string     * @param str String to escape values in, may be null     * @param escapeSingleQuote escapes single quotes if <code>true</code>     * @param escapeForwardSlash TODO     * @throws IOException if an IOException occurs      */
+0,0,0,1,1,1,1,/*      * Worker method for the {@link #escapeJavaScript(String)} method.     *      * @param out writer to receive the escaped string     * @param str String to escape values in, may be null     * @param escapeSingleQuote escapes single quotes if <code>true</code>     * @param escapeForwardSlash TODO     * @throws IOException if an IOException occurs      */
 0,0,0,0,0,0,0,// ---------------------------------------------------------------------------   ACTIONS 
 0,0,0,0,0,0,0,//  boolean->boolean, Boolean->boolean, boolean->Boolean   is handled by compiler   that leaves (T)Z and (T)Boolean, where T is the static type   but runtime type of T might be Boolean 
 0,0,0,0,0,0,0,//      that case is handled above already when params and args have the same length 
@@ -2626,7 +2626,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Quick method for scalars. 
 0,0,0,0,0,0,0,//  safe is not necessary here because "super" is always not null   but keeping the flag would trigger a VerifyError (see GROOVY-6045) 
 0,0,0,0,0,0,0,//  launch threads, each one instantiating the scriptClass and running   it numIter times 
-0,0,0,0,1,1,1,// TODO: set sender class 
+0,0,1,1,1,1,1,// TODO: set sender class 
 0,0,0,0,0,0,0,//  add inferred type information 
 0,0,0,0,0,0,0,/*  3: double  */
 0,0,0,0,0,0,0,//  Unexpected node type: '.' found when expecting type: an identifier   fails after parser 
@@ -2644,7 +2644,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  8K 
 0,0,0,0,0,0,0,//  Clone all remaining nodes 
 0,0,0,0,0,0,0,//  length of s   length of t 
-0,0,0,0,1,1,1,//  TODO: set sender class 
+0,0,1,1,1,1,1,//  TODO: set sender class 
 0,0,0,0,0,0,0,//  GROOVY-6021 
 0,0,0,0,0,0,0,//  this is a corner case, you should not   compare two class nodes if one of them is null 
 0,0,0,0,0,0,0,//  set the properties  noinspection unchecked 
@@ -2655,7 +2655,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  --------------------- 
 0,0,0,0,0,0,0,//  The mapping only affects the contents of the data rows.   Pass all requests to these rows through the mapping array: "indexes". 
 0,0,0,0,0,0,0,//  generic fallback to castToType 
-0,0,1,0,0,0,0,//  remove each individual item from left side of Li2 and 
+0,0,0,0,0,0,0,//  remove each individual item from left side of Li2 and 
 0,0,0,0,0,0,0,//    Create the file and write out the data 
 0,0,0,0,0,0,0,//  allow any internal number that is not a floating point one 
 0,0,0,0,0,0,0,//  reading the content of the file within a char buffer   allow to keep the correct line endings 
@@ -2712,7 +2712,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  add the first/last element being always the default value 
 0,0,0,0,0,0,0,//  end position in document 
 0,0,0,0,0,0,0,//  the returned node is DummyNode<Param1, Param2, Param3, ...) 
-0,0,1,0,0,0,0,//  copy annotations from field to legacy dummy field 
+0,0,0,0,0,0,0,//  copy annotations from field to legacy dummy field 
 0,0,0,0,0,0,0,//  add method: void removePropertyChangeListener(name, listener) 
 0,0,0,0,0,0,0,//  compare a list shorter than the range 
 0,0,0,0,0,0,0,//  fall through and let the URL be null 
@@ -2753,7 +2753,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Check for transposition 
 0,0,0,0,0,0,0,//  modelled very closely on the commons lang StringUtils replaceEach method 
 0,0,0,0,0,0,0,//  remove place holder underscore before starting 
-0,0,0,1,1,1,1,// todo        assertEquals("myMethod(int i = 0; i++; i < 10)", pretty("myMethod(int i=0;i++;i<10)")); // not in java 
+0,0,1,1,1,1,1,// todo        assertEquals("myMethod(int i = 0; i++; i < 10)", pretty("myMethod(int i=0;i++;i<10)")); // not in java 
 0,0,0,0,0,0,0,/*          * Creates a new instance of LexerNode           */
 0,0,0,0,0,0,0,//  visit body 
 0,0,0,0,0,0,0,//  remove all multiples of prime: i 
@@ -2789,15 +2789,15 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  range may still be reversed, this value is ignored for inclusive-aware ranges 
 0,0,0,0,0,0,0,//  AIC are already done, doing them here again will lead to wrong scopes 
 0,0,0,0,0,0,0,//  fall through and attempt other search strategies 
-0,0,0,1,0,1,1,//  output AST in format suitable for opening in http://freemind.sourceforge.net   which is a really nice way of seeing the AST, folding nodes etc   uppercase to hide from jarjar 
+0,0,0,0,0,0,0,//  output AST in format suitable for opening in http://freemind.sourceforge.net   which is a really nice way of seeing the AST, folding nodes etc   uppercase to hide from jarjar 
 0,0,0,0,0,0,0,//  working variables 
 0,0,0,0,0,0,0,//  the supplied AST was null 
 0,0,0,0,0,0,0,//  defines the first variable index usable after 
 0,0,0,0,0,0,0,//  for compatibility with the legacy proxy generator, we should throw an UnsupportedOperationException   instead of an AbtractMethodException 
-0,0,0,0,0,0,0,//  This is a home-grown implementation which we have not had time   to research - it may perform poorly in some circumstances. It   requires twice the space of an in-place algorithm and makes   NlogN assignments shuttling the values between the two   arrays. The number of compares appears to vary between N-1 and   NlogN depending on the initial order but the main reason for 
+0,0,1,0,0,0,0,//  This is a home-grown implementation which we have not had time   to research - it may perform poorly in some circumstances. It   requires twice the space of an in-place algorithm and makes   NlogN assignments shuttling the values between the two   arrays. The number of compares appears to vary between N-1 and   NlogN depending on the initial order but the main reason for 
 0,0,0,0,0,0,0,//  (a=1; a<10; a++)   a,b,c   a,b,c   <String, Object>   "foo${bar}wibble"   class Foo<T extends F>   class Foo<T>   class Foo<T extends F> 
 0,0,0,0,0,0,0,//   -------------------------------------------------------- 
-0,0,0,0,0,0,0,//    NOTE: This piece of code is heavily inspired by Apaches Jasper2!      http://cvs.apache.org/viewcvs.cgi/jakarta-tomcat-jasper/jasper2/ \          src/share/org/apache/jasper/servlet/JspServlet.java?view=markup     Why doesn't it use request.getRequestURI() or INC_REQUEST_URI?   
+0,0,1,1,0,1,1,//    NOTE: This piece of code is heavily inspired by Apaches Jasper2!      http://cvs.apache.org/viewcvs.cgi/jakarta-tomcat-jasper/jasper2/ \          src/share/org/apache/jasper/servlet/JspServlet.java?view=markup     Why doesn't it use request.getRequestURI() or INC_REQUEST_URI?   
 0,0,0,0,0,0,0,//  no explicit locale in the template path or resource not found   fallback to the default configuration locale 
 0,0,0,0,0,0,0,//  There is no-where else to put this.   Add a mouse listener to the Table to trigger a table sort 
 0,0,0,0,0,0,0,//  br to leave a copy of rvalue on the stack. see also isPopRequired() 
@@ -2842,7 +2842,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  visit increment 
 0,0,0,0,0,0,0,//  Create a dummy ModuleNode to represent a failed parse - in case a later phase attempts to use the ast 
 0,0,0,0,0,0,0,// import is like "import Foo as Bar" 
-0,0,1,0,0,0,0,//  sort interfaces so that we may ensure a deterministic behaviour in case of   ambiguous fields (class implementing two interfaces using the same field) 
+0,0,0,0,0,0,0,//  sort interfaces so that we may ensure a deterministic behaviour in case of   ambiguous fields (class implementing two interfaces using the same field) 
 0,0,0,0,0,0,0,// ended, fix column value 
 0,0,0,0,0,0,0,//  $Id: echo.java,v 1.1 2004-05-22 07:57:50 bfulgham Exp $   http://www.bagley.org/~doug/shootout/   author: Dirus@programmer.net 
 0,0,0,0,0,0,0,//  A fast-path containment check 
@@ -2901,7 +2901,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Ignored here, just used for exiting the read loop. Yeah I know we don't like  empty catch blocks or expected behavior trowing exceptions, but this just cleaned out the code  _so_ much that I thought it worth it...this once -Matias Bjarland 20100126 
 0,0,0,0,0,0,0,/*  We are covering our bet with a safety net.                      otherwise we would have to have 5x buffer                      allocated for control chars  */
 0,0,0,0,0,0,0,/*  (non-Javadoc)      * @see groovy.lang.GroovyObject#getProperty(java.lang.String)       */
-0,0,0,1,1,1,1,//             // TODO              String importTextWithSlashesInsteadOfDots = extractImportPath(t); 
+0,0,1,1,1,1,1,//             // TODO              String importTextWithSlashesInsteadOfDots = extractImportPath(t); 
 0,0,0,0,0,0,0,// ---------------------------------------------           GlobalMetaClassVersioning 
 0,0,0,0,0,0,0,//  check if there are appropriate class or method annotations   that suggest we have a JUnit 4 test 
 0,0,0,0,0,0,0,// + " declared by " + annotation.getClassNode().getName(), 
@@ -2957,14 +2957,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  let's try load it from the classpath 
 0,0,0,0,0,0,0,//  look for quick exit 
 0,0,0,0,0,0,0,//  check if param part of control structure - but not if inside instanceof 
-0,0,0,0,0,0,0,//  not a valid import type, do not modify the code 
+0,0,1,0,0,0,0,//  not a valid import type, do not modify the code 
 0,0,0,0,0,0,0,/*  * The Great Computer Language Shootout  * http://shootout.alioth.debian.org/ *  * modified by Mehmet D. AKIN *  */
 0,0,0,0,0,0,0,/*  The Computer Language Shootout   http://shootout.alioth.debian.org/   contributed by Tony Seebregts   modified by  */
 0,0,0,0,0,0,0,//  return new Foo(new ShellContext(args)).run() 
 0,0,0,0,1,1,1,//     public GroovyTag[] firstSentenceTags() {/*todo*/return null;}      public GroovyTag[] inlineTags() {/*todo*/return null;} 
 0,0,0,0,0,0,0,//  Map interface 
 0,0,0,0,0,0,0,//  can't remember the exact Josh Bloch algorithm and I've not got the book handy   but its something like this IIRC 
-0,0,0,0,0,0,0,//  DO NOT USE isStatic variable here! 
+0,0,1,0,0,0,0,//  DO NOT USE isStatic variable here! 
 0,0,0,0,0,0,0,//  this is just a simple set field handling static and non-static, but not Closure and inner classes 
 0,0,0,0,0,0,0,/*  ******** java.time.ZoneOffset extension methods ********  */
 0,0,0,0,0,0,0,//  slightly strange as subsequent visit is done after closing visit 
@@ -3039,7 +3039,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  now try with flow type instead of declaration type 
 0,0,0,0,0,0,0,//  3 from JMock 
 0,0,0,0,0,0,0,//  the context we compare with in the end is the one of the callsite   so far we specified the context of the method declaration only 
-0,0,0,0,0,0,0,//  and mark as ambiguous if needed 
+0,0,1,0,0,0,0,//  and mark as ambiguous if needed 
 0,0,0,0,0,0,0,//  Since normalizing did not help, use original values at user's risk 
 0,0,0,0,0,0,0,//  straight xstream output of AST 
 0,0,0,0,0,0,0,//  test default imports 
@@ -3052,7 +3052,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  skip the LF in CR LF 
 0,0,0,0,0,0,0,//  ------------------ char ------------------ 
 0,0,0,0,0,0,0,//  Not loaded, try to load it 
-0,0,0,0,0,0,0,//  we need this method as trick to guarantee correct method selection 
+0,0,1,0,0,0,0,//  we need this method as trick to guarantee correct method selection 
 0,0,0,0,0,0,0,//  check that direct access is allowed 
 0,0,0,0,0,0,0,//  write "this" 
 0,0,0,0,0,0,0,//  add methods declared by DGM for interfaces 
@@ -3162,7 +3162,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  ensure exact matches are preferred over vargs 
 0,0,0,0,0,0,0,// The number 8 below represents the number of characters in the header of a non-string-section such as  <% ... %>. A section like this is represented in the target script as:  out<<"""......."""  12345678 
 0,0,0,0,0,0,0,//  for call result 
-0,0,1,0,0,0,0,//  we want this exception exposed. 
+0,0,0,0,0,0,0,//  we want this exception exposed. 
 0,0,0,0,0,0,0,/*              *  this happens             *  *    when groovyc calls FileSystemCompiler in forked mode, or             *  *    when FileSystemCompiler is run from the command line directly, or             *  *    when groovy was not started using groovyc or FileSystemCompiler either              */
 0,0,0,0,0,0,0,//  invoke via metaclass 
 0,0,0,0,0,0,0,//  map the nodes to Groovy types 
@@ -3222,7 +3222,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  add it to the class 
 0,0,0,0,0,0,0,//  prevents the proxy from being abstract 
 0,0,0,0,0,0,0,//  return the completed node 
-0,0,1,0,0,0,0,//  Li2 must now be empty   remove each individual item from right side of Li3 and 
+0,0,0,0,0,0,0,//  Li2 must now be empty   remove each individual item from right side of Li3 and 
 0,0,0,0,0,0,0,//  reading the content of the file within a byte buffer 
 0,0,0,0,0,0,0,//  GROOVY-8868 don't want an empty body to cause the constructor to be deleted later 
 0,0,0,0,0,0,0,//  as in Target.execute() 
@@ -3263,7 +3263,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,1,1,1,1,// todo push through InvokerHelper.asList? 
 0,0,0,0,0,0,0,//  make sure we keep primitive types 
 0,0,0,0,0,0,0,/*      * If the byte has the form 110xxxx, then it's the first byte of a two-bytes sequence character.     *     * @param b a byte.     * @return true if it's the first byte of a two-bytes sequence.      */
-0,0,1,1,0,1,1,//  if right is a constant, then we optimize only if it makes   a block complete, so we set a maybe 
+0,0,0,1,0,1,1,//  if right is a constant, then we optimize only if it makes   a block complete, so we set a maybe 
 0,0,0,0,0,0,0,//  ------------------------------   helper methods  ------------------------------ 
 0,0,0,0,0,0,0,//  ------------------------ 
 0,0,0,0,0,0,0,//  the constructors for our script class have already run. 
@@ -3277,7 +3277,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  place holder for "empty" synchronized blocks, for example   if there is only a break/continue. 
 0,0,0,0,0,0,0,//  GROOVY-5620: Spread safe/Null safe operator on LHS is not supported 
 0,0,0,0,0,0,0,//  load argument array 
-0,0,0,0,0,0,0,//  constructor call is in static context and the inner class is non-static - 1st arg is supposed to be    passed as enclosing "this" instance   
+0,0,1,0,0,0,0,//  constructor call is in static context and the inner class is non-static - 1st arg is supposed to be    passed as enclosing "this" instance   
 0,0,0,0,0,0,0,// ----------------------------------------------------------------------   setter 
 0,0,0,0,0,0,0,//  Comment Summary using first sentence (Locale sensitive) 
 0,0,0,0,0,0,0,//  for the redirect 
@@ -3286,7 +3286,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  now iterate over the map of property descriptors and generate   MetaBeanProperty objects 
 0,0,0,0,0,0,0,/*  ******** java.time.LocalDate extension methods ********  */
 0,0,0,0,0,0,0,//  Use setUp/tearDown to avoid mucking with system properties for other tests... 
-0,0,1,0,0,0,0,//  Constructor is actually "FooAdapter(FooImpl foo)",   but it should show "Foo" as the link text, not "FooImpl". 
+0,0,0,0,0,0,0,//  Constructor is actually "FooAdapter(FooImpl foo)",   but it should show "Foo" as the link text, not "FooImpl". 
 0,0,0,0,0,0,0,//  enable recompilation? 
 0,0,0,0,0,0,0,//                     element = new MetaBeanProperty(mp.getName(), mp.getType(), null, mp.getSetter());                  } 
 0,0,0,0,0,0,0,//  In a method call with SAM coercion the inference is to be   understood as a two phase process. We have the normal method call   to the target method with the closure argument and we have the   SAM method that will be called inside the normal target method.   To infer correctly we have to "simulate" this process. We know the   call to the closure will be done through the SAM type, so the SAM   type generics deliver information about the Closure. At the same   time the SAM class is used in the target method parameter,   providing a connection from the SAM type and the target method   declaration class. 
@@ -3335,7 +3335,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  we may need to pass in some other constructors 
 0,0,0,0,0,0,0,//  don't rewrite assertions w/o source text 
 0,0,0,0,0,0,0,//  This may deadlock so run in a separate thread 
-0,0,0,1,0,1,1,//  We limit the inner class lookups here by using ConstructedClassWithPackage.   This way only the name will change, the packagePrefix will   not be included in the lookup. The case where the   packagePrefix is really a class is handled elsewhere. 
+0,0,0,0,0,0,0,//  We limit the inner class lookups here by using ConstructedClassWithPackage.   This way only the name will change, the packagePrefix will   not be included in the lookup. The case where the   packagePrefix is really a class is handled elsewhere. 
 0,0,1,1,1,1,1,/*      * Compute factorial (TODO: expose this)     *     * @param n the input integer     * @return the factorial for n      */
 0,0,0,0,0,0,0,//  init declarations 
 0,0,0,0,0,0,0,//  in that case, the inferred type of the binary expression is the type of the RHS   "completed" with generics type information available in the LHS 
@@ -3373,7 +3373,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//    Create a reader on the source and run the parser. 
 0,0,0,0,0,0,0,/*  (non-Javadoc)           * @see groovy.lang.MetaMethod#invoke(java.lang.Object, java.lang.Object[])            */
 0,0,0,0,0,0,0,//  ant's <javac> supports nested <compilerarg value=""> elements (there can be multiple of them) 
-0,0,1,0,0,0,0,//  since the object does not have a valid compareTo method   we compare using the hashcodes. null cases are handled by   DefaultTypeTransformation.compareTo   This is not exactly a mathematical valid approach, since we compare object   that cannot be compared. To avoid strange side effects we do a pseudo order   using hashcodes, but without equality. Since then an x and y with the same   hashcodes will behave different depending on if we compare x with y or   x with y, the result might be unstable as well. Setting x and y to equal   may mean the removal of x or y in a sorting operation, which we don't want. 
+0,0,0,0,0,0,0,//  since the object does not have a valid compareTo method   we compare using the hashcodes. null cases are handled by   DefaultTypeTransformation.compareTo   This is not exactly a mathematical valid approach, since we compare object   that cannot be compared. To avoid strange side effects we do a pseudo order   using hashcodes, but without equality. Since then an x and y with the same   hashcodes will behave different depending on if we compare x with y or   x with y, the result might be unstable as well. Setting x and y to equal   may mean the removal of x or y in a sorting operation, which we don't want. 
 0,0,0,0,0,0,0,//  1 + 1   [1..<10]   [1..10]   a << b   foo*.bar   a >> b   a * b   or    import foo.*   x ** 3   trait Foo... 
 0,0,0,0,0,0,0,//  Methods from Comparable 
 0,0,0,0,0,0,0,//  we always adds meta methods to class itself 
@@ -3381,11 +3381,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,1,1,1,//  After normalisation, 'from' may be greater than 'to'. In that   case, we need to reverse them and make sure the range's 'reverse'   property is correct.   TODO We should probably use DefaultGroovyMethodsSupport.subListBorders(), 
 0,0,0,0,0,0,0,// nothing else possible 
 0,0,0,0,0,0,0,//  validate date format pattern 
-0,0,0,0,0,0,0,//                         // workaround on pre-Java8 for http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6480539                          value = BigDecimal.ZERO.hashCode(); 
+0,0,1,1,0,1,1,//                         // workaround on pre-Java8 for http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6480539                          value = BigDecimal.ZERO.hashCode(); 
 0,0,0,0,0,0,0,//  <class_name>( 
 0,0,0,0,0,0,0,// for typical user math. 
 0,0,0,0,0,0,0,//  Setup the configuration data 
-0,0,1,1,1,1,1,//  TODO use pList and fList 
+0,0,0,1,1,1,1,//  TODO use pList and fList 
 0,0,1,1,1,1,1,//  TODO use it or lose it 
 0,0,0,0,0,0,0,/*  We copy all returned values from the getValue call in casean optimised model is reusing one object to return many values.The Number subclasses in the JDK are immutable and so will not be used inthis way but other subclasses of Number might want to do this to savespace and avoid unnecessary heap allocation. */
 0,0,0,0,0,0,0,//  ContentHandler interface 
@@ -3410,7 +3410,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  GroovyClassLoader should be able to find classes compiled from java sources 
 0,0,0,0,0,0,0,//  attempt resolution on all types, so don't short-circuit and stop if we've previously failed 
 0,0,0,0,0,0,0,//  all arguments are Object but last, which is a vargs argument, that   will fit all, so just test if the number of argument is equal or   more than the parameters we have. 
-0,1,0,1,1,1,1,//  {@code processing hack} 
+0,1,1,1,1,1,1,//  {@code processing hack} 
 0,0,0,0,0,0,0,//  br: the old logic seems to add static to all def f().... in a script, which makes enclosing   inner classes (including closures) in a def function difficult. Comment it out. 
 0,0,0,0,0,0,0,//  any keyword   any symbol   strings, numbers, identifiers   integers and decimals   "+", "-"   true, false, null   true, false   void, byte, short, int, etc.   any PRIMITIVE_TYPE except void   do, while, etc.   const, goto, etc.   keywords that can appear as identifiers   any of the SYNTH types 
 0,0,0,0,0,0,0,//  assertFailed called static with 2 arguments  
@@ -3450,7 +3450,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Unexpected node type: TYPE_PARAMETERS found when expecting type: OBJBLOCK   fails after parser 
 0,0,0,0,0,0,0,//  ensure we try to unbox null to cause a runtime NPE in case we assign    null to a primitive typed variable, even if it is used only in boxed  
 0,0,0,0,0,0,0,//  $Id: hash.java,v 1.1 2004-05-23 05:06:51 bfulgham Exp $   http://www.bagley.org/~doug/shootout/ 
-0,0,0,1,0,1,1,//  e.g. BinaryOperator extends BiFunction, BinaryOperator contains no abstract method, but it is really a SAM 
+0,0,0,0,0,0,0,//  e.g. BinaryOperator extends BiFunction, BinaryOperator contains no abstract method, but it is really a SAM 
 0,0,0,0,0,0,0,//  LEFT_SHIFT               280   RIGHT_SHIFT              281   RIGHT_SHIFT_UNSIGNED     282 
 0,0,0,0,0,0,0,//  for compound assignment "x op= y" find type as if it was "x = (x op y)" 
 0,0,0,0,0,0,0,//  fail fast! if we got a malformed URI the Classloader has to tell it 
@@ -3463,10 +3463,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  The data store and its maximum capacity 
 0,0,0,0,0,0,0,//    RELEVANT WHITESPACE 
 0,0,0,0,0,0,0,/*  The keys  stored in the map.  */
-0,0,0,0,0,0,0,//  A script's contextual constructor should call it's super class' contextual constructor, if it has one.   In practice this will always be true because currently this visitor is run before the AST transformations 
+0,0,1,0,0,0,0,//  A script's contextual constructor should call it's super class' contextual constructor, if it has one.   In practice this will always be true because currently this visitor is run before the AST transformations 
 0,0,0,0,0,0,0,//  have here to ensure it won't be the inner class 
 0,0,0,0,0,0,0,//  heuristic size to pre-alocate stringbuffers for collections of items 
-0,0,1,1,1,1,1,//  TODO: GROOVY-6561: GroovyMain got the name this way: script.substring(script.lastIndexOf("/") + 1) 
+0,0,0,1,1,1,1,//  TODO: GROOVY-6561: GroovyMain got the name this way: script.substring(script.lastIndexOf("/") + 1) 
 0,0,0,0,0,0,0,/*  The Computer Language Shootout   http://shootout.alioth.debian.org/   contributed by Josh Goldfoot   based on the Nice entry by Isaac Guoy */
 0,0,0,0,0,0,0,/*  (non-Javadoc)         * @see groovy.lang.MetaMethod#getName()          */
 0,0,0,0,0,0,0,//  method body missing   declaration cannot be overridden   a native code entry point   property should not be persisted   compiler should never cache property 
@@ -3486,7 +3486,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//    To support delta compilations, we always restart   the compiler.  The individual passes are responsible   for not reprocessing old code. 
 0,0,0,0,0,0,0,// load normal arguments as array 
 0,0,0,0,0,0,0,//  if no byte with an high order bit set, the encoding is US-ASCII 
-0,0,1,1,1,1,1,/*      * TODO: remove optimization of this.foo -> this.@foo     *      */
+0,0,0,1,1,1,1,/*      * TODO: remove optimization of this.foo -> this.@foo     *      */
 0,0,0,0,0,0,0,//  Expand enough to hold at least n elements without resizing.   We can only resize table by factor of two at a time.   It is faster to rehash with fewer elements, so do it now. 
 0,0,0,0,0,0,0,//  =~   ==~   ~ 
 0,0,0,0,0,0,0,//  create values field 
@@ -3527,13 +3527,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  2nd arg false below: though not usual, allow setter with non-void return type 
 0,0,0,0,0,0,0,//  The location in the buffer is chosen in a racy fashion as the increment   is not atomic with the insertion. This means that concurrent reads can   overlap and overwrite one another, resulting in a lossy buffer. 
 0,0,0,0,0,0,0,//  actual step, can be +1 when desired step is -1 and direction is from high to low 
-0,0,0,0,0,0,0,//  if this is not a generics placeholder, first compare that types represent the same type 
+0,0,1,0,0,0,0,//  if this is not a generics placeholder, first compare that types represent the same type 
 0,0,0,0,0,0,0,//  aab -> baa   baab   baa 
 0,0,0,0,0,0,0,//  lets test out the class verifier 
 0,0,0,0,0,0,0,//  may use this visitor without the annotation being explicitly set 
 0,0,0,0,0,0,0,// -- Internals only below this point 
 0,0,0,0,0,0,0,/*  multiply vector v by matrix A transposed  */
-0,0,0,0,0,0,0,/*  * <p>This AST transformer is responsible for modifying a source template into something which can be compiled as a * {@link groovy.text.markup.BaseTemplate} subclass.</p> * <p/> * <p>It performs the following operations:</p> * <p/> * <ul> <li>replace dynamic variables with <i>getModel().get(dynamicVariable)</i> calls</li> <li>optionally wrap * <i>getModel().get(...)</i> calls into <i>tryEscape</i> calls for automatic escaping</li> <li>replace <i>include * XXX:'...'</i> calls with the appropriate <i>includeXXXX</i> method calls</li> <li>replace <i>':tagName'()</i> calls * into <i>methodMissing('tagName', ...)</i> calls</li> </ul>  */
+0,0,1,0,0,0,0,/*  * <p>This AST transformer is responsible for modifying a source template into something which can be compiled as a * {@link groovy.text.markup.BaseTemplate} subclass.</p> * <p/> * <p>It performs the following operations:</p> * <p/> * <ul> <li>replace dynamic variables with <i>getModel().get(dynamicVariable)</i> calls</li> <li>optionally wrap * <i>getModel().get(...)</i> calls into <i>tryEscape</i> calls for automatic escaping</li> <li>replace <i>include * XXX:'...'</i> calls with the appropriate <i>includeXXXX</i> method calls</li> <li>replace <i>':tagName'()</i> calls * into <i>methodMissing('tagName', ...)</i> calls</li> </ul>  */
 0,0,0,0,0,0,0,/*  The Computer Language Shootout   http://shootout.alioth.debian.org/   contributed by Keenan Tims   modified by Michael Barker */
 0,0,0,0,0,0,0,//  if all remaining exceptions are used in the stub we are good 
 0,0,0,0,0,0,0,//  Read in size (number of Mappings) 
@@ -3582,7 +3582,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  we allow auto-coercion here 
 0,0,0,0,0,0,0,//  end::bsf_apply[] 
 0,0,0,0,0,0,0,// runTest("LittleClosureTest.groovy"); 
-0,0,1,0,0,0,0,//  for primitives and their wrapper we use a fixed table here 
+0,0,0,0,0,0,0,//  for primitives and their wrapper we use a fixed table here 
 0,0,0,0,0,0,0,//         cache = Collections.synchronizedMap(new LRUProtectionStorage(maxCacheSize)); 
 0,0,0,0,0,0,0,//  Return next permut, by rotating elements [0 - position] one 'step' 
 0,0,0,0,0,0,0,//  fall threw 
@@ -3652,16 +3652,16 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// -------------------------------------------------------------------------                     
 0,0,0,0,0,0,0,//  GROOVY-6757 
 0,0,0,0,0,0,0,//  else nothing to box 
-0,0,0,0,1,1,1,//  TODO M12N eventually defer this until later when we have a full Groovy   environment and use normal Grape.grab() 
+0,0,0,1,1,1,1,//  TODO M12N eventually defer this until later when we have a full Groovy   environment and use normal Grape.grab() 
 0,0,0,0,0,0,0,//  in order to compute the inferred types of the closure parameters, we're using the following trick:   1. create a dummy MethodNode for which the return type is a class node for which the generic types are the types returned by the hint   2. call inferReturnTypeGenerics   3. fetch inferred types from the result of inferReturnTypeGenerics   In practice, it could be done differently but it has the main advantage of reusing   existing code, hence reducing the amount of code to debug in case of failure. 
 0,0,0,0,0,0,0,//  treat it just like a script if it is one 
 0,0,0,0,0,0,0,//  Only the non-cached type and packages should be cached 
-0,0,0,0,0,0,0,//  workaround for GROOVY-5859: remove generic type info 
+0,0,0,1,0,1,1,//  workaround for GROOVY-5859: remove generic type info 
 0,0,0,0,0,0,0,//  add catch any block to exception table 
 0,0,0,0,0,0,0,//   } 
 0,0,0,0,0,0,0,//  field undefined 
 0,0,0,0,0,0,0,//  JDK 8 support for default methods in interfaces 
-0,0,1,1,1,1,1,//  todo: unary expressions (field++, field+=, ...) 
+0,0,0,1,1,1,1,//  todo: unary expressions (field++, field+=, ...) 
 0,0,0,0,0,0,0,//  ignore, this happens with overlapping method definitions 
 0,0,0,0,0,0,0,//  into information for the callsite 
 0,0,0,0,0,0,0,//  GROOVY-6094 
@@ -3722,7 +3722,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  add field 
 0,0,0,0,0,0,0,// new Reduction(Tpken.EOF); 
 0,0,0,0,0,0,0,//  loop through classes in tree 
-0,0,0,0,0,0,0,//  constructors should not be treated as errors (they have no real meaning for interfaces anyway) 
+0,0,1,0,0,0,0,//  constructors should not be treated as errors (they have no real meaning for interfaces anyway) 
 0,0,0,0,0,0,0,//  this may happen if there's a setter of type boolean/String/Class, and that we are using the property   notation AND that the RHS is not a boolean/String/Class 
 0,0,0,0,0,0,0,//  check security manager 
 0,0,0,0,0,0,0,//  normalise 
@@ -3799,7 +3799,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  check if the name is actually an aliased type name 
 0,0,0,0,0,0,0,//  grab existing meta (usually adaptee but we may have nested use calls) 
 0,0,0,0,0,0,0,//  closestClass and theType are not in a subtype relation, we need   to check the distance to Object 
-0,0,1,0,1,1,1,//  TODO we could support some default vals provided they were listed last 
+0,0,0,1,1,1,1,//  TODO we could support some default vals provided they were listed last 
 0,0,0,0,0,0,0,//  Divisions may produce different results depending on operand types 
 0,0,0,0,0,0,0,/* <JMenu> */
 0,0,0,0,0,0,0,/* Long[11] */
@@ -3810,7 +3810,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*  (non-Javadoc)        * @see java.io.Writer#write(char[], int, int)         */
 0,0,0,0,0,0,0,//  code doesn't mention the removed param at this point, okay to leave as is 
 0,0,0,0,0,0,0,//  we may have to add additional elements here 
-0,0,0,0,0,0,0,//  the class nodes are on different types   in this situation, we must choose the correct execution path : either the bound   is an interface and we must find the implementing interface from the classnode   to compare their parameterized generics, or the bound is a regular class and we   must compare the bound with a superclass 
+0,0,1,0,0,0,0,//  the class nodes are on different types   in this situation, we must choose the correct execution path : either the bound   is an interface and we must find the implementing interface from the classnode   to compare their parameterized generics, or the bound is a regular class and we   must compare the bound with a superclass 
 0,0,0,0,0,0,0,//  if the matching offset is not the same as the end of the    previous match, we have extra text not matched, so set to  
 0,0,0,0,0,0,0,//  we only need to check the variable name because the Groovy compiler   already fails if a variable with the same name already exists in the scope.   this means that a closure cannot shadow a class variable 
 0,0,0,0,0,0,0,/*  (non-Javadoc)     * @see java.lang.Object#hashCode()      */
@@ -4035,7 +4035,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Reset start if new buffer 
 0,0,0,0,0,0,0,//  "." is used to transfer compilation dependencies, which will be   recollected later during compilation 
 0,0,0,0,0,0,0,//  if a positive index is accessed not initialized so far   initialization up to that index takes place 
-0,0,0,1,0,1,1,//  Seems wrong but otherwise some tests fail (e.g. TestingASTTransformsTest) 
+0,0,0,0,0,0,0,//  Seems wrong but otherwise some tests fail (e.g. TestingASTTransformsTest) 
 0,0,0,0,0,0,0,// if s_i and t_i don't have have the same case 
 0,0,0,0,0,0,0,//  styleMap, then set the attributes of the matching string 
 0,0,0,0,0,0,0,// ---------------------------------------------------------------------------    // SOURCE SAMPLING 
@@ -4046,7 +4046,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  test integers 
 0,0,0,0,0,0,0,//  pop for "makeBlockRecorder(finallyStatement)" 
 0,0,0,0,0,0,0,//  would happen if you have a raw Map type for example 
-0,0,0,0,0,0,0,//  a ClassNode superclass for an interface is not   another interface but always Object. This implies that   "extends" for an interface is understood as "implements"   for a ClassNode. Therefore, even if b doesn't implement   interface a, a could "implement" other interfaces that b   implements too, so we must create a list of matching interfaces 
+0,0,1,0,0,0,0,//  a ClassNode superclass for an interface is not   another interface but always Object. This implies that   "extends" for an interface is understood as "implements"   for a ClassNode. Therefore, even if b doesn't implement   interface a, a could "implement" other interfaces that b   implements too, so we must create a list of matching interfaces 
 0,0,0,0,0,0,0,//  iterates through s   iterates through t 
 0,0,0,0,0,0,0,//  check for a public/protected getter since JavaBean getters haven't been recognised as properties   at this point and we don't want private field access for that case which will be handled later 
 0,0,0,0,0,0,0,//  not in java   not in java   not in java 
@@ -4055,7 +4055,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  lets check the parameter types match 
 0,0,0,0,0,0,0,//  the default style of this lexer node 
 0,0,0,0,0,0,0,//  if no invalid UTF-8 were encountered, we can assume the encoding is UTF-8, 
-0,0,0,0,0,0,0,//  perhaps overkill but let compareTo be based on hashes for commutativity   return this.hashCode() <=> other.hashCode() 
+0,0,1,1,0,1,1,//  perhaps overkill but let compareTo be based on hashes for commutativity   return this.hashCode() <=> other.hashCode() 
 0,0,0,0,0,0,0,//  ---------------------   feature: 'threadsafe' 
 0,0,0,0,0,0,0,//  if we reach this point we have at least one parameter or return type, that 
 0,0,0,0,0,0,0,//  list containing finally blocks   such a block is created by synchronized or finally and 
@@ -4198,7 +4198,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  index in the ref array 
 0,0,0,0,0,0,0,//  we need to save the result 
 0,0,0,0,0,0,0,// ---------------------------------------------                category handle 
-0,0,0,0,0,0,0,//  ---------------------------------------------------------------   feature?: allow break/continue to labeled statement from loops? (is this even right syntax, or parser bug???) 
+0,0,0,1,0,1,1,//  ---------------------------------------------------------------   feature?: allow break/continue to labeled statement from loops? (is this even right syntax, or parser bug???) 
 0,0,0,0,0,0,0,//  if original char meta class 
 0,0,0,0,0,0,0,//  normalize an empty or whitespace line to \n   or strip the indent for lines containing non-space characters 
 0,0,0,0,0,0,0,/*  (non-Javadoc)     * @see groovy.lang.MetaClass#getProperty(java.lang.Object, java.lang.String)      */
@@ -4287,7 +4287,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  According to https://shipilev.net/blog/2016/arrays-wisdom-ancients/#_conclusion   toArray(new T[0]) seems faster, safer, and contractually cleaner, and therefore should be the default choice now. 
 0,0,0,0,0,0,0,//  otherwise, the file is in US-ASCII 
 0,0,0,0,0,0,0,//  load groovy into "root.maven" classloader instead of "root" so that   groovy script can access Maven classes 
-0,0,0,0,0,0,0,//  we must be careful, because the property node may be of a wrong type:   if a class contains a getter and a setter of different types or   overloaded setters, the type of the property node is arbitrary! 
+0,0,1,0,0,0,0,//  we must be careful, because the property node may be of a wrong type:   if a class contains a getter and a setter of different types or   overloaded setters, the type of the property node is arbitrary! 
 0,0,0,0,0,0,0,//  "super" also requires special handling 
 0,0,0,0,0,0,0,/* <Method[]> */
 0,0,0,0,0,0,0,//  let's decide if this is a property invocation or a method call 
@@ -4308,7 +4308,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  preconditions   no text to return   no text to return   buffer hasn't been filled yet 
 0,0,0,0,0,0,0,//  we put the class already in output to avoid the most inner classes   will be used as first class later in the loader. The first class   there determines what GCL#parseClass for example will return, so we 
 0,0,0,0,0,0,0,//  Eat the following LF if any. 
-0,0,0,0,0,0,0,// The overtype caret will simply be a horizontal line one pixel high   (once we determine where to paint it) 
+0,0,1,0,0,0,0,// The overtype caret will simply be a horizontal line one pixel high   (once we determine where to paint it) 
 0,0,0,0,0,0,0,// ---------------------------------------------------------------------------   SOURCE CREATION 
 0,0,0,0,0,0,0,//  $Id: hash2.java,v 1.1 2004-05-23 05:50:10 bfulgham Exp $   http://www.bagley.org/~doug/shootout/ 
 0,0,0,0,0,0,0,/*  Iterate through the map and do the same thing. Make sure children and children of children are chopped.   */
@@ -4325,7 +4325,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  for the property 
 0,0,0,0,0,0,0,//  GROOVY-6787: Don't override the original if the replacement placeholder doesn't respect the bounds,   otherwise the original bounds are lost which can result in accepting an incompatible type as an   argument, for example. 
 0,0,0,0,0,0,0,//  Unary expressions 
-0,0,0,1,0,1,1,//  The Great Computer Language Shootout   http://shootout.alioth.debian.org/   Fastest version under 100 LOC. Contributed by Jon Harrop, 2005 
+0,0,0,0,0,0,0,//  The Great Computer Language Shootout   http://shootout.alioth.debian.org/   Fastest version under 100 LOC. Contributed by Jon Harrop, 2005 
 0,0,0,0,0,0,0,//  def _result = HashCodeHelper.initHash() 
 0,0,0,0,0,0,0,//  works fine in both languages   works fine in java; throws ClassCastException in groovy 
 0,0,0,0,0,0,0,//  ------------------------------ 
@@ -4340,7 +4340,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  we allow null objects in the object stream 
 0,0,0,0,0,0,0,//  Inner classes 
 0,0,0,0,0,0,0,/*      * Set nextObject to the next object. If there are no more     * objects then return false. Otherwise, return true.      */
-0,0,0,1,0,1,1,//  Coerce the file URL to a File   See ClassNodeResolver.isSourceNewer for another method that replaces '|' with ':'.   WTF: Why is this done and where is it documented? 
+0,0,1,1,0,1,1,//  Coerce the file URL to a File   See ClassNodeResolver.isSourceNewer for another method that replaces '|' with ':'.   WTF: Why is this done and where is it documented? 
 0,0,0,0,0,0,0,//  inject message 
 0,0,0,0,0,0,0,//  A normal merge. 
 0,0,0,0,0,0,0,//  other modifiers 
@@ -4360,7 +4360,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  if origFloat and withoutCustomHandle 
 0,0,0,0,0,0,0,//  GroovyDocErrorReporter interface 
 0,0,0,0,0,0,0,//  GROOVY-5568, the property may be defined by DGM 
-0,0,0,0,1,1,1,//  TODO handle local variables 
+0,0,1,1,1,1,1,//  TODO handle local variables 
 0,0,0,0,0,0,0,//  spread expressions 
 0,0,0,0,0,0,0,//  will contain callSiteReceiverSwap.getType() 
 0,0,0,0,0,0,0,//  Implementation of java.sql.getResultSet()   ------------------------------------------------------------ 
@@ -4405,7 +4405,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  the outside context parts till now define placeholder we are not allowed to   generalize, thus we save that for later use...   extension methods are special, since they set the receiver as    first parameter. While we normally allow generalization for the first 
 0,0,0,0,0,0,0,//  TypeChecked$TypeCheckingInfo can not be applied on constructors 
 0,0,1,0,0,0,0,//  undo unwanted side-effect of verifier 
-0,0,0,0,0,0,0,// AsmClassGenerator generator = new AsmClassGenerator(source, context, tracer, sourceName); 
+0,0,1,0,0,0,0,// AsmClassGenerator generator = new AsmClassGenerator(source, context, tracer, sourceName); 
 0,0,0,0,0,0,0,//  -----------------------   feature: static imports   ----------------------- 
 0,0,0,0,0,0,0,//  uppercase to hide from jarjar 
 0,0,0,0,0,0,0,//  put it in the list 
@@ -4413,7 +4413,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  we do here a null check because the params field might not have been set yet 
 0,0,0,0,0,0,0,// correct to method level generics for the overriding method 
 0,0,0,0,0,0,0,// A transposition and a casemodification 
-0,0,1,0,0,0,0,//  GROOVY-7909 A Helper class in same compilation unit may have not been created when referenced   Here create a symbol as a "placeholder" and it will be resolved later. 
+0,0,0,0,0,0,0,//  GROOVY-7909 A Helper class in same compilation unit may have not been created when referenced   Here create a symbol as a "placeholder" and it will be resolved later. 
 0,0,0,0,0,0,0,//  SEE BELOW 
 0,0,0,0,0,0,0,//  Entry was invalidated during deletion. But it could   have been re-inserted, so we must re-traverse.   To avoid useless contention, get lock to wait out modifications   before re-traversing. 
 0,0,0,0,0,0,0,/*  (non-Javadoc)           * @see groovy.lang.GroovyObjectSupport#getProperty(java.lang.String)            */
@@ -4428,7 +4428,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  to keep the stack height, we need to leave   one Object[] on the stack as last element. At the   same time, we need the Object[] on top of the stack 
 0,0,0,0,0,0,0,//  the inferred type here should be a list of what the subcall returns 
 0,0,0,0,0,0,0,//  have first to find matching super class or interface 
-0,0,0,1,0,1,1,//  GROOVY-4013: If it is an inner class, tracking its dependencies doesn't really   serve any purpose and also interferes with the caching done to track dependencies 
+0,0,0,0,0,0,0,//  GROOVY-4013: If it is an inner class, tracking its dependencies doesn't really   serve any purpose and also interferes with the caching done to track dependencies 
 0,0,0,0,0,0,0,//  there of course transformed parameter type and argument must fit 
 0,0,0,0,0,0,0,//  _result = HashCodeHelper.updateHash(_result, super.hashCode()) 
 0,0,0,0,0,0,0,//  let's remove any non-MapEntryExpression instances   such as if the last expression is a ClosureExpression   so let's wrap the named method calls in a Map expression 

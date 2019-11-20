@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExtractComments {
-
+    // The structure of directory
     // methodPath
     // ---- GitRepo
     // ---- ---- Proj1
@@ -83,17 +83,17 @@ public class ExtractComments {
         // 1. Extract Java files from Git repository
         //extractJavaFile();
         // 2. Extract Comments from Java Files   !!! Only run once
-        //extractComments();
+        extractComments();
 
         // 3. Manually label the comments...
 
         // 4. Ranking the result according to Labels !!! Only run once
-        rankingComments();
+        //rankingComments();
 
         // 5. Manually check the labels
 
         // 6. Output the dataset
-        exportDataset();
+        //exportDataset();
 
     }
 
@@ -294,7 +294,7 @@ public class ExtractComments {
             StringBuilder text = new StringBuilder("Label, Type, Content\n"); //"Label, Type, Content\n"
             int afterFiltering = 0;
             for (String line : duplicatedComments) {
-                if (line.trim().equals(", Line, //") || line.trim().equals("")) continue;
+                if (line.trim().equals("//") || line.trim().equals("")) continue; // , Line, //
                 text.append(", ").append(line).append("\n");
                 afterFiltering++;
             }
