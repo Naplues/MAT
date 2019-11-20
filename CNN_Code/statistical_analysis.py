@@ -1,3 +1,4 @@
+# -*- encoding：utf-8-*-
 # by xiaoxueren
 # calculate p, r, f1...
 

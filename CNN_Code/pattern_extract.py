@@ -1,3 +1,4 @@
+# -*- encoding：utf-8-*-
 #by xiaoxueren
 # extrating patterns for SATD comments
 
@@ -129,8 +130,7 @@ with graph.as_default():
         for s in range(len(all_predictions)):
 
             if all_predictions[s]==1:
-                print("**********************************sentence NO.=" + str(
-                    s) + "**************************************")
+                print("**********************************sentence NO.=" + str(s) + "**************************************")
 
                 for filter in pattern_size:
                     relu = graph.get_tensor_by_name("conv-maxpool-%s/relu:0" % filter)
@@ -188,12 +188,3 @@ with graph.as_default():
                                 pat.append(all[dawn][:-2])
                     print("PPPPPPPPPPPPPPPPPPPPPP")
                     print(target_text[s])
-
-
-
-
-
-
-
-
-

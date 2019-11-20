@@ -1,3 +1,4 @@
+# -*- encoding：utf-8-*-
 # by xiaoxueren
 # data processing
 import numpy as np
@@ -7,7 +8,7 @@ from collections import Counter
 import tensorflow as tf
 
 
-
+# 清洗字符串
 def clean_str(string):
     """
     Tokenization/string cleaning for all datasets except for SST.
@@ -29,6 +30,7 @@ def clean_str(string):
     string = re.sub(r"\s{2,}", " ", string)
     return string.strip().lower()
 
+# 判断字符串是否为空
 def not_empty(s):
     return s and s.strip()
 
@@ -37,10 +39,10 @@ def load_model(checkpoint_file, allow_soft_placement, log_device_placement, init
 
     with graph.as_default():
         session_conf = tf.ConfigProto(
-            allow_soft_placement=allow_soft_placement,
-            log_device_placement=log_device_placement)
+            allow_soft_placement = allow_soft_placement,
+            log_device_placement = log_device_placement)
 
-        sess = tf.Session(config=session_conf)
+        sess = tf.Session(config = session_conf)
 
         with sess.as_default():
 
@@ -49,18 +51,17 @@ def load_model(checkpoint_file, allow_soft_placement, log_device_placement, init
             input_x = graph.get_operation_by_name("input_x").outputs[0]
             # em = graph.get_operation_by_name("input_y").outputs[0]
             dropout_keep_prob = graph.get_operation_by_name("dropout_keep_prob").outputs[0]
-            embedding = graph.get_operation_by_name("embedding").outputs[0]
-            W = graph.get_operation_by_name("W").outputs[0]
-            hp = graph.get_operation_by_name("dawn_pool_flat").outputs[0]
-            phase_train = graph.get_operation_by_name("phase_train").outputs[0]
+            embedding         = graph.get_operation_by_name("embedding").outputs[0]
+            W                 = graph.get_operation_by_name("W").outputs[0]
+            hp                = graph.get_operation_by_name("dawn_pool_flat").outputs[0]
+            phase_train       = graph.get_operation_by_name("phase_train").outputs[0]
             #   em = sess.run(embedding,{input_x: x_train, dropout_keep_prob: 0.5, embedding: initW})
-            W = sess.run(W, {input_x: source_x, dropout_keep_prob:0.5,  embedding: initW,phase_train:True})
-            hp = sess.run(hp, {input_x: source_x, dropout_keep_prob: 0.5,  embedding: initW,phase_train:True})
+            W                 = sess.run(W, {input_x: source_x, dropout_keep_prob:0.5,  embedding: initW,phase_train:True})
+            hp                = sess.run(hp, {input_x: source_x, dropout_keep_prob: 0.5,  embedding: initW,phase_train:True})
             return W,hp
 
 
-
-
+# 加载数据
 def load_data_and_labels(files):
     """
     Loads MR polarity data from files, splits the data into words and generates labels.
@@ -68,24 +69,25 @@ def load_data_and_labels(files):
     """
     # Load data from files
 
-    labelSize = len(files)
-    x_text = np.array([])
-    y_label = np.array([])
+    labelSize = len(files) # = 2
+    x_text    = np.array([])
+    y_label   = np.array([])
     for fileIndex, file in enumerate(files):
         # read all sentences and split each sentence into words
-        sentences = list(open(file, "r",encoding='utf-8').readlines())
-        sentences = [s.strip() for s in sentences]
-        sentences = [clean_str(s) for s in sentences]
-        sentences = list(filter(not_empty, sentences))
-        sentences = np.array(sentences)
-        x_text = np.concatenate([x_text, sentences],0)
-        # generate labels for each sentence
-        labels = [ [0 for x in range(labelSize)] for i in range(len(sentences)) ]
-        for label in labels: label[fileIndex] = 1
+        sentences = list(open(file, "r",encoding = 'utf-8').readlines())  # 读取文件内容, 转化为列表
+        sentences = [s.strip() for s in sentences]                        # 去除前后的空格
+        sentences = [clean_str(s) for s in sentences]                     # 清洗字符串
+        sentences = list(filter(not_empty, sentences))                    # 过滤掉空的字符串注释 每个s是一个注释 sentences是注释集合
+        sentences = np.array(sentences)                                   # 创建数组
+        x_text = np.concatenate([x_text, sentences], 0)                   # 先将nonSATD加入列表，后将SATD考入列表
+        # generate labels for each sentence(comment)
+        labels = [ [0 for x in range(labelSize)] for i in range(len(sentences)) ] # [[0, 0], [0, 0], ..., [0, 0]]
+        for label in labels: label[fileIndex] = 1 # for nonSATD [[1, 0], [1, 0], ..., [1, 0]] or for SATD [[0, 1], [0, 1], ..., [0, 1]]
+        # 0 代表 nonSATD
         if fileIndex == 0:
             y_label = np.array(labels)
         else:
-            y_label = np.concatenate([y_label,labels],0)
+            y_label = np.concatenate([y_label,labels], 0)
 
     return [x_text, y_label]
 

@@ -1,3 +1,4 @@
+# -*- encoding：utf-8-*-
 # by xiaoxueren
 #example of CNN model training within a project, split the dataset into training set and dev set
 #cross projects training is similar
@@ -17,13 +18,12 @@ from  sklearn import  metrics
 # Parameters
 # ==================================================
 
-#apache-jmeter-2.10 argouml columba-1.4-src hibernate-distribution-3.3.2.GA jEdit-4.2 jfreechart-1.0.19 jruby-1.4.0 sql12
-
 # Data loading params
 tf.flags.DEFINE_float("dev_sample_percentage", .1, "Percentage of the training data to use for validation")
 tf.flags.DEFINE_string("source", "source", "source projects")
 tf.flags.DEFINE_string("target", "target", "target project")
 #tf.flags.DEFINE_string("source", "argouml", "target project")
+
 # Model Hyperparameters
 tf.flags.DEFINE_integer("embedding_dim",300, "Dimensionality of character embedding (default: 128)")
 tf.flags.DEFINE_string("filter_sizes", "1,2,3,4,5,6", "Comma-separated filter sizes (default: '3,4,5')")
@@ -45,15 +45,17 @@ FLAGS = tf.flags.FLAGS
 FLAGS._parse_flags()
 
 
-#sentence class
+#sentence class 0 1
 class_names = ('nonSATD', 'SATD')
 
+'''
 
-def train_model(allow_save_model = True, print_intermediate_results = True,d_lossweight= None, pname=None):
+'''
+def train_model(allow_save_model = True, print_intermediate_results = True, d_lossweight= None, pname = None):
     if d_lossweight == None:
         print("The End!!")
-    a=0
-    b=0
+    a = 0
+    b = 0
     print("\nParameters:")
     for attr, value in sorted(FLAGS.__flags.items()):
         print("{}={}".format(attr.upper(), value))
@@ -62,58 +64,63 @@ def train_model(allow_save_model = True, print_intermediate_results = True,d_los
     # Data Preparatopn
     # ==================================================
 
-    # Load data
-
-    # Load data
+    # Load data 加载数据, 逐次添加所有项目 
     print("Loading data...")
 
     # load each source project
 
-    source_text = np.array([])
-    source_y0 = np.array([])
+    source_text = np.array([])   # 所有源项目的注释
+    source_y0 = np.array([])     # 素有源项目的标记
 
-
-    source_file_path = "./within_project/" + pname + '/train/'
+    source_file_path = "./cross_project/" + pname + '/train/'
     source_files = list()
 
+    # SATD nonSATD 两个文件
     for class_name in class_names:
         source_files.append(source_file_path + class_name)
+    # tmp_text: 暂存一个项目中的所有注释 this is hack
+    # tmp_y   : 暂存一个项目中所有注释的标记 [1, 0] 或者[0, 1]
     tmp_text, tmp_y = data_helpers.load_data_and_labels(source_files)
+
+    # 输出项目名 和该项目下所有的注释数目
     print(pname + ": " + str(len(tmp_text)) + " sentences")
-    source_text = np.concatenate([source_text, tmp_text], 0)
+    
+    source_text = np.concatenate([source_text, tmp_text], 0)  # 将暂存的注释拼接到源项目注释中
+    # 没有标记时 直接赋值 否则进行拼接
     if len(source_y0) == 0:
         source_y0 = np.array(tmp_y)
     else:
         source_y0 = np.concatenate([source_y0, tmp_y], 0)
 
 
-    # Build
-    max_document_length = min(100, max(
-        [len(x.split(" ")) for x in source_text]))  # important here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    vocab_processor = learn.preprocessing.VocabularyProcessor(max_document_length)
-    source_x0 = np.array(list(vocab_processor.fit_transform(source_text)))
-  #  target_x = np.array(list(vocab_processor.fit_transform(target_text)))
+    # Build 根据所有已分词好的文本建立好一个词典，然后找出每个词在词典中对应的索引，不足长度或者不存在的词补0
+    # 找出注释中最长的注释长度，并和100比较，取两者中较小的
+    max_document_length = min(100, max([len(x.split(" ")) for x in source_text]))  
+    # important here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    vocab_processor     = learn.preprocessing.VocabularyProcessor(max_document_length)
+    source_x0           = np.array(list(vocab_processor.fit_transform(source_text)))
+    #  target_x = np.array(list(vocab_processor.fit_transform(target_text)))
     # =========================================================================print vocab============================================
     np.random.seed(10)
-    shuffle_indices = np.random.permutation(np.arange(len(source_y0)))
-    x_shuffled = source_x0[shuffle_indices]
-    y_shuffled = source_y0[shuffle_indices]
+    shuffle_indices = np.random.permutation(np.arange(len(source_y0))) # 在数据集中随机找一个索引
+    x_shuffled      = source_x0[shuffle_indices] # 找到随机的注释内容
+    y_shuffled      = source_y0[shuffle_indices] # 找到随机的注释标记
 
-    # Split train/test set
+    # Split train/test set 切分训练集和测试集
     # TODO: This is very crude, should use cross-validation
-    dev_sample_index = -1 * int(FLAGS.dev_sample_percentage * float(len(source_y0)))
+    dev_sample_index   = -1 * int(FLAGS.dev_sample_percentage * float(len(source_y0)))
     source_x, target_x = x_shuffled[:dev_sample_index], x_shuffled[dev_sample_index:]
     source_y, target_y = y_shuffled[:dev_sample_index], y_shuffled[dev_sample_index:]
     print("Vocabulary Size: {:d}".format(len(vocab_processor.vocabulary_)))
     print("Train/Dev split: {:d}/{:d}".format(len(source_y), len(target_y)))
     #=========================================================================print vocab============================================
 
-#====================================================================================================================================
-    pro=[]
-    num=[]
+    # 打印中间结果
+    pro = []
+    num = []
     if print_intermediate_results:
         print('data distribution in source dataset')
-        pro, num=sa.print_data_distribution(source_y, class_names)
+        pro, num = sa.print_data_distribution(source_y, class_names)
         if pro[0] == "nonSATD":
             a = num[0]
         if pro[1] == "SATD":
@@ -125,8 +132,7 @@ def train_model(allow_save_model = True, print_intermediate_results = True,d_los
         print("Vocabulary Size: {:d}".format(len(vocab_processor.vocabulary_)))
         print("Train/Test size: {:d}/{:d}".format(len(source_y), len(target_y)))
 
-    # Training
-    # ==================================================
+    # Training  ==================================================
 
     min_loss = 100000000
 
@@ -135,42 +141,31 @@ def train_model(allow_save_model = True, print_intermediate_results = True,d_los
     steps_per_epoch = (int)(len(source_y) / FLAGS.batch_size) + 1
 
     with tf.Graph().as_default():
-        session_conf = tf.ConfigProto(
-            allow_soft_placement=FLAGS.allow_soft_placement,
-            log_device_placement=FLAGS.log_device_placement)
+        session_conf = tf.ConfigProto(allow_soft_placement = FLAGS.allow_soft_placement, log_device_placement = FLAGS.log_device_placement)
         session_conf.gpu_options.allow_growth = True
         sess = tf.Session(config=session_conf)
         with sess.as_default():
             cnn = TextCNN(
-
-                a0=a,
-                b0=b,
-                d_lossweight=a/b,
-                sequence_length=max_document_length,
-                num_classes=source_y.shape[1],
-                vocab_size=len(vocab_processor.vocabulary_),
-                embedding_size=FLAGS.embedding_dim,
-                filter_sizes=list(map(int, FLAGS.filter_sizes.split(","))),
-                num_filters=FLAGS.num_filters,
-                l2_reg_lambda=FLAGS.l2_reg_lambda)
+                a0 = a,
+                b0 = b,
+                d_lossweight    = a/b,
+                sequence_length = max_document_length,
+                num_classes     = source_y.shape[1],
+                vocab_size      = len(vocab_processor.vocabulary_),
+                embedding_size  = FLAGS.embedding_dim,
+                filter_sizes    = list(map(int, FLAGS.filter_sizes.split(","))),
+                num_filters     = FLAGS.num_filters,
+                l2_reg_lambda   = FLAGS.l2_reg_lambda)
 
             # Define Training procedure
-            global_step = tf.Variable(0, name="global_step", trainable=False)
-
-
-            learning_rate = tf.train.polynomial_decay(2*1e-3, global_step,
-                                                      steps_per_epoch * FLAGS.num_epochs, 1e-4,
-                                                      power=1)
-
-            optimizer = tf.train.AdamOptimizer(learning_rate)
+            global_step    = tf.Variable(0, name="global_step", trainable = False)
+            learning_rate  = tf.train.polynomial_decay(2*1e-3, global_step, steps_per_epoch * FLAGS.num_epochs, 1e-4, power = 1)
+            optimizer      = tf.train.AdamOptimizer(learning_rate)
             grads_and_vars = optimizer.compute_gradients(cnn.loss)
-            train_op = optimizer.apply_gradients(grads_and_vars, global_step=global_step)
-
-
+            train_op       = optimizer.apply_gradients(grads_and_vars, global_step=global_step)
 
             if allow_save_model:
                 print("!!!!!!os.path")
-
                   # Keep track of gradient values and sparsity (optional)
                 grad_summaries = []
                 for g, v in grads_and_vars:
@@ -183,36 +178,36 @@ def train_model(allow_save_model = True, print_intermediate_results = True,d_los
 
                 # Output directory for models and summaries
                 timestamp = str(int(time.time()))
-                out_dir = os.path.abspath(os.path.join(os.path.curdir, "runs-RQ1",pname ))
+                out_dir   = os.path.abspath(os.path.join(os.path.curdir, "runs-RQ1",pname ))
                 print("Writing to {}\n".format(out_dir))
 
 
                 # Summaries for loss ,f1, auc
-                loss_summary = tf.summary.scalar("loss", cnn.loss)
-                acc_summary = tf.summary.scalar("accuracy", cnn.accuracy)
+                loss_summary      = tf.summary.scalar("loss", cnn.loss)
+                acc_summary       = tf.summary.scalar("accuracy", cnn.accuracy)
                 precision_summary = tf.summary.scalar("precision", cnn.precision)
-                recall_summary = tf.summary.scalar("recall",cnn.recall)
-                f1_summary = tf.summary.scalar("f1", cnn.f1)
-                auc_summary = tf.summary.scalar("auc", cnn.auc)
+                recall_summary    = tf.summary.scalar("recall",cnn.recall)
+                f1_summary        = tf.summary.scalar("f1", cnn.f1)
+                auc_summary       = tf.summary.scalar("auc", cnn.auc)
 
 
                 # Train Summaries
-                train_summary_op = tf.summary.merge([loss_summary, acc_summary,precision_summary,recall_summary,f1_summary,auc_summary, grad_summaries_merged])
-                train_summary_dir = os.path.join(out_dir, 'summaries','train')
+                train_summary_op     = tf.summary.merge([loss_summary, acc_summary,precision_summary,recall_summary,f1_summary,auc_summary, grad_summaries_merged])
+                train_summary_dir    = os.path.join(out_dir, 'summaries','train')
                 train_summary_writer = tf.summary.FileWriter(train_summary_dir)
                 train_summary_writer.add_graph(sess.graph)
 
                 # Dev summaries
-                dev_summary_op = tf.summary.merge([loss_summary, acc_summary, auc_summary,precision_summary,recall_summary,f1_summary,grad_summaries_merged])
-                dev_summary_dir = os.path.join(out_dir, 'summaries', 'dev')
+                dev_summary_op     = tf.summary.merge([loss_summary, acc_summary, auc_summary,precision_summary,recall_summary,f1_summary,grad_summaries_merged])
+                dev_summary_dir    = os.path.join(out_dir, 'summaries', 'dev')
                 dev_summary_writer = tf.summary.FileWriter(dev_summary_dir)
                 dev_summary_writer.add_graph(sess.graph)
 
 
 
                 # Checkpoint directory. Tensorflow assumes this directory already exists so we need to create it
-                checkpoint_dir_name = "checkpoint-"+pname
-                checkpoint_dir = os.path.abspath(os.path.join(out_dir, checkpoint_dir_name))
+                checkpoint_dir_name = "checkpoint-" + pname
+                checkpoint_dir      = os.path.abspath(os.path.join(out_dir, checkpoint_dir_name))
             #    checkpoint_prefix = os.path.join(checkpoint_dir, "model")
                 if not os.path.exists(checkpoint_dir):
                     os.makedirs(checkpoint_dir)
@@ -223,10 +218,8 @@ def train_model(allow_save_model = True, print_intermediate_results = True,d_los
                 vocab_processor.save(vocab_dir_name)
 
             # Initialize all variables
-            sess.run(tf.global_variables_initializer(), feed_dict={cnn.phase_train: True})
+            sess.run(tf.global_variables_initializer(), feed_dict = {cnn.phase_train: True})
             sess.run(tf.local_variables_initializer())# this is for version r0.12
-
-
 
 
             def train_step(x_batch, y_batch):
@@ -250,10 +243,9 @@ def train_model(allow_save_model = True, print_intermediate_results = True,d_los
 
             def dev_step(x_batch, y_batch, writer=None):
 
-
                 """
                 Evaluates model on a dev set
-              """
+                """
                 feed_dict = {
                     cnn.input_x: x_batch,
                     cnn.input_y: y_batch,
@@ -282,8 +274,7 @@ def train_model(allow_save_model = True, print_intermediate_results = True,d_los
 
 
             # Generate batches
-            batches = data_helpers.batch_iter(
-                list(zip(source_x, source_y)), FLAGS.batch_size, FLAGS.num_epochs)
+            batches = data_helpers.batch_iter(list(zip(source_x, source_y)), FLAGS.batch_size, FLAGS.num_epochs)
 
             for batch in batches:
                 x_batch, y_batch = zip(*batch)
@@ -327,23 +318,22 @@ def train_model(allow_save_model = True, print_intermediate_results = True,d_los
             for i in range(len(class_names)):
                 print (class_names[i], precision[i], recall[i], f1[i], auc2[1])
 
-
     return min_loss, predictions_at_min_loss, target_y
 
 
+
+# =========================================================================================================================
 def main():
 
-    d_lossweight=0.0
-
-
-    pro = [  "jruby-1.4.0"] #list all projects you want to train here
+    d_lossweight = 0.0
+    
+    #list all projects you want to train here
+    pro = ["Ant", "ArgoUML", "Columba", "EMF", "Hibernate", "JEdit", "JFreeChart", "JMeter", "JRuby", "SQuirrel"]
     for kk in range(len(pro)):
-        pname=pro[kk]
-        print(pname)
-        print("d_lossweight:"+str(d_lossweight))
-        train_model(True,True,d_lossweight, pname)
+        pname = pro[kk]
+        print(pname + "\nd_lossweight: " + str(d_lossweight))
+        train_model(True, True, d_lossweight, pname)
 
 
-
-if __name__=="__main__":
+if __name__ == "__main__":
     main()

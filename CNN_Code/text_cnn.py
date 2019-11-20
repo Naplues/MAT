@@ -1,3 +1,4 @@
+# -*- encoding：utf-8-*-
 #by xiaoxueren
 # per taining unit
 import tensorflow as tf

@@ -1,0 +1,101 @@
+// this may be negative
+// TODO: to be implemented
+// TODO:  the subplot areas needs to be moved out of the plot into the plot //        state
+//TODO: shift block down to bottom
+// TODO: it might be a good idea to keep a reference to the color // specified in setPaint() or setColor(), rather than creating a // new object every time getPaint() is called.
+// TODO: for now we are ignoring the height constraint
+// first determine the size of the chart rendering area... // TODO workout insets for SWT
+// TODO: implement properly
+// TODO: this must be wrong...
+// TODO: we didn't check the width yet
+// hack to ensure the newly created awt fonts will be rendered with the // same height as the swt one
+//TODO: shift block right by half
+// FIXME: need a locale as well as a timezone
+//TODO: shift block over to right
+// do we need to update the crosshair values?
+// TODO find a better localization key
+// TODO:  this attribute should be transferred to the renderer state.
+// FIXME: implement this, low priority
+// FIXME: the XYItemRenderer interface doesn't specify the // getAnnotations() method but it should
+// defer argument checking...
+// calculate the adjusted data area taking into account the 3D effect... // this assumes that there is a 3D renderer, all this 3D effect is a // bit of an ugly hack...
+// TODO:  add constructors for combinations of number and date formatters.
+// TODO: move to plot state
+// here we tweak the notify flag on the plot so that only // one notification happens even though we update multiple // axes...
+// defer argument checking
+//FIXME we should really assert a value here
+// TO DO:  these annotations only work with XYPlot, see if it is possible to // make ContourPlot a subclass of XYPlot (DG);
+//FIXME we should really assert a value
+// not strictly necessary, since the // renderer set for the // parent plot is not used
+// TODO : complete this
+// TODO: fix output when this flag is set to true
+// TODO:  move the above to the plot state
+// FIXME:  this code means that it is not possible to use more than // one domain axis for the combined plots...
+// end of workaround
+// TODO: could change this to itemFillPaint().  For backwards // compatibility, it might require a useFillPaint flag.
+// a redraw should NOT trigger another change event
+// unused in parent
+// TODO: In JFreeChart 1.2.0, put this method in the // CategoryItemRenderer interface
+// TODO: rotate the image when drawn with horizontal orientation?
+// TODO: implement this properly
+// FIXME: this should generate a series change event
+// CREATE ENTITIES // FIXME:  these main.methods should be defined
+// FIXME: the renderer interface doesn't have the drawDomainLine() // method, so we have to rely on the renderer being a subclass of // AbstractXYItemRenderer (which is lame)
+// FIXME: this attribute is not used - deprecate?
+// TODO: by coding the event with some information about what changed // in the dataset, we could make the recalculation of the interval // more efficient in some cases (for instance, if the change is // just an update to a y-value, then the x-interval doesn't need // updating)...
+// the method we want isn't in the CategoryItemRenderer // interface...
+// FIXME: what if value is null on next line?
+// TODO:  this needs to move into the renderer state
+//TODO: implement this method properly
+// hack to ensure the newly created swt fonts will be rendered with the // same height as the awt one
+// unused but must return something, so while we are at it...
+// FIXME: perhaps we should clone the data list
+// if we are rendering the values as percentages, we need to calculate // the total for the current item.  Unfortunately here we end up // repeating the calculation more times than is strictly necessary - // hopefully I'll come back to this and find a way to add the // total(s) to the renderer state.  The other problem is we implicitly // assume the dataset has no negative values...perhaps that can be // fixed too.
+// Note: It would be nice to pre-calculate this per series
+// we assume that all other Paint instances implement equals() and // hashCode()...of course that might not be true, but what can we // do about it?
+// FIXME: use other fields too
+// all attributes are immutable, so we can just return the super.clone() // FIXME: in fact, the generator itself is immutable, so cloning is // not necessary
+// here's a quirk - the API has been defined in terms of a plain // TimePeriod, which cannot make use of the timezone and locale // specified in the constructor...so we only do the time zone // pegging if the period is an instanceof RegularTimePeriod
+// now handle specific plot types (and yes, I know this is some // really ugly code that has to be manually updated any time a new // plot type is added - I should have written something much cooler, // but I didn't and neither did anyone else).
+// TODO: URLEncode?
+// TODO Revert to SVN revision 2469 in JFreeChart 1.0.16 //      (MultipleGradientPaint's / JDK issues) // TODO THEN: change visibility of ALL darker(...) Methods EXCEPT //      darker(Paint) to private!
+//TODO replace getSize by getBounds ?
+// TODO: check threshold
+// FIXME: add setBaseItemURLGenerator(CategoryURLGenerator, boolean) ?
+// FIXME: add setSeriesItemURLGenerator(int, CategoryURLGenerator, boolean)?
+// now we handle some special cases - yes, UGLY code alert!
+// FIXME:  it probably makes sense to allocate an array of 256 Colors // and lazily populate this array...
+// TODO: need to fetch this from localised resources
+// FIXME: No getValueFormat() method?
+// here we could probably be a little faster by searching for both // indices simultaneously, but I'll look at that later if it seems // like it matters...
+// TODO: complete this
+// FIXME: this attribute is never used - deprecate?
+// FIXME: Clone the attributed string if it is not null
+// report this?
+// this may be obsolete (not used anywhere)
+// TODO: is this a good idea?
+/// a kludge to make everything work when no rows returned
+//TODO: shift block down by half
+// FIXME better ask the renderer instead of DatasetUtilities
+// TODO: implement the entity for the annotation
+// needs to be improved !!!
+// not used by plot
+// FIXME:  need a locale as well as a timezone
+// TODO: For JFreeChart 1.2.0, this method should go in the //       ShapeUtilities class
+// we'll have to use the method in the interface, but // this doesn't have the paint and stroke settings...
+// FIXME: Check that there isn't already a series with the same key
+// I know it's bad to create object. better idea?
+// FIXME: clone generator
+// TODO: use a generator here
+// TODO: I think we need to make sure the keys are actually cloned, // whereas the paint instances are always immutable so they're OK
+// FIXME: draw outliers
+// TODO: I think we need to make sure the keys are actually cloned, // whereas the stroke instances are always immutable so they're OK
+// not implemented
+"/**     * Returns a string representing the week (e.g. ""Week 9, 2002"").     *     * TODO: look at internationalisation.     *     * @return A string representing the week.     */"
+// FIXME: show a dialog with the error
+// TODO: draw the interval marker with a 3D effect
+// TODO: add serialization support for images
+// could make this configurable
+// TODO see if we need to apply some line color and style to the // axis traces
+// FIXME:  implement this...
+"/** * An annotation that allows an image to be placed at some location on * an {@link XYPlot}. * * TODO:  implement serialization properly (image is not serializable). */"
