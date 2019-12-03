@@ -2,7 +2,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// this may be negative
 1,0,1,1,1,1,1,// TODO: to be implemented
 1,0,1,1,1,1,1,// TODO:  the subplot areas needs to be moved out of the plot into the plot //        state
-1,0,0,1,1,1,1,//TODO: shift block down to bottom
+1,0,1,1,1,1,1,//TODO: shift block down to bottom
 1,0,1,1,1,1,1,// TODO: it might be a good idea to keep a reference to the color // specified in setPaint() or setColor(), rather than creating a // new object every time getPaint() is called.
 1,0,0,1,1,1,1,// TODO: for now we are ignoring the height constraint
 1,0,1,1,1,1,1,// first determine the size of the chart rendering area... // TODO workout insets for SWT
@@ -10,8 +10,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: this must be wrong...
 1,0,0,1,1,1,1,// TODO: we didn't check the width yet
 1,1,0,1,1,1,1,// hack to ensure the newly created awt fonts will be rendered with the // same height as the swt one
-1,0,0,1,1,1,1,//TODO: shift block right by half
-1,0,1,1,1,1,1,// FIXME: need a locale as well as a timezone
+1,0,1,1,1,1,1,//TODO: shift block right by half
+1,0,0,1,1,1,1,// FIXME: need a locale as well as a timezone
 1,0,1,1,1,1,1,//TODO: shift block over to right
 1,0,0,0,0,0,0,// do we need to update the crosshair values?
 1,0,1,1,1,1,1,// TODO find a better localization key
@@ -19,7 +19,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// FIXME: implement this, low priority
 1,0,1,1,1,1,1,// FIXME: the XYItemRenderer interface doesn't specify the // getAnnotations() method but it should
 1,0,0,0,0,0,0,// defer argument checking...
-1,1,1,1,1,1,1,// calculate the adjusted data area taking into account the 3D effect... // this assumes that there is a 3D renderer, all this 3D effect is a // bit of an ugly hack...
+1,1,0,1,1,1,1,// calculate the adjusted data area taking into account the 3D effect... // this assumes that there is a 3D renderer, all this 3D effect is a // bit of an ugly hack...
 1,0,0,1,1,1,1,// TODO:  add constructors for combinations of number and date formatters.
 1,0,1,1,1,1,1,// TODO: move to plot state
 1,0,0,0,0,0,0,// here we tweak the notify flag on the plot so that only // one notification happens even though we update multiple // axes...
@@ -29,11 +29,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//FIXME we should really assert a value
 1,0,1,0,0,0,0,// not strictly necessary, since the // renderer set for the // parent plot is not used
 1,0,1,1,1,1,1,// TODO : complete this
-1,0,0,1,1,1,1,// TODO: fix output when this flag is set to true
-1,0,0,1,1,1,1,// TODO:  move the above to the plot state
+1,0,1,1,1,1,1,// TODO: fix output when this flag is set to true
+1,0,1,1,1,1,1,// TODO:  move the above to the plot state
 1,0,1,1,1,1,1,// FIXME:  this code means that it is not possible to use more than // one domain axis for the combined plots...
 1,0,0,1,0,1,1,// end of workaround
-1,0,0,1,1,1,1,// TODO: could change this to itemFillPaint().  For backwards // compatibility, it might require a useFillPaint flag.
+1,0,1,1,1,1,1,// TODO: could change this to itemFillPaint().  For backwards // compatibility, it might require a useFillPaint flag.
 1,0,0,0,0,0,0,// a redraw should NOT trigger another change event
 1,0,0,0,0,0,0,// unused in parent
 1,0,1,1,1,1,1,// TODO: In JFreeChart 1.2.0, put this method in the // CategoryItemRenderer interface
@@ -56,7 +56,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// we assume that all other Paint instances implement equals() and // hashCode()...of course that might not be true, but what can we // do about it?
 1,0,1,1,1,1,1,// FIXME: use other fields too
 1,0,1,1,1,1,1,// all attributes are immutable, so we can just return the super.clone() // FIXME: in fact, the generator itself is immutable, so cloning is // not necessary
-1,0,0,0,0,0,0,// here's a quirk - the API has been defined in terms of a plain // TimePeriod, which cannot make use of the timezone and locale // specified in the constructor...so we only do the time zone // pegging if the period is an instanceof RegularTimePeriod
+1,0,1,0,0,0,0,// here's a quirk - the API has been defined in terms of a plain // TimePeriod, which cannot make use of the timezone and locale // specified in the constructor...so we only do the time zone // pegging if the period is an instanceof RegularTimePeriod
 1,1,0,0,0,0,0,// now handle specific plot types (and yes, I know this is some // really ugly code that has to be manually updated any time a new // plot type is added - I should have written something much cooler, // but I didn't and neither did anyone else).
 1,0,1,1,1,1,1,// TODO: URLEncode?
 1,0,1,1,1,1,1,// TODO Revert to SVN revision 2469 in JFreeChart 1.0.16 //      (MultipleGradientPaint's / JDK issues) // TODO THEN: change visibility of ALL darker(...) Methods EXCEPT //      darker(Paint) to private!
@@ -66,7 +66,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// FIXME: add setSeriesItemURLGenerator(int, CategoryURLGenerator, boolean)?
 1,0,1,1,0,1,1,// now we handle some special cases - yes, UGLY code alert!
 1,0,1,1,1,1,1,// FIXME:  it probably makes sense to allocate an array of 256 Colors // and lazily populate this array...
-1,0,1,1,1,1,1,// TODO: need to fetch this from localised resources
+1,0,0,1,1,1,1,// TODO: need to fetch this from localised resources
 1,0,1,1,1,1,1,// FIXME: No getValueFormat() method?
 1,0,1,1,0,1,1,// here we could probably be a little faster by searching for both // indices simultaneously, but I'll look at that later if it seems // like it matters...
 1,0,1,1,1,1,1,// TODO: complete this
@@ -81,7 +81,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: implement the entity for the annotation
 1,0,0,0,0,0,0,// needs to be improved !!!
 1,0,0,0,0,0,0,// not used by plot
-1,0,1,1,1,1,1,// FIXME:  need a locale as well as a timezone
+1,0,0,1,1,1,1,// FIXME:  need a locale as well as a timezone
 1,0,1,1,1,1,1,// TODO: For JFreeChart 1.2.0, this method should go in the //       ShapeUtilities class
 1,0,0,0,0,0,0,// we'll have to use the method in the interface, but // this doesn't have the paint and stroke settings...
 1,0,1,1,1,1,1,// FIXME: Check that there isn't already a series with the same key
@@ -90,7 +90,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: use a generator here
 1,0,0,1,1,1,1,// TODO: I think we need to make sure the keys are actually cloned, // whereas the paint instances are always immutable so they're OK
 1,0,0,1,1,1,1,// FIXME: draw outliers
-1,0,1,1,1,1,1,// TODO: I think we need to make sure the keys are actually cloned, // whereas the stroke instances are always immutable so they're OK
+1,0,0,1,1,1,1,// TODO: I think we need to make sure the keys are actually cloned, // whereas the stroke instances are always immutable so they're OK
 1,0,1,0,0,0,0,// not implemented
 1,0,0,1,1,1,1,"/**     * Returns a string representing the week (e.g. ""Week 9, 2002"").     *     * TODO: look at internationalisation.     *     * @return A string representing the week.     */"
 1,0,1,1,1,1,1,// FIXME: show a dialog with the error
@@ -699,7 +699,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// rowRenderingOrder...
 0,0,0,0,0,0,0,// a key that hasn't been mapped should return the default group
 0,0,0,0,0,0,0,// background range markers...
-0,0,1,0,0,0,0,// this should never happen with the existing code, but throw // an exception in case future changes make it possible...
+0,0,0,0,0,0,0,// this should never happen with the existing code, but throw // an exception in case future changes make it possible...
 0,0,0,0,0,0,0,// rangeCrosshairValue
 0,0,0,0,0,0,0,// default is to notify listeners when the // chart changes
 0,0,0,0,0,0,0,//parameter value is < -10 //calculate log using positive value:
@@ -1539,7 +1539,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// anti-aliasing
 0,0,0,0,0,0,0,// rangeCrosshairPaint
 0,0,0,0,0,0,0,// draw outliers
-0,0,1,1,1,1,1,// FIXME: add setBasePaint(int, Paint, boolean)?
+0,0,0,1,1,1,1,// FIXME: add setBasePaint(int, Paint, boolean)?
 0,0,0,0,0,0,0,// ITEM URL GENERATOR
 0,0,0,0,0,0,0,/* BufferedImage img =*/
 0,0,0,0,0,0,0,//SerialUtilities.writeImage(this.image, stream);
@@ -1899,7 +1899,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// AxisLocation is immutable, so we can just copy the maps
 0,0,0,0,0,0,0,// some subclasses override this method completely, so don't put // anything here that *must* be done
 0,0,0,0,0,0,0,// delegate to other method
-0,0,0,0,0,0,0,// not currently serialized
+0,0,1,0,0,0,0,// not currently serialized
 0,0,0,0,0,0,0,// headPercent
 0,0,0,0,0,0,0,// square
 0,0,0,0,0,0,0,// check null argument...
@@ -2117,9 +2117,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// row 2: outline color
 0,0,1,1,1,1,1,// FIXME: add setSeriesPaint(int, Paint, boolean)?
 0,0,0,0,0,0,0,//// FILL PAINT /////////////////////////////////////////////////////////
-0,0,1,1,1,1,1,// FIXME: add setSeriesStroke(int, Stroke, boolean) ?
+0,0,0,1,1,1,1,// FIXME: add setSeriesStroke(int, Stroke, boolean) ?
 0,0,0,0,0,0,0,//// STROKE ////////////////////////////////////////////////////////////////
-0,0,1,1,1,1,1,// FIXME: add setBaseShape(Shape, boolean) ?
+0,0,0,1,1,1,1,// FIXME: add setBaseShape(Shape, boolean) ?
 0,0,1,1,1,1,1,// FIXME: add setBaseOutlinePaint(Paint, boolean)?
 0,0,0,0,0,0,0,// ITEM LABELS VISIBLE
 0,0,0,0,0,0,0,//// OUTLINE STROKE ////////////////////////////////////////////////////////
@@ -2266,7 +2266,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// here we use BooleanUtilities to remain compatible with JDKs < 1.4
 0,0,0,0,0,0,0,// update the max value
 0,0,0,0,0,0,0,// need to make sure we are adding *after* any duplicates
-0,0,0,0,0,0,0,// we needed to get this far even for invisible items, to ensure that // seriesPath updates happened, but now there is nothing more we need // to do for non-visible items...
+0,0,1,0,0,0,0,// we needed to get this far even for invisible items, to ensure that // seriesPath updates happened, but now there is nothing more we need // to do for non-visible items...
 0,0,0,0,0,0,0,// If the line is not wrapping, then parent is OK
 0,0,0,0,0,0,0,// draw the body
 0,0,0,0,0,0,0,// only draw a line if the gap between the current and // previous data point is within the threshold

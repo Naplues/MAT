@@ -1,7 +1,7 @@
 oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/** XXX I really don't like this - the XML processor is still             * too 'involved' in the processing. A better solution (IMO)             * would be to create UE for Project and Target too, and             * then process the tree and have Project/Target deal with             * its attributes ( similar with Description ).             *             * If we eventually switch to ( or add support for ) DOM,             * things will work smoothly - UE can be avoided almost completely             * ( it could still be created on demand, for backward compatibility )             */"
-1,1,0,1,1,1,1,// JUnit 4 wraps solo tests this way. We can extract // the original test name with a little hack.
-1,0,0,1,1,1,1,// XXX ignore attributes in a different NS ( maybe store them ? )
+1,1,1,1,1,1,1,// JUnit 4 wraps solo tests this way. We can extract // the original test name with a little hack.
+1,0,1,1,1,1,1,// XXX ignore attributes in a different NS ( maybe store them ? )
 1,0,0,0,0,0,0,//borrowed from TokenFilterTest
 1,0,1,0,1,1,1,// XXX Move to Project ( so it is shared by all helpers )
 1,0,0,0,0,0,0,// What is the property supposed to be?
@@ -36,7 +36,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,"/**     * Set the number of milliseconds leeway to give before deciding a     * target is out of date.     * TODO: This is not yet used.     * @param granularity the granularity used to decide if a target is out of     *                    date.     */"
 1,0,0,0,0,0,0,// This may change, if we add advanced parsing capabilities.
 1,0,0,0,1,1,1,// We assume, that every output, jikes does, stands for an error/warning // XXX // Is this correct?
-1,1,0,1,1,1,1,// The line below is a hack: the system id must an URI, but it is not // cleat to get the URI of an resource, so just set the name of the // resource as a system id
+1,1,1,1,1,1,1,// The line below is a hack: the system id must an URI, but it is not // cleat to get the URI of an resource, so just set the name of the // resource as a system id
 1,0,1,1,1,1,1,// XXX what is the following doing? //     should it run if !javadoc4 && executable != null?
 1,0,1,1,1,1,1,// MAC OS 9 and previous //TODO: I have no idea how to get it, someone must fix it
 1,0,1,1,1,1,1,//TODO: nothing appears to read this but is set using a public setter.
@@ -47,7 +47,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// XXX maybe use reflection to addPathElement (other patterns ?)
 1,0,1,1,1,1,1,// TODO there is a problem with the constructor for the RBC. // you have to provide the rules in the constructors - no setters // available.
 1,0,1,0,0,0,0,// probably not the best choice, but it solves the problem of // relative paths in CLASSPATH
-1,0,0,0,0,0,0,// Fix for invalid characters. If you think of more add to the list.
+1,0,0,1,0,1,1,// Fix for invalid characters. If you think of more add to the list.
 1,0,1,0,0,0,0,"/*             * fallback in case we have trouble loading the class or             * don't know how to handle it (there is no easy way to             * know what IDL mode would generate.             *             * This is supposed to make Ant always recompile the             * class, as a file of that name should not exist.             */"
 1,1,1,1,0,1,1,// Check it out; also ugly.
 1,0,0,0,0,0,0,//I can't get my head around this; is encoding treatment needed here?
@@ -59,7 +59,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,// XXX     should we silently catch possible exceptions and try to //         load a different implementation?
 1,0,0,1,0,1,1,// since Java 1.4 //return normalizedPath.split("/"); // workaround for Java 1.2-1.3
 1,0,0,0,0,0,0,// HAMMER // end inline mainGTU
-1,0,1,1,1,1,1,"/**     * This array really shouldn't be here.     * Again, for historical purposes it is.     *     * <p>FIXME: This array should be in a private or package private     * location, since it could be modified by malicious code.</p>     */"
+1,0,1,1,0,1,1,"/**     * This array really shouldn't be here.     * Again, for historical purposes it is.     *     * <p>FIXME: This array should be in a private or package private     * location, since it could be modified by malicious code.</p>     */"
 1,0,0,0,0,0,0,// Should move to a separate public class - and have API to add // listeners, etc.
 1,0,0,0,0,0,0,// "" should become a single empty argument, same for '' // PR 5906
 1,0,1,0,0,0,0,// not very nice but will do the job
@@ -79,7 +79,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,//TODO: Parameterise ?? //Call compiler as class... dont want to fork again //Use classic compiler -- can be parameterised?
 1,1,1,1,1,1,1,//XXX // All this to get package according to weblogic standards // Can be written better... this is too hacky! // Careful.. similar code in scanDir , but slightly different!!
 1,0,0,0,0,0,0,//stolen from writeManifest
-1,1,1,1,1,1,1,"/* If the jarfile already exists then whack it and recreate it.             * Should probably think of a more elegant way to handle this             * so that in case of errors we don't leave people worse off             * than when we started =)             */"
+1,1,1,1,0,1,1,"/* If the jarfile already exists then whack it and recreate it.             * Should probably think of a more elegant way to handle this             * so that in case of errors we don't leave people worse off             * than when we started =)             */"
 1,0,1,1,1,1,1,// XXX is the following really necessary? it is in the same thread group...
 1,0,0,0,0,0,0,// we have to find a cleaner way to put this output
 1,0,0,1,0,1,1,// This is the old way and is deprecated - classespath is // the right way to do this and is above
@@ -96,9 +96,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// Have to think about lazy initialization here...  JHM // comparator = new java.text.RuleBasedCollator();
 1,0,1,1,1,1,1,//TODO no methods yet for getClassname //TODO no method for newInstance using a reverse-classloader
 1,0,0,0,0,0,0,"/*     * The displayName variable stores the value of the ""display-name"" element     * from the standard EJB descriptor.  As a future enhancement to this task,     * we may determine the name of the EJB JAR file using this display-name,     * but this has not be implemented yet.     */"
-1,0,1,1,1,1,1,"/** * An output stream that compresses into the BZip2 format (without the file * header chars) into another stream. * <p>The compression requires large amounts of memory. Thus you * should call the {@link #close() close()} method as soon as * possible, to force <tt>CBZip2OutputStream</tt> to release the * allocated memory.</p> * * <p>You can shrink the amount of allocated memory and maybe raise * the compression speed by choosing a lower blocksize, which in turn * may cause a lower compression ratio.  You can avoid unnecessary * memory allocation by avoiding using a blocksize which is bigger * than the size of the input. </p> * * <p>You can compute the memory usage for compressing by the * following formula:</p> * <pre> * <code>400k + (9 * blocksize)</code>. * </pre> *  * <p>To get the memory required for decompression by {@link * CBZip2InputStream CBZip2InputStream} use</p> * <pre> * <code>65k + (5 * blocksize)</code>. * </pre> * * <table width=""100%"" border=""1""> *  <colgroup> *    <col width=""33%"" /> *    <col width=""33%"" /> *    <col width=""33%"" /> *  </colgroup> *  <tr> *    <th colspan=""3"">Memory usage by blocksize</th> *  </tr><tr> *    <th align=""right"">Blocksize</th> *    <th align=""right"">Compression<br>memory usage</th> *    <th align=""right"">Decompression<br>memory usage</th> *  </tr><tr> *    <td align=""right"">100k</td> *    <td align=""right"">1300k</td> *    <td align=""right""> 565k</td> *  </tr><tr> *    <td align=""right"">200k</td> *    <td align=""right"">2200k</td> *    <td align=""right"">1065k</td> *  </tr><tr> *    <td align=""right"">300k</td> *    <td align=""right"">3100k</td> *    <td align=""right"">1565k</td> *  </tr><tr> *    <td align=""right"">400k</td> *    <td align=""right"">4000k</td> *    <td align=""right"">2065k</td> *  </tr><tr> *    <td align=""right"">500k</td> *    <td align=""right"">4900k</td> *    <td align=""right"">2565k</td> *  </tr><tr> *    <td align=""right"">600k</td> *    <td align=""right"">5800k</td> *    <td align=""right"">3065k</td> *  </tr><tr> *    <td align=""right"">700k</td> *    <td align=""right"">6700k</td> *    <td align=""right"">3565k</td> *  </tr><tr> *    <td align=""right"">800k</td> *    <td align=""right"">7600k</td> *    <td align=""right"">4065k</td> *  </tr><tr> *    <td align=""right"">900k</td> *    <td align=""right"">8500k</td> *    <td align=""right"">4565k</td> *  </tr> * </table> * * <p>For decompression <tt>CBZip2InputStream</tt> allocates less * memory if the bzipped input is smaller than one block.</p> * * <p>Instances of this class are not threadsafe.</p> * * <p> * TODO:    Update to BZip2 1.0.1 * </p> * */"
+1,0,0,1,1,1,1,"/** * An output stream that compresses into the BZip2 format (without the file * header chars) into another stream. * <p>The compression requires large amounts of memory. Thus you * should call the {@link #close() close()} method as soon as * possible, to force <tt>CBZip2OutputStream</tt> to release the * allocated memory.</p> * * <p>You can shrink the amount of allocated memory and maybe raise * the compression speed by choosing a lower blocksize, which in turn * may cause a lower compression ratio.  You can avoid unnecessary * memory allocation by avoiding using a blocksize which is bigger * than the size of the input. </p> * * <p>You can compute the memory usage for compressing by the * following formula:</p> * <pre> * <code>400k + (9 * blocksize)</code>. * </pre> *  * <p>To get the memory required for decompression by {@link * CBZip2InputStream CBZip2InputStream} use</p> * <pre> * <code>65k + (5 * blocksize)</code>. * </pre> * * <table width=""100%"" border=""1""> *  <colgroup> *    <col width=""33%"" /> *    <col width=""33%"" /> *    <col width=""33%"" /> *  </colgroup> *  <tr> *    <th colspan=""3"">Memory usage by blocksize</th> *  </tr><tr> *    <th align=""right"">Blocksize</th> *    <th align=""right"">Compression<br>memory usage</th> *    <th align=""right"">Decompression<br>memory usage</th> *  </tr><tr> *    <td align=""right"">100k</td> *    <td align=""right"">1300k</td> *    <td align=""right""> 565k</td> *  </tr><tr> *    <td align=""right"">200k</td> *    <td align=""right"">2200k</td> *    <td align=""right"">1065k</td> *  </tr><tr> *    <td align=""right"">300k</td> *    <td align=""right"">3100k</td> *    <td align=""right"">1565k</td> *  </tr><tr> *    <td align=""right"">400k</td> *    <td align=""right"">4000k</td> *    <td align=""right"">2065k</td> *  </tr><tr> *    <td align=""right"">500k</td> *    <td align=""right"">4900k</td> *    <td align=""right"">2565k</td> *  </tr><tr> *    <td align=""right"">600k</td> *    <td align=""right"">5800k</td> *    <td align=""right"">3065k</td> *  </tr><tr> *    <td align=""right"">700k</td> *    <td align=""right"">6700k</td> *    <td align=""right"">3565k</td> *  </tr><tr> *    <td align=""right"">800k</td> *    <td align=""right"">7600k</td> *    <td align=""right"">4065k</td> *  </tr><tr> *    <td align=""right"">900k</td> *    <td align=""right"">8500k</td> *    <td align=""right"">4565k</td> *  </tr> * </table> * * <p>For decompression <tt>CBZip2InputStream</tt> allocates less * memory if the bzipped input is smaller than one block.</p> * * <p>Instances of this class are not threadsafe.</p> * * <p> * TODO:    Update to BZip2 1.0.1 * </p> * */"
 1,0,1,0,1,1,1,// XXX - log an error?  throw an exception?
-1,0,1,1,1,1,1,// TODO: allow user to request the system or no parent
+1,0,0,1,1,1,1,// TODO: allow user to request the system or no parent
 1,0,1,1,1,1,1,//if there was any text before this, add it as a fragment //TODO, this check could be modified to go if pos>prev; //seems like this current version could stick empty strings //into the list
 1,0,1,0,1,1,1,// XXX add exceptions
 0,0,0,0,0,0,0,// test a process that runs and failed
@@ -164,7 +164,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// if the two substrings are longer than the original, then name // contains address - so reset the name to null
 0,0,0,0,0,0,0,//default
 0,0,0,0,0,0,0,// log options used
-0,0,1,0,0,0,0,// dummy formatter just to catch the error
+0,0,0,0,0,0,0,// dummy formatter just to catch the error
 0,0,0,0,0,0,0,// we don't expect to find this
 0,0,0,0,0,0,0,// resolve relative paths through Project
 0,0,0,0,0,0,0,//patch file into the fileset
@@ -410,7 +410,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// File[] filesInDir = directory.listFiles();
 0,0,0,0,0,0,0,//convert to lower case in the English locale,
 0,0,0,0,0,0,0,// has been set explicitly
-0,0,0,1,0,1,1,// Strip off drive letters! // REVIEW Would a better check be "(File.separator == '\')"?
+0,0,1,1,0,1,1,// Strip off drive letters! // REVIEW Would a better check be "(File.separator == '\')"?
 0,0,0,0,0,0,0,// -shared
 0,0,0,0,0,0,0,// class found but restricted name; this is // actually the case we're looking for in JDK 1.3+, // so catch the exception and return
 0,0,0,0,0,0,0,//this is the list of lu
@@ -574,7 +574,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// scan source and dest dirs to build up both copy lists and // compile lists //        scanDir(srcDir, destDir);
 0,0,0,0,0,0,0,// ensure that -D properties take precedence
 0,0,0,0,0,0,0,// --- Fields --
-0,0,0,0,0,0,0,"/*             * Many system have been reported to get into trouble with             * long command lines - no, not only Windows ;-).             *             * POSIX seems to define a lower limit of 4k, so use a temporary             * file if the total length of the command line exceeds this limit.             */"
+0,0,1,0,0,0,0,"/*             * Many system have been reported to get into trouble with             * long command lines - no, not only Windows ;-).             *             * POSIX seems to define a lower limit of 4k, so use a temporary             * file if the total length of the command line exceeds this limit.             */"
 0,0,0,0,0,0,0,//add the source file
 0,0,0,0,0,0,0,// Setup the apt executable
 0,0,0,0,0,0,0,//now run
@@ -965,7 +965,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*             * ZipOutputStream.putNextEntry expects the ZipEntry to             * know its size and the CRC sum before you start writing             * the data when using STORED mode - unless it is seekable.             *             * This forces us to process the data twice.             */"
 0,0,0,0,0,0,0,// depending on the implementation the actual RE won't // get instantiated in the constructor.
 0,0,0,0,0,0,0,// we need to search the components of the path to see if we can // find the class we want.
-0,0,1,0,0,0,0,// Reflection problems? Should not happen, debug.
+0,0,0,0,0,0,0,// Reflection problems? Should not happen, debug.
 0,0,0,0,0,0,0,// calling GenIC task
 0,0,0,0,0,0,0,// make sure we are dealing with an absolute path
 0,0,0,0,0,0,0,// The the weblogic cmp deployment descriptor
@@ -1011,7 +1011,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// For all Files in this folder, we need to check // if there have been modifications.
 0,0,0,0,0,0,0,"/**     * When using this as a custom selector, this method will be called.     * It translates each parameter into the appropriate setXXX() call.     *     * @param parameters the complete set of parameters for this selector.     */"
 0,0,0,0,0,0,0,// line separators in values and tokens are "\n" // in order to compare with the file contents, replace them // as needed
-0,0,0,0,0,0,0,// this method has severe consequences on performance. We cannot rely // on the super.hashCode() method since super.getName() always return // the empty string in the current implemention (there's no setter) // so it is basically draining the performance of a hashmap lookup
+0,0,1,0,0,0,0,// this method has severe consequences on performance. We cannot rely // on the super.hashCode() method since super.getName() always return // the empty string in the current implemention (there's no setter) // so it is basically draining the performance of a hashmap lookup
 0,0,0,0,0,0,0,// Create the parser using whatever parser the system dictates
 0,0,0,0,0,0,0,//  262148 byte // ------------ //  333408 byte
 0,0,0,0,0,0,0,// Loop through the files. Each file represents one deployment // descriptor, and hence one bean in our model.
@@ -1610,7 +1610,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Log using WARN so it displays in 'quiet' mode.
 0,0,0,0,0,0,0,// get all files and add them to the document
 0,0,0,0,0,0,0,// make sure that this is REALLY a testsuite.
-0,0,0,0,0,0,0,// This code is needed by EBCDIC and other strange systems. // It's a fix for bugs reported in xerces
+0,0,1,0,0,0,0,// This code is needed by EBCDIC and other strange systems. // It's a fix for bugs reported in xerces
 0,0,0,0,0,0,0,// try next method
 0,0,0,0,0,0,0,// non-existing files are not allowed
 0,0,0,0,0,0,0,//wrong root element name // issue a warning.
@@ -1674,7 +1674,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// warn that selectors are not supported
 0,0,0,0,0,0,0,// If we are doing a listing, we need the output stream created now.
 0,0,0,0,0,0,0,// father and child pattern test
-0,0,0,1,0,1,1,//discard most of really big resources
+0,0,0,0,0,0,0,//discard most of really big resources
 0,0,0,0,0,0,0,//open up the resource
 0,0,0,0,0,0,0,// get files from filesets
 0,0,0,0,0,0,0,// find first non cached dir
@@ -2047,7 +2047,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// pre Kaffe 1.1.2
 0,0,0,0,0,0,0,// by default, remove matching empty dirs
 0,0,0,0,0,0,0,// only supported since Kaffe 1.1.2
-0,0,1,0,0,0,0,// don't know how to handle that - a IDL file doesn't // have a corresponding Java source for example.
+0,0,0,0,0,0,0,// don't know how to handle that - a IDL file doesn't // have a corresponding Java source for example.
 0,0,0,0,0,0,0,//handle the many different stub options.
 0,0,0,0,0,0,0,// delete the single file
 0,0,0,0,0,0,0,//default is compatibility
@@ -2396,7 +2396,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// load the specified class
 0,0,0,0,0,0,0,// -----  the selection work  -----
 0,0,0,0,0,0,0,// We have a 'resourced' file, so reconvert it and use // the 'old' implementation.
-0,0,0,0,0,0,0,// If we don't know the type of the line // and we are in emacs mode, it will be // an error, because in this mode, jikes won't // always print "error", but sometimes other // keywords like "Syntax". We should look for // all those keywords.
+0,0,1,0,0,0,0,// If we don't know the type of the line // and we are in emacs mode, it will be // an error, because in this mode, jikes won't // always print "error", but sometimes other // keywords like "Syntax". We should look for // all those keywords.
 0,0,0,0,0,0,0,// Use '/' to calculate digest based on file name. // This is required in order to get the same result // on different platforms.
 0,0,0,0,0,0,0,// You can not compute a value for a directory
 0,0,0,0,0,0,0,// Maybe update the cache
@@ -2809,8 +2809,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// any other char
 0,0,0,0,0,0,0,// No absolute pathnames // Windows (and Posix?) paths can start with "\\NetworkDrive\", // so we loop on starting /'s.
 0,0,0,0,0,0,0,// Locate method Runtime.exec(String[] cmdarray, //                            String[] envp, File dir)
-0,0,0,0,0,0,0,// Bad URI, pass this on.
-0,0,1,0,0,0,0,// REVIEW // This is horribly inefficient, but it ensures that we // properly skip over bytes via the TarBuffer... //
+0,0,1,0,0,0,0,// Bad URI, pass this on.
+0,0,1,1,0,1,1,// REVIEW // This is horribly inefficient, but it ensures that we // properly skip over bytes via the TarBuffer... //
 0,0,0,0,0,0,0,// read in the name
 0,0,0,0,0,0,0,// remove trailing null terminator
 0,0,0,0,0,0,0,// Unexpected EOF!

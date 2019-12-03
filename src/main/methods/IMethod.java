@@ -11,9 +11,15 @@ public interface IMethod {
     public void prepareData();
 
     /**
-     * 预测结果
+     * n-1 -> 1 预测
      *
      * @throws Exception
      */
     public void predict() throws Exception;
+
+    /**
+     * 1 -> 1 预测
+     * @throws Exception
+     */
+    public void predictWithLimitedTrainingSet() throws Exception;
 }

@@ -45,9 +45,7 @@ public class EnsembleLearner {
         recall = tp / (tp + fn);
         fmeasure = 2 * precision * recall / (precision + recall);
         //System.out.println("tp, fp, fn, tn: " + tp + " " + fp + " " + fn + " " + tn);
-        System.out.println(String.format("%.3f", precision) + "," +
-                String.format("%.3f", recall) + "," +
-                String.format("%.3f", fmeasure));
+        //System.out.printf("%.3f, %.3f, %.3f\n", precision, recall, fmeasure);
         return labels;
     }
 

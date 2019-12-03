@@ -1,21 +1,21 @@
 oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO factor up into GenBaseImpl //
 1,0,0,0,0,0,0,// EATM Call the deprecated method which does the same thing  // but might have an override in older code.
-1,0,1,0,1,1,1,// Unused?
+1,0,1,0,0,0,0,// Unused?
 1,0,1,1,1,1,1,// TODO factor up into GenBaseImpl? //
 1,0,1,1,0,1,1,// call workaround
 1,0,1,1,1,1,1,// TODO deprecate (since getPluginClass() is no longer called) //
 1,0,0,0,0,0,0,// Ensure that this race condition is thread safe; it doesn't matter who wins the race. //
 1,0,1,1,1,1,1,// TODO // This assumes we only get a SET notification, which isn't a good assumption. //
 1,0,0,0,0,0,0,//DMS handle this well.
-1,0,0,0,1,1,1,//FB TBD can we come up with a better algorithm for choosing the default label feature?
-1,0,0,0,1,1,1,//DMS should we let this exception out?
+1,0,0,0,0,0,0,//FB TBD can we come up with a better algorithm for choosing the default label feature?
+1,0,0,0,0,0,0,//DMS should we let this exception out?
 1,0,0,0,0,0,0,//DMS What if Eclipse is running, but an invalid facade has been specified?  We still should format code, use encoding,...
-1,0,0,0,1,1,1,//DMS  Do a better job with specific exceptions? Just use chained RuntimeExceptions?
+1,0,0,0,0,0,0,//DMS  Do a better job with specific exceptions? Just use chained RuntimeExceptions?
 1,0,1,1,0,1,1,// If the delegate URI can be handled as a file,  // we'll hope that renaming it will be really efficient. //
 1,0,1,0,0,0,0,//DMS Why not this? //new SubProgressMonitor(progressMonitor, 1));
 1,0,1,0,0,0,0,// Assume that it's an attribute for now. // It will/could become a reference if the type resolves to an EClass. //
-1,0,0,0,1,1,1,// Do nothing for now, and avoid propagating the exception.   // How should builders handle cancel?
+1,0,0,0,0,0,0,// Do nothing for now, and avoid propagating the exception.   // How should builders handle cancel?
 1,0,0,0,0,0,0,// this is a fall-back, however, this should never be called
 1,0,1,1,1,1,1,// TODO fix the space above
 1,0,1,1,1,1,1,// TODO REMOVE THIS BOGUS EMPTY LINE
@@ -26,7 +26,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO This is really quite attrocious since there is code that will assume an iterator that returns strings!
 1,0,0,0,0,0,0,//TBD return (user selected subset?) of referenced packages that contain super classes of classes in this package.
 1,0,1,1,0,1,1,// call the workaround
-1,0,0,0,0,0,0,// //TBD rethink where exactly some of the following main.methods belong (GenModel or GenPackage) //
+1,0,0,0,0,0,0,// //TBD rethink where exactly some of the following methods belong (GenModel or GenPackage) //
 1,0,0,0,0,0,0,// if there are multiple variables in declaration,  // separate this variable fragment into a separate declaration
 1,0,0,0,0,0,0,// EATM this would be wrong.
 1,0,0,0,0,0,0,// REVISIT: Remove this code.
@@ -38,7 +38,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,1,1,0,0,0,0,// This is a kludge to deal with enumerators, which crash the doSwitch. //
 1,0,1,0,0,0,0,// This is copied from ItemProviderAdapterFactory. //
 1,0,0,1,0,1,1,// EATM This might be better written as a single loop for the EObject case? //
-1,0,0,0,1,1,1,// Second alternative should be getModelProject()?
+1,0,0,0,0,0,0,// Second alternative should be getModelProject()?
 1,0,1,1,1,1,1,// TODO Hack that should be removed.
 1,0,0,1,1,1,1,// TODO // Specialize this to return a resource locator for messages specific to this validator. // Ensure that you remove @generated or mark it @generated NOT
 1,0,0,1,1,1,1,// TODO // I'm concerned that folders will often return 401 or even 403. // So should we consider something to exist even though access if unauthorized or forbidden? //
@@ -57,9 +57,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// Note that the way they are sorted, the values of index[i++] always increase, // so the objects are added from right to left in the list. // // EATM  TODO // // We could make this more efficient by grouping the adds when indices increment by one, // so that a single grouped notification would result. //
 1,0,1,1,1,1,1,// TODO deprecate (since no longer used by getEditPluginClass(), getEditorPluginClass(), getTestSuiteClass()) //
 1,0,0,0,0,0,0,// if there are multiple variables in declaration,  // separate this variable fragment into a separate declaration    
-1,0,0,0,1,1,1,//DMS factor this into a method? Use a non-static subclass? 
+1,0,0,0,0,0,0,//DMS factor this into a method? Use a non-static subclass? 
 1,0,0,1,0,1,1,//DMS this doesn't really produce nice output. //
-1,0,0,0,1,1,1,//FB TBD filter out volatile and other inappropriate links?
+1,0,0,0,0,0,0,//FB TBD filter out volatile and other inappropriate links?
 1,0,0,0,0,0,0,// I don't know if this should be run this deferred // because we might have to give the editor a chance to process the viewer update events // and hence to update the views first. // //
 1,0,0,1,1,1,1,// TODO processing instructions are not sent to recordValues
 1,0,0,1,1,1,1,// TODO comments are not sent to recordValues
@@ -77,7 +77,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// get the end position of the range for the previous node
 0,0,0,0,0,0,0,// adding 'at' allows distinguish annotations from other members // (i.e. inner class verses annotation of a class) //
 0,0,0,0,0,0,0,// Get the adapter from the factory. //
-0,0,0,0,0,0,0,// No main.methods added.
+0,0,0,0,0,0,0,// No methods added.
 0,0,0,0,0,0,0,"/*   * Javadoc copied from interface.   */"
 0,0,0,0,0,0,0,// add trailing comments if necessary
 0,0,0,0,0,0,0,// If the target is read-only, we can ask the platform to release it. //
@@ -90,7 +90,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/**   * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.   * <!-- begin-user-doc -->   * <!-- end-user-doc -->   * @return the first non-null result returned by a <code>caseXXX</code> call.   * @generated   */"
 0,0,0,0,0,0,0,// If the target is read-only, we can ask the platform to release it, and it may be updated in the process. //
 0,0,0,0,0,0,0,// find start position of farthest preceding comment
-0,0,0,0,1,1,1,// was the details button pressed?
+0,0,0,0,0,0,0,// was the details button pressed?
 0,0,0,0,0,0,0,// Set up the tree viewer. //
 0,0,0,0,0,0,0,// Process the children of the UnitTreeNode recursively. //
 0,0,0,0,0,0,0,// Create a code formatter for this compilation unit, if needed. //
@@ -194,7 +194,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Register package validator
 0,0,0,0,0,0,0,// We must have a qualifier for an attribute that needs qualified. //
 0,0,0,0,0,0,0,//System.err.println("DEBUG: fixed-only: "+this.fixedString);
-0,0,0,0,1,1,1,// cached already?
+0,0,0,0,0,0,0,// cached already?
 0,0,0,0,0,0,0,// see if prefix already exists in current context
 0,0,0,0,0,0,0,// Initialize classes and features; add operations and parameters
 0,0,0,0,0,0,0,// default implementation does nothing
@@ -230,7 +230,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// We not sure the encoding supports this code point, so we write it as a character entity reference.
 0,0,0,0,0,0,0,// Keep trying until all else false.
 0,0,0,0,0,0,0,// no property
-0,0,0,0,0,0,0,"/**   * The switch that delegates to the <code>createXXX</code> main.methods.   * <!-- begin-user-doc -->   * <!-- end-user-doc -->   * @generated   */"
+0,0,0,0,0,0,0,"/**   * The switch that delegates to the <code>createXXX</code> methods.   * <!-- begin-user-doc -->   * <!-- end-user-doc -->   * @generated   */"
 0,0,0,0,0,0,0,//EParameterImpl
 0,0,0,0,0,0,0,// Identifies a file-type absolute URI.
 0,0,0,0,0,0,0,// Only handle classifiers from this package. //
@@ -359,7 +359,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// record node's attributes
 0,0,0,0,0,0,0,// Fill 4 of value (byte) -87 // Fill 2 of value (byte) 33 // Fill 10 of value (byte) -87 // Fill 519 of value (byte) 33 // Fill 3 of value (byte) -87
 0,0,0,0,0,0,0,// There's an EObject on the stack already. //
-0,0,1,0,0,0,0,//FB The following method is copied from com.ibm.etools.b2b.util.StringUtility //FB because the mapping framework cannot have a dependency on b2b. What we really //FB need to do is get main.methods like this moved to vabase so that everyone can //FB use them. // change all occurrences of oldPat to newPat
+0,0,1,0,0,0,0,//FB The following method is copied from com.ibm.etools.b2b.util.StringUtility //FB because the mapping framework cannot have a dependency on b2b. What we really //FB need to do is get methods like this moved to vabase so that everyone can //FB use them. // change all occurrences of oldPat to newPat
 0,0,0,0,0,0,0,// If it is changing... //
 0,0,0,0,0,0,0,// Test for a same document reference that would usually be handled as an IDREF. //
 0,0,0,0,0,0,0,// Check for scheme, which must be before '/', '?' or '#'. Also handle // names with DOS drive letters ('D:'), so 1-character schemes are not // allowed.
@@ -408,7 +408,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Create annotations // http://www.w3.org/XML/1998/namespace
 0,0,0,0,0,0,0,// src1:    o--------o // src2:          o----o // res:           o--o // Reuse src2
 0,0,0,0,0,0,0,//  Interpret the body of a nested ownedComment as a comment-type and assign it as the EAnnotation.source of the parent. //
-0,0,0,0,1,1,1,// X{2,6} -> XX(X(X(XX?)?)?)?
+0,0,0,0,0,0,0,// X{2,6} -> XX(X(X(XX?)?)?)?
 0,0,0,0,0,0,0,// Internal bootstrap uses Literals constants, so we must force initialization this inner interface first. //
 0,0,0,0,0,0,0,//iri = iri || containsNonASCII(device);
 0,0,0,0,0,0,0,// Open an editor on the new file. //
@@ -450,7 +450,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Construct a proper URL for relative lookup. //
 0,0,0,0,0,0,0,// src1:    o--------o // src2:      o----o // res:       o----o // Reuse the rest of src1
 0,0,0,0,0,0,0,// Create a proper feature map entry. //
-0,0,0,0,0,0,0,// set original node of annotations (to allow get main.methods to work correctly)
+0,0,0,0,0,0,0,// set original node of annotations (to allow get methods to work correctly)
 0,0,0,0,0,0,0,// Determine all the bundles that this project depends on. //
 0,0,1,0,0,0,0,// This call should get the files checked out from version control if the project is a 'team' project. //
 0,0,0,0,0,0,0,// Like isStringType(), but still returns true even if multiplicity-many. //
@@ -897,7 +897,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Go through class super types to catch any from other packages
 0,0,0,0,0,0,0,// For the control case, we need a dialog to ask for the URI and obtain the resource, then we create the command. //
 0,0,0,0,0,0,0,// support for 1047, as proposed to be added to the  // IANA registry in  // http://lists.w3.org/Archives/Public/ietf-charset/2002JulSep/0049.html
-0,0,0,0,1,1,1,// If we aren't getting the domain from the workbench part... // This happens when this action is used for a global popup action. // We try to get the editing domain from one of the objects in the selection. // //DMS editingDomain == null) ?
+0,0,0,0,0,0,0,// If we aren't getting the domain from the workbench part... // This happens when this action is used for a global popup action. // We try to get the editing domain from one of the objects in the selection. // //DMS editingDomain == null) ?
 0,0,0,0,0,0,0,// scan feature lists for those with multiple elements and return them
 0,0,0,0,0,0,0,// Nothing more to do and we don't want to do the default stuff below. //
 0,0,0,0,0,0,0,//GenTypedElementImpl
@@ -1020,7 +1020,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Reached EOF:
 0,0,0,0,0,0,0,// Close variable like attributes "%>"
 0,0,0,0,0,0,0,// XMLesque Close tags
-0,0,0,0,0,0,0,// Command line execution main.methods
+0,0,0,0,0,0,0,// Command line execution methods
 0,0,0,0,0,0,0,// Compute a map of resource location URIs to logical namespace URIs // so that cross references will be resolved via package registry when deserialized.  //
 0,0,0,0,0,0,0,// For a many-to-1 or 1-to-1 association, if the opposite reference on the new value is already set to // something, we need a compound command that first explicitly removes that reference, so that it will be // restored in the undo. //
 0,0,0,0,0,0,0,/////////////////////////////////  PUSH  /////////////////////////////////////
@@ -1061,12 +1061,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// We expect there to be at least one archive path. //
 0,0,0,0,0,0,0,// Characters to use in escaping.
 0,0,0,0,0,0,0,// If there is a provider base class from outside this class that has already been generated, get the create // child references from it. We'll check for any type-compatible classes introduced in this package. //
-0,0,0,0,0,0,0,// Private constructor for use of static factory main.methods.
+0,0,0,0,0,0,0,// Private constructor for use of static factory methods.
 0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.eclipse.emf.codegen.merge.java.facade.ast.ASTJNode#addChild(org.eclipse.emf.codegen.merge.java.facade.JNode)   */"
 0,0,0,0,0,0,0,// for all nodes but some use default extended range
 0,0,0,0,0,0,0,//iri = iri || containsNonASCII(authority);
 0,0,0,0,0,0,0,// if there are multiple variables in the same field declaration, create declaration with only 1 variable
-0,0,0,0,0,0,0,// Private constructor for use of platform factory main.methods.
+0,0,0,0,0,0,0,// Private constructor for use of platform factory methods.
 0,0,0,0,0,0,0,//iri = iri || containsNonASCII(query);
 0,0,0,0,0,0,0,// Debugging method: converts the given long to a string of binary digits.
 0,0,0,0,0,0,0,// replace or append
@@ -1113,7 +1113,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Ignore features from the first super type. //
 0,0,0,0,0,0,0,//volatile
 0,0,0,0,0,0,0,//listRewrite.remove((ASTNode)modifier, null);
-0,0,0,0,0,0,0,// Uses a cache to speed up creation of a URI from a string.  The cache // is consulted to see if the URI, less any fragment, has already been // created.  If needed, the fragment is re-appended to the cached URI, // which is considerably more efficient than creating the whole URI from // scratch.  If the URI wasn't found in the cache, it is created using // parseIntoURI() and then cached.  This method should always be used // by string-parsing factory main.methods, instead of parseIntoURI() directly.
+0,0,0,0,0,0,0,// Uses a cache to speed up creation of a URI from a string.  The cache // is consulted to see if the URI, less any fragment, has already been // created.  If needed, the fragment is re-appended to the cached URI, // which is considerably more efficient than creating the whole URI from // scratch.  If the URI wasn't found in the cache, it is created using // parseIntoURI() and then cached.  This method should always be used // by string-parsing factory methods, instead of parseIntoURI() directly.
 0,0,0,0,0,0,0,// Fill 2 of value (byte) 33 // Fill 2 of value (byte) -19
 0,0,0,0,0,0,0,// super.collectNewChildDescriptors(newChildDescriptors, object);
 0,0,1,0,0,0,0,// this could be method body, for example
@@ -1124,7 +1124,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// userinfo can contain alphanumerics, mark characters, escaped // and ';',':','&','=','+','$',','
 0,0,0,0,0,0,0,// return eProperties;
 0,0,0,0,0,0,0,// set javadoc
-0,0,0,0,1,1,1,// add Java to IANA encoding mappings //fJava2IANAMap.put("8859_1",    "US-ASCII"); // ?
+0,0,0,0,0,0,0,// add Java to IANA encoding mappings //fJava2IANAMap.put("8859_1",    "US-ASCII"); // ?
 0,0,0,0,0,0,0,// Returns the int value of the given hex digit.
 0,0,0,0,0,0,0,// the for loop's condition finds the separator 
 0,0,0,0,0,0,0,// Parse to count the archive paths that must will be delegated to the nested URL based on the number of schemes at the start. //
@@ -1260,7 +1260,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// This may be called directly on an EObject for the case of a containment. //
 0,0,0,0,0,0,0,// Assume that it's not available.
 0,0,0,0,0,0,0,// Preload.
-0,0,0,0,0,0,0,// No new main.methods.
+0,0,0,0,0,0,0,// No new methods.
 0,0,0,0,0,0,0,// Listen to title changes. // getViewPart().addPropertyListener(this);
 0,0,0,0,0,0,0,//ListChangeImpl
 0,0,0,0,0,0,0,// Wrap the current input as a zip stream, and record it for loop-based recursion. //
@@ -1334,7 +1334,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// A document root can have multiple ID attributes because there can be multiple global element or attribute declarations of type ID  // and these will be the ID in the complex types that reference them, // i.e., they aren't really the ID of the document root. //
 0,0,0,0,0,0,0,// For performance, skip matching all the features of the first super type. //
 0,0,0,0,0,0,0,// Action bar.
-0,0,0,0,0,0,0,// note that the copied tree should not be modified by wrapped ASTJField // // the copied tree will have source ranges for all nodes in the source file, // hence, the get main.methods in the new ASTJField will not return the right contents
+0,0,0,0,0,0,0,// note that the copied tree should not be modified by wrapped ASTJField // // the copied tree will have source ranges for all nodes in the source file, // hence, the get methods in the new ASTJField will not return the right contents
 0,0,0,0,0,0,0,// Checks whether the string contains any more segments after the one that // starts at position i.
 0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.eclipse.emf.ecore.xmi.XMLResource.XMLMap#add(org.eclipse.emf.ecore.ENamedElement, org.eclipse.emf.ecore.xmi.XMLResource.XMLInfo)   */"
 0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.eclipse.emf.codegen.merge.java.facade.ast.ASTJNode#remove(org.eclipse.emf.codegen.merge.java.facade.ast.ASTJNode)   */"
@@ -1351,7 +1351,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// check for scheme - RFC 2396 5.2 #3 // if we found a scheme, it means absolute URI, so we're done
 0,0,0,0,0,0,0,// If the scheme specific part is opaque, it can contain '[' // and ']'. uric_no_slash wasn't modified by RFC 2732, which // I've interpreted as an error in the spec, since the  // production should be equivalent to (uric - '/'), and uric // contains '[' and ']'. - mrglavas
 0,0,0,0,0,0,0,// Returns the shortest relative path between the the non-relative path of // the given base and this absolute path.  If the base has no path, it is // treated as the root absolute path.
-0,0,0,0,0,0,0,// Validates all of the URI components.  Factory main.methods should call this // before using the constructor, though they must ensure that the // inter-component requirements described in their own Javadocs are all // satisfied, themselves.  If a new URI is being constructed out of // an existing URI, this need not be called.  Instead, just the new // components may be validated individually.
+0,0,0,0,0,0,0,// Validates all of the URI components.  Factory methods should call this // before using the constructor, though they must ensure that the // inter-component requirements described in their own Javadocs are all // satisfied, themselves.  If a new URI is being constructed out of // an existing URI, this need not be called.  Instead, just the new // components may be validated individually.
 0,0,0,0,0,0,0,// There is no match if the types are different // and they don't each specify the same non-null instance class name. //
 0,0,0,0,0,0,0,// Interpret it as part of the name. //
 0,0,0,0,0,0,0,// The string must contain inappropriate whitespace, so find the index for the first difference. //
@@ -1466,7 +1466,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Then eObject2 must be that previous match. //
 0,0,0,0,0,0,0,// Create move commands for all the objects in the collection. //
 0,0,0,0,0,0,0,// We know the first object isn't null, so if the second one is, it can't be equal. //
-0,0,0,0,0,0,0,// Some character classes, as defined in RFC 2396's BNF for URI. // These are 128-bit bitmasks, stored as two longs, where the Nth bit is set // iff the ASCII character with value N is included in the set.  These are // created with the highBitmask() and lowBitmask() main.methods defined below, // and a character is tested against them using matches(). //
+0,0,0,0,0,0,0,// Some character classes, as defined in RFC 2396's BNF for URI. // These are 128-bit bitmasks, stored as two longs, where the Nth bit is set // iff the ASCII character with value N is included in the set.  These are // created with the highBitmask() and lowBitmask() methods defined below, // and a character is tested against them using matches(). //
 0,0,0,0,0,0,0,// If eObject1 and eObject2 are the same instance... //
 0,0,0,0,0,0,0,// Look for the first non-XMI element. //
 0,0,0,0,0,0,0,// Check all the values. //
@@ -1510,16 +1510,16 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Try to resolve the proxy locally. //
 0,0,0,0,0,0,0,// If we are pessimistic, then we need to undo all the commands that we have executed so far. //
 0,0,0,0,0,0,0,// And find the one that holds this proxy. //
-0,0,0,0,0,0,0,// // Implement EntityResolver main.methods //
-0,0,0,0,0,0,0,// // Implement DTDHandler main.methods //
-0,0,0,0,0,0,0,// // Overwrite DefaultHandler main.methods //
+0,0,0,0,0,0,0,// // Implement EntityResolver methods //
+0,0,0,0,0,0,0,// // Implement DTDHandler methods //
+0,0,0,0,0,0,0,// // Overwrite DefaultHandler methods //
 0,0,0,0,0,0,0,// If the resolved object doesn't contain a reference to the proxy holder as it should. //
 0,0,0,0,0,0,0,// We won't need to process this again later. //
 0,0,0,0,0,0,0,// Compute the holder of the proxy //
 0,0,1,0,0,0,0,// Move the resolved object to the right place, remove the proxy, and we're done. //
 0,0,0,0,0,0,0,// EATM temporary for debug purposes only. //
 0,0,1,0,0,0,0,// The proxy needs to be replaced in a way that updates both ends of the reference. //
-0,0,0,0,0,0,0,// // Implement LexicalHandler main.methods //
+0,0,0,0,0,0,0,// // Implement LexicalHandler methods //
 0,0,0,0,0,0,0,// At least set the references that we were able to resolve, if any. //
 0,0,0,0,0,0,0,// We won't need to process this again later.
 0,0,0,0,0,0,0,// Set up a deferred extent so the document root we create definitely will not be added to the resource. //
@@ -1592,7 +1592,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Every codepoint is supported! 
 0,0,0,0,0,0,0,// Normal (BMP) unicode code point. See if we know for a fact that the encoding supports it:
 0,0,0,0,0,0,0,// We will use an xmi:Extension element for these
-0,0,0,0,1,1,1,// ownedProperty???
+0,0,0,0,0,0,0,// ownedProperty???
 0,0,0,0,0,0,0,// First try to see if this package's implementation class has an eInstance. //
 0,0,0,0,0,0,0,// Go back and add all the XMLNS stuff. //
 0,0,0,0,0,0,0,// The helper part assumes that the summary is likely based on the helper and will change when the helper is set. //
@@ -1677,7 +1677,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Set the value at the previously allocated index and return the previous value there. //
 0,0,0,0,0,0,0,/*0B00..0B7F;*/
 0,0,0,0,0,0,0,// If there is a cached result, return it. // We expect that if the package is set to be a proxy,  // the code in EPackageImpl.eSetProxyURI override will have cleared this value. //
-0,0,0,0,1,1,1,// ***** Really?
+0,0,0,0,0,0,0,// ***** Really?
 0,0,0,0,0,0,0,// If we turn the package into a proxy, ensure that the child classifiers clear their cached container. //
 0,0,0,0,0,0,0,// if not shorthands... // Here is no '-'.
 0,0,0,0,0,0,0,// *** It is not a bug.
@@ -1689,11 +1689,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//blockNames in UNICODE 3.1 that supported by XML Schema REC             
 0,0,0,0,0,0,0,// This is the page for the table tree viewer. //
 0,0,0,0,0,0,0,// Skip if there's an equality filter and the values aren't equal. //
-0,0,0,0,0,0,0,// The main.methods were matched by a process that doesn't consider the // parameters
+0,0,0,0,0,0,0,// The methods were matched by a process that doesn't consider the // parameters
 0,0,0,0,0,0,0,/*02B0..02FF;*/
 0,0,0,0,0,0,0,// Look for the annotation with the matching source. //
 0,0,0,0,0,0,0,// We can't find the class, so we don't want this class loader, // but instead want the last result that was able to load the class. //
-0,0,0,0,0,0,0,// Don't push method annotations into redirected main.methods. //
+0,0,0,0,0,0,0,// Don't push method annotations into redirected methods. //
 0,0,0,0,0,0,0,// Create a resource for this file. //
 0,0,0,0,0,0,0,// This just notifies those things that are affected by the section. //
 0,0,0,0,0,0,0,/*0C80..0CFF;*/
@@ -1754,7 +1754,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Subraction
 0,0,0,0,0,0,0,// hangul_medial and hangul_final // extras
 0,0,0,0,0,0,0,// This is CONCAT, and new child is CONCAT.
-0,0,0,0,1,1,1,// base_char?
+0,0,0,0,0,0,0,// base_char?
 0,0,0,0,0,0,0,// Replace previous token by STRING
 0,0,0,0,0,0,0,//System.err.println("Merge '"+previous+"' and '"+tok+"'.");
 0,0,0,0,0,0,0,// CRRIAGE RETURN U+000D
@@ -1802,9 +1802,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// presence of the host (whether valid or empty) means // double-slashes which means generic uri
 0,0,0,0,0,0,0,// Add ASCII Digits and ASCII Hex Numbers
 0,0,0,0,0,0,0,//RFC 2732 added '[' and ']' as reserved characters
-0,0,0,0,1,1,1,// REVISIT: //   j:CNS11643 -> EUC-TW? //   ISO-2022-CN? ISO-2022-CN-EXT?
+0,0,0,0,0,0,0,// REVISIT: //   j:CNS11643 -> EUC-TW? //   ISO-2022-CN? ISO-2022-CN-EXT?
 0,0,0,0,0,0,0,// class EncodingMap
-0,0,0,0,0,0,0,// // Public static main.methods //
+0,0,0,0,0,0,0,// // Public static methods //
 0,0,0,0,0,0,0,// set rewriter on the new node
 0,0,0,0,0,0,0,// Add Path Characters
 0,0,0,0,0,0,0,// Add Scheme Characters
@@ -2367,7 +2367,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Get the package name and see if there's an EPackage for it. //
 0,0,0,0,0,0,0,// It's definitely a package if it was declared as such. //
 0,0,0,0,0,0,0,// Additional attributes and references may be defined directly on the interface in order to allow the // get accessor method to have suppressed visibility. //
-0,0,0,0,0,0,0,// Walk the main.methods. //
+0,0,0,0,0,0,0,// Walk the methods. //
 0,0,0,0,0,0,0,// This will catch inherited features, or additional things we don't want to worry about.
 0,0,0,0,0,0,0,// Find Packages and Factories
 0,0,0,0,0,0,0,// Otherwise it's treated as an EEnum //
@@ -2427,7 +2427,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Add to an EClass //
 0,0,0,0,0,0,0,// Map to an EOperation.
 0,0,0,0,0,0,0,// If not we'll erase it to java.lang.Object. //
-0,0,0,0,0,0,0,// Alternate, stricter implementations of the following validation main.methods // are provided, commented out, for possible future use...
+0,0,0,0,0,0,0,// Alternate, stricter implementations of the following validation methods // are provided, commented out, for possible future use...
 0,0,0,0,0,0,0,// We will need to check the containment if we have to convert the EAttribute to an EReference later.  //
 0,0,0,0,0,0,0,// <p>A valid scheme may be null, or consist of a single letter followed // by any number of letters, numbers, and the following characters: // <code>+ - .</code>
 0,0,0,0,0,0,0,// 5 is the size of (list
@@ -2451,7 +2451,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// read mdl file...
 0,0,0,0,0,0,0,// file is a mdl file // // get model name
 0,0,0,0,0,0,0,// special case, traverse cat file or mdl file //
-0,0,0,0,1,1,1,// could this happen?
+0,0,0,0,0,0,0,// could this happen?
 0,0,0,0,0,0,0,// map properties even when isTreeOnly == true
 0,0,0,0,0,0,0,//directoryName.length() > 0 && directoryName.charAt(0) == '$') 
 0,0,0,0,0,0,0,// size should be 1
@@ -2546,7 +2546,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//Ecore2XMLPackageImpl
 0,0,0,0,0,0,0,// We either remove the root mapping or we use the iterator that returned the most recent next mapping. //
 0,0,0,0,0,0,0,// Set the editor's selection based on the current viewer's selection. //
-0,0,1,0,0,0,0,// Many inherited main.methods must be overridden to handle this case. //
+0,0,1,0,0,0,0,// Many inherited methods must be overridden to handle this case. //
 0,0,1,0,0,0,0,// Since we only use this right on an operation, we always want to include the keyType and valueType, and we never // want to qualify the property names. //
 0,0,0,0,0,0,0,// If there are any arguments and they are not unbounded wildcards, casts can't be checked. //
 0,0,0,0,0,0,0,// We need to be conservative and diagnose a problem only if we are quite sure that type is built-in  // and hence that the lack of a default value really represents a problem with being unable to convert the literal to a value. // 
@@ -2576,7 +2576,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,1,0,1,1,// Barring a better result, this will be the result. //
 0,0,0,0,0,0,0,// The prefix really is a prefix of this.  If this has just one more, // empty segment, the paths are the same.
 0,0,0,0,0,0,0,// Do this here because getExtendedMetaData() is used during initialization  // and the mappings are are populated the first time it's fetched // which will miss the packages we add as we initialize the tree. //
-0,0,0,0,0,0,0,// rewriter is required for set main.methods
+0,0,0,0,0,0,0,// rewriter is required for set methods
 0,0,0,0,0,0,0,// If we can't add it, it must already be in the list so find it and move it to the end. //
 0,0,0,0,0,0,0,// Both eObject1 and eObject2 are not null. // If eObject1 has been compared already... //
 0,0,0,0,0,0,0,// Encodes the given string, replacing each ASCII character that is not in // the set specified by the 128-bit bitmask and each non-ASCII character // below 0xA0 by an escape sequence of % followed by two hex digits.  If // % is not in the set but ignoreEscaped is true, then % will not be encoded // iff it already begins a valid escape sequence.

@@ -8,46 +8,34 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,0,1,1,//  Instantiation failure, maybe too early... 
 1,0,1,1,1,1,1,/* 	 * Eat an identifier, possibly qualified (meaning that it is dotted).	 * TODO AndyC Could create complete identifiers (a.b.c) here rather than a sequence of them? (a, b, c)	  */
 1,0,1,1,1,1,1,//  TODO: broken comparison since Mockito 2.2 upgrade   verifyIdenticalInvocations(expectedLexicalHandler, actualLexicalHandler); 
-1,0,0,0,0,0,0,//  Is the test class annotated with @TestConstructor? 
-1,0,0,0,0,0,0,//  should not be called, since we return false for canRead(Class) 
 1,0,1,1,1,1,1,//  TODO don't lose generic info for the new map 
 1,0,1,1,1,1,1,//  we have work todo... 
-1,0,0,0,0,0,0,//  Abort test? 
-1,0,0,0,0,0,0,//  Default reader selection necessary? 
 1,0,1,1,1,1,1,//  TODO Determine why setExceptionToRaise() is unused. 
 1,0,0,0,0,0,0,//  We don't trust the JMS provider: It might throw RuntimeException or Error. 
 1,0,1,1,1,1,1,//  TODO Future optimization - if followed by a static method call, skip generating code here 
 1,0,1,1,1,1,1,//  TODO: Optimization: Process only if this() specifies a type and not an identifier. 
-1,0,0,0,0,0,0,//  Have we already encountered that Locale before? 
-1,0,0,0,0,0,0,//  Direct annotation present? 
 1,0,1,1,1,1,1,// FIXME revisit in case of reentrant sync deadlock
 1,0,0,0,0,0,0,//  It has already caused a field error with a rejected value. 
 1,0,0,1,1,1,1,//  TODO - only handles 2-dimensional arrays 
 1,0,1,1,1,1,1,//  TODO: Make me final when deprecated methods are removed 
 1,0,1,1,1,1,1,//  TODO [SPR-13537] Change equalTo(null) to equalTo(""). 
 1,0,1,1,1,1,1,//  TODO: error? 
-1,0,0,0,0,0,0,//  Has the existing bean definition bean marked as a framework-generated bean? 
 1,0,0,0,0,0,0,//  Resolve plain BeanDefinition, without contained name: use dummy name. 
-1,0,0,0,0,0,0,//  Expose RequestContext? 
-1,0,0,0,0,0,0,//  Is the stream closed? 
 1,0,1,0,1,1,1,//  TODO May fail on either call: may want to tighten up definition 
-1,0,0,0,0,0,0,//  verification!? 
 1,0,0,1,1,1,1,/* 	 * SPR-6038: detect HSQL and stop illegal locks being taken.	 * TODO: Against Quartz 2.2, this test's job doesn't actually execute anymore...	  */
 1,0,0,0,0,0,0,//  If they were numbers, were they compatible? 
-1,0,0,0,0,0,0,//  Direct match? 
+1,0,1,1,1,1,1,//  TODO following lines are a workaround for Hibernate bug   If Hibernate throws an exception due to flush(),   it actually HAS flushed, meaning that the database   was updated outside the transaction
+1,0,1,1,1,1,1,//  TODO verify remaining output for forms 5, 6, 7, 8, and 14 (fix whitespace)
 1,0,1,1,1,1,1,//  TODO should be able to make this assertion: need to fix target handling   in AdvisedSupport  assertEquals(target2, ((Advised) proxied).getTarget()); 
 1,0,0,1,1,1,1,//  TODO: shouldn't the wildcard lower the score?  		assertEquals(-1,  				comparator.compare(parse("/hotels/new"), parse("/hotels/new.*"))); 
 1,0,1,1,1,1,1,//  TODO this will currently map, would be nice for optimization  assertTrue(ajexp.matches(HasGeneric.class));  assertFalse(ajexp.matches(TestBean.class)); 
-1,0,0,0,0,0,0,//  Value not of required type? 
 1,0,0,1,0,1,1,//  Plain PersistenceException wrapper for underlying exception?   Make sure the nested exception message is properly exposed,   along the lines of Spring's NestedRuntimeException.getMessage() 
 1,0,0,0,0,0,0,//  Open frame not sent yet?   If in the session initialization thread, then cache, otherwise wait. 
 1,0,1,1,1,1,1,//  TODO: remove reflection when build requires JDK 9+ 
-1,0,0,0,0,0,0,//  Custom editor for this type? 
 1,0,1,1,1,1,1,//  TODO: optimize 
 1,0,1,1,1,1,1,//  TODO better exception handling 
-1,0,0,0,0,0,0,//  Could actually try to figure out interface from create? 
+1,0,1,1,1,1,1,//  TODO: change to ByteBufferFeeder when supported by Jackson   See https://github.com/FasterXML/jackson-core/issues/478
 1,0,0,0,0,0,0,//  Remove corresponding bean from singleton cache, if any. Shouldn't usually   be necessary, rather just meant for overriding a context's default beans 
-1,0,0,0,0,0,0,//  For MySQL: exception class name indicating a timeout? 
 1,0,0,0,0,0,0,//  It would be nice to partially match a path and get any bound variables in one step 
 1,0,1,1,1,1,1,//  TODO -- this fails with NPE due to ArrayToObject converter - discuss with Andy  setValueExpectError("arrayContainer.doubles[1]", new ArrayList<String>());  setValueExpectError("arrayContainer.shorts[1]", new ArrayList<String>()); 
 1,0,0,1,1,1,1,//  TODO: make sure Callback is null 
@@ -62,7 +50,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO is this caching safe - passing the expression around will mean this executor is also being passed around 
 1,0,1,0,1,1,1,//  TODO possible optimization here if we cache the discovered type reference, but can we do that? 
 1,0,1,1,1,1,1,// FIXME inline? 
+1,0,1,1,1,1,1,//  TODO revisit performance if doing a lot of case insensitive matching
 1,0,1,1,1,1,1,//  TODO might want to control this behaviour...   Do we really want to call remove after a remote exception? 
+1,0,1,1,1,1,1,//  TODO support multidimensional arrays   TODO support correct syntax for multidimensional [][][] and not [,,,]
 1,0,0,0,1,1,1,//  TODO used to catch UnknownAdviceTypeException, but   with CGLIB some errors are in proxy creation and are wrapped   in aspect exception. Error message is still fine.  assertTrue(ex.getMessage().indexOf("ntroduction") > -1);
 1,0,0,1,1,1,1,//  TODO: returns just 1 as of AspectJ 1.9 beta 3, not detecting the applicable lambda expression anymore   assertEquals(2, ctx.getBean(CountingAspect.class).count); 
 1,0,1,1,1,1,1,//  TODO: fix Reactor support 
@@ -70,17 +60,18 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: Why does this test fail? It hasn't been run before, so it maybe never actually passed... 
 1,0,1,1,1,1,1,//  TODO: what does this mean? This method is not used in SpEL so probably ignorable? 
 1,1,1,1,1,1,1,//  slight hack for Linux/Unix systems 
-1,0,0,1,1,1,1,//  TODO fails due to conversionservice handling of String[] to Object...  	expression = parser.parseExpression("#append2(#stringArray)"); 
+1,0,1,1,1,1,1,//  TODO fails due to conversionservice handling of String[] to Object...  	expression = parser.parseExpression("#append2(#stringArray)"); 
 1,0,1,1,1,1,1,//  TODO Determine why connectWithError() is unused. 
 1,0,0,0,0,0,0,//  We don't trust the JDBC driver: It might throw RuntimeException or Error. 
+1,0,0,1,1,1,1,//  TODO Enable TestNG test with timeout once we have a solution.
 1,0,1,0,0,0,0,//  not implemented 
 1,0,1,1,1,1,1,//  TODO: Reactor usually times out on Windows ...
 1,0,0,1,1,1,1,//  TODO: It's just an adapter but returning 0 might still have side effects... 
 1,0,1,0,0,0,0,//  Bean Validation 2.0: currently not implemented here since it would imply   a hard dependency on the new javax.validation.ClockProvider interface.   To be resolved once Spring Framework requires Bean Validation 2.0+.   Obtain the native ValidatorFactory through unwrap(ValidatorFactory.class)   instead which will fully support a getClockProvider() call as well. 
 1,0,1,1,1,1,1,//  TODO could do with more refactoring around argument handling and varargs 
-1,0,0,0,1,1,1,/* 	 * Further TODO for compilation:	 *	 * - OpMinus with a single literal operand could be treated as a negative literal. Will save a	 *   pointless loading of 0 and then a subtract instruction in code gen.	 * - allow other accessors/resolvers to participate in compilation and create their own code	 * - A TypeReference followed by (what ends up as) a static method invocation can really skip	 *   code gen for the TypeReference since once that is used to locate the method it is not	 *   used again.	 * - The opEq implementation is quite basic. It will compare numbers of the same type (allowing	 *   them to be their boxed or unboxed variants) or compare object references. It does not	 *   compile expressions where numbers are of different types or when objects implement	 *   Comparable.     *	 * Compiled nodes:	 *	 * TypeReference	 * OperatorInstanceOf	 * StringLiteral	 * NullLiteral	 * RealLiteral	 * IntLiteral	 * LongLiteral	 * BooleanLiteral	 * FloatLiteral	 * OpOr	 * OpAnd	 * OperatorNot	 * Ternary	 * Elvis	 * VariableReference	 * OpLt	 * OpLe	 * OpGt	 * OpGe	 * OpEq	 * OpNe	 * OpPlus	 * OpMinus	 * OpMultiply	 * OpDivide	 * MethodReference	 * PropertyOrFieldReference	 * Indexer	 * CompoundExpression	 * ConstructorReference	 * FunctionReference	 * InlineList	 * OpModulus	 *	 * Not yet compiled (some may never need to be):	 * Assign	 * BeanReference	 * Identifier	 * OpDec	 * OpBetween	 * OpMatches	 * OpPower	 * OpInc	 * Projection	 * QualifiedId	 * Selection	  */
+1,0,0,1,1,1,1,/* 	 * Further TODO for compilation:	 *	 * - OpMinus with a single literal operand could be treated as a negative literal. Will save a	 *   pointless loading of 0 and then a subtract instruction in code gen.	 * - allow other accessors/resolvers to participate in compilation and create their own code	 * - A TypeReference followed by (what ends up as) a static method invocation can really skip	 *   code gen for the TypeReference since once that is used to locate the method it is not	 *   used again.	 * - The opEq implementation is quite basic. It will compare numbers of the same type (allowing	 *   them to be their boxed or unboxed variants) or compare object references. It does not	 *   compile expressions where numbers are of different types or when objects implement	 *   Comparable.     *	 * Compiled nodes:	 *	 * TypeReference	 * OperatorInstanceOf	 * StringLiteral	 * NullLiteral	 * RealLiteral	 * IntLiteral	 * LongLiteral	 * BooleanLiteral	 * FloatLiteral	 * OpOr	 * OpAnd	 * OperatorNot	 * Ternary	 * Elvis	 * VariableReference	 * OpLt	 * OpLe	 * OpGt	 * OpGe	 * OpEq	 * OpNe	 * OpPlus	 * OpMinus	 * OpMultiply	 * OpDivide	 * MethodReference	 * PropertyOrFieldReference	 * Indexer	 * CompoundExpression	 * ConstructorReference	 * FunctionReference	 * InlineList	 * OpModulus	 *	 * Not yet compiled (some may never need to be):	 * Assign	 * BeanReference	 * Identifier	 * OpDec	 * OpBetween	 * OpMatches	 * OpPower	 * OpInc	 * Projection	 * QualifiedId	 * Selection	  */
 1,0,1,1,1,1,1,//  TODO currently failing as with new ObjectToArray converter closest constructor 
-1,0,1,1,1,1,1,//  TODO: small memory optimization here (can skip creation for methods with no advice) 
+1,0,0,1,1,1,1,//  TODO: small memory optimization here (can skip creation for methods with no advice) 
 1,0,0,1,1,1,1,//  TODO: publisherToMono/CompletableFuture vs Single (ISE on multiple elements)? 
 1,0,1,0,1,1,1,//  TODO currently failing since setValue does a getValue and "Wien" string != PlaceOfBirth - check with andy 
 1,0,1,1,1,1,1,//  TODO Is the resolver/executor model too pervasive in this package? 
@@ -96,10 +87,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  This method may throw any BeansException, which won't be caught   here, if there is a critical failure such as no matching field.   We can attempt to deal only with less serious exceptions. 
 1,0,1,1,1,1,1,//  TODO Do we need special handling when patterns contain multiple dots? 
 1,0,1,1,0,1,1,//  ---- workaround ----
+1,0,1,1,1,1,1,//  TODO correct end position?
 1,0,0,1,1,1,1,//  TODO: Consider optimization by caching the list of the aspect names 
-1,0,1,0,1,1,1,/* 	 * Tomcat: ClientAbortException or EOFException	 * Jetty: EofException	 * WildFly, GlassFish: java.io.IOException "Broken pipe" (already covered)	 * <p>TODO:	 * This definition is currently duplicated between HttpWebHandlerAdapter	 * and AbstractSockJsSession. It is a candidate for a common utility class.	 * @see #indicatesDisconnectedClient(Throwable)	  */
+1,0,1,0,0,0,0,/* 	 * Tomcat: ClientAbortException or EOFException	 * Jetty: EofException	 * WildFly, GlassFish: java.io.IOException "Broken pipe" (already covered)	 * <p>TODO:	 * This definition is currently duplicated between HttpWebHandlerAdapter	 * and AbstractSockJsSession. It is a candidate for a common utility class.	 * @see #indicatesDisconnectedClient(Throwable)	  */
 1,0,1,1,1,1,1,/*  * Tests for pooling invoker interceptor. * TODO: need to make these tests stronger: it's hard to * make too many assumptions about a pool. * * @author Rod Johnson * @author Rob Harrop * @author Chris Beams * @author Stephane Nicoll  */
-1,1,1,1,1,1,1,//  This is a hack to be able to get the generated key from a database that doesn't support   get generated keys feature. HSQL is one, PostgreSQL is another. Postgres uses a RETURNING   clause while HSQL uses a second query that has to be executed with the same connection. 
+1,1,1,0,1,1,1,//  This is a hack to be able to get the generated key from a database that doesn't support   get generated keys feature. HSQL is one, PostgreSQL is another. Postgres uses a RETURNING   clause while HSQL uses a second query that has to be executed with the same connection. 
+1,0,0,1,1,1,1,//  TODO Fails related to conversion service converting a String[] to satisfy Object...  		expression = parser.parseExpression("sixteen(stringArray)");  		assertCantCompile(expression);  		expression.getValue(tc);  		assertEquals("aaabbbccc", tc.s);  		assertCanCompile(expression);  		tc.reset();  		expression.getValue(tc);  		assertEquals("aaabbbccc", tc.s);  		tc.reset();
 1,0,0,0,0,0,0,//  Can't clearly figure out exact method due to type converting / autowiring! 
 1,0,1,1,0,1,1,//  Workaround  caching issue... 
 1,0,0,0,0,0,0,//  JCA WorkManager resolved lazily - may not be available. 
@@ -178,7 +171,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Two captures mean we use a RegexPathElement 
 0,0,0,0,0,0,0,//  will it be compilable. 
 0,0,0,0,0,0,0,//  Possibly on Tomcat when called too late: fall back to silent setStatus 
-0,0,0,0,0,0,0,//  Keep backing up the inheritance hierarchy. 
+0,0,1,0,0,0,0,//  Keep backing up the inheritance hierarchy. 
 0,0,0,0,0,0,0,//  We are only validating the request. The response is mocked out.   hotel.getId() == 42   hotel.getName().equals("Holiday Inn") 
 0,0,0,0,0,0,0,//  no match, no forward slash included 
 0,0,0,0,0,0,0,//  "read-only not supported" SQLException -> ignore, it's just a hint anyway 
@@ -283,7 +276,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Otherwise, expose null/empty value and associated BindingResult 
 0,0,0,0,0,0,0,//  ServerEndpointConfig.Configurator implementation 
 0,0,0,0,0,0,0,//  We have exactly one match. 
-0,0,0,0,0,0,0,//  Do not initialize FactoryBeans here: We need to leave all regular beans   uninitialized to let the bean factory post-processors apply to them!   Separate between BeanDefinitionRegistryPostProcessors that implement   PriorityOrdered, Ordered, and the rest. 
+0,0,1,0,0,0,0,//  Do not initialize FactoryBeans here: We need to leave all regular beans   uninitialized to let the bean factory post-processors apply to them!   Separate between BeanDefinitionRegistryPostProcessors that implement   PriorityOrdered, Ordered, and the rest. 
 0,0,0,0,0,0,0,//  Nevertheless call commit, in order to reset the transaction timeout (if any). 
 0,0,0,0,0,0,0,//  No value 
 0,0,0,0,0,0,0,//  Protected template methods 
@@ -312,7 +305,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  VARIABLE 
 0,0,0,0,0,0,0,//  target invocation exception 
 0,0,0,0,0,0,0,//  should fail with bogus rollback rule 
-0,0,1,0,0,0,0,//  Intentionally not static 
+0,0,0,0,0,0,0,//  Intentionally not static 
 0,0,0,0,0,0,0,//  Tag values for the constant pool entries (using the same order as in the JVMS). 
 0,0,0,0,0,0,0,//  REAL_LITERAL :   ('.' (DECIMAL_DIGIT)+ (EXPONENT_PART)? (REAL_TYPE_SUFFIX)?) |   ((DECIMAL_DIGIT)+ '.' (DECIMAL_DIGIT)+ (EXPONENT_PART)? (REAL_TYPE_SUFFIX)?) |   ((DECIMAL_DIGIT)+ (EXPONENT_PART) (REAL_TYPE_SUFFIX)?) |   ((DECIMAL_DIGIT)+ (REAL_TYPE_SUFFIX));   fragment INTEGER_TYPE_SUFFIX : ( 'L' | 'l' );   fragment HEX_DIGIT :   '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'|'A'|'B'|'C'|'D'|'E'|'F'|'a'|'b'|'c'|'d'|'e'|'f';     fragment EXPONENT_PART : 'e' (SIGN)* (DECIMAL_DIGIT)+ | 'E' (SIGN)*   (DECIMAL_DIGIT)+ ;   fragment SIGN : '+' | '-' ;   fragment REAL_TYPE_SUFFIX : 'F' | 'f' | 'D' | 'd';   INTEGER_LITERAL   : (DECIMAL_DIGIT)+ (INTEGER_TYPE_SUFFIX)?; 
 0,0,0,0,0,0,0,//  Second request: session expires 
@@ -349,6 +342,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  gh-22959 
 0,0,0,0,0,0,0,//  A competing write might have completed very quickly 
 0,0,0,0,0,0,0,//  First child gives us the array type which will either be a primitive or reference type 
+0,0,0,0,0,0,0,//  Is the test class annotated with @TestConstructor?
 0,0,0,0,0,0,0,//  SPR-9420 
 0,0,0,0,0,0,0,//  fetch async result similar to "asyncDispatch" builder 
 0,0,0,0,0,0,0,//  second commit attempt 
@@ -372,6 +366,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Skip 0 to 3 padding bytes. 
 0,0,0,0,0,0,0,//  No name to resolve 
 0,0,0,0,0,0,0,//  Determine autowire mode. 
+0,0,0,0,0,0,0,//  should not be called, since we return false for canRead(Class)
 0,0,0,0,0,0,0,//  1. external-general-entities and dtd support disabled (default) 
 0,0,0,0,0,0,0,//  Do not allow eager init for type matching in case of a prioritized post-processor. 
 0,0,0,0,0,0,0,//  Immediate event 
@@ -441,7 +436,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  does not override handle() 
 0,0,0,0,0,0,0,//  check de-registration works 
 0,0,0,0,0,0,0,//  iii=42 
-0,0,1,0,0,0,0,//  The dummy business method will throw an exception if the   necessary callbacks weren't invoked in the right order. 
+0,0,0,0,0,0,0,//  The dummy business method will throw an exception if the   necessary callbacks weren't invoked in the right order. 
 0,0,1,0,0,0,0,//  Protect from infinite recursion in Undertow, where we can't check if data   is available, so all we can do is to try to read.   Generally, no need to check if we just came out of readAndPublish()... 
 0,0,0,0,0,0,0,//  SPR-13867 
 0,0,0,0,0,0,0,//  duplicate slash or backslash 
@@ -457,7 +452,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Disable writing: next item will be cached.. 
 0,0,0,0,0,0,0,//  Adding a 2nd Cookie should result in 2 Cookies. 
 0,0,0,0,0,0,0,//  root still null 
-0,0,1,0,0,0,0,//  If this resolver is not supposed to handle the given view,   return null to pass on to the next resolver in the chain. 
+0,0,0,0,0,0,0,//  If this resolver is not supposed to handle the given view,   return null to pass on to the next resolver in the chain. 
 0,0,0,0,0,0,0,//  Check default behaviour is overridden 
 0,0,0,0,0,0,0,//  is there more to this token than simply the kind 
 0,0,0,0,0,0,0,//  Not streaming: write headers without committing response.. 
@@ -481,6 +476,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  The user (i.e. not the factory) is requesting this bean through a call to   the bean method, direct or indirect. The bean may have already been marked   as 'in creation' in certain autowiring scenarios; if so, temporarily set   the in-creation status to false in order to avoid an exception. 
 0,0,0,0,0,0,0,//  Start of the most recent variable capture in a particular path element 
 0,0,0,0,0,0,0,//  Encode methods 
+0,0,0,0,0,0,0,//  Abort test?
 0,0,0,0,0,0,0,//  Register as ServletContext attribute, for ContextCleanupListener to detect it. 
 0,0,0,0,0,0,0,//  must work with raw map in this test 
 0,0,0,0,0,0,0,/* 	 * Separate static class to isolate Aalto dependency.	  */
@@ -489,6 +485,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Fields designed for test introspection 
 0,0,0,0,0,0,0,//  we want to fall back to the default... 
 0,0,0,0,0,0,0,//  If we have another kind of PersistenceException, throw it. 
+0,0,0,0,0,0,0,//  Default reader selection necessary?
 0,0,0,0,0,0,0,//  We have been able to determine the arg names. 
 0,0,0,0,0,0,0,//  Get as late as possible to minimize the time we "own" the target, 
 0,0,0,0,0,0,0,//  SPR-16231 
@@ -593,7 +590,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Create a new XmlBeanDefinitionReader for the given BeanFactory. 
 0,0,1,1,1,1,1,//  but 07xxx will be bad grammar picked up by the fallback SQLState translator 
 0,0,0,0,0,0,0,//  SPR-15674 (in comments) 
-0,0,0,0,0,0,0,//  We could check canEncode but we're probably last in order anyway 
+0,0,1,0,0,0,0,//  We could check canEncode but we're probably last in order anyway 
 0,0,0,0,0,0,0,//  Ensure we have at least some HandlerExceptionResolvers, by registering 
 0,0,0,0,0,0,0,//  SPR-14584 
 0,0,0,0,0,0,0,//  set the new value 
@@ -611,6 +608,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Corresponding qualifier on bean implementation class? (for custom user types) 
 0,0,0,0,0,0,0,//  Proceed with file system resolution... 
 0,0,0,0,0,0,0,//  SPR-16108 
+0,0,0,0,0,0,0,//  Have we already encountered that Locale before?
 0,0,0,0,0,0,0,//  Ensure we have at least one HandlerMapping, by registering 
 0,0,0,0,0,0,0,//  Annotations used on tested elements 
 0,0,0,0,0,0,0,//  No current invocation... 
@@ -731,7 +729,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  If dstType is the NULL type, merge(srcType, dstType) = srcType, or TOP if srcType is not a   an array type or a reference type. 
 0,0,0,0,0,0,0,//  Create Connection through invoking WSDataSource.getConnection(JDBCConnectionSpec) 
 0,0,0,0,0,0,0,//  Type conversion from "Patty" to TestBean via TestBean(String) constructor 
-0,0,1,0,0,0,0,//  In case of FactoryBean, return singleton status of created object. 
+0,0,0,0,0,0,0,//  In case of FactoryBean, return singleton status of created object. 
 0,0,0,0,0,0,0,//  first call: cache miss 
 0,0,0,0,0,0,0,//  Until this is fixed https://github.com/synchronoss/nio-multipart/issues/10 
 0,0,0,0,0,0,0,//  ensure some send time elapses 
@@ -778,6 +776,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,1,0,1,1,//  The present implementation always returns 1, making Quartz   always schedule any tasks that it feels like scheduling.   This could be made smarter for specific TaskExecutors,   for example calling {@code getMaximumPoolSize() - getActiveCount()}   on a {@code java.util.concurrent.ThreadPoolExecutor}. 
 0,0,0,0,0,0,0,//  Look for matching annotation on the target class 
 0,0,0,0,0,0,0,//  proceed with field lookup 
+0,0,0,0,0,0,0,//  Direct annotation present?
 0,0,0,0,0,0,0,//  Can also obtain the mixin (this) this way  Lockable mixin = (Lockable) jp.getThis(); 
 0,0,0,0,0,0,0,//  There is an initializer 
 0,0,0,0,0,0,0,//  When resolving against a temporary class loader, exit early in order   to avoid storing the resolved Class in the bean definition. 
@@ -865,7 +864,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  but a newly retrieved bean should have the default name 
 0,0,0,0,0,0,0,//  AbstractBeanDefinition.prepareMethodOverrides(): 
 0,0,0,0,0,0,0,//  ignore if just being asked for plain Validator 
-0,0,1,0,0,0,0,//  The JVM opcode values (with the MethodVisitor method name used to visit them in comment, and   where '-' means 'same method name as on the previous line').   See https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-6.html. 
+0,0,0,0,0,0,0,//  The JVM opcode values (with the MethodVisitor method name used to visit them in comment, and   where '-' means 'same method name as on the previous line').   See https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-6.html. 
 0,0,0,0,0,0,0,//  Actually destroy the bean now... 
 0,0,0,0,0,0,0,//  SPR-15041 
 0,0,0,0,0,0,0,//  Should NOT roll back on ServletException 
@@ -984,6 +983,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Init RedirectView with WebAppCxt 
 0,0,0,0,0,0,0,//  SPR-16246 
 0,0,0,0,0,0,0,//  Should never be invoked as isRuntime returns false. 
+0,0,0,0,0,0,0,//  Has the existing bean definition bean marked as a framework-generated bean?
 0,0,0,0,0,0,0,//  Distinguish from default ListableBeanFactory behavior 
 0,0,0,0,0,0,0,//  SPR-12283 
 0,0,0,0,0,0,0,//  quote the returned message (this is the change)... 
@@ -1013,6 +1013,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,//  Use autowire-capable factory in order to support extended qualifier matching   (only exposed on the internal BeanFactory, not on the ApplicationContext). 
 0,0,0,0,0,0,0,//  *sigh* complicated   Basically.. we have to have all parameters match up until the varargs one, then the rest of what is   being provided should be   the same type whilst the final argument to the method must be an array of that (oh, how easy...not) -   or the final parameter   we are supplied does match exactly (it is an array already). 
 0,0,0,0,0,0,0,//  InlineMap 
+0,0,0,0,0,0,0,//  Expose RequestContext?
 0,0,0,0,0,0,0,//  We could not find it - got to look it up. 
 0,0,0,0,0,0,0,//  Update the Http client so that it returns an updated  config 
 0,0,0,0,0,0,0,//  no ApplicationContextInitializers have been declared -> nothing to do 
@@ -1157,6 +1158,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Pointing to existing alias - just remove placeholder 
 0,0,0,0,0,0,0,//  No client or server specific multipart writers currently.. 
 0,0,0,0,0,0,0,// consume OR 
+0,0,0,0,0,0,0,//  Is the stream closed?
 0,0,0,0,0,0,0,//  assert: SpelCompiler.boxingCompatible(leftDesc, rightDesc) 
 0,0,0,0,0,0,0,//  the default: same value as pubSubDomain 
 0,0,0,0,0,0,0,//  nop 
@@ -1266,6 +1268,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  no occurrence -> can return input as-is 
 0,0,0,0,0,0,0,//  SPR-9098 
 0,0,0,0,0,0,0,//  We need to visit all indexed annotations. 
+0,0,0,0,0,0,0,//  verification!?
 0,0,0,0,0,0,0,//  SPR-11560 
 0,0,0,0,0,0,0,//  prove that the processor chokes on the invalid key 
 0,0,0,0,0,0,0,//  Try field lookup as fallback: for JDK 1.5 enum or custom enum   with values defined as static fields. Resulting value still needs   to be checked, hence we don't return it right away. 
@@ -1298,7 +1301,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  set because of @SesstionAttributes 
 0,0,0,0,0,0,0,//  const_value_index, CONSTANT_Utf8 
 0,0,0,0,0,0,0,//  Create a new collection or map ready for the indexer 
-0,0,1,1,1,1,1,//  TODO following lines are a workaround for Hibernate bug   If Hibernate throws an exception due to flush(),   it actually HAS flushed, meaning that the database   was updated outside the transaction
 0,0,0,0,0,0,0,/* 	 * See SPR-8543	  */
 0,0,0,0,0,0,0,//  register the pointcut 
 0,0,0,0,0,0,0,//  and fixedCallbacks into the callbacks array. 
@@ -1348,6 +1350,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Use ObjectInputStream's default ClassLoader... 
 0,0,0,0,0,0,0,//  Fall back on bean definition attribute 
 0,0,0,0,0,0,0,// ---------------------------------------------------------------------   Implementation of PlatformTransactionManager  --------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  Direct match?
 0,0,0,0,0,0,0,//  Test empty String 
 0,0,0,0,0,0,0,//  Note: @Transactional is inherited 
 0,0,0,0,0,0,0,//  Try a URL connection content-length header 
@@ -1374,7 +1377,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  will be managed correctly even if no transaction was created by this aspect. 
 0,0,0,0,0,0,0,//  equals, hashCode, toString 
 0,0,0,0,0,0,0,//  The config classes that imported this one were all skipped, therefore we are skipped... 
-0,0,1,1,1,1,1,//  TODO verify remaining output for forms 5, 6, 7, 8, and 14 (fix whitespace)
 0,0,0,0,0,0,0,//  Do the insert 
 0,0,0,0,0,0,0,//  2 bytes each for access_flags, name_index, descriptor_index and attributes_count. 
 0,0,0,0,0,0,0,//  Allow for matching with regular UnionMethodMatcher by providing same hash... 
@@ -1465,7 +1467,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  stack: right/left(1or2slots) 
 0,0,0,0,0,0,0,//    suite of tests root requests for default servlets (SRV 11.2) on Websphere vs Tomcat and other containers   see: https://jira.springframework.org/browse/SPR-7064   
 0,0,0,0,0,0,0,//  Should never be called since we return "true" from isAsyncReturnValue 
-0,0,1,0,0,0,0,//  -----------------------------------------------------------------------------------------------   Methods to get Type(s) from a descriptor, a reflected Method or Constructor, other types, etc.   ----------------------------------------------------------------------------------------------- 
+0,0,0,0,0,0,0,//  -----------------------------------------------------------------------------------------------   Methods to get Type(s) from a descriptor, a reflected Method or Constructor, other types, etc.   ----------------------------------------------------------------------------------------------- 
 0,0,0,0,0,0,0,//  Take any bean name that we can determine URLs for. 
 0,0,0,0,0,0,0,//  Still more specific class 
 0,0,0,0,0,0,0,/*  * This class can be used to parse other classes containing constant definitions * in public static final members. The {@code asXXXX} methods of this class * allow these constant values to be accessed via their string names. * * <p>Consider class Foo containing {@code public final static int CONSTANT1 = 66;} * An instance of this class wrapping {@code Foo.class} will return the constant value * of 66 from its {@code asNumber} method given the argument {@code "CONSTANT1"}. * * <p>This class is ideal for use in PropertyEditors, enabling them to * recognize the same names as the constants themselves, and freeing them * from maintaining their own mapping. * * @author Rod Johnson * @author Juergen Hoeller * @since 16.03.2003  */
@@ -1577,6 +1579,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// -------------------------------------------------------------------------   Implementation of AbstractMessageListenerContainer's template methods  ------------------------------------------------------------------------- 
 0,0,0,0,0,0,0,//  Uncompilable as argument conversion is occurring 
 0,0,0,0,0,0,0,/*  value =  */
+0,0,0,0,0,0,0,//  Value not of required type?
 0,0,0,0,0,0,0,//  bytes respectively. 
 0,0,0,0,0,0,0,//  Mono empty 
 0,0,0,0,0,0,0,//  Base pattern matches a jar file - search for matching entries within. 
@@ -1730,6 +1733,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Register component for the surrounding <jms:annotation-driven> element. 
 0,0,0,0,0,0,0,//  Concrete subclasses 
 0,0,0,0,0,0,0,//  Resolve the script source. 
+0,0,0,0,0,0,0,//  Custom editor for this type?
 0,0,0,0,0,0,0,//  Calling foo(List) with (ArrayList) is close match (no conversion required) 
 0,0,0,0,0,0,0,//  AnnotationConfigContextLoader 
 0,0,0,0,0,0,0,//  Check the cache - we may have a ResolvableType which has been resolved before... 
@@ -1755,7 +1759,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  SPR-13895 
 0,0,0,0,0,0,0,//  Singleton: return shared object. 
 0,0,0,0,0,0,0,//  Destroy already created singletons to avoid dangling resources. 
-0,0,1,0,0,0,0,//  Remove the entity manager holder from the thread, if still there.   (Could have been removed by EntityManagerFactoryUtils in order   to replace it with an unsynchronized EntityManager). 
+0,0,0,0,0,0,0,//  Remove the entity manager holder from the thread, if still there.   (Could have been removed by EntityManagerFactoryUtils in order   to replace it with an unsynchronized EntityManager). 
 0,0,0,0,0,0,0,//  - The offset of the RuntimeInvisibleTypeAnnotations attribute, or 0. 
 0,0,0,0,0,0,0,//  Source extraction 
 0,0,1,0,0,0,0,//  separator ends in whitespace, so we might want to see if the script is trying   to end the same way 
@@ -1819,6 +1823,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Full check for complex generic type match required?
 0,0,0,0,0,0,0,//  utility methods 
 0,0,0,0,0,0,0,//  Is the construct {*...} being used in a particular path element 
+0,0,0,0,0,0,0,//  Could actually try to figure out interface from create?
 0,0,0,0,0,0,0,//  GET after POST 
 0,0,0,0,0,0,0,//  Try to adapt to the runtime situation that we're encountering:   There are obviously too many different patterns coming in here...   So let's turn off the cache since the patterns are unlikely to be reoccurring.
 0,0,0,0,0,0,0,//  no context path 
@@ -1828,7 +1833,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Else: different class with same name found 
 0,0,0,0,0,0,0,//  SPR-16262 
 0,0,0,0,0,0,0,// dottedNode   : ((methodOrProperty  	  | functionOrVar      | projection      | selection      | firstSelection      | lastSelection      )) 
-0,0,1,1,1,1,1,//  TODO: change to ByteBufferFeeder when supported by Jackson   See https://github.com/FasterXML/jackson-core/issues/478
 0,0,0,0,0,0,0,//  SPR-10704 
 0,0,0,0,0,0,0,//  Publisher implementation... 
 0,0,0,0,0,0,0,//  Make given ResourceLoader available for SchedulerFactory configuration. 
@@ -2026,6 +2030,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  gh-23622 
 0,0,0,0,0,0,0,//  Cancel associated user-level Future handle as well 
 0,0,0,0,0,0,0,//  here: RIGHT==null LEFT==null 
+0,0,0,0,0,0,0,//  For MySQL: exception class name indicating a timeout?
 0,0,0,0,0,0,0,//  Check request for preparsed or preset theme. 
 0,0,0,0,0,0,0,//  Can't do exact matching through isMatch 
 0,0,0,0,0,0,0,//  Store pre-refresh ApplicationListeners... 
@@ -2648,7 +2653,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Check that we're not parsing our own bean definition,   to avoid failing on unresolvable placeholders in properties file locations. 
 0,0,0,0,0,0,0,//  Retrieve canonical http schema mapping even for https declaration 
 0,0,0,0,0,0,0,//  ignoreUnresolvableNestedPlaceholders 
-0,0,0,0,0,0,0,//  Unsupported methods follow: no support for javax.naming.Name 
+0,0,1,0,0,0,0,//  Unsupported methods follow: no support for javax.naming.Name 
 0,0,0,0,0,0,0,//  Fallback 
 0,0,0,0,0,0,0,//  Method parameter predicates 
 0,0,0,0,0,0,0,//  method takes a string and we are passing an Integer 
@@ -2671,7 +2676,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  The provider of table meta-data 
 0,0,0,0,0,0,0,//  Lazy cache initialization on access 
 0,0,0,0,0,0,0,//  evaluates to "Idvor" 
-0,0,0,0,0,0,0,//  index1 is 2 at the start - the 'intArray[#root.index1++]' should not be evaluated twice!   intArray[2] is 3 
+0,0,1,0,0,0,0,//  index1 is 2 at the start - the 'intArray[#root.index1++]' should not be evaluated twice!   intArray[2] is 3 
 0,0,0,0,0,0,0,//  Calling 'Fruit(int i, String... strings)' - returns int+length_of_strings 
 0,0,0,0,0,0,0,//  Maybe it's okay there is no content type, if there is no content.. 
 0,0,0,0,0,0,0,//  ASM specific access flags.   WARNING: the 16 least significant bits must NOT be used, to avoid conflicts with standard   access flags, and also to make sure that these flags are automatically filtered out when   written in class files (because access flags are stored using 16 bits only). 
@@ -3041,7 +3046,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  SPR-16339 
 0,0,0,0,0,0,0,//  Explicitly pass a String argument, avoiding Log4j's argument expansion   for message objects in case of "{}" sequences (SPR-16226) 
 0,0,0,0,0,0,0,//  Apply SmartInstantiationAwareBeanPostProcessors to predict the   eventual type after a before-instantiation shortcut. 
-0,0,0,0,0,0,0,//  ignore beans where the class is not resolvable 
+0,0,1,0,0,0,0,//  ignore beans where the class is not resolvable 
 0,0,0,0,0,0,0,//  Ensure that the type variable (e.g., T) is declared directly on the method   itself (e.g., via <T>), not on the enclosing class or interface. 
 0,0,0,0,0,0,0,//  first commit 
 0,0,0,0,0,0,0,//  equals 2 calls on shared nop, because it's first and sees calls 
@@ -3321,7 +3326,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  note that we do not test for null, true, or false, which are also valid top-level values,   but are unsupported by JSONassert 
 0,0,0,0,0,0,0,//  Got hit by call to advised1.getSpouse().getAge() 
 0,0,0,0,0,0,0,//  Check whether the method is a valid service locator. 
-0,0,1,1,1,1,1,//  TODO revisit performance if doing a lot of case insensitive matching
 0,0,0,0,0,0,0,//  WebSocketHandler implementation 
 0,0,0,0,0,0,0,//  The first time searching, we don't care about for this test   Try with Locale.US 
 0,0,0,0,0,0,0,//  If already included, include again, else forward. 
@@ -3639,7 +3643,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  only second code valid 
 0,0,0,0,0,0,0,//  If no infrastructure bean name prefix has been set, override it. 
 0,0,0,0,0,0,0,//  Do nothing on flush 
-0,0,1,1,1,1,1,//  TODO support multidimensional arrays   TODO support correct syntax for multidimensional [][][] and not [,,,]
 0,0,0,0,0,0,0,//  Hamcrest matchers... 
 0,0,0,0,0,0,0,//  FALSE 
 0,0,0,0,0,0,0,//  Compute fields for fast comparison 
@@ -4104,7 +4107,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  All literals so we can do this straight away 
 0,0,0,0,0,0,0,//  In case of an optional Collection/Map, silently ignore a non-unique case:   possibly it was meant to be an empty collection of multiple regular beans   (before 4.3 in particular when we didn't even look for collection beans). 
 0,0,0,0,0,0,0,//  not invoked again 
-0,0,0,0,0,0,0,//  Can only load single resources by absolute URL. 
+0,0,1,0,0,0,0,//  Can only load single resources by absolute URL. 
 0,0,0,0,0,0,0,//  see: TestBean 
 0,0,0,0,0,0,0,//  Underlying ScheduledFutureTask to user-level ListenableFuture handle, if any 
 0,0,0,0,0,0,0,//  PropertyOrFieldReference 
@@ -4502,7 +4505,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  references 
 0,0,0,0,0,0,0,//  Parse the 'annotations' array field. 
 0,0,0,0,0,0,0,//  Allow directly-present annotation to override annotations that are meta-present. 
-0,0,0,0,0,0,0,//  If srcType is any other reference or array type,   merge(srcType, dstType) = min(srcDdim, dstDim) | java/lang/Object   where srcDim is the array dimension of srcType, minus 1 if srcType is an array type   with a non reference element type (and similarly for dstDim). 
+0,0,1,0,0,0,0,//  If srcType is any other reference or array type,   merge(srcType, dstType) = min(srcDdim, dstDim) | java/lang/Object   where srcDim is the array dimension of srcType, minus 1 if srcType is an array type   with a non reference element type (and similarly for dstDim). 
 0,0,0,0,0,0,0,//  The simple case... nothing to bind. 
 0,0,0,0,0,0,0,//  Indicate that no message has been received. 
 0,0,0,0,0,0,0,//  Check if bean definition exists in this factory. 
@@ -4534,6 +4537,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Ignore: no target connection yet. 
 0,0,0,0,0,0,0,//  Quick check without a lock... 
 0,0,0,0,0,0,0,//  underlying File is asked for so that the last modified time can be checked... 
+0,0,0,0,0,0,0,// 2
 0,0,0,0,0,0,0,//  varargs short 
 0,0,0,0,0,0,0,//  Find all HandlerMappings in the ApplicationContext, including ancestor contexts. 
 0,0,0,0,0,0,0,//  must not add if collection is empty... 
@@ -4550,6 +4554,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Check for JPA support, and if present add the PersistenceAnnotationBeanPostProcessor. 
 0,0,0,0,0,0,0,//  Discover whether the location is an absolute or relative URI 
 0,0,0,0,0,0,0,//  SPR-10550 
+0,0,0,0,0,0,0,// 3
 0,0,0,0,0,0,0,//  e.g. AccessControlException on Google App Engine 
 0,0,0,0,0,0,0,//  Recurse through lower levels 
 0,0,0,0,0,0,0,//  /foo/bar should be overridden in concrete subclass 
@@ -4557,10 +4562,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Not fully initialized yet -> return null to indicate "not known yet". 
 0,0,0,0,0,0,0,//  we have a non-empty properties string 
 0,0,0,0,0,0,0,//  if determineRemaining is true, this is set to the position in   the candidate where the pattern finished matching - i.e. it   points to the remaining path that wasn't consumed 
-0,0,0,0,0,0,0,//  No early bean instantiation possible: determine FactoryBean's type from   static factory method signature or from class inheritance hierarchy... 
+0,0,1,0,0,0,0,//  No early bean instantiation possible: determine FactoryBean's type from   static factory method signature or from class inheritance hierarchy... 
 0,0,0,1,0,1,1,//  IE workaround: write into byte array first. 
 0,0,0,0,0,0,0,//  SPR-16494   https://github.com/reactor/reactor-netty/issues/283 
 0,0,0,0,0,0,0,//  Grab the locale-specific version of the template. 
+0,0,0,0,0,0,0,// 4 
 0,0,0,0,0,0,0,//  Proper TRACE response coming from a handler - we're done. 
 0,0,0,0,0,0,0,//  -----------------------------------------------------------------------------------------------   Constructors and factories   ----------------------------------------------------------------------------------------------- 
 0,0,0,0,0,0,0,//  SPR-12287 (16/Oct/14 comments) 
@@ -4569,6 +4575,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  attempt to retrieve the instance by its generated bean name 
 0,0,0,0,0,0,0,//  Fetch JTA TransactionSynchronizationRegistry from JNDI, if necessary. 
 0,0,0,0,0,0,0,//  exception occurred, eviction skipped, data should still be in the cache 
+0,0,0,0,0,0,0,// 5 
 0,0,0,0,0,0,0,//  Retrieve the new max of the sequence column... 
 0,0,0,0,0,0,0,//  SPR-6877 
 0,0,0,0,0,0,0,//  SPR-14761 
@@ -4673,7 +4680,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  non static field 
 0,0,0,0,0,0,0,//  due to a warning in Quartz 2.2's JobStoreCMT 
 0,0,0,0,1,1,1,//  and 08xxx will be data resource failure (non-transient) picked up by the fallback SQLState translator 
-0,0,0,1,1,1,1,//  TODO Enable TestNG test with timeout once we have a solution.
 0,0,0,0,0,0,0,//  We need a transaction for this method...
 0,0,0,0,0,0,0,//  wait for the entry to expire 
 0,0,0,0,0,0,0,//  Subscription should have happened by now due to ChannelSendOperator 
@@ -4691,7 +4697,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  placeholders nested within the value of "p4" are unresolvable and cause an 
 0,0,0,0,0,0,0,//  Plain bean instance -> register it directly. 
 0,0,0,0,0,0,0,//  parseCheck("new int[] {1, 2, 3, 4, 5}", "new int[] {1,2,3,4,5}");   }   
-0,0,0,0,0,0,0,//  Explicitly check for identity too: for Connection handles that do not implement   "equals" properly, such as the ones Commons DBCP exposes). 
+0,0,1,1,0,1,1,//  Explicitly check for identity too: for Connection handles that do not implement   "equals" properly, such as the ones Commons DBCP exposes). 
 0,0,0,0,0,0,0,//  Call any method: should cause automatic tx invocation 
 0,0,0,0,0,0,0,//  -- AND and NOT -- 
 0,0,0,0,0,0,0,//  Passing (Integer, String[]) on call to (String, String[]) is exact match 
@@ -5057,7 +5063,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// SPR-16754 
 0,0,0,0,0,0,0,//  No way to verify queue capacity 
 0,0,0,0,0,0,0,//  SPR-9445   without null conversion 
-0,0,1,0,0,0,0,// 			org.springframework.expression.spel.SpelEvaluationException: EL1008E:(pos 15): Property or field 'wibble' cannot be found on object of type 'org.springframework.expression.spel.testresources.ArrayContainer' - maybe not public?  					at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225) 
+0,0,0,0,0,0,0,// 			org.springframework.expression.spel.SpelEvaluationException: EL1008E:(pos 15): Property or field 'wibble' cannot be found on object of type 'org.springframework.expression.spel.testresources.ArrayContainer' - maybe not public?  					at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225) 
 0,0,0,0,0,0,0,//  Invoke method on current EntityManager. 
 0,0,0,0,0,0,0,//  Legacy ContextLoaders don't know how to process classes 
 0,0,0,0,0,0,0,//  First, build the clients 
@@ -5084,7 +5090,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Invoke factory processors registered with the context instance. 
 0,0,0,0,0,0,0,//  Use path info if available. Indicates index page within a servlet mapping?   e.g. with index page: URI="/", servletPath="/index.html"
 0,0,0,0,0,0,0,//  We need a proxy and a JndiObjectTargetSource. 
-0,0,1,0,1,1,1,/*  * Auto proxy creator that identifies beans to proxy via a list of names. * Checks for direct, "xxx*", and "*xxx" matches. * * <p>For configuration details, see the javadoc of the parent class * AbstractAutoProxyCreator. Typically, you will specify a list of * interceptor names to apply to all identified beans, via the * "interceptorNames" property. * * @author Juergen Hoeller * @since 10.10.2003 * @see #setBeanNames * @see #isMatch * @see #setInterceptorNames * @see AbstractAutoProxyCreator  */
+0,0,0,0,1,1,1,/*  * Auto proxy creator that identifies beans to proxy via a list of names. * Checks for direct, "xxx*", and "*xxx" matches. * * <p>For configuration details, see the javadoc of the parent class * AbstractAutoProxyCreator. Typically, you will specify a list of * interceptor names to apply to all identified beans, via the * "interceptorNames" property. * * @author Juergen Hoeller * @since 10.10.2003 * @see #setBeanNames * @see #isMatch * @see #setInterceptorNames * @see AbstractAutoProxyCreator  */
 0,0,0,0,0,0,0,//  Use same EntityManager for further JPA operations within the transaction.   Thread-bound object will get removed by synchronization at transaction completion. 
 0,0,0,0,0,0,0,//  Force static initializers to run. 
 0,0,0,0,0,0,0,//  Convert Collection elements to array elements. 
@@ -5191,7 +5197,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  AST: 
 0,0,1,0,0,0,0,//  Short "0" or "-1" like values are never valid HTTP date headers...   Let's only bother with DateTimeFormatter parsing for long enough values. 
 0,0,0,0,0,0,0,//  SPR-13319 
-0,0,0,0,0,0,0,//  Just use default parent if we're not dealing with the parent itself,   and if there's no class name specified. The latter has to happen for 
+0,0,1,0,0,0,0,//  Just use default parent if we're not dealing with the parent itself,   and if there's no class name specified. The latter has to happen for 
 0,0,0,0,0,0,0,//  replace the request context with one containing the errors 
 0,0,0,0,0,0,0,//  SPR-9571 and SPR-14363 
 0,0,0,0,0,0,0,//  SPR-17144 
@@ -5440,8 +5446,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  bootstrap method. 
 0,0,0,0,0,0,0,//  Skip the argument descriptor content. 
 0,0,0,0,0,0,0,//  If the declared descriptors aren't providing the information, try the actual descriptors 
-0,0,1,0,0,0,0,//  Note: the following would fail since TestExecutionListeners in   the Spring TestContext Framework are not applied to the enclosing   instance of an inner test class.     assertEquals("foo", foo); 
-0,0,1,0,0,0,0,//  Switch to manual commit if necessary. This is very expensive in some JDBC drivers,   so we don't want to do it unnecessarily (for example if we've explicitly   configured the connection pool to set it already).
+0,0,0,0,0,0,0,//  Note: the following would fail since TestExecutionListeners in   the Spring TestContext Framework are not applied to the enclosing   instance of an inner test class.     assertEquals("foo", foo); 
+0,0,0,0,0,0,0,//  Switch to manual commit if necessary. This is very expensive in some JDBC drivers,   so we don't want to do it unnecessarily (for example if we've explicitly   configured the connection pool to set it already).
 0,0,0,0,0,0,0,//  non static getter 
 0,0,0,0,0,0,0,//  Change back, relying on casting to Advised 
 0,0,0,0,0,0,0,//  SPR-13582 
@@ -5569,7 +5575,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Three outcomes of that previous line:   1) the input argument was already compatible (ie. array of valid type) and nothing was done   2) the input argument was correct type but not in an array so it was made into an array 
 0,0,0,0,0,0,0,//  a series of identifiers and dollars into a single identifier. 
 0,0,0,0,0,0,0,//  exclude this class from scanning since it's in the scanned package 
-0,0,1,0,0,0,0,//  Shortcut: use the pre-converted values as-is. 
+0,0,0,0,0,0,0,//  Shortcut: use the pre-converted values as-is. 
 0,0,0,0,0,0,0,//  We need to use the default. 
 0,0,0,0,0,0,0,//  right/left 
 0,0,0,0,0,0,0,//  String is exhausted 
@@ -6178,13 +6184,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  before configuration class processing kicks in... 
 0,0,0,0,0,0,0,//  ternary operator 
 0,0,0,0,0,0,0,//  in the control flow graph to the list of blocks to process (if not already done). 
-0,0,0,0,0,0,0,//  This is what you had to do before the changes in order for it to compile: 
+0,0,1,0,0,0,0,//  This is what you had to do before the changes in order for it to compile: 
 0,0,0,0,0,0,0,//  should never happen.. 
 0,0,0,0,0,0,0,//  transform stuff 
 0,0,0,0,0,0,0,// depthPlusOne(exitTypeDescriptor)+"Ljava/lang/Object;"); 
 0,0,0,0,0,0,0,//  SPR-11052 
 0,0,0,0,0,0,0,//  Overridable template methods for cache initialization 
 0,0,0,0,0,0,0,//  ignore - probably running on JDK without the JAX-WS impl present 
+0,0,0,0,0,0,0,// 1.0
 0,0,0,0,0,0,0,//  put null in as a value... 
 0,0,0,0,0,0,0,//  If the string name is changing the accessor is clearly going to change (so no compilation possible) 
 0,0,0,0,0,0,0,//  Effectively checking object equality as well as toString equality.   On WebSphere MQ, Destination objects do not implement equals... 
@@ -6562,7 +6569,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Additional, ASM specific constants used in abstract types below. 
 0,0,0,0,0,0,0,//  Can't compile this as we aren't going down the gettrue() branch in our evaluation 
 0,0,0,0,0,0,0,//  4xx 
-0,0,0,0,0,0,0,//  Proxy mode should create new scoped object on each method call 
+0,0,1,0,0,0,0,//  Proxy mode should create new scoped object on each method call 
 0,0,0,0,0,0,0,//  Here the declaring class is not public 
 0,0,0,0,0,0,0,//  Accessors for the resulting MessageHeaders 
 0,0,0,0,0,0,0,//  Since ControllerAdviceBean currently treats PriorityOrdered the same as Ordered,   OrderedControllerAdvice is sorted before PriorityOrderedControllerAdvice. 
@@ -6618,7 +6625,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Tell the internal bean factory to use the context's class loader etc. 
 0,0,0,0,0,0,0,//  gh-23576 
 0,0,0,0,0,0,0,//  missing method 
-0,0,1,0,0,0,0,//  Externally configured prefix via PathConfigurer.. 
+0,0,0,0,0,0,0,//  Externally configured prefix via PathConfigurer.. 
 0,0,0,0,0,0,0,//  gh-23310 
 0,0,0,0,0,0,0,//  - The constant pool index contained in the Signature attribute, or 0. 
 0,0,0,0,0,0,0,//  the expressionString ran out before the suffix could entirely be found 
@@ -6797,6 +6804,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Here we do not extract the labels corresponding to the attribute content. We assume they   are the same or a subset of those of the LocalVariableTable attribute. 
 0,0,0,0,0,0,0,//  projections and selections 
 0,0,0,0,0,0,0,//  Fall back to class name as cache key, for backwards compatibility with custom callers. 
+0,0,0,0,0,0,0,//  7.5.4.3 
 0,0,0,0,0,0,0,//  Read API methods to be implemented or template methods to override... 
 0,0,0,0,0,0,0,//  Only set parent context as parent ThemeSource if no parent ThemeSource   registered already. 
 0,0,0,0,0,0,0,//  Don't sweat on exceptions; assume value was modified 
@@ -6809,6 +6817,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  (whose size depends on its path_length field). 
 0,0,0,0,0,0,0,//  Publish the context as a servlet context attribute. 
 0,0,0,0,0,0,0,//  SPR-12854 
+0,0,0,0,0,0,0,//  7.5.4.2 
 0,0,0,0,0,0,0,//  collaborator interface that makes it easy to test this aspect is   working as expected through mocking. 
 0,0,0,0,0,0,0,//  Search subdirectories recursively: ServletContext.getResourcePaths   only returns entries for one directory level. 
 0,0,0,0,0,0,0,//  Visit the frame and its content. 
@@ -6844,7 +6853,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Note that we need to construct a new proxy factory, 
 0,0,0,0,0,0,0,//  parse: @beanname @'bean.name' 
 0,0,0,0,0,0,0,//  probably from a placeholder 
-0,0,0,0,0,0,0,//  Redefined with public visibility. 
+0,0,1,0,0,0,0,//  Redefined with public visibility. 
 0,0,0,0,0,0,0,//  Access double array 
 0,0,1,0,0,0,0,//  We're at the top of the nested object hierarchy,   so the present level is not a field but rather the top object.   The best we can do is register a global error here... 
 0,0,0,0,0,0,0,//  ArrayList containing List<Integer> to List<String> 
@@ -6854,7 +6863,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  parameter 
 0,0,0,0,0,0,0,//  Reset the ConnectionHolder: It might remain bound to the thread. 
 0,0,0,0,0,0,0,//  trailing semicolon 
-0,0,1,0,0,0,0,//  Full check within synchronization, entering the BeanFactory interaction algorithm only once... 
+0,0,0,0,0,0,0,//  Full check within synchronization, entering the BeanFactory interaction algorithm only once... 
 0,0,0,0,0,0,0,//  SPR-12984 
 0,0,0,0,0,0,0,//  "down" the annotation hierarchy. 
 0,0,0,0,0,0,0,//  Remove header if available 
@@ -6891,7 +6900,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Selection isn't compilable. 
 0,0,0,0,0,0,0,//  With developer builds we get: <MyBean><string>foo</string></MyBean>   But on CI server we get: <MyBean xmlns=""><string>foo</string></MyBean> 
 0,0,0,0,0,0,0,//  root or empty path 
-0,0,1,1,1,1,1,//  TODO correct end position?
 0,0,0,0,0,0,0,// ---------------------------------------------------------------------------------------   Convenience methods for sending messages to and receiving the reply from a destination  --------------------------------------------------------------------------------------- 
 0,0,0,0,0,0,0,//  OPTIONS 
 0,0,0,0,0,0,0,//  We want to see everything, and allow configuration of log levels dynamically. 
@@ -7175,7 +7183,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Explicit parse events 
 0,0,0,0,0,0,0,//  Now let's try it with the special target 
 0,0,0,0,0,0,0,//  -----------------------------------------------------------------------------------------------   Methods to get class names, internal names or descriptors.   ----------------------------------------------------------------------------------------------- 
-0,0,1,0,0,0,0,//  Remove the connection holder from the thread, if exposed. 
+0,0,0,0,0,0,0,//  Remove the connection holder from the thread, if exposed. 
 0,0,0,0,0,0,0,// ---------------------------------------------------------------------   Template methods to be implemented in subclasses  --------------------------------------------------------------------- 
 0,0,0,0,0,0,0,//  If this is a bridge and we know the target was called from invokespecial,   then we need to invoke_virtual w/ the bridge target instead of doing   a super, because super may itself be using super, which would bypass   any proxies on the target. 
 0,0,0,0,0,0,0,//  Get directly 
@@ -7508,7 +7516,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Check that toString doesn't cause a problem 
 0,0,0,0,0,0,0,//  A plain value: convert it to an array with a single component. 
 0,0,0,0,0,0,0,//  Check name with just dots replaced 
-0,0,0,1,1,1,1,//  TODO Fails related to conversion service converting a String[] to satisfy Object...  		expression = parser.parseExpression("sixteen(stringArray)");  		assertCantCompile(expression);  		expression.getValue(tc);  		assertEquals("aaabbbccc", tc.s);  		assertCanCompile(expression);  		tc.reset();  		expression.getValue(tc);  		assertEquals("aaabbbccc", tc.s);  		tc.reset();
 0,0,1,0,0,0,0,/* 	 * Return the isolation level.	 * <p>Must return one of the {@code ISOLATION_XXX} constants defined on	 * {@link TransactionDefinition this interface}. Those constants are designed	 * to match the values of the same constants on {@link java.sql.Connection}.	 * <p>Exclusively designed for use with {@link #PROPAGATION_REQUIRED} or	 * {@link #PROPAGATION_REQUIRES_NEW} since it only applies to newly started	 * transactions. Consider switching the "validateExistingTransactions" flag to	 * "true" on your transaction manager if you'd like isolation level declarations	 * to get rejected when participating in an existing transaction with a different	 * isolation level.	 * <p>The default is {@link #ISOLATION_DEFAULT}. Note that a transaction manager	 * that does not support custom isolation levels will throw an exception when	 * given any other level than {@link #ISOLATION_DEFAULT}.	 * @return the isolation level	 * @see #ISOLATION_DEFAULT	 * @see org.springframework.transaction.support.AbstractPlatformTransactionManager#setValidateExistingTransaction	  */
 0,0,0,0,0,0,0,//  Prepare target URL. 
 0,0,0,0,0,0,0,//  In case user the forgot to call visitEnd(). 
@@ -7578,7 +7585,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Don't swallow, probably misconfiguration... 
 0,0,0,0,0,0,0,//  ignore (see class-level doc) 
 0,0,0,0,0,0,0,//  Create a shared aspect instance. 
-0,0,1,1,0,1,1,//  Delay send since server processes concurrently   Ideally order should be preserved or receipts supported (simple broker) 
+0,0,0,1,0,1,1,//  Delay send since server processes concurrently   Ideally order should be preserved or receipts supported (simple broker) 
 0,0,0,0,0,0,0,//  Visit the RuntimeInvisibleAnnotations attribute. 
 0,0,0,0,0,0,0,//  Check it's a singleton 
 0,0,0,0,0,0,0,//  ServletConfig gets precedence 

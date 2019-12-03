@@ -10,7 +10,6 @@ SATD	 todo should leave this setting slfj
 SATD	 fixme when the thread pool full cannot return properly therefore the consumer side has wait until gets timeout this temporary solution prevent this scenario from happening but better solution should considered later 
 SATD	 the initial value null and the midway may assigned null please use the local variable reference 
 SATD	 fixme requestcontext 
-SATD	 possible here 
 SATD	 for example object transported the wire doesnt implement serializable 
 SATD	 bug dubbo 
 SATD	 fixme log error message codec and handle caught iohanndler 
@@ -19,13 +18,11 @@ SATD	 this unstable consider remove later see
 SATD	 bug dubbo 
 SATD	 todo more sophisticated exception handling and output 
 SATD	 todo for now kryo serialization doesnt deny classes that dont implement the serializable interface pre ltdubboprotocol serializationkryo pre 
-SATD	 delimstart was escaped thus should not incremented 
 SATD	 todo users can override this mapper but just rely the current priority strategy resteasy 
 SATD	 fixme waiting for embedded nacos suport then can open the switch 
 SATD	 todo generic invoker 
 SATD	 fixme this instance will always type configcenterconfig will load the instance startup and assign here 
 SATD	 todo not want use spaces see dubbo url class handles special conventions for special characters 
-SATD	 should destroy resource 
 SATD	 hack use reflection get the shared channel 
 SATD	 todo notification failure does not restore mechanism guarantee 
 SATD	 todo fix npe 
@@ -37,7 +34,6 @@ SATD	 todo refactor using mockito
 SATD	 generally client can only closed once here closed twice counter incorrect 
 SATD	 todo temporary solution the problem that the exception information can not sent the opposite end after the thread pool full need refactoring fix the thread pool full refuses call does not return and causes the consumer wait for time out 
 SATD	 todo the future maybe can just use single rest client and connection manager 
-SATD	 caution 
 SATD	 todo solve merge problem 
 SATD	 fixme hack make work 
 SATD	 the buffer big enough 
@@ -74,7 +70,6 @@ SATD	 todo more configs add
 SATD	 bug dubbo provider doesnt have exception output and consumer has timeout error when serialization fails 
 SATD	 fixme theres place release connectionexecutor 
 SATD	 todo refactor 
-SATD	 every invoker has the same weight 
 SATD	 todo this may not pretty elegant solution 
 SATD	 fixme log error info codec and put all error handle logic iohanndler 
 SATD	 cant shutdown nioeventloopgroup because the method will invoked when closing one channel but not client but when and how close the nioeventloopgroup 
@@ -321,6 +316,7 @@ WITHOUT_CLASSIFICATION	 the least active value all invokers
 WITHOUT_CLASSIFICATION	 its generic reference 
 WITHOUT_CLASSIFICATION	 windows ctrlc 
 WITHOUT_CLASSIFICATION	 double check avoid dup close 
+WITHOUT_CLASSIFICATION	 possible here 
 WITHOUT_CLASSIFICATION	 reference config default values will take effect references attribute not set 
 WITHOUT_CLASSIFICATION	 onresponse callback 
 WITHOUT_CLASSIFICATION	 close once counter counts down from warning occurs 
@@ -345,6 +341,7 @@ WITHOUT_CLASSIFICATION	 double byte char
 WITHOUT_CLASSIFICATION	 close all invokers 
 WITHOUT_CLASSIFICATION	 service statistics invocation cost current concurrent count 
 WITHOUT_CLASSIFICATION	 fixme 
+WITHOUT_CLASSIFICATION	 status switch available once invoke again 
 WITHOUT_CLASSIFICATION	 present local url but not remote url 
 WITHOUT_CLASSIFICATION	 from ancestor 
 WITHOUT_CLASSIFICATION	 backward compatibility 
@@ -498,6 +495,7 @@ WITHOUT_CLASSIFICATION	 encode
 WITHOUT_CLASSIFICATION	 ignore 
 WITHOUT_CLASSIFICATION	 range cases 
 WITHOUT_CLASSIFICATION	 header length 
+WITHOUT_CLASSIFICATION	 delimstart was escaped thus should not incremented 
 WITHOUT_CLASSIFICATION	 todo comment protocolutils 
 WITHOUT_CLASSIFICATION	 item name 
 WITHOUT_CLASSIFICATION	 containing all routers reconstruct every time route urls change 
@@ -640,6 +638,7 @@ WITHOUT_CLASSIFICATION	 null url
 WITHOUT_CLASSIFICATION	 create class 
 WITHOUT_CLASSIFICATION	 are interested all interfaces find out the current container create one for the url put get only once 
 WITHOUT_CLASSIFICATION	 null out prev and next allow for 
+WITHOUT_CLASSIFICATION	 should destroy resource 
 WITHOUT_CLASSIFICATION	 build pool with softreferences enabled optional 
 WITHOUT_CLASSIFICATION	 final string onerror continue 
 WITHOUT_CLASSIFICATION	 object bytearray 
@@ -823,6 +822,7 @@ WITHOUT_CLASSIFICATION	 without routerkey the first router should not created
 WITHOUT_CLASSIFICATION	 search commonused logging frameworks 
 WITHOUT_CLASSIFICATION	 sorting makes easy compare between lists 
 WITHOUT_CLASSIFICATION	 wait close done 
+WITHOUT_CLASSIFICATION	 caution 
 WITHOUT_CLASSIFICATION	 biz exception 
 WITHOUT_CLASSIFICATION	 bind annotation attributes 
 WITHOUT_CLASSIFICATION	 max times retry save properties local cache file 
@@ -1488,6 +1488,7 @@ WITHOUT_CLASSIFICATION	 will check enabled status inside each router
 WITHOUT_CLASSIFICATION	 default cachesize for lru should have cache expired invoke more than times 
 WITHOUT_CLASSIFICATION	 get statistics data 
 WITHOUT_CLASSIFICATION	 registered services 
+WITHOUT_CLASSIFICATION	 fixme 
 WITHOUT_CLASSIFICATION	 save any parameter registry that will useful the new url 
 WITHOUT_CLASSIFICATION	 abnormal case 
 WITHOUT_CLASSIFICATION	 quick check the concurrent map first with minimal locking 
@@ -1521,6 +1522,7 @@ WITHOUT_CLASSIFICATION	 process return type
 WITHOUT_CLASSIFICATION	 timeout registrytimeout int file registryfile string wait registrywait int transport registrytransporter string netty mina subscribe subscribe boolean true false 
 WITHOUT_CLASSIFICATION	 message length 
 WITHOUT_CLASSIFICATION	 short name condition 
+WITHOUT_CLASSIFICATION	 every invoker has the same weight 
 WITHOUT_CLASSIFICATION	 todo calculate consumeraddressnum 
 WITHOUT_CLASSIFICATION	 add method for verifying against method automatic fallback see dubbo protocol 
 WITHOUT_CLASSIFICATION	 template method 

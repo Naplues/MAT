@@ -16,6 +16,7 @@
 1, Line, // TODO need a better way to do this 
 1, Line, //  TODO: Need to be able to set the tick tuple time to the message timeout, ideally without parameterization 
 1, Block, /*              * Connection is unavailable. We will drop pending messages and let at-least-once message replay kick in.             *             * Another option would be to buffer the messages in memory.  But this option has the risk of causing OOM errors,             * especially for topologies that disable message acking because we don't know whether the connection recovery will             * succeed  or not, and how long the recovery will take.              */
+1, Line, //  TODO add metrics
 1, Line, //  TODO: consider adding a shuffle grouping after the spout to avoid so much routing of the args/return-info all over the place   (at least until its possible to just pack bolt logic into the spout itself) 
 1, Line, //  This is a hack for non-ras scheduler topology and worker resources 
 1, Line, // TODO move this logic to the model class 
@@ -28,7 +29,6 @@
 1, Line, //  FIXME: This class can be moved to webapp once UI porting is done. 
 1, Line, //  This isn't strictly necessary, but it doesn't hurt and ensures that the machine stays up   to date even if callbacks don't all work exactly right 
 1, Line, //  To work around it we should get it an alternative (working) way. 
-1, Line, //  Is the topology ZooKeeper authentication configuration unset? 
 1, Line, //  read s1 last....  This should cause s2 to be evicted on next put 
 1, Line, //  TODO more collection content type checking 
 1, Line, //  FIXME: We're using default config since it cannot be serialized   We still needs to provide some options externally 
@@ -36,6 +36,7 @@
 1, Line, // TODO put in some better exception mapping...  TODO move populateContext to a filter... 
 1, Line, //  should we fail the batch or kill the worker? 
 1, Line, // Getting the exact response code is a bit more complex.  TODO should use a better client 
+1, Line, //  TODO: de-duplicate this logic with the code in nimbus
 1, JavaDoc, /*      * TODO: should worker even take the topologyId as input? this should be deducible from cluster state (by searching through assignments)     * what about if there's inconsistency in assignments? -> but nimbus should guarantee this consistency.     *     * @param conf           - Storm configuration     * @param context        -     * @param topologyId     - topology id     * @param assignmentId   - assignment id     * @param supervisorPort - parent supervisor thrift server port     * @param port           - port on which the worker runs     * @param workerId       - worker id      */
 1, Line, // This is a bit ugly, but it shows how this would happen in a worker so we will use the same APIs 
 1, Line, //  FIXME: stores map (topoConf), topologyContext and expose these to derived classes 
@@ -58,6 +59,7 @@
 1, Line, // TODO: do the inner join incrementally, emitting the cross join with this tuple, against all other sides  TODO: only do cross join if at least one tuple in each side 
 1, Line, // TODO once everything is in java this should not be possible any more 
 1, Line, // heck for backward compatibility, we need to pass TOPOLOGY_AUTO_CREDENTIALS to hbase conf  the conf instance is instance of persistentMap so making a copy. 
+1, Line, //  TODO: handle regular rich spout without batches (need lots of updates to support this throughout)
 1, Line, // This is a hack to allow ZooKeeperMain to be called by this command. 
 1, Line, // Perhaps there is a better way to do this??? 
 1, Line, //  TODO: can optimize further by only querying backing map for keys not in the cache 
@@ -67,9 +69,9 @@
 1, Line, //  TODO: What would be a good test to ensure that RankableObjectWithFields is at least somewhat defensively copied? 
 1, Line, //  TODO: in the future, want a way to include this logic in the spout itself,   or make it unnecessary by having storm include metadata about which grouping a tuple   came from 
 1, Line, //  TODO: does this work well on windows? 
-1, Line, //  FileContext supports atomic rename, whereas FileSystem doesn't 
 1, Line, // Not enough guaranteed use the age of the topology instead.  TODO need a good way to only do this once... 
 1, Line, //  Use parseWithException instead of parse so we can capture deserialization errors in the log.   They are likely to be bugs in the spout code. 
+1, Line, // TODO: add logging that not all tuples were received
 1, Line, //  TODO: take away knowledge of storm's internals here 
 1, Line, // TODO we should handle '\n'. ref DelimitedRecordFormat 
 1, Block, /*  TODO: make sure test these two functions in manual tests  */
@@ -598,7 +600,6 @@
 0, Line, // One time scheduling. 
 0, Line, //  Regardless of TICKET_RENEW_WINDOW setting above and the ticket expiry time,   thread will not sleep between refresh attempts any less than 1 minute (60*1000 milliseconds = 1 minute). 
 0, Line, // and to wait for the message to get through to the spout (acks use the same path as timeout resets) 
-0, Line, //  TODO add metrics
 0, Line, // subprocesses must send their pid first thing 
 0, Line, //  null for __system bolt 
 0, Line, //  assume that Get doesn't have any families defined. this is for not digging deeply...
@@ -1010,6 +1011,7 @@
 0, Line, //  interval at which to commit offsets to zk in milliseconds 
 0, Line, //  remove the slot from the existing assignments 
 0, Line, //  spout with 5 parallel instances 
+0, Line, //  Is the topology ZooKeeper authentication configuration unset?
 0, Line, // Just ignore these for now.  We are going to throw it away anyways 
 0, Line, //  holds remaining streams 
 0, Line, //  Class that has the logic to handle tuple failure.
@@ -1340,7 +1342,6 @@
 0, Line, //  level 3 - longer idling with Thread.sleep() 
 0, Line, //  This does not have to be atomic, worst case we update when one is not needed 
 0, Line, //  if the windows should be persisted in state 
-0, Line, //  TODO: de-duplicate this logic with the code in nimbus 
 0, Line, //  Define our taskIds and loads 
 0, Line, // Test for Supervisor Admin 
 0, Line, //  3) read another line and see if another log entry was made 
@@ -2214,7 +2215,6 @@
 0, Line, //  there's not enough bytes in the buffer. 
 0, Line, //         oneProducer1Consumer();          twoProducer1Consumer();          threeProducer1Consumer();          oneProducer2Consumers();          producerFwdConsumer(); 
 0, Line, // Should be allowed to retry 3 times, in addition to original try 
-0, Line, //  TODO: handle regular rich spout without batches (need lots of updates to support this throughout) 
 0, Line, //  check allowedWorkers only if the scheduler is not the Resource Aware Scheduler 
 0, Line, //  check that tryPublish() & tryOverflowPublish() work as expected 
 0, Line, // Put in a tuple to cause the first tuple to be acked 
@@ -2743,6 +2743,7 @@
 0, Line, //  The jitter allows the clients to get the data at different times, and avoids thundering herd 
 0, Line, // Ranked last since rack-2 has not cpu resources 
 0, Line, //  read 1st line and ack 
+0, Line, //  FileContext supports atomic rename, whereas FileSystem doesn't
 0, Line, // 3 seconds in milliseconds 
 0, Line, //  Use default, Storm-generated file names 
 0, Line, //  nothing expired yet 
@@ -2847,7 +2848,6 @@
 0, Line, // Fail tuple 5 and 3, call nextTuple, then fail tuple 2 
 0, Line, //  this bolt dosen't emit to downstream bolts 
 0, Line, // Check that a reemit emits exactly the same tuples as the last batch, even if Kafka returns more messages 
-0, Line, // TODO: add logging that not all tuples were received 
 0, Line, //  EXECUTE_LATENCY_MS 
 0, Line, // each context will have a single client channel worker event loop group 
 0, Line, //  try to find a way to merge this code with what's already done in TridentBoltExecutor 

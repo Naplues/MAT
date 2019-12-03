@@ -11,7 +11,6 @@
 1, Line, //  FIXME: when the thread pool is full, SERVER_THREADPOOL_EXHAUSTED_ERROR cannot return properly,   therefore the consumer side has to wait until gets timeout. This is a temporary solution to prevent   this scenario from happening, but a better solution should be considered later. 
 1, Line, //  The initial value is null and the midway may be assigned to null, please use the local variable reference 
 1, Line, //  FIXME REQUEST_CONTEXT 
-1, Line, // is it possible to go here ? 
 1, Line, //  for example, object transported on the wire doesn't implement Serializable 
 1, Line, // bug: DUBBO-425 
 1, Line, //  FIXME log error message in Codec and handle in caught() of IoHanndler? 
@@ -20,13 +19,11 @@
 1, Line, //  bug: DUBBO-132 
 1, Line, //  TODO do more sophisticated exception handling and output 
 1, JavaDoc, /*  * TODO for now kryo serialization doesn't deny classes that don't implement the serializable interface * * <pre> *     e.g. &lt;dubbo:protocol serialization="kryo" /&gt; * </pre>  */
-1, Line, //  DELIM_START was escaped, thus should not be incremented 
 1, Line, //  TODO users can override this mapper, but we just rely on the current priority strategy of resteasy 
 1, Line, // FIXME: waiting for embedded Nacos suport, then we can open the switch. 
 1, Line, // TODO generic invoker？ 
 1, JavaDoc, /*      * FIXME, this instance will always be a type of DynamicConfiguration, ConfigCenterConfig will load the instance at startup and assign it to here.      */
 1, Line, //  TODO Do not want to use spaces? See: DUBBO-502, URL class handles special conventions for special characters. 
-1, Line, //  should destroy resource? 
 1, Line, //  hack, use reflection to get the shared channel.
 1, Line, //  TODO Notification failure does not restore mechanism guarantee 
 1, Line, // TODO fix npe  context.isProviderSide(); 
@@ -38,7 +35,6 @@
 1, Line, //  generally a client can only be closed once, here it is closed twice, counter is incorrect 
 1, Line, // TODO A temporary solution to the problem that the exception information can not be sent to the opposite end after the thread pool is full. Need a refactoring  fix The thread pool is full, refuses to call, does not return, and causes the consumer to wait for time out 
 1, Line, //  TODO in the future maybe we can just use a single rest client and connection manager 
-1, Line, //  Caution!! 
 1, Line, // TODO solve merge problem  = Constants.DEFAULT_STUB_EVENT; 
 1, Line, //  FIXME: a hack to make org.apache.dubbo.remoting.exchange.support.DefaultFuture.closeChannel work 
 1, Block, /*  is the buffer big enough?  */
@@ -75,7 +71,6 @@
 1, Line, //  BuG: DUBBO-146 Provider doesn't have exception output, and consumer has timeout error when serialization fails
 1, Line, //  FIXME There's no place to release connectionExecutor! 
 1, Line, //  TODO: refactor it 
-1, Line, //  If every invoker has the same weight? 
 1, JavaDoc, /*  * TODO this may not be a pretty elegant solution, *  */
 1, Line, //  FIXME log error info in Codec and put all error handle logic in IoHanndler? 
 1, Line, //  can't shutdown nioEventLoopGroup because the method will be invoked when closing one channel but not a client,   but when and how to close the nioEventLoopGroup ?   nioEventLoopGroup.shutdownGracefully(); 
@@ -322,6 +317,7 @@
 0, Line, //  it's a generic reference 
 0, Block, /*  Windows Ctrl+C  */
 0, Line, //  double check to avoid dup close 
+0, Line, // is it possible to go here ?
 0, Line, //  ======== Reference config default values, will take effect if reference's attribute is not set  ======== 
 0, Line, //  onResponse callback 
 0, Line, //  close once, counter counts down from 2 to 1, no warning occurs 
@@ -500,6 +496,7 @@
 0, Line, //  ignore 
 0, Line, //  range cases 
 0, Line, //  header length. 
+0, Line, //  DELIM_START was escaped, thus should not be incremented
 0, JavaDoc, /*  * TODO Comment of ProtocolUtils  */
 0, Line, //  item name. 
 0, Line, //  containing all routers, reconstruct every time 'route://' urls change. 
@@ -642,6 +639,7 @@
 0, Line, //  create class 
 0, Block, /*                  *  if we are interested in all interfaces,                 *  find out the current container or create one for the url, put or get only once.                  */
 0, Line, //  null out prev and next to allow for GC. 
+0, Line, //  should destroy resource?
 0, Line, //  Build pool with SoftReferences enabled (optional) 
 0, Line, // final String onerror = PerformanceUtils.getProperty("onerror", "continue"); 
 0, Line, // object to bytearray 
@@ -825,6 +823,7 @@
 0, Line, //  search common-used logging frameworks 
 0, Line, //  sorting makes it easy to compare between lists 
 0, Line, //  wait close done. 
+0, Line, //  Caution!!
 0, Line, //  biz exception 
 0, Line, //  Bind annotation attributes 
 0, Line, //  Max times to retry to save properties to local cache file 
@@ -1524,6 +1523,7 @@
 0, Line, //             {"timeout", "registry.timeout", "int", 5000, 9000, "", "", "", "", ""},              {"file", "registry.file", "string", "", "regConfForServiceTable.log", "", "", "", "", ""},              {"wait", "registry.wait", "int", 0, 9000, "", "", "", "", ""},              {"transport", "registry.transporter", "string", "netty", "mina", "", "", "", "", ""},              {"subscribe", "subscribe", "boolean", true, false, "", "", "", "", ""}, 
 0, Line, //  message length 
 0, Line, //  short name condition 
+0, Line, //  If every invoker has the same weight?
 0, Line, // TODO to calculate consumerAddressNum 
 0, Line, //  add method, for verifying against method, automatic fallback (see dubbo protocol) 
 0, Line, //  ==== Template method ==== 

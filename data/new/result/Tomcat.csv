@@ -4,24 +4,25 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// REMIND: rewrite multiple headers as if received as single  REMIND: change character set  REMIND: I forgot what the previous REMIND means 
 1,0,1,1,1,1,1,/*      * Wait for Acknowledgement from other server.     * FIXME Please, not wait only for three characters, better control that the wait ack message is correct.     * @throws IOException An IO error occurred      */
 1,0,0,0,1,1,1,/*      * Convert to char[] and fill the CharChunk.     * XXX Not optimized - it converts to String first.      */
-1,0,0,0,0,0,0,//  Create a dummy Include directive node 
 1,0,1,1,1,1,1,//  FIXME - behavior if already started? 
-1,0,0,0,1,1,1,//  TODO   - Should only use body encoding if useBodyEncodingForURI is true   - Otherwise, should use URIEncoding   - The problem is that the connector is not available...   - To add to the fun, the URI default changed in Servlet 4.0 to UTF-8 
+1,0,0,1,1,1,1,//  TODO   - Should only use body encoding if useBodyEncodingForURI is true   - Otherwise, should use URIEncoding   - The problem is that the connector is not available...   - To add to the fun, the URI default changed in Servlet 4.0 to UTF-8 
 1,0,1,1,1,1,1,//  TODO: This isn't pretty but it works. Significant refactoring would         be required to avoid the exception. 
-1,0,1,1,1,1,1,/*  * A <b>Cluster </b> implementation using simple multicast. Responsible for * setting up a cluster and provides callers with a valid multicast * receiver/sender. * * FIXME wrote testcases * * @author Remy Maucherat * @author Peter Rossbach  */
+1,0,0,1,1,1,1,/*  * A <b>Cluster </b> implementation using simple multicast. Responsible for * setting up a cluster and provides callers with a valid multicast * receiver/sender. * * FIXME wrote testcases * * @author Remy Maucherat * @author Peter Rossbach  */
 1,0,0,0,0,0,0,/*      * This only works for tokens. Quoted strings need more sophisticated     * parsing.      */
 1,0,1,1,1,1,1,/*  * This is a very basic ASN.1 parser that provides the limited functionality * required by Tomcat. It is a long way from a complete parser. * * TODO: Consider extending this parser and refactoring the SpnegoTokenFixer to *       use it.  */
 1,0,0,0,1,1,1,//  XXX ENCODING - this only works if encoding is UTF8-compat   ( ok for tomcat, where we compare ascii - header names, etc )!!! 
 1,0,1,1,1,1,1,//  FIXME - should we validate the return type? 
 1,0,1,0,1,1,1,//  Only try to negotiate if both client and server have at least   one protocol in common   Note: Tomcat does not explicitly negotiate http/1.1   TODO: Is this correct? Should it change? 
-1,0,0,1,1,1,1,//  FIXME How inform other session id cache like SingleSignOn 
+1,0,1,1,1,1,1,//  FIXME How inform other session id cache like SingleSignOn 
 1,0,1,0,0,0,0,/*          * Any call to this method is a result of a problem reading from the         * client. At this point that state of the connection is unknown.         * Attempt to send a close frame to the client and then close the socket         * immediately. There is no point in waiting for a close frame from the         * client because there is no guarantee that we can recover from         * whatever messed up state the client put the connection into.          */
 1,0,1,1,1,1,1,//  FIXME At sender ack mode this method check only the state         transfer and resend is a problem! 
-1,0,0,0,0,0,0,//  Doesn't work on all platforms - see BZ 56448. 
+1,0,1,0,1,1,1,//  If sessions already exist in DB, remove and insert again.   TODO:   * Check if ID exists in database and if so use UPDATE.
+1,0,1,0,0,0,0,//  Doesn't work on all platforms - see BZ 56448. 
 1,0,1,1,1,1,1,/*                      * FIXME: should probably be checking for things like                     * pageContext, bodyContent, and parent here -akv                      */
+1,0,1,1,1,1,1,//  Calling code should ensure that there is no data in the buffers for   non-blocking writes.   TODO Validate the assertion above
 1,0,0,0,0,0,0,/*  I don't know how to evaluate this!  */
 1,0,1,0,0,0,0,/*      * This method should only be called if there is no chance that the socket     * is currently being used by the Poller. It is generally a bad idea to call     * this directly from a known error condition.      */
-1,0,0,0,1,1,1,//  XXX   making these absolute till we work out the   addition of a PathInfo issue 
+1,0,1,0,1,1,1,//  XXX   making these absolute till we work out the   addition of a PathInfo issue 
 1,0,1,1,1,1,1,//  TODO: Do we need to think about precedence of the various ways         a lambda expression may be obtained from something that         the parser thinks is a function? 
 1,0,0,0,0,0,0,//  "surrogate" - UTF is _not_ 16 bit, but 21 !!!!   ( while UCS is 31 ). Amazing... 
 1,0,0,1,0,1,1,//  PROTOCOL_ERROR is probably better than GOING_AWAY here 
@@ -33,7 +34,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  Stupid - this will set the default minfo first.... 
 1,0,0,0,0,0,0,//  Work around a problem with the URLs in the security policy file.   On Windows, the use of ${catalina.[home|base]} in the policy file   results in codebase URLs of the form file:C:/... when they should   be file:/C:/...   For file: and jar: URLs, the JRE compensates for this. It does not   compensate for this for war:file:... URLs. Therefore, we do that   here 
 1,0,0,0,0,0,0,//  The Range header is present but not formatted correctly.   Could argue for a 400 response but 416 is more specific.   There is also the option to ignore the (invalid) Range header.   RFC7233#4.4 notes that many servers do ignore the Range header in   these circumstances but Tomcat has always returned a 416. 
-1,0,0,1,1,1,1,//  TODO: should we use the Ant Project's log? 
+1,0,1,1,1,1,1,//  TODO: should we use the Ant Project's log? 
 1,0,1,1,1,1,1,//  TODO: Should the createWebResourceSet() methods be removed to some         utility class for file system based resource sets? 
 1,0,0,0,0,0,0,// I'm not sure this is always exactly the same 
 1,0,1,0,1,1,1,/*  Initial size - should be == average number of headers per request     *  XXX  make it configurable ( fine-tuning of web-apps )      */
@@ -53,7 +54,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  Socket write buffer is empty. Write the provided buffer directly   to the network.   TODO Shouldn't smaller writes be buffered anyway? 
 1,0,1,0,1,1,1,//  XXX we shouldn't assume that the only kind of POST body   is FORM data encoded using ASCII or ISO Latin/1 ... or 
 1,0,1,1,1,1,1,/*      * TODO SERVLET3 - Add comments     * @param <T> TODO     * @param c   TODO     * @return TODO     * @throws ServletException TODO     * @throws UnsupportedOperationException    If called from a     *    {@link ServletContextListener#contextInitialized(ServletContextEvent)}     *    method of a {@link ServletContextListener} that was not defined in a     *    web.xml file, a web-fragment.xml file nor annotated with     *    {@link javax.servlet.annotation.WebListener}. For example, a     *    {@link ServletContextListener} defined in a TLD would not be able to     *    use this method.     * @since Servlet 3.0      */
-1,0,0,1,1,1,1,//  should notify pool of error so the pooled connection can   be removed !FIXME! 
+1,0,1,1,1,1,1,//  should notify pool of error so the pooled connection can   be removed !FIXME! 
 1,0,1,1,1,1,1,//  16 MB should be more than enough for Tomcat   TODO: Refactoring this entire class so it uses streaming rather than         buffering the entire set of files in memory would make it more         widely useful. 
 1,0,1,1,1,1,1,//  The JDBC spec requires that a statement closes any open   ResultSet's when it is closed.   FIXME The PreparedStatement we're wrapping should handle this for us. 
 1,1,1,1,1,1,1,//  This is a hack that won't work generally as servlets are expected to   handle more than one request. 
@@ -61,6 +62,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  The JDBC spec requires that a statement close any open   ResultSet's when it is closed.   FIXME The PreparedStatement we're wrapping should handle this for us.   See DBCP-10 for what could happen when ResultSets are closed twice. 
 1,0,1,1,1,1,1,/*  * A message that represents a drawing action. * Note that we use primitive types instead of Point, Color etc. * to reduce object allocation.<br><br> * * TODO: But a Color objects needs to be created anyway for drawing this * onto a Graphics2D object, so this probably does not save much.  */
 1,0,1,1,1,1,1,//  FIXME: Feature idea. Add support for patterns (ex: WEB-INF/*,          WEB-INF/*.xml), where we would only check if at least one          resource is newer than app.timestamp 
+1,0,0,0,0,0,0,// Jasper incorrectly SMAPs certain Nodes, giving them an  outputStartLine of 0.  This can cause a fatal error in  optimizeLineSection, making it impossible for Jasper to  compile the JSP.  Until we can fix the underlying
 1,0,1,1,1,1,1,//  XXX TODO: Source code line length   XXX TODO: More JavaDoc   XXX Optional: Add support for com.sun.management specific mbean                 (http://docs.oracle.com/javase/7/docs/jre/api/management/extension/index.html)   XXX Optional: Wire additional public static methods implemented here                 to the manager (think about manager access roles!)                   setLoggerLevel(),                   setVerboseClassLoading(),                   setThreadContentionMonitoringEnabled(),                   setThreadCpuTimeEnabled(),                   resetPeakThreadCount(),                   setVerboseGarbageCollection()                   gc(),                   resetPeakUsage(),                   setUsageThreshold(),                   setCollectionUsageThreshold() 
 1,0,1,1,1,1,1,/*      * TODO SERVLET3 - Add comments     * @param className TODO     * @throws UnsupportedOperationException    If called from a     *    {@link ServletContextListener#contextInitialized(ServletContextEvent)}     *    method of a {@link ServletContextListener} that was not defined in a     *    web.xml file, a web-fragment.xml file nor annotated with     *    {@link javax.servlet.annotation.WebListener}. For example, a     *    {@link ServletContextListener} defined in a TLD would not be able to     *    use this method.     * @since Servlet 3.0      */
 1,0,1,0,1,1,1,//  XXX Group ?? Use Group + Type 
@@ -68,6 +70,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,/*      * Get JMX Broadcaster Info     * FIXME: This two events we not send j2ee.state.failed and j2ee.attribute.changed!     * @see javax.management.NotificationBroadcaster#getNotificationInfo()      */
 1,0,1,1,1,1,1,/*      * keepalive     *     * @return boolean     * TODO Implement this org.apache.catalina.tribes.transport.DataSender method      */
 1,0,0,0,0,0,0,//  Has it been previously resolved? 
+1,0,1,1,1,1,1,//  TODO add other attributes
 1,0,1,1,1,1,1,//  TODO: These certificate setters can be removed once it is no longer   necessary to support the old configuration attributes (Tomcat 10?). 
 1,0,1,1,1,1,1,/*      * memberAdded     *     * @param member Member     * TODO Implement this org.apache.catalina.tribes.MembershipListener     *   method      */
 1,1,0,1,1,1,1,//  End of Tomcat specific hack 
@@ -103,7 +106,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  XXX Should be moved to embedded ! 
 1,0,0,0,0,0,0,/*      * Returns the contents of the file as a String, using the default     * character encoding.  This method uses {@link #get()} to retrieve the     * contents of the file.     *     * <b>TODO</b> Consider making this method throw UnsupportedEncodingException.     *     * @return The contents of the file, as a string.      */
 1,0,1,1,1,1,1,/*      * TODO SERVLET3 - Add comments     * @param wrapped The request to compare to the wrapped request     * @return <code>true</code> if the request wrapped by this wrapper (or     *         series of wrappers) is the same as the supplied request,     *         otherwise <code>false</code>     * @since Servlet 3.0      */
-1,0,0,1,1,1,1,/*  Get JMX Broadcaster Info     * @TODO use StringManager for international support!     * @TODO This two events we not send j2ee.state.failed and j2ee.attribute.changed!     * @see javax.management.NotificationBroadcaster#getNotificationInfo()      */
+1,0,0,0,1,1,1,/*  Get JMX Broadcaster Info     * @TODO use StringManager for international support!     * @TODO This two events we not send j2ee.state.failed and j2ee.attribute.changed!     * @see javax.management.NotificationBroadcaster#getNotificationInfo()      */
 1,0,0,0,0,0,0,//  Close the socket, as the response would be incomplete 
 1,0,1,1,1,1,1,/*      * memberDisappeared     *     * @param member Member     * TODO Implement this org.apache.catalina.tribes.MembershipListener     *   method      */
 1,0,1,1,1,1,1,//  FIXME - currently this removes *all* notifications for this listener 
@@ -133,7 +136,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// FIXME check url or host/parameter 
 1,0,1,1,1,1,1,//  TODO: Can this limitation be removed? 
 1,0,1,1,1,1,1,//  FIXME better is to grap this sessions again ! 
-1,1,0,0,1,1,1,/*          * The test below deliberately uses != to compare two Strings. This is         * because the code is looking to see if the default character encoding         * has been returned because no explicit character encoding has been         * defined. There is no clean way of doing this via the Servlet API. It         * would be possible to add a Tomcat specific API but that would require         * quite a bit of code to get to the Tomcat specific request object that         * may have been wrapped. The != test is a (slightly hacky) quick way of         * doing this.          */
+1,1,0,0,0,0,0,/*          * The test below deliberately uses != to compare two Strings. This is         * because the code is looking to see if the default character encoding         * has been returned because no explicit character encoding has been         * defined. There is no clean way of doing this via the Servlet API. It         * would be possible to add a Tomcat specific API but that would require         * quite a bit of code to get to the Tomcat specific request object that         * may have been wrapped. The != test is a (slightly hacky) quick way of         * doing this.          */
 1,0,1,0,1,1,1,//  XXX - Actually there is no need to declare those   "_jspx_" + varName + "_" + nestingLevel variables when we are   inside a JspFragment. 
 1,0,1,1,1,1,1,//  XXX - Fixed a bug here - width and height can be set   dynamically. Double-check if this generation is correct. 
 1,0,1,1,0,1,1,//  Ugly but the easiest way to test of the session is valid or not 
@@ -141,7 +144,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// were using a shared channel, document says its thread safe  TODO check optimization, one channel per thread? 
 1,0,1,1,1,1,1,//  FIXME: Older spec revisions may still check this 
 1,0,1,1,1,1,1,/*      * connect - blocking in this operation     *     * @throws IOException     * TODO Implement this org.apache.catalina.tribes.transport.IDataSender method      */
+1,0,1,0,1,1,1,//  XXX   should a length of 0 be an IllegalArgumentException
+1,0,1,1,1,1,1,//  TODO Add a new state to the AsyncStateMachine and remove        ASYNC_END (if possible)
 1,0,0,0,0,0,0,//  Note: Hard-coded domain used since this object is per Server/JVM 
+1,0,1,1,1,1,1,//  TODO - May need to add code here once additional   states are used
 1,0,1,0,1,1,1,/*  * Changes from commons.modeler: * *  - use DynamicMBean *  - remove methods not used in tomcat and redundant/not very generic *  - must be created from the ManagedBean - I don't think there were any direct *    uses, but now it is required. *  - some of the gratuitous flexibility removed - instead this is more predictive and *    strict with the use cases. *  - all Method and metadata is stored in ManagedBean. BaseModelBMean and ManagedBean act *    like Object and Class. *  - setModelMBean is no longer called on resources ( not used in tomcat ) *  - no caching of Methods for now - operations and setters are not called repeatedly in most *  management use cases. Getters shouldn't be called very frequently either - and even if they *  are, the overhead of getting the method should be small compared with other JMX costs ( RMI, etc ). *  We can add getter cache if needed. *  - removed unused constructor, fields * *  TODO: *   - clean up catalina.mbeans, stop using weird inheritance  */
 1,0,0,0,0,0,0,//  Number of tries is the number of attempts to connect to the database   during this login attempt (if we need to open the database)   This needs rewritten wuth better pooling support, the existing code   needs signature changes since the Prepared statements needs cached   with the connections.   The code below will try twice if there is an SQLException so the   connection may try to be opened again. On normal conditions (including 
 1,0,0,0,1,1,1,/*      * The player that is associated with this Endpoint and the current room.     * Note that this variable is only accessed from the Room Thread.<br><br>     *     * TODO: Currently, Tomcat uses an Endpoint instance once - however     * the java doc of endpoint says:     * "Each instance of a websocket endpoint is guaranteed not to be called by     * more than one thread at a time per active connection."     * This could mean that after calling onClose(), the instance     * could be reused for another connection so onOpen() will get called     * (possibly from another thread).<br>     * If this is the case, we would need a variable holder for the variables     * that are accessed by the Room thread, and read the reference to the holder     * at the beginning of onOpen, onMessage, onClose methods to ensure the room     * thread always gets the correct instance of the variable holder.      */
@@ -153,27 +159,31 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,1,1,1,1,1,1,//  hack fix for resolveRelativeURI 
 1,0,0,0,0,0,0,//  '*' has been added without removing other values. Optimise. 
 1,0,1,1,1,1,1,/*      * TODO: Add support for more efficient bulk operations.     *     * We don't want to acquire the lock for every iteration, but we     * also want other threads a chance to interact with the     * collection, especially when count is close to capacity.      */
-1,0,0,0,1,1,1,/*      * XXX Find if the 'className' is the name of the MBean or     *       the real class ( I suppose first )     * XXX Read (optional) descriptions from a .properties, generated     *       from source     * XXX Deal with constructors     *     * @param registry The Bean registry (not used)     * @param domain The bean domain (not used)     * @param realClass The class to analyze     * @param type The bean type     * @return ManagedBean The create MBean      */
+1,0,1,0,1,1,1,/*      * XXX Find if the 'className' is the name of the MBean or     *       the real class ( I suppose first )     * XXX Read (optional) descriptions from a .properties, generated     *       from source     * XXX Deal with constructors     *     * @param registry The Bean registry (not used)     * @param domain The bean domain (not used)     * @param realClass The class to analyze     * @param type The bean type     * @return ManagedBean The create MBean      */
 1,0,0,1,1,1,1,//  FIXME - Accessible methods in superinterfaces? 
 1,0,0,1,1,1,1,//    XXX NOTE: This is clearly incorrect for many strings,   but is the only consistent approach within the current   servlet framework. It must suffice until servlet output   streams properly encode their output.     high order byte must be zero 
 1,0,0,1,1,1,1,//  Warning: JSP attribute escaping != Java String escaping   TODO - Currently we allow a single unescaped \ in attribute values 
 1,0,1,1,1,1,1,//  FIXME: Strange why servletDef is Boolean and FilterDef is String? 
 1,0,0,1,0,1,1,//  Workaround for certain files on platforms that use   EBCDIC encoding, when they are read through FileInputStream.   See commit message of rev.303915 for original details   https://svn.apache.org/viewvc?view=revision&revision=303915 
-1,0,0,0,0,0,0,//  Nasty - instrument PooledConnection to drive time measurement instead of hard-coded System.currentTimeMillis() 
+1,0,1,0,0,0,0,//  Nasty - instrument PooledConnection to drive time measurement instead of hard-coded System.currentTimeMillis() 
 1,0,0,1,1,1,1,//  Hack via a static since we can't pass an instance in the test. 
 1,0,1,0,0,0,0,/*              * REMIND:  this method feels too big; should it be re-written?              */
 1,0,1,1,1,1,1,/*  * @since Servlet 3.0 * TODO SERVLET3 - Add comments  */
+1,0,1,1,1,1,1,//  TODO: This certificate setter can be removed once it is no longer   necessary to support the old configuration attributes (Tomcat 10?).
 1,0,1,1,1,1,1,//  XXX Not sure whether the following MBeans should better   be retrieved on demand, i.e. whether they can change   dynamically in the MBeanServer. 
 1,0,1,0,1,1,1,/*      * Checks to see if there are any writes pending and if there are calls     * {@link #registerWriteInterest()} to trigger a callback once the pending     * writes have completed.     * <p>     * Note: Once this method has returned <code>false</code> it <b>MUST NOT</b>     *       be called again until the pending write has completed and the     *       callback has been fired.     *       TODO: Modify {@link #registerWriteInterest()} so the above     *       restriction is enforced there rather than relying on the caller.     *     * @return <code>true</code> if no writes are pending and data can be     *         written otherwise <code>false</code>      */
+1,0,0,1,1,1,1,//  TODO Move this validation to the parsing stage
 1,0,0,1,1,1,1,/*      * @param servletRequest    The ServletRequest with which to initialise the     *                          asynchronous context     * @param servletResponse   The ServletResponse with which to initialise the     *                          asynchronous context     * @return TODO     * @throws IllegalStateException If async is not supported for this request     * @since Servlet 3.0 TODO SERVLET3 - Add comments      */
 1,0,1,1,1,1,1,//  TODO: I'm not entirely sure when onError should be called 
-1,0,1,0,1,1,1,/*      * Add a context - programmatic mode, no default web.xml used. This means     * that there is no JSP support (no JSP servlet), no default servlet and     * no web socket support unless explicitly enabled via the programmatic     * interface. There is also no     * {@link javax.servlet.ServletContainerInitializer} processing and no     * annotation processing. If a     * {@link javax.servlet.ServletContainerInitializer} is added     * programmatically, there will still be no scanning for     * {@link javax.servlet.annotation.HandlesTypes} matches.     *     * <p>     * API calls equivalent with web.xml:     *     * <pre>{@code     *  // context-param     *  ctx.addParameter("name", "value");     *     *     *  // error-page     *  ErrorPage ep = new ErrorPage();     *  ep.setErrorCode(500);     *  ep.setLocation("/error.html");     *  ctx.addErrorPage(ep);     *     *  ctx.addMimeMapping("ext", "type");     * }</pre>     *     *     * <p>     * Note: If you reload the Context, all your configuration will be lost. If     * you need reload support, consider using a LifecycleListener to provide     * your configuration.     *     * <p>     * TODO: add the rest     *     * @param contextPath The context mapping to use, "" for root context.     * @param docBase Base directory for the context, for static files.     *  Must exist, relative to the server home     * @return the deployed context      */
+1,0,0,0,1,1,1,/*      * Add a context - programmatic mode, no default web.xml used. This means     * that there is no JSP support (no JSP servlet), no default servlet and     * no web socket support unless explicitly enabled via the programmatic     * interface. There is also no     * {@link javax.servlet.ServletContainerInitializer} processing and no     * annotation processing. If a     * {@link javax.servlet.ServletContainerInitializer} is added     * programmatically, there will still be no scanning for     * {@link javax.servlet.annotation.HandlesTypes} matches.     *     * <p>     * API calls equivalent with web.xml:     *     * <pre>{@code     *  // context-param     *  ctx.addParameter("name", "value");     *     *     *  // error-page     *  ErrorPage ep = new ErrorPage();     *  ep.setErrorCode(500);     *  ep.setLocation("/error.html");     *  ctx.addErrorPage(ep);     *     *  ctx.addMimeMapping("ext", "type");     * }</pre>     *     *     * <p>     * Note: If you reload the Context, all your configuration will be lost. If     * you need reload support, consider using a LifecycleListener to provide     * your configuration.     *     * <p>     * TODO: add the rest     *     * @param contextPath The context mapping to use, "" for root context.     * @param docBase Base directory for the context, for static files.     *  Must exist, relative to the server home     * @return the deployed context      */
 1,0,1,1,1,1,1,/*      * TODO SERVLET3 - Add comments     * @param filterName TODO     * @return TODO     * @throws UnsupportedOperationException    If called from a     *    {@link ServletContextListener#contextInitialized(ServletContextEvent)}     *    method of a {@link ServletContextListener} that was not defined in a     *    web.xml file, a web-fragment.xml file nor annotated with     *    {@link javax.servlet.annotation.WebListener}. For example, a     *    {@link ServletContextListener} defined in a TLD would not be able to     *    use this method.     * @since Servlet 3.0      */
+1,0,1,1,1,1,1,//  TODO: Remove the internal representation and use Ranges
 1,0,0,1,1,1,1,/*      * Indicate whether the session has been idle for longer     * than its expiration date as of the supplied time.     *     * FIXME: Probably belongs in the Session class.     * @param session The session to check     * @param timeNow The current time to check for     * @return <code>true</code> if the session is past its expiration      */
 1,0,0,0,1,1,1,/*      * Proprietary method to evaluate EL expressions. XXX - This method should     * go away once the EL interpreter moves out of JSTL and into its own     * project. For now, this is necessary because the standard machinery is too     * slow.     *     * @param expression     *            The expression to be evaluated     * @param expectedType     *            The expected resulting type     * @param pageContext     *            The page context     * @param functionMap     *            Maps prefix and name to Method     * @return The result of the evaluation     * @throws ELException If an error occurs during the evaluation      */
 1,0,1,1,1,1,1,//  FIXME : Removing status pages 
 1,0,1,0,1,1,1,/*  Destroy needs to clean up the context completely.     *     * The problem is that undoing all the config in start() and restoring     * a 'fresh' state is impossible. After stop()/destroy()/init()/start()     * we should have the same state as if a fresh start was done - i.e     * read modified web.xml, etc. This can only be done by completely     * removing the context object and remapping a new one, or by cleaning     * up everything.     *     * XXX Should this be done in stop() ?     *      */
 1,0,1,1,1,1,1,//  filter   TODO: Should support multiple description elements with language   TODO: Should support multiple display-name elements with language   TODO: Should support multiple icon elements 
+1,0,1,1,1,1,1,// todo, optimize, if destination.length==1, then we can do  msg.setOptions(msg.getOptions() & (~getOptionFlag())  and just send one message
 1,0,0,0,0,0,0,//  This is not optimal, but as this is not very common, it   shouldn't matter 
 1,0,0,0,1,1,1,//  XXX - Another possible optimization would be for   lone EL expressions (no need to pushBody here either). 
 1,0,1,0,1,1,1,//  TODO:   OpenSSL 1.0.2's ALPN callback doesn't support   failing the handshake with an error if no   protocol can be negotiated. Therefore, we need to   fail the connection here. Once this is fixed,   replace the code below with the commented out   block. 
@@ -194,12 +204,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,0,1,1,//  Going to have to have some casts /raw types somewhere so doing it here   keeps them all in one place. There might be a neater / better solution 
 1,0,1,1,1,1,1,/*      * Filter out the default watched resources, to remove standard ones.     *     * @param context The context instance     * @param wresources The raw watched resources list     * @return The filtered watched resources     * @throws Exception Configuration storing error     * TODO relative watched resources     * TODO absolute handling configFile     * TODO Filename case handling for Windows?     * TODO digester variable substitution $catalina.base, $catalina.home      */
 1,0,0,0,0,0,0,//  Unsupported transfer encoding   501 - Unimplemented 
+1,0,0,0,1,1,1,//  NOTE: We don't try to reauthenticate using any existing SSO session,   because that will only work if the original authentication was   BASIC or FORM, which are less secure than the CLIENT-CERT auth-type   specified for this webapp     Change to true below to allow previous FORM or BASIC authentications   to authenticate users for this webapp   TODO make this a configurable attribute (in SingleSignOn??)
 1,0,1,1,1,1,1,//  service-ref   TODO: Should support multiple description elements with language   TODO: Should support multiple display-names elements with language 
 1,0,0,0,0,0,0,/*          * Not thread-safe. OK for this test. NOt OK for use in the real world.          */
 1,0,1,1,1,1,1,//  @TODO is this case possible? 
 1,0,1,0,0,0,0,//  If the only body element for this named attribute node is   template text, we need not generate an extra call to   pushBody and popBody. Maybe we can further optimize   here by getting rid of the temporary variable, but in   reality it looks like javac does this for us. 
 1,0,0,0,0,0,0,//  No listener called dispatch() or complete(). This is an error.   SRV.2.3.3.3 (search for "error dispatch")   Take a local copy to avoid threading issues if another thread   clears this (can happen during error handling with non-container   threads) 
 1,0,1,1,1,1,1,//  FIXME - add instance if already started? 
+1,0,1,1,1,1,1,//  TODO - Should never happen
 1,0,1,1,1,1,1,// TODO this operation is not thread safe 
 1,0,1,1,1,1,1,//  ignored TODO perhaps add to tracker delete failure list somehow? 
 1,1,1,1,1,1,1,//  Note this is a hack since nextChar only returns a single char   It is safe since %> does not require special treatment for EL   or for literals 
@@ -215,11 +227,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,/*      * Generate a real default StandardContext TODO read and interpret the     * default context.xml and context.xml.default TODO Cache a Default     * StandardContext ( with reloading strategy) TODO remove really all     * elements, but detection is hard... To Listener or Valve from same class?     *     * @see org.apache.catalina.storeconfig.StoreAppender#defaultInstance(java.lang.Object)      */
 1,0,1,0,0,0,0,//  Not implemented 
 1,0,1,0,1,1,1,/*  *  Memory-efficient repository for Mime Headers. When the object is recycled, it *  will keep the allocated headers[] and all the MimeHeaderField - no GC is generated. * *  For input headers it is possible to use the MessageByte for Fields - so no GC *  will be generated. * *  The only garbage is generated when using the String for header names/values - *  this can't be avoided when the servlet calls header methods, but is easy *  to avoid inside tomcat. The goal is to use _only_ MessageByte-based Fields, *  and reduce to 0 the memory overhead of tomcat. * *  TODO: *  XXX one-buffer parsing - for http ( other protocols don't need that ) *  XXX remove unused methods *  XXX External enumerations, with 0 GC. *  XXX use HeaderName ID * * * @author dac@eng.sun.com * @author James Todd [gonzo@eng.sun.com] * @author Costin Manolache * @author kevin seguin  */
-1,1,0,1,1,1,1,//  ThreadPoolExecutor.setCorePoolSize checks that   remainingCapacity==0 to allow to interrupt idle threads   I don't see why, but this hack allows to conform to this   "requirement" 
+1,1,1,1,1,1,1,//  ThreadPoolExecutor.setCorePoolSize checks that   remainingCapacity==0 to allow to interrupt idle threads   I don't see why, but this hack allows to conform to this   "requirement" 
 1,0,0,0,0,0,0,//  Purely for debug purposes. May not be complete or correct. Certainly   is not efficient. Be sure not to call this from 'real' code. 
 1,0,1,0,1,1,1,//  Message could not be sent. In this case, we don't   set isSendingMessage to false because we must assume the connection   broke (and onClose will be called), so we don't try to send   other messages.   As a precaution, we close the session (e.g. if a send timeout occurred).   TODO: session.close() blocks, while this handler shouldn't block.   Ideally, there should be some abort() method that cancels the   connection immediately... 
 1,0,0,0,0,0,0,//  UCS-4, unusual octet order (3412)   REVISIT: What should this be? 
-1,0,0,0,1,1,1,//  Really need to unload the old class but can't do that. Do   the next best thing which is throw away the JspLoader so   a new loader will be created which will load the new   class.   TODO Are there inefficiencies between reload and the        isOutDated() check? 
+1,0,1,0,1,1,1,//  Really need to unload the old class but can't do that. Do   the next best thing which is throw away the JspLoader so   a new loader will be created which will load the new   class.   TODO Are there inefficiencies between reload and the        isOutDated() check? 
 1,0,1,0,1,1,1,//  XXX   need to be more specific about illegal arg 
 1,0,0,0,0,0,0,//  This differs from LogManager#resetLogger() in that we close not all   handlers of all loggers, but only those that are present in our   ClassLoaderLogInfo#handlers list. That is because our #addLogger(..)   method can use handlers from the parent class loaders, and closing   handlers that the current class loader does not own would be not   good. 
 1,0,1,1,1,1,1,//  display-name - TODO should support multiple with language 
@@ -227,19 +239,21 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  message-destination   TODO: Should support multiple description elements with language   TODO: Should support multiple display-names elements with language 
 1,0,0,0,0,0,0,//  The legacy code (dating down at least to Tomcat 4.1) just   skipped all mapping work in this case. That behaviour has a risk   of returning an inconsistent result.   I do not see a valid use case for it. 
 1,0,0,0,1,1,1,//  XXX works only for enc compatible with ASCII/UTF !!! 
-1,0,1,0,0,0,0,/*  Not yet implemented or not (easily) possible to implement  */
+1,0,0,0,0,0,0,/*  Not yet implemented or not (easily) possible to implement  */
 1,0,1,0,1,1,1,/*      * TODO SERVLET3 - Add comments     * @return TODO     * @throws UnsupportedOperationException    If called from a     *    {@link ServletContextListener#contextInitialized(ServletContextEvent)}     *    method of a {@link ServletContextListener} that was not defined in a     *    web.xml file, a web-fragment.xml file nor annotated with     *    {@link javax.servlet.annotation.WebListener}. For example, a     *    {@link ServletContextListener} defined in a TLD would not be able to     *    use this method.     * @since Servlet 3.0      */
 1,0,1,1,1,1,1,/*      * TODO SERVLET3 - Add comments     * @param listenerClass TODO     * @throws UnsupportedOperationException    If called from a     *    {@link ServletContextListener#contextInitialized(ServletContextEvent)}     *    method of a {@link ServletContextListener} that was not defined in a     *    web.xml file, a web-fragment.xml file nor annotated with     *    {@link javax.servlet.annotation.WebListener}. For example, a     *    {@link ServletContextListener} defined in a TLD would not be able to     *    use this method.     * @since Servlet 3.0      */
 1,0,0,0,0,0,0,//  Shouldn't happen, but let's play nice... 
 1,0,1,1,1,1,1,//  XXX *could* move EL-syntax validation here... (sb) 
 1,0,1,1,1,1,1,//  TODO - configure filter rules from Ant rather then system properties 
-1,0,0,0,1,1,1,/*      * Many calls to SSL methods do not check the last error. Those that do     * check the last error need to ensure that any previously ignored error is     * cleared prior to the method call else errors may be falsely reported.     *     * TODO: Check last error after every call to an SSL method and respond     *       appropriately.      */
+1,0,1,0,1,1,1,/*      * Many calls to SSL methods do not check the last error. Those that do     * check the last error need to ensure that any previously ignored error is     * cleared prior to the method call else errors may be falsely reported.     *     * TODO: Check last error after every call to an SSL method and respond     *       appropriately.      */
 1,0,1,1,1,1,1,/*      * TODO SERVLET3 - Add comments     * @param <T> TODO     * @param c TODO     * @return TODO     * @throws ServletException TODO     * @throws UnsupportedOperationException    If called from a     *    {@link ServletContextListener#contextInitialized(ServletContextEvent)}     *    method of a {@link ServletContextListener} that was not defined in a     *    web.xml file, a web-fragment.xml file nor annotated with     *    {@link javax.servlet.annotation.WebListener}. For example, a     *    {@link ServletContextListener} defined in a TLD would not be able to     *    use this method.     * @since Servlet 3.0      */
 1,0,1,1,1,1,1,//  TODO: Tests for over-sized frames. Better located in tests for section 6? 
 1,0,1,1,1,1,1,//  TODO Handle remove also work dir content !   Stop the context first to be nicer 
 1,1,0,1,1,1,1,//  cheap hack to return an empty hash 
 1,0,1,0,1,1,1,//  XXX used only for headers - shouldn't be stored here. 
-1,0,0,0,0,0,0,//  UTF-16, big-endian, no BOM   (or could turn out to be UCS-2...   REVISIT: What should this be? 
+1,0,1,1,1,1,1,//  FIXME: Implement SSL environment variables
+1,0,1,1,1,1,1,//  TODO: Description for init-param is ignored
+1,0,0,1,0,1,1,//  UTF-16, big-endian, no BOM   (or could turn out to be UCS-2...   REVISIT: What should this be? 
 1,0,1,1,1,1,1,//  TODO is this case possible? (see it a old Server 5.0 impl) 
 1,0,1,1,1,1,1,//  TODO: Should support multiple description elements with language 
 1,0,0,1,1,1,1,//  TODO What if the connection string contains a 'user' or 'password' query parameter but that connection string is not in a legal URL format? 
@@ -250,6 +264,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,0,0,0,//  Logging credentials could be a security concern but they are   invalid and that is probably a bigger problem 
 1,1,1,1,1,1,1,/*          * XXX This is a bit silly, but we want to have start and stop time and         * duration consistent. It would be better to keep start and stop         * simply in the request and/or response object and remove time         * (duration) from the interface.          */
 1,0,0,0,0,0,0,//  Leading zero in non-zero octet. Not valid (ambiguous). 
+1,0,1,0,1,1,1,/*  * All-to-all replication for a hash map implementation. Each node in the cluster will carry an identical * copy of the map.<br><br> * This map implementation doesn't have a background thread running to replicate changes. * If you do have changes without invoking put/remove then you need to invoke one of the following methods: * <ul> * <li><code>replicate(Object,boolean)</code> - replicates only the object that belongs to the key</li> * <li><code>replicate(boolean)</code> - Scans the entire map for changes and replicates data</li> *  </ul> * the <code>boolean</code> value in the <code>replicate</code> method used to decide * whether to only replicate objects that implement the <code>ReplicatedMapEntry</code> interface * or to replicate all objects. If an object doesn't implement the <code>ReplicatedMapEntry</code> interface * each time the object gets replicated the entire object gets serialized, hence a call to <code>replicate(true)</code> * will replicate all objects in this map that are using this node as primary. * * <br><br><b>REMEMBER TO CALL <code>breakdown()</code> or <code>finalize()</code> * when you are done with the map to avoid memory leaks.</b><br><br> * TODO implement periodic sync/transfer thread<br> * TODO memberDisappeared, should do nothing except change map membership *       by default it relocates the primary objects * * @param <K> The type of Key * @param <V> The type of Value  */
 1,0,0,0,0,0,0,//  Hard coded for now. Consider making this optional. At Valve level or   page level? 
 1,1,0,1,0,1,1,/*              * This method is slightly ugly; c'est la vie.             * "You cannot stop [ugliness], you can only hope to contain [it]"             * (apologies to Marv Albert regarding MJ)              */
 1,0,1,1,1,1,1,//  The socket write buffer capacity is socket.appWriteBufSize   TODO This only matters when using TLS. For non-TLS connections it        should be possible to write the ByteBuffer in a single write 
@@ -258,11 +273,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,/*  * * @since Servlet 3.0 * TODO SERVLET3 - Add comments  */
 1,0,1,1,1,1,1,//  TODO: This class could either extend ByteBuffer, or better a ByteBuffer   inside this way it could provide the search/etc on ByteBuffer, as a helper. 
 1,1,0,1,1,1,1,//  Related to DBCP-212   Driver manager does not sync loading of drivers that use the service   provider interface. This will cause issues is multi-threaded   environments. This hack makes sure the drivers are loaded before   DBCP tries to use them. 
-1,0,1,0,1,1,1,/*  * Filter that attempts to force MS WebDAV clients connecting on port 80 to use * a WebDAV client that actually works. Other workarounds that might help * include: * <ul> *   <li>Specifying the port, even if it is port 80, when trying to *       connect.</li> *   <li>Cancelling the first authentication dialog box and then trying to *       reconnect.</li> * </ul> * * Generally each different version of the MS client has a different set of * problems. * <p> * TODO: Update this filter to recognise specific MS clients and apply the *       appropriate workarounds for that particular client * <p> * As a filter, this is configured in web.xml like any other Filter. You usually * want to map this filter to whatever your WebDAV servlet is mapped to. * <p> * In addition to the issues fixed by this Filter, the following issues have * also been observed that cannot be fixed by this filter. Where possible the * filter will add an message to the logs. * <p> * XP x64 SP2 (MiniRedir Version 3790) * <ul> *   <li>Only connects to port 80</li> *   <li>Unknown issue means it doesn't work</li> * </ul>  */
+1,0,1,1,1,1,1,/*  * Filter that attempts to force MS WebDAV clients connecting on port 80 to use * a WebDAV client that actually works. Other workarounds that might help * include: * <ul> *   <li>Specifying the port, even if it is port 80, when trying to *       connect.</li> *   <li>Cancelling the first authentication dialog box and then trying to *       reconnect.</li> * </ul> * * Generally each different version of the MS client has a different set of * problems. * <p> * TODO: Update this filter to recognise specific MS clients and apply the *       appropriate workarounds for that particular client * <p> * As a filter, this is configured in web.xml like any other Filter. You usually * want to map this filter to whatever your WebDAV servlet is mapped to. * <p> * In addition to the issues fixed by this Filter, the following issues have * also been observed that cannot be fixed by this filter. Where possible the * filter will add an message to the logs. * <p> * XP x64 SP2 (MiniRedir Version 3790) * <ul> *   <li>Only connects to port 80</li> *   <li>Unknown issue means it doesn't work</li> * </ul>  */
 1,0,1,1,1,1,1,//  TODO: close() may block if the remote endpoint doesn't read the data   (eventually there will be a TimeoutException). However, this method   (sendMessage) is intended to run asynchronous code and shouldn't   block. Otherwise it would temporarily stop processing of messages   from other clients.   Maybe call this method on another thread.   Note that when this method is called, the RemoteEndpoint.Async   is still in the process of sending data, so there probably should   be another way to abort the Websocket connection.   Ideally, there should be some abort() method that cancels the   connection immediately... 
 1,1,1,1,1,1,1,/*              * The setting of isELIgnored changes the behaviour of the parser             * in subtle ways. To add to the 'fun', isELIgnored can be set in             * any file that forms part of the translation unit so setting it             * in a file included towards the end of the translation unit can             * change how the parser should have behaved when parsing content             * up to the point where isELIgnored was set. Arghh!             * Previous attempts to hack around this have only provided partial             * solutions. We now use two passes to parse the translation unit.             * The first just parses the directives and the second parses the             * whole translation unit once we know how isELIgnored has been set.             * TODO There are some possible optimisations of this process.              */
 1,0,0,0,0,0,0,//  Not ideal. This will indicate that data is available which should   trigger a read which in turn will trigger another IOException and   that one can be thrown. 
-1,0,0,1,1,1,1,//  TODO: Invalid frames for each of the remaining states 
+1,0,1,1,1,1,1,//  TODO: Invalid frames for each of the remaining states 
 1,0,1,1,1,1,1,/*      * disconnect     *     * TODO Implement this org.apache.catalina.tribes.transport.DataSender method      */
 1,0,0,0,0,0,0,//  UCS-4, unusual octet order (2143)   REVISIT: What should this be? 
 1,0,1,0,1,1,1,//  XXX - no need to generate temporary variable here 
@@ -270,7 +285,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  Dummy implementation 
 1,0,1,1,1,1,1,/*      * TODO SERVLET3 - Add comments     * @param wrappedType The class to compare to the class of the wrapped     *                    request     * @return <code>true</code> if the request wrapped by this wrapper (or     *         series of wrappers) is the same type as the supplied type,     *         otherwise <code>false</code>     * @since Servlet 3.0      */
 1,0,1,1,1,1,1,// create the map to hold our stats  however TODO we need to improve the eviction  selection 
-0,0,0,0,0,0,0,// Jasper incorrectly SMAPs certain Nodes, giving them an  outputStartLine of 0.  This can cause a fatal error in  optimizeLineSection, making it impossible for Jasper to  compile the JSP.  Until we can fix the underlying 
+1,0,1,1,1,1,1,//  TODO: Consider implications of SSO cookies
 0,0,0,0,0,0,0,//  Enable SO_LINGER to ensure close() only returns when TCP closing   handshake completes 
 0,0,0,0,0,0,0,/*      * Fallback ::= '/>' | ( `>' S? `<jsp:body>' ( ( S? ( Char* - ( Char* `</jsp:body>' ) ) `</jsp:body>'     * S? ) | <TRANSLATION_ERROR> ) `</jsp:fallback>' ) | ( '>' ( Char* - (     * Char* '</jsp:fallback>' ) ) '</jsp:fallback>' )      */
 0,0,0,0,0,0,0,// else 
@@ -370,7 +385,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  To expire immediately we need to set the time in past 
 0,0,0,0,0,0,0,//  and (for Java 9+) in an exported module 
 0,0,1,0,0,0,0,//  Arguably not valid but does the right thing anyway 
-0,0,1,0,0,0,0,//  delayed ACKs. Requires an API (TBD) for applications to send settings. 
+0,0,0,0,0,0,0,//  delayed ACKs. Requires an API (TBD) for applications to send settings. 
 0,0,0,0,0,0,0,// perform close cleanup 
 0,0,0,0,0,0,0,//  writable. 
 0,0,0,0,0,0,0,//  Ignore the returned value as we just want to reduce   the queue to 3 entries to use for the rolling average. 
@@ -607,6 +622,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Use port-component-ref 
 0,0,0,0,0,0,0,/*  Generated By:JJTree: Do not edit this line. AstChoice.java  */
 0,0,0,0,0,0,0,/*      * Parse a name in the query string.      */
+0,0,0,0,0,0,0,//  Create a dummy Include directive node
 0,0,0,0,0,0,0,//  Stop the old component if necessary 
 0,0,0,0,0,0,0,/*      * JspServletWrapper for tag files.      */
 0,0,0,0,0,0,0,//  compare for "tag ", so we don't match "taglib" 
@@ -811,7 +827,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Changed to getWorkPath per Bugzilla 35819. 
 0,0,0,0,0,0,0,/*  Basic request properties must be set before this call  */
 0,0,0,0,0,0,0,// Ignore 
-0,0,1,0,0,0,0,//  If the URI ends with "/." or "/..", then we append an extra "/"   Note: It is possible to extend the URI by 1 without any side effect 
+0,0,0,0,0,0,0,//  If the URI ends with "/." or "/..", then we append an extra "/"   Note: It is possible to extend the URI by 1 without any side effect 
 0,0,0,0,0,0,0,//  Set SSL 
 0,0,0,0,0,0,0,//  null line-sep forces no chunking rather than throwing IAE 
 0,0,0,0,0,0,0,//  If there is an expanded directory then any xml in that directory   should only be used if the directory is not out of date and 
@@ -879,11 +895,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  If the SSO session was only associated with one web app the call 
 0,0,0,0,0,0,0,//  Register with the new Container (if any) 
 0,0,0,0,0,0,0,//  Get the current thread group 
-0,0,0,0,0,0,0,//  Java SE API (as of Java 8) does not expose the API to   control the Window size. It is effectively hard-coded 
+0,0,0,1,0,1,1,//  Java SE API (as of Java 8) does not expose the API to   control the Window size. It is effectively hard-coded 
 0,0,0,0,0,0,0,//  First check the basics work 
 0,0,0,0,0,0,0,//  Other 
 0,0,0,0,0,0,0,//  Only perform multi-release processing on first access 
-0,0,1,0,0,0,0,//  If we have a public ID, this is not a 2.4 or later webapp 
+0,0,0,0,0,0,0,//  If we have a public ID, this is not a 2.4 or later webapp 
 0,0,0,0,0,0,0,//  producing an error report that will never be read 
 0,0,0,0,0,0,0,//  Set up the driver connection factory we will use 
 0,0,0,0,0,0,0,/*      * (non-Javadoc)     *     * @see java.io.Externalizable#writeExternal(java.io.ObjectOutput)      */
@@ -917,7 +933,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*      * Force faster timeout for an active Container than can     * be defined in web.xml. By getting to the active Session we     * can choose seconds instead of minutes.     * Note: shamelessly cloned from ManagerBase - beware of synch issues     *       on the underlying sessions.      */
 0,0,0,0,0,0,0,//  Expect a normal response 
 0,0,0,0,0,0,0,//  Id's for tagplugin declarations 
-0,0,1,0,0,0,0,//  rfc2109 semantically does not allow $Version to be 0 but it is valid syntax 
+0,0,0,0,0,0,0,//  rfc2109 semantically does not allow $Version to be 0 but it is valid syntax 
 0,0,0,0,0,0,0,//  Loop as long as there is data to read. If isReady() returns false   the socket will be added to the poller and onDataAvailable() will   be called again as soon as there is more data to read. 
 0,0,0,0,0,0,0,// Errors 
 0,0,0,0,0,0,0,//  Validate the proposed constraint 
@@ -967,7 +983,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,//  Should be overridden in JAASRealm - to avoid pretty inefficient conversions 
 0,0,0,0,0,0,0,//  Ensure caches for timing stats are the right size by filling with   nulls. 
 0,0,0,0,0,0,0,//  Enable deployer 
-0,0,1,0,1,1,1,//  If sessions already exist in DB, remove and insert again.   TODO:   * Check if ID exists in database and if so use UPDATE. 
 0,0,0,0,0,0,0,//  the frame handling code 
 0,0,0,0,0,0,0,//  Nothing to do - always generate list 
 0,0,0,0,0,0,0,/*      * Expected behaviour for deployment of an XML file that points to an     * external WAR.     * deployXML  copyXML  unpackWARs      XML  WAR  DIR     *    Y/N       Y/N        Y            Y    N    Y     *    Y/N       Y/N        N            Y    N    N     *     * Notes: No WAR file is present in the appBase because it is an external     *        WAR.     *        Any context.xml file embedded in the external WAR file is ignored.      */
@@ -981,8 +996,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Name finished. No value. 
 0,0,0,0,0,0,0,//  copy old constant pool return index of SDE symbol, if found 
 0,0,0,0,0,0,0,//  Also need to remove this stream from the p2 list 
-0,0,1,0,0,0,0,//  Something went wrong reading the class bytes (and will have   been logged at debug level). 
-0,0,0,0,1,1,1,//  Calling code should ensure that there is no data in the buffers for   non-blocking writes.   TODO Validate the assertion above 
+0,0,0,0,0,0,0,//  Something went wrong reading the class bytes (and will have   been logged at debug level). 
 0,0,0,0,0,0,0,//  Validate required extensions 
 0,0,0,0,0,0,0,//  notify change sessionID 
 0,0,0,0,0,0,0,//  Not enough space in the destination buffer to   store all of the data. We could use a bytes read   value of -bufferSizeRequired to signal the new   buffer size required but an explicit exception is   clearer. 
@@ -1105,6 +1119,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Exceptions 
 0,0,0,0,0,0,0,//  update the auto commit flag 
 0,0,0,0,0,0,0,//  Read the global ref addr 
+0,0,0,0,0,0,0,//  Optimization:   If len-avail < length (i.e. after we fill the buffer with what we   can, the remaining will fit in the buffer) we'll just copy the first   part, flush, then copy the second part - 1 write and still have some   space for more. We'll still have 2 writes, but we write more on the first.
 0,0,0,0,0,0,0,//  1owwwwww 
 0,0,0,0,0,0,0,// There's no way to specify this with SimpleDateFormat  translate.put("U","week in year with first Sunday as first day..."); 
 0,0,0,0,0,0,0,//  30-3f 0-9   40-4f A-O 
@@ -1189,7 +1204,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Should never happen with UTF-8   If it does - ignore & return null 
 0,0,0,0,0,0,0,//  Custom Tags may contain declarations from tag plugins. 
 0,0,0,0,0,0,0,/*  mod_header writes "(null)" when the ssl variable is no filled  */
-0,0,1,0,0,0,0,//  This method isn't supported by the PoolingDataSource returned by the   createDataSource 
+0,0,0,0,0,0,0,//  This method isn't supported by the PoolingDataSource returned by the   createDataSource 
 0,0,0,0,0,0,0,//  No need to add an additional field 
 0,0,0,0,0,0,0,/*      * Confirm the Basic parser rejects an invalid authentication method.      */
 0,0,0,0,0,0,0,//  would be added 
@@ -1287,7 +1302,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Assume custom SSL is not supporting this 
 0,0,0,0,0,0,0,/*      * The expectation is that you can set a context attribute on     * ServletContextB from ServletContextA and then access that attribute via     * a cross-context dispatch to ServletContextB.      */
 0,0,0,0,0,0,0,//  List of factories for application defined stream handler factories. 
-0,0,1,0,0,0,0,//  Keep track of how many scriptless nodes we've encountered   so we know whether our child nodes are forced scriptless 
+0,0,0,0,0,0,0,//  Keep track of how many scriptless nodes we've encountered   so we know whether our child nodes are forced scriptless 
 0,0,0,0,0,0,0,//  this trick avoids escaping issues 
 0,0,0,0,0,0,0,/*  Items are given as comma separated list  */
 0,0,0,0,0,0,0,//  Set content type 
@@ -1578,7 +1593,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Avoids NPEs during shutdown. A call to recycle will null this field. 
 0,0,0,0,0,0,0,//  convert nulls and convert stringy parameters   for non-stringy param types 
 0,0,0,0,0,0,0,//  If any of the params have their values specified by   jsp:attribute, prepare those values first. 
-0,0,0,0,0,0,0,//  If the context is null, it is likely that the endpoint was   shutdown, this connection closed and the request recycled in   a different thread. That thread will have updated the access   log so it is OK not to update the access log here in that   case.   The other possibility is that an error occurred early in   processing and the request could not be mapped to a Context. 
+0,0,1,0,0,0,0,//  If the context is null, it is likely that the endpoint was   shutdown, this connection closed and the request recycled in   a different thread. That thread will have updated the access   log so it is OK not to update the access log here in that   case.   The other possibility is that an error occurred early in   processing and the request could not be mapped to a Context. 
 0,0,0,0,0,0,0,// make sure the pool is properly configured 
 0,0,0,0,0,0,0,//  Write plain text application data to the SSL engine 
 0,0,0,0,0,0,0,//  Restore docBase for management tools 
@@ -1727,11 +1742,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Check the existence of the client Principal in our database 
 0,0,1,1,0,1,1,//  workaround for catalina weird mbeans - the declaring class is BaseModelMBean.   but this is the catalina class. 
 0,0,0,0,0,0,0,// select a new backup node 
-0,0,1,0,0,0,0,// Don't bother validating if already have recently enough 
+0,0,0,0,0,0,0,// Don't bother validating if already have recently enough 
 0,0,0,0,0,0,0,//  Two cases: either we just exceeded the train count, in   which case the cache must be created, or we just update 
 0,0,0,0,0,0,0,/*      * Log objects are not Serializable but this Filter is because it extends     * GenericFilter. Tomcat won't serialize a Filter but in case something else     * does...      */
 0,0,0,0,0,0,0,//  Initializing javac task 
-0,0,1,1,1,1,1,/*      * TODO SERVLET 3.1      */
+0,0,0,1,1,1,1,/*      * TODO SERVLET 3.1      */
 0,0,0,0,0,0,0,//  Timeouts are calculated on a dedicated thread and then   dispatched. Because of delays in the dispatch process, the   timeout may no longer be required. Check here and avoid 
 0,0,0,0,0,0,0,//  Default to closing the socket if the SocketEvent passed in   is not consistent with the current state of the Processor 
 0,0,0,0,0,0,0,//  Should have caught this earlier but just in case... 
@@ -2469,7 +2484,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Not running in a Servlet 2.2 container.   Try to get the JDK 1.2 java.io.tmpdir property 
 0,0,0,0,0,0,0,//  Send a ping to get an idea of round trip time as early as possible 
 0,0,0,0,0,0,0,//  Go away 
-0,0,1,0,1,1,1,/*  * Interface for handling JSP parse and javac compilation errors. * * An implementation of this interface may be registered with the * ErrorDispatcher by setting the XXX initialization parameter in the JSP * page compiler and execution servlet in Catalina's web.xml file to the * implementation's fully qualified class name. * * @author Jan Luehe * @author Kin-man Chung  */
+0,0,0,0,1,1,1,/*  * Interface for handling JSP parse and javac compilation errors. * * An implementation of this interface may be registered with the * ErrorDispatcher by setting the XXX initialization parameter in the JSP * page compiler and execution servlet in Catalina's web.xml file to the * implementation's fully qualified class name. * * @author Jan Luehe * @author Kin-man Chung  */
 0,0,0,0,0,0,0,//  Set the new host if it changed 
 0,0,0,0,0,0,0,//  Get the number of headers 
 0,0,0,0,0,0,0,//  Use XOR 
@@ -2707,7 +2722,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  parse TLD but store using the URI supplied in the descriptor 
 0,0,0,0,0,0,0,//  Validates the host name 
 0,0,0,0,0,0,0,//  type 
-0,0,1,0,0,0,0,//  Can't use URI.resolve() because "jar:..." URLs are not valid   hierarchical URIs so resolve() does not work. new URL()   delegates to the jar: stream handler and it manages to figure   it out. 
+0,0,0,0,0,0,0,//  Can't use URI.resolve() because "jar:..." URLs are not valid   hierarchical URIs so resolve() does not work. new URL()   delegates to the jar: stream handler and it manages to figure   it out. 
 0,0,0,0,0,0,0,//  NOOP: Request isn't used so ignore it 
 0,0,0,0,0,0,0,/*      * Logon to access a protected resource using BASIC authentication,     * which will establish an SSO session.     * Wait until the SSO session times-out, then try to re-access     * the resource. This should be rejected with SC_FORBIDDEN 401 status.     *     * Note: this test should run for ~10 seconds.      */
 0,0,0,0,0,0,0,//  and dangerous at worst. 
@@ -2903,7 +2918,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Ensure that the SSLEngine is consistent with that used for SSL init 
 0,0,0,0,0,0,0,//  #valueUnbound() will be called on session expiration 
 0,0,0,0,0,0,0,//  Render the link to our parent (if required) 
-0,0,1,1,1,1,1,//  TODO add other attributes 
 0,0,0,0,0,0,0,//  TEST 
 0,0,0,0,0,0,0,//  Failed to send close message. Close the socket and let the caller 
 0,0,0,0,0,0,0,//  Upgrade to write lock 
@@ -3217,7 +3231,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Defaults 
 0,0,0,0,0,0,0,// my message msg.src=local 
 0,0,0,0,0,0,0,//  Read-write properties 
-0,0,0,0,0,0,0,//  The nature of bridge methods is such that it actually   doesn't matter which one we pick as long as we pick   one. That said, pick the 'right' one (the non-bridge   one) anyway. 
+0,0,1,0,0,0,0,//  The nature of bridge methods is such that it actually   doesn't matter which one we pick as long as we pick   one. That said, pick the 'right' one (the non-bridge   one) anyway. 
 0,0,0,0,0,0,0,//  Check for read only attribute 
 0,0,0,0,0,0,0,//  Default to 1.8 
 0,0,0,0,1,1,1,//  XXX 
@@ -3486,7 +3500,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  a.addBeforeOrdering("b"); 
 0,0,0,0,0,0,0,//  ---------------------------------------------- Public Methods 
 0,0,0,0,0,0,0,//  Create a Catalina instance and let it parse the configuration files 
-0,0,0,0,0,0,0,//  We want something of the form   out.println( "<param name=\"blah\"   value=\"" + ... + "\">" ); 
+0,0,1,0,0,0,0,//  We want something of the form   out.println( "<param name=\"blah\"   value=\"" + ... + "\">" ); 
 0,0,0,0,0,0,0,//  Default of 30000 (30s) is set by the connector 
 0,0,0,0,0,0,0,//  Setting the context in read only mode 
 0,0,0,0,0,0,0,// host length 
@@ -3608,7 +3622,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Start with current settings (returns a copy) 
 0,0,0,0,0,0,0,//  Generate an empty response 
 0,0,0,0,0,0,0,//  Find content type. 
-0,0,1,1,0,1,1,//  Is it better to use a sync or a thread local here? 
+0,0,0,1,0,1,1,//  Is it better to use a sync or a thread local here? 
 0,0,0,0,0,0,0,//  Make sure getServer() has been called as that is where naming is   disabled 
 0,0,0,0,0,0,0,//  This is expected - swallowing the exception is the reason this   method exists. Log at debug in case someone is interested. 
 0,0,0,0,0,0,0,//  A value of 0 is equivalent to using INFO_ALL   A negative value will trigger infinite suppression   The value is milliseconds 
@@ -3746,7 +3760,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// get the response object 
 0,0,0,0,0,0,0,//  Check the dependencies count 
 0,0,0,0,0,0,0,//  to flush any data that is still to be written to the client. 
-0,0,0,0,0,0,0,//  Use this rather than hashCode since in some environments,   multiple instances of this object were created with the same   hashCode 
+0,0,1,0,0,0,0,//  Use this rather than hashCode since in some environments,   multiple instances of this object were created with the same   hashCode 
 0,0,0,0,0,0,0,//  If in state NEW when destroy is called, the object name will never   have been set so the notification can't be created 
 0,0,0,0,0,0,0,//  Check dispatcher mapping 
 0,0,0,0,0,0,0,//  See https://bz.apache.org/bugzilla/show_bug.cgi?id=57943 
@@ -3760,7 +3774,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Connection reset. Connection ID will vary so use a pattern   On some platform / Connector combinations (e.g. Windows / APR),   the TCP connection close will be processed before the client gets   a chance to read the connection close frame which will trigger an   IOException when we try to read the frame.   Note: Some platforms will allow the read if if the write fails         above. 
 0,0,0,0,0,0,0,//  service-ref was introduced in Servlet 2.4 
 0,0,0,0,0,0,0,//  NOTE - Elements need to be written in the order defined in the 2.3          DTD else validation of the merged web.xml will fail 
-0,0,1,1,1,1,1,//  TODO SERVLET 3.1 
+0,0,0,1,1,1,1,//  TODO SERVLET 3.1 
 0,0,0,0,0,0,0,//  Nothing can come before jsp:attribute, and only   jsp:body can come after it. 
 0,0,0,0,0,0,0,//  Order depends on server side timing. Handle both possibilities. 
 0,0,1,0,0,0,0,//  Doesn't matter what we look for, result should be EOF 
@@ -3887,7 +3901,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Skip duplicate aliases 
 0,0,0,0,0,0,0,//  copy from InputStream  ----------------------------------------------------------------------- 
 0,0,0,0,0,0,0,//  JarFile#getEntry() is multi-release aware 
-0,0,1,0,0,0,0,/*  some vars below copied from Craig R. McClanahan's InvokerServlet  */
+0,0,0,0,0,0,0,/*  some vars below copied from Craig R. McClanahan's InvokerServlet  */
 0,0,0,0,0,0,0,//  (possibly more than once if non-STM) 
 0,0,0,0,0,0,0,//  Don't warn about this thread 
 0,0,0,0,0,0,0,//  VERIFY 
@@ -3985,7 +3999,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Store nested <Store> element 
 0,0,0,0,0,0,0,//  If we've already taken another branch then 
 0,0,0,0,0,0,0,/*      * Test JNDI is available to ServletContextListeners.      */
-0,0,1,0,0,0,0,//  Since the "stuck thread notification" is warn, this should also   be warn 
+0,0,0,0,0,0,0,//  Since the "stuck thread notification" is warn, this should also   be warn 
 0,0,0,0,0,0,0,//  package protected for access from I/O streams 
 0,0,0,0,0,0,0,//  Allocate the end and close message array 
 0,0,0,0,0,0,0,/*                  * For whatever reason we cannot write the                 * file to disk.                  */
@@ -4144,7 +4158,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Determine where the resource is located 
 0,0,0,0,0,0,0,//  Cipher 89 
 0,0,0,0,0,0,0,//  Default to "ISO-8859-1" per JSP spec 
-0,0,0,0,0,0,0,//  Hint to server that the client supports this   option. Java SE API (as of Java 8) does not   expose the API to control the Window size. It is   effectively hard-coded to 15 
+0,0,0,1,0,1,1,//  Hint to server that the client supports this   option. Java SE API (as of Java 8) does not   expose the API to control the Window size. It is   effectively hard-coded to 15 
 0,0,0,0,0,0,0,//  Set a configFile so that the configuration is actually saved 
 0,0,0,0,0,0,0,//  Removing wrapper lifecycles 
 0,0,0,0,0,0,0,//  Use the system classloader as the victim for all this 
@@ -4246,7 +4260,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  19-headers, 21-headers 
 0,0,0,0,0,0,0,/*          * Encoder for URI paths, so from the spec:         *         * pchar = unreserved / pct-encoded / sub-delims / ":" / "@"         *         * unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"         *         * sub-delims = "!" / "$" / "&" / "'" / "(" / ")"         *              / "*" / "+" / "," / ";" / "="          */
 0,0,0,0,0,0,0,//  $Version must be the first avpair in the cookie header   (sc must be null) 
-0,0,0,0,0,0,0,//  Duplicate. Mark the fragment that has already been found with   this name as having a duplicate so Tomcat can handle it   correctly when the fragments are being ordered. 
+0,0,1,0,0,0,0,//  Duplicate. Mark the fragment that has already been found with   this name as having a duplicate so Tomcat can handle it   correctly when the fragments are being ordered. 
 0,0,0,0,0,0,0,//  Still jave to support old JSP EL 
 0,0,0,0,0,0,0,/*      * Parses a variable directive with the following syntax:     * PageDirective ::= ( S Attribute)*      */
 0,0,0,0,0,0,0,// expected : we just swallow the exception to avoid disturbing  debuggers like eclipse's 
@@ -4552,6 +4566,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Buffer depleted ? 
 0,0,0,0,0,0,0,//  Default ContentType processing is deferred until after the page has 
 0,0,0,0,0,0,0,/*          * extract the session id path element (if it exists in the given url)          */
+0,0,0,0,0,0,0,//  Accept again on a new thread since countUpOrAwaitConnection may block
 0,0,0,0,0,0,0,//  Note: BufferedReader.readLine() strips new lines 
 0,0,0,0,0,0,0,//  close() can be triggered by a wide range of scenarios. It is far   simpler just to always use a dispatch than it is to try and track   whether or not this method was called by the same thread that   triggered the write 
 0,0,0,0,0,0,0,//  check required interceptors 
@@ -5080,7 +5095,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Check to see if a proxy is configured. Javadoc indicates return value 
 0,0,0,0,0,0,0,// if the first bit is set it is an indexed header field  unget the byte  prefix is 7 
 0,0,0,0,0,0,0,//  No need to test the charsets that are pre-loaded 
-0,0,1,0,0,0,0,//  Check for old versions of applications that can now be undeployed 
+0,0,0,0,0,0,0,//  Check for old versions of applications that can now be undeployed 
 0,0,0,0,0,0,0,//  Complete the message - no extra headers required. 
 0,0,0,0,0,0,0,//  -------------------- Internal implementation -------------------- 
 0,0,0,0,0,0,0,//  We have a reference to the failure detector   Piggy back on it 
@@ -5381,7 +5396,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// ------------------------------------------------------------------------------                CONSTRUCTORS / DESTRUCTORS  ------------------------------------------------------------------------------ 
 0,0,0,0,0,0,0,/*                  * For code that processes {, the behavior will be ... if I do                 * not encounter a closing } - then I ignore the {                  */
 0,0,0,0,0,0,0,//  don't have to do anything; needed only for instantiation 
-0,0,1,0,0,0,0,/*  destroy global TCN's APR pool     * This has to be the last call to TCN library.      */
+0,0,0,0,0,0,0,/*  destroy global TCN's APR pool     * This has to be the last call to TCN library.      */
 0,0,0,0,0,0,0,//  Query string 
 0,0,0,0,0,0,0,//  Identical to ConstantString except for the name 
 0,0,0,0,0,0,0,//  Currently this is effectively a NO-OP but needs to be called to 
@@ -6361,14 +6376,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Store nested <ClusterListener> elements 
 0,0,0,0,0,0,0,//  avoid possible resource leak 
 0,0,0,0,0,0,0,// ============================================================================================================                OVERRIDDEN METHODS FROM CHANNEL INTERCEPTOR BASE 
-0,0,1,0,1,1,1,//  XXX   should a length of 0 be an IllegalArgumentException 
 0,0,0,0,0,0,0,//  Tracking the base name and the latest valid version found is   sufficient to be able to create the renaming map required 
 0,0,0,0,0,0,0,//  Limits 
 0,0,0,0,0,0,0,//  transaction was rolled back... proceed as if there never was a transaction 
 0,0,0,0,0,0,0,//  --------------------------------- SocketWithOptionsProcessor Inner Class 
 0,0,0,0,0,0,0,//  Persist Configuration Section 
 0,0,0,0,0,0,0,//  Evaluate conditions 
-0,0,0,1,1,1,1,//  TODO Add a new state to the AsyncStateMachine and remove        ASYNC_END (if possible) 
 0,0,0,0,0,0,0,// add the EOS bytes if we have not finished on a single byte 
 0,0,0,0,0,0,0,//  Should not happen. To late to send batched messages now since   the session has been closed. Complain loudly. 
 0,0,0,0,0,0,0,//  Change stream Id and re-use 
@@ -6387,7 +6400,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  ignore access or connection open errors 
 0,0,0,0,0,0,0,//  Double checked locking. OK because instance is volatile. 
 0,0,0,0,0,0,0,//  End 
-0,0,1,1,1,1,1,//  TODO - May need to add code here once additional   states are used 
 0,0,0,0,0,0,0,//  set non-blocking mode for the listening socket 
 0,0,0,0,0,0,0,//  Java 8 doesn't support multi-release so default to false 
 0,0,0,0,0,0,0,//  CCM ciphersuites from RFC6655 
@@ -6454,7 +6466,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  should not happen, just ignore 
 0,0,0,0,0,0,0,// if the escapeXml is specified, assign the value to it; 
 0,0,0,0,0,0,0,//  Not a parameter - values must match 
-0,0,0,0,0,0,0,//  Don't reset anything that is read from a <Context.../> element since   <Context .../> elements are read at initialisation will not be read   again for this object 
+0,0,1,0,0,0,0,//  Don't reset anything that is read from a <Context.../> element since   <Context .../> elements are read at initialisation will not be read   again for this object 
 0,0,0,0,0,0,0,//  > 11110111 
 0,0,0,0,0,0,0,//  Add Section 
 0,0,0,0,0,0,0,//  Long.MAX_VALUE + 3 
@@ -6535,7 +6547,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Wait for the sendfile thread to exit, otherwise parallel   destruction of sockets which are still in the poller can cause 
 0,0,0,0,0,0,0,//  Move back to start of EL 
 0,0,0,0,0,0,0,/*  * Listener to provider informations to mod_heartbeat.c * *msg_format = "v=%u&ready=%u&busy=%u"; (message to send). * send the multicast message using the format... * what about the bind(IP. port) only IP makes sense (for the moment). * BTW:v  = version :-)  */
-0,0,1,0,0,0,0,//  bind address will be null which means any/all local addresses   which should be safe 
+0,0,0,0,0,0,0,//  bind address will be null which means any/all local addresses   which should be safe 
 0,0,0,0,0,0,0,//  task 
 0,0,0,0,0,0,0,/*      * Try to access an unprotected resource in a webapp that     * has a BASIC login method defined.     * This should be permitted without a challenge.      */
 0,0,0,0,0,0,0,//  First byte ED, second byte 80..9F 
@@ -6615,7 +6627,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  -------------------- Actions -------------------- 
 0,0,0,0,0,0,0,//  Deregister the destroyed instance 
 0,0,0,0,0,0,0,//  Make sure we have a memory leak 
-0,0,0,0,0,0,0,/*  * A potential future enhancement is to allow writing to any ResourceSet, * not just the main ResourceSet although that adds all sorts complications * including: * - which ResourceSet to write to * - unexpected behaviour when deleting a resource from one ResourceSet since *   that may unmask a resource in a lower priority ResourceSet so what was a *   delete looks like a replace with the user having no idea where the 'new' *   resource came from * - how to handle PUT when the target is read-only but it could be written to *   a higher priority ResourceSet that is read-write  */
+0,0,0,1,0,1,1,/*  * A potential future enhancement is to allow writing to any ResourceSet, * not just the main ResourceSet although that adds all sorts complications * including: * - which ResourceSet to write to * - unexpected behaviour when deleting a resource from one ResourceSet since *   that may unmask a resource in a lower priority ResourceSet so what was a *   delete looks like a replace with the user having no idea where the 'new' *   resource came from * - how to handle PUT when the target is read-only but it could be written to *   a higher priority ResourceSet that is read-write  */
 0,0,0,0,0,0,0,/*  Headers are first parsed and stored in the order they are   received. This is based on the fact that most servlets will not   directly access all headers, and most headers are single-valued.   ( the alternative - a hash or similar data structure - will add   an overhead that is not needed in most cases )   Apache seems to be using a similar method for storing and manipulating   headers.   Future enhancements:   - hash the headers the first time a header is requested ( i.e. if the   servlet needs direct access to headers).   - scan "common" values ( length, cookies, etc ) during the parse   ( addHeader hook ) */
 0,0,0,0,0,0,0,//  The session was closed during onOpen. No need to register it. 
 0,0,0,0,0,0,0,//  Open a new connection 
@@ -6793,7 +6805,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*              * Check to see if the requested JSP has been the target of a             * RequestDispatcher.include()              */
 0,0,0,0,0,0,0,//  for DIGEST and SSL authenticated contexts) 
 0,0,0,0,0,0,0,//  make sure file doesn't exist 
-0,0,1,0,0,0,0,//  Duplicate mapping. As per clarification from the Servlet EG,   deployment should fail. 
+0,0,0,0,0,0,0,//  Duplicate mapping. As per clarification from the Servlet EG,   deployment should fail. 
 0,0,0,0,0,0,0,//  value being present 
 0,0,0,0,0,0,0,//  Limit access to users in the Tomcat role 
 0,0,0,0,0,0,0,//  than the earliest possible moment 
@@ -7330,13 +7342,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  child's container is Host 
 0,0,0,0,0,0,0,//  Now use a settings frame to further reduce the size of the flow 
 0,0,0,0,0,0,0,//  Not a valid status code 
-0,0,1,1,1,1,1,/*          * TODO SERVLET 3.1          */
+0,0,0,1,1,1,1,/*          * TODO SERVLET 3.1          */
 0,0,0,0,0,0,0,//  Check that the resource is absolute. This should always be the case. 
 0,0,0,0,0,0,0,//  First remove query string 
 0,0,0,0,0,0,0,// this could be the channel listener throwing an exception, we should log it  as a warning. 
 0,0,0,0,0,0,0,//  finally provide helpful hints 
 0,0,0,0,0,0,0,// resource-ref 
-0,0,0,0,0,0,0,//  Java SE API (as of Java 8) does not expose the API to   control the Window size. It is effectively hard-coded   to 15 
+0,0,0,1,0,1,1,//  Java SE API (as of Java 8) does not expose the API to   control the Window size. It is effectively hard-coded   to 15 
 0,0,0,0,0,0,0,//  AJP does not support trailers so return true so app can request the   trailers and find out that there are none. 
 0,0,0,0,0,0,0,//  written. 
 0,0,0,0,0,0,0,//  any local address 
@@ -7360,7 +7372,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  If there is no data to process, trigger a read immediately. This is   an optimisation for the typical case so we don't create an 
 0,0,0,0,0,0,0,//  Filter out cipher suites that OpenSSL does not implement 
 0,0,0,0,0,0,0,//  Set to distributable else every app will be prevented from being   distributable when the Tomcat fragment is merged with the main 
-0,0,1,1,1,1,1,//  TODO: This certificate setter can be removed once it is no longer   necessary to support the old configuration attributes (Tomcat 10?). 
 0,0,0,0,0,0,0,//  Look to see if this request is an include 
 0,0,0,0,0,0,0,//  Instantiate the indicated Options implementation 
 0,0,0,0,0,0,0,//  size of a simple request (8k) 
@@ -7403,12 +7414,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Pools exhausted 
 0,0,0,0,0,0,0,//  Bugzilla 37781 Check to make sure we can write this output file 
 0,0,0,0,0,0,0,//  just in case 
-0,0,1,0,1,1,1,//  XXX check web.xml for custom error handler 
+0,0,0,0,1,1,1,//  XXX check web.xml for custom error handler 
 0,0,0,0,0,0,0,//  env-entry names must be unique within a web(-fragment).xml 
 0,0,0,0,0,0,0,//  The IBM JRE will accept cipher suites names SSL_xxx or TLS_xxx but   only returns the SSL_xxx form for supported cipher suites. Therefore   need to filter the requested cipher suites using both forms with an 
 0,0,0,0,0,0,0,//  No specific functionality for this class 
 0,0,0,0,0,0,0,//  Return the class we have located 
-0,0,0,0,0,0,0,//  Control messages may be sent in the middle of fragmented message   so they have no effect on the fragmented or text flags 
+0,0,1,0,0,0,0,//  Control messages may be sent in the middle of fragmented message   so they have no effect on the fragmented or text flags 
 0,0,0,0,0,0,0,//  This is the normal case for this code 
 0,0,0,0,0,0,0,//  Restart MapperListener to pick up new engine. 
 0,0,0,0,0,0,0,//  Store ourselves as a request attribute (if requested) 
@@ -7429,7 +7440,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  HTTP Upgrade 
 0,0,0,0,0,0,0,//  Non hex character 
 0,0,0,0,0,0,0,/*      * JVMs may limit the maximum array size to slightly less than     * Integer.MAX_VALUE. On markt's desktop the limit is MAX_VALUE - 2.     * Comments in the JRE source code for ArrayList and other classes indicate     * that it may be as low as MAX_VALUE - 8 on some systems.      */
-0,0,0,1,1,1,1,//  TODO Move this validation to the parsing stage 
 0,0,0,0,0,0,0,// prepare the results to be written 
 0,0,0,0,0,0,0,//  Support for the factory methods 
 0,0,0,0,0,0,0,//  First try the Servlet 2.2 javax.servlet.context.tempdir property 
@@ -7603,7 +7613,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Close the socket now that we are done with it 
 0,0,0,0,0,0,0,//  Bug 54395 
 0,0,0,0,0,0,0,//  check for container level optional packages 
-0,0,1,1,1,1,1,//  TODO: Remove the internal representation and use Ranges 
 0,0,0,0,0,0,0,//  do nothing, internalProxies IPs are not appended to the 
 0,0,0,0,0,0,0,//  These methods are always allowed. They may return a 404 (not a 405)   if the resource does not exist. 
 0,0,0,0,0,0,0,//  If authentication was not successful, just return false 
@@ -7740,7 +7749,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*      * Returns null if the input path is not valid or a path that will be     * acceptable to resources.getResource().      */
 0,0,0,0,0,0,0,// print from the global counter 
 0,0,0,0,0,0,0,//  Mark and parse the EL expression and create its node: 
-0,0,1,1,1,1,1,// todo, optimize, if destination.length==1, then we can do  msg.setOptions(msg.getOptions() & (~getOptionFlag())  and just send one message 
 0,0,0,0,0,0,0,//  Hitting limit stops processing further params but does   not cause request to fail. 
 0,0,0,0,0,0,0,//  Need to check default 
 0,0,0,0,0,0,0,/*      * A visitor class for traversing ELNodes      */
@@ -7769,7 +7777,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  No need for overflow protection here. Decrement can never be larger   the Integer.MAX_VALUE and once windowSize goes negative no further   decrements are permitted 
 0,0,0,0,0,0,0,//  local-encoding-mapping-list was added in 2.4 so should be excluded in 
 0,0,0,0,0,0,0,//  note, that we can avoid (long -> Long) conversion 
-0,1,1,0,1,1,1,//  POOL-324 org.apache.commons.pool2.impl.GenericObjectPool.getFactoryType() throws   java.lang.ClassCastException     A bit hackish, but we must handle cases when getGenericType() does not return a concrete types. 
+0,1,1,0,0,0,0,//  POOL-324 org.apache.commons.pool2.impl.GenericObjectPool.getFactoryType() throws   java.lang.ClassCastException     A bit hackish, but we must handle cases when getGenericType() does not return a concrete types. 
 0,0,0,0,0,0,0,//  Check for success 
 0,0,0,0,0,0,0,//  Cipher 36 
 0,0,0,0,0,0,0,//  Object[] 
@@ -8009,7 +8017,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  If the ETag the client gave does not match the entity   etag, then the entire entity is returned. 
 0,0,0,0,0,0,0,//  --------------------------------------------------- Instance Variables 
 0,0,0,0,0,0,0,/*          * Anything and everything can override the global and host defaults.         * This is implemented in two parts         * - Handle as a web fragment that gets added after everything else so         *   everything else takes priority         * - Mark Servlets as overridable so SCI configuration can replace         *   configuration from the defaults          */
-0,0,0,1,0,1,1,// if the session has been idle twice as long as allowed,  the primary session has probably crashed, and no other  requests are coming in. that is why we do this. otherwise  we would have a memory leak 
+0,0,1,1,0,1,1,// if the session has been idle twice as long as allowed,  the primary session has probably crashed, and no other  requests are coming in. that is why we do this. otherwise  we would have a memory leak 
 0,0,0,0,0,0,0,//  Parse flag which have substitution values 
 0,0,0,0,0,0,0,//  Convert IP addresses to strings so they will be persisted 
 0,0,0,0,0,0,0,//  the web application was stopped. 
@@ -8352,7 +8360,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  remove locally 
 0,0,0,0,0,0,0,//  If ejb-link has been specified, resolving the link using JNDI 
 0,0,0,0,0,0,0,//  We should have an avpair or name-only cookie at this   point. Perform some basic checks to make sure we are   in a good state. 
-0,0,1,0,0,0,0,//          emptyRoleSemantic = EmptyRoleSemantic.DENY)) 
+0,0,0,0,0,0,0,//          emptyRoleSemantic = EmptyRoleSemantic.DENY)) 
 0,0,0,0,0,0,0,//  ------------------------------------------------------ HTTP Status Codes 
 0,0,0,0,0,0,0,//  multicast member 
 0,0,0,0,0,0,0,/*   Open and read in file in one fell swoop to reduce chance         *  chance of leaving handle open.          */
@@ -8470,7 +8478,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// if the header (START_DATA) isn't the first thing or 
 0,0,0,0,0,0,0,/*      * errorPage      */
 0,0,0,0,0,0,0,//  Start manager 
-0,0,1,0,0,0,0,//  Stream 1 is closed. This should trigger a connection error 
+0,0,0,0,0,0,0,//  Stream 1 is closed. This should trigger a connection error 
 0,0,0,0,0,0,0,/*      * For UseBean: StdActionContent ::= Attributes OptionalBody      */
 0,0,0,0,0,0,0,//  Get the length of the file used for this test   It varies by platform due to line-endings 
 0,0,0,0,0,0,0,//  JAAS configuration file location 
@@ -8672,7 +8680,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*  JavaCCOptions:  */
 0,0,0,0,0,0,0,//  List the ciphers that the client is permitted to negotiate 
 0,0,0,0,0,0,0,//  ClassLoader pinning we're about to do. 
-0,0,0,0,1,1,1,//  NOTE: We don't try to reauthenticate using any existing SSO session,   because that will only work if the original authentication was   BASIC or FORM, which are less secure than the CLIENT-CERT auth-type   specified for this webapp     Change to true below to allow previous FORM or BASIC authentications   to authenticate users for this webapp   TODO make this a configurable attribute (in SingleSignOn??) 
 0,0,0,0,0,0,0,//  Cipher C4 
 0,0,0,0,0,0,0,/*      * extract and save the server cookies from the incoming response      */
 0,0,0,0,0,0,0,//  while   Not Null 
@@ -8729,7 +8736,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  expected as $_{ is invalid 
 0,0,0,0,0,0,0,//  If allow linking is enabled, files are not limited to being located 
 0,0,0,0,0,0,0,//  Volatile because I/O and setting the timeout values occurs on a different 
-0,0,0,0,1,1,1,//  TODO: Test always accounting for changes in flow control windows even if         the frame is in error. 
+0,0,0,1,1,1,1,//  TODO: Test always accounting for changes in flow control windows even if         the frame is in error. 
 0,0,0,0,0,0,0,//  It will also set a shutdown hook to stop the Server when needed 
 0,0,0,0,0,0,0,//  Note tg.enumerate(Thread[]) silently ignores any threads that   can't fit into the array 
 0,0,0,0,0,0,0,//  Not available for now in Tomcat (needs to be passed during engine creation) 
@@ -8874,7 +8881,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Ignore notify 
 0,0,0,0,0,0,0,//  Static text 
 0,0,0,0,0,0,0,//  ---------------------------------------------- Constructors 
-0,0,1,0,0,0,0,//  The log pattern uses TLS attributes. Ensure these are populated   before the request is processed because with NIO2 it is possible   for the connection to be closed (and the TLS info lost) before   the access log requests the TLS info. Requesting it now causes it   to be cached in the request. 
+0,0,0,0,0,0,0,//  The log pattern uses TLS attributes. Ensure these are populated   before the request is processed because with NIO2 it is possible   for the connection to be closed (and the TLS info lost) before   the access log requests the TLS info. Requesting it now causes it   to be cached in the request. 
 0,0,0,0,0,0,0,//  See Bugzilla 30949 
 0,0,0,0,0,0,0,//  Cipher BD 
 0,0,0,0,0,0,0,//  short-circuit if not monitoring stuck threads 
@@ -8976,7 +8983,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Set up the search controls 
 0,0,0,0,0,0,0,//  resource-ref/res-sharing-scope was added in 2.3 so should be excluded 
 0,0,0,0,0,0,0,//  Resource is located in the appBase so it may be deleted 
-0,0,1,0,0,0,0,//  Do not release any SSLContexts associated with a replaced   SSLHostConfig. They may still be in used by existing connections   and releasing them would break the connection at best. Let GC   handle the clean up. 
+0,0,0,0,0,0,0,//  Do not release any SSLContexts associated with a replaced   SSLHostConfig. They may still be in used by existing connections   and releasing them would break the connection at best. Let GC   handle the clean up. 
 0,0,0,0,0,0,0,/*      * Test whether aborted POST correctly handle connection draining.      */
 0,0,0,0,0,0,0,//  Need to check existing layer registrations   (and default)   Need to check registrations for all layers 
 0,0,0,0,0,0,0,//  Just for debugging 
@@ -9164,6 +9171,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Skip threads that have already died 
 0,0,0,0,0,0,0,//  No functional change 
 0,0,0,0,0,0,0,/*      * {@link FileInputStream#read(byte[])} and related methods are all native     * methods so it isn't immediately obvious if they are thread-safe or not.     *     * <pre>     * Windows JDK 1.6.0_22_x64 - Thread safe     * OSX     JDK 1.6.0_22_x64 - Not thread safe     * OSX     JDK 1.7.0_51_x64 - Not thread safe     * </pre>     *     * Therefore, have to assume that {@link FileInputStream#read(byte[])} is     * not thread safe.      */
+0,0,0,0,0,0,0,//  ping
 0,0,0,0,0,0,0,//  Sub-protocols 
 0,0,0,0,0,0,0,//  handle ordered libs directly, ... 
 0,0,0,0,0,0,0,//  now compute some delays - beware of the units! 
@@ -9254,7 +9262,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  continue to unwrap as long as the input buffer has stuff 
 0,0,0,0,0,0,0,//  only those 2 methods need to change to use a different direct logger. 
 0,0,1,0,0,0,0,//  Note: Internally, the Mapper does not use the leading * on a         wildcard host. This is to allow this shortcut. 
-0,0,1,1,1,1,1,//  TODO - Should never happen 
 0,0,0,0,0,0,0,/*  A definite node is constructed from a specified number of     children.  That number of nodes are popped from the stack and     made the children of the definite node.  Then the definite node     is pushed on to the stack.  */
 0,0,0,0,0,0,0,//  If this JAR was in a web application, this is equivalent to how it 
 0,0,0,0,0,0,0,//  unregister this component 
@@ -9435,7 +9442,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Parse the query string from the dispatch target 
 0,0,0,0,0,0,0,//  The latches above are meant to ensure the correct   sequence of events but in some cases, particularly with   APR, there is a short delay between the client closing /   resetting the connection and the server recognising that   fact. This loop tries to ensure that it lasts much longer   than that delay so any close / reset from the client   triggers an error here. 
 0,0,0,0,0,0,0,/*      *  Wrapper for getting the response.      */
-0,0,1,0,0,0,0,//  WebConnection is not used so passing null here is fine   Might not be necessary. init() will handle that. 
+0,0,0,0,0,0,0,//  WebConnection is not used so passing null here is fine   Might not be necessary. init() will handle that. 
 0,0,0,0,0,0,0,// return 0 if we are complete, otherwise recurse to process the task 
 0,0,0,0,0,0,0,//  Draw the RoomMessage onto our Room Image. 
 0,0,0,0,0,0,0,//  Simple dispatch with invalid directory traversal 
@@ -9509,7 +9516,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  ignore and try to close others. 
 0,0,0,0,0,0,0,//  Create a populated InstanceManager 
 0,0,0,0,0,0,0,//  50-5f P-Z _   60-6f a-o 
-0,0,0,0,0,0,0,//  NOTE:  Race condition is harmless, so do not synchronize 
+0,0,1,0,0,0,0,//  NOTE:  Race condition is harmless, so do not synchronize 
 0,0,0,0,0,0,0,//  Removing errors pages 
 0,0,0,0,0,0,0,//  NOOP since this filter will be providing the request body 
 0,0,0,0,0,0,0,//  optimize 
@@ -9523,7 +9530,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  No options left. Just return null. 
 0,0,0,0,0,0,0,/*      * APR_STATUS_IS Status Value Tests     * <br><b>Warning :</b> For any particular error condition, more than one of these tests     *      may match. This is because platform-specific error codes may not     *      always match the semantics of the POSIX codes these tests (and the     *      corresponding APR error codes) are named after. A notable example     *      are the APR_STATUS_IS_ENOENT and APR_STATUS_IS_ENOTDIR tests on     *      Win32 platforms. The programmer should always be aware of this and     *      adjust the order of the tests accordingly.     *      */
 0,0,0,0,0,0,0,//  Warning: JSP attribute escaping != Java String escaping 
-0,0,1,0,0,0,0,//  The getResource() trick won't work for this class. We have to   try loading it directly and accept that we might get a 
+0,0,0,0,0,0,0,//  The getResource() trick won't work for this class. We have to   try loading it directly and accept that we might get a 
 0,0,0,0,0,0,0,//  Recycle thread local data at the end of the request so references   are not held to a completed request as there is potential for   that to trigger a memory leak if a context is unloaded. 
 0,0,0,0,0,0,0,//  Avoid NPE for case where Context is defined in server.xml with only a   docBase 
 0,0,0,0,0,0,0,/*  GET == 2  */
@@ -9558,7 +9565,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Need to check this again here in case the response was   committed before the error that requires the connection   to be closed occurred. 
 0,0,0,0,0,0,0,/*      * The name of the inner class to which the codes for this node and its body     * are generated. For instance, for <jsp:body> in foo.jsp, this is     * "foo_jspHelper". This is primarily used for communicating such info from     * Generator to Smap generator.      */
 0,0,0,0,0,0,0,/*          * Scan the server response body and extract the given         * url, including any path elements.          */
-0,0,1,0,0,0,0,//  Bug 60232   500ms per frame write delay to give server a chance to process the   stream reset and the connection reset before the request is fully   sent. 
+0,0,0,0,0,0,0,//  Bug 60232   500ms per frame write delay to give server a chance to process the   stream reset and the connection reset before the request is fully   sent. 
 0,0,0,0,0,0,0,//  Make casual multipart request to "regular" servlet w/o config   We expect an error 
 0,0,0,0,0,0,0,//  Protocols 
 0,0,0,0,0,0,0,//  define proxy in class loader of non-public interface(s), if any 
@@ -9674,7 +9681,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  kind of backwards on naming.  In the map, each key is the   PooledObject because it has the ordering with the timestamp   value.  Each value that the key references is the key of the   list it belongs to. 
 0,0,0,0,0,0,0,//  ref cannot be null 
 0,0,0,0,0,0,0,//  allocate an unbound server socket channel 
-0,0,1,0,0,0,0,//  Something else went wrong 
+0,0,0,0,0,0,0,//  Something else went wrong 
 0,0,0,0,0,0,0,//  NOTE - Not relevant for selecting filters 
 0,0,0,0,0,0,0,//  Prepare our response, eating all exceptions 
 0,0,0,0,0,0,0,//  ignoring it. 
@@ -10015,7 +10022,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  c.addBeforeOrdering("b"); 
 0,0,1,0,0,0,0,//  is there data to read on this channel? 
 0,0,0,0,0,0,0,//  jspFile may be configured as an init-param for this servlet instance 
-0,0,1,0,0,0,0,//  Value determined by observation of what the SSL Engine requested in   various scenarios 
+0,0,0,0,0,0,0,//  Value determined by observation of what the SSL Engine requested in   various scenarios 
 0,0,0,0,0,0,0,//  Simple dispatch with directory traversal and path parameters   Note comments in Request.getRequestDispatcher(String) that   explain why the path parameter abcde=fghij is not present on the 
 0,0,0,0,0,0,0,// regular shutdown 
 0,0,0,0,0,0,0,/*  Second used to retrieve CLF format in most recent invocation  */
@@ -10131,6 +10138,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Instantiate the required listeners 
 0,0,0,0,0,0,0,//  Set available status depending upon startup success 
 0,0,0,0,0,0,0,//  Consume extra bytes. 
+0,0,0,0,0,0,0,//  numActive has changed
 0,0,0,0,0,0,0,//  Now at the start of the mechType list. 
 0,0,0,0,0,0,0,//  Check for leaks triggered by ThreadLocals loaded by this class loader 
 0,0,0,0,0,0,0,// ------------------------------------------------------------------------------                CONSTRUCTORS  ------------------------------------------------------------------------------ 
@@ -10193,7 +10201,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  create file 
 0,0,0,0,0,0,0,//  A parallel request has called session.invalidate() which has   removed the session from the Manager. 
 0,0,0,0,0,0,0,//  Continue processing the socket on the current thread 
-0,0,0,0,0,0,0,//  Fix for Bug 10040   Always associate a session with a new SSO reqistration.   SSO entries are only removed from the SSO registry map when   associated sessions are destroyed; if a new SSO entry is created   above for this request and the user never revisits the context, the 
+0,0,0,1,0,1,1,//  Fix for Bug 10040   Always associate a session with a new SSO reqistration.   SSO entries are only removed from the SSO registry map when   associated sessions are destroyed; if a new SSO entry is created   above for this request and the user never revisits the context, the 
 0,0,0,0,0,0,0,//  Check if compression is enabled 
 0,0,0,0,0,0,0,//  Must be followed by '/' 
 0,0,0,0,0,0,0,//  -------------------------------------------------------------- Variables 
@@ -10202,7 +10210,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Make sure appBase does not contain a conflicting web application 
 0,0,0,0,0,0,0,//  message-destination-ref, message-destination were introduced in 
 0,0,0,0,0,0,0,//  Release here since there will be no   notify/dispatch to do the release. 
-0,0,0,1,1,1,1,/*      * Obtain a value for the given HTTP header.     * TODO Servlet 4.0     * Clarify the behaviour of this method     *     * @param name  The name of the header whose value is to be returned     *     * @return The value of the given header. If multiple values are defined     *         then any may be returned      */
+0,0,1,1,1,1,1,/*      * Obtain a value for the given HTTP header.     * TODO Servlet 4.0     * Clarify the behaviour of this method     *     * @param name  The name of the header whose value is to be returned     *     * @return The value of the given header. If multiple values are defined     *         then any may be returned      */
 0,0,0,0,0,0,0,//  conflicting post-construct definitions 
 0,0,0,0,0,0,0,//  Only need to reset the old request if it is going to be pooled.   Otherwise let GC do its thing. 
 0,0,0,0,0,0,0,//  Cipher C021 
@@ -10518,7 +10526,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Note existing files will be deleted and then replaced 
 0,0,0,0,0,0,0,//  big enough. 
 0,0,0,0,0,0,0,//  Does the value contain a " ? If so must encode it 
-0,0,0,0,0,0,0,//  Redundancy. Alias name = Host name. No error here. 
+0,0,1,0,0,0,0,//  Redundancy. Alias name = Host name. No error here. 
 0,0,0,0,0,0,0,//  Get all the other parameters required from the standard system   properties. Only need to get the parameters that affect the creation   of the server port. 
 0,0,0,0,0,0,0,//  NO-OP   Allow stop to complete since it is used for clean-up 
 0,0,0,0,0,0,0,//  Both get changed 
@@ -10540,7 +10548,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Started to read request line. 
 0,0,0,0,0,0,0,//  Connection window update after reading request body 
 0,0,0,0,0,0,0,//  And add force authentication to occur on the initial handshake 
-0,0,1,0,0,0,0,//  Must have stopped already. Too late to ignore it. Assume not a   request processing thread. 
+0,0,0,0,0,0,0,//  Must have stopped already. Too late to ignore it. Assume not a   request processing thread. 
 0,0,0,0,0,0,0,//  In both cases, return and let context init the namingResources   when it starts 
 0,0,0,0,0,0,0,/*  * Sender to proxies using multicast socket.  */
 0,0,0,0,0,0,0,//  used with a <jsp:element>, otherwise false 
@@ -10590,7 +10598,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Retrieve the MBean server 
 0,0,0,0,0,0,0,//  Remove the old file 
 0,0,0,0,0,0,0,//  they are excluded from the next allocation round. 
-0,0,0,0,0,0,0,//  This works and uses only one timeout mechanism for everything, but the   non event poller might be a bit faster by using the old maintain. 
+0,0,1,0,0,0,0,//  This works and uses only one timeout mechanism for everything, but the   non event poller might be a bit faster by using the old maintain. 
 0,0,0,0,0,0,0,//  This is a property 
 0,0,0,0,0,0,0,// ignore if we haven't started the sender 
 0,0,0,0,0,0,0,//  Salt added to "password" is "salttoprotectpassword" 
@@ -11025,11 +11033,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Sneak the regular node in. The NOT will   be resolved when the next opp comes along. 
 0,0,0,0,0,0,0,//  Clear all application-originated servlet context attributes 
 0,0,0,0,0,0,0,//  No need to lookup if the key is not in the map 
-0,0,1,1,1,1,1,//  FIXME: Implement SSL environment variables 
 0,0,0,0,0,0,0,//  if MP JWT-Auth is available 
 0,0,0,0,0,0,0,// literal never indexed 
 0,0,0,0,0,0,0,//  Add this class to the cache 
-0,0,1,1,1,1,1,//  TODO: Description for init-param is ignored 
 0,0,0,0,0,0,0,//  If crossContext is enabled, can always return the context 
 0,0,0,0,0,0,0,//  userinfo    = *( unreserved / pct-encoded / sub-delims / ":" ) 
 0,0,0,0,0,0,0,// if the param tag has no parents, throw a exception 
@@ -11153,7 +11159,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  All the formats that use a timezone use GMT 
 0,0,0,0,0,0,0,//  Load the contents of our configuration file 
 0,0,0,0,0,0,0,//  The pool is currently at capacity or in the process of   making enough new objects to take it to capacity. 
-0,0,0,0,1,1,1,//  TODO Make the socketWriteBuffer size configurable and align the        SSL and app buffer size settings with NIO & NIO2. 
+0,0,1,0,1,1,1,//  TODO Make the socketWriteBuffer size configurable and align the        SSL and app buffer size settings with NIO & NIO2. 
 0,0,0,0,0,0,0,//  Always instantiate parent loggers so that 
 0,0,0,0,0,0,0,//  nothing to do if it fails since we are done with it 
 0,0,0,0,0,0,0,// to sync against the semaphore 
@@ -11173,7 +11179,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Protected for unit testing 
 0,0,0,0,0,0,0,//  Removing empty parts 
 0,0,0,0,0,0,0,//  Note: Unused for async IO 
-0,0,0,0,0,0,0,//  Not perfectly thread-safe but good enough. Just needs to ensure that   once this.error is non-null, it can never be null. 
+0,0,1,0,0,0,0,//  Not perfectly thread-safe but good enough. Just needs to ensure that   once this.error is non-null, it can never be null. 
 0,0,0,0,0,0,0,//  is sent before the next stream is created for a PUSH_PROMISE. 
 0,0,0,0,0,0,0,//  Avoid division by zero 
 0,0,0,0,0,0,0,// hint if we want disable loop back(local machine) messages 
@@ -11322,7 +11328,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*  JavaCC - OriginalChecksum=071159eff10c8e15ec612c765ae4480a (do not edit this line)  */
 0,0,0,0,0,0,0,//  Smarter than the typical client. Attempts to read the response   even if the request is not fully written. 
 0,0,0,0,0,0,0,//  Socket write buffer has some data. 
-0,0,1,0,0,0,0,//  window. The stream 3 window should still be negative 
+0,0,0,0,0,0,0,//  window. The stream 3 window should still be negative 
 0,0,0,0,0,0,0,//  Cipher C0AB 
 0,0,0,0,0,0,0,//  ---------------------------------------------------- Context Inner Class 
 0,0,0,0,0,0,0,//  Used for notifications 
@@ -11523,7 +11529,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  accessible 
 0,0,0,0,0,0,0,// try to double start the RX 
 0,0,0,0,0,0,0,//  Assume this is triggered by the user closing their browser and   ignore it. 
-0,0,1,0,1,1,1,/*  * All-to-all replication for a hash map implementation. Each node in the cluster will carry an identical * copy of the map.<br><br> * This map implementation doesn't have a background thread running to replicate changes. * If you do have changes without invoking put/remove then you need to invoke one of the following methods: * <ul> * <li><code>replicate(Object,boolean)</code> - replicates only the object that belongs to the key</li> * <li><code>replicate(boolean)</code> - Scans the entire map for changes and replicates data</li> *  </ul> * the <code>boolean</code> value in the <code>replicate</code> method used to decide * whether to only replicate objects that implement the <code>ReplicatedMapEntry</code> interface * or to replicate all objects. If an object doesn't implement the <code>ReplicatedMapEntry</code> interface * each time the object gets replicated the entire object gets serialized, hence a call to <code>replicate(true)</code> * will replicate all objects in this map that are using this node as primary. * * <br><br><b>REMEMBER TO CALL <code>breakdown()</code> or <code>finalize()</code> * when you are done with the map to avoid memory leaks.</b><br><br> * TODO implement periodic sync/transfer thread<br> * TODO memberDisappeared, should do nothing except change map membership *       by default it relocates the primary objects * * @param <K> The type of Key * @param <V> The type of Value  */
 0,0,0,0,0,0,0,//  Cipher C009 
 0,0,0,0,0,0,0,//  This always returns false otherwise the superclass will call   #getArchiveEntry(String) 
 0,0,0,0,0,0,0,//  uri (of the form "urn:jsptagdir:path") references tag file dir 
@@ -11594,7 +11599,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// let the cluster know that there is a context that is distributable  and that it has its own manager 
 0,0,0,0,0,0,0,//  Monitoring (primarily JMX) attributes 
 0,0,0,0,0,0,0,//  Class variable declarations 
-0,0,0,0,0,0,0,// SMAPping problem, we simply ignore the flawed SMAP entries. 
+0,0,1,0,0,0,0,// SMAPping problem, we simply ignore the flawed SMAP entries. 
 0,0,0,0,0,0,0,//  Create the APR server socket 
 0,0,0,0,0,0,0,//  Set the start position and read the length 
 0,0,0,0,0,0,0,//  change constraints 
@@ -11712,6 +11717,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  on ci.apache.org so allow a margin and use 20. 
 0,0,0,0,0,0,0,//  override headers 
 0,0,0,0,0,0,0,//  Pause connectors first 
+0,0,0,0,0,0,0,//  First fall-back. See if current directory is a bin directory   in a normal Tomcat install
 0,0,0,1,1,1,1,//  TODO 
 0,0,0,0,0,0,0,//  Is there a saved principal? 
 0,0,0,0,0,0,0,//  Reached end of stream before SNI could be processed. 
@@ -11757,7 +11763,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  No action required for modified directory 
 0,0,0,0,0,0,0,//  This test requires manual intervention to create breakpoints etc. 
 0,0,0,0,0,0,0,//  Default suppression time of 1 day. 
-0,0,0,0,0,0,0,// this is a real error, log it. 
+0,0,1,0,0,0,0,// this is a real error, log it. 
 0,0,0,0,0,0,0,//  Get the annotation from the test case 
 0,0,0,0,0,0,0,//  If a close frame has been received, no further data should   have seen 
 0,0,0,0,0,0,0,//  but not long enough for NonLogin session expiry 
@@ -11765,7 +11771,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*      * https://bz.apache.org/bugzilla/show_bug.cgi?id=59317      */
 0,0,0,0,0,0,0,//  the first access attempt should be challenged 
 0,0,0,0,0,0,0,//  Write the scalar instance variables (except Manager) 
-0,0,0,0,0,0,0,//  No '/'. Must be a file name rather than a URL 
+0,0,1,0,0,0,0,//  No '/'. Must be a file name rather than a URL 
 0,0,0,0,0,0,0,//  This is of course only meaningful for bytes 
 0,0,0,0,0,0,0,// default end place is the last index 
 0,0,0,0,0,0,0,//  Payload must be zero or 2+ bytes long 
@@ -12090,7 +12096,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Connection will be forcibly closed which will prevent   completion happening at the usual point. Need to trigger   call to onComplete() here. 
 0,0,0,0,0,0,0,//  quote 
 0,0,0,0,0,0,0,//  APR connector so OpenSSL is used for TLS. 
-0,0,1,0,0,0,0,//  post-construct and pre-destroy 
+0,0,0,0,0,0,0,//  post-construct and pre-destroy 
 0,0,0,0,0,0,0,/*      * The combined count of the currently created objects and those in the     * process of being created. Under load, it may exceed {@link #_maxActive}     * if multiple threads try and create a new object at the same time but     * {@link #create()} will ensure that there are never more than     * {@link #_maxActive} objects created at any one time.      */
 0,0,0,0,0,0,0,//  Don't care 
 0,0,0,0,0,0,0,//  For this connector, only the overall connection count is relevant 
@@ -12211,4 +12217,3 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Trigger automatic deployment 
 0,0,0,0,0,0,0,//  Set the contentLanguage for header output 
 0,0,0,0,0,0,0,//  Remove all path parameters; any needed path parameter should be set   using the request object rather than passing it in the URL 
-0,0,1,1,1,1,1,//  TODO: Consider implications of SSO cookies 

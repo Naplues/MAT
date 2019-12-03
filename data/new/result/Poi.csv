@@ -1,10 +1,10 @@
 oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  Complex file   TODO 
 1,0,0,1,0,1,1,//  Sometimes, the grpprl does not contain data at every offset. I have no idea why this happens. 
-1,0,0,0,1,1,1,/* @todo handle table sprms from complex files */
+1,0,0,1,1,1,1,/* @todo handle table sprms from complex files */
 1,0,1,1,1,1,1,//  FIXME (byte array properties not yet implemented): dsi.setDocparts(P_DOCPARTS); 
 1,0,1,1,1,1,1,//  FIXME (byte array properties not yet implemented): assertNull(dsi.getDocparts());   FIXME (byte array properties not yet implemented): assertNull(dsi.getHeadingPair()); 
-1,0,0,1,1,1,1,//  TODO clone some more properties ?  
+1,0,1,1,1,1,1,//  TODO clone some more properties ?  
 1,0,1,1,1,1,1,/*  TODO: handle rect path  */
 1,0,1,1,1,1,1,// TODO -- implement these as needed  BrtFileVersion(128), //file version 
 1,0,0,1,1,1,1,// TODO: depending on the formatId getDateTimeText() should return formatted date  assertEquals("08/12/08", notesHdd.getDateTimeText()); 
@@ -13,11 +13,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  "A .. B" not valid syntax for "A:B"   and there's no other valid expression that fits this grammar 
 1,0,0,0,0,0,0,//  PDXNAN(0x006F,0x0C65,"PDXnan"), // invalid combo 
 1,0,1,1,1,1,1,//  Copy merged regions that are fully contained on the row   FIXME: is this something that rowShifter could be doing? 
-1,0,0,0,1,1,1,/* @todo handle large PAPX from data stream */
+1,0,0,1,1,1,1,/* @todo handle large PAPX from data stream */
 1,0,1,1,1,1,1,/*  TODO update body element, update xwpf element, verify that         * incoming paragraph belongs to this document or if not, XML was         * copied properly (namespace-abbreviations, etc.)          */
 1,0,1,1,1,1,1,/*  *	Test to see if Range.insertBefore() works even if the Range contains a *	CharacterRun that uses Unicode characters. * * TODO - re-enable me when unicode paragraph stuff is fixed!  */
-1,0,1,0,0,0,0,//  Some files seem to lie about their unicode status, which      is very very pesky. Try to work around these, but this 
-1,0,0,1,1,1,1,//  TODO - check the formula once tables and    arrays are properly supported 
+1,0,0,0,0,0,0,//  Some files seem to lie about their unicode status, which      is very very pesky. Try to work around these, but this 
+1,0,1,1,1,1,1,//  TODO - check the formula once tables and    arrays are properly supported 
 1,0,1,1,1,1,1,//  TODO: handle LCID codes 
 1,0,1,1,1,1,1,//  TODO: use new properties 
 1,0,0,1,1,1,1,//  TODO Update this to expose first and last sheet indexes 
@@ -28,7 +28,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// TODO: default "autobreaks" is different in HSSF and XSSF 
 1,0,1,1,1,1,1,//  We need a new CTXf for the main styles   TODO decide on a style ctxf 
 1,0,1,1,1,1,1,// TODO: implement more dashing styles 
-1,0,1,1,1,1,1,/*          * HACK: Detect compressed images. In reality there should be some way         * to determine this from the first 32 bytes, but I can't see any         * similarity between all the samples I have obtained, nor any         * similarity in the data block contents.          */
+1,0,0,1,1,1,1,/*          * HACK: Detect compressed images. In reality there should be some way         * to determine this from the first 32 bytes, but I can't see any         * similarity between all the samples I have obtained, nor any         * similarity in the data block contents.          */
 1,0,1,1,1,1,1,//  TODO: handle palette colors and alpha(?) value 
 1,0,0,1,1,1,1,//  TODO: check size   TODO: check size   TODO: check size 
 1,0,0,1,1,1,1,//       assertRefPtgA1('V', getPtgs(cell), 6); // FIXME! 
@@ -39,11 +39,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO - this data seems to require two extra bytes padding. not sure where original file is.   it's not bug 38607 attachment 17639 
 1,0,1,1,1,1,1,//  FIXME: this function is a self-fulfilling prophecy: this test will always pass as long 
 1,0,1,1,1,1,1,// FIXME: XSSFCell and HSSFCell expose different interfaces. getErrorCellString would be helpful here 
-1,0,1,0,0,0,0,/*         * Exponent sign handling is complex.        *        * In DecimalFormat, you never put the sign in the format, and the sign only        * comes out of the format if it is negative.        *        * In Excel, you always say whether to always show the sign ("e+") or only        * show negative signs ("e-").        *        * Also in Excel, where you put the sign in the format is NOT where it comes        * out in the result.  In the format, the sign goes with the "e"; in the        * output it goes with the exponent value.  That is, if you say "#e-|#" you        * get "1e|-5", not "1e-|5". This makes sense I suppose, but it complicates        * things.        *        * Finally, everything else in this formatting code assumes that the base of        * the result is the original format, and that starting from that situation,        * the indexes of the original special characters can be used to place the new        * characters.  As just described, this is not true for the exponent's sign.        * <p>        * So here is how we handle it:        *        * (1) When parsing the format, remove the sign from after the 'e' and put it        * before the first digit of the exponent (where it will be shown).        *        * (2) Determine the result's sign.        *        * (3) If it's missing, put the sign into the output to keep the result        * lined up with the output. (In the result, "after the 'e'" and "before the        * first digit" are the same because the result has no extra chars to be in        * the way.)        *        * (4) In the output, remove the sign if it should not be shown ("e-" was used        * and the sign is negative) or set it to the correct value.         */
-1,0,1,1,1,1,1,//  FIXME: forgot to reassign!  cols = sheet1.getCTWorksheet().getColsArray(0); 
-1,0,1,0,0,0,0,//  ExpPtg is used for array formulas and shared formulas.   it is currently unsupported, and may not even get implemented here 
-1,0,0,1,1,1,1,/*      * To avoid accident changes to the template, you should be able     *  to create a SXSSFWorkbook from a read-only XSSF one, then     *  change + save that (only). See bug #60010     * TODO Fix this to work!      */
-1,0,0,0,1,1,1,//  It's a special formula condition.   TODO: Check whether the condition cell contains a formula and return #VALUE! if it doesn't. 
+1,0,0,0,0,0,0,/*         * Exponent sign handling is complex.        *        * In DecimalFormat, you never put the sign in the format, and the sign only        * comes out of the format if it is negative.        *        * In Excel, you always say whether to always show the sign ("e+") or only        * show negative signs ("e-").        *        * Also in Excel, where you put the sign in the format is NOT where it comes        * out in the result.  In the format, the sign goes with the "e"; in the        * output it goes with the exponent value.  That is, if you say "#e-|#" you        * get "1e|-5", not "1e-|5". This makes sense I suppose, but it complicates        * things.        *        * Finally, everything else in this formatting code assumes that the base of        * the result is the original format, and that starting from that situation,        * the indexes of the original special characters can be used to place the new        * characters.  As just described, this is not true for the exponent's sign.        * <p>        * So here is how we handle it:        *        * (1) When parsing the format, remove the sign from after the 'e' and put it        * before the first digit of the exponent (where it will be shown).        *        * (2) Determine the result's sign.        *        * (3) If it's missing, put the sign into the output to keep the result        * lined up with the output. (In the result, "after the 'e'" and "before the        * first digit" are the same because the result has no extra chars to be in        * the way.)        *        * (4) In the output, remove the sign if it should not be shown ("e-" was used        * and the sign is negative) or set it to the correct value.         */
+1,0,0,1,1,1,1,//  FIXME: forgot to reassign!  cols = sheet1.getCTWorksheet().getColsArray(0); 
+1,0,0,0,0,0,0,//  ExpPtg is used for array formulas and shared formulas.   it is currently unsupported, and may not even get implemented here 
+1,0,1,1,1,1,1,/*      * To avoid accident changes to the template, you should be able     *  to create a SXSSFWorkbook from a read-only XSSF one, then     *  change + save that (only). See bug #60010     * TODO Fix this to work!      */
+1,0,0,1,1,1,1,//  It's a special formula condition.   TODO: Check whether the condition cell contains a formula and return #VALUE! if it doesn't. 
 1,0,1,1,1,1,1,//  TODO - would be nice to remove this 
 1,0,0,0,0,0,0,//  This override is used only in order to test failing for HSSF. Please remove method after code is fixed on hssf,    so that original method from BaseTestSheetShiftColumns can be executed.  
 1,0,0,0,0,0,0,//  int, not short ... :( 
@@ -69,7 +69,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO - when does this occur? 
 1,0,0,0,1,1,1,/*     * To ensure we can create a file >2gb in size, as well as to    *  extend existing files past the 2gb boundary.    *    * Note that to run this test, you will require 2.5+gb of free    *  space on your TMP/TEMP partition/disk    *    * Note that to run this test, you need to be able to mmap 2.5+gb    *  files, which may need bigger kernel.shmmax and vm.max_map_count    *  settings on Linux.    *    * TODO Fix this to work...     */
 1,0,0,0,0,0,0,//  This bug is currently open. This test will fail with "expected error not thrown" when the bug has been fixed.   When this happens, change this from @Test(expected=...) to @Test 
-1,0,0,1,1,1,1,// FIXME: change to protected if/when SXSSFHyperlink class is created 
+1,0,1,1,1,1,1,// FIXME: change to protected if/when SXSSFHyperlink class is created 
 1,0,1,1,1,1,1,/*  *	Test to see if Range.replaceText() works even if the Range contains a *	CharacterRun that uses Unicode characters. * * TODO - re-enable me when unicode paragraph stuff is fixed!  */
 1,0,0,0,1,1,1,/*  * Represents autofiltering for the specified worksheet. * * <p> * Filtering data is a quick and easy way to find and work with a subset of data in a range of cells or table. * For example, you can filter to see only the values that you specify, filter to see the top or bottom values, * or filter to quickly see duplicate values. * </p> * * TODO YK: For now (Aug 2010) POI only supports setting a basic autofilter on a range of cells. * In future, when we support more auto-filter functions like custom criteria, sort, etc. we will add * corresponding methods to this interface.  */
 1,0,0,1,1,1,1,//  FIXME: remove try, catch, and testPassesNow, skipTest when test passes 
@@ -79,12 +79,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  FIXME: Move these constants into an enum 
 1,0,1,1,1,1,1,// FIXME: should be false, no need to create rows where src is only to copy them to dest 
 1,0,1,1,1,1,1,//  TODO add support for TargetMode.EXTERNAL relations. 
-1,0,1,1,1,1,1,//  TODO - DOLLAR() function impl is NQR   result should be StringEval, with leading '$' and thousands separators 
+1,0,0,1,1,1,1,//  TODO - DOLLAR() function impl is NQR   result should be StringEval, with leading '$' and thousands separators 
 1,0,1,1,1,1,1,/* 	 * Sets the URL of the link	 * TODO: Figure out if we should always set both	  */
 1,0,0,1,1,1,1,//  FIXME: this class implements a lot of path joining and splitting logic that   is already implemented in java.nio.file.Path.   This class should heavily leverage Java library code to reduce the number of lines of code that POI has to maintain and test 
 1,0,0,0,0,0,0,//  The directory lacks a name! 
 1,0,0,0,0,0,0,// don't really need this. spec is confusing regarding this  sprm 
-1,0,0,1,1,1,1,//  TODO - Current examples(3) from junits only have zero length username.  
+1,0,0,0,1,1,1,//  TODO - Current examples(3) from junits only have zero length username.  
 1,0,1,1,1,1,1,//  TODO: handle relative coordinates 
 1,0,1,1,1,1,1,//  TODO .xls version available too, add HSSF support then check  
 1,0,1,1,1,1,1,//  TODO calculation of tint might be incorrect 
@@ -93,13 +93,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO Implement the rest of this, see bug #57184 
 1,0,1,1,1,1,1,//  TODO - what about NameX ? 
 1,0,1,1,1,1,1,// TODO: implement this 
-1,0,0,1,1,1,1,//  TODO - make writing possible 
+1,0,1,1,1,1,1,//  TODO - make writing possible 
 1,0,1,1,1,1,1,//  FIXME: Array Formula set with Sheet.setArrayFormula() instead of cell.setFormula() 
 1,0,1,1,1,1,1,//  TODO: check for XXE 
 1,0,1,1,1,1,1,//  TODO Add support for Even/Odd headings and footers 
 1,0,1,1,1,1,1,//  FIXME: _sheetName may be null, depending on the entry point.   Perhaps it would be better to declare _sheetName is never null, using an empty string to represent a 2D reference. 
 1,0,1,1,1,1,1,//  TODO - no Random - tests should be completely deterministic 
-1,0,1,1,1,1,1,//  FIXME: may want to defer to the TempFile with a persistent file creation strategy to the test output dir 
+1,0,0,1,1,1,1,//  FIXME: may want to defer to the TempFile with a persistent file creation strategy to the test output dir 
 1,0,0,1,1,1,1,//  TODO Figure out if we're in 1900 or 1904   EXCEL functions round up nearly a half second (probably to prevent floating point 
 1,0,0,1,1,1,1,/*         // FIXME: Array Formula set with Sheet.setArrayFormula() instead of cell.setFormula()        assertEquals("[Array Formula] N10 cell type", CellType.FORMULA, cell.getCellType());        assertEquals("[Array Formula] N10 cell formula", "{SUM(H10:J10*{1,2,3})}", cell.getCellFormula());        cell = CellUtil.getCell(destRow2, col);        // FIXME: Array Formula set with Sheet.setArrayFormula() instead of cell.setFormula()        assertEquals("[Array Formula] N11 cell type", CellType.FORMULA, cell.getCellType());        assertEquals("[Array Formula] N11 cell formula", "{SUM(H11:J11*{1,2,3})}", cell.getCellFormula());      */
 1,0,1,1,1,1,1,//  TODO repeat above code for missing charts: Bubble, Doughnut, OfPie and Stock 
@@ -131,7 +131,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO Look up more of these in the latest [MS-XLS] doc and move to getBiffName 
 1,0,1,1,1,1,1,//  TODO: better exception class 
 1,0,1,1,1,1,1,//  TODO: check why we always clear this ... 
-1,0,1,1,1,1,1,//  TODO - enable XSSF test 
+1,0,0,1,1,1,1,//  TODO - enable XSSF test 
 1,0,1,1,1,1,1,//  TODO: to be validated ...   like anisotropic, but use x-axis as reference 
 1,0,1,1,1,1,1,//  Tricky, not stored directly in poifs   TODO 
 1,0,1,0,1,1,1,// TODO add other shape types which can not contain text 
@@ -157,13 +157,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  not available here, unless it exists and is unimplemented in cfRuleRecord 
 1,0,0,1,1,1,1,//  TODO: support inline table style 
 1,0,1,1,1,1,1,//  TODO Shouldn't it become [2] like the others? 
-1,0,1,1,1,1,1,//  TODO Detect if it is multi-valued, since if it is   then even fixed-length strings store their multiple   values in another chunk (much as variable length ones) 
+1,0,0,1,1,1,1,//  TODO Detect if it is multi-valued, since if it is   then even fixed-length strings store their multiple   values in another chunk (much as variable length ones) 
 1,0,0,1,1,1,1,//  TODO avoid StringIndexOutOfBounds 
-1,0,1,1,1,1,1,//  TODO Some files, such as TestVisioWithCodepage.vsd, are currently   triggering this for values that don't look like codepages   See Bug #52258 for details 
+1,0,0,1,1,1,1,//  TODO Some files, such as TestVisioWithCodepage.vsd, are currently   triggering this for values that don't look like codepages   See Bug #52258 for details 
 1,0,1,1,1,1,1,//  TODO - are these ~Field used / necessary 
 1,0,0,1,1,1,1,/*      * TODO - parse conditional format formulas properly i.e. produce tRefN and tAreaN instead of tRef and tArea     * this call will produce the wrong results if the formula contains any cell references     * One approach might be to apply the inverse of SharedFormulaRecord.convertSharedFormulas(Stack, int, int)     * Note - two extra parameters (rowIx &amp; colIx) will be required. They probably come from one of the Region objects.     *     * @param formula  The formula to parse, excluding the leading equals sign.     * @param sheet  The sheet that the formula is on.     * @return <code>null</code> if <tt>formula</tt> was null.      */
-1,0,0,0,0,0,0,//  can this clumsy generic syntax be improved? 
-1,0,0,1,1,1,1,//  TODO: check if issuerName is different on getTBSCertificate   issuerName = PrincipalUtil.getIssuerX509Principal(certificate).getName().replace(",", ", "); 
+1,0,1,0,0,0,0,//  can this clumsy generic syntax be improved? 
+1,0,1,1,1,1,1,//  TODO: check if issuerName is different on getTBSCertificate   issuerName = PrincipalUtil.getIssuerX509Principal(certificate).getName().replace(",", ", "); 
 1,0,0,1,1,1,1,/*      * @param fcStart The start of the text for this property, in characters.     * @param fcEnd   The end of the text for this property, in characters.     * @param buf     FIXME: Old documentation is: "grpprl The property description in compressed form."      */
 1,0,1,1,1,1,1,//  TODO: calculate integrity hmac while reading the stream   for a post-validation of the data 
 1,0,1,1,0,1,1,//  workaround for not having the vmlDrawing filled 
@@ -181,16 +181,16 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  as the integrity hmac needs to contain the StreamSize,   it's not possible to calculate it on-the-fly while buffering   TODO: add stream size parameter to getDataStream() 
 1,0,0,1,1,1,1,//  TODO - c2 unused but changing next line ('c'->'c2') causes test to fail 
 1,0,1,1,1,1,1,//  TODO: what is the reaction for readOnly=false and styles.isEmpty()? 
-1,0,1,1,1,1,1,/* 	 * Formats the given numeric of date cells contents as a String, in as	 * close as we can to the way that Excel would do so. Uses the various	 * format records to manage this.	 *	 * TODO - move this to a central class in such a way that hssf.usermodel can	 * make use of it too	 * 	 * @param cell the cell	 * 	 * @return the given numeric of date cells contents as a String	  */
-1,0,0,0,1,1,1,//  XOR-Obfuscation   TODO: XOR-Obfuscation is currently flawed - although the de-/obfuscation initially works,   it suddenly differs from the result of encrypted files via Office ...   and only very small files can be opened without file validation errors 
+1,0,1,0,1,1,1,/* 	 * Formats the given numeric of date cells contents as a String, in as	 * close as we can to the way that Excel would do so. Uses the various	 * format records to manage this.	 *	 * TODO - move this to a central class in such a way that hssf.usermodel can	 * make use of it too	 * 	 * @param cell the cell	 * 	 * @return the given numeric of date cells contents as a String	  */
+1,0,0,1,1,1,1,//  XOR-Obfuscation   TODO: XOR-Obfuscation is currently flawed - although the de-/obfuscation initially works,   it suddenly differs from the result of encrypted files via Office ...   and only very small files can be opened without file validation errors 
 1,0,1,1,0,1,1,//  Workaround   sheet.addIgnoredErrors(new CellReference(cell.getRowIndex(), cell.getColumnIndex(), false, false),          IgnoredErrorType.NUMBER_STORED_AS_TEXT); 
 1,0,1,1,1,1,1,/*      * Normalize a URI/part name     * TODO: find a better way ...      */
 1,0,1,1,1,1,1,//  TODO: The colors don't match 100% the results of Powerpoint, maybe because we still   operate in sRGB and not scRGB ... work in progress ... 
 1,0,1,1,1,1,1,//  Work out what to add the picture to, then add both the    picture and the relationship for it   TODO Should we have an interface for this sort of thing? 
 1,0,1,0,1,1,1,//  XXX: shall we support fill? 
 1,0,1,1,1,1,1,//  TODO: case-sensitive? 
-1,0,0,1,1,1,1,//  TODO: find out how we can find the mastersheet base on the slide layout type, i.e.   getSlideRecord().getSlideAtom().getSSlideLayoutAtom().getGeometryType() 
-1,0,1,1,1,1,1,//  TODO: close() re-writes the sample-file?! Resort to revert() for now to close file handle... 
+1,0,1,1,1,1,1,//  TODO: find out how we can find the mastersheet base on the slide layout type, i.e.   getSlideRecord().getSlideAtom().getSSlideLayoutAtom().getGeometryType() 
+1,0,0,1,1,1,1,//  TODO: close() re-writes the sample-file?! Resort to revert() for now to close file handle... 
 1,0,1,1,1,1,1,//  TODO Fix this to convert line to equivalent value, or deprecate this in 
 1,0,0,1,1,1,1,//  TODO: implement support for denormalized XMLs (see   OpenOffice part 4: chapter 3.5.1.7) 
 1,0,1,1,1,1,1,/*      * Check if cell range A contains cell range B (B <= A)     *      * TODO: move this into {@link CellRangeAddressBase}     *      * @param crA cell range A     * @param crB cell range B     * @return true if cell range A contains cell range B      */
@@ -198,7 +198,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,/*      * TODO - would not be required if calling code used RecordStream or similar      */
 1,0,1,1,1,1,1,//  TODO: handle srcUnit 
 1,0,1,1,1,1,1,//  TODO: What is this? 
-1,0,0,1,1,1,1,//  TODO - simplify logic using a generalised record ordering 
+1,0,1,1,1,1,1,//  TODO - simplify logic using a generalised record ordering 
 1,0,1,1,1,1,1,//  FIXME: (performance optimization) this should be moved outside the for-loop so that comments only needs to be iterated over once. 
 1,0,1,1,1,1,1,//  FIXME: serves same purpose as org.apache.poi.xssf.usermodel.XSSFEvaluationSheet$CellKey 
 1,0,0,1,1,1,1,//  FIXME: can these be merged with {@link CellType}?   are the numbers specific to the HSSF formula record format or just a poor-man's enum? 
@@ -219,25 +219,25 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  FIXME (byte array properties not yet implemented): assertEquals(P_, dsi.getDocparts()); 
 1,1,0,1,1,1,1,// this is a complete hack.  The challenge is that there  can be many 0 length or junk streams that are uncompressed  look in the first 20 characters for "Attribute" 
 1,0,1,1,1,1,1,// TODO: it is possible to have an SDT that contains a cell in within a row  need to modify this code so that it pulls out SDT wrappers around cells, too. 
-1,0,0,1,1,1,1,//  TODO: implement setting bullet color to null 
+1,0,1,1,1,1,1,//  TODO: implement setting bullet color to null 
 1,0,1,1,1,1,1,// TODO: Convert this to generate an AreaReference 
 1,0,1,1,1,1,1,//  TODO: fails XMLExportTest, is this ok? 
 1,0,1,1,1,1,1,//  FIXME (byte array properties not yet implemented): dsi.setHeadingPair(P_HEADING_PAIR); 
-1,0,0,1,1,1,1,/*      * tests that the create record function returns a properly      * constructed record in the case of a continued record.     * TODO - need a real world example to put in a unit test      */
-1,0,1,1,0,1,1,//  casting here is wrong, but there's no other way of getting the value,   as it doesn't seem to be exposed by complex types (even though this   is a mixed type) 
+1,0,1,1,1,1,1,/*      * tests that the create record function returns a properly      * constructed record in the case of a continued record.     * TODO - need a real world example to put in a unit test      */
+1,0,0,0,0,0,0,//  casting here is wrong, but there's no other way of getting the value,   as it doesn't seem to be exposed by complex types (even though this   is a mixed type) 
 1,0,1,1,1,1,1,//  TODO - prune this method out of the hierarchy 
 1,0,0,0,0,0,0,//  wrong size 
 1,0,1,1,1,1,1,//  TODO: check why original bitmaps scale/behave differently to vector based images 
-1,0,0,1,1,1,1,//  TODO Could we do the read-only case with MapMode.PRIVATE instead?   See https://docs.oracle.com/javase/7/docs/api/java/nio/channels/FileChannel.MapMode.html#PRIVATE   Or should we have 3 modes instead of the current boolean -     read-write, read-only, read-to-write-elsewhere?  
+1,0,1,1,1,1,1,//  TODO Could we do the read-only case with MapMode.PRIVATE instead?   See https://docs.oracle.com/javase/7/docs/api/java/nio/channels/FileChannel.MapMode.html#PRIVATE   Or should we have 3 modes instead of the current boolean -     read-write, read-only, read-to-write-elsewhere?  
 1,0,1,1,1,1,1,//  TODO: find out character style for empty, but bulleted/numbered lines 
 1,0,1,1,1,1,1,/*      * Retrieves the region at the row/column indicated     * @param main FIXME: Document this!     * @return The Break or null if no break exists at the row/col specified.      */
 1,0,1,0,0,0,0,//  this is not implemented yet 
 1,0,1,1,1,1,1,//  TODO - refactor cell reference parsing logic to one place.   Current known incarnations:     FormulaParser.GetName()     CellReference.parseSheetName() (here)     AreaReference.separateAreaRefs()     SheetNameFormatter.format() (inverse) 
 1,0,1,1,1,1,1,//  FIXME (byte array properties not yet implemented): assertEquals(P_THUMBNAIL, si.getThumbnail()); 
-1,0,0,1,1,1,1,//  TODO: fix line width calculation 
-1,0,0,0,0,0,0,//  NOTE: This is currently based on current behavior of POI, somehow   what POI returns in the calls to collapsed/hidden is not fully matching    the examples in the spec or I did not fully understand how POI stores the data internally... 
+1,0,1,1,1,1,1,//  TODO: fix line width calculation 
+1,0,1,0,0,0,0,//  NOTE: This is currently based on current behavior of POI, somehow   what POI returns in the calls to collapsed/hidden is not fully matching    the examples in the spec or I did not fully understand how POI stores the data internally... 
 1,0,0,0,0,0,0,//  I do not really like it!! 
-1,0,1,1,1,1,1,//  TODO - replace no-arg constructor with this logic 
+1,0,0,1,1,1,1,//  TODO - replace no-arg constructor with this logic 
 1,0,1,1,1,1,1,/*      * Determines if there is a page break at the indicated column     * @param column FIXME: Document this!     * @return FIXME: Document this!      */
 1,1,1,1,1,1,1,//  hack because I can't figure out how to get XMLBeans to parse a sub-element in a standalone manner 
 1,0,0,0,1,1,1,/*                      * TODO: make sense of the remaining bytes                     * According to the spec they consist of:                     * 1. 16-byte  GUID: This field MUST equal                     *    {0xF4815879, 0x1D3B, 0x487F, 0xAF, 0x2C, 0x82, 0x5D, 0xC4, 0x85, 0x27, 0x63}                     * 2. Serial version, this field MUST equal 0 if present.                     * 3. URI Flags                      */
@@ -260,21 +260,21 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,/*         //TODO: figure out why this isn't working        data[0] = (byte)0xF9;        data[1] = (byte)0xD8;        assertCharEquals('\u88CF', data);      */
 1,0,1,1,1,1,1,//  TODO: implement TextCFException10 structure 
 1,0,1,1,1,1,1,//  TODO - update OOO document to include this value 
-1,0,0,0,0,0,0,/*              * YK: reading the ClipboardData packet (VT_CF) is not quite             * correct. The size of the data is determined by the first four             * bytes of the packet while the current implementation calculates             * it in the Section constructor. Test files in Bugzilla 42726 and             * 45583 clearly show that this approach does not always work. The             * workaround below attempts to gracefully handle such cases instead             * of throwing exceptions.             *             * August 20, 2009              */
+1,0,0,1,0,1,1,/*              * YK: reading the ClipboardData packet (VT_CF) is not quite             * correct. The size of the data is determined by the first four             * bytes of the packet while the current implementation calculates             * it in the Section constructor. Test files in Bugzilla 42726 and             * 45583 clearly show that this approach does not always work. The             * workaround below attempts to gracefully handle such cases instead             * of throwing exceptions.             *             * August 20, 2009              */
 1,0,1,1,1,1,1,//  TODO - this code probably never executes 
 1,0,1,1,1,1,1,/*      *      * @return the blur radius of the shadow     * TODO: figure out how to make sense of this property when rendering shadows       */
 1,0,0,0,1,1,1,//  TODO - problems with OBJ sub-records stream   MS spec says first sub-record is always CommonObjectDataSubRecord,   and last is always EndSubRecord. OOO spec does not mention ObjRecord(0x005D).   Existing POI test data seems to violate that rule. Some test data   seems to contain garbage, and a crash is only averted by stopping at   what looks like the 'EndSubRecord' 
-1,0,0,0,0,0,0,//  @deprecated 3.15 beta 2. getVerticalAlignment will only work on VerticalAlignment enums instead of codes in the future. 
+1,0,0,1,0,1,1,//  @deprecated 3.15 beta 2. getVerticalAlignment will only work on VerticalAlignment enums instead of codes in the future. 
 1,0,1,1,1,1,1,/* 	 * TODO - these are all formulas which currently (Apr-2008) break on ooxml 	  */
 1,0,1,1,1,1,1,//  FIXME (byte array properties not yet implemented): static final byte[] P_THUMBNAIL = new byte[123]; 
 1,0,0,0,1,1,1,//  TODO - if we are confident that this sanity check is not required, we can remove 'value' from plain value cache entry 
 1,0,1,1,1,1,1,// TODO: simplify this to get ibody elements in order 
-1,0,0,1,1,1,1,//  TODO: replace it, by applyTransform???? 
+1,0,1,1,1,1,1,//  TODO: replace it, by applyTransform???? 
 1,0,1,1,1,1,1,//  This one defines it   TODO Save it somewhere 
-1,0,0,1,1,1,1,/*  * This enumeration value indicates the type of vertical alignment for a cell, i.e., * whether it is aligned top, bottom, vertically centered, justified or distributed. *  * <!-- FIXME: Identical to {@link org.apache.poi.ss.usermodel.VerticalAlignment}. Should merge these to * {@link org.apache.poi.common.usermodel}.VerticalAlignment in the future. -->  */
+1,0,1,1,1,1,1,/*  * This enumeration value indicates the type of vertical alignment for a cell, i.e., * whether it is aligned top, bottom, vertically centered, justified or distributed. *  * <!-- FIXME: Identical to {@link org.apache.poi.ss.usermodel.VerticalAlignment}. Should merge these to * {@link org.apache.poi.common.usermodel}.VerticalAlignment in the future. -->  */
 1,0,1,1,1,1,1,//  TODO - bug elsewhere in POI - something wrong with encoding of NOT() function 
 1,0,1,1,1,1,1,//  FIXME: remove type casting when copyCellFrom(Cell, CellCopyPolicy) is added to Cell interface 
-1,0,0,0,0,0,0,/*  This is case-sensitive. Is that correct?  */
+1,0,1,0,0,0,0,/*  This is case-sensitive. Is that correct?  */
 1,0,0,0,0,0,0,//  can you believe it? excel returns nper as a fraction!?? 
 1,0,0,0,0,0,0,//  Some files from Crystal Reports lack the is16BitUnicode byte    the remaining fields, which is naughty 
 1,0,1,1,1,1,1,//  TODO this needs to be migrated out into section code 
@@ -306,18 +306,18 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,/*      * TODO - (May-2008) fix subclasses of AreaPtg 'AreaN~' which are used in shared formulas.     * see similar comment in ReferencePtg      */
 1,0,1,1,1,1,1,//  TODO: write text? 
 1,0,1,1,1,1,1,//  TODO Identify what excel doesn't like, and check for that 
-1,0,1,0,1,1,1,/*  * Helper class to handle the Visio compatible *  streaming LZW compression. * Need our own class to handle keeping track of the *  code buffer, pending bytes to write out etc. *   * TODO Fix this, as it starts to go wrong on *  large streams   */
+1,0,1,1,1,1,1,/*  * Helper class to handle the Visio compatible *  streaming LZW compression. * Need our own class to handle keeping track of the *  code buffer, pending bytes to write out etc. *   * TODO Fix this, as it starts to go wrong on *  large streams   */
 1,0,1,1,1,1,1,//  Excel supports 2+ part conditional data formats, eg positive/negative/zero,    or (>1000),(>0),(0),(negative). As Java doesn't handle these kinds    of different formats for different ranges, just +ve/-ve, we need to     handle these ourselves in a special way.   For now, if we detect 2+ parts, we call out to CellFormat to handle it   TODO Going forward, we should really merge the logic between the two classes 
 1,0,0,1,1,1,1,/*      * TODO: Additionally, the lbPlyPos (position_of_BOF) field of the BoundSheet8 record MUST NOT be encrypted.     *     * @return <code>true</code> if record type specified by <tt>sid</tt> is never encrypted      */
 1,0,1,1,1,1,1,//  TODO Refactor this to fetch dir then do the rest 
 1,0,1,1,1,1,1,//  TODO - use a stronger typed exception for this condition   expected during successful test 
 1,0,1,1,1,1,1,//  TODO: check for SVG copying 
-1,1,0,0,1,1,1,// this is pure hackery for specifying the font  this happens to work on this test file, but you need to 
+1,1,0,0,0,0,0,// this is pure hackery for specifying the font  this happens to work on this test file, but you need to 
 1,1,1,1,0,1,1,//  why?  Why ask why?  But don't drink bud dry as its a really   crappy beer, try the czech "Budvar" beer (which is the real   budweiser though its ironically good...its sold in the USs   as czechvar  --- odd that they had the name first but can't   use it)... 
 1,0,1,1,1,1,1,//  FIXME: replace with org.apache.commons.collections.map.CaseInsensitiveMap 
 1,0,1,1,1,1,1,//  TODO Fix this, we are randomly adding a 0 at the end that shouldn't be there  assertEquals("     -   ", dfUS.formatRawCellContents(0.0, -1, "_-* #,##0.00_-;-* #,##0.00_-;_-* \"-\"??_-;_-@_-")); 
 1,0,1,1,1,1,1,//  TODO: check if paragraph/chars can be handled the same ... 
-1,0,1,1,1,1,1,//  TODO sometimes last byte is non-zero 
+1,0,0,1,1,1,1,//  TODO sometimes last byte is non-zero 
 1,0,1,0,1,1,1,//  TODO Should the colours be slightly different between formats? Would CFEX support help for HSSF? 
 1,0,0,1,1,1,1,//  TODO - adjust data validations 
 1,0,1,1,1,1,1,//  TODO: check if this is Java 9 compatible ... 
@@ -330,12 +330,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  Trigger the onDocumentRead for all the child parts   Otherwise we'll hit issues on Styles, Settings etc on save   TODO: Refactor this to not need to access protected method   from other package! Remove the static helper method once fixed!!! 
 1,0,1,1,1,1,1,//  TODO - probably shouldn't initialize area ref when text is really a cell ref   Need to fix some named range stuff to get rid of this 
 1,0,1,1,1,1,1,//  TODO: find out, how to set this value 
-1,0,1,1,1,1,1,//  @Ignore("TODO Work out why the Thu 21st vs Monday 25th problem is occurring and fix") 
+1,0,1,1,0,1,1,//  @Ignore("TODO Work out why the Thu 21st vs Monday 25th problem is occurring and fix") 
 1,0,1,1,1,1,1,/*  * Collection of convenience chunks for standard parts of the MSG file. *  * Not all of these will be present in any given file. *  * A partial list is available at: * http://msdn.microsoft.com/en-us/library/ms526356%28v=exchg.10%29.aspx *  * TODO Deprecate the public Chunks in favour of Property Lookups  */
 1,0,1,1,1,1,1,//  TODO Streaming write support   TODO  then convert fixed sized write to use streaming internally   TODO Append write support (probably streaming) 
 1,0,1,1,1,1,1,//  TODO - what about values between (10<sup>14</sup>-0.5) and (10<sup>14</sup>-0.05) ? 
 1,0,1,1,1,1,1,/*      * TODO Fix these so that they work      */
-1,0,0,1,0,1,1,//  workaround for office 2007 pretty-printed .rels files 
+1,0,1,1,0,1,1,//  workaround for office 2007 pretty-printed .rels files 
 1,0,1,1,1,1,1,// TODO use the correct SpreadsheetVersion 
 1,0,0,0,1,1,1,//  XXX: sprm code 0x6428 is sprmPBrcBetween80, but accessed property linked to sprmPBrcBar80 (0x6629) 
 1,0,1,1,1,1,1,//  TODO Provide a way to get the one with the filename 
@@ -347,7 +347,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: support headers 
 1,0,1,1,1,1,1,// YK: TODO document each alignment option 
 1,0,1,1,1,1,1,//  Need to extend the stream   TODO Replace this with proper append support   For now, do the extending by hand... 
-1,0,1,0,0,0,0,//  @deprecated 3.15 beta 2. getHorizontalAlignment will only work on HorizontalAlignment enums instead of codes in the future. 
+1,0,1,1,0,1,1,//  @deprecated 3.15 beta 2. getHorizontalAlignment will only work on HorizontalAlignment enums instead of codes in the future. 
 1,0,0,1,1,1,1,/*      * Does this HSSFPatriarch contain a chart?     * (Technically a reference to a chart, since they     * get stored in a different block of records)     * FIXME - detect chart in all cases (only seems     * to work on some charts so far)      */
 1,0,1,1,1,1,1,//  TODO Is this right? 
 1,0,1,1,1,1,1,/* 	 * debug only	 * TODO - encapsulate	  */
@@ -358,7 +358,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  TODO - render full row and full column refs properly 
 1,0,1,1,1,1,1,//  FIXME (byte array properties not yet implemented): static final byte[]  P_HEADING_PAIR = new byte[123]; 
 1,0,1,0,1,1,1,//  TODO: init classId directly in the constructor when old statics have been removed from ClassID 
-1,0,1,1,1,1,1,//  TODO - this test probably isn't testing much anymore 
+1,0,0,1,1,1,1,//  TODO - this test probably isn't testing much anymore 
 1,0,1,1,1,1,1,//  TODO: anything else, we don't handle yet, such as top 10 
 1,0,1,0,0,0,0,//  index seems like what index the cellstyle is in the list of styles for a workbook.   not good to compare on! 
 1,0,1,1,1,1,1,//  FIXME: if cell belongs to a merged region, some of the merged region may have fallen outside of the random access window   In this case, getting the column width may result in an error. Need to gracefully handle this. 
@@ -380,7 +380,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  TODO: handle tile settings, currently the pattern is always streched 100% in height/width 
 1,0,0,0,0,0,0,// 	undocumented 
 1,0,1,1,1,1,1,//  TODO These values are suspected to be wrong... 
-1,0,0,0,1,1,1,/*      * A factory method allowing to create a conditional formatting rule     * with a cell comparison operator<p>     * TODO - formulas containing cell references are currently not parsed properly     *     * @param comparisonOperation - a constant value from     *		 <tt>{@link org.apache.poi.hssf.record.CFRuleBase.ComparisonOperator}</tt>: <p>     * <ul>     *		 <li>BETWEEN</li>     *		 <li>NOT_BETWEEN</li>     *		 <li>EQUAL</li>     *		 <li>NOT_EQUAL</li>     *		 <li>GT</li>     *		 <li>LT</li>     *		 <li>GE</li>     *		 <li>LE</li>     * </ul>     * </p>     * @param formula1 - formula for the valued, compared with the cell     * @param formula2 - second formula (only used with     * {@link org.apache.poi.hssf.record.CFRuleBase.ComparisonOperator#BETWEEN}) and     * {@link org.apache.poi.hssf.record.CFRuleBase.ComparisonOperator#NOT_BETWEEN} operations)      */
+1,0,0,1,1,1,1,/*      * A factory method allowing to create a conditional formatting rule     * with a cell comparison operator<p>     * TODO - formulas containing cell references are currently not parsed properly     *     * @param comparisonOperation - a constant value from     *		 <tt>{@link org.apache.poi.hssf.record.CFRuleBase.ComparisonOperator}</tt>: <p>     * <ul>     *		 <li>BETWEEN</li>     *		 <li>NOT_BETWEEN</li>     *		 <li>EQUAL</li>     *		 <li>NOT_EQUAL</li>     *		 <li>GT</li>     *		 <li>LT</li>     *		 <li>GE</li>     *		 <li>LE</li>     * </ul>     * </p>     * @param formula1 - formula for the valued, compared with the cell     * @param formula2 - second formula (only used with     * {@link org.apache.poi.hssf.record.CFRuleBase.ComparisonOperator#BETWEEN}) and     * {@link org.apache.poi.hssf.record.CFRuleBase.ComparisonOperator#NOT_BETWEEN} operations)      */
 1,0,1,0,0,0,0,//  Note: Removal doesn't currently reset the first column.  It probably should but it doesn't. 
 1,0,0,0,0,0,0,// It hurts, hurts, hurts to create a new byte array for every record.  However, on a large Excel spreadsheet, this parser was 1/3 faster than  the ooxml sax parser (5 seconds for xssfb and 7.5 seconds for xssf.  The code is far cleaner to have the parser read all  of the data rather than having every component promise that it will read 
 1,0,1,1,1,1,1,//  Manually check to make sure file isn't corrupted   TODO: develop a process for occasionally manually reviewing workbooks   to verify workbooks are not corrupted 
@@ -391,10 +391,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  TODO - keep looping? Do we expect multiple matches? 
 1,0,1,1,1,1,1,/*      * TODO: data tables are stored at the workbook level in XSSF, but are bound to a single sheet.     *       The current code structure has them hanging off XSSFSheet, but formulas reference them     *       only by name (names are global, and case insensitive).     *       This map stores names as lower case for case-insensitive lookups.     *     * FIXME: Caching tables by name here for fast formula lookup means the map is out of date if     *       a table is renamed or added/removed to a sheet after the map is created.     *     *       Perhaps tables can be managed similar to PivotTable references above?      */
 1,0,0,1,1,1,1,//  TODO Fix this to not have an extra 0 at the end  assertEquals(pound+"   -  ", formatter.formatCellValue(zero)); 
-1,0,1,0,0,0,0,//  ignore... not implemented 
+1,0,0,0,0,0,0,//  ignore... not implemented 
 1,0,1,1,1,1,1,//  TODO - check the formula once tables and 
 1,0,1,1,1,1,1,/*      * TODO: fix and enable      */
-1,0,1,1,1,1,1,//  @Ignore("TODO Work out why the Fri 22nd vs Monday 25th problem is occurring and fix") 
+1,0,1,1,0,1,1,//  @Ignore("TODO Work out why the Fri 22nd vs Monday 25th problem is occurring and fix") 
 1,0,1,1,1,1,1,//  XXX: It should be possible to derive this without concatenating the array, too. 
 1,0,1,1,1,1,1,/*      * This is the default Watermark paragraph; the only variable is the text message     * TODO: manage all the other variables      */
 1,0,0,1,1,1,1,// TODO defaults are different in HSSF and XSSF  assertTrue(sheet.getRowSumsBelow());  assertTrue(sheet.getRowSumsRight()); 
@@ -404,19 +404,19 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  FIXME this should be changed to private and the class marked final once HSSFDateUtil can be removed 
 1,0,0,1,1,1,1,// TODO: default "guts" is different in HSSF and XSSF 
 1,0,1,0,0,0,0,//  work around issues with dates like 1989, which appear as "89" here 
-1,0,0,1,1,1,1,/*  TODO:             * The object specified by this record MUST be deleted from the EMF Object Table.             * If the deleted object is currently selected in the playback device context,             * the default object for that graphics property MUST be restored.              */
+1,0,0,0,1,1,1,/*  TODO:             * The object specified by this record MUST be deleted from the EMF Object Table.             * If the deleted object is currently selected in the playback device context,             * the default object for that graphics property MUST be restored.              */
 1,0,1,1,1,1,1,//  TODO run more than once 
 1,0,1,1,1,1,1,//  TODO: if decimalPoint is null (-> index == -1), return the whole list? 
 1,0,1,1,1,1,1,//  TODO Add in the rest of the types 
 1,0,1,1,1,1,1,// YK: TODO: this is only a prototype 
 1,0,1,1,1,1,1,//  TODO: support formulas 
-1,0,0,0,1,1,1,//  TODO - add similar sanity check to ensure that Sheet.serializeIndexRecord() does not write mis-aligned offsets either 
+1,0,0,1,1,1,1,//  TODO - add similar sanity check to ensure that Sheet.serializeIndexRecord() does not write mis-aligned offsets either 
 1,0,1,1,1,1,1,//  TODO: we've already scanned the records, why should this work any better now? 
 1,0,0,1,1,1,1,// TODO: remove old one 
 1,0,1,1,1,1,1,//  TODO: add other axis types 
 1,0,1,1,1,1,1,//  TODO - convert this to a RecordAggregate 
 1,0,1,1,1,1,1,// TODO: range checking  TODO: fill this out 
-1,0,0,1,1,1,1,//  TODO Make sense of the raw offset value 
+1,0,1,1,1,1,1,//  TODO Make sense of the raw offset value 
 1,0,1,1,1,1,1,//  TODO Create according XWPFComment class, extending POIXMLDocumentPart 
 1,0,1,1,1,1,1,//  TODO: we need to find the two points for gradient - the problem is, which point at the outline   do you take? My solution would be to apply the gradient rotation to the shape in reverse   and then scan the shape for the largest possible horizontal distance 
 1,0,1,1,1,1,1,//  TODO move parseBoolean to OperandResolver 
@@ -424,7 +424,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: Do these have a good home like o.a.p.openxml4j.opc.PackageNamespaces and PackageRelationshipTypes?   These constants should be common to all of POI and easy to use by other applications such as Tika 
 1,0,1,1,1,1,1,//  TODO Correct this, so that the filename is shown too, see bug #56742   This is what Excel itself shows  assertEquals("'56737.xls'!NR_Global_B2", cRefWName.getCellFormula()); 
 1,0,1,1,1,1,1,//  TODO verify the constructors 
-1,0,0,1,1,1,1,//  FIXME: breaks if address contains a sheet name or dollar signs from an absolute CellReference 
+1,0,1,1,1,1,1,//  FIXME: breaks if address contains a sheet name or dollar signs from an absolute CellReference 
 1,0,1,1,1,1,1,//  TODO: check if that list can be replaced by idx = Math.max(idx,themeIdx) 
 1,1,1,1,1,1,1,//  ugly typecast - TODO - make spreadsheet version more easily accessible 
 1,0,1,1,1,1,1,//  FIXME: (performance optimization) this should be moved outside the for-loop so that hyperlinks only needs to be iterated over once. 
@@ -437,7 +437,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  FIXME: This could be moved into LookupFunctionsTestCaseData.xls, which is tested by TestLookupFunctionsFromSpreadsheet.java 
 1,0,1,1,0,1,1,//  workaround for a call by XSLFSheet.importContent:   if we have already the same amount of child shapes 
 1,0,1,1,1,1,1,//  TODO - move these constants to test class (the only consumer) 
-1,0,0,1,1,1,1,//  column E: boolean   TODO booleans are shown as 1/0 instead of TRUE/FALSE 
+1,0,1,1,1,1,1,//  column E: boolean   TODO booleans are shown as 1/0 instead of TRUE/FALSE 
 1,0,1,1,1,1,1,//  Get the hyperlinks   TODO: make me optional/separated in private function 
 1,0,1,1,1,1,1,//  TODO  support other types of objects 
 1,0,1,1,1,1,1,//  FIXME: we grew a column? 
@@ -448,7 +448,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,0,0,0,//  some Records do not implement clone ?!    equals instead of instanceof is on purpose here to only skip exactly this class and not any derived ones 
 1,0,1,1,1,1,1,//  TODO: fix gradient types, this mismatches with the MS-ODRAW definition ...   need to handle (not only) the type (radial,rectangular,linear),   the direction, e.g. top right, and bounds (e.g. for rectangular boxes) 
 1,0,0,1,1,1,1,//  FIXME: is special behavior needed if srcRows and destRows belong to the same sheets and the regions overlap? 
-1,0,0,0,1,1,1,/*      * A factory method allowing to create a conditional formatting rule     * with a cell comparison operator<p>     * TODO - formulas containing cell references are currently not parsed properly     *     * @param comparisonOperation - a constant value from     *		 <tt>{@link org.apache.poi.hssf.record.CFRuleBase.ComparisonOperator}</tt>: <p>     * <ul>     *		 <li>BETWEEN</li>     *		 <li>NOT_BETWEEN</li>     *		 <li>EQUAL</li>     *		 <li>NOT_EQUAL</li>     *		 <li>GT</li>     *		 <li>LT</li>     *		 <li>GE</li>     *		 <li>LE</li>     * </ul>     * </p>     * @param formula1 - formula for the valued, compared with the cell     * @param formula2 - second formula (only used with     * {@link org.apache.poi.ss.usermodel.ComparisonOperator#BETWEEN}) and     * {@link org.apache.poi.ss.usermodel.ComparisonOperator#NOT_BETWEEN} operations)      */
+1,0,0,1,1,1,1,/*      * A factory method allowing to create a conditional formatting rule     * with a cell comparison operator<p>     * TODO - formulas containing cell references are currently not parsed properly     *     * @param comparisonOperation - a constant value from     *		 <tt>{@link org.apache.poi.hssf.record.CFRuleBase.ComparisonOperator}</tt>: <p>     * <ul>     *		 <li>BETWEEN</li>     *		 <li>NOT_BETWEEN</li>     *		 <li>EQUAL</li>     *		 <li>NOT_EQUAL</li>     *		 <li>GT</li>     *		 <li>LT</li>     *		 <li>GE</li>     *		 <li>LE</li>     * </ul>     * </p>     * @param formula1 - formula for the valued, compared with the cell     * @param formula2 - second formula (only used with     * {@link org.apache.poi.ss.usermodel.ComparisonOperator#BETWEEN}) and     * {@link org.apache.poi.ss.usermodel.ComparisonOperator#NOT_BETWEEN} operations)      */
 1,0,1,1,1,1,1,//  TODO Do properly 
 1,0,1,1,1,1,1,//  This one uses a shared formula   TODO Retrieve the shared formula and tweak it to     match the current cell 
 1,0,1,1,1,1,1,//  FIXME: return Collections.unmodifiableList? 
@@ -459,21 +459,21 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,//  partB contains SHEET_NAME_DELIMITER   TODO - are references like "Sheet1!A1:Sheet1:B2" ever valid?     FormulaParser has code to handle that. 
 1,0,0,1,1,1,1,// TODO analyze textCfException when have some test data 
 1,0,0,0,1,1,1,/*      * Resolves a cell or area reference dynamically.     * @param workbookName the name of the workbook containing the reference.  If <code>null</code>     * the current workbook is assumed.  Note - to evaluate formulas which use multiple workbooks,     * a {@link CollaboratingWorkbooksEnvironment} must be set up.     * @param sheetName the name of the sheet containing the reference.  May be <code>null</code>     * (when <tt>workbookName</tt> is also null) in which case the current workbook and sheet is     * assumed.     * @param refStrPart1 the single cell reference or first part of the area reference.  Must not     * be <code>null</code>.     * @param refStrPart2 the second part of the area reference. For single cell references this     * parameter must be <code>null</code>     * @param isA1Style specifies the format for <tt>refStrPart1</tt> and <tt>refStrPart2</tt>.     * Pass <code>true</code> for 'A1' style and <code>false</code> for 'R1C1' style.     * TODO - currently POI only supports 'A1' reference style     * @return a {@link RefEval} or {@link AreaEval}      */
-1,0,0,1,1,1,1,//  Ensure we get the right colours for these themes   TODO fix   assertEquals("FFEEECE1", wb.getTheme().getThemeColor(2).getARGBHex());   assertEquals("FF1F497D", wb.getTheme().getThemeColor(3).getARGBHex()); 
-1,0,1,0,1,1,1,//  TODO - "-1" is a special value being temporarily used for whole row and whole column area references.   so these checks are currently N.Q.R. 
+1,0,1,1,1,1,1,//  Ensure we get the right colours for these themes   TODO fix   assertEquals("FFEEECE1", wb.getTheme().getThemeColor(2).getARGBHex());   assertEquals("FF1F497D", wb.getTheme().getThemeColor(3).getARGBHex()); 
+1,0,1,1,1,1,1,//  TODO - "-1" is a special value being temporarily used for whole row and whole column area references.   so these checks are currently N.Q.R. 
 1,0,0,1,1,1,1,/*  FIXME (3): Ensure that at most "length" bytes are read.  */
 1,0,1,1,1,1,1,//  FIXME: CellReference is inconsistent 
 1,1,1,1,1,1,1,//  this is a bit of a hack, but it works 
 1,0,0,1,1,1,1,// TODO make the two variable below private! 
 1,0,0,1,1,1,1,//  TODO - junit to prove last arg must be srcColumnIndex and not srcRowIndex 
 1,0,1,1,1,1,1,/*      * Test disabled pending a fix in the formula evaluator     * TODO - create MissingArgEval and modify the formula evaluator to handle this      */
-1,0,1,1,1,1,1,//  TODO: check how to clone 
+1,0,0,1,1,1,1,//  TODO: check how to clone 
 1,0,0,1,1,1,1,//  TODO Delocalize specialized marshallers 
 1,0,1,1,1,1,1,//  TODO: This seems far more complex than it needs to be 
 1,0,1,1,1,1,1,//  TODO - this is messy   Not the most efficient way but the other way was causing too many bugs 
 1,0,1,1,1,1,1,//  create a new container   TODO: ... is this case really happening? 
 1,0,0,0,0,0,0,//  This bug is currently open. When this bug is fixed, it should not throw an AssertionError 
-1,0,0,1,1,1,1,//  TODO: determine master shape 
+1,0,1,1,1,1,1,//  TODO: determine master shape 
 1,0,1,1,1,1,1,// TODO: figure out how to convert SEG_QUADTO into SEG_CUBICTO 
 1,0,1,1,1,1,1,//  TODO Support OOXML-Strict, see bug #57699   xlsxStrict 
 1,0,1,1,1,1,1,/*  @todo handle paragraph postioning */
@@ -496,7 +496,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  TODO - fix case of negative subpattern differing from the    positive one by more than just the prefix+suffix, which    is all DecimalFormat supports...          assertEquals("(12.3)", dfUS.formatRawCellContents(-12.343, -1, p2dp_n1dp));          assertEquals("(12.3)", dfUS.formatRawCellContents(-12.343, -1, p2dp_n1dp_z0)); 
 1,0,0,1,1,1,1,//  TODO: Add DocumentProperties#equals ??? 
 1,0,1,0,1,1,1,/*  * Default Paragraph style, from which other styles will override * TODO Share logic with {@link XWPFParagraph} which also uses CTPPr  */
-1,0,1,0,0,0,0,//  @deprecated 3.15 beta 2. getFillPattern will only work on FillPatternType enums instead of codes in the future. 
+1,0,1,1,0,1,1,//  @deprecated 3.15 beta 2. getFillPattern will only work on FillPatternType enums instead of codes in the future. 
 1,0,1,1,1,1,1,//  FIXME: inconsistent case-sensitivity 
 1,0,1,1,1,1,1,/*      * Why doesnt JUnit have a method like this for doubles?      * The current impl (3.8.1) of Junit has a retar*** method     * for comparing doubles. DO NOT use that.     * TODO: This class should really be in an abstract super class     * to avoid code duplication across this project.     * @param message     * @param baseval     * @param checkval      */
 1,0,0,1,1,1,1,//  TODO: instead of returning a BufferedImage, we might return a pair of raw data + image renderer   instead, so metafiles aren't pixelated, but directly written to the output graphics context 
@@ -513,7 +513,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: placement id only "SHOULD" be unique ... check other placeholders on sheet for unique id 
 1,0,0,1,1,1,1,//  FIXME: add more tests to compare calendars, ignoring whether the set dates are equal 
 1,0,0,0,0,0,0,//  And sometimes they write out garbage :( 
-1,0,0,1,1,1,1,//  FIXME: use junit4 parametrization 
+1,0,1,1,1,1,1,//  FIXME: use junit4 parametrization 
 1,0,0,1,1,1,1,//  TODO: check if a hyperlink already exists 
 1,0,0,1,1,1,1,//  FIXME: Verify that the footnote reference is w:endnoteReference, not w:footnoteReference 
 1,0,1,1,1,1,1,//  TODO: fix font height calculation    the height is given as font size + ascent + descent   as an approximation we reduce the height by a static factor  
@@ -547,9 +547,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// remove nodes which are empty in order to keep the output xml valid   FIXME: what should be done if currentNode.getTextContent() is null? 
 1,0,1,1,1,1,1,//  TODO: implement 
 1,0,1,1,1,1,1,//  Mixed icons - Column U   TODO Support EXT formattings 
-1,0,1,1,1,1,1,//  TODO Provide a wrapper round STHighlightColor, then expose getter/setter    for the highlight colour. Ideally also then add to CharacterRun interface 
+1,0,0,1,1,1,1,//  TODO Provide a wrapper round STHighlightColor, then expose getter/setter    for the highlight colour. Ideally also then add to CharacterRun interface 
 1,0,1,1,1,1,1,//  FIXME: what should be done if complexTypeName is null? 
-1,0,1,1,1,1,1,//  TODO: are these readable by some of the formats? 
+1,0,0,1,1,1,1,//  TODO: are these readable by some of the formats? 
 1,0,0,1,1,1,1,/* 	 * Changes the chart's title, but only if there	 *  was one already.	 * TODO - add in the records if not	  */
 1,0,0,0,1,1,1,/*  * Implementation of the DSum function: * Finds the total value of matching values in a column in an area with given conditions. *  * TODO: * - wildcards ? and * in string conditions * - functions as conditions  */
 1,0,1,1,1,1,1,//  TODO: log error 
@@ -564,12 +564,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: Not sure how to format this. -- DN 
 1,0,1,1,1,1,1,//  TODO - is this the best way to represent 'EMPTY'? 
 1,0,1,1,1,1,1,/*      * Sets a page break at the indicated row     * @param row FIXME: Document this!      */
-1,0,0,1,1,1,1,//  TODO: check min/max orientation 
+1,0,1,1,1,1,1,//  TODO: check min/max orientation 
 1,0,1,1,1,1,1,//  TODO - maybe same logic required for other/all built-in name records          workbook.cloneDrawings(clonedSheet.getSheet()); 
 1,0,1,1,1,1,1,/*      * bug 58779: Closing an XSSFWorkbook that was created with WorkbookFactory modifies the file     * FIXME: replace this method with wb.close() when bug 58779 is resolved.     *     * @param wb the workbook to close or revert      */
 1,0,1,1,1,1,1,/*      * Check that we can correctly decode the whole file     * TODO Fix what looks like a padding issue      */
 1,0,0,1,1,1,1,//  TODO fix calculation of tint  assertEquals(new Color(137, 137, 137), r2.getFontColor()); 
-1,0,0,1,1,1,1,//  TODO: to be validated ... 
+1,0,1,1,1,1,1,//  TODO: to be validated ... 
 1,0,1,1,1,1,1,//  TODO: does this make sense? 
 1,0,0,1,1,1,1,//  TODO: add further members for other properties like:   - ATTACH_ADDITIONAL_INFO   - ATTACH_CONTENT_BASE   - ATTACH_CONTENT_LOCATION   - ATTACH_DISPOSITION   - ATTACH_ENCODING   - ATTACH_FLAGS   - ATTACH_LONG_PATHNAME   - ATTACH_SIZE 
 1,0,1,1,1,1,1,//  TODO: what does extended mean? 
@@ -588,12 +588,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO should be moved to a sub-class 
 1,0,0,1,1,1,1,//  TODO - put unknown OBJ sub-records in a different class   unknown sids in the range 0x0004-0x0013 are probably 'sub-records' of ObjectRecord   those sids are in a different number space. 
 1,0,1,1,1,1,1,/*  @todo verify the constructors  */
-1,0,1,1,1,1,1,/*  * Streaming version of Drawing. * Delegates most tasks to the non-streaming XSSF code. * TODO: Potentially, Comment and Chart need a similar streaming wrapper like Picture.  */
+1,0,0,1,1,1,1,/*  * Streaming version of Drawing. * Delegates most tasks to the non-streaming XSSF code. * TODO: Potentially, Comment and Chart need a similar streaming wrapper like Picture.  */
 1,0,1,1,1,1,1,// FIXME: This cast can be avoided. 
 1,1,1,1,1,1,1,//  TODO: investigate if this is just an EMF-hack or if other formats are also embedded in EMF 
-1,0,0,1,1,1,1,//  TODO: remove padding bytes between placeable WMF header and body? 
+1,0,1,1,1,1,1,//  TODO: remove padding bytes between placeable WMF header and body? 
 1,0,1,1,1,1,1,/*  * <p> * 9 Jan 2010 * </p> * <p> * // TODO insert Javadoc here! * </p> * * @author epp  */
-1,0,1,0,1,1,1,//  TODO Check we get a helpful error about the max size 
+1,0,1,1,1,1,1,//  TODO Check we get a helpful error about the max size 
 1,0,1,0,1,1,1,/*  * Implementation of the DMax function: * Finds the maximum value of a column in an area with given conditions. *  * TODO: * - wildcards ? and * in string conditions * - functions as conditions  */
 1,0,0,1,1,1,1,//  TODO - POI crashes if the formula is added before this sheet   RuntimeException("Zero length string is an invalid sheet name")   Excel doesn't crash but the formula doesn't work until it is   re-entered 
 1,0,0,1,1,1,1,//  21.17 cm / 2.54 cm/inch * 72dpi * 20 = 12000   15.88 cm / 2.54 cm/inch * 72dpi * 20 = 9000   TODO YK: The Picture is cropped but HWPF reads the crop parameters all zeros 
@@ -609,9 +609,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  draw borders (three 3x3 grids) 
 1,0,1,1,1,1,1,// TODO: move to LittleEndian? 
 1,0,0,0,0,0,0,//  there is a special case of this record that has only 14 bytes...undocumented! 
-1,0,0,0,1,1,1,/*  * Supports reading and writing of variant data.<p> * * <strong>FIXME (3):</strong> Reading and writing should be made more * uniform than it is now. The following items should be resolved: * * <ul> * * <li>Reading requires a length parameter that is 4 byte greater than the * actual data, because the variant type field is included. * * <li>Reading reads from a byte array while writing writes to an byte array * output stream. * * </ul>  */
+1,0,0,0,0,0,0,/*  * Supports reading and writing of variant data.<p> * * <strong>FIXME (3):</strong> Reading and writing should be made more * uniform than it is now. The following items should be resolved: * * <ul> * * <li>Reading requires a length parameter that is 4 byte greater than the * actual data, because the variant type field is included. * * <li>Reading reads from a byte array while writing writes to an byte array * output stream. * * </ul>  */
 1,0,1,1,1,1,1,//  0x17 - 0x24 reserved for international and undocumented   TODO - one junit relies on these values which seems incorrect 
-1,0,1,0,0,0,0,/*  something is wrong, ignoring this mark along with start mark  */
+1,0,0,0,0,0,0,/*  something is wrong, ignoring this mark along with start mark  */
 1,0,1,1,1,1,1,//  TODO Correct this! 
 1,0,0,0,0,0,0,//  workaround if a path has been started and no MoveTo command   has been specified before the first lineTo/splineTo 
 1,1,0,1,1,1,1,// hack. internal variable EscherClientAnchorRecord.shortRecord can be  initialized only in fillFields(). We need to set shortRecord=false; 
@@ -1080,6 +1080,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  if this directory is empty, we can delete it 
 0,0,0,0,0,0,0,//  Handle extra 1 paragraph styles at the end 
 0,0,0,0,0,0,0,//  We should have the same style-objects for these two columns and rows 
+0,0,0,0,0,0,0,// simple test that adds a load of regions
 0,0,0,0,0,0,0,//  exit if can't break any more 
 0,0,0,0,0,0,0,//  line properties are not set by default 
 0,0,0,0,0,0,0,//  verify that it can be accessed now 
@@ -1303,7 +1304,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  case CellType.STRING 
 0,0,0,0,0,0,0,// Getting NAmed Range 
 0,0,0,0,0,0,0,//  From a real file (embedded SWF control)   <ExOleObjStg info="16" type="4113" size="347" offset="4322" header="10 00 11 10 5B 01 00 00 ">.... 
-0,0,1,0,0,0,0,//  Excel would probably have put tMissArg here 
+0,0,0,0,0,0,0,//  Excel would probably have put tMissArg here 
 0,0,0,0,0,0,0,//  Just slides, no notes 
 0,0,0,0,0,0,0,//  so result does not have a minus sign 
 0,0,0,0,0,0,0,//  Modified at has a -13 timezone but no milliseconds     2007-06-20T07:59:00-13:00 
@@ -1350,7 +1351,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Write a very small new document, will populate the ministore for us 
 0,0,0,0,0,0,0,//  There is no 4! 
 0,0,0,0,0,0,0,//  SHOULD be set to the default (NULL) clip region. 
-0,0,0,0,0,0,0,//  Relying on the fact that by default the cellType is set to 0 which   is different to {@link CellType#BLANK} hence the following method call correctly   creates a new blank cell. 
+0,0,1,0,0,0,0,//  Relying on the fact that by default the cellType is set to 0 which   is different to {@link CellType#BLANK} hence the following method call correctly   creates a new blank cell. 
 0,0,0,0,0,0,0,//  The delete was somewhere in the middle of us 
 0,0,0,0,0,0,0,//  test variable length property 
 0,0,0,0,0,0,0,//  deleting shared formula cell 
@@ -2029,7 +2030,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// using absolute references because they don't get copied and pasted anyway 
 0,0,0,0,0,0,0,// derive this from the font information! 
 0,0,0,0,0,0,0,//  Ignore, just means it didn't contain    a format we support as yet 
-0,0,1,0,0,0,0,//  removing an already empty cell just falls through 
+0,0,0,0,0,0,0,//  removing an already empty cell just falls through 
 0,0,0,0,0,0,0,//  Sheets 3 and 5 now 
 0,0,0,0,0,0,0,//  cap and the fill of the arrow cap. 
 0,0,0,0,0,0,0,//  xmlns="http://schemas.openxmlformats.org/package/2006/relationships"> 
@@ -2117,7 +2118,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Test the sum 
 0,0,0,0,0,0,0,//  therefore, over-write the other. 
 0,0,0,0,0,0,0,//  special: geometry sections (key: index, value: section) 
-0,0,0,0,0,0,0,//  Some inline text elements get returned not as    themselves, but as CTEmpty, owing to some odd    definitions around line 5642 of the XSDs   This bit works around it, and replicates the above    rules for that case 
+0,0,1,0,0,0,0,//  Some inline text elements get returned not as    themselves, but as CTEmpty, owing to some odd    definitions around line 5642 of the XSDs   This bit works around it, and replicates the above    rules for that case 
 0,0,0,0,0,0,0,//  Excel thinks 2/29/1900 is a valid date, which it isn't 
 0,0,0,0,0,0,0,//  as long as there are 3 or more digits between 
 0,0,0,0,0,0,0,//  If we get here, we didn't break 
@@ -2545,7 +2546,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  *** sun.misc.Unsafe unmapping (Java 9+) *** 
 0,0,0,0,0,0,0,//  The anchor specified by the escher properties is the displayed size,   i.e. the size of the already clipped image 
 0,0,0,0,0,0,0,//  18 @ 88   *mask bit*   18 @ 106 
-0,0,1,0,0,0,0,//  Zap the un-needed user style records   removing by index, because removing by object may delete 
+0,0,0,0,0,0,0,//  Zap the un-needed user style records   removing by index, because removing by object may delete 
 0,0,0,0,0,0,0,// Step 2. Generate XML file. 
 0,0,0,0,0,0,0,//  Replace cell1 
 0,0,0,0,0,0,0,//  then draw any content within this shape (text, image, etc.) 
@@ -2681,7 +2682,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Held on the 1st bit 
 0,0,0,0,0,0,0,// //////////////// Word 
 0,0,0,0,0,0,0,//  And finally XML 
-0,0,1,0,0,0,0,//  Should fail if we try to add the same comment for the same cell 
+0,0,0,0,0,0,0,//  Should fail if we try to add the same comment for the same cell 
 0,0,0,0,0,0,0,//  organize the document pieces 
 0,0,0,0,0,0,0,//  don't try to shoot in foot, please -- vlsergey   r2.setOptions((short) 0x9876); 
 0,0,0,0,0,0,0,//  verify 
@@ -2690,7 +2691,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Check the data 
 0,0,0,0,0,0,0,//  Clear the cached values 
 0,0,0,0,0,0,0,//  beat on the children allocation code 
-0,0,1,0,0,0,0,//  just to be dead sure test conversion in java both ways 
+0,0,0,0,0,0,0,//  just to be dead sure test conversion in java both ways 
 0,0,0,0,0,0,0,//  Referenced in ZIP 
 0,0,0,0,0,0,0,//  make sure, that we've read all the streams ... 
 0,0,0,0,0,0,0,//  sprmCHresi -- 0x484e 
@@ -3117,7 +3118,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  1st read works 
 0,0,0,0,0,0,0,// begin of interface implementation 
 0,0,0,0,0,0,0,//  Check current text 
-0,0,1,0,1,1,1,//  TODO track the XFs and Format Strings 
+0,0,1,1,1,1,1,//  TODO track the XFs and Format Strings 
 0,0,0,0,0,0,0,//  create named range for a single cell using areareference 
 0,0,0,0,0,0,0,//  validation methods should detect a problem with previously added merged regions (runs in O(n^2) time) 
 0,0,0,0,0,0,0,//  All records 
@@ -3301,7 +3302,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// &D == date 
 0,0,0,0,0,0,0,//  Write out normally, will loose the macro stream 
 0,0,0,0,0,0,0,//  If the specified partis flagged as deleted, we make it   available 
-0,0,0,0,0,0,0,/*  cloneSheet() not implemented  */
+0,0,1,0,0,0,0,/*  cloneSheet() not implemented  */
 0,0,0,0,0,0,0,//  awesome ;) 
 0,0,0,0,0,0,0,//  Use the sheetname and process 
 0,0,0,0,0,0,0,//  The target column is at either end of the multi-column ColumnInfo ci   we'll just divide the info and create a new one 
@@ -3374,7 +3375,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  assigned to the class level member 
 0,0,0,0,0,0,0,//  all top level records are position dependent 
 0,0,0,0,0,0,0,//  Row index 1 -> 11 (row "2" -> row "12") 
-0,0,1,0,0,0,0,//  Excel (2007) seems to choose 16bit regardless of whether it is needed 
+0,0,0,0,0,0,0,//  Excel (2007) seems to choose 16bit regardless of whether it is needed 
 0,0,0,0,0,0,0,//  EvaluationListener to check which parts of the first formula get evaluated 
 0,0,0,0,0,0,0,//  store grpprl at hugeGrpprlOffset   grpprl.length-2 because we don't store the istd   System.arraycopy( grpprl, 2, dataStream, hugeGrpprlOffset +   2,   grpprl.length - 2 ); 
 0,0,0,0,0,0,0,/*          * The shape id of the ole object seems to be a legacy shape id.         *         * see 5.3.2.1 legacyDrawing (Legacy Drawing Object): Legacy Shape ID         * that is unique throughout the entire document. Legacy shape IDs         * should be assigned based on which portion of the document the drawing         * resides on. The assignment of these ids is broken down into clusters         * of 1024 values. The first cluster is 1-1024, the second 1025-2048 and         * so on.         *         * Ole shapes seem to start with 1025 on the first sheet ... and not         * sure, if the ids need to be reindexed when sheets are removed or more         * than 1024 shapes are on a given sheet (see #51332 for a similar         * issue)          */
@@ -3571,7 +3572,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Re-check VLOOKUP one 
 0,0,0,0,0,0,0,//  are automatic page breaks visible 
 0,0,0,0,0,0,0,//  2^0   2^1   2^2   2^3   2^4   2^5   2^6   2^7   2^8   2^9   2^10   2^11   2^12   2^13   2^14   2^15 
-0,0,0,0,0,0,0,//  assure they are in place:      [BOFRecord]      [CountryRecord]      [SUPBOOK Internal References  nSheets= 3]      [SUPBOOK Add-In Functions nSheets= 1]      [EXTERNALNAME .name    = ISODD]      [EXTERNSHEET]      [EOFRecord] 
+0,0,1,0,0,0,0,//  assure they are in place:      [BOFRecord]      [CountryRecord]      [SUPBOOK Internal References  nSheets= 3]      [SUPBOOK Add-In Functions nSheets= 1]      [EXTERNALNAME .name    = ISODD]      [EXTERNSHEET]      [EOFRecord] 
 0,0,0,0,0,0,0,//  Add the new Column 
 0,0,0,0,0,0,0,//  Note - nChars is 8-bit 
 0,0,0,0,0,0,0,//  Each cell conatins a fixed number of co-ordinate points; this number   does not vary with row height or column width or with font. These two   constants are defined below. 
@@ -3600,7 +3601,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  01 18 27 00 03 20 00 00 E8 03 08 08 0C 20 03 00 ..'.. ....... .. 
 0,0,0,0,0,0,0,//  Now the current edit offset 
 0,0,0,0,0,0,0,//  set this to the white on red cell style   we defined above 
-0,0,1,0,0,0,0,// above  right  bottom 
+0,0,0,0,0,0,0,// above  right  bottom 
 0,0,0,0,0,0,0,// too small 
 0,0,0,0,0,0,0,//  adding a duplicate or overlapping merged region should not   raise an exception with the unsafe version of addMergedRegion. 
 0,0,0,0,0,0,0,//  Go for the first if we can't otherwise decide... 
@@ -3851,7 +3852,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Set value 
 0,0,0,0,0,0,0,//  ignored 
 0,0,0,0,0,0,0,/*  Write the number of sections in this property set stream.  */
-0,0,1,0,0,0,0,/* 		 * Sanity check. Always advance the cursor by the correct value.		 *		 * getRecordSize() must return exactly the same number of bytes that was written in fillFields.		 * Sometimes it is not so, see an example in bug #44770. Most likely reason is that one of ddf records calculates wrong size.		  */
+0,0,0,0,0,0,0,/* 		 * Sanity check. Always advance the cursor by the correct value.		 *		 * getRecordSize() must return exactly the same number of bytes that was written in fillFields.		 * Sometimes it is not so, see an example in bug #44770. Most likely reason is that one of ddf records calculates wrong size.		  */
 0,0,0,0,0,0,0,//  These values are specific to BIFF8 
 0,0,0,0,0,0,0,//  This happens three times in test sample file "29982.xls"   Also several times in bugzilla samples 46840-23373 and 46840-23374 
 0,0,0,0,0,0,0,// there may be some efficiencies, but this should do for now. 
@@ -4065,7 +4066,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Re-evaluate and check 
 0,0,0,0,0,0,0,//  underline, family   charset, padding 
 0,0,0,0,0,0,0,//  Check all names fit within range, and use    DeletedArea3DPtg 
-0,0,0,0,0,0,0,//  negative zero *is* less than positive zero, but not easy to get out of calculations 
+0,0,1,0,0,0,0,//  negative zero *is* less than positive zero, but not easy to get out of calculations 
 0,0,0,0,0,0,0,//  Build a tree of POIXMLDocumentParts, this workbook being the root 
 0,0,0,0,0,0,0,//  weird: m\\/d\\/yyyy  
 0,0,0,0,0,0,0,//  Turn the Type and ID into helper objects 
@@ -4594,7 +4595,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// make some noise 
 0,0,0,0,0,0,0,// noinspection StatementWithEmptyBody 
 0,0,0,0,0,0,0,//  cs5 --> 25 -> 24 
-0,0,0,0,0,0,0,//  @deprecated 3.15 beta 2. getBorderStyle will only work on BorderStyle enums instead of codes in the future. 
+0,0,0,1,0,1,1,//  @deprecated 3.15 beta 2. getBorderStyle will only work on BorderStyle enums instead of codes in the future. 
 0,0,0,0,0,0,0,//  some extra checks to make sure we don't hide some other bug with the rounding 
 0,0,0,0,0,0,0,// if whole part has to go into the numerator 
 0,0,0,0,0,0,0,//  Try with one with the entities in the Content Types 
@@ -4804,7 +4805,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  this shouldn't happen 
 0,0,0,0,0,0,0,//  ignore all ref strings 
 0,0,0,0,0,0,0,// bug59858 shows that dirstream may not be in this directory (\MBD00082648\_VBA_PROJECT_CUR\VBA ENTRY NAME)  but may be in another directory (\_VBA_PROJECT_CUR\VBA ENTRY NAME)  process the dirstream first -- "dir" is case insensitive 
-0,0,0,0,0,0,0,//  A 32-bit signed integer that specifies the height, in logical units, of the font's   character cell or character. The character height value, also known as the em size, is the   character cell height value minus the internal leading value. The font mapper SHOULD   interpret the value specified in the Height field in the following manner.     0x00000000 < value:   The font mapper transforms this value into device units and matches it against   the cell height of the available fonts.     0x00000000   The font mapper uses a default height value when it searches for a match.     value < 0x00000000:   The font mapper transforms this value into device units and matches its   absolute value against the character height of the available fonts.     For all height comparisons, the font mapper SHOULD look for the largest font that does not 
+0,0,1,0,0,0,0,//  A 32-bit signed integer that specifies the height, in logical units, of the font's   character cell or character. The character height value, also known as the em size, is the   character cell height value minus the internal leading value. The font mapper SHOULD   interpret the value specified in the Height field in the following manner.     0x00000000 < value:   The font mapper transforms this value into device units and matches it against   the cell height of the available fonts.     0x00000000   The font mapper uses a default height value when it searches for a match.     value < 0x00000000:   The font mapper transforms this value into device units and matches its   absolute value against the character height of the available fonts.     For all height comparisons, the font mapper SHOULD look for the largest font that does not 
 0,0,0,0,0,0,0,// xNum 
 0,0,0,0,0,0,0,//  known result 
 0,0,0,0,0,0,0,//  ID of the OLE stream containing the actual data. 
@@ -4983,7 +4984,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Create a just-sub 2gb file 
 0,0,0,0,0,0,0,//  C1   D1   E1 
 0,0,0,0,0,0,0,//  Was this position a match? 
-0,0,0,0,0,0,0,//  we will not paint empty paragraphs 
+0,0,1,0,0,0,0,//  we will not paint empty paragraphs 
 0,0,0,0,0,0,0,// getting cells from an empty row should returns null 
 0,0,0,0,0,0,0,//  delete row 0-24, row 74 - 99 && change cell 3 on row 39 to string "MODIFIED CELL!!" 
 0,0,0,0,0,0,0,//  row or cell does not exist 
@@ -5014,7 +5015,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Write out our HPFS properties, with any changes 
 0,0,0,0,0,0,0,//  some colors 
 0,0,0,0,0,0,0,//  as expected 
-0,0,1,0,0,0,0,//  This row-shift should destroy the CF region 
+0,0,0,0,0,0,0,//  This row-shift should destroy the CF region 
 0,0,0,0,0,0,0,//  Delegate test 
 0,0,0,0,0,0,0,//  Add to the ptrData offset lookup hash 
 0,0,0,0,0,0,0,//  Figure out if we are to suppress either the integer or fractional part.   With # the suppressed part is removed; with ? it is replaced with spaces. 
@@ -5113,7 +5114,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*  Read second word.  */
 0,0,0,0,0,0,0,//  bold weight = x190   supersubscript 
 0,0,0,0,0,0,0,//  Reset 
-0,0,0,1,0,1,1,//  Can't think of a good way to check whether a file is actually deleted since it would require the VM to stop. 
+0,0,1,1,0,1,1,//  Can't think of a good way to check whether a file is actually deleted since it would require the VM to stop. 
 0,0,0,0,0,0,0,//  setting spid only works with a vml drawing object   oleObj.setSpid("_x0000_s"+(1025+objectIdx)); 
 0,0,0,0,0,0,0,//  else as is   else signed integer 
 0,0,0,0,0,0,0,//  A 16-bit unsigned integer that identifies this record type 
@@ -5274,7 +5275,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  end public interface POIFSConstants; 
 0,0,0,0,0,0,0,//  check for color scale 
 0,0,0,0,0,0,0,//  setting dash width to null unsets the SolidFill element 
-0,0,0,0,0,0,0,//  always an error with 2-D area refs   Note - the type of error changes if the pRowArg is negative 
+0,0,1,0,0,0,0,//  always an error with 2-D area refs   Note - the type of error changes if the pRowArg is negative 
 0,0,0,0,0,0,0,//   Just cut it off!. 
 0,0,0,0,0,0,0,//       write out and give back 
 0,0,0,0,0,0,0,/* ptgs = */
@@ -5390,7 +5391,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// header key  hmf 
 0,0,0,0,0,0,0,//  occurs during successful test 
 0,0,0,0,0,0,0,//  All finance functions have 3 to 5 args, first 4 are numbers, last is boolean   default for last 2 args are 0.0 and false   Text boolean literals are not valid for the last arg 
-0,0,1,0,0,0,0,//  we did not get an exception, so it seems this is a HSSFWorkbook 
+0,0,0,0,0,0,0,//  we did not get an exception, so it seems this is a HSSFWorkbook 
 0,0,0,0,0,0,0,//  Reset, should go back to only one buffer full read 
 0,0,0,0,0,0,0,//  The initial value is set when populating the dictionary 
 0,0,0,0,0,0,0,//  Start with an empty set 
@@ -5532,7 +5533,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  line cap 
 0,0,0,0,0,0,0,//  add a new shape and link OLE & image part 
 0,0,0,0,0,0,0,//  A 32-bit unsigned integer that specifies the number of graphics formats contained in this record. 
-0,0,1,0,0,0,0,//  Sanity Checking - we're always at least 8+10 bytes long 
+0,0,0,0,0,0,0,//  Sanity Checking - we're always at least 8+10 bytes long 
 0,0,0,0,0,0,0,//  formula: internal quotes become double double, surround with double quotes 
 0,0,0,0,0,0,0,//  Partially mergeable: multiple possible merges      A B    1 x x   A1,A2,B1 --> A1:B1,A2 or A1:A2,B1 
 0,0,0,0,0,0,0,//  Change on comment on sheet 1, and add another into    sheet 2 
@@ -5837,7 +5838,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  supersubscript   underline, family 
 0,0,0,0,0,0,0,//  Process all body elements 
 0,0,0,0,0,0,0,//  Try both SMTP and EX files for recipient 
-0,0,1,0,0,0,0,//  If the third row is set to repeat, but not the second,   isRepeatHeader should report false because Word will 
+0,0,0,0,0,0,0,//  If the third row is set to repeat, but not the second,   isRepeatHeader should report false because Word will 
 0,0,0,0,0,0,0,//  Look out outline details of end 
 0,0,0,0,0,0,0,//  A 32-bit unsigned integer that specifies the number of rectangles in the RectData field. 
 0,0,0,0,0,0,0,//  (Don't remove the records though) 
@@ -5958,7 +5959,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Sets the pivotTableDefinition tag 
 0,0,0,0,0,0,0,//  do not auto delete the title 
 0,0,0,0,0,0,0,//  attempt to add conditional formatting 
-0,0,1,0,0,0,0,//  Sanity Checking - including whole header, so treat    length as based of 0, not 8 (including header size based) 
+0,0,0,0,0,0,0,//  Sanity Checking - including whole header, so treat    length as based of 0, not 8 (including header size based) 
 0,0,0,0,0,0,0,//  removeArrayFormula should return the same cells as setArrayFormula 
 0,0,0,0,0,0,0,//  A 32-bit unsigned integer that specifies the index of the logical font object   in the EMF Object Table 
 0,0,0,0,0,0,0,//  Check that after close we can no longer read 
@@ -6099,7 +6100,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Make this cell ref look like a 1x1 area ref. 
 0,0,0,0,0,0,0,//  They happen to go between the two slides in Ref terms 
 0,0,0,0,0,0,0,//  search for errors array by array, not pair by pair 
-0,0,1,0,0,0,0,//  A NURBS formula: knotLast, degree, xType, yType, x1, y1, knot1,   weight1, .. 
+0,0,0,0,0,0,0,//  A NURBS formula: knotLast, degree, xType, yType, x1, y1, knot1,   weight1, .. 
 0,0,0,0,0,0,0,//  Add another duplicate 
 0,0,0,0,0,0,0,// Create pivotCache and sets up it's relationship with the workbook 
 0,0,0,0,0,0,0,//   the dummy cell records 
@@ -6730,7 +6731,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  check that it is there now 
 0,0,0,0,0,0,0,//  in some locales the the decimal delimiter is a comma, not a dot 
 0,0,0,1,1,1,1,//  TODO: distinguish underline type 
-0,0,1,0,1,1,1,/*  * Default Character Run style, from which other styles will override * TODO Share logic with {@link XWPFRun} which also uses CTRPr  */
+0,0,0,0,1,1,1,/*  * Default Character Run style, from which other styles will override * TODO Share logic with {@link XWPFRun} which also uses CTRPr  */
 0,0,0,0,0,0,0,//  Check we can round-trip - try to set a new one to a cell range 
 0,0,0,0,0,0,0,//  If it's a named property, rather than a standard 
 0,0,0,0,0,0,0,//  supports search in null or empty string 
@@ -6883,7 +6884,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  build a range of the columns that are overwritten, i.e. the target-area, but without   columns that are moved along 
 0,0,0,0,0,0,0,//  write the sepx to the document stream. starts with a 2 byte size 
 0,0,0,0,0,0,0,//  for negative BigInteger, top byte is negative 
-0,0,0,0,0,0,0,//  Create a footer with a Paragraph 
+0,0,1,0,0,0,0,//  Create a footer with a Paragraph 
 0,0,0,1,1,1,1,//  TODO - junit 
 0,0,0,0,0,0,0,// optimization, as this may be expensive for lots of ranges 
 0,0,0,0,0,0,0,/*  ********** START begin implementation of POIFSViewable **********  */
@@ -6937,7 +6938,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  digest the message 
 0,0,0,0,0,0,0,//  y (4 bytes): A 32-bit signed integer that defines the vertical (y) coordinate of the point. 
 0,0,0,0,0,0,0,//  set row height; units = twentieth of a point, 360 = 0.25" 
-0,0,0,0,1,1,1,//  TODO: set east asian font family - MS Office uses "MS Mincho" or "MS Gothic" as a fallback   see https://stackoverflow.com/questions/26063828 for good explanation about the font metrics   differences on different environments 
+0,0,1,1,1,1,1,//  TODO: set east asian font family - MS Office uses "MS Mincho" or "MS Gothic" as a fallback   see https://stackoverflow.com/questions/26063828 for good explanation about the font metrics   differences on different environments 
 0,0,0,0,0,0,0,//  mask is 0x1800 
 0,0,0,0,0,0,0,//  Tell them of the positions of the other records though 
 0,0,0,0,0,0,0,//  Sanity check the size they've asked for 
@@ -7058,7 +7059,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Saving the part in the zip file 
 0,0,0,0,0,0,0,//  Can work with POIFS 
 0,0,1,0,1,1,1,/*      * Shifts rows between startRow and endRow n number of rows.     * If you use a negative number, it will shift rows up.     * Code ensures that rows don't wrap around<p>     *      * Additionally shifts merged regions that are completely defined in these     * rows (ie. merged 2 cells on a row to be shifted). All merged regions that are     * completely overlaid by shifting will be deleted.<p>     *      * TODO Might want to add bounds checking here     *     * @param startRow               the row to start shifting     * @param endRow                 the row to end shifting     * @param n                      the number of rows to shift     * @param copyRowHeight          whether to copy the row height during the shift     * @param resetOriginalRowHeight whether to set the original row's height to the default      */
-0,0,0,0,0,0,0,/*      * MB 24 May 2010. Created this overloaded buildHdrFtr() method because testing demonstrated     * that the XWPFFooter or XWPFHeader object returned by calls to the createHeader(int, XWPFParagraph[])     * and createFooter(int, XWPFParagraph[]) methods or the getXXXXXHeader/Footer methods where     * headers or footers had been added to a document since it had been created/opened, returned     * an object that contained no XWPFParagraph objects even if the header/footer itself did contain     * text. The reason was that this line of code; CTHdrFtr ftr = CTHdrFtr.Factory.newInstance();     * created a brand new instance of the CTHDRFtr class which was then populated with data when     * it should have recovered the CTHdrFtr object encapsulated within the XWPFHeaderFooter object     * that had previoulsy been instantiated in the createHeader(int, XWPFParagraph[]) or     * createFooter(int, XWPFParagraph[]) methods.      */
+0,0,1,0,0,0,0,/*      * MB 24 May 2010. Created this overloaded buildHdrFtr() method because testing demonstrated     * that the XWPFFooter or XWPFHeader object returned by calls to the createHeader(int, XWPFParagraph[])     * and createFooter(int, XWPFParagraph[]) methods or the getXXXXXHeader/Footer methods where     * headers or footers had been added to a document since it had been created/opened, returned     * an object that contained no XWPFParagraph objects even if the header/footer itself did contain     * text. The reason was that this line of code; CTHdrFtr ftr = CTHdrFtr.Factory.newInstance();     * created a brand new instance of the CTHDRFtr class which was then populated with data when     * it should have recovered the CTHdrFtr object encapsulated within the XWPFHeaderFooter object     * that had previoulsy been instantiated in the createHeader(int, XWPFParagraph[]) or     * createFooter(int, XWPFParagraph[]) methods.      */
 0,0,0,0,0,0,0,//  Identify bug 46479c 
 0,0,0,0,0,0,0,//  Test the last Row number it currently correct 
 0,0,0,0,0,0,0,//  xfrm is not set, the query is delegated to the slide layout 
@@ -7251,7 +7252,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Now turn if back off again 
 0,0,0,0,0,0,0,// The maximum column width for an individual cell is 255 characters 
 0,0,0,0,0,0,0,// Use third column (month) as columns (side by side) 
-0,0,0,1,1,1,1,//  ToDo - test exceptions are as expected 
+0,0,1,1,1,1,1,//  ToDo - test exceptions are as expected 
 0,0,0,0,0,0,0,//  Make sure we just do the best we can 
 0,0,0,0,0,0,0,//  They should all have a 3512 byte metafile rendered version 
 0,0,0,0,0,0,0,//  First, check overall 
@@ -7582,7 +7583,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  may as well write original data back so as to minimise differences from original 
 0,0,0,0,0,0,0,//  Read 
 0,0,0,0,0,0,0,//  range will be C1:E1 
-0,0,0,0,0,0,0,/*  fixed the problem as well              * comment.setColumn(cell.getColumnIndex());             * comment.setRow(cell.getRowIndex());              */
+0,0,0,1,0,1,1,/*  fixed the problem as well              * comment.setColumn(cell.getColumnIndex());             * comment.setRow(cell.getRowIndex());              */
 0,0,1,1,1,1,1,//  TODO Update ext_formatting_length 
 0,0,0,0,0,0,0,//  Process the named ranges 
 0,0,0,0,0,0,0,//  Add a text cell 
@@ -7786,7 +7787,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  don't copy endParaRPr to the run in case there aren't any other   runs   this is the case when setText() was called initially   otherwise the master style will be overridden/ignored 
 0,0,0,0,0,0,0,//  sprmCShd80 
 0,0,0,0,0,0,0,//  visibility raised for testing 
-0,0,1,0,0,0,0,//  no need to check for contain1. The key come from it 
+0,0,0,0,0,0,0,//  no need to check for contain1. The key come from it 
 0,0,0,0,0,0,0,//  write the first excel file 
 0,0,0,0,0,0,0,//  Change the number 
 0,0,0,0,0,0,0,//             p_wb.write(fileOut); 
@@ -7908,7 +7909,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// application/vnd.ms-visio.viewer 
 0,0,0,0,0,0,0,//  newer excel formats are 
 0,0,0,0,0,0,0,//  Try and read each byte in turn 
-0,0,0,0,0,0,0,//  this should be 3 as we overwrote the default paragraph with setText, then added 2 new paragraphs 
+0,0,1,0,0,0,0,//  this should be 3 as we overwrote the default paragraph with setText, then added 2 new paragraphs 
 0,0,0,1,1,1,1,//  TODO - instantiable superclass 
 0,0,0,0,0,0,0,//  level 1 : default title style on the master slide 
 0,0,0,0,0,0,0,//  try to load truncated pictures by supplying a BufferedImage   and use the processed data up till the point of error 
@@ -7952,7 +7953,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  be escaped by preceding it with a backslash. 
 0,0,0,0,0,0,0,// build a tree of POIXMLDocumentParts, this presentation being the root 
 0,0,0,0,0,0,0,//  non-null string greater than empty cell 
-0,0,1,0,0,0,0,//  apparently bits 8 and 9 are unused 
+0,0,0,0,0,0,0,//  apparently bits 8 and 9 are unused 
 0,0,0,0,0,0,0,/* Sheet sheet1 = */
 0,0,0,0,0,0,0,//  actually, this is looking more like a number 
 0,0,0,0,0,0,0,// 5. Convert all back slashes to forward slashes 
@@ -8390,7 +8391,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  x coordinate of first point on ellipse 
 0,0,0,0,0,0,0,/*  sprmPIlfo -- 0x460B  */
 0,0,0,0,0,0,0,//  comes from the slide master 
-0,0,0,0,0,0,0,//  this would cause ClassCastException below 
+0,0,1,0,0,0,0,//  this would cause ClassCastException below 
 0,0,0,0,0,0,0,//  pattern of length 1 
 0,0,0,0,0,0,0,//  Check slide 3 is as expected (was re-ordered from 2) 
 0,0,0,0,0,0,0,//  a double is an IEEE 8-byte float...damn IEEE and their goofy standards an 
@@ -8542,7 +8543,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  here we can only verify that setting some zoom values works, range-checking is different between the implementations 
 0,0,0,0,0,0,0,// the maximum number of arguments depends on the Excel version 
 0,0,0,0,0,0,0,//  appended to the StringBuffer. 
-0,0,1,1,1,1,1,//  TODO - parse 
+0,0,0,1,1,1,1,//  TODO - parse 
 0,0,0,0,0,0,0,//  This file has two embeded excel files, an embeded powerpoint     file and an embeded word file, in that order 
 0,0,0,0,0,0,0,//  sprmPFInnerTtp -- 0x244c 
 0,0,0,0,0,0,0,//  only flush, don't close! 
@@ -8835,7 +8836,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Currently, we don't need to do anything special once   all the chunks have been located 
 0,0,0,0,0,0,0,//  Grab the data block 
 0,0,0,0,0,0,0,//  Now add a formula that refers to yet another (different) workbook 
-0,0,0,0,0,0,0,//  Slightly irregular logic for bounds checking errors 
+0,0,1,0,0,0,0,//  Slightly irregular logic for bounds checking errors 
 0,0,0,0,0,0,0,//  "TEST" 
 0,0,0,0,0,0,0,//  even row 
 0,0,0,0,0,0,0,//      cell will have no borders. 
@@ -8983,7 +8984,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Styles exist in the test document in this order, EmptyCellLayoutStyle   is missing a StyleId 
 0,0,0,0,0,0,0,//  Change one on each 
 0,0,0,0,0,0,0,//  Xor-Password: abc   2.5.343 XORObfuscation   key = 20810   verifier = 52250 
-0,0,1,0,0,0,0,//  caused NPE prior to fix of Bugzilla #48916 
+0,0,0,0,0,0,0,//  caused NPE prior to fix of Bugzilla #48916 
 0,0,0,0,0,0,0,//  With a simple 512 block file 
 0,0,0,0,0,0,0,//  See comment in writeScientific -- exponent handling is complex.   (1) When parsing the format, remove the sign from after the 'e' and   put it before the first digit of the exponent. 
 0,0,0,0,0,0,0,//  The default case is to sort names ignoring case 
@@ -9023,7 +9024,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  No children, wind on our real length 
 0,0,1,1,0,1,1,// JMH: Why +1, hell why not. I guess it made some sense to someone at the time. Doesnt  to me now.... But experience has shown that when the fore is set to AUTOMATIC then the  background needs to be incremented...... 
 0,0,0,0,0,0,0,//     {        tabMap.remove(Integer.valueOf(LittleEndian.getInt(grpprl, offset)));        offset += LittleEndian.INT_SIZE;;      }        int addSize = grpprl[offset++]; 
-0,0,1,0,0,0,0,//  when there's a dual storage entry, use it, as the outer document can't be read quite probably ... 
+0,0,0,0,0,0,0,//  when there's a dual storage entry, use it, as the outer document can't be read quite probably ... 
 0,0,0,0,0,0,0,//  setting sheet name later 
 0,0,0,0,0,0,0,//  Add a formula that refers to one of the existing external workbooks 
 0,0,0,0,0,0,0,//  5th Feb 2012 = 40944   1st Feb 2012 = 40940   5th Jan 2012 = 40913   5th Dec 2011 = 40882   5th Feb 2011 = 40579 
@@ -9269,7 +9270,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  With the password, is properly processed 
 0,0,0,0,0,0,0,// update formulas on other sheets 
 0,0,0,0,0,0,0,//  +2 for INDEX and DBCELL 
-0,0,0,0,0,0,0,//  (At least, not unit we fix bug #56752 that is) 
+0,0,1,0,0,0,0,//  (At least, not unit we fix bug #56752 that is) 
 0,0,0,0,0,0,0,//  http://en.wikipedia.org/wiki/Internal_rate_of_return#Example 
 0,0,0,0,0,0,0,//  But not from the others 
 0,0,0,0,0,0,0,//  http://arachnoid.com/lutusp/finance.html 
@@ -9814,6 +9815,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  create some data 
 0,0,0,0,0,0,0,//  Change text via normal 
 0,0,0,0,0,0,0,//  fails with   org.apache.poi.ss.formula.FormulaParseException: Parse error near char ... ')'   in specified formula '((1 + 1) )'. Expected cell ref or constant literal 
+0,0,0,0,0,0,0,//  Should never happen in production as all data are fixed
 0,0,0,0,0,0,0,// write ouput to a file 
 0,0,0,0,0,0,0,//  Try another with comments 
 0,0,0,0,0,0,0,// this is the sheet state #2.5.142  noinspection ResultOfMethodCallIgnored 
@@ -9908,7 +9910,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  The first certificate is presumably the signer. 
 0,0,0,0,0,0,0,//  Should not be able to write a document that has been closed 
 0,0,0,0,0,0,0,//  Do XWPF charts need similar treatment? 
-0,0,0,0,0,0,0,// JMH: Do this ridiculous conversion, and let HSSFCellStyle  internally migrate back and forth 
+0,0,1,0,0,0,0,// JMH: Do this ridiculous conversion, and let HSSFCellStyle  internally migrate back and forth 
 0,0,0,0,0,0,0,// PPT doen't increment the number of saved shapes for group descriptor and background 
 0,0,0,0,0,0,0,//  that cell. 
 0,0,0,0,0,0,0,//  All the others 
@@ -10085,7 +10087,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Check the same 
 0,0,0,0,0,0,0,//  private static POILogger log = POILogFactory.getLogger(HSSFPatriarch.class); 
 0,0,0,0,0,0,0,//  https://stackoverflow.com/questions/21855842   https://stackoverflow.com/questions/29014848   https://stackoverflow.com/questions/39636138 
-0,0,1,0,0,0,0,//  rId2 is file 
+0,0,0,0,0,0,0,//  rId2 is file 
 0,0,0,0,0,0,0,/*  Create an input stream containing the bytes the property set             * stream consists of.  */
 0,0,0,0,0,0,0,//  #59743 - disable Threshold handling for SXSSF copy   as users tend to put too much repetitive data in when using SXSSF :) 
 0,0,0,0,0,0,0,//  STEditAs.ABSOLUTE corresponds to ClientAnchor.DONT_MOVE_AND_RESIZE 
@@ -10359,7 +10361,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Set the uncompressed bit 
 0,0,0,0,0,0,0,//  Check that protection block is together, and before DIMENSION 
 0,0,0,0,0,0,0,//  Two charts, three sheets 
-0,0,1,0,0,0,0,//  probably not happening with write access - not sure how to handle the default read-write access ... 
+0,0,0,0,0,0,0,//  probably not happening with write access - not sure how to handle the default read-write access ... 
 0,0,0,0,0,0,0,//  5 is the active / selected sheet 
 0,0,0,0,0,0,0,/*  Part doesn't exist, create a new one  */
 0,0,0,0,0,0,0,//  Now check on the sheet 
@@ -10706,7 +10708,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Maximum number of persist objects written 
 0,0,0,0,0,0,0,//  Re-fetch the mini store, and add it a second time 
 0,0,0,0,0,0,0,//  simple expansion of top   rows containing area top being shifted down: 
-0,0,0,0,0,0,0,//  do a quick check if there is work to do to not incur the overhead if not necessary anyway 
+0,0,1,0,0,0,0,//  do a quick check if there is work to do to not incur the overhead if not necessary anyway 
 0,0,0,0,0,0,0,//  in pixel 
 0,0,0,0,0,0,0,//  target line   line of a scatter chart from 0 (min) to 1 (max) having value of target 
 0,0,0,0,0,0,0,//  If this doesn't apply, no color change is expected 
@@ -10729,7 +10731,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Now, have them moved to the right place 
 0,0,0,0,0,0,0,//  Find where the next SlidePersistAtom is 
 0,0,0,0,0,0,0,//  300 - 10 - 10   first line is NOT indented   other lines are indented by leftMargin (the value of indent is not used) 
-0,0,1,0,0,0,0,//  in an earlier release the hashMagic (aka DigestAlgorithmIdentifier) contained only   an object identifier, but to conform with the header generated by the   javax-signature API, the empty <associated parameters> are also included 
+0,0,0,0,0,0,0,//  in an earlier release the hashMagic (aka DigestAlgorithmIdentifier) contained only   an object identifier, but to conform with the header generated by the   javax-signature API, the empty <associated parameters> are also included 
 0,0,0,0,0,0,0,//  missing, we add it 
 0,0,0,0,0,0,0,//  Remove the 2nd 
 0,0,0,0,0,0,0,//  ensure that this works for SUM 
@@ -11245,7 +11247,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// create the cell that will have the validation applied 
 0,0,0,0,0,0,0,/*  Format         */
 0,0,0,0,0,0,0,//  We now know how many unique special records we have, so init 
-0,0,1,0,0,0,0,/*          * Try to find PictureData with this checksum. Create new, if none         * exists.          */
+0,0,0,0,0,0,0,/*          * Try to find PictureData with this checksum. Create new, if none         * exists.          */
 0,0,0,0,0,0,0,//  XBats 
 0,0,0,0,0,0,0,//  see http://stackoverflow.com/questions/5637650/overriding-protected-methods-in-java 
 0,0,0,0,0,0,0,//  iteration's result as the input for the next iteration). 
@@ -11285,11 +11287,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// ///////////////  Output the XML 
 0,0,0,0,0,0,0,//  the POIFSFileSystem we belong to 
 0,0,0,0,0,0,0,/*  (non-Javadoc)     * @see org.apache.poi.hssf.usermodel.PictureData#getData()      */
-0,0,1,0,0,0,0,//  calling createCell on a non-existing cell should create a cell and set the cell value and style. 
+0,0,0,0,0,0,0,//  calling createCell on a non-existing cell should create a cell and set the cell value and style. 
 0,0,1,0,0,0,0,//  rethrow to report errors correctly (we need to catch it here,   as we also catch RuntimeException below!): 
 0,0,0,0,0,0,0,//    HTML and text body encoding: Internet CPID property.   UTF-8 is ignored for text body. This seems to be a special Outlook behavior. 
 0,0,0,0,0,0,0,//  reset to not affect other tests 
-0,0,1,0,0,0,0,//  Header row should be copied 
+0,0,0,0,0,0,0,//  Header row should be copied 
 0,0,0,0,0,0,0,//  END OF CLASS 
 0,0,0,0,0,0,0,//  Create columns in reverse order 
 0,0,0,0,0,0,0,//  Make sure it is possible to create a conditional formatting rule   with every type of Border Style 
@@ -11367,7 +11369,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*                  * if it just empty fo:inline without "id" attribute doesn't                 * making sense to add it to DOM                  */
 0,0,0,0,0,0,0,//  Open the newly created file to check core properties saved values. 
 0,0,0,0,0,0,0,//  Actually move 
-0,0,1,0,0,0,0,//  The value MUST be in the WMF Ternary Raster Operation enumeration 
+0,0,0,0,0,0,0,//  The value MUST be in the WMF Ternary Raster Operation enumeration 
 0,0,0,0,0,0,0,// unmodified 
 0,0,0,0,0,0,0,//  map file extensions to the actual mappers 
 0,0,0,0,0,0,0,//  Allocate a few 
@@ -11407,13 +11409,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// 16-byte link moniker: HyperlinkRecord.FILE_MONIKER 
 0,0,0,0,0,0,0,//  Create the drawing entry for it 
 0,0,0,0,0,0,0,//  even an empty string is not equal the empty cell, only another empty cell is, handled higher up 
-0,0,0,0,0,0,0,//  The x-coordinate of the arc's control point; a point on the arc. The   control point is best located about halfway between the beginning and   ending vertices of the arc. Otherwise, the arc may grow to an extreme   size in order to pass through the control point, with unpredictable 
+0,0,1,0,0,0,0,//  The x-coordinate of the arc's control point; a point on the arc. The   control point is best located about halfway between the beginning and   ending vertices of the arc. Otherwise, the arc may grow to an extreme   size in order to pass through the control point, with unpredictable 
 0,0,0,0,0,0,0,//  And some near a few of them 
 0,0,0,0,0,0,0,//  no notes on slide 
 0,0,0,0,0,0,0,//  Found one 
 0,0,0,0,0,0,0,//  don't include the text if reviewing is enabled and this is a deleted run 
 0,0,0,0,0,0,0,/*  char 9   */
-0,0,0,0,0,0,0,//  Multiple calls to autoSizeColumn need to look up the best-fit width   of rows already flushed to disk plus re-calculate the best-fit width   of rows in the current window. It isn't safe to update the column   widths before flushing to disk because columns in the random access   window rows may change in best-fit width. The best-fit width of a cell   is only fixed when it becomes inaccessible for modification.   Changes to the shared strings table, styles table, or formulas might   be able to invalidate the auto-size width without the opportunity   to recalculate the best-fit width for the flushed rows. This is an   inherent limitation of SXSSF. If having correct auto-sizing is   critical, the flushed rows would need to be re-read by the read-only 
+0,0,0,1,0,1,1,//  Multiple calls to autoSizeColumn need to look up the best-fit width   of rows already flushed to disk plus re-calculate the best-fit width   of rows in the current window. It isn't safe to update the column   widths before flushing to disk because columns in the random access   window rows may change in best-fit width. The best-fit width of a cell   is only fixed when it becomes inaccessible for modification.   Changes to the shared strings table, styles table, or formulas might   be able to invalidate the auto-size width without the opportunity   to recalculate the best-fit width for the flushed rows. This is an   inherent limitation of SXSSF. If having correct auto-sizing is   critical, the flushed rows would need to be re-read by the read-only 
 0,0,0,0,0,0,0,/*  Compare the property set stream with the corresponding one             * from the origin file and check whether they are equal.  */
 0,0,0,0,0,0,0,//  comodoca request fails, if default policy is set ... 
 0,0,0,0,0,0,0,//  2nd read works 
@@ -11434,7 +11436,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Error 
 0,0,0,0,0,0,0,// Range of cells which the shared formula applies to 
 0,0,0,0,0,0,0,//  should agree within 0.01% 
-0,0,0,0,0,0,0,//  Some fonts support plain/bold/italic/bolditalic variants   Others have different font instances for bold etc 
+0,0,1,0,0,0,0,//  Some fonts support plain/bold/italic/bolditalic variants   Others have different font instances for bold etc 
 0,0,0,0,0,0,0,//  Check if the specified part is not a relationship part 
 0,0,0,0,0,0,0,/*              * Check if the argument is a function. Certain names can be either a cell reference or a function name             * depending on the contenxt. Compare the following examples in Excel 2007:             * (a) LOG10(100) + 1             * (b) LOG10 + 1             * In (a) LOG10 is a name of a built-in function. In (b) LOG10 is a cell reference              */
 0,0,0,0,0,0,0,// create 50 cells 
@@ -11533,7 +11535,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Serialize 
 0,0,0,0,0,0,0,//  Check bytes weren't the same 
 0,0,0,0,0,0,0,//  was plain cell before - no change of type 
-0,0,1,0,0,0,0,//  not implemented yet: case SxNamePtg.sid:       return new SxNamePtg(in);       // 0x18 
+0,0,0,0,0,0,0,//  not implemented yet: case SxNamePtg.sid:       return new SxNamePtg(in);       // 0x18 
 0,0,0,0,0,0,0,//  If they give a date in 1900 in Jan/Feb, with the days 
 0,0,0,0,0,0,0,//  Check still right 
 0,0,0,0,0,0,0,//  skew 
@@ -11644,7 +11646,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  See Bugzilla 53984   see Bugzilla 50426 
 0,0,0,0,0,0,0,//  in unicode 
 0,0,0,0,0,0,0,//  the destination rectangle, having the same dimension as the source rectangle 
-0,0,0,0,0,0,0,//  object with respect to the width of the graphics pen that is used to draw the lines. 
+0,0,1,0,0,0,0,//  object with respect to the width of the graphics pen that is used to draw the lines. 
 0,0,0,0,0,0,0,/*      * Write all properties supported by HPSF to the summary information     * (e.g. author, edit date, application name) and to the document     * summary information (e.g. company, manager).      */
 0,0,0,0,0,0,0,//  Check the header was written properly 
 0,0,0,1,0,1,1,//  currently EMF is better supported than EMF+ ... so if there's a complete set of EMF records available,   disable EMF+ rendering for now 
@@ -11669,7 +11671,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Cell Formula with Reference spanning multiple rows 
 0,0,0,0,0,0,0,//  Turn on 
 0,0,0,0,0,0,0,//  These are inconsistent settings, so ditch 'em 
-0,0,1,0,0,0,0,// this doesn't test the exact code path for this issue, but  it does test for a related issue, and the fix fixes both.  We should try to add the actual triggering document  to our test suite. 
+0,0,0,0,0,0,0,// this doesn't test the exact code path for this issue, but  it does test for a related issue, and the fix fixes both.  We should try to add the actual triggering document  to our test suite. 
 0,0,0,0,0,0,0,//  check for icon set 
 0,0,0,0,0,0,0,//  boundary color to the center color as it moves from the boundary to the center point. 
 0,0,0,0,0,0,0,//  Icons : 4 ratings - Column R 
@@ -11829,7 +11831,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Make the selection 
 0,0,0,0,0,0,0,//  The following is taken from the Libre Office implementation   It seems that the encrypt and decrypt method is mixed up   in the MS-OFFCRYPTO docs 
 0,0,0,0,0,0,0,//  We already have it! 
-0,0,0,1,0,1,1,//  Calculate the group numbers of important groups.  (They shift around   when the pattern is changed; this way we figure out the numbers by   experimentation.) 
+0,0,0,0,0,0,0,//  Calculate the group numbers of important groups.  (They shift around   when the pattern is changed; this way we figure out the numbers by   experimentation.) 
 0,0,0,0,0,0,0,//  move EncryptionRecord to last slide position 
 0,0,0,0,0,0,0,//   new locations of the fonts 
 0,0,0,0,0,0,0,//  Remove all relationship parts associated 
@@ -12371,7 +12373,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  A 32-bit unsigned integer that specifies the number of rectangles in the RectData member. 
 0,0,0,0,0,0,0,//  below are shape types only found in native 
 0,0,0,0,0,0,0,//  One slide 
-0,0,0,0,0,0,0,//  Remove thrown.* when bug 58779 is resolved   In the mean time, this function will modify SampleShow.pptx on disk. 
+0,0,1,0,0,0,0,//  Remove thrown.* when bug 58779 is resolved   In the mean time, this function will modify SampleShow.pptx on disk. 
 0,0,0,0,0,0,0,//  also sets method to POST. 
 0,0,0,0,0,0,0,//  Add at the place of the supplied record 
 0,0,0,0,0,0,0,//  Tidy and return (null if no match) 
@@ -12527,7 +12529,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//     public final static short       OBJECT_TYPE_GROUP_BOX          = 19; 
 0,0,0,0,0,0,0,//  increment the number of persistent objects 
 0,0,0,0,0,0,0,//  Copy file data to the newly created part 
-0,0,1,0,0,0,0,//  should builder be replaced with CellCopyPolicy setters that return the object   to allow setters to be chained together? 
+0,0,0,0,0,0,0,//  should builder be replaced with CellCopyPolicy setters that return the object   to allow setters to be chained together? 
 0,0,0,0,0,0,0,//  currently we only identify TextShapes as placeholders 
 0,0,0,0,0,0,0,//  Strip leading and trailing quotes if needed 
 0,0,0,0,0,0,0,//  Only replace the grouping character if it is not the default   grouping character for the US locale (',') in order to enable   correct grouping for non-US locales. 
@@ -12851,7 +12853,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Generate the relation 
 0,0,0,0,0,0,0,// Greetings! 
 0,0,0,0,0,0,0,//  In three bits, split every 512 bytes 
-0,0,1,0,0,0,0,//  currently don't use FileCacheImageInputStream,   because of the risk of filling the file handles (see #59166) 
+0,0,0,0,0,0,0,//  currently don't use FileCacheImageInputStream,   because of the risk of filling the file handles (see #59166) 
 0,0,0,0,0,0,0,//  only change valid chars 
 0,0,0,0,0,0,0,//  Not actually needed - can be found from day of month 
 0,0,0,0,0,0,0,//  Add the image 
@@ -12894,7 +12896,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*  complex symbol  */
 0,0,0,0,0,0,0,//  now add Cell 0,1 
 0,0,0,0,0,0,0,//  plain data in D1:F3 
-0,0,0,0,0,0,0,//  do not implement! -> recursion   public int read(byte[] b) throws IOException; 
+0,0,1,0,0,0,0,//  do not implement! -> recursion   public int read(byte[] b) throws IOException; 
 0,0,0,0,0,0,0,// end draw thick black border 
 0,0,0,0,0,0,0,//  subsequent calls to createCellFromRecord() will update the colIx boundaries properly 
 0,0,0,0,0,0,0,//  9th one should have children 
@@ -12957,7 +12959,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// this len should == fontDescriptionLength 
 0,0,0,0,0,0,0,//         OutputStream out = new FileOutputStream("/tmp/56959.xls"); 
 0,0,0,0,0,0,0,//  The ID of the first slide 
-0,0,1,0,0,0,0,//  apparently bits 15 and 14 are unused 
+0,0,0,0,0,0,0,//  apparently bits 15 and 14 are unused 
 0,0,0,0,0,0,0,//  ordering is not important when row is equal, but don't return zero to still   get multiple comments per row into the map 
 0,0,0,0,0,0,0,// to enable newlines you need set a cell styles with wrap=true 
 0,0,0,0,0,0,0,//  org.apache.poi.hwpf 
@@ -13470,7 +13472,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  A SlideShow with two slides 
 0,0,0,0,0,0,0,//  output (possibly incomplete) first line 
 0,0,0,0,0,0,0,//         Double rightMargin = paragraph.getRightMargin(); 
-0,0,1,0,0,0,0,//  Excel expression might look like this "INDEX( (A1:B4, C3:D6, D2:E5 ), 1, 2, 3)   In this example, the 3rd area would be used i.e. D2:E5, and the overall result would be E2   Token array might be encoded like this: MemAreaPtg, AreaPtg, AreaPtg, UnionPtg, UnionPtg, ParenthesesPtg   The formula parser doesn't seem to support this yet. Not sure if the evaluator does either 
+0,0,0,0,0,0,0,//  Excel expression might look like this "INDEX( (A1:B4, C3:D6, D2:E5 ), 1, 2, 3)   In this example, the 3rd area would be used i.e. D2:E5, and the overall result would be E2   Token array might be encoded like this: MemAreaPtg, AreaPtg, AreaPtg, UnionPtg, UnionPtg, ParenthesesPtg   The formula parser doesn't seem to support this yet. Not sure if the evaluator does either 
 0,0,0,0,0,0,0,//  No rows, everything is 0 
 0,0,0,0,0,0,0,//  then do the actual moving and also adjust comments/rowHeight   we need to sort it in a way so the shifting does not mess up the structures,  
 0,0,0,0,0,0,0,//  char flags 0x0002 = italic   font size 20 
@@ -13659,7 +13661,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//         record.setDataLabelPlacement( (short)0x2b50 ); 
 0,0,0,0,0,0,0,//  don't append ',' 
 0,0,0,0,0,0,0,//  Create a new instance of the escher dumper 
-0,0,0,0,0,0,0,//  NOTE: This is currently based on current behavior of POI, somehow   what POI returns in the calls to collapsed/hidden is not fully matching   the examples in the spec or I did not fully understand how POI stores the data internally... 
+0,0,1,0,0,0,0,//  NOTE: This is currently based on current behavior of POI, somehow   what POI returns in the calls to collapsed/hidden is not fully matching   the examples in the spec or I did not fully understand how POI stores the data internally... 
 0,0,0,0,0,0,0,// protected List<String> styleIDs; 
 0,0,0,0,0,0,0,//  Insert it after the window record 
 0,0,0,0,0,0,0,//  immutable 
@@ -14161,7 +14163,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  correct saltHash for supplied password (and docId/saltHash) 
 0,0,0,0,0,0,0,//  extract second parameter 
 0,0,0,0,0,0,0,//  A 16-bit signed integer that defines the x-coordinate, in logical units, of the 
-0,0,0,0,0,0,0,//  The x-coordinate of the ending vertex of a quadratic Bezier curve 
+0,0,1,0,0,0,0,//  The x-coordinate of the ending vertex of a quadratic Bezier curve 
 0,0,0,0,0,0,0,//         OutputStream os = new FileOutputStream("/tmp/protected.xls"); 
 0,0,0,0,0,0,0,//  text (first) arg type is number, other args are strings with fractional digits 
 0,0,0,0,0,0,0,//  Not properly referenced 
@@ -14194,7 +14196,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  create empty document summary 
 0,0,0,0,0,0,0,//  paragraph reserved field   mask is 0x1000 
 0,0,0,0,0,0,0,//  only cache non-blank values in the plain cell cache   (dependencies on blank cells are managed by   FormulaCellCacheEntry._usedBlankCellGroup) 
-0,0,0,0,0,0,0,//  assure they are in place:      [BOFRecord]      [CountryRecord]      [SUPBOOK Internal References  nSheets= 3]      [SUPBOOK Add-In Functions nSheets= 1]      [EXTERNALNAME .name    = ISODD]      [EXTERNALNAME .name    = ISEVEN]      [EXTERNSHEET] 
+0,0,1,0,0,0,0,//  assure they are in place:      [BOFRecord]      [CountryRecord]      [SUPBOOK Internal References  nSheets= 3]      [SUPBOOK Add-In Functions nSheets= 1]      [EXTERNALNAME .name    = ISODD]      [EXTERNALNAME .name    = ISEVEN]      [EXTERNSHEET] 
 0,0,0,0,0,0,0,//  Initialize the variables 
 0,0,0,0,0,0,0,//  testRRaC has multiple (3) built-in name records 
 0,0,0,0,0,0,0,//  Implementation Notes List:   --> In this third stage, the reversed byte order legacy hash from the second stage shall       be converted to Unicode hex string representation 
@@ -14247,7 +14249,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Now, onto just the doc bit 
 0,0,0,0,0,0,0,//  01 18 30 00 03 20 00 00   E8 03 06 08 07 08 08 08 09 10 01 00 0C 20 04 00   00 00 00 88 1E 00 00 00 
 0,0,0,0,0,0,0,//   to be stored in the Root Property 
-0,0,1,0,0,0,0,//  don't add UncalcedRecord to the list   this flag is enough 
+0,0,0,0,0,0,0,//  don't add UncalcedRecord to the list   this flag is enough 
 0,0,0,0,0,0,0,//  make sure none of the padding looks important 
 0,0,0,0,0,0,0,//  convert tail arguments into an array of doubles 
 0,0,0,0,0,0,0,//  for some reason the number of clusters is actually the real number + 1   private int field_2_numIdClusters; 
@@ -14305,7 +14307,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Having avoided a DOM-based parse of the sheet, we can stream it instead. 
 0,0,0,1,0,1,1,//  It seems like the best thing to do might be to combine these into one 
 0,0,0,0,0,0,0,//  Check the IDs 
-0,0,0,0,0,0,0,//  What excel does if sheet has been deleted   note - '!' added just once below 
+0,0,1,0,0,0,0,//  What excel does if sheet has been deleted   note - '!' added just once below 
 0,0,0,0,0,0,0,//  cause the geometries to be not found 
 0,0,0,0,0,0,0,// Sum up the second column with column title and data format 
 0,0,0,0,0,0,0,//  Page 52 of public specification begins 
@@ -14447,7 +14449,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  We'll match up the chunk later 
 0,0,0,0,0,0,0,//  The resulting Verifier value MUST be an array of 16 bytes. 
 0,0,0,0,0,0,0,//  arbitrarily selected; may need to increase 
-0,0,0,0,0,0,0,//  note this is asymmetric with the errors when the index is too large (#REF!) 
+0,0,1,0,0,0,0,//  note this is asymmetric with the errors when the index is too large (#REF!) 
 0,0,0,0,0,0,0,//  Make sure we don't encounter a loop whilst overwriting   the existing blocks 
 0,0,0,0,0,0,0,//  If the user has chosen to overlay both rows and columns or just   to expand ONLY the size of the rows, then calculate how to lay 
 0,0,0,0,0,0,0,//  WMF   PNG   PNG   PNG   PNG   PNG   WMF   WMF   PNG   PNG   PNG   WMF   WMF   WMF   EMF 
@@ -14768,7 +14770,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  no header is set (yet) 
 0,0,0,0,0,0,0,//  Turn the type ID into a strongly typed thing 
 0,0,0,0,0,0,0,//  The second to the last knot of the NURBS. 
-0,0,0,0,0,0,0,//  bug 59687:  XSSFSheet.RemoveRow doesn't handle row gaps properly when removing row comments 
+0,0,0,1,0,1,1,//  bug 59687:  XSSFSheet.RemoveRow doesn't handle row gaps properly when removing row comments 
 0,0,0,0,0,0,0,//  Allocate all the spare ones 
 0,0,0,0,0,0,0,//  lazy listen for ALL records with the listener shown above 
 0,0,0,0,0,0,0,//  Slide - added at start 

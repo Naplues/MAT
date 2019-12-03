@@ -24,13 +24,17 @@ public class Method implements IMethod {
 
     }
 
+    public void predictWithLimitedTrainingSet() throws Exception {
+
+    }
+
     /**
      * 评估该方法的预测结果
      *
      * @param oracle
      * @param predictions
      */
-    public static String evaluate(List<String> oracle, List<String> predictions) {
+    public static double[] evaluate(List<String> oracle, List<String> predictions) {
         //计算混淆矩阵, precision, recall and F1-measure
         int TP = 0, FP = 0, FN = 0, TN = 0;
         for (int i = 0; i < oracle.size(); i++) {
@@ -42,7 +46,8 @@ public class Method implements IMethod {
         double precision = (double) TP / (TP + FP);
         double recall = (double) TP / (TP + FN);
         double f1 = 2 * precision * recall / (precision + recall);
-        System.out.printf("%.3f, %.3f, %.3f, ", precision, recall, f1);
-        return String.format("%.3f, %.3f, %.3f, ", precision, recall, f1);
+
+        System.out.printf("%.3f, %.3f, %.3f, || ", precision, recall, f1);
+        return new double[]{precision, recall, f1};
     }
 }

@@ -11,7 +11,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  FIXME: when the thread pool is full, SERVER_THREADPOOL_EXHAUSTED_ERROR cannot return properly,   therefore the consumer side has to wait until gets timeout. This is a temporary solution to prevent   this scenario from happening, but a better solution should be considered later. 
 1,0,0,0,0,0,0,//  The initial value is null and the midway may be assigned to null, please use the local variable reference 
 1,0,1,1,1,1,1,//  FIXME REQUEST_CONTEXT 
-1,0,0,0,0,0,0,// is it possible to go here ? 
 1,0,0,0,0,0,0,//  for example, object transported on the wire doesn't implement Serializable 
 1,0,0,0,0,0,0,// bug: DUBBO-425 
 1,0,1,1,1,1,1,//  FIXME log error message in Codec and handle in caught() of IoHanndler? 
@@ -20,13 +19,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  bug: DUBBO-132 
 1,0,1,1,1,1,1,//  TODO do more sophisticated exception handling and output 
 1,0,1,1,1,1,1,/*  * TODO for now kryo serialization doesn't deny classes that don't implement the serializable interface * * <pre> *     e.g. &lt;dubbo:protocol serialization="kryo" /&gt; * </pre>  */
-1,0,0,0,0,0,0,//  DELIM_START was escaped, thus should not be incremented 
 1,0,0,1,1,1,1,//  TODO users can override this mapper, but we just rely on the current priority strategy of resteasy 
 1,0,1,1,1,1,1,// FIXME: waiting for embedded Nacos suport, then we can open the switch. 
 1,0,0,1,1,1,1,// TODO generic invoker？ 
 1,0,1,1,1,1,1,/*      * FIXME, this instance will always be a type of DynamicConfiguration, ConfigCenterConfig will load the instance at startup and assign it to here.      */
 1,0,1,0,1,1,1,//  TODO Do not want to use spaces? See: DUBBO-502, URL class handles special conventions for special characters. 
-1,0,0,0,0,0,0,//  should destroy resource? 
 1,1,1,1,1,1,1,//  hack, use reflection to get the shared channel.
 1,0,1,1,1,1,1,//  TODO Notification failure does not restore mechanism guarantee 
 1,0,1,1,1,1,1,// TODO fix npe  context.isProviderSide(); 
@@ -38,12 +35,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  generally a client can only be closed once, here it is closed twice, counter is incorrect 
 1,0,1,1,1,1,1,// TODO A temporary solution to the problem that the exception information can not be sent to the opposite end after the thread pool is full. Need a refactoring  fix The thread pool is full, refuses to call, does not return, and causes the consumer to wait for time out 
 1,0,1,1,1,1,1,//  TODO in the future maybe we can just use a single rest client and connection manager 
-1,0,0,0,0,0,0,//  Caution!! 
 1,0,1,1,1,1,1,// TODO solve merge problem  = Constants.DEFAULT_STUB_EVENT; 
 1,1,1,1,1,1,1,//  FIXME: a hack to make org.apache.dubbo.remoting.exchange.support.DefaultFuture.closeChannel work 
 1,0,0,0,0,0,0,/*  is the buffer big enough?  */
 1,0,1,0,0,0,0,//  BUG: DUBBO-846 in version 2.0.9, config retry="false" on provider's method doesn't work 
-1,0,0,1,1,1,1,//  FIXME: this exposes the design flaw in RouterChain 
+1,0,1,1,1,1,1,//  FIXME: this exposes the design flaw in RouterChain 
 1,0,1,1,1,1,1,//  FIXME RESPONSE_CONTEXT 
 1,0,0,1,1,1,1,//  TODO jetty will by default enable keepAlive so the xml config has no effect now 
 1,0,0,0,0,0,0,// cannot write == not Available ? 
@@ -65,7 +61,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  FIXME RMI protocol doesn't support casting to EchoService yet. 
 1,0,0,0,0,0,0,//  dubbo's original impl can't support the use of ServletContext          server.addHandler(servletHandler); 
 1,0,0,0,0,0,0,//  Deprecated! Subscribe to override rules in 2.6.x or before. 
-1,0,1,1,1,1,1,//  Subscribe the override data   FIXME When the provider subscribes, it will affect the scene : a certain JVM exposes the service and call    the same service. Because the subscribed is cached key with the name of the service, it causes the 
+1,0,0,1,1,1,1,//  Subscribe the override data   FIXME When the provider subscribes, it will affect the scene : a certain JVM exposes the service and call    the same service. Because the subscribed is cached key with the name of the service, it causes the 
 1,0,1,1,1,1,1,/*      * Should be called after Config was fully initialized.     * // FIXME: this method should be completely replaced by appendParameters     *     * @return     * @see AbstractConfig#appendParameters(Map, Object, String)     * <p>     * Notice! This method should include all properties in the returning map, treat @Parameter differently compared to appendParameters.      */
 1,0,1,1,1,1,1,// TODO Can the value returned by getChannel() be null? need improvement. 
 1,0,1,1,1,1,1,//  TODO, to support wildcards 
@@ -75,7 +71,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  BuG: DUBBO-146 Provider doesn't have exception output, and consumer has timeout error when serialization fails
 1,0,1,1,1,1,1,//  FIXME There's no place to release connectionExecutor! 
 1,0,1,1,1,1,1,//  TODO: refactor it 
-1,0,0,0,0,0,0,//  If every invoker has the same weight? 
 1,0,1,1,1,1,1,/*  * TODO this may not be a pretty elegant solution, *  */
 1,0,1,1,1,1,1,//  FIXME log error info in Codec and put all error handle logic in IoHanndler? 
 1,0,0,0,0,0,0,//  can't shutdown nioEventLoopGroup because the method will be invoked when closing one channel but not a client,   but when and how to close the nioEventLoopGroup ?   nioEventLoopGroup.shutdownGracefully(); 
@@ -84,11 +79,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO there may have duplicate refresh 
 1,1,1,1,1,1,1,// fixme replace this with better method 
 1,0,1,1,1,1,1,//  TODO for now we don't consider the differences of encoding and server limit 
-1,0,1,1,1,1,1,/*      * FIXME check @Parameter(required=true) and any conditions that need to match.      */
+1,0,0,1,1,1,1,/*      * FIXME check @Parameter(required=true) and any conditions that need to match.      */
 1,0,0,0,0,0,0,/*           RMI needs extra parameter since it uses customized remote invocation object          The customized RemoteInvocation was firstly introduced in v2.6.3; The package was renamed to 'org.apache.*' since v2.7.0          Considering the above two conditions, we need to check before sending customized RemoteInvocation:          1. if the provider version is v2.7.0 or higher, send 'org.apache.dubbo.rpc.protocol.rmi.RmiRemoteInvocation'.          2. if the provider version is v2.6.3 or higher, send 'com.alibaba.dubbo.rpc.protocol.rmi.RmiRemoteInvocation'.          3. if the provider version is lower than v2.6.3, does not use customized RemoteInvocation.          */
 1,0,1,1,1,1,1,//  TODO exist concurrent gap 
 1,0,1,1,1,1,1,//  TODO: 2017/8/31 FIXME The thread pool should be used to refresh the address, otherwise the task may be accumulated. 
-1,0,0,0,1,1,1,/*      * If there's no dynamic tag rule being set, use static tag in URL.     * <p>     * A typical scenario is a Consumer using version 2.7.x calls Providers using version 2.6.x or lower,     * the Consumer should always respect the tag in provider URL regardless of whether a dynamic tag rule has been set to it or not.     * <p>     * TODO, to guarantee consistent behavior of interoperability between 2.6- and 2.7+, this method should has the same logic with the TagRouter in 2.6.x.     *     * @param invokers     * @param url     * @param invocation     * @param <T>     * @return      */
+1,0,1,0,1,1,1,/*      * If there's no dynamic tag rule being set, use static tag in URL.     * <p>     * A typical scenario is a Consumer using version 2.7.x calls Providers using version 2.6.x or lower,     * the Consumer should always respect the tag in provider URL regardless of whether a dynamic tag rule has been set to it or not.     * <p>     * TODO, to guarantee consistent behavior of interoperability between 2.6- and 2.7+, this method should has the same logic with the TagRouter in 2.6.x.     *     * @param invokers     * @param url     * @param invocation     * @param <T>     * @return      */
 0,0,0,0,0,0,0,//  Construct using org.apache.dubbo.common.serialize.protobuf.support.MapValue.Map.newBuilder() 
 0,0,0,0,0,0,0,//  1. No service provider 2. Service providers are disabled 
 0,0,0,0,0,0,0,//  closing closed means the process is being closed and close is finished 
@@ -199,7 +194,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// private int yycolumn; 
 0,0,0,0,0,0,0,//  callback method when async-call is returned 
 0,0,0,0,0,0,0,//  Reset the number of least active invokers 
-0,0,0,0,0,0,0,//  if it's declared as local reference   'scope=local' is equivalent to 'injvm=true', injvm will be deprecated in the future release 
+0,0,0,1,0,1,1,//  if it's declared as local reference   'scope=local' is equivalent to 'injvm=true', injvm will be deprecated in the future release 
 0,0,0,0,0,0,0,// change recycle time to 1 ms 
 0,0,0,0,0,0,0,//  The KV part of the condition expression 
 0,0,0,0,0,0,0,//  multicast ipv6 address, 
@@ -322,6 +317,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  it's a generic reference 
 0,0,0,0,0,0,0,/*  Windows Ctrl+C  */
 0,0,0,0,0,0,0,//  double check to avoid dup close 
+0,0,0,0,0,0,0,// is it possible to go here ?
 0,0,0,0,0,0,0,//  ======== Reference config default values, will take effect if reference's attribute is not set  ======== 
 0,0,0,0,0,0,0,//  onResponse callback 
 0,0,0,0,0,0,0,//  close once, counter counts down from 2 to 1, no warning occurs 
@@ -346,6 +342,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Close all invokers 
 0,0,0,0,0,0,0,//  ---- service statistics ----   invocation cost   current concurrent count 
 0,0,0,1,1,1,1,//  FIXME 
+0,0,0,0,0,0,0,//  status switch to available once invoke again
 0,0,0,0,0,0,0,//  present in local url but not in remote url 
 0,0,0,0,0,0,0,//  From Ancestor 
 0,0,0,0,0,0,0,//  backward compatibility 
@@ -481,7 +478,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  mock environment variables 
 0,0,0,0,0,0,0,//  window system don't support ":" in file name 
 0,0,0,0,0,0,0,//  load class 
-0,0,1,0,0,0,0,//  no need to generate multiple exporters for different channel in the same JVM, cache key cannot collide. 
+0,0,0,0,0,0,0,//  no need to generate multiple exporters for different channel in the same JVM, cache key cannot collide. 
 0,0,0,0,0,0,0,//  only used for javassist 
 0,0,0,0,0,0,0,//  The argument must be the concrete NacosServiceName 
 0,0,0,0,0,0,0,//  Enum property has two setting method.   skip setXXXValue(int value) 
@@ -499,6 +496,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  ignore 
 0,0,0,0,0,0,0,//  range cases 
 0,0,0,0,0,0,0,//  header length. 
+0,0,0,0,0,0,0,//  DELIM_START was escaped, thus should not be incremented
 0,0,1,1,1,1,1,/*  * TODO Comment of ProtocolUtils  */
 0,0,0,0,0,0,0,//  item name. 
 0,0,0,0,0,0,0,//  containing all routers, reconstruct every time 'route://' urls change. 
@@ -641,6 +639,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  create class 
 0,0,0,0,0,0,0,/*                  *  if we are interested in all interfaces,                 *  find out the current container or create one for the url, put or get only once.                  */
 0,0,0,0,0,0,0,//  null out prev and next to allow for GC. 
+0,0,0,0,0,0,0,//  should destroy resource?
 0,0,0,0,0,0,0,//  Build pool with SoftReferences enabled (optional) 
 0,0,0,0,0,0,0,// final String onerror = PerformanceUtils.getProperty("onerror", "continue"); 
 0,0,0,0,0,0,0,// object to bytearray 
@@ -718,7 +717,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  default true 
 0,0,0,0,0,0,0,//  We always return true for previously defined Router, that is, old Router doesn't support cache anymore.          return true; 
 0,0,0,0,0,0,0,//  replace "=" to "," 
-0,0,1,0,0,0,0,//  workerState can be 0 or 2 at this moment - let it always be 2. 
+0,0,0,0,0,0,0,//  workerState can be 0 or 2 at this moment - let it always be 2. 
 0,0,0,0,0,0,0,//  message flag. 
 0,0,0,0,0,0,0,//  get the class def for obj and type 
 0,0,0,0,0,0,0,//             {"delay", "delay", "int", 0, 5, "", "", "", "", ""}, // not boolean 
@@ -824,6 +823,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  search common-used logging frameworks 
 0,0,0,0,0,0,0,//  sorting makes it easy to compare between lists 
 0,0,0,0,0,0,0,//  wait close done. 
+0,0,0,0,0,0,0,//  Caution!!
 0,0,0,0,0,0,0,//  biz exception 
 0,0,0,0,0,0,0,//  Bind annotation attributes 
 0,0,0,0,0,0,0,//  Max times to retry to save properties to local cache file 
@@ -1215,7 +1215,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  The weight of the first least active invoker 
 0,0,0,0,0,0,0,//  Normalize ticksPerWheel to power of two and initialize the wheel. 
 0,0,0,0,0,0,0,// encode resault check need decode 
-0,0,1,1,1,1,1,//  TODO figure out the meaning of cancel in DefaultFuture. 
+0,0,0,1,1,1,1,//  TODO figure out the meaning of cancel in DefaultFuture. 
 0,0,0,0,0,0,0,/*      * get map property name from setting method.<br/>     * ex: putAllXXX();<br/>     *     * @param methodName     * @return      */
 0,0,0,0,0,0,0,//  If @Service bean is local one 
 0,0,0,0,0,0,0,//  bad request 
@@ -1340,7 +1340,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  The lock for the acquisition process of the registry 
 0,0,1,1,1,1,1,// TODO response test 
 0,0,0,0,0,0,0,//  @@protoc_insertion_point(class_scope:org.apache.dubbo.common.serialize.protobuf.model.PBResponseType) 
-0,0,1,0,0,0,0,// Note the implicit contract (although the description is added to the interface declaration, but extensibility is a problem. The practice placed in the attachment needs to be improved)
+0,0,0,0,0,0,0,// Note the implicit contract (although the description is added to the interface declaration, but extensibility is a problem. The practice placed in the attachment needs to be improved)
 0,0,0,0,0,0,0,//  Initialization at construction time, assertion not null, and always assign non null value 
 0,0,0,0,0,0,0,// Assertions.assertEquals(ThriftCodec.getSeqId(), message.seqid); 
 0,0,0,0,0,0,0,// local invoke will return directly 
@@ -1415,11 +1415,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Queue 
 0,0,0,0,0,0,0,//  ~ end of loop field map 
 0,0,0,0,0,0,0,//  connectNum must be greater than or equal to 1 
-0,0,0,0,0,0,0,//  it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor. 
+0,0,1,0,0,0,0,//  it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor. 
 0,0,0,0,0,0,0,//  ip:port -> ExchangeServer 
 0,0,0,0,0,0,0,// 32 8 first add space and then add backspace. 
 0,0,0,0,0,0,0,//  ~ end of catch 
-0,0,0,1,0,1,1,//  maybe url has many subscribed paths 
+0,0,1,1,0,1,1,//  maybe url has many subscribed paths 
 0,0,0,0,0,0,0,//  check duplicate jar package 
 0,0,0,0,0,0,0,//  store back cached positions 
 0,0,0,0,0,0,0,//  Sending a subscription request to the server side 
@@ -1489,6 +1489,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  default cache.size is 1000 for LRU, should have cache expired if invoke more than 1001 times 
 0,0,0,0,0,0,0,//  get statistics data 
 0,0,0,0,0,0,0,//  Registered services 
+0,0,0,1,1,1,1,// FIXME 
 0,0,0,0,0,0,0,//  save any parameter in registry that will be useful to the new url. 
 0,0,0,0,0,0,0,//  abnormal case  
 0,0,0,0,0,0,0,//  Quick check on the concurrent map first, with minimal locking. 
@@ -1497,7 +1498,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  remove suffix ".jar": "path/to/group-module-x.y.z" 
 0,0,0,0,0,0,0,// 00000010-response/oneway/hearbeat=true |20-stats=ok|id=0|length=0 
 0,0,0,0,0,0,0,//  default or set void.class for purpose. 
-0,0,1,0,0,0,0,/*  * Marker for extension interface * <p/> * Changes on extension configuration file <br/> * Use <code>Protocol</code> as an example, its configuration file 'META-INF/dubbo/com.xxx.Protocol' is changes from: <br/> * <pre> *     com.foo.XxxProtocol *     com.foo.YyyProtocol * </pre> * <p> * to key-value pair <br/> * <pre> *     xxx=com.foo.XxxProtocol *     yyy=com.foo.YyyProtocol * </pre> * <br/> * The reason for this change is: * <p> * If there's third party library referenced by static field or by method in extension implementation, its class will * fail to initialize if the third party library doesn't exist. In this case, dubbo cannot figure out extension's id * therefore cannot be able to map the exception information with the extension, if the previous format is used. * <p/> * For example: * <p> * Fails to load Extension("mina"). When user configure to use mina, dubbo will complain the extension cannot be loaded, * instead of reporting which extract extension implementation fails and the extract reason. * </p> * * @deprecated because it's too general, switch to use {@link org.apache.dubbo.common.extension.SPI}  */
+0,0,0,0,0,0,0,/*  * Marker for extension interface * <p/> * Changes on extension configuration file <br/> * Use <code>Protocol</code> as an example, its configuration file 'META-INF/dubbo/com.xxx.Protocol' is changes from: <br/> * <pre> *     com.foo.XxxProtocol *     com.foo.YyyProtocol * </pre> * <p> * to key-value pair <br/> * <pre> *     xxx=com.foo.XxxProtocol *     yyy=com.foo.YyyProtocol * </pre> * <br/> * The reason for this change is: * <p> * If there's third party library referenced by static field or by method in extension implementation, its class will * fail to initialize if the third party library doesn't exist. In this case, dubbo cannot figure out extension's id * therefore cannot be able to map the exception information with the extension, if the previous format is used. * <p/> * For example: * <p> * Fails to load Extension("mina"). When user configure to use mina, dubbo will complain the extension cannot be loaded, * instead of reporting which extract extension implementation fails and the extract reason. * </p> * * @deprecated because it's too general, switch to use {@link org.apache.dubbo.common.extension.SPI}  */
 0,0,0,0,0,0,0,//  wait timeout ms 
 0,0,0,0,0,0,0,// return directly 
 0,0,0,0,0,0,0,//  Initialize 
@@ -1522,6 +1523,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//             {"timeout", "registry.timeout", "int", 5000, 9000, "", "", "", "", ""},              {"file", "registry.file", "string", "", "regConfForServiceTable.log", "", "", "", "", ""},              {"wait", "registry.wait", "int", 0, 9000, "", "", "", "", ""},              {"transport", "registry.transporter", "string", "netty", "mina", "", "", "", "", ""},              {"subscribe", "subscribe", "boolean", true, false, "", "", "", "", ""}, 
 0,0,0,0,0,0,0,//  message length 
 0,0,0,0,0,0,0,//  short name condition 
+0,0,0,0,0,0,0,//  If every invoker has the same weight?
 0,0,1,1,1,1,1,// TODO to calculate consumerAddressNum 
 0,0,0,0,0,0,0,//  add method, for verifying against method, automatic fallback (see dubbo protocol) 
 0,0,0,0,0,0,0,//  ==== Template method ==== 

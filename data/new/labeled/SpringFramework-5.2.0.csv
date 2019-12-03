@@ -254,7 +254,7 @@ Label, Type, Content
 1, Line, //  TODO: broken comparison since Mockito 2.2 upgrade   verifyIdenticalInvocations(expectedLexicalHandler, actualLexicalHandler); 
 0, Line, //  A competing write might have completed very quickly 
 0, Line, //  First child gives us the array type which will either be a primitive or reference type 
-1, Line, //  Is the test class annotated with @TestConstructor? 
+0, Line, //  Is the test class annotated with @TestConstructor?
 0, Line, //  SPR-9420 
 0, Line, //  fetch async result similar to "asyncDispatch" builder 
 0, Line, //  second commit attempt 
@@ -278,7 +278,7 @@ Label, Type, Content
 0, Line, //  Skip 0 to 3 padding bytes. 
 0, Line, //  No name to resolve 
 0, Line, //  Determine autowire mode. 
-1, Line, //  should not be called, since we return false for canRead(Class) 
+0, Line, //  should not be called, since we return false for canRead(Class)
 0, Line, //  1. external-general-entities and dtd support disabled (default) 
 0, Line, //  Do not allow eager init for type matching in case of a prioritized post-processor. 
 0, Line, //  Immediate event 
@@ -390,7 +390,7 @@ Label, Type, Content
 0, Line, //  The user (i.e. not the factory) is requesting this bean through a call to   the bean method, direct or indirect. The bean may have already been marked   as 'in creation' in certain autowiring scenarios; if so, temporarily set   the in-creation status to false in order to avoid an exception. 
 0, Line, //  Start of the most recent variable capture in a particular path element 
 0, Line, //  Encode methods 
-1, Line, //  Abort test? 
+0, Line, //  Abort test?
 0, Line, //  Register as ServletContext attribute, for ContextCleanupListener to detect it. 
 0, Line, //  must work with raw map in this test 
 0, Block, /* 	 * Separate static class to isolate Aalto dependency.	  */
@@ -399,7 +399,7 @@ Label, Type, Content
 0, Line, //  Fields designed for test introspection 
 0, Line, //  we want to fall back to the default... 
 0, Line, //  If we have another kind of PersistenceException, throw it. 
-1, Line, //  Default reader selection necessary? 
+0, Line, //  Default reader selection necessary?
 0, Line, //  We have been able to determine the arg names. 
 0, Line, //  Get as late as possible to minimize the time we "own" the target, 
 0, Line, //  SPR-16231 
@@ -526,7 +526,7 @@ Label, Type, Content
 0, Line, //  Corresponding qualifier on bean implementation class? (for custom user types) 
 0, Line, //  Proceed with file system resolution... 
 0, Line, //  SPR-16108 
-1, Line, //  Have we already encountered that Locale before? 
+0, Line, //  Have we already encountered that Locale before?
 0, Line, //  Ensure we have at least one HandlerMapping, by registering 
 0, Line, //  Annotations used on tested elements 
 0, Line, //  No current invocation... 
@@ -694,7 +694,7 @@ Label, Type, Content
 0, Line, //  The present implementation always returns 1, making Quartz   always schedule any tasks that it feels like scheduling.   This could be made smarter for specific TaskExecutors,   for example calling {@code getMaximumPoolSize() - getActiveCount()}   on a {@code java.util.concurrent.ThreadPoolExecutor}. 
 0, Line, //  Look for matching annotation on the target class 
 0, Line, //  proceed with field lookup 
-1, Line, //  Direct annotation present? 
+0, Line, //  Direct annotation present?
 0, Line, //  Can also obtain the mixin (this) this way  Lockable mixin = (Lockable) jp.getThis(); 
 0, Line, //  There is an initializer 
 0, Line, //  When resolving against a temporary class loader, exit early in order   to avoid storing the resolved Class in the bean definition. 
@@ -907,7 +907,7 @@ Label, Type, Content
 0, Line, //  Init RedirectView with WebAppCxt 
 0, Line, //  SPR-16246 
 0, Line, //  Should never be invoked as isRuntime returns false. 
-1, Line, //  Has the existing bean definition bean marked as a framework-generated bean? 
+0, Line, //  Has the existing bean definition bean marked as a framework-generated bean?
 0, Line, //  Distinguish from default ListableBeanFactory behavior 
 0, Line, //  SPR-12283 
 0, Line, //  quote the returned message (this is the change)... 
@@ -938,7 +938,7 @@ Label, Type, Content
 0, Line, //  Use autowire-capable factory in order to support extended qualifier matching   (only exposed on the internal BeanFactory, not on the ApplicationContext). 
 0, Line, //  *sigh* complicated   Basically.. we have to have all parameters match up until the varargs one, then the rest of what is   being provided should be   the same type whilst the final argument to the method must be an array of that (oh, how easy...not) -   or the final parameter   we are supplied does match exactly (it is an array already). 
 0, Line, //  InlineMap 
-1, Line, //  Expose RequestContext? 
+0, Line, //  Expose RequestContext?
 0, Line, //  We could not find it - got to look it up. 
 0, Line, //  Update the Http client so that it returns an updated  config 
 0, Line, //  no ApplicationContextInitializers have been declared -> nothing to do 
@@ -1083,7 +1083,7 @@ Label, Type, Content
 0, Line, //  Pointing to existing alias - just remove placeholder 
 0, Line, //  No client or server specific multipart writers currently.. 
 0, Line, // consume OR 
-1, Line, //  Is the stream closed? 
+0, Line, //  Is the stream closed?
 0, Line, //  assert: SpelCompiler.boxingCompatible(leftDesc, rightDesc) 
 0, Line, //  the default: same value as pubSubDomain 
 0, Line, //  nop 
@@ -1194,7 +1194,7 @@ Label, Type, Content
 0, Line, //  no occurrence -> can return input as-is 
 0, Line, //  SPR-9098 
 0, Line, //  We need to visit all indexed annotations. 
-1, Line, //  verification!? 
+0, Line, //  verification!?
 0, Line, //  SPR-11560 
 0, Line, //  prove that the processor chokes on the invalid key 
 0, Line, //  Try field lookup as fallback: for JDK 1.5 enum or custom enum   with values defined as static fields. Resulting value still needs   to be checked, hence we don't return it right away. 
@@ -1229,7 +1229,7 @@ Label, Type, Content
 0, Line, //  set because of @SesstionAttributes 
 0, Line, //  const_value_index, CONSTANT_Utf8 
 0, Line, //  Create a new collection or map ready for the indexer 
-0, Line, //  TODO following lines are a workaround for Hibernate bug   If Hibernate throws an exception due to flush(),   it actually HAS flushed, meaning that the database   was updated outside the transaction
+1, Line, //  TODO following lines are a workaround for Hibernate bug   If Hibernate throws an exception due to flush(),   it actually HAS flushed, meaning that the database   was updated outside the transaction
 0, Block, /* 	 * See SPR-8543	  */
 0, Line, //  register the pointcut 
 0, Line, //  and fixedCallbacks into the callbacks array. 
@@ -1279,7 +1279,7 @@ Label, Type, Content
 0, Line, //  Use ObjectInputStream's default ClassLoader... 
 0, Line, //  Fall back on bean definition attribute 
 0, Line, // ---------------------------------------------------------------------   Implementation of PlatformTransactionManager  --------------------------------------------------------------------- 
-1, Line, //  Direct match? 
+0, Line, //  Direct match?
 0, Line, //  Test empty String 
 0, Line, //  Note: @Transactional is inherited 
 0, Line, //  Try a URL connection content-length header 
@@ -1306,7 +1306,7 @@ Label, Type, Content
 0, Line, //  will be managed correctly even if no transaction was created by this aspect. 
 0, Line, //  equals, hashCode, toString 
 0, Line, //  The config classes that imported this one were all skipped, therefore we are skipped... 
-0, Line, //  TODO verify remaining output for forms 5, 6, 7, 8, and 14 (fix whitespace)
+1, Line, //  TODO verify remaining output for forms 5, 6, 7, 8, and 14 (fix whitespace)
 0, Line, //  Do the insert 
 0, Line, //  2 bytes each for access_flags, name_index, descriptor_index and attributes_count. 
 0, Line, //  Allow for matching with regular UnionMethodMatcher by providing same hash... 
@@ -1512,7 +1512,7 @@ Label, Type, Content
 0, Line, // -------------------------------------------------------------------------   Implementation of AbstractMessageListenerContainer's template methods  ------------------------------------------------------------------------- 
 0, Line, //  Uncompilable as argument conversion is occurring 
 0, Block, /*  value =  */
-1, Line, //  Value not of required type? 
+0, Line, //  Value not of required type?
 0, Line, //  bytes respectively. 
 0, Line, //  Mono empty 
 0, Line, //  Base pattern matches a jar file - search for matching entries within. 
@@ -1669,7 +1669,7 @@ Label, Type, Content
 0, Line, //  Register component for the surrounding <jms:annotation-driven> element. 
 0, Line, //  Concrete subclasses 
 0, Line, //  Resolve the script source. 
-1, Line, //  Custom editor for this type? 
+0, Line, //  Custom editor for this type?
 0, Line, //  Calling foo(List) with (ArrayList) is close match (no conversion required) 
 0, Line, //  AnnotationConfigContextLoader 
 0, Line, //  Check the cache - we may have a ResolvableType which has been resolved before... 
@@ -1761,7 +1761,7 @@ Label, Type, Content
 0, Line, //  Full check for complex generic type match required?
 0, Line, //  utility methods 
 0, Line, //  Is the construct {*...} being used in a particular path element 
-1, Line, //  Could actually try to figure out interface from create? 
+0, Line, //  Could actually try to figure out interface from create?
 0, Line, //  GET after POST 
 0, Line, //  Try to adapt to the runtime situation that we're encountering:   There are obviously too many different patterns coming in here...   So let's turn off the cache since the patterns are unlikely to be reoccurring.
 0, Line, //  no context path 
@@ -1771,7 +1771,7 @@ Label, Type, Content
 0, Line, //  Else: different class with same name found 
 0, Line, //  SPR-16262 
 0, Line, // dottedNode   : ((methodOrProperty  	  | functionOrVar      | projection      | selection      | firstSelection      | lastSelection      )) 
-0, Line, //  TODO: change to ByteBufferFeeder when supported by Jackson   See https://github.com/FasterXML/jackson-core/issues/478
+1, Line, //  TODO: change to ByteBufferFeeder when supported by Jackson   See https://github.com/FasterXML/jackson-core/issues/478
 0, Line, //  SPR-10704 
 0, Line, //  Publisher implementation... 
 0, Line, //  Make given ResourceLoader available for SchedulerFactory configuration. 
@@ -1970,7 +1970,7 @@ Label, Type, Content
 0, Line, //  gh-23622 
 0, Line, //  Cancel associated user-level Future handle as well 
 0, Line, //  here: RIGHT==null LEFT==null 
-1, Line, //  For MySQL: exception class name indicating a timeout? 
+0, Line, //  For MySQL: exception class name indicating a timeout?
 0, Line, //  Check request for preparsed or preset theme. 
 0, Line, //  Can't do exact matching through isMatch 
 0, Line, //  Store pre-refresh ApplicationListeners... 
@@ -3280,7 +3280,7 @@ Label, Type, Content
 0, Line, //  note that we do not test for null, true, or false, which are also valid top-level values,   but are unsupported by JSONassert 
 0, Line, //  Got hit by call to advised1.getSpouse().getAge() 
 0, Line, //  Check whether the method is a valid service locator. 
-0, Line, //  TODO revisit performance if doing a lot of case insensitive matching
+1, Line, //  TODO revisit performance if doing a lot of case insensitive matching
 0, Line, //  WebSocketHandler implementation 
 0, Line, //  The first time searching, we don't care about for this test   Try with Locale.US 
 0, Line, //  If already included, include again, else forward. 
@@ -3599,7 +3599,7 @@ Label, Type, Content
 0, Line, //  only second code valid 
 0, Line, //  If no infrastructure bean name prefix has been set, override it. 
 0, Line, //  Do nothing on flush 
-0, Line, //  TODO support multidimensional arrays   TODO support correct syntax for multidimensional [][][] and not [,,,]
+1, Line, //  TODO support multidimensional arrays   TODO support correct syntax for multidimensional [][][] and not [,,,]
 0, Line, //  Hamcrest matchers... 
 0, Line, //  FALSE 
 0, Line, //  Compute fields for fast comparison 
@@ -4647,7 +4647,7 @@ Label, Type, Content
 0, Line, //  non static field 
 0, Line, //  due to a warning in Quartz 2.2's JobStoreCMT 
 0, Line, //  and 08xxx will be data resource failure (non-transient) picked up by the fallback SQLState translator 
-0, Line, //  TODO Enable TestNG test with timeout once we have a solution.
+1, Line, //  TODO Enable TestNG test with timeout once we have a solution.
 0, Line, //  We need a transaction for this method...
 0, Line, //  wait for the entry to expire 
 0, Line, //  Subscription should have happened by now due to ChannelSendOperator 
@@ -6891,7 +6891,7 @@ Label, Type, Content
 0, Line, //  Selection isn't compilable. 
 0, Line, //  With developer builds we get: <MyBean><string>foo</string></MyBean>   But on CI server we get: <MyBean xmlns=""><string>foo</string></MyBean> 
 0, Line, //  root or empty path 
-0, Line, //  TODO correct end position?
+1, Line, //  TODO correct end position?
 0, Line, // ---------------------------------------------------------------------------------------   Convenience methods for sending messages to and receiving the reply from a destination  --------------------------------------------------------------------------------------- 
 0, Line, //  OPTIONS 
 0, Line, //  We want to see everything, and allow configuration of log levels dynamically. 
@@ -7512,7 +7512,7 @@ Label, Type, Content
 0, Line, //  Check that toString doesn't cause a problem 
 0, Line, //  A plain value: convert it to an array with a single component. 
 0, Line, //  Check name with just dots replaced 
-0, Line, //  TODO Fails related to conversion service converting a String[] to satisfy Object...  		expression = parser.parseExpression("sixteen(stringArray)");  		assertCantCompile(expression);  		expression.getValue(tc);  		assertEquals("aaabbbccc", tc.s);  		assertCanCompile(expression);  		tc.reset();  		expression.getValue(tc);  		assertEquals("aaabbbccc", tc.s);  		tc.reset();
+1, Line, //  TODO Fails related to conversion service converting a String[] to satisfy Object...  		expression = parser.parseExpression("sixteen(stringArray)");  		assertCantCompile(expression);  		expression.getValue(tc);  		assertEquals("aaabbbccc", tc.s);  		assertCanCompile(expression);  		tc.reset();  		expression.getValue(tc);  		assertEquals("aaabbbccc", tc.s);  		tc.reset();
 0, JavaDoc, /* 	 * Return the isolation level.	 * <p>Must return one of the {@code ISOLATION_XXX} constants defined on	 * {@link TransactionDefinition this interface}. Those constants are designed	 * to match the values of the same constants on {@link java.sql.Connection}.	 * <p>Exclusively designed for use with {@link #PROPAGATION_REQUIRED} or	 * {@link #PROPAGATION_REQUIRES_NEW} since it only applies to newly started	 * transactions. Consider switching the "validateExistingTransactions" flag to	 * "true" on your transaction manager if you'd like isolation level declarations	 * to get rejected when participating in an existing transaction with a different	 * isolation level.	 * <p>The default is {@link #ISOLATION_DEFAULT}. Note that a transaction manager	 * that does not support custom isolation levels will throw an exception when	 * given any other level than {@link #ISOLATION_DEFAULT}.	 * @return the isolation level	 * @see #ISOLATION_DEFAULT	 * @see org.springframework.transaction.support.AbstractPlatformTransactionManager#setValidateExistingTransaction	  */
 0, Line, //  Prepare target URL. 
 0, Line, //  In case user the forgot to call visitEnd(). 

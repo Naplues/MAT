@@ -17,7 +17,6 @@
 'fixme when the thread pool full cannot return properly therefore the consumer side has wait until gets timeout this temporary solution prevent this scenario from happening but better solution should considered later ',positive
 'the initial value null and the midway may assigned null please use the local variable reference ',positive
 'fixme requestcontext ',positive
-'possible here ',positive
 'for example object transported the wire doesnt implement serializable ',positive
 'bug dubbo ',positive
 'fixme log error message codec and handle caught iohanndler ',positive
@@ -26,13 +25,11 @@
 'bug dubbo ',positive
 'todo more sophisticated exception handling and output ',positive
 'todo for now kryo serialization doesnt deny classes that dont implement the serializable interface pre ltdubboprotocol serializationkryo pre ',positive
-'delimstart was escaped thus should not incremented ',positive
 'todo users can override this mapper but just rely the current priority strategy resteasy ',positive
 'fixme waiting for embedded nacos suport then can open the switch ',positive
 'todo generic invoker ',positive
 'fixme this instance will always type configcenterconfig will load the instance startup and assign here ',positive
 'todo not want use spaces see dubbo url class handles special conventions for special characters ',positive
-'should destroy resource ',positive
 'hack use reflection get the shared channel ',positive
 'todo notification failure does not restore mechanism guarantee ',positive
 'todo fix npe ',positive
@@ -44,7 +41,6 @@
 'generally client can only closed once here closed twice counter incorrect ',positive
 'todo temporary solution the problem that the exception information can not sent the opposite end after the thread pool full need refactoring fix the thread pool full refuses call does not return and causes the consumer wait for time out ',positive
 'todo the future maybe can just use single rest client and connection manager ',positive
-'caution ',positive
 'todo solve merge problem ',positive
 'fixme hack make work ',positive
 'the buffer big enough ',positive
@@ -81,7 +77,6 @@
 'bug dubbo provider doesnt have exception output and consumer has timeout error when serialization fails ',positive
 'fixme theres place release connectionexecutor ',positive
 'todo refactor ',positive
-'every invoker has the same weight ',positive
 'todo this may not pretty elegant solution ',positive
 'fixme log error info codec and put all error handle logic iohanndler ',positive
 'cant shutdown nioeventloopgroup because the method will invoked when closing one channel but not client but when and how close the nioeventloopgroup ',positive
@@ -328,6 +323,7 @@
 'its generic reference ',negative
 'windows ctrlc ',negative
 'double check avoid dup close ',negative
+'possible here ',negative
 'reference config default values will take effect references attribute not set ',negative
 'onresponse callback ',negative
 'close once counter counts down from warning occurs ',negative
@@ -352,6 +348,7 @@
 'close all invokers ',negative
 'service statistics invocation cost current concurrent count ',negative
 'fixme ',negative
+'status switch available once invoke again ',negative
 'present local url but not remote url ',negative
 'from ancestor ',negative
 'backward compatibility ',negative
@@ -505,6 +502,7 @@
 'ignore ',negative
 'range cases ',negative
 'header length ',negative
+'delimstart was escaped thus should not incremented ',negative
 'todo comment protocolutils ',negative
 'item name ',negative
 'containing all routers reconstruct every time route urls change ',negative
@@ -647,6 +645,7 @@
 'create class ',negative
 'are interested all interfaces find out the current container create one for the url put get only once ',negative
 'null out prev and next allow for ',negative
+'should destroy resource ',negative
 'build pool with softreferences enabled optional ',negative
 'final string onerror continue ',negative
 'object bytearray ',negative
@@ -830,6 +829,7 @@
 'search commonused logging frameworks ',negative
 'sorting makes easy compare between lists ',negative
 'wait close done ',negative
+'caution ',negative
 'biz exception ',negative
 'bind annotation attributes ',negative
 'max times retry save properties local cache file ',negative
@@ -1495,6 +1495,7 @@
 'default cachesize for lru should have cache expired invoke more than times ',negative
 'get statistics data ',negative
 'registered services ',negative
+'fixme ',negative
 'save any parameter registry that will useful the new url ',negative
 'abnormal case ',negative
 'quick check the concurrent map first with minimal locking ',negative
@@ -1528,6 +1529,7 @@
 'timeout registrytimeout int file registryfile string wait registrywait int transport registrytransporter string netty mina subscribe subscribe boolean true false ',negative
 'message length ',negative
 'short name condition ',negative
+'every invoker has the same weight ',negative
 'todo calculate consumeraddressnum ',negative
 'add method for verifying against method automatic fallback see dubbo protocol ',negative
 'template method ',negative

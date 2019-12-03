@@ -105,7 +105,7 @@
 // TODO: iteratively get transient entities and retry merge until one of the following conditions: //       1) transientCopyCache.size() == 0 //       2) transientCopyCache.size() is not decreasing and copyCache.size() is not increasing // TODO: find out if retrying can add entities to copyCache (don't think it can...) // For now, just retry once; throw TransientObjectException if there are still any transient entities
 // null or brand new collection // this will also (inefficiently) handle arrays, which have // no snapshot, so we can't do any better
 // TODO : perhaps we should additionally require that the incoming entity // version be equivalent to the defined unsaved-value?
-"/** * Provides query splitting main.methods, which were originally in QueryTranslator. * <br> * TODO: This will need to be refactored at some point. * * @author josh */"
+"/** * Provides query splitting methods, which were originally in QueryTranslator. * <br> * TODO: This will need to be refactored at some point. * * @author josh */"
 // TODO : most of below was taken verbatim from DotNode; should either delegate this logic or super-type it
 // todo : currently expects that the individual with expressions apply to the same sql table join. //      This may not be the case for joined-subclass where the property values //      might be coming from different tables in the joined hierarchy.  At some //      point we should expand this to support that capability.  However, that has //      some difficulties: //          1) the biggest is how to handle ORs when the individual comparisons are //              linked to different sql joins. //          2) here we would need to track each comparison individually, along with //              the join alias to which it applies and then pass that information //              back to the FromElement so it can pass it along to the JoinSequence
 // No explicit select expression; render the id and properties // projection lists for every persister in the from clause into // a single 'token node'. //TODO: the only reason we need this stuff now is collection filters, //      we should get rid of derived select clause completely!
@@ -160,7 +160,7 @@
 // ugly hack for cases like "elements(foo.bar.collection)" // (multi-part path expression ending in elements or indices)
 // FIXME Hacky workaround to JBCACHE-1202
 //TODO: COPY/PASTE FROM SessionImpl, pull up!
-// todo : need to find a clean way to handle the "event source" role // a seperate classs responsible for generating/dispatching events just duplicates most of the Session main.methods... // passing around seperate reto interceptor, factory, actionQueue, and persistentContext is not manageable...
+// todo : need to find a clean way to handle the "event source" role // a seperate classs responsible for generating/dispatching events just duplicates most of the Session methods... // passing around seperate reto interceptor, factory, actionQueue, and persistentContext is not manageable...
 //Must be done here because of side-effect! yuck...
 //We should actually rework this class to not implement Parser //and just process path expressions in the most convenient way.
 // TODO : should remove this exposure //  and have all references to the session's batcher use the ConnectionManager.
@@ -336,7 +336,7 @@
 //TODO: can we limit stored procedures ?!
 //TODO: formulas ?
 // TODO: better error message since we actually support composites if names are explicitly listed.
-//TODO: use these in main.methods above
+//TODO: use these in methods above
 //TODO: cache the persister, this shows up in yourkit
 //TODO: add referencedClass to disambiguate to FKs on the same //      columns, pointing to different tables
 //TODO: create uk loaders for component properties
@@ -504,7 +504,7 @@
 // note that %string is deprecated
 //If the object is already loaded, return the loaded one
 // create new lock that times out immediately
-// convenience main.methods relating to operations across arrays of types...
+// convenience methods relating to operations across arrays of types...
 // we really could refresh the item if it // is not a lock, but it might be slower //return freshTimestamp < txTimestamp
 // Due to the complexity in initializing the SelectClause, do not generate one here. // If it is not found; simply return null... // // Also, do not cache since it gets generated well after we are created.
 // DISCRIMINATOR
@@ -577,7 +577,7 @@
 // PROPERTIES
 //sqlResultTypes = ( Type[] ) sqlResultTypeList.toArray( new Type[sqlResultTypeList.size()] );
 // IDENTIFIER
-// We call getKeyFromResultSet() here so that we can know the // key value upon which to perform the breaking logic.  However, // it is also then called from getRowFromResultSet() which is certainly // not the most efficient.  But the call here is needed, and there // currently is no other way without refactoring of the doQuery()/getRowFromResultSet() // main.methods
+// We call getKeyFromResultSet() here so that we can know the // key value upon which to perform the breaking logic.  However, // it is also then called from getRowFromResultSet() which is certainly // not the most efficient.  But the call here is needed, and there // currently is no other way without refactoring of the doQuery()/getRowFromResultSet() // methods
 // VERSION
 //operations which cascade as far as the collection also cascade to collection elements
 //WHERE STRING
@@ -711,7 +711,7 @@
 // don't even bother trying to read any further
 // prepend value and type list with null for any positions before the wanted position.
 //+ "_" + referencedColumnName not used for backward compatibility
-// static helper main.methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// static helper methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Base Expectation impls ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // this property belongs on the table and is to be inserted
 // need to extract the component values and check for subtype replacements...
@@ -919,7 +919,7 @@
 // otherwise:
 // starts with the name of a mapped class (new style)
 //treat it just like a new collection
-// skip finalize main.methods
+// skip finalize methods
 // return the (fully resolved) identifier value, but do not resolve // to the actual referenced entity instance // NOTE: the owner of the association is not really the owner of the id!
 //do this work only at the very highest level of the load //don't let this method be called recursively
 "//	public static JDBCException newJDBCException(String string, SQLException root, String sql) { //		string = string + "" ["" + sql + ']'; //		log.error(string, root); //		logExceptions(root); //		return new JDBCException(string, root, sql); //	} // //	public static JDBCException newJDBCException(String string, SQLException root) { //		log.error(string, root); //		logExceptions(root); //		return new JDBCException(string, root); //	}"
@@ -967,7 +967,7 @@
 // null is not considered the same type as Integer. //$NON-NLS-1 //$NON-NLS-1
 // properly handle property-ref-based associations
 // the outerJoinsAfterWhere needs to come before where clause to properly // handle dynamic filters
-// determine the id getter and setter main.methods from the proxy interface (if any) // determine all interfaces needed by the resulting proxy
+// determine the id getter and setter methods from the proxy interface (if any) // determine all interfaces needed by the resulting proxy
 // add another (inner) nested select // add the main query // close off the inner nested select
 "//		origin.addDestination( destination ); // This was the cause of HHH-242 //		origin.setType( FROM_FRAGMENT );			// Set the parent node type so that the AST is properly formed. // The destination node will have all the FROM text. // The parent node is a collection join too (voodoo - see JoinProcessor)"
 // then handle any user-defined entity modes...
@@ -1302,7 +1302,7 @@
 // Clone //-----------------------------------------------------------------------
 // Serialize //-----------------------------------------------------------------------
 // warning: can cause a recursive calls! (proxy initialization)
-/* static main.methods only - hide constructor */
+/* static methods only - hide constructor */
 /*&& !('_'==character)*/
 // returnign null!
 // includes last '.'
@@ -1345,7 +1345,7 @@
 // Its the listener instance (or better be)
 //readResolveObject
 //cfg.setProperty("hibernate.show_sql", "true");
-// Defensive, convenience main.methods
+// Defensive, convenience methods
 // Make sure you log the exception, as it might be swallowed
 // Begin unit of work
 // Write HTML header
@@ -1513,7 +1513,7 @@
 // A shallow query is ok (although technically there should be no fetching here...)
 // Delegate to the QueryLoader...
 // Remember the parameters for the compilation.
-// -- Package local main.methods for the QueryLoader delegate --
+// -- Package local methods for the QueryLoader delegate --
 // double
 //now done in EntityIdentityInsertAction //persister.setIdentifier( entity, id, source.getEntityMode() );
 // Use the token as an identifier.
@@ -1921,7 +1921,7 @@
 // Private constructor - stops checkstyle from complaining.
 //reset the dotcount (but not the path) //after reset!
 //after reset!
-// Following main.methods we don't delegate since they have so little logic // it's clearer to just implement them here
+// Following methods we don't delegate since they have so little logic // it's clearer to just implement them here
 // dotcount>=2
 /* local variables | target obj | each oldvalue | */
 // astore 5 // store exception
@@ -2165,7 +2165,7 @@
 // the old-time stand-by...
 // parameter bind values...
 // Parameter handling code ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// Execution main.methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Execution methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //NOTE SPECIAL CASE: // one-to-one constrained=false cannot be proxied, // so default to join and non-lazy
 // use old (HB 2.1) defaults if outer-join is specified
 // we have a CGLIB enhanced entity
@@ -2251,7 +2251,7 @@
 //if we only returned one entity, query by key is more efficient
 // the element has been removed from the set
 // the element has changed
-//Careful: these main.methods do not initialize the collection.
+//Careful: these methods do not initialize the collection.
 //needed so that we remove this collection from the second-level cache
 // override on some subclasses
 //override on some subclasses
@@ -2326,8 +2326,8 @@
 // register a cleanup synch
 // wrap the session in the transaction-protection proxy
 // then bind it
-// limit the main.methods available if no transaction is active
-// allow these (deprecated) main.methods to pass through
+// limit the methods available if no transaction is active
+// allow these (deprecated) methods to pass through
 // serialization ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // add temp entry so that the next step is circular-reference // safe - only needed because some types don't take proper // advantage of two-phase-load (esp. components)
 // this is the second pass through on a merge op, so here we limit the // replacement to associations types (value types were already replaced // during the first pass)
@@ -2356,7 +2356,7 @@
 //pre H3.2 behavior: super.getReturnType(ct, m);
 // finally use the sqltype if == on Hibernate types did not find a match.
 //because numeric can be anything
-// constructors and factory main.methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// constructors and factory methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // standard sql92 functions (can be overridden by subclasses)
 //map second/minute/hour/day/month/year to ANSI extract(), override on subclasses
 // database type mapping support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2374,10 +2374,10 @@
 // -- Loader overrides --
 // (NOT (IS_NULL a b) ) => (IS_NOT_NULL a b)
 // here assume SQLServer2005 using snapshot isolation, which does not have this problem
-// --- Query translator main.methods ---
+// --- Query translator methods ---
 // Oracle8 and previous define only a "DATE" type which //      is used to represent all aspects of date/time
 //" cascade";
-// -- Implementation private main.methods --
+// -- Implementation private methods --
 //trim off the length/precision/scale
 // CHECK VIOLATION
 // UNIQUE VIOLATION
@@ -2416,11 +2416,11 @@
 // Verify the state of this new method in Hibernate 3.0 Dialect.java
 // Origial Dialect.java returns true;
 // index should be last column listed
-// *** Sequence main.methods - start. The RDMS dialect needs these
-// main.methods to make it possible to use the Native Id generator
+// *** Sequence methods - start. The RDMS dialect needs these
+// methods to make it possible to use the Native Id generator
 //if it is a formula index, use the element columns in the PK
 // don't create a unique key, 'cos some // databases don't like a UK on nullable // columns
-// *** Sequence main.methods - end
+// *** Sequence methods - end
 // Used with DROP TABLE to delete all records in the table.
 // no foreign key element of for a one-to-many
 //TODO: we could just return all false...
@@ -2434,7 +2434,7 @@
 // HSQLDB only supports READ_UNCOMMITTED transaction isolation
 //the entity is associated with the session, so check its status
 // TimesTen has no BLOB/CLOB support, but these types may be suitable  // for some applications. The length is limited to 4 million bytes.
-// new main.methods in dialect3
+// new methods in dialect3
 "/*public boolean supportsForUpdateNowait() {		return false;	}*/"
 // TimesTen has no known variation of a "SELECT ... FOR UPDATE" syntax...
 // iterate entries ordered by capacity to find first fit

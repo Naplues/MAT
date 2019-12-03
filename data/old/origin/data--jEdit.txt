@@ -14,7 +14,7 @@
 // redundant with constructor
 "/*		Issues to resolve here...		1) In which classloader should we define the class?		if there is a BshClassLoader should we define it there?		2) should we use reflection to set it in a non-bsh classloader		if there is one or should we always create a bsh classloader		(and expose its defineClass)?	*/"
 // could refactor these a bit
-"/*	Note: This class essentially just delegates most of its main.methods to its	parent.  The setVariable() indirection is very small.  We could probably	fold this functionality back into the base NameSpace as a special case.	But this has changed a few times so I'd like to leave this abstraction for	now.*/"
+"/*	Note: This class essentially just delegates most of its methods to its	parent.  The setVariable() indirection is very small.  We could probably	fold this functionality back into the base NameSpace as a special case.	But this has changed a few times so I'd like to leave this abstraction for	now.*/"
 // simplified these settings a little...
 "/*		Should check for strict java here and use isJavaAssignable() instead	*/"
 // workaround for Swing rendering labels starting // with <html> using the HTML engine
@@ -51,7 +51,7 @@
 /* Spacing workaround */
 // I don't know of any other way to fix this, since invoking this // command from a menu results in the focus owner being the menu // until the menu goes away.
 // a little hack for reverse replace and find
-// Static main.methods that operate on compound ('.' separated) names // I guess we could move these to StringUtil someday
+// Static methods that operate on compound ('.' separated) names // I guess we could move these to StringUtil someday
 "/*	Note: which of these things should be checked at parse time vs. run time?*/"
 // this part sucks
 // Windows bug workaround in case a YES/NO confirm // was shown
@@ -59,7 +59,7 @@
 "/* this is stupid and misleading.					 * but 'path' is not used anywhere except					 * the above line, and if this is done					 * after the 'continue', then we will					 * either hang, or be forced to duplicate					 * it inside the buffer == null, or add					 * a 'finally' clause. you decide which one's					 * worse. */"
 // I'm too tired to think of a better way // to handle this right now.
 // hacked BufferIORequest to send VFSUpdates in case // two stage save is off now...
-// some other primitive // should avoid calling main.methods on primitive, as we do // in Name (can't treat primitive like an object message) // but the hole is useful right now.
+// some other primitive // should avoid calling methods on primitive, as we do // in Name (can't treat primitive like an object message) // but the hole is useful right now.
 // Change the parent (which was the class static) to the class instance // We really need to check if we're a static inner class here first... // but for some reason Java won't show the static modifier on our // fake inner classes...  could generate a flag field.
 // this is where checked exceptions piss me off. this method only uses // a StringReader which can never throw an exception...
 // If any subexpressions didn't terminate, they don't count // TODO check if this code ever gets hit
@@ -71,7 +71,7 @@
 // This could be smarter...
 // It was explicitly imported, but we don't know what it is. // should we throw an error here??
 "/*		Note: we need a form of eval that passes the callstack through...	*/"
-"/* 		Primary interpreter set and get variable main.methods		Note: These are squeltching errors... should they?	*/"
+"/* 		Primary interpreter set and get variable methods		Note: These are squeltching errors... should they?	*/"
 // Workaround for JDK bug 4071281, where system.in.available()  // returns too large a value. This bug has been fixed in JDK 1.2.
 "/*				Somewhat of a hack.  If the special fields are visible (we're				operating relative to a 'this' type already) dissallow further				.this references to prevent user from skipping to things like				super.this.caller			*/"
 // Should clean this up to a single return statement
@@ -79,7 +79,7 @@
 "/*		Note: this impor pattern is becoming common... could factor it out into		an importedObject Vector class.	*/"
 // not sure if we should really recurse here for explicitly imported // class in parent...  
 // The following two boolean checks were tacked on. // This could probably be smoothed out.
-"/*		Notes:		This is broken.  It finds public but less specific main.methods over		non-public but more specific ones.		findMostSpecficMethod() needs to be rewritten to eliminate 		findAccessibleMethod.  We should implement the findMostSpecificMethod 		that uses the publicOnly flag.  FindMostSpecificMethod should also		operate in two passes to give standard Java assignable matches priority		over extended bsh type matches.	*/"
+"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		findMostSpecficMethod() needs to be rewritten to eliminate 		findAccessibleMethod.  We should implement the findMostSpecificMethod 		that uses the publicOnly flag.  FindMostSpecificMethod should also		operate in two passes to give standard Java assignable matches priority		over extended bsh type matches.	*/"
 //{{{ UnixWorkaround constructor
 // drag and drop support // I'd just move the code to // JEditTextArea but it // depends on JDK 1.4 APIs
 // next version: remove this
@@ -106,7 +106,7 @@
 "/* this is a sloppy hack to fix bug				   ""[ 677902 ] hitting return after collapsed				   fold""				   the idea is that if we extend the range then				   the problem described in the bug happends, so				   if the insert is at the very end of the range				   we don't extend it, instead we push the				   insert into the next range, however for this				   to work properly we also have to mess with				   screen line counts. */"
 // need this bullshit scroll bar policy for the preferred size // hack to work
 // XXX if we keep the createClassManager in getClassManager then we can axe // this?
-"/*	Note: This class is messy.  The method and field resolution need to be	rewritten.  Various main.methods in here catch NoSuchMethod or NoSuchField	exceptions during their searches.  These should be rewritten to avoid	having to catch the exceptions.  Method lookups are now cached at a high 	level so they are less important, however the logic is messy.*/"
+"/*	Note: This class is messy.  The method and field resolution need to be	rewritten.  Various methods in here catch NoSuchMethod or NoSuchField	exceptions during their searches.  These should be rewritten to avoid	having to catch the exceptions.  Method lookups are now cached at a high 	level so they are less important, however the logic is messy.*/"
 // the sooner ppl move to the new api, the less we'll need // crap like this
 // Nasty hardcoded values
 /* XXX magic number */
@@ -174,13 +174,13 @@
 // On Unix, set permissions of port file to rw-------, // so that on broken Unices which give everyone read // access to user home dirs, people can't see your // port file (and hence send arbitriary BeanShell code // your way. Nasty.)
 // ??? this should only be called with // fully loaded action set
 // broken Eclipse workaround! // 24 Febuary 2004
-"/*		Notes:		This is broken.  It finds public but less specific main.methods over		non-public but more specific ones.		This method needs to be rewritten to eliminate findAccessibleMethod.		We should implement the findMostSpecificMethod that uses the publicOnly		flag.  FindMostSpecificMethod should also operate in two passes to give		standard Java assignable matches priority over extended bsh type		matches.	*/"
+"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		This method needs to be rewritten to eliminate findAccessibleMethod.		We should implement the findMostSpecificMethod that uses the publicOnly		flag.  FindMostSpecificMethod should also operate in two passes to give		standard Java assignable matches priority over extended bsh type		matches.	*/"
 // XXX: This should not be hardcoded
 // INTERVAL OPERATOR: //  {x} | {x,} | {x,y}  (RE_INTERVALS && RE_NO_BK_BRACES) //  \{x\} | \{x,\} | \{x,y\} (RE_INTERVALS && !RE_NO_BK_BRACES) // // OPEN QUESTION:  //  what is proper interpretation of '{' at start of string?
 // XXX: does this really belong here?
 // We do need to save every possible point, but the number of clone() // invocations here is really a killer for performance on non-stingy // repeat operators.  I'm open to suggestions...
 "/*		Note: this should really just throw NoSuchFieldException... need		to change related signatures and code.	*/"
-// Split the main.methods into constructors and regular method lists
+// Split the methods into constructors and regular method lists
 // need to add static block here
 "/** * An output stream that compresses into the BZip2 format (without the file * header chars) into another stream. TODO: Update to BZip2 1.0.1 * * @author <a href=""mailto:keiron@aftexsw.com"">Keiron Liddle</a> */"
 "/**    * Parse the XML declaration.    * <pre>    * [25] XMLDecl ::= '&lt;?xml' VersionInfo EncodingDecl? SDDecl? S? '?&gt;'    * [26] VersionInfo ::= S 'version' Eq ('""1.0""' | ""'1.0'"")    * [33] SDDecl ::= S 'standalone' Eq ""'"" ('yes' | 'no') ""'""    *               | S 'standalone' Eq '""' (""yes"" | ""no"") '""'    * [78] EncodingDecl ::= S 'encoding' Eq QEncoding    * </pre>    * <p>([80] to [82] are also significant.)    * <p>(The <code>&lt;?xml</code> and whitespace have already been read.)    * <p>TODO: validate value of standalone.    * @see #parseTextDecl    * @see #checkEncoding    */"
@@ -434,7 +434,7 @@
 //{{{ dispose() method
 "/*                throw new EvalError(					""Sourced file: ""+sourceFileInfo+"" parser Error: "" 					+ e.getMessage( DEBUG ), node, callstack );				*/"
 // if the last key was a numeric keypad key // and NumLock is off, filter it out
-//{{{ Buffer management main.methods
+//{{{ Buffer management methods
 //{{{ addKeyBinding() method
 // only complete current buffer's keyword map
 // Pick screen with largest intersection
@@ -448,7 +448,7 @@
 // build a list of unique words in all visible buffers
 //{{{ getToolTipText() method
 //{{{ getNonAlphaNumericWordChars() method
-// These JComponent main.methods provide the appropriate points // to subscribe and unsubscribe this object to the EditBus
+// These JComponent methods provide the appropriate points // to subscribe and unsubscribe this object to the EditBus
 //{{{ if there is only one competion, insert in buffer
 //{{{ setBlockCaretEnabled() method
 // check for match at start of line
@@ -462,7 +462,7 @@
 // ok, this one seems to confuse newbies // endlessly, so log it as NOTICE, not // ERROR
 //{{{ Completion class
 //{{{ insertSelected() method
-// Note: if we want main.methods declared inside blocks to be accessible via // this.methodname() inside the block we could handle it here as a // special case.  See also resolveThisFieldReference() special handling // for BlockNameSpace case.  They currently work via the direct name // e.g. methodName().
+// Note: if we want methods declared inside blocks to be accessible via // this.methodname() inside the block we could handle it here as a // special case.  See also resolveThisFieldReference() special handling // for BlockNameSpace case.  They currently work via the direct name // e.g. methodName().
 /*, CallStack callstack */
 // $ at end is literal //}}}
 //{{{ RotatedTextIcon class
@@ -542,7 +542,7 @@
 // updates max locals only (no stack change)
 //{{{ getCacheableActionNames() method
 // resolves previous forward references to label, if any
-// End BeanShell Modification - override error main.methods and toString
+// End BeanShell Modification - override error methods and toString
 /* package-private for speed */
 //{{{ createPosition() method
 //{{{ contains() method
@@ -595,7 +595,7 @@
 //{{{ resetProperty() method
 // end JcmdProcessTest.java
 // Check that the attribute doesn't // already exist!
-// // helper main.methods //
+// // helper methods //
 // We have to open our own stream // to the URL.
 //{{{ getActiveView() method
 //{{{ charData() method
@@ -640,7 +640,7 @@
 // end source and eval
 //{{{ isVisible() method
 // this notifies each display manager editing this // buffer of the screen line count change
-// end primary set and get main.methods
+// end primary set and get methods
 // No, it is not.
 //{{{ getEnterAddsToHistory() method
 // Careful here: // else fall through to override and install the new typed version
@@ -896,7 +896,7 @@
 // should normally be
 // remember the last executed action
 //{{{ handleKey() method
-"/*		Disallowing VOIDs here was an easy way to support the throwing of a 		more descriptive error message on use of an undefined argument to a 		method call (very common).  If it ever turns out that we need to 		support that for some reason we'll have to re-evaluate how we get 		""meta-information"" about the arguments in the various invoke() main.methods 		that take Object [].  We could either pass BSHArguments down to 		overloaded forms of the main.methods or throw an exception subtype 		including the argument position back up, where the error message would		be compounded.	*/"
+"/*		Disallowing VOIDs here was an easy way to support the throwing of a 		more descriptive error message on use of an undefined argument to a 		method call (very common).  If it ever turns out that we need to 		support that for some reason we'll have to re-evaluate how we get 		""meta-information"" about the arguments in the various invoke() methods 		that take Object [].  We could either pass BSHArguments down to 		overloaded forms of the methods or throw an exception subtype 		including the argument position back up, where the error message would		be compounded.	*/"
 //{{{ invokeReadNextChar() method
 //{{{ JCheckBoxList constructor
 // stop people doing dumb stuff like C+ENTER 100 C+n
@@ -991,7 +991,7 @@
 // if auto wrap is on, always restart search. // if auto wrap is off, and we're called from // a macro, stop search. If we're called // interactively, ask the user what to do.
 //{{{ Factory constructor
 //{{{ getMinimumSize() method
-//{{{ Sorting main.methods
+//{{{ Sorting methods
 //{{{ addComponent() method
 //{{{ Instance part of class
 // updates current stack size (max stack size unchanged)
@@ -1093,7 +1093,7 @@
 // I'm not sure when this can happen, // but it does sometimes, witness the // jEdit bug tracker.
 //{{{ getColumnOnOtherLine() method
 /* otherwise just insert the text */
-"/** * A constant pool item. Constant pool items can be created with the 'newXXX' * main.methods in the {@link ClassWriter} class. */"
+"/** * A constant pool item. Constant pool items can be created with the 'newXXX' * methods in the {@link ClassWriter} class. */"
 //{{{ getRightDockingArea() method
 // Insert the attributes, if any.
 // we remember which classes we don't exist // because BeanShell tries loading all possible // <imported prefix>.<class name> combinations
@@ -1164,7 +1164,7 @@
 /* XXX */
 // send full range of events to avoid breaking plugins
 "/*     * always: in the range 0 .. 9.     * The current block size is 100000 * this number.     */"
-// -------------------------------------------------------------------------- // Utility main.methods: instruction resizing (used to handle GOTO_W and JSR_W) // --------------------------------------------------------------------------
+// -------------------------------------------------------------------------- // Utility methods: instruction resizing (used to handle GOTO_W and JSR_W) // --------------------------------------------------------------------------
 "/*			If we've fallen through here we are no longer resolving to			a class type.		*/"
 //{{{ Position center (edit pane, or split pane)
 // the +1's ensure that 99 gets 3 digits, 103 gets 4 digits, // and so on.
@@ -1185,7 +1185,7 @@
 "/*			Is it a class name?			If we're just starting eval of name try to make it, else fail.		*/"
 // Java object
 // skip throws
-// Do not evaluate main.methods this() or super() in class instance space // (i.e. inside a constructor)
+// Do not evaluate methods this() or super() in class instance space // (i.e. inside a constructor)
 // Set the default entities here.
 "/*         * Decide how many coding tables to use         */"
 // Set up the input variables
@@ -1228,7 +1228,7 @@
 // later on we need to know if certain code is called from // the main thread
 //{{{ saveGeometry() method
 //}}} //{{{ Insert the expansion
-// JDK 1.4 adds main.methods to obtain a drive letter label and // list the desktop on Windows
+// JDK 1.4 adds methods to obtain a drive letter label and // list the desktop on Windows
 //{{{ GZipped setting
 //{{{ setFoldLevel() method // Also sets 'fold level valid' flag
 //}}} //{{{ Bottom...
@@ -1332,15 +1332,15 @@
 // Wait for pending I/O requests
 //{{{ getKeyBinding() method
 // over estimation of the number of bytes to be added to this // instruction = 3 - current number of padding bytes = 3 - (3 - // u%4) = u%4 = u & 3
-// // Attribute main.methods //
+// // Attribute methods //
 "/*     * If you are ever unlucky/improbable enough     * to get a stack overflow whilst sorting,     * increase the following constant and try     * again.  In practice I have never seen the     * stack go above 27 elems, so the following     * limit seems very generous.     */"
 // helper method to get Font from plugin properties
 // throw new IOException("Invalid block size");
 // on insert, start search from beginning of // current match. This will continue to highlight // the current match until another match is found
 //for backwards compatibility, the color variable is stored also as a property
-// -------------------------------------------------------------------------- // Utility main.methods: control flow analysis algorithm // --------------------------------------------------------------------------
+// -------------------------------------------------------------------------- // Utility methods: control flow analysis algorithm // --------------------------------------------------------------------------
 // Useful for debugging purposes
-// -------------------------------------------------------------------------- // Other public main.methods // --------------------------------------------------------------------------
+// -------------------------------------------------------------------------- // Other public methods // --------------------------------------------------------------------------
 //{{{ ensureCapacity() method
 //}}} //{{{ Paint bracket scope
 //{{{ synchronizeMultiFileSettings() method
@@ -1376,7 +1376,7 @@
 //{{{ loadMenuItem() method
 // proxy port
 // skips 0 to 3 padding bytes
-//{{{ Delegate main.methods
+//{{{ Delegate methods
 //{{{ getPhysicalLineOfScreenLine() method
 // when the text area switches to us, it will do // a reset anyway
 // opcodes                  // visit method (- = idem)
@@ -1714,7 +1714,7 @@
 // WORD BEGIN OPERATOR  //  \< if ????
 // used to mark non-existent classes in class hash
 // evaluate a method declaration
-// -------------------------------------------------------------------------- // Utility main.methods: dump bytecode array // --------------------------------------------------------------------------
+// -------------------------------------------------------------------------- // Utility methods: dump bytecode array // --------------------------------------------------------------------------
 // the word
 // should try to print usage here if nothing found
 //{{{ addWord() method
@@ -1730,20 +1730,20 @@
 //{{{ attribute() method
 //{{{ TOCHandler class
 "/*        NULL means ""no value"".        This ia a placeholder for primitive null value.    */"
-////////////////////////////////////////////////////////////////////// // High-level reading and scanning main.methods. //////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////// // High-level reading and scanning methods. //////////////////////////////////////////////////////////////////////
 //{{{ CustomClassManager class
 //{{{ cut() method
 //{{{ TOCHandler constructor
 //{{{ TOCCellRenderer class
 //ToolTipManager ttm = ToolTipManager.sharedInstance();
 //{{{ cellRectIsVisible() method
-//{{{ Path name main.methods
+//{{{ Path name methods
 //{{{ TOCTree constructor
 //{{{ SendVFSUpdatesSafely class
 //{{{ TOCTree class
 //{{{ constructPath() method
 //{{{ getFileVFS() method
-//{{{ VFS main.methods
+//{{{ VFS methods
 //{{{ PluginCompare class
 //{{{ getUrlVFS() method
 //{{{ registerVFS() method
@@ -1768,7 +1768,7 @@
 //{{{ getRequestCount() method
 //{{{ getIOThreadPool() method
 //{{{ sendVFSUpdate() method
-//{{{ I/O request main.methods
+//{{{ I/O request methods
 // use system default short format
 //{{{ getLeadingWhiteSpaceWidth() method
 //{{{ addGlobalAbbrev() method
@@ -1805,7 +1805,7 @@
 /*eof*/
 // this has been changed since 1.03 to be non-overlapping matches
 // have to handle this case specially on windows. // insert \ between, eg A: and myfile.txt.
-// -------------------------------------------------------------------------- // Utility main.methods: constant pool management // --------------------------------------------------------------------------
+// -------------------------------------------------------------------------- // Utility methods: constant pool management // --------------------------------------------------------------------------
 //{{{ ToolBar-related constants
 //{{{ setBooleanProperty() method
 //{{{ getModeAbbrevs() method
@@ -2162,7 +2162,7 @@
 // keep track of the original types
 // Add the new typed var
 // returns Object covering both Integer and Boolean return types
-// Don't generate private /*or loosely return typed */ main.methods
+// Don't generate private /*or loosely return typed */ methods
 //{{{ goToNextFold() method
 // type is correct here
 /* History count */
@@ -2285,14 +2285,14 @@
 // Begin BeanShell Modification - added sourceFile info
 //{{{ ManagePanel constructor
 // End BeanShell Modification - added debug param
-// Begin BeanShell Modification - override error main.methods and toString
+// Begin BeanShell Modification - override error methods and toString
 // Compare with number of dimensions actually created with the // number specified (syntax uses the undefined ones here)
 // Some kind of 8-bit encoding without "<?XML" // (otherwise) UTF-8 without encoding/XML declaration
 "/*			dimensionsNode can return either a fully intialized array or VOID.			when VOID the prescribed array dimensions (defined and undefined)			are contained in the node.		*/"
 // so that we don't try to reset() right away
 "/*                 * Find the coding table which is best for this group,                 * and record its identity in the selector table.                 */"
 // in this case, we can't directly call // view.close(); we have to call closeView() // for all open views
-// Generate the delegate main.methods
+// Generate the delegate methods
 //{{{ transitiveClosure() method
 // Test it
 // execute nodes, skipping labels, until a break or return
@@ -2334,7 +2334,7 @@
 // if no requests are running, requestDone() // will not be called, so we must queue the // AWT runner ourselves.
 //{{{ createBrowserMenuItems() method
 //{{{ PluginManager constructor
-//{{{ Deprecated main.methods
+//{{{ Deprecated methods
 // ensure consistent history; // eg we don't want both // foo/ and foo
 //{{{ isDownloadingList() method
 //{{{ createOptionPanes() method
@@ -2506,7 +2506,7 @@
 //{{{ HyperSearchResult constructor
 // not found at all.
 //{{{ addOccur() method
-// Gather all of the main.methods of class and parents
+// Gather all of the methods of class and parents
 /* an error occurred */
 //{{{ toggleWordWrap() method
 //{{{ getNextFile() method
@@ -2720,9 +2720,9 @@
 // unless we are matching from the start of the buffer, // ^ should not match on the beginning of the substring
 // Is it an inner class?
 //{{{ RESearchMatcher constructor
-// Boyer-Moore helper main.methods
+// Boyer-Moore helper methods
 // work through to class 'this'
-//{{{ Miscellaneous main.methods
+//{{{ Miscellaneous methods
 // MISMATCH: return -1 as defined by API
 //{{{ Token types
 //{{{ lookup() method
@@ -2880,7 +2880,7 @@
 // value for end
 // closer to end
 // Allocate more space in the buffer.
-//{{{ Buffer creation main.methods
+//{{{ Buffer creation methods
 //{{{ Parse command line
 // open initial view?
 // move read position [index] clicks from 'charAt(0)'
@@ -2908,7 +2908,7 @@
 // Note that there is some debate over whether '_' should be included
 // field access
 "/*		Field access, .length on array, or a method invocation		Must handle toLHS case for each.	*/"
-//{{{ Static main.methods
+//{{{ Static methods
 // .length on array
 // convert the byte read into a char
 // Package scope constructor is used by RE.getMatchEnumeration()
@@ -3087,7 +3087,7 @@
 // should try to use this as little as possible.
 //{{{ Paint line highlight and collapsed fold highlight
 //{{{ PaintLineBackground class
-// minimise access$ main.methods
+// minimise access$ methods
 //{{{ setCaretBlinkEnabled() method
 //{{{ getDisplayManager() method
 //{{{ getClassLoader() method
@@ -3131,7 +3131,7 @@
 // to deal with empty subexpressions
 //{{{ getLineLength() method
 //{{{ Scroll vertically
-//{{{ Convenience main.methods
+//{{{ Convenience methods
 //{{{ invalidateScreenLineRange() method
 //{{{ Initialize server
 //{{{ getScreenLineOfOffset() method
@@ -3249,7 +3249,7 @@
 /* private */
 // if label is default or equals switchVal
 // skip nodes until next label
-//{{{ Property main.methods
+//{{{ Property methods
 // generate the default branch of switch
 // eval it
 // get the first label
@@ -3283,7 +3283,7 @@
 // not sure if this is correct for OpenVMS.
 //{{{ fileToClass() method
 // XXX
-"/*	End main.methods for interacting with Parser */"
+"/*	End methods for interacting with Parser */"
 // If not found and there are arguments to match - // Look for an overloaded assignable match // (First find the method, then find accessible version of it)
 //{{{ removeTopComponent() method
 //{{{ isRectangularSelectionEnabled() method
@@ -3338,7 +3338,7 @@
 //{{{ isSupportedEncoding() method
 //{{{ getSelectionEndLine() method
 //{{{ getComponent() method
-// // Begin main.methods which simply delegate to our parent (enclosing scope)  //
+// // Begin methods which simply delegate to our parent (enclosing scope)  //
 /* Pushes a node on to the stack. */
 // Unwrap primitives
 //{{{ select() method
@@ -3581,7 +3581,7 @@
 //{{{ getPlugin(String, boolean) method
 // Only show class decs in CLASSES
 //{{{ removePluginJAR() method
-//{{{ Action main.methods
+//{{{ Action methods
 //{{{ getActionSetForAction() method
 //Selection[] selection = (Selection[])buffer.getProperty(Buffer.SELECTION);
 // lazy instantiation
@@ -3595,7 +3595,7 @@
 // binaryOperation can return Primitive or wrapper type 
 //{{{ Load user catalog
 //{{{ Load macros and run startup scripts, after plugins and settings are loaded
-//{{{ Edit mode main.methods
+//{{{ Edit mode methods
 //{{{ reloadModes() method
 //{{{ getPort method
 // 4.1 plugin
@@ -3755,7 +3755,7 @@
 //{{{ setLogWriter() method
 //{{{ closeStream() method
 //{{{ flushStream() method
-//{{{ Icon main.methods
+//{{{ Icon methods
 //{{{ _log() method
 /* not really needed since threads don't start until after */
 //{{{ handleEditPaneUpdate() method
@@ -3842,7 +3842,7 @@
 // setting the message to 'null' causes the status bar to // check if a recording is in progress
 //{{{ getPlugins() method
 //{{{ getSource() method
-//{{{ Getters/setter main.methods for various buffer meta-data
+//{{{ Getters/setter methods for various buffer meta-data
 //{{{ getLastModified() method
 //{{{ getVFS() method
 //{{{ addProgressListener() method
@@ -3875,7 +3875,7 @@
 //{{{ Register interface
 //{{{ ClipboardRegister class
 //{{{ doSingleClick() method
-//{{{ Text main.methods
+//{{{ Text methods
 //{{{ macroNameToLabel() method
 //{{{ getHandler() method
 //{{{ AdjustHandler class
@@ -4144,11 +4144,11 @@
 //{{{ EditAction constructor
 /* Mix files and directories */
 //{{{ getMouseOverText() method
-//{{{ View main.methods
+//{{{ View methods
 //{{{ getChunkList() method
 //{{{ isTemporary() method
 //{{{ Thread safety
-//{{{ Line offset main.methods
+//{{{ Line offset methods
 //{{{ setDefault() method
 //{{{ getTerminateChar() method
 // no need to lock since this just returns a value and that's it
@@ -4164,7 +4164,7 @@
 // // Hashtables for DTD information on elements, entities, and notations. //
 //{{{ MenuItemCompare class
 //{{{ xToOffset() method
-//{{{ Plugin management main.methods
+//{{{ Plugin management methods
 //{{{ ServiceListHandler constructor
 // // Stack of entity names, to help detect recursion. //
 // // Symbol table, for internalising names. //
@@ -4404,13 +4404,13 @@
 //{{{ getParagraphElement() method
 //{{{ isFoldEnd() method
 //{{{ putProperty() method
-//{{{ Position main.methods
+//{{{ Position methods
 //{{{ getMarkerStatusPrompt() method
 // don't sort markers while buffer is being loaded
-//{{{ Folding main.methods
+//{{{ Folding methods
 //{{{ getCurrentIdentForLine() method
 //{{{ getFoldAtLine() method
-//{{{ Marker main.methods
+//{{{ Marker methods
 //  first node will either be PrimitiveType or AmbiguousName
 // backwards compatibility...
 // bad postURL
@@ -4467,7 +4467,7 @@
 //{{{ getListener() method
 // End instance data
 // don't do this on initial token marker
-//{{{ Event firing main.methods
+//{{{ Event firing methods
 // didn't find a line that contains non-whitespace chars // so return index of prior whitespace line
 // if user adds mode buffer-local property
 //{{{ addBufferToList() method
@@ -4592,7 +4592,7 @@
 //{{{ getIndentSize() method
 //{{{ getTabSize() method
 //{{{ maybeReload() method
-//{{{ Input/output main.methods
+//{{{ Input/output methods
 //{{{ browseDirectory() method
 //{{{ addViewToList() method
 //{{{ GetFileTypeRequest class

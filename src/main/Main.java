@@ -1,5 +1,6 @@
 package main;
 
+import dataset.ExtractComments;
 import main.methods.*;
 import others.FileHandle;
 
@@ -12,18 +13,20 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        // 准备数据
-        new Pattern().prepareData();
+        // 提取标注好的数据集
+        //ExtractComments.rankingComments();
+        //ExtractComments.exportDataset();
+
+        // 为各种方法准备数据
+        //new Pattern().prepareData();
         new TM().prepareData();
-        new NLP().prepareData();
+        //new NLP().prepareData();
 
-
-        // 预测结果
-        new Pattern().predict();
-        new TM().predict();
-        new NLP().predict();
+        // 使用各种方法进行预测
+        //new Pattern().predict();
+        //new TM().predict();
+        //new NLP().predict();
         new Mat().predict();
-
 
         for (String project : Settings.projectNames) {
             combineResult(project);
@@ -40,7 +43,7 @@ public class Main {
     /**
      * 将各个方法的结果整合到一起
      *
-     * @param project
+     * @param project 待处理项目
      */
     public static void combineResult(String project) {
         String commentPath = rootPath + "origin/data--" + project + ".txt";
@@ -93,8 +96,8 @@ public class Main {
         Method.evaluate(labelLines, NLP_Lines);
         Method.evaluate(labelLines, T_M_Lines);
         Method.evaluate(labelLines, MAT_Lines);
-        //evaluate(labelLines, matTMLines);
-        //evaluate(labelLines, matNLPLines);
+        //Method.evaluate(labelLines, matTMLines);
+        //Method.evaluate(labelLines, matNLPLines);
 
         System.out.println(project);
 
@@ -143,6 +146,5 @@ public class Main {
         System.out.println(count);
         //System.out.println(lines.size());
     }
-
 
 }

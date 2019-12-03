@@ -7,21 +7,21 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// turn hibernate.c3p0.* into c3p0.*, so c3p0 // gets a chance to see all hibernate.c3p0.*
 1,0,0,0,0,0,0,//note there is a wierd implementation in the client side
 1,0,0,1,1,1,1,// todo: this was added to support initializing an entity's EntityEntry snapshot during reattach; // this should be refactored to instead expose a method to assemble a EntityEntry based on this // state for return.
-1,0,0,0,1,1,1,// Do we need to drop constraints before dropping tables in this dialect?
+1,0,0,0,0,0,0,// Do we need to drop constraints before dropping tables in this dialect?
 1,0,1,0,1,1,1,"/**     * FIXME Per the RegionFactory class Javadoc, this constructor version     * should not be necessary.     *      * @param props The configuration properties     */"
-1,0,0,0,1,1,1,// Does this dialect support check constraints?
+1,0,0,0,0,0,0,// Does this dialect support check constraints?
 1,0,0,0,0,0,0,// this is called by SessionFactory irregardless; we just disregard here; // could also add a check to SessionFactory to only conditionally call start
-1,0,0,0,1,1,1,// Does this dialect support the UNIQUE column syntax?
+1,0,0,0,0,0,0,// Does this dialect support the UNIQUE column syntax?
 1,1,1,1,1,1,1,// this is done here 'cos we might only know the type here (ugly!) // TODO: improve this a lot:
-1,0,0,0,1,1,1,// Does this dialect support the FOR UPDATE syntax?
+1,0,0,0,0,0,0,// Does this dialect support the FOR UPDATE syntax?
 1,0,1,1,1,1,1,// todo : what is the implication of this?
 1,0,1,1,1,1,1,// todo : YUCK!!!
 1,0,1,1,1,1,1,// todo : again, how *should* this work for non-pojo entities?
-1,0,0,0,1,1,1,// Does this dialect support FOR UPDATE OF, allowing particular rows to be locked?
+1,0,0,0,0,0,0,// Does this dialect support FOR UPDATE OF, allowing particular rows to be locked?
 1,1,1,1,1,1,1,//TODO: really bad, evil hack to fix!!!
 1,0,0,1,1,1,1,//aliasRefNode.resolve( false, false, aliasRefNode.getText() ); //TODO: is it kosher to do it here? //TODO: is it kosher to do it here?
 1,0,1,1,1,1,1,//TODO: better to degrade to lazy="false" if uninstrumented
-1,0,0,0,1,1,1,// Does this dialect support the Oracle-style FOR UPDATE NOWAIT syntax?
+1,0,0,0,0,0,0,// Does this dialect support the Oracle-style FOR UPDATE NOWAIT syntax?
 1,0,0,1,0,1,1,//Icky workaround for MySQL bug:
 1,1,0,0,0,0,0,// we have to set up the table later!! yuck
 1,0,1,1,1,1,1,//TODO: Somehow add the newly created foreign keys to the internal collection
@@ -35,11 +35,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//TODO: this is too conservative; if all preceding joins were  //      also inner joins, we could use an inner join here
 1,0,1,1,1,1,1,//TODO: redesign how PropertyAccessors are acquired...
 1,0,1,1,1,1,1,// TODO : not so sure this is needed...
-1,0,0,0,1,1,1,//create an index on the key columns??
+1,0,0,0,0,0,0,//create an index on the key columns??
 1,0,1,0,1,1,1,"/* TODO: joinKeyColumnName & foreignKeyColumnName should be called either here or at a			 * slightly higer level in the stack (to get all the information we need)			 * Right now HbmBinder does not support the			 */"
 1,1,1,1,1,1,1,//TODO: improve this hack!
 1,0,1,1,1,1,1,//TODO: bad implementation, cos it depends upon ordering of mapping doc //      fixing this requires that Collection/PersistentClass gain access //      to the Mappings reference from Configuration (or the filterDefinitions //      map directly) sometime during Configuration.buildSessionFactory //      (after all the types/filter-defs are known and before building //      persisters).
-1,1,0,1,1,1,1,//use of trim() here is ugly?
+1,1,0,1,0,1,1,//use of trim() here is ugly?
 1,0,1,1,1,1,1,//TODO: ideally we need the construction of PropertyAccessor to take the following: //      1) EntityMode //      2) EntityMode-specific data (i.e., the classname for pojo entities) //      3) Property-specific data based on the EntityMode (i.e., property-name or dom4j-node-name) // The easiest way, with the introduction of the new runtime-metamodel classes, would be the // the following predicates: //      1) PropertyAccessorFactory.getPropertyAccessor() takes references to both a //          org.hibernate.metadata.EntityModeMetadata and org.hibernate.metadata.Property //      2) What is now termed a "PropertyAccessor" stores any values needed from those two //          pieces of information //      3) Code can then simply call PropertyAccess.getGetter() with no parameters; likewise with //          PropertyAccessor.getSetter()
 1,0,0,0,0,0,0,// can happen because of the multiple ways Cache.remove() // can be invoked :(
 1,0,0,0,0,0,0,//ick!
@@ -66,24 +66,24 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//use a degenerated strategy for backward compatibility
 1,0,1,1,1,1,1,//TODO: this is temporary in that the end result will probably not take a Property reference per-se.
 1,0,1,1,1,1,1,// todo : better to handle dynamic filters through implicit DynamicFilterParameterSpecification // see the discussion there in DynamicFilterParameterSpecification's javadocs as to why // it is currently not done that way.
-1,0,0,0,1,1,1,// get the right object from the list ... would it be easier to just call getEntity() ??
+1,0,0,0,0,0,0,// get the right object from the list ... would it be easier to just call getEntity() ??
 1,0,1,1,1,1,1,// TODO: should "record" how many properties we have reffered to - and if we  //       don't get'em'all we throw an exception! Way better than trial and error ;)
 1,0,1,1,1,1,1,//TODO: this dependency is kinda Bad
 1,0,1,1,1,1,1,//TODO: get SQL rendering out of this package!
-1,0,1,1,1,1,1,// why does this matter?
+1,0,1,1,0,1,1,// why does this matter?
 1,0,1,1,1,1,1,// important, to account for newly saved entities in query // todo : some kind of check for new status...
 1,0,1,1,1,1,1,//TODO: can we *always* use the "null property" approach for everything?
 1,0,0,0,0,0,0,// does this need holdlock also? : return tableName + " with (updlock, rowlock, holdlock)";
 1,0,1,1,1,1,1,//for sets, we should end the collection load after resolving //the entities, since we might call hashCode() on the elements //TODO: or we could do this polymorphically, and have two //      different operations implemented differently for arrays
 1,0,1,1,1,1,1,// todo : remove this and just have subclasses use Isolater/IsolatedWork directly...
 1,0,0,0,0,0,0,// sql-server, at least needed this dropped after use; strange!
-1,0,0,0,1,1,1,// is it necessary to register %exact since it can only appear in a where clause?
+1,0,0,0,0,0,0,// is it necessary to register %exact since it can only appear in a where clause?
 1,0,1,0,1,1,1,//for arrays, we should end the collection load before resolving //the entities, since the actual array instances are not instantiated //during loading //TODO: or we could do this polymorphically, and have two //      different operations implemented differently for arrays
-1,0,0,0,1,1,1,// Does this dialect support the ALTER TABLE syntax?
+1,0,0,0,0,0,0,// Does this dialect support the ALTER TABLE syntax?
 1,0,1,0,1,1,1,// This next bit is to allow for both unsaved-value="negative" // and for "older" behavior where version number did not get // seeded if it was already set in the object // TODO: shift it into unsaved-value strategy
 1,0,1,1,1,1,1,//TODO: reenable if we also fix the above todo
-1,0,0,0,1,1,1,// orphans should not be deleted during copy??
-1,0,0,0,1,1,1,// orphans should not be deleted during merge??
+1,0,0,0,0,0,0,// orphans should not be deleted during copy??
+1,0,0,0,0,0,0,// orphans should not be deleted during merge??
 1,0,1,1,1,1,1,//TODO: suck this logic into the collection!
 1,0,1,1,1,1,1,// todo : we can actually just determine this from the incoming EntityEntry-s
 1,0,1,1,1,1,1,//TODO: this bit actually has to be called after all cascades! //      but since identity insert is called *synchronously*, //      instead of asynchronously as other actions, it isn't
@@ -190,12 +190,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: copy/paste from ManyToOneType
 1,0,1,1,1,1,1,//TODO: code duplication with SingleTableEntityPersister
 1,0,1,1,1,1,1,// todo : throw exception?
-1,0,0,0,1,1,1,//should this interface extend PropertyMapping?
+1,0,0,0,0,0,0,//should this interface extend PropertyMapping?
 1,0,1,1,1,1,1,// TODO: here is why we need to make bytecode provider global :( // TODO : again, fix this after HHH-1907 is complete
 1,1,1,1,1,1,1,//TODO: currently keeps Getters and Setters (instead of PropertyAccessors) because of the way getGetter() and getSetter() are implemented currently; yuck!
 1,1,1,1,1,1,1,//TODO: Yuck! This is not quite good enough, it's a quick //hack around the problem of having a to-one association //that refers to an embedded component:
 1,0,1,1,1,1,1,//TODO: implement caching?! proxies?!
-1,0,0,0,1,1,1,// is this really necessary?
+1,0,0,0,0,0,0,// is this really necessary?
 1,0,1,1,1,1,1,//TODO: this is a little inefficient, don't need to do a whole //      deep replaceElements() call
 1,0,1,1,1,1,1,//TODO: this is a bit arbitrary, expose a switch to the user?
 1,0,0,1,1,1,1,"/**	 * @return collection removal	 * FIXME: even if isInverse=""true""?	 */"
@@ -215,12 +215,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// should indicate that we are processing an INSERT/UPDATE/DELETE // query with a subquery implied via a collection property // function. Here, we need to use the table name itself as the // qualification alias. // TODO : verify this works for all databases... // TODO : is this also the case in non-"indexed" scenarios?
 1,0,1,1,1,1,1,// TODO : this really needs to be delayed unitl after we definitively know all node types // where this is currently a problem is parameters for which where we cannot unequivocally // resolve an expected type
 1,0,1,1,1,1,1,// TODO : make this the factory for "entity mode related" sessions; // also means making this the target of transaction-synch and the // thing that knows how to cascade things between related sessions // // At that point, perhaps this thing is a "SessionContext", and // ConnectionManager is a "JDBCContext"?  A "SessionContext" should // live in the impl package...
-1,0,0,0,1,1,1,// create an index on the key columns??
-1,0,0,0,1,1,1,//is this ok?
+1,0,0,0,0,0,0,// create an index on the key columns??
+1,0,0,0,0,0,0,//is this ok?
 1,0,1,1,1,1,1,//init the table here instead of earlier, so that we can get a quoted table name //TODO: would it be better to simply pass the qualified table name, instead of //      splitting it up into schema/catalog/table names
-1,0,0,1,1,1,1,// perhaps this should be an exception since it is only ever used // in the above method?
+1,0,0,1,0,1,1,// perhaps this should be an exception since it is only ever used // in the above method?
 1,0,1,0,0,0,0,// NOTE: this assumes something about how propertySelectFragment is implemented by the subclass! // was toUnqotedAliasStrings( getdiscriminatorColumnName() ) before - now tried // to remove that unqoting and missing aliases..
-1,0,0,0,1,1,1,// Put a placeholder in entries, so we don't recurse back and try to save() the // same object again. QUESTION: should this be done before onSave() is called? // likewise, should it be done before onUpdate()?
+1,0,0,0,0,0,0,// Put a placeholder in entries, so we don't recurse back and try to save() the // same object again. QUESTION: should this be done before onSave() is called? // likewise, should it be done before onUpdate()?
 1,0,1,1,1,1,1,//before cascade! //TODO: should this be Session.instantiate(Persister, ...)?
 1,0,1,1,1,1,1,//TODO: we should throw an exception if we really *know* for sure   //      that this is a detached instance, rather than just assuming //throw new StaleObjectStateException(entityName, id);
 1,0,1,0,1,1,1,// TODO: The order in which entities are saved may matter (e.g., a particular transient entity //       may need to be saved before other transient entities can be saved; //       Keep retrying the batch of transient entities until either: //       1) there are no transient entities left in transientCopyCache //       or 2) no transient entities were saved in the last batch // For now, just run through the transient entities and retry the merge
@@ -234,7 +234,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// otherwise, a trim-specification and/or a trim-character // have been specified;  we need to decide which options // are present and "do the right thing" // should leading trim-characters be trimmed? // should trailing trim-characters be trimmed? // the trim-character // the trim-source
 1,0,1,1,1,1,1,//it is possible that the tree-walking in OuterJoinLoader can get to //an association defined by a subclass, in which case the property-ref //might refer to a property defined on a subclass of the current class //in this case, the table name is not known - this temporary solution  //assumes that the property-ref refers to a property of the subclass //table that the association belongs to (a reasonable guess) //TODO: fix this, add: OuterJoinLoadable.getSubclassPropertyTableName(String propertyName)
 1,0,1,1,1,1,1,// TODO: an alternative is to check if the owner has changed; if it hasn't then // return collection.getOwner()
-1,0,0,0,1,1,1,//I suppose?
+1,0,0,0,0,0,0,//I suppose?
 1,0,0,0,0,0,0,"// TBD should this be varbinary($1)? //		registerColumnType(Types.VARBINARY,     ""binary($1)"");"
 1,0,0,0,0,0,0,//shortcut
 1,0,1,1,1,1,1,//TODO: we should provide some way to get keys of collection of statistics to make it easier to retrieve from a GUI perspective
@@ -260,7 +260,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,0,0,0,//note that this method could easily be moved up to BasicEntityPersister, //if we ever needed to reuse it from other subclasses
 1,0,1,1,1,1,1,// from the collection of associations, locate OJA for the // ManyToOne corresponding to this persister to fully // define the many-to-many; we need that OJA so that we can // use its alias here // TODO : is there a better way here?
 1,0,1,1,1,1,1,//TODO: this class depends directly upon CriteriaImpl,  //      in the impl package ... add a CriteriaImplementor  //      interface
-1,0,0,0,1,1,1,// Do we need to qualify index names with the schema name?
+1,0,0,0,0,0,0,// Do we need to qualify index names with the schema name?
 1,0,1,1,1,1,1,//TODO: We probably should have a StatisticsNotPublishedException, to make it clean
 1,0,1,1,1,1,1,//yukky! Don't you have subclasses for that! //TODO race conditions can happen here
 1,0,1,1,1,1,1,// NOTE VERY HACKISH WORKAROUND!! // TODO: Fix this so it will work for non-POJO entity mode
@@ -292,7 +292,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//TODO: move into collection type, so we can use polymorphism!
 1,0,1,1,1,1,1,// TODO should we just collect these like with the collections above?
 1,0,1,1,1,1,1,// todo : should really move this log statement to CollectionType, where this is used from...
-1,0,1,0,1,1,1,//hum ... should we cascade anyway? throw an exception? fine like it is?
+1,0,1,0,0,0,0,//hum ... should we cascade anyway? throw an exception? fine like it is?
 1,0,1,1,1,1,1,// todo: this might really even be moved into the cfg package and used as the basis for all things which are configurable.
 1,0,1,1,1,1,1,//TODO: copy/paste from insertRows()
 1,0,1,1,1,1,1,//TODO: suck into event class
@@ -306,7 +306,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// work around the "feature" where tree cache is validating the // inserted node during the next transaction.  no idea...
 1,0,1,1,1,1,1,// TODO: I considered validating TS cache config here, // but decided to defer unti getTimestampsCacheInstance() in case the  // cache is never actually used
 1,0,0,0,0,0,0,//need to do that here rather than in the save event listener to let //the post insert events to have a id-filled entity when IDENTITY is used (EJB3)
-1,0,1,1,1,1,1,// unhappy about this being public ... is there a better way?
+1,0,1,1,0,1,1,// unhappy about this being public ... is there a better way?
 1,0,1,1,1,1,1,// TODO : safe to interpret "map.remove(key) == null" as non-dirty?
 1,1,1,1,1,1,1,// FIXME hack to work around fact that calling // Node added = root.addChild( fqn ); doesn't  // properly set the version on the node
 1,0,0,0,0,0,0,// work around the "feature" where tree cache is validating the // inserted node during the next transaction. no idea...
@@ -378,7 +378,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,0,0,0,// we could move this inside if we wanted to // tolerate collection initializations during // collection dirty checking:
 0,0,0,0,0,0,0,// See if the user configured a multiplexer stack
 0,0,0,0,0,0,0,//root entity comes *last*
-0,0,0,0,1,1,1,//==elementType ??
+0,0,0,0,0,0,0,//==elementType ??
 0,0,1,0,0,0,0,//scan the query string for class names appearing in the from clause and replace //with all persistent implementors of the class/interface, returning multiple //query strings (make sure we don't pick up a class in the select clause!)
 0,0,0,0,0,0,0,//identifier collections not supported for 1-to-many
 0,0,0,0,0,0,0,// potentialTrimCharacterArgIndex = 1 assumes that a // trim-specification has been specified.  we handle the // exception to that explicitly
@@ -600,7 +600,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// If this from element is a collection and the path is a collection property (maxIndex, etc.) then // generate a sub-query.
 0,0,0,0,0,0,0,//otherwise return the "hydrated" state (ie. associations are not resolved)
 0,0,0,0,0,0,0,// The name of the SQL function that transforms a string to lowercase
-0,0,0,0,1,1,1,//null owner ok??
+0,0,0,0,0,0,0,//null owner ok??
 0,0,0,0,0,0,0,// essentially, if the real session is closed allow any // method call to pass through since the real session // will complain by throwing an appropriate exception; // NOTE that allowing close() above has the same basic effect, //   but we capture that there simply to perform the unbind...
 0,0,0,0,0,0,0,// automatically makes a column with the default name if none is specifed by XML
 0,0,0,0,0,0,0,// just ignore
@@ -828,7 +828,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//now render the select clause
 0,0,0,0,0,0,0,// The keyword used to insert a row without specifying // any column values
 0,0,0,0,0,0,0,//now tie it all together
-0,0,0,0,1,1,1,// Does the LIMIT clause take a "maximum" row number instead of a total number of returned rows?
+0,0,0,0,0,0,0,// Does the LIMIT clause take a "maximum" row number instead of a total number of returned rows?
 0,0,0,0,0,0,0,//insert/update/delete SQL
 0,0,0,0,0,0,0,// The keyword used to specify a nullable column.
 0,0,0,0,0,0,0,//select SQL
@@ -910,7 +910,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// the MRU cache used to keep hard references to the most recently used query plans; // note : LRU here is a bit of a misnomer, it indicates that LRU entries are removed, the // actual kept entries are the MRU entries
 0,0,0,0,0,0,0,// early exit...
 0,0,0,0,0,0,0,// Handles things like: // a and b or c // a and ( b or c ) // not a and not b // not ( a and b ) // x between y and z            (overloaded "and") // x in ( a, b, c )             (overloaded brackets) // not not a // a is not null                (overloaded "not") // etc...... // and expressions like // foo = bar                    (maps to: foo.id = bar.id) // foo.Bar = 'foo'              (maps to: foo.bar = 'foo') // foo.Bar.Baz = 1.0            (maps to: foo.bar = bar.id and bar.baz = 1.0) // 1.0 = foo.Bar.Baz            (maps to: bar.baz = 1.0 and foo.Bar = bar.id) // foo.Bar.Baz = a.B.C          (maps to: bar.Baz = b.C and foo.Bar = bar.id and a.B = b.id) // foo.Bar.Baz + a.B.C          (maps to: bar.Baz + b.C and foo.Bar = bar.id and a.B = b.id) // ( foo.Bar.Baz + 1.0 ) < 2.0  (maps to: ( bar.Baz + 1.0 ) < 2.0 and foo.Bar = bar.id)
-0,0,0,0,1,1,1,// or should it actually throw an exception?
+0,0,0,0,0,0,0,// or should it actually throw an exception?
 0,0,0,0,0,0,0,// both many-to-one and one-to-one are represented as a // Property.  EntityPersister is relying on this value to // determine "lazy fetch groups" in terms of field-level // interception.  So we need to make sure that we return // true here for the case of many-to-one and one-to-one // with lazy="no-proxy" // // * impl note - lazy="no-proxy" currently forces both // lazy and unwrap to be set to true.  The other case we // are extremely interested in here is that of lazy="proxy" // where lazy is set to true, but unwrap is set to false. // thus we use both here under the assumption that this // return is really only ever used during persister // construction to determine the lazy property/field fetch // groupings.  If that assertion changes then this check // needs to change as well.  Partially, this is an issue with // the overloading of the term "lazy" here...
 0,0,0,0,0,0,0,// The property is a component...
 0,0,1,0,0,0,0,// the ids are fully resolved, so compare them with isDirty(), not isModified()
@@ -949,7 +949,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//special case ... this is the leaf of the containment graph, even though not immutable
 0,0,0,0,0,0,0,// iterate all the entities currently associated with the persistence context.
 0,0,0,0,0,0,0,// According to both the ANSI-SQL and JPA specs, trim takes a variable number of parameters between 1 and 4. // at least one paramer (trimSource) is required.  From the SQL spec: // // <trim function> ::= //      TRIM <left paren> <trim operands> <right paren> // // <trim operands> ::= //      [ [ <trim specification> ] [ <trim character> ] FROM ] <trim source> // // <trim specification> ::= //      LEADING //      | TRAILING //      | BOTH // // If <trim specification> is omitted, BOTH is assumed. // If <trim character> is omitted, space is assumed
-0,0,0,0,1,1,1,// does this entity entry pertain to the entity persister in which we are interested (owner)?
+0,0,0,0,0,0,0,// does this entity entry pertain to the entity persister in which we are interested (owner)?
 0,0,0,0,0,0,0,/////////////////////////////////////////////////////////////////////// // Prepare persisters and link them up with their cache // region/access-strategy
 0,0,0,0,0,0,0,//check if the managed object is the parent
 0,0,0,0,0,0,0,// Allows various loaders (ok mainly the QueryLoader :) to check // whether scrolling of their result set should be allowed. // // By default it is allowed.
@@ -1013,7 +1013,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// we found a collection element in the result set
 0,0,0,0,0,0,0,// this method is a noop if there is a Synchronization!
 0,0,0,0,0,0,0,// register the standard dialect resolver
-0,0,0,0,1,1,1,// why is all others non final ?
+0,0,0,0,0,0,0,// why is all others non final ?
 0,0,0,0,0,0,0,// even though we might find a pre-existing element by join path, we may not be able to reuse it...
 0,0,0,0,0,0,0,// HELLA IMPORTANT OPTIMIZATION!!!
 0,0,0,0,0,0,0,"/*return that.type.equals(type) && 			EqualsHelper.equals(that.value, value);*/"
@@ -1031,7 +1031,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Don't hold a transactional lock for this 
 0,0,0,0,0,0,0,// some collections are not lazy:
 0,0,0,0,0,0,0,// Fix up the resident flag
-0,0,0,0,1,1,1,// Does the LIMIT clause come at the start of the SELECT statement, rather than at the end?
+0,0,0,0,0,0,0,// Does the LIMIT clause come at the start of the SELECT statement, rather than at the end?
 0,0,0,0,0,0,0,// all AliasToEntityMapResultTransformer are considered equal ~~~~~~~~~~~~~
 0,0,0,0,0,0,0,//the following two lines were added to ensure that this.params is not null, which //can happen with two-deep nested subqueries
 0,0,0,0,0,0,0,// Set the attributes of the property reference expression.
@@ -1193,7 +1193,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//check basic level one nullablilty
 0,0,0,0,0,0,0,// Add a zero (or quite low) timeout option so we don't block. // Ignore any TimeoutException. Basically we forego caching the // query result in order to avoid blocking. // Reads are done with suspended tx, so they should not hold the // lock for long.  Not caching the query result is OK, since // any subsequent read will just see the old result with its // out-of-date timestamp; that result will be discarded and the // db query performed again.
 0,0,0,0,0,0,0,//values is not null and is checkable, we'll look deeper
-0,0,0,0,1,1,1,// Possibly handle :something parameters for the query ?
+0,0,0,0,0,0,0,// Possibly handle :something parameters for the query ?
 0,0,0,0,0,0,0,//for non null args, check for components and elements containing components
 0,0,0,0,0,0,0,// If we want to handle it bidirectional and detached, we also need to load this // collection with an eager outer-join fetch, this time with Criteria and not HQL:
 0,0,0,0,0,0,0,//cache the hashcode
@@ -1227,7 +1227,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Fetch Reader content up to the end - and put characters in a StringBuffer
 0,0,0,0,0,0,0,// Return StringBuffer content as a large String
 0,0,0,0,0,0,0,// The where clause was added to eliminate this statement from Brute Force Searches.
-0,0,0,0,1,1,1,//or Types.LONGVARCHAR?
+0,0,0,0,0,0,0,//or Types.LONGVARCHAR?
 0,0,0,1,1,1,1,//TODO
 0,0,0,0,0,0,0,// We ignore minimalPutOverride. JBossCache putForExternalRead is // already about as minimal as we can get; it will promptly return // if it discovers that the node we want to write to already exists
 0,0,0,0,0,0,0,// Forcefully remove leading ands from where fragments; the grammar will // handle adding them
@@ -1328,11 +1328,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// First, try to locate this resource through the current // context classloader.
 0,0,1,0,0,0,0,// Next, try to locate this resource through this class's classloader
 0,0,0,0,0,0,0,// Next, try to locate this resource through the system classloader
-0,0,0,0,1,1,1,// Anywhere else we should look?
+0,0,0,0,0,0,0,// Anywhere else we should look?
 0,0,0,0,0,0,0,// would need an IdentitySet for this!
 0,0,0,0,0,0,0,//Arrays.asList doesn't do primitive arrays
 0,0,0,0,0,0,0,// aload_0
-0,0,0,0,1,1,1,//faster?
+0,0,0,0,0,0,0,//faster?
 0,0,0,0,0,0,0,//pass the entity-name, if not a collection-id
 0,0,0,0,0,0,0,// right represents a joins originating from left; or // both right and left reprersent joins originating from the same FromElement
 0,0,0,0,0,0,0,// the name of a class
@@ -1488,7 +1488,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// evict() operations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 0,0,0,0,0,0,0,// get the id from the object
 0,0,0,0,0,0,0,// do the put outside the scope of the JTA txn
-0,0,0,0,1,1,1,//what is the version on the database?
+0,0,0,0,0,0,0,//what is the version on the database?
 0,0,0,0,0,0,0,/// HHH-2378
 0,0,0,0,0,0,0,//will result in a SQL UPDATE:
 0,0,0,0,0,0,0,//else do nothing (don't even reassociate object!)
@@ -1661,7 +1661,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// we are already processing a dot-structure
 0,0,0,0,0,0,0,// Should mean that no such property was found
 0,0,0,0,0,0,0,// Initialize the error handling delegate.
-0,0,0,0,1,1,1,// Was there an explicit select expression?
+0,0,0,0,0,0,0,// Was there an explicit select expression?
 0,0,0,0,0,0,0,// Resolve everything up to this dot, but don't resolve the placeholders yet.
 0,0,0,0,0,0,0,// (NOT (NOT_BETWEEN a b) ) => (BETWEEN a b)
 0,0,0,0,0,0,0,// Just add a 'not' parent.

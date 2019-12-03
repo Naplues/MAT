@@ -22,6 +22,7 @@
 'todo need better way this ',positive
 'todo need able set the tick tuple time the message timeout ideally without parameterization ',positive
 'connection unavailable will drop pending messages and let atleastonce message replay kick another option would buffer the messages memory but this option has the risk causing oom errors especially for topologies that disable message acking because dont know whether the connection recovery will succeed not and how long the recovery will take ',positive
+'todo add metrics ',positive
 'todo consider adding shuffle grouping after the spout avoid much routing the argsreturninfo all over the place least until its possible just pack bolt logic into the spout itself ',positive
 'this hack for nonras scheduler topology and worker resources ',positive
 'todo move this logic the model class ',positive
@@ -34,7 +35,6 @@
 'fixme this class can moved webapp once porting done ',positive
 'this isnt strictly necessary but doesnt hurt and ensures that the machine stays date even callbacks dont all work exactly right ',positive
 'work around should get alternative working way ',positive
-'the topology zookeeper authentication configuration unset ',positive
 'read last this should cause evicted next put ',positive
 'todo more collection content type checking ',positive
 'fixme were using default config since cannot serialized still needs provide some options externally ',positive
@@ -42,6 +42,7 @@
 'todo put some better exception mapping todo move populatecontext filter ',positive
 'should fail the batch kill the worker ',positive
 'getting the exact response code bit more complex todo should use better client ',positive
+'todo deduplicate this logic with the code nimbus ',positive
 'todo should worker even take the topologyid input this should deducible from cluster state searching through assignments what about theres inconsistency assignments but nimbus should guarantee this consistency param conf storm configuration param context param topologyid topology param assignmentid assignment param supervisorport parent supervisor thrift server port param port port which the worker runs param workerid worker ',positive
 'this bit ugly but shows how this would happen worker will use the same apis ',positive
 'fixme stores map topoconf topologycontext and expose these derived classes ',positive
@@ -64,6 +65,7 @@
 'todo the inner join incrementally emitting the cross join with this tuple against all other sides todo only cross join least one tuple each side ',positive
 'todo once everything java this should not possible any more ',positive
 'heck for backward compatibility need pass hbase conf the conf instance instance persistentmap making copy ',positive
+'todo handle regular rich spout without batches need lots updates support this throughout ',positive
 'this hack allow zookeepermain called this command ',positive
 'perhaps there better way this ',positive
 'todo can optimize further only querying backing map for keys not the cache ',positive
@@ -73,9 +75,9 @@
 'todo what would good test ensure that least somewhat defensively copied ',positive
 'todo the future want way include this logic the spout itself make unnecessary having storm include metadata about which grouping tuple came from ',positive
 'todo does this work well windows ',positive
-'filecontext supports atomic rename whereas filesystem doesnt ',positive
 'not enough guaranteed use the age the topology instead todo need good way only this once ',positive
 'use parsewithexception instead parse can capture deserialization errors the log they are likely bugs the spout code ',positive
+'todo add logging that not all tuples were received ',positive
 'todo take away knowledge storms internals here ',positive
 'todo should handle ref ',positive
 'todo make sure test these two functions manual tests ',positive
@@ -397,6 +399,7 @@
 '',negative
 'this class consists exclusively static factory mainmethods that create instances that are essential work with the jpmml library ',negative
 'seconds passed not timing out ',negative
+'its null one later transaction batch was emitted before this should skip this batch didnt exist and was created which case the stateinitializer was invoked and was emitted ',negative
 'end executor summary ',negative
 'test whether the integer power ',negative
 'release things that dont need wait for finish downloading ',negative
@@ -603,7 +606,6 @@
 'one time scheduling ',negative
 'regardless ticketrenewwindow setting above and the ticket expiry time thread will not sleep between refresh attempts any less than minute milliseconds minute ',negative
 'and wait for the message get through the spout acks use the same path timeout resets ',negative
-'todo add metrics ',negative
 'subprocesses must send their pid first thing ',negative
 'null for system bolt ',negative
 'assume that get doesnt have any families defined this for not digging deeply ',negative
@@ -1015,6 +1017,7 @@
 'interval which commit offsets milliseconds ',negative
 'remove the slot from the existing assignments ',negative
 'spout with parallel instances ',negative
+'the topology zookeeper authentication configuration unset ',negative
 'just ignore these for now are going throw away anyways ',negative
 'holds remaining streams ',negative
 'class that has the logic handle tuple failure ',negative
@@ -1345,7 +1348,6 @@
 'level longer idling with threadsleep ',negative
 'this does not have atomic worst case update when one not needed ',negative
 'the windows should persisted state ',negative
-'todo deduplicate this logic with the code nimbus ',negative
 'define our taskids and loads ',negative
 'test for supervisor admin ',negative
 'read another line and see another log entry was made ',negative
@@ -2219,7 +2221,6 @@
 'theres not enough bytes the buffer ',negative
 'oneproducerconsumer twoproducerconsumer producerfwdconsumer ',negative
 'should allowed retry times addition original try ',negative
-'todo handle regular rich spout without batches need lots updates support this throughout ',negative
 'check allowedworkers only the scheduler not the resource aware scheduler ',negative
 'check that trypublish tryoverflowpublish work expected ',negative
 'put tuple cause the first tuple acked ',negative
@@ -2748,6 +2749,7 @@
 'the jitter allows the clients get the data different times and avoids thundering herd ',negative
 'ranked last since rack has not cpu resources ',negative
 'read line and ack ',negative
+'filecontext supports atomic rename whereas filesystem doesnt ',negative
 'seconds milliseconds ',negative
 'use default stormgenerated file names ',negative
 'nothing expired yet ',negative
@@ -2852,7 +2854,6 @@
 'fail tuple and call nexttuple then fail tuple ',negative
 'this bolt dosent emit downstream bolts ',negative
 'check that reemit emits exactly the same tuples the last batch even kafka returns more messages ',negative
-'todo add logging that not all tuples were received ',negative
 'executelatencyms ',negative
 'each context will have single client channel worker event loop group ',negative
 'try find way merge this code with whats already done tridentboltexecutor ',negative
@@ -3501,6 +3502,7 @@
 'resolve references ',negative
 'for completeness ',negative
 'the topology are scheduling ',negative
+'the node already deleted nothing ',negative
 'should still fail ',negative
 'factories ',negative
 'test when supervisor fails ras does not alter existing assignments ',negative

@@ -57,7 +57,7 @@ Label, Type, Content
 0, Line, //  TODO - all this matching stuff is constant for a given DependencyMetadata instance
 0, Line, //  -----------------------------------------------   ---- Delegate CopySpec methods to rootSpec ----   ----------------------------------------------- 
 0, Line, //  Matches: task <identifier> <closure> 
-0, Line, // TODO move to base-services once the ProgressLogger dependency is removed
+1, Line, // TODO move to base-services once the ProgressLogger dependency is removed
 0, Line, //  Only for relative positioning 
 0, Line, //  Capture changes in execution outcome 
 0, Line, //  Mark this listener type as being notified 
@@ -150,7 +150,7 @@ Label, Type, Content
 0, Line, // prefix internal fields with _ so that they don't get into the way of propertyMissing() 
 0, Line, //  TODO validate that the plugin accepts this kind of argument
 0, Line, //  We must be on some Unix variant, including Cygwin or MSYS(2) on Windows... 
-0, Line, //  TODO(ew): inject BuildOperationIdentifierRegistry instead of static use 
+1, Line, //  TODO(ew): inject BuildOperationIdentifierRegistry instead of static use
 0, Line, //  Guard against TestNG calling this hook more than once with the same testClass.   See https://github.com/cbeust/testng/issues/1618 for details. 
 0, Line, //  Parallel configuration 
 1, Line, //  TODO:HH Use managed views for this, only applied when the respective language is applied
@@ -255,7 +255,7 @@ Label, Type, Content
 1, Line, //  This is not super nice, but dependencies are created through reflection, for decoration   and assume a constructor with 3 arguments (Group, Name, Version) which is suitable for   most cases. We could create an empty attribute set directly in the AbstractDependencyImpl,   but then it wouldn't be mutable. Therefore we proceed with "late injection" of the attributes 
 0, Line, //  Always expand empty node 
 0, Line, //  A dependency artifact will be defined if the descriptor specified a classifier or non-default type attribute. 
-0, Line, //  TODO(ew): Consider whether this belongs in Console or here 
+1, Line, //  TODO(ew): Consider whether this belongs in Console or here
 0, Line, //  stream has been closed, don't bother reading anything else 
 0, Line, //  only care about HTTP hosts right now 
 0, Line, //  Call return new <implClass>(param1) 
@@ -384,7 +384,7 @@ Label, Type, Content
 0, Line, //  TODO: Honor changes to build directory 
 0, Line, //  the target component exists, so we need to fallback to the traditional selection process 
 0, Line, //  happens when dispatching to taskdef via createNode() 
-1, Line, // is it sane enough? 
+0, Line, // is it sane enough?
 0, Line, //  Retain strong references to the values created for this session 
 0, Line, //  Configure test binary to compile against binary under test 
 0, Line, //  If this task uses a pre-compiled header 
@@ -1288,7 +1288,7 @@ Label, Type, Content
 0, Line, // without it, the parent hangs without receiving the message above (flushing does not help). 
 1, Line, //  TODO: we aren't considering the filter 
 0, Line, //  save name before redirect 
-0, Line, //  Send a end-of-line. This is a workaround to convince the console that the cursor is at the start of the line to avoid indenting the next line of text that is displayed   It would be better for the console to listen for stuff read from stdin that would also be echoed to the output and update its state based on this
+1, Line, //  Send a end-of-line. This is a workaround to convince the console that the cursor is at the start of the line to avoid indenting the next line of text that is displayed   It would be better for the console to listen for stuff read from stdin that would also be echoed to the output and update its state based on this
 0, Line, //  Wrap the result processor chain up in a blocking actor, to make the whole thing thread-safe 
 0, Line, //  HttpClient is used as a parameter of a public method 
 0, Line, //  Path is a descendant of this 
@@ -1529,7 +1529,7 @@ Label, Type, Content
 0, Line, //  Matches: task <method-call> 
 0, Line, //  Largest free block is too small 
 0, Line, //  This is a potential nested rule.   Visit method parameters 
-0, Line, // (SF) this is a workaround until this story is completed. I'm hardcoding setting the idle timeout to be max X mins.  this way we avoid potential runaway daemons that steal resources on linux and break builds on windows. 
+1, Line, // (SF) this is a workaround until this story is completed. I'm hardcoding setting the idle timeout to be max X mins.  this way we avoid potential runaway daemons that steal resources on linux and break builds on windows.
 0, Line, //  Generated script class name must be unique - take advantage of this to avoid delegation 
 0, Line, //  count from left of screen, 0 = left most   count from bottom of screen, 0 = bottom most, 1 == 2nd from bottom 
 0, Line, //  We need to update pending count outside of withLocks() so that we don't have a race   condition where the pending count is 0, but a child worker lease is still held when   the parent lease is released. 
@@ -1615,7 +1615,7 @@ Label, Type, Content
 0, Line, //  Alternate appending packages at beginning and end until we reach max length 
 0, Line, //  but all resolved ok 
 0, Line, // jdk5 does not have days, hours or minutes, normalizing to millis 
-0, Line, //  This is a workaround for https://issues.gradle.org/browse/GRADLE-3324.   Somehow the ArrayList 'result' in `org.sonatype.aether.impl.internal.Utils#sortMetadataGeneratorFactories` ends up   being a list of nulls on windows and IBM's 1.6 JDK. 
+1, Line, //  This is a workaround for https://issues.gradle.org/browse/GRADLE-3324.   Somehow the ArrayList 'result' in `org.sonatype.aether.impl.internal.Utils#sortMetadataGeneratorFactories` ends up   being a list of nulls on windows and IBM's 1.6 JDK.
 0, Line, //  Failure to select the target variant/configurations from this component, given the dependency attributes/metadata. 
 0, Line, //  All items are complete. Do not release project lock and simply collect failures. 
 0, Line, //  Serialize configuration to daemon via the process' stdin 
@@ -1799,7 +1799,7 @@ Label, Type, Content
 0, Line, //  TODO The scope information is superseded by test attributes. We can delete the corresponding code bits once we make sure that the majority of Buildship users use test sources.
 0, Line, //  If this configuration's version is in conflict, do not traverse.   If none of the incoming edges are transitive, remove previous state and do not traverse.   If not traversed before, simply add all selected outgoing edges (either hard or pending edges)   If traversed before:        If net exclusions for this node have not changed, ignore        If net exclusions for this node not changed, remove previous state and traverse outgoing edges again. 
 0, Line, //  Selected for the configuration 
-0, Line, //  TODO we are relying on the registration having established these links, we should be checking 
+1, Line, //  TODO we are relying on the registration having established these links, we should be checking
 0, Line, //  Forward output immediately when the focus is on this operation group 
 0, Line, //  Note that @CompileClasspath here is an approximation and must be fixed before de-incubating getAstTransformationClasspath()   See https://github.com/gradle/gradle/pull/9513 
 0, Line, //  This means the client has not reported memory usage yet 
@@ -2009,7 +2009,7 @@ Label, Type, Content
 0, Line, //  end::isolating-annotation-processor[] 
 0, Line, // (SF) This approach should generally work because at the moment we reset capturing output per suite  (see CaptureTestOutputTestResultProcessor) and that reset happens earlier in the chain.  So in theory when suite is completed, the output redirector has been already stopped  and there shouldn't be any output events passed  See also GRADLE-2035 
 0, Line, // when no daemon process has started yet 
-0, Line, //  This is a workaround for https://github.com/gradle/gradle-private/issues/1690 
+1, Line, //  This is a workaround for https://github.com/gradle/gradle-private/issues/1690
 0, Line, //  Dummy rule to cause the extension to be realized 
 0, Line, //  The registered nodes may contain nodes which are no longer selected.   We don't remove them from the list in the first place because it proved to be   slower than filtering as needed. 
 0, Line, //  This is necessary because for the Tooling Api compatibility runner, NativeServices   can get initialized in a different classloader, which then makes it broken and unusable   in the test class (because the native shared library is loaded from another classloader).   By initializing it here, we ensure that it is loaded from the classloader the test class   also uses. 
@@ -2042,7 +2042,7 @@ Label, Type, Content
 0, Line, //  Don't care, collect the files later (in the correct order) 
 0, Line, //  Mandatory 
 0, Line, //  Ensure we have a scope 
-0, Line, //  TODO: Fix tests that rely on this being set before we process arguments like this... 
+1, Line, //  TODO: Fix tests that rely on this being set before we process arguments like this...
 0, Line, //  Used by generated code 
 0, Line, //  This deals with the fact that in TestNG, there are no class-level events,   but we nevertheless want to see the class name. We use "." rather than   " > " as a separator to make it clear that the class is not a separate   level. This matters when configuring granularity. 
 0, Line, //  Drain the buffer before returning end-of-stream 
@@ -2116,7 +2116,7 @@ Label, Type, Content
 0, Line, //  we have not root source folder information for the grammar files,   so we don't force relativeOutput as we can't calculate it.   This results in flat generated sources in the output directory 
 1, Line, //  Do not use this. It's here because some of the services this type needs are not easily accessed in certain cases and will be removed ay some point. Use one of the other methods instead 
 0, Line, //  Gradle stuff 
-0, Line, //  TODO: should validate that clazz is of a non parameterized type 
+1, Line, //  TODO: should validate that clazz is of a non parameterized type
 0, Line, //  These fields are not covered by mutation lock 
 0, Line, //  Select all entry points. An entry point is a publication that does not contain a component whose parent is also published 
 0, Line, //  stack traces are filtered in call order (from bottom to top) 
@@ -2272,7 +2272,7 @@ Label, Type, Content
 0, Line, //  TODO - the suffix should be a deterministic function of the known and enabled annotations   For now, just assign using a counter
 0, Line, //  for tests using rich console standard out and error are combined in output of execution result 
 0, Line, // there is already registered conflict with at least one matching participant, hook up to this conflict 
-0, Line, //  TODO: We should see if we can go back to using HttpClient again.   This implementation is borrowed from the Apache HttpClient project   https://github.com/apache/httpclient/blob/4.2.2/httpclient/src/main/java/org/apache/http/conn/ssl/SSLSocketFactory.java#L246-L354 
+1, Line, //  TODO: We should see if we can go back to using HttpClient again.   This implementation is borrowed from the Apache HttpClient project   https://github.com/apache/httpclient/blob/4.2.2/httpclient/src/main/java/org/apache/http/conn/ssl/SSLSocketFactory.java#L246-L354
 0, Line, //  Contract requires build events are delivered by a single thread. This is taken care of by the daemon client when not in embedded mode   Need to apply some synchronization when in embedded mode 
 0, Line, //  end::custom-task-implementation[] 
 1, Line, //  TODO Change to Set? 
@@ -2541,7 +2541,7 @@ Label, Type, Content
 0, Line, //  Use the jar when nothing has been requested 
 0, Line, // InputStream originalIn = System.in; 
 0, Line, //  Decoration takes care of the implementation 
-0, JavaDoc, /*  * Exposes methods for those properties whose value is a closure. * * TODO: use composition instead of inheritance  */
+1, JavaDoc, /*  * Exposes methods for those properties whose value is a closure. * * TODO: use composition instead of inheritance  */
 0, Line, //  TODO hook this in to the (daemon) build lifecycle
 1, Line, //  Platform specific arguments   TODO: Need to lazily configure compile task
 1, Line, //  If this occurs while running gradle or running integration tests, it is indicative of a problem.   If this occurs while running unit tests, then either use the NativeServicesTestFixture or the '@UsesNativeServices' annotation. 
@@ -2635,7 +2635,7 @@ Label, Type, Content
 0, Line, //  Separate Java class because IBM JDK 6 -- See https://issues.apache.org/jira/browse/GROOVY-7010 
 0, Line, //  Update the state region 
 0, Line, //  Using an array here because we're going to iterate pretty often and it avoids the creation of an iterator   that checks for concurrent modification 
-0, Line, //  This is copied from Ant (see org.apache.tools.ant.util.FileUtils.tryHardToDelete).   It mentions that there is a bug in the Windows JDK impls that this is a valid   workaround for. I've been unable to find a definitive reference to this bug.   The thinking is that if this is good enough for Ant, it's good enough for us.
+1, Line, //  This is copied from Ant (see org.apache.tools.ant.util.FileUtils.tryHardToDelete).   It mentions that there is a bug in the Windows JDK impls that this is a valid   workaround for. I've been unable to find a definitive reference to this bug.   The thinking is that if this is good enough for Ant, it's good enough for us.
 1, Line, //  TODO Change this to only add SWIFT_API artifacts and instead parse modulemaps to discover compile task inputs
 0, Line, //  The download thread may still be running. Ignore any further status events from it 
 0, Line, //  Fall back to propertyMissing, if available 
@@ -2690,7 +2690,7 @@ Label, Type, Content
 1, Line, //  Rough implementation to get something to work 
 0, Line, //  Map the arguments of this expression 
 0, Line, // noinspection SuspiciousMethodCalls 
-0, Line, //  TODO: remove these special cases
+1, Line, //  TODO: remove these special cases
 0, Line, //  Don't retain the value, to allow ClassLoader to be collected 
 0, Line, //  Disallow custom services of type ServiceRegistry, as these are automatically provided 
 1, Line, //  TODO: This is not a great paradigm for creating a temporary directory.   See http://guava-libraries.googlecode.com/svn/tags/release08/javadoc/com/google/common/io/Files.html#createTempDir%28%29 for an alternative. 
@@ -2976,7 +2976,7 @@ Label, Type, Content
 0, Line, //  Could potentially coordinate with a thread that is snapshotting an overlapping directory tree 
 0, Line, //  Supported, nothing to do. 
 0, Line, //  If the module matches, add the root component into the mix 
-0, Line, //  TODO: maybe we need to allow additional dirs like SourceSetOutput does   (esp. for backwards compatibility). Wonder if it's still necessary to distinguish   between classes and resources dirs, instead of just maintaining a collection of dirs.   As far as generated resources are concerned, it might be better to model   them as an additional (Buildable) ResourceSet. 
+1, Line, //  TODO: maybe we need to allow additional dirs like SourceSetOutput does   (esp. for backwards compatibility). Wonder if it's still necessary to distinguish   between classes and resources dirs, instead of just maintaining a collection of dirs.   As far as generated resources are concerned, it might be better to model   them as an additional (Buildable) ResourceSet.
 1, Line, //  workaround for bug in TestNG 6.2 (apparently fixed in some 6.3.x): listener is notified twice per event 
 0, Line, //  Too many requests (not available through HttpStatus.XXX) 
 0, Line, //  Unpacks the request to serialize across to the daemon and creates instance of   TestExecutionRequestAction 
@@ -3093,7 +3093,7 @@ Label, Type, Content
 0, Line, //  We use a set here because for excludes, order of edges is irrelevant   so we hit the cache more by using a set 
 0, Line, //  NOTE: the space in the directory name is intentional
 0, Line, // browsers dont understand <a name="..."/> 
-1, Line, //  Is the cached version still current? 
+0, Line, //  Is the cached version still current?
 0, Line, //  Convert properties to ParallelismConfiguration object 
 0, Line, //  Delegate class is not visible to managed view type -> view type is more general than delegate type, so use the delegate classloader instead 
 0, Line, // module was already visited, there is a cycle 
@@ -3310,7 +3310,7 @@ Label, Type, Content
 0, Line, //  Catch any unchecked io exceptions and add the file path for troubleshooting 
 1, Line, //  Dumb terminal doesn't support ANSI control codes.   TODO - remove this when we use Terminal rather than JAnsi to render to console 
 0, Line, //  Historic note: this class still uses the Groovy JsonBuilder, as it was originally developed as a Groovy class. 
-0, Line, //  This is a workaround for https://github.com/gradle/gradle/issues/4241   Several early typed operations have `buildPath` property,   the value of which can only be determined after the settings file for the build has loaded.     The workaround is to buffer all operation notifications in memory until the root build's settings have loaded.   This works because all possible settings files have been evaluated by the time the root one has been.   This is not guaranteed to hold into the future.   A proper solution would be to change the operation details/results to be   truly immutable and convey values known at the time. 
+1, Line, //  This is a workaround for https://github.com/gradle/gradle/issues/4241   Several early typed operations have `buildPath` property,   the value of which can only be determined after the settings file for the build has loaded.     The workaround is to buffer all operation notifications in memory until the root build's settings have loaded.   This works because all possible settings files have been evaluated by the time the root one has been.   This is not guaranteed to hold into the future.   A proper solution would be to change the operation details/results to be   truly immutable and convey values known at the time.
 0, Line, //  Create a client that will not match any existing daemons, so it will always startup a new one 
 0, Line, //  try the owner 
 0, Line, //  Includes trailing '/' 
@@ -3320,7 +3320,7 @@ Label, Type, Content
 1, JavaDoc, /*  * An amount is an immutable value of some quantity, such as duration or length. Each amount has a decimal value and associated units. * * TODO - need to sort out scaling when dividing or converting between units.  */
 0, Line, //  For tests in default method of interface,   we might not be able to get the implementation class directly.   In this case, we need to retrieve test plan to get the real implementation class. 
 0, Line, //  Just read the state region 
-0, Line, //  TODO - move this to PropertyValue instead
+1, Line, //  TODO - move this to PropertyValue instead
 0, Line, //  The value is true if it is an output file, false if it is a parent of an output file 
 0, Line, //  Matches: task <identifier> or task(<identifier>) 
 0, Line, //  Hackery

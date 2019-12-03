@@ -50,14 +50,14 @@ SATD	 fixme these descriptions should probably moved out constantine project whi
 SATD	 fixme this below temporary but its much safer for cow prevents not shared strings with begin this allows now bytelistset not begin aware 
 SATD	 todo what about arg 
 SATD	 fixme think this chunk equivalent mri idname and not our public method idname make into method used more than once 
-SATD	 fixme this probably not very efficient since loads all main.methods for each call
+SATD	 fixme this probably not very efficient since loads all methods for each call 
 SATD	 hack replace usual readline with this 
 SATD	 get here found matching method use todo choose narrowest method continuing search 
 SATD	 todo this kinda gross 
 SATD	 fixme order for thread play well with the standard new behavior must provide allocator that can create empty object instances which initialize then fills with appropriate data 
 SATD	 these extra arrays are really unfortunate split some these paths out eliminate 
 SATD	 clone dynamic scope because this will new instance block any previously captured instances this block may still around and not want start overwriting those values when create new one enebo once make self lastclass and lastmethod immutable can remove duplicate 
-SATD	 todo protected main.methods this going require rework some the mechanism
+SATD	 todo protected methods this going require rework some the mechanism 
 SATD	 not overloaded add method that guesses which signature use todo just adding first one right nowadd signatureguessing logic 
 SATD	 sss fixme this should never get called for constant svalues 
 SATD	 todo this version better than the hackish previous one windows behavior needs defined though suppose this version could improved more too todo etcpasswd also inadequate for macosx since does not use etcpasswd for regular user accounts 
@@ -96,11 +96,11 @@ SATD	 todo for now use faithful reimplementation mris algorithm but should use u
 SATD	 dont have opt args start after args they will assigned later this for crap like def fooa true which numbers before fixme only starting after required args since opt args may access others and rest args conflicts with compileroot using indicate signature 
 SATD	 fixme determine real allocator needed here people want extend javaclass want them that can you classnewjavaclass should you able todo probably here since dont intend for people monkey with this type and cant marshalled confirm jruby 
 SATD	 grrr arghh want subclass but cant must all this the next lines code which has already been done floatingdecimal 
-SATD	 fixme really want declared main.methods includes privateprotected and does not include superclass main.methods also the getdeclared calls may throw securityexception were running under restrictive security policy
+SATD	 fixme really want declared methods includes privateprotected and does not include superclass methods also the getdeclared calls may throw securityexception were running under restrictive security policy 
 SATD	 small hack save cast later 
 SATD	 this perhaps innefficient timewise optimal spacewise 
 SATD	 todo confirm expected args are irubyobject similar 
-SATD	 theres not compelling reason keep javaclass instances weak map any proxies created are were kept nonweak map most cases they will stick around anyway and some good reasons not javaclass creation expensive for one many lookups are performed when passing parameters tofrom main.methods etc todo faster custom concurrent map
+SATD	 theres not compelling reason keep javaclass instances weak map any proxies created are were kept nonweak map most cases they will stick around anyway and some good reasons not javaclass creation expensive for one many lookups are performed when passing parameters tofrom methods etc todo faster custom concurrent map 
 SATD	 todo check for java reserved names and raise exception encountered 
 SATD	 fixme jruby ends with condition returning nullquick fix until can dig into 
 SATD	 workaround for bug suns jdk see 
@@ -117,14 +117,14 @@ SATD	 fixme maybe not best place but move good home
 SATD	 todo may here but its unclear how structs work with marshalling confirm behavior and ensure were doing this correctly jruby 
 SATD	 todo should next and return also catch here 
 SATD	 always prepend orgjrubyproxy package the beginning because java and javax packages are protected and signed jars prevent generating new classes with those package names see jruby 
-SATD	 todo should able optimize this quite bit post javaclass already has all the main.methods organized method name the next version supporting protected methodsfields will have them organized even further collectmethods here can just lookup the overridden main.methods the javaclass map should much faster
+SATD	 todo should able optimize this quite bit post javaclass already has all the methods organized method name the next version supporting protected methodsfields will have them organized even further collectmethods here can just lookup the overridden methods the javaclass map should much faster 
 SATD	 index for the item this could probably more efficient bailing out assigning args past the end 
 SATD	 todo make more efficient not creating irubyarray 
-SATD	 rbmodremovecvar fixme any good reason have two identical main.methods same removeclassvariable
+SATD	 rbmodremovecvar fixme any good reason have two identical methods same removeclassvariable 
 SATD	 from dupsetup rbcopygenericivar from dupsetup here unlikely 
 SATD	 its singlearg when but contains array know its real literal array fixme this gross way figure out parser help similar yield argument passing expandarguments would better 
 SATD	 todo only setaccessible account for pattern found accessing constants included from nonpublic interface aka being implemented many classes 
-SATD	 not intended called directly users private old todo from ruby code this should implemented javaclassjava where can check for reserved ruby names conflicting main.methods etc
+SATD	 not intended called directly users private old todo from ruby code this should implemented javaclassjava where can check for reserved ruby names conflicting methods etc 
 SATD	 fixme dont allow multiple threads this once 
 SATD	 todo bleeding runtime into parser arity may should parser keep bleeding oneway 
 SATD	 rbarypushm fixme whis this named pushm 
@@ -137,7 +137,7 @@ SATD	 process streams get channelnewchanneled into filechannel but are not actua
 SATD	 fixme somehow feel better this could get the appropriate var index from the argumentnode 
 SATD	 fixme can get optimized for ieqlnode 
 SATD	 todo rounding mode should not hardcoded see mode 
-SATD	 fixme moved this here get whats obviously utility method out irubyobject perhaps security main.methods should find their own centralized home some point
+SATD	 fixme moved this here get whats obviously utility method out irubyobject perhaps security methods should find their own centralized home some point 
 SATD	 fixme nativeexception expected used from ruby code should provide real allocator used otherwise classnew will fail will marshalling jruby 
 SATD	 objecttoa obsolete match rubys hack until toa goes away then can remove this hack too 
 SATD	 todo callback for value would more efficient but unlikely big cost constants are rarely assigned 
@@ -148,9 +148,9 @@ SATD	 add new with full signature its guaranteed directly accessible todo need f
 SATD	 context null wipe out the softreference this could done with reference queue 
 SATD	 todo remove 
 SATD	 fixme big fat hack here because scope names are expected interned strings the parser 
-SATD	 todo this actually now returning the scope whoever called methodtoproc which obviously wrong but theres scope provide for many main.methods fixes jruby but needs better solution
+SATD	 todo this actually now returning the scope whoever called methodtoproc which obviously wrong but theres scope provide for many methods fixes jruby but needs better solution 
 SATD	 author headius fixme convert enum 
-SATD	 the following three main.methods must defined fast since they expect modify the current frame they expect frame will allocated for them jruby
+SATD	 the following three methods must defined fast since they expect modify the current frame they expect frame will allocated for them jruby 
 SATD	 todo probably here since dont intend for people monkey with this type and cant marshalled confirm jruby 
 SATD	 sss fixme can this return anything other than nil 
 SATD	 xxx const lookup can trigger constmissing that enough warrant always being executed 
@@ -223,7 +223,7 @@ SATD	 dont bother check final method wont there not generated cant
 SATD	 todo generalize this typechecking code into irubyobject helper 
 SATD	 fixme needs rethought 
 SATD	 ruby constants for strings should this moved somewhere else 
-SATD	 lets only generate main.methods for those the user may actually intend override that includes any defined the current class and any ancestors that are also javaproxyclasses but none from any other ancestor classes main.methods defined mixins will considered intentionally overridden except those from kernel java and javaproxymethods well enumerable todo may want exclude other common mixins
+SATD	 lets only generate methods for those the user may actually intend override that includes any defined the current class and any ancestors that are also javaproxyclasses but none from any other ancestor classes methods defined mixins will considered intentionally overridden except those from kernel java and javaproxymethods well enumerable todo may want exclude other common mixins 
 SATD	 fixme dont like the null checks here 
 SATD	 invoke callmethodmissing method directly todo this could further optimized since some dsls hit methodmissing pretty hard 
 SATD	 todo this really ineffient and potentially problem everytime anyone requires something should try make loadpath special array object 
@@ -258,10 +258,10 @@ SATD	 todo implement tty and isatty have real capability determine this from jav
 SATD	 fixme should getting this from the runtime rather than assume none return 
 SATD	 end hack 
 SATD	 todo this isnt exact port mris pipe behavior revisit 
-SATD	 todo protected main.methods this going require rework some the mechanism
+SATD	 todo protected methods this going require rework some the mechanism 
 SATD	 fixme what should this really assert instanceof rubycomplex 
 SATD	 fixme this isnt right for within ensuredrescued code 
-SATD	 sss fixme token can final for method implying that the token only for this particular implementation the method but the mehod modified create new method object which turn gets new token what makes sense intuitively seems the first one but let see current code version token for this method can change during execution main.methods get redefined
+SATD	 sss fixme token can final for method implying that the token only for this particular implementation the method but the mehod modified create new method object which turn gets new token what makes sense intuitively seems the first one but let see current code version token for this method can change during execution methods get redefined 
 SATD	 todo would nice throw better error for this 
 SATD	 set field for the cacheentry todo make this array its not much class metadata similar abstractscript stuff 
 SATD	 todo newtypeerror does not offer enough for ruby error string 
@@ -287,8 +287,8 @@ SATD	 todo exec should replace the current process this could possible with jna
 SATD	 sometimes the value can retrieved compile time succeed nothing like might not for the following reasons the constant missing the reference forwardreference the constants value only known runtime firstaccess but this runtime isnt our compiler isnt able right away infer that this constant sss fixme the operand can literal array range hash hence operand because array range and hash derive from operand and not constant there way fix this impedance mismatch should possible handle the forwardreference case creating new forwardreference operand and then inform the scope the forward reference which the scope can fix when the reference gets defined codegen time the reference unresolved when value retrieved for the forwardref and get null can throw constmissing exception not sure 
 SATD	 fixme probably not right here since might eventually want javaarray marshallable jruby 
 SATD	 todo this probably bad 
-SATD	 fixme really want declared main.methods includes privateprotected and does not include superclass main.methods
-SATD	 fixme shouldnt need javaovrdmethods just query locally defined main.methods
+SATD	 fixme really want declared methods includes privateprotected and does not include superclass methods 
+SATD	 fixme shouldnt need javaovrdmethods just query locally defined methods 
 SATD	 todo call config with scope but frame 
 SATD	 todo ruby truncates string specific size here but our bytelist should handle this already 
 SATD	 todo clonesetup here 
@@ -341,10 +341,10 @@ SATD	 sss fixme somewhere here need record information the type this operand str
 SATD	 xxx check its appropriate type 
 SATD	 fixme translate this call below sunwrappassedblock 
 SATD	 sublistclear sublist supposed share same backing store listtodo rubyarray asserttruelistsize 
-SATD	 sss fixme need build debug information tracking into the some fashion these main.methods below would have have equivalents irscope implementations
+SATD	 sss fixme need build debug information tracking into the some fashion these methods below would have have equivalents irscope implementations 
 SATD	 fix replace type with isinstanceof 
 SATD	 sss fixme incomplete 
-SATD	 sss fixme pick one bytelist string add internal conversion main.methods convert the default representation
+SATD	 sss fixme pick one bytelist string add internal conversion methods convert the default representation 
 SATD	 todo check too many open files and try again 
 SATD	 sss fixme cannot optimize this without assuming that rangetoary method has not redefined for now return null 
 SATD	 todo this and recacherespondsto needed synchronized for jruby but this degraded performance nearly its still faster than mri but reanalysis this code may show faster way ensure were caching safely 
@@ -361,14 +361,14 @@ SATD	 not already defined add new that guesses which signature use todo just add
 SATD	 fixme make thread pool threads daemons necessary 
 SATD	 filter out any java primitive names todo should check against all java reserved names here not just primitives 
 SATD	 todo can probably release our references the constantfields array and staticinstance callback hashes this point 
-SATD	 not clone cached main.methods fixme mri copies all main.methods here
+SATD	 not clone cached methods fixme mri copies all methods here 
 SATD	 todo check safe taint incoming string 
 SATD	 todo mri just when node need this extra logic for ide consumers null casenode statement should implicit nil 
 SATD	 todo formalize conversion mechanisms between java and ruby 
 SATD	 fixme when get jna need properly write this errno 
 SATD	 todo turn off readable reading this right this only seems used while duping below since modes gets reset actual modes afterward fptrmode fmodereadable fmodereadable fmodewritable 
 SATD	 todo someday enable 
-SATD	 bunch main.methods still not implemented
+SATD	 bunch methods still not implemented 
 SATD	 todo make cross runtime safe cow eager copy 
 SATD	 todo dont calculate the same value times 
 SATD	 todo notify threads waiting descriptorsio probably not 
@@ -383,13 +383,13 @@ SATD	 todo this should something else like tchar
 SATD	 todo ruby rechecks that the buffer string hasnt been modified 
 WITHOUT_CLASSIFICATION	 and shift the result back the left multiply absscale 
 WITHOUT_CLASSIFICATION	 exceptionnext target for next that doesnt push new value like this one 
-WITHOUT_CLASSIFICATION	 static main.methods only
+WITHOUT_CLASSIFICATION	 static methods only 
 WITHOUT_CLASSIFICATION	 prepare call class definition method 
 WITHOUT_CLASSIFICATION	 inside loop break out end loop leaving break value stack 
 WITHOUT_CLASSIFICATION	 interrupt the target thread case its blocking waiting warning longer interrupt the target thread since this usually means interrupting and with nio that means the channel longer usable either need new way handle waking target thread thats waiting need accept that cant wake such threads and must wait for them complete their operation threadimplinterrupt 
 WITHOUT_CLASSIFICATION	 ignore switch 
 WITHOUT_CLASSIFICATION	 switch 
-WITHOUT_CLASSIFICATION	 element count less than use helper main.methods
+WITHOUT_CLASSIFICATION	 element count less than use helper methods 
 WITHOUT_CLASSIFICATION	 todo ruby logic somewhat more complicated here see comments after 
 WITHOUT_CLASSIFICATION	 return last value from execution 
 WITHOUT_CLASSIFICATION	 rbencmbclen 
@@ -427,7 +427,7 @@ WITHOUT_CLASSIFICATION	 special form sprintf that returns rubystring and handles
 WITHOUT_CLASSIFICATION	 otherwise decrement and possibly close normal 
 WITHOUT_CLASSIFICATION	 last index accessed next last index accessed get 
 WITHOUT_CLASSIFICATION	 isfoo foo isfoo foo 
-WITHOUT_CLASSIFICATION	 logevery main.methods based configuration
+WITHOUT_CLASSIFICATION	 logevery methods based configuration 
 WITHOUT_CLASSIFICATION	 get the value from the map via the key 
 WITHOUT_CLASSIFICATION	 finally grab the script 
 WITHOUT_CLASSIFICATION	 only whitespace allowed after value for strict 
@@ -494,7 +494,7 @@ WITHOUT_CLASSIFICATION	 for sockets only write much will fit
 WITHOUT_CLASSIFICATION	 its safe since adlerupdate doesnt modify the array 
 WITHOUT_CLASSIFICATION	 redonode redonode redonodenode 
 WITHOUT_CLASSIFICATION	 too big for 
-WITHOUT_CLASSIFICATION	 instance variable main.methods
+WITHOUT_CLASSIFICATION	 instance variable methods 
 WITHOUT_CLASSIFICATION	 assign appropriate variable 
 WITHOUT_CLASSIFICATION	 skip all whitespace pack format string 
 WITHOUT_CLASSIFICATION	 head must not null and there must args like arg 
@@ -538,7 +538,7 @@ WITHOUT_CLASSIFICATION	 reopen
 WITHOUT_CLASSIFICATION	 long bigendian 
 WITHOUT_CLASSIFICATION	 systemerrprintln 
 WITHOUT_CLASSIFICATION	 certain places like grep dont use real frames for the call blocks this has the effect not setting the backref the correct frame this delta activated the place where the grep running that the backref will set appropriate place 
-WITHOUT_CLASSIFICATION	 argf main.methods
+WITHOUT_CLASSIFICATION	 argf methods 
 WITHOUT_CLASSIFICATION	 nothing allow loop redo 
 WITHOUT_CLASSIFICATION	 systemerrprintln stringtolongreading datas 
 WITHOUT_CLASSIFICATION	 even shift floors bit biginteger 
@@ -555,7 +555,7 @@ WITHOUT_CLASSIFICATION	 not normally used but left here since can useful debuggi
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 position within source must reflect the actual offset and column since ate extra character here this accounting normally done read should update position info 
 WITHOUT_CLASSIFICATION	 colon assign object 
-WITHOUT_CLASSIFICATION	 synthetic main.methods always have zero arg parameters
+WITHOUT_CLASSIFICATION	 synthetic methods always have zero arg parameters 
 WITHOUT_CLASSIFICATION	 last node either instanceof whennode null the else 
 WITHOUT_CLASSIFICATION	 are presumably running precompiled class load directly 
 WITHOUT_CLASSIFICATION	 send with literal symbol compile direct fcall 
@@ -634,7 +634,7 @@ WITHOUT_CLASSIFICATION	 putting bit back were not eof anymore
 WITHOUT_CLASSIFICATION	 yylen 
 WITHOUT_CLASSIFICATION	 boolean true file exists and socket 
 WITHOUT_CLASSIFICATION	 save entering the try theres nothing ensure 
-WITHOUT_CLASSIFICATION	 common constant cvar main.methods
+WITHOUT_CLASSIFICATION	 common constant cvar methods 
 WITHOUT_CLASSIFICATION	 false 
 WITHOUT_CLASSIFICATION	 then try suns unsafe 
 WITHOUT_CLASSIFICATION	 printed 
@@ -653,7 +653,7 @@ WITHOUT_CLASSIFICATION	 method body with containing loop issue jump error load r
 WITHOUT_CLASSIFICATION	 store each line into this list not null 
 WITHOUT_CLASSIFICATION	 default output handle 
 WITHOUT_CLASSIFICATION	 only arrays that are lightweight are being used args arrays 
-WITHOUT_CLASSIFICATION	 instance main.methods
+WITHOUT_CLASSIFICATION	 instance methods 
 WITHOUT_CLASSIFICATION	 explode array its internal args array 
 WITHOUT_CLASSIFICATION	 rangeeachfuncrange stepi args 
 WITHOUT_CLASSIFICATION	 decimal form like but not just like 
@@ -686,7 +686,7 @@ WITHOUT_CLASSIFICATION	 the method doesnt need scope but has static scope needs 
 WITHOUT_CLASSIFICATION	 mark captured from containing scope 
 WITHOUT_CLASSIFICATION	 note serialization primarily supported for testing purposes and there general guarantee that serialization will work correctly specifically instance variables pointing symbols threads modules classes and other unserializable types are not detected 
 WITHOUT_CLASSIFICATION	 such luck 
-WITHOUT_CLASSIFICATION	 new factory main.methods
+WITHOUT_CLASSIFICATION	 new factory methods 
 WITHOUT_CLASSIFICATION	 equivalent datagetstruct this will first check that the object question actually tdata equivalent 
 WITHOUT_CLASSIFICATION	 wake any channels that became unblocked 
 WITHOUT_CLASSIFICATION	 know this block scope because local scope cannot within local scope topscope was itself would have created localasgnnode above 
@@ -812,14 +812,14 @@ WITHOUT_CLASSIFICATION	 complete the request filling the read buffer first
 WITHOUT_CLASSIFICATION	 through negated powers until find one small enough 
 WITHOUT_CLASSIFICATION	 public interface 
 WITHOUT_CLASSIFICATION	 add the corresponding positive power for the result meaningful conformant yes just write the code 
-WITHOUT_CLASSIFICATION	 its array only add main.methods for aref aset and length
+WITHOUT_CLASSIFICATION	 its array only add methods for aref aset and length 
 WITHOUT_CLASSIFICATION	 attribute set 
 WITHOUT_CLASSIFICATION	 avoid doublecopying for reads that are larger than the buffer size 
 WITHOUT_CLASSIFICATION	 identity equality 
 WITHOUT_CLASSIFICATION	 additional context surrounding tokens that both the lexer and grammar use 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 mri behavior null byte after leads string null byte other places like leads error 
-WITHOUT_CLASSIFICATION	 get the control flow graph for this scope only valid for main.methods closures
+WITHOUT_CLASSIFICATION	 get the control flow graph for this scope only valid for methods closures 
 WITHOUT_CLASSIFICATION	 least significant bits 
 WITHOUT_CLASSIFICATION	 check current directory file exists retrieve url and return resource 
 WITHOUT_CLASSIFICATION	 drop through for sign 
@@ -834,7 +834,7 @@ WITHOUT_CLASSIFICATION	 trim extension try other options
 WITHOUT_CLASSIFICATION	 more values stick rest arg 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 argslength 
-WITHOUT_CLASSIFICATION	 these main.methods below are used during compiletime optimizations
+WITHOUT_CLASSIFICATION	 these methods below are used during compiletime optimizations 
 WITHOUT_CLASSIFICATION	 done with closure compilation 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
@@ -842,7 +842,7 @@ WITHOUT_CLASSIFICATION	 notify thread proceed
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 note since are processing asts loop bodies are processed depthfirst manner with outer loops encountered before inner loops and inner loops finished before outer ones can keep track loops loop stack which keeps track loops they are encountered this lets implement nextredobreakretry easily for the nonclosure cases 
-WITHOUT_CLASSIFICATION	 arg grouping just use bulk assignment main.methods
+WITHOUT_CLASSIFICATION	 arg grouping just use bulk assignment methods 
 WITHOUT_CLASSIFICATION	 should run this pass the current scope before running nested scopes 
 WITHOUT_CLASSIFICATION	 first try use drive letter from supplied dir value then try current work dir 
 WITHOUT_CLASSIFICATION	 line 
@@ -856,7 +856,7 @@ WITHOUT_CLASSIFICATION	 invoke method
 WITHOUT_CLASSIFICATION	 optargs and restargs require more work isolate them and arraylist creation here 
 WITHOUT_CLASSIFICATION	 check were stdio and ensure were not badly mutilated 
 WITHOUT_CLASSIFICATION	 rounding neccessary 
-WITHOUT_CLASSIFICATION	 jruby aliasing eval and other special main.methods should display warning warn because treat certain method names special for purposes optimization hopefully this will enough convince people not alias them
+WITHOUT_CLASSIFICATION	 jruby aliasing eval and other special methods should display warning warn because treat certain method names special for purposes optimization hopefully this will enough convince people not alias them 
 WITHOUT_CLASSIFICATION	 statej xffffffffl 
 WITHOUT_CLASSIFICATION	 start setup method 
 WITHOUT_CLASSIFICATION	 get self 
@@ -887,7 +887,7 @@ WITHOUT_CLASSIFICATION	 mri behavior for not add trailing nils
 WITHOUT_CLASSIFICATION	 mri behavior digits the result the same the operator 
 WITHOUT_CLASSIFICATION	 systemerrprintln figureoutbasebase base 
 WITHOUT_CLASSIFICATION	 result evalarr arrayc arr assertequalsc result result evalarr arrayd arr assertequalsd result 
-WITHOUT_CLASSIFICATION	 only public main.methods
+WITHOUT_CLASSIFICATION	 only public methods 
 WITHOUT_CLASSIFICATION	 initialize all flow graph nodes 
 WITHOUT_CLASSIFICATION	 see module chaincannot match against itself start superclass 
 WITHOUT_CLASSIFICATION	 rbreginitializestr 
@@ -919,7 +919,7 @@ WITHOUT_CLASSIFICATION	 how far ahead are when reading
 WITHOUT_CLASSIFICATION	 str 
 WITHOUT_CLASSIFICATION	 the cache full abandon jit for this method and bail out 
 WITHOUT_CLASSIFICATION	 line 
-WITHOUT_CLASSIFICATION	 need collect all main.methods though well only install the ones that are named this class
+WITHOUT_CLASSIFICATION	 need collect all methods though well only install the ones that are named this class 
 WITHOUT_CLASSIFICATION	 portion line right after beginning marker 
 WITHOUT_CLASSIFICATION	 case when the number occurences explicitly specified have read the remaining garbage after the satisfy the requested pattern 
 WITHOUT_CLASSIFICATION	 define actual list get around bug java integration 
@@ -940,17 +940,17 @@ WITHOUT_CLASSIFICATION	 captures begin and end are used when not groups defined 
 WITHOUT_CLASSIFICATION	 new string getvalue 
 WITHOUT_CLASSIFICATION	 this method takes input map operands their values and outputs the value map provides value for any the instructions operands this method expected replace the original operands with the simplified values not required that code correctness not compromised failure simplify 
 WITHOUT_CLASSIFICATION	 was not found all 
-WITHOUT_CLASSIFICATION	 singleton main.methods
+WITHOUT_CLASSIFICATION	 singleton methods 
 WITHOUT_CLASSIFICATION	 see already have this descriptor open then can mostly share the handler keep open file but possibly change the mode 
 WITHOUT_CLASSIFICATION	 class method 
-WITHOUT_CLASSIFICATION	 not synchronizing these main.methods harm these values get set more than once also note that theres chance getting partially initialized classmodule happensbefore guaranteed volatile writeread constants table
+WITHOUT_CLASSIFICATION	 not synchronizing these methods harm these values get set more than once also note that theres chance getting partially initialized classmodule happensbefore guaranteed volatile writeread constants table 
 WITHOUT_CLASSIFICATION	 for bfoo 
-WITHOUT_CLASSIFICATION	 does this method define code default yes which basically leads pessimistic but safe optimizations but for library and internal main.methods this might false
+WITHOUT_CLASSIFICATION	 does this method define code default yes which basically leads pessimistic but safe optimizations but for library and internal methods this might false 
 WITHOUT_CLASSIFICATION	 not closing from finalize 
 WITHOUT_CLASSIFICATION	 note this method produces meaningful results only for rubyio objects for everything else returns 
 WITHOUT_CLASSIFICATION	 yield here hopefully permit the target thread schedule mri immediately schedules this close but not exact 
 WITHOUT_CLASSIFICATION	 instance config for the script run 
-WITHOUT_CLASSIFICATION	 special classes like are inner classes that are private but implement public interfaces their main.methods are all public main.methods for the public interface let these public main.methods execute via setaccessibletrue
+WITHOUT_CLASSIFICATION	 special classes like are inner classes that are private but implement public interfaces their methods are all public methods for the public interface let these public methods execute via setaccessibletrue 
 WITHOUT_CLASSIFICATION	 have more than one arg make sure the array created contain them not objectspaced 
 WITHOUT_CLASSIFICATION	 wire functioncallargs use the superfast native invokers 
 WITHOUT_CLASSIFICATION	 line 
@@ -1001,7 +1001,7 @@ WITHOUT_CLASSIFICATION	 args should before block
 WITHOUT_CLASSIFICATION	 the solution has changed add dsts the work list duplicates please which why have bbset 
 WITHOUT_CLASSIFICATION	 optiontostr 
 WITHOUT_CLASSIFICATION	 construct the toplevel execution frame and scope for the main thread 
-WITHOUT_CLASSIFICATION	 helper main.methods
+WITHOUT_CLASSIFICATION	 helper methods 
 WITHOUT_CLASSIFICATION	 this instruction live dead during optimization passes this instruction causes sideeffects and the result the instruction not needed anyone else can remove this instruction altogether without affecting program correctness 
 WITHOUT_CLASSIFICATION	 check the values obtained via different means 
 WITHOUT_CLASSIFICATION	 not true eval value and assign 
@@ -1052,7 +1052,7 @@ WITHOUT_CLASSIFICATION	 let the width any get processed the next loop any leadin
 WITHOUT_CLASSIFICATION	 got nonzero have own our horded zeroes 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 case rubyhybrid backtrace backtraceframes javastacktrace break 
-WITHOUT_CLASSIFICATION	 add the jitted main.methods set
+WITHOUT_CLASSIFICATION	 add the jitted methods set 
 WITHOUT_CLASSIFICATION	 adding postinvoke for the result serves both keep alive until after the function returns and allows clean the native trampoline early instead letting them accumulate until run 
 WITHOUT_CLASSIFICATION	 assertsamescript script 
 WITHOUT_CLASSIFICATION	 this test really means that this rubydefined subclass java class 
@@ -1155,7 +1155,7 @@ WITHOUT_CLASSIFICATION	 decrease value hit upper range
 WITHOUT_CLASSIFICATION	 entry the first element this bucket 
 WITHOUT_CLASSIFICATION	 keyword keyword tempvallength 
 WITHOUT_CLASSIFICATION	 compile first node nonexpr and then second node 
-WITHOUT_CLASSIFICATION	 for each simple method name implement the complex main.methods calling the simple version
+WITHOUT_CLASSIFICATION	 for each simple method name implement the complex methods calling the simple version 
 WITHOUT_CLASSIFICATION	 caching constructors theyre accessed for each new instance 
 WITHOUT_CLASSIFICATION	 boolean true file exists and has zero length 
 WITHOUT_CLASSIFICATION	 mri behavior 
@@ -1166,8 +1166,8 @@ WITHOUT_CLASSIFICATION	 otherwise one key has been selected ours get the channel
 WITHOUT_CLASSIFICATION	 lax strtof allows underscores between and sign 
 WITHOUT_CLASSIFICATION	 file not given 
 WITHOUT_CLASSIFICATION	 provider not available 
-WITHOUT_CLASSIFICATION	 set all java main.methods optional since manymost have overloads
-WITHOUT_CLASSIFICATION	 implement called force this class create stubs for all main.methods the given interface theyll show the list main.methods and invocable without passing through methodmissing
+WITHOUT_CLASSIFICATION	 set all java methods optional since manymost have overloads 
+WITHOUT_CLASSIFICATION	 implement called force this class create stubs for all methods the given interface theyll show the list methods and invocable without passing through methodmissing 
 WITHOUT_CLASSIFICATION	 first iterate over all pre args 
 WITHOUT_CLASSIFICATION	 dont override numericdiv 
 WITHOUT_CLASSIFICATION	 block 
@@ -1184,13 +1184,13 @@ WITHOUT_CLASSIFICATION	 block argument the method closure present class present 
 WITHOUT_CLASSIFICATION	 for all uninitialized specific arities defer the method which should raise appropriate error all cases 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 case instructions are dummy instructions all whenthen clauses have been converted into ifthenelse blocks 
-WITHOUT_CLASSIFICATION	 look for mangling markers for bound framed main.methods class name
+WITHOUT_CLASSIFICATION	 look for mangling markers for bound framed methods class name 
 WITHOUT_CLASSIFICATION	 build closure body and return the result the closure 
 WITHOUT_CLASSIFICATION	 mri behavior dont print errno for actual errno errors 
 WITHOUT_CLASSIFICATION	 numericequal 
 WITHOUT_CLASSIFICATION	 copy and splat arguments out the scope use for zsuper call 
 WITHOUT_CLASSIFICATION	 leave null and fall back our normal invocation logic 
-WITHOUT_CLASSIFICATION	 set utility main.methods for javabased proxy objects
+WITHOUT_CLASSIFICATION	 set utility methods for javabased proxy objects 
 WITHOUT_CLASSIFICATION	 reset the loadtestvar 
 WITHOUT_CLASSIFICATION	 all errors sysread should systemcallerrors but closed stream ruby returns ioerror java throws same exception for all errors resort this hack 
 WITHOUT_CLASSIFICATION	 were woken without being selectedpoll for thread events and back sleep 
@@ -1219,7 +1219,7 @@ WITHOUT_CLASSIFICATION	 irubyobject rubyclass cacheentry threadcontext irubyobje
 WITHOUT_CLASSIFICATION	 nonsignature signature with just irubyobject 
 WITHOUT_CLASSIFICATION	 enebo isarg but need break apart for support 
 WITHOUT_CLASSIFICATION	 first build assignments for specific named arguments 
-WITHOUT_CLASSIFICATION	 instance variable ruby main.methods
+WITHOUT_CLASSIFICATION	 instance variable ruby methods 
 WITHOUT_CLASSIFICATION	 public object invokeobject receiver object arg object arg object arg object arg throw fail public object invokeobject receiver object arg object arg object arg object arg object arg throw fail 
 WITHOUT_CLASSIFICATION	 the counting slashes that follows simply way adhere rubys unc something compatibility when rubys expandpath called with foobar will return foobar jruby uses javaiofile and hence returns foobar order retain javaiofile the lower layers and provide full ruby compatibility the number extra slashes must counted and prepended the result 
 WITHOUT_CLASSIFICATION	 will have trailing 
@@ -1238,7 +1238,7 @@ WITHOUT_CLASSIFICATION	 doesnt handle special cases
 WITHOUT_CLASSIFICATION	 truncate buffer string zero provided 
 WITHOUT_CLASSIFICATION	 save blocking state 
 WITHOUT_CLASSIFICATION	 the java method doesnt care what class but need know what convert use the objects own class that doesnt help use string force call the objects tos method 
-WITHOUT_CLASSIFICATION	 note change current frames visibility here because the main.methods which call this method are all fast they not created their own frame
+WITHOUT_CLASSIFICATION	 note change current frames visibility here because the methods which call this method are all fast they not created their own frame 
 WITHOUT_CLASSIFICATION	 force static scope claim restarg only implements the version file 
 WITHOUT_CLASSIFICATION	 platforms without clibrary accessable through jna getpid will return hashcode used using kill processes could take down many runtimes but basing getpid where available have the same semantics mri 
 WITHOUT_CLASSIFICATION	 save the ungot 
@@ -1270,7 +1270,7 @@ WITHOUT_CLASSIFICATION	 not using new scope use saved one for flat closure
 WITHOUT_CLASSIFICATION	 undefinedmethod should immutable 
 WITHOUT_CLASSIFICATION	 dont bother 
 WITHOUT_CLASSIFICATION	 intlen 
-WITHOUT_CLASSIFICATION	 main.methods with required higher should bind and callable using reflection jruby
+WITHOUT_CLASSIFICATION	 methods with required higher should bind and callable using reflection jruby 
 WITHOUT_CLASSIFICATION	 fall back empty env when security disallows environment var access like applet 
 WITHOUT_CLASSIFICATION	 out byte range there will match for sure 
 WITHOUT_CLASSIFICATION	 self 
@@ -1303,10 +1303,10 @@ WITHOUT_CLASSIFICATION	 register the new descriptor
 WITHOUT_CLASSIFICATION	 this really needs inlined here 
 WITHOUT_CLASSIFICATION	 unfortunately the number digits the exponent not clearly defined ruby documentation this behavior linuxmaccygwinnix two digits are used windows digits are used desirable for jruby have consistent behavior and the two digits behavior was selected this also sync with javanative sprintf behavior javautilformatter 
 WITHOUT_CLASSIFICATION	 libc flushes writes any read from the actual file flush here 
-WITHOUT_CLASSIFICATION	 only ruby main.methods
+WITHOUT_CLASSIFICATION	 only ruby methods 
 WITHOUT_CLASSIFICATION	 rbchecktointeger 
 WITHOUT_CLASSIFICATION	 just save count zeroes for now digit ends following them theyll applied the exponent rather than the significand and our max length for optimistic calc 
-WITHOUT_CLASSIFICATION	 main.methods and closures
+WITHOUT_CLASSIFICATION	 methods and closures 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 the requested precision 
 WITHOUT_CLASSIFICATION	 boot the module and class classes 
@@ -1316,7 +1316,7 @@ WITHOUT_CLASSIFICATION	 support modes that this object was opened with
 WITHOUT_CLASSIFICATION	 classcastexception 
 WITHOUT_CLASSIFICATION	 mri behavior with equal gmt utc timenow not considered proper gmtutc time envtzgmt timenowgmt false envtzutc timenowutc false hence need adjust for that 
 WITHOUT_CLASSIFICATION	 suboptimal for large hashes entries not very likely happen 
-WITHOUT_CLASSIFICATION	 packagedprotected fields and main.methods below
+WITHOUT_CLASSIFICATION	 packagedprotected fields and methods below 
 WITHOUT_CLASSIFICATION	 declare the field 
 WITHOUT_CLASSIFICATION	 note fix has only noarg form but truncate allows optional parameter 
 WITHOUT_CLASSIFICATION	 create the class 
@@ -1325,13 +1325,13 @@ WITHOUT_CLASSIFICATION	 check arity
 WITHOUT_CLASSIFICATION	 only supports simple parallel assignment values the same number assignees 
 WITHOUT_CLASSIFICATION	 this field used during argument processing avoid putting rubyarray instances that are purely for utility purposes into objectspace 
 WITHOUT_CLASSIFICATION	 hex value after the 
-WITHOUT_CLASSIFICATION	 install direct java main.methods with mangled name send can call them directly
+WITHOUT_CLASSIFICATION	 install direct java methods with mangled name send can call them directly 
 WITHOUT_CLASSIFICATION	 intlenprec 
 WITHOUT_CLASSIFICATION	 called only initializing thread synchronization required 
 WITHOUT_CLASSIFICATION	 get new label using generic prefix 
 WITHOUT_CLASSIFICATION	 invoke pre method stuff 
 WITHOUT_CLASSIFICATION	 always need least 
-WITHOUT_CLASSIFICATION	 main.methods the object class rbobj
+WITHOUT_CLASSIFICATION	 methods the object class rbobj 
 WITHOUT_CLASSIFICATION	 processes seem have some peculiar locking sequences need ensure nobody trying closedestroy while are 
 WITHOUT_CLASSIFICATION	 profile 
 WITHOUT_CLASSIFICATION	 equivalent datawrapstruct 
@@ -1427,7 +1427,7 @@ WITHOUT_CLASSIFICATION	 specific arity
 WITHOUT_CLASSIFICATION	 push you look original macro stack stack nochange 
 WITHOUT_CLASSIFICATION	 todo rbencsymnamep 
 WITHOUT_CLASSIFICATION	 adding module under constant name set that modules basename the constant name 
-WITHOUT_CLASSIFICATION	 common variable main.methods
+WITHOUT_CLASSIFICATION	 common variable methods 
 WITHOUT_CLASSIFICATION	 not that loaded loop around resolve next pass 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 there supplied proc argument assume block was supplied 
@@ -1435,22 +1435,22 @@ WITHOUT_CLASSIFICATION	 more than locals get the locals array too
 WITHOUT_CLASSIFICATION	 limit each iteration max bulkreadsize avoid oversize allocations 
 WITHOUT_CLASSIFICATION	 actualpath new reportedpath 
 WITHOUT_CLASSIFICATION	 not backwardscompatible here but one should have been calling this anyway 
-WITHOUT_CLASSIFICATION	 open the tojava and coercion main.methods ruby objects via kernel
+WITHOUT_CLASSIFICATION	 open the tojava and coercion methods ruby objects via kernel 
 WITHOUT_CLASSIFICATION	 update superclass reference 
 WITHOUT_CLASSIFICATION	 load always uses irubyobject simple closure offset calculation here 
 WITHOUT_CLASSIFICATION	 only this case affects backrefs 
-WITHOUT_CLASSIFICATION	 main.methods the nil class nil
+WITHOUT_CLASSIFICATION	 methods the nil class nil 
 WITHOUT_CLASSIFICATION	 declare those components beans bsf then will possible access those components ruby global variables frame menubar 
 WITHOUT_CLASSIFICATION	 represents the the dynamic portion scoping information the variablevalues are the values assigned local block variables the staticscope identifies which sort scope this block local properties dynamic scopes static and dynamic scopes have the same number names values size variables and thus names determined during parsing those structured not need change fixme when creating dynamic scopes sometimes accidentally pass extra parents this harmless other than wasting memory but should not that can fix this two ways fix all callers check parent that passed and make new instance local then its parent not local 
 WITHOUT_CLASSIFICATION	 bindeval 
 WITHOUT_CLASSIFICATION	 then just pass along windows then pass along mac 
 WITHOUT_CLASSIFICATION	 this pretty inefficient for building array just raise error someones using for lot elements 
-WITHOUT_CLASSIFICATION	 utility main.methods
+WITHOUT_CLASSIFICATION	 utility methods 
 WITHOUT_CLASSIFICATION	 try load the specified name only that fails try define the class 
 WITHOUT_CLASSIFICATION	 its singleton class and the real class proc were doing closure conversion just use procs hashcode 
 WITHOUT_CLASSIFICATION	 check for thread events case weve been woken die 
 WITHOUT_CLASSIFICATION	 both writable and writablereal through the same method because our java process effective and real userid will always the same 
-WITHOUT_CLASSIFICATION	 module main.methods
+WITHOUT_CLASSIFICATION	 module methods 
 WITHOUT_CLASSIFICATION	 remove the executor task now avoid cancelled tasks accumulating until executor thread can schedule and remove them 
 WITHOUT_CLASSIFICATION	 promise implement two with block 
 WITHOUT_CLASSIFICATION	 but theres superclass passed use 
@@ -1479,13 +1479,13 @@ WITHOUT_CLASSIFICATION	 jrubymethodname exact
 WITHOUT_CLASSIFICATION	 terminate and advance buffer when find our char 
 WITHOUT_CLASSIFICATION	 theres second argument simply use the working directory the runtime 
 WITHOUT_CLASSIFICATION	 wow the only time can use the java protocol 
-WITHOUT_CLASSIFICATION	 internal variable main.methods
+WITHOUT_CLASSIFICATION	 internal variable methods 
 WITHOUT_CLASSIFICATION	 makes sure the key not already the hashtable 
 WITHOUT_CLASSIFICATION	 check for special shell characters the beginning and end each command word and dont run process find them 
 WITHOUT_CLASSIFICATION	 there something valid the sunpath component 
 WITHOUT_CLASSIFICATION	 try lookup again under lock 
 WITHOUT_CLASSIFICATION	 base 
-WITHOUT_CLASSIFICATION	 symbol class main.methods
+WITHOUT_CLASSIFICATION	 symbol class methods 
 WITHOUT_CLASSIFICATION	 nested class whose instances act thunks reacting tostr method called from exceptiontostr exceptionmessage mri equivalent rbcnameerrormesg class name message construction method tostr implementation nameerrmesgtostr todo this class should not lookupable 
 WITHOUT_CLASSIFICATION	 block from nil proc 
 WITHOUT_CLASSIFICATION	 setting the loader needs reset the class cache 
@@ -1496,7 +1496,7 @@ WITHOUT_CLASSIFICATION	 yysindex
 WITHOUT_CLASSIFICATION	 yygindex 
 WITHOUT_CLASSIFICATION	 backspace 
 WITHOUT_CLASSIFICATION	 load target for invocations 
-WITHOUT_CLASSIFICATION	 void main.methods should work
+WITHOUT_CLASSIFICATION	 void methods should work 
 WITHOUT_CLASSIFICATION	 verify its there 
 WITHOUT_CLASSIFICATION	 difficult case send 
 WITHOUT_CLASSIFICATION	 init 
@@ -1504,7 +1504,7 @@ WITHOUT_CLASSIFICATION	 from commandlineparser
 WITHOUT_CLASSIFICATION	 adjust for buffered data 
 WITHOUT_CLASSIFICATION	 sqrt 
 WITHOUT_CLASSIFICATION	 switch while 
-WITHOUT_CLASSIFICATION	 returns the value this operand fully simplified returns the operand form that can materialized into bytecode cannot completely optimized away the value used during optimizations and propagated through the but thrown away after that but the operand form used for constructing the compound objects represented the operand example getvaluec getvalued note that abcd are all objects and has reference objects and and has reference contents modified the simplified values and also change this difference captured these two main.methods
+WITHOUT_CLASSIFICATION	 returns the value this operand fully simplified returns the operand form that can materialized into bytecode cannot completely optimized away the value used during optimizations and propagated through the but thrown away after that but the operand form used for constructing the compound objects represented the operand example getvaluec getvalued note that abcd are all objects and has reference objects and and has reference contents modified the simplified values and also change this difference captured these two methods 
 WITHOUT_CLASSIFICATION	 int 
 WITHOUT_CLASSIFICATION	 sqrt 
 WITHOUT_CLASSIFICATION	 jruby associate future early shows threadlist right away case doesnt run immediately 
@@ -1513,7 +1513,7 @@ WITHOUT_CLASSIFICATION	 the datastruct place where custom information can contai
 WITHOUT_CLASSIFICATION	 initial the reciprocal 
 WITHOUT_CLASSIFICATION	 estimate the square root with the foremost bits squard and scale are tandem 
 WITHOUT_CLASSIFICATION	 mri issuses warning here rbignumxlen sizeofbdigits 
-WITHOUT_CLASSIFICATION	 function not usedbut gets rid unused warnings eclipse call those main.methods from ruby they are not really unused
+WITHOUT_CLASSIFICATION	 function not usedbut gets rid unused warnings eclipse call those methods from ruby they are not really unused 
 WITHOUT_CLASSIFICATION	 collect iteration precisions beforehand 
 WITHOUT_CLASSIFICATION	 skip this one probably windows 
 WITHOUT_CLASSIFICATION	 just case add bit extra precision 
@@ -1585,8 +1585,8 @@ WITHOUT_CLASSIFICATION	 specific version was requested use for search
 WITHOUT_CLASSIFICATION	 then deliver mail the target 
 WITHOUT_CLASSIFICATION	 set self the class 
 WITHOUT_CLASSIFICATION	 confirm minimum args provided 
-WITHOUT_CLASSIFICATION	 public fields main.methods
-WITHOUT_CLASSIFICATION	 predefine few other main.methods invoke directly elsewhere
+WITHOUT_CLASSIFICATION	 public fields methods 
+WITHOUT_CLASSIFICATION	 predefine few other methods invoke directly elsewhere 
 WITHOUT_CLASSIFICATION	 line token constants 
 WITHOUT_CLASSIFICATION	 force heapscope behavior since uses parents scope 
 WITHOUT_CLASSIFICATION	 dont have body check for required opt args opt args they could have side effects required args need raise errors too few args passed otherwise method does nothing make nop 
@@ -1594,7 +1594,7 @@ WITHOUT_CLASSIFICATION	 creates the new entry
 WITHOUT_CLASSIFICATION	 and were given specific exception 
 WITHOUT_CLASSIFICATION	 finally with exception 
 WITHOUT_CLASSIFICATION	 compute meet over all sources and compute destination basic blocks that should then processed sources targets depends direction the data flow problem 
-WITHOUT_CLASSIFICATION	 accessor main.methods
+WITHOUT_CLASSIFICATION	 accessor methods 
 WITHOUT_CLASSIFICATION	 declare locals for java debugging purposes 
 WITHOUT_CLASSIFICATION	 silent 
 WITHOUT_CLASSIFICATION	 check for 
@@ -1610,7 +1610,7 @@ WITHOUT_CLASSIFICATION	 ioavailable only returns after eof encountered need diff
 WITHOUT_CLASSIFICATION	 the assumption here that the stream provides proper available support available always returns well hang 
 WITHOUT_CLASSIFICATION	 its less than median 
 WITHOUT_CLASSIFICATION	 store the local vars local variable for preparing the class using previous scope 
-WITHOUT_CLASSIFICATION	 constant api main.methods
+WITHOUT_CLASSIFICATION	 constant api methods 
 WITHOUT_CLASSIFICATION	 class script defaultmethod class script defaultmethod 
 WITHOUT_CLASSIFICATION	 lowlevel class variable interface fetchstorelist class variables for this module 
 WITHOUT_CLASSIFICATION	 read requested hook read parents output 
@@ -1623,8 +1623,8 @@ WITHOUT_CLASSIFICATION	 mri behavior just plain are considered illegal windows
 WITHOUT_CLASSIFICATION	 numint also implemented 
 WITHOUT_CLASSIFICATION	 what passed the constructor for method path 
 WITHOUT_CLASSIFICATION	 check visibility dup method 
-WITHOUT_CLASSIFICATION	 ruby instance main.methods
-WITHOUT_CLASSIFICATION	 constant table main.methods pass delegate
+WITHOUT_CLASSIFICATION	 ruby instance methods 
+WITHOUT_CLASSIFICATION	 constant table methods pass delegate 
 WITHOUT_CLASSIFICATION	 exec needs behave differently inprocess because its technically supposed replace the calling process were supposed run inprocess allow use the default streams and not use pumpers all see jruby and jruby 
 WITHOUT_CLASSIFICATION	 this relies the ruby rounding enumerations java ones which they currently all are 
 WITHOUT_CLASSIFICATION	 its either converted can make via above logic its not one the types convert just pass out asis without wrapping 
@@ -1665,7 +1665,7 @@ WITHOUT_CLASSIFICATION	 mri accepts additional wday argument which appears ignor
 WITHOUT_CLASSIFICATION	 might moving this time from dst dst the offset assumed the same was just before last moved from dst dst 
 WITHOUT_CLASSIFICATION	 bignorm here needed 
 WITHOUT_CLASSIFICATION	 ignores usec args for compatibility with parsedate not supplied 
-WITHOUT_CLASSIFICATION	 time class main.methods
+WITHOUT_CLASSIFICATION	 time class methods 
 WITHOUT_CLASSIFICATION	 the value will fit fixnum return one those 
 WITHOUT_CLASSIFICATION	 attempt decriticalize all were the critical thread 
 WITHOUT_CLASSIFICATION	 depends filetest 
@@ -1770,7 +1770,7 @@ WITHOUT_CLASSIFICATION	 long size bits byte
 WITHOUT_CLASSIFICATION	 qtrue 
 WITHOUT_CLASSIFICATION	 need this loop order able unblock the join call without actually calling interrupt 
 WITHOUT_CLASSIFICATION	 file loaded autoload has already been being loaded 
-WITHOUT_CLASSIFICATION	 interned for fast main.methods
+WITHOUT_CLASSIFICATION	 interned for fast methods 
 WITHOUT_CLASSIFICATION	 catch active for this throw 
 WITHOUT_CLASSIFICATION	 binding given use eval 
 WITHOUT_CLASSIFICATION	 catch active throw for catch handle 
@@ -1816,7 +1816,7 @@ WITHOUT_CLASSIFICATION	 this thread sleeping stopped wake
 WITHOUT_CLASSIFICATION	 jruby associate thread early shows threadlist right away case doesnt run immediately 
 WITHOUT_CLASSIFICATION	 for threadstart which does not call the subclasss initialize 
 WITHOUT_CLASSIFICATION	 line 
-WITHOUT_CLASSIFICATION	 file class main.methods
+WITHOUT_CLASSIFICATION	 file class methods 
 WITHOUT_CLASSIFICATION	 count number extra slashes the beginning the string 
 WITHOUT_CLASSIFICATION	 strip off the prefix they become filerdonly and 
 WITHOUT_CLASSIFICATION	 not valid for dead state 
@@ -1864,7 +1864,7 @@ WITHOUT_CLASSIFICATION	 need recompute the hash case the key object was modified
 WITHOUT_CLASSIFICATION	 delete implementation 
 WITHOUT_CLASSIFICATION	 get implementation 
 WITHOUT_CLASSIFICATION	 put implementation 
-WITHOUT_CLASSIFICATION	 instance main.methods
+WITHOUT_CLASSIFICATION	 instance methods 
 WITHOUT_CLASSIFICATION	 other hash does not contain key 
 WITHOUT_CLASSIFICATION	 update the hash value 
 WITHOUT_CLASSIFICATION	 single whole path expand 
@@ -1880,7 +1880,7 @@ WITHOUT_CLASSIFICATION	 default options
 WITHOUT_CLASSIFICATION	 reregister the descriptor 
 WITHOUT_CLASSIFICATION	 redundant done above well 
 WITHOUT_CLASSIFICATION	 use original modes 
-WITHOUT_CLASSIFICATION	 class main.methods
+WITHOUT_CLASSIFICATION	 class methods 
 WITHOUT_CLASSIFICATION	 potentially previously close being reopened 
 WITHOUT_CLASSIFICATION	 this for range check near can tell 
 WITHOUT_CLASSIFICATION	 rbclassboot 
@@ -1906,7 +1906,7 @@ WITHOUT_CLASSIFICATION	 writable
 WITHOUT_CLASSIFICATION	 buffer strgetbytelist 
 WITHOUT_CLASSIFICATION	 readcheck from mri ioc 
 WITHOUT_CLASSIFICATION	 were cloning ourselves know the result should rubyobject 
-WITHOUT_CLASSIFICATION	 class main.methods for
+WITHOUT_CLASSIFICATION	 class methods for 
 WITHOUT_CLASSIFICATION	 make all sockets blocking configured again close unregisters all channels can safely reset blocking modes 
 WITHOUT_CLASSIFICATION	 not using removeobject here avoid the equals call 
 WITHOUT_CLASSIFICATION	 call chmod after created the randomaccesfile because otherwise the file could readonly 
@@ -1920,10 +1920,10 @@ WITHOUT_CLASSIFICATION	 zeroed jvm
 WITHOUT_CLASSIFICATION	 the class this object 
 WITHOUT_CLASSIFICATION	 todo rbusasciistrnew 
 WITHOUT_CLASSIFICATION	 jruby callers should not call settaint immediate objects 
-WITHOUT_CLASSIFICATION	 can safely reference main.methods here instead doing getmethods since are adding are not using
+WITHOUT_CLASSIFICATION	 can safely reference methods here instead doing getmethods since are adding are not using 
 WITHOUT_CLASSIFICATION	 include its parent and turn that modules parents 
 WITHOUT_CLASSIFICATION	 note includes part fix for jruby 
-WITHOUT_CLASSIFICATION	 define access main.methods
+WITHOUT_CLASSIFICATION	 define access methods 
 WITHOUT_CLASSIFICATION	 static constants 
 WITHOUT_CLASSIFICATION	 for binding purposes the newly created struct types 
 WITHOUT_CLASSIFICATION	 for interface impls 
@@ -1939,11 +1939,11 @@ WITHOUT_CLASSIFICATION	 mri checks all types first
 WITHOUT_CLASSIFICATION	 make sure the module include does not already exist 
 WITHOUT_CLASSIFICATION	 classproviders return java classmodule and when classmodule opened using colon syntax 
 WITHOUT_CLASSIFICATION	 line 
-WITHOUT_CLASSIFICATION	 constant ruby main.methods
+WITHOUT_CLASSIFICATION	 constant ruby methods 
 WITHOUT_CLASSIFICATION	 execute iteratemethod again 
 WITHOUT_CLASSIFICATION	 normal block passed definemethod changes arity checking make lambda 
 WITHOUT_CLASSIFICATION	 grab serial number first the worst that will happen cache later update with earlier serial number which would just flush anyway 
-WITHOUT_CLASSIFICATION	 modulesingleton main.methods are all defined public
+WITHOUT_CLASSIFICATION	 modulesingleton methods are all defined public 
 WITHOUT_CLASSIFICATION	 just using required brokenbut more broken than before zsuper refactoring 
 WITHOUT_CLASSIFICATION	 update all hierarchies into which this module has been included 
 WITHOUT_CLASSIFICATION	 this method intended only for defining new modules ruby code 
@@ -1959,13 +1959,13 @@ WITHOUT_CLASSIFICATION	 the insertion point class update subclass lists
 WITHOUT_CLASSIFICATION	 build list all modules consider for inclusion 
 WITHOUT_CLASSIFICATION	 scan class hierarchy for module 
 WITHOUT_CLASSIFICATION	 mri error message says class even though module 
-WITHOUT_CLASSIFICATION	 module class main.methods
+WITHOUT_CLASSIFICATION	 module class methods 
 WITHOUT_CLASSIFICATION	 next hierarchy included version the module were attempting skip including 
 WITHOUT_CLASSIFICATION	 havent encountered real superclass use the found module the new inclusion point 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 tmpposition required because getpositions side effects the warning generated the getposition line this line will create wrong position the inclusive flag not set 
 WITHOUT_CLASSIFICATION	 java and mri definitions remainder are the same 
-WITHOUT_CLASSIFICATION	 class variable api main.methods
+WITHOUT_CLASSIFICATION	 class variable api methods 
 WITHOUT_CLASSIFICATION	 cant set classloader 
 WITHOUT_CLASSIFICATION	 returns the stored value without processing undefs autoloads 
 WITHOUT_CLASSIFICATION	 line 
@@ -2009,7 +2009,7 @@ WITHOUT_CLASSIFICATION	 line
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 actionsend 
-WITHOUT_CLASSIFICATION	 internal module variable api main.methods
+WITHOUT_CLASSIFICATION	 internal module variable api methods 
 WITHOUT_CLASSIFICATION	 script run return success below 
 WITHOUT_CLASSIFICATION	 java and mri definitions modulo are different 
 WITHOUT_CLASSIFICATION	 line 
@@ -2176,7 +2176,7 @@ WITHOUT_CLASSIFICATION	 single method use normal logic
 WITHOUT_CLASSIFICATION	 unixsockets windows 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 mbcleninvalidp 
-WITHOUT_CLASSIFICATION	 annotated main.methods found skip
+WITHOUT_CLASSIFICATION	 annotated methods found skip 
 WITHOUT_CLASSIFICATION	 phiragana 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 rbencregraise 
@@ -2196,7 +2196,7 @@ WITHOUT_CLASSIFICATION	 this should never happen past parse but just bulletproof
 WITHOUT_CLASSIFICATION	 never visited should 
 WITHOUT_CLASSIFICATION	 assert thenbody null thenbody not null assert elsebody null elsebody not null 
 WITHOUT_CLASSIFICATION	 line 
-WITHOUT_CLASSIFICATION	 not want capture cached main.methods
+WITHOUT_CLASSIFICATION	 not want capture cached methods 
 WITHOUT_CLASSIFICATION	 could probably also detect lhs value came out cache and avoid some this 
 WITHOUT_CLASSIFICATION	 one optional one required args 
 WITHOUT_CLASSIFICATION	 takers bubble 
@@ -2222,7 +2222,7 @@ WITHOUT_CLASSIFICATION	 contextswapvalues
 WITHOUT_CLASSIFICATION	 rubyclass rubyclass rubyclass rubyclass 
 WITHOUT_CLASSIFICATION	 args not pass args processor 
 WITHOUT_CLASSIFICATION	 invoke run with threadcontext and topself 
-WITHOUT_CLASSIFICATION	 class variable ruby main.methods
+WITHOUT_CLASSIFICATION	 class variable ruby methods 
 WITHOUT_CLASSIFICATION	 string string string string string rubyclass string rubyclass rubyclass string rubyclass 
 WITHOUT_CLASSIFICATION	 math depends all numeric types 
 WITHOUT_CLASSIFICATION	 normal 
@@ -2290,12 +2290,12 @@ WITHOUT_CLASSIFICATION	 line
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
-WITHOUT_CLASSIFICATION	 struct main.methods
+WITHOUT_CLASSIFICATION	 struct methods 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
-WITHOUT_CLASSIFICATION	 instance variable api main.methods
+WITHOUT_CLASSIFICATION	 instance variable api methods 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
@@ -2380,7 +2380,7 @@ WITHOUT_CLASSIFICATION	 line
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 have dynamic container 
 WITHOUT_CLASSIFICATION	 line 
-WITHOUT_CLASSIFICATION	 add array construction main.methods
+WITHOUT_CLASSIFICATION	 add array construction methods 
 WITHOUT_CLASSIFICATION	 record the loop are beginning process 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
@@ -2422,7 +2422,7 @@ WITHOUT_CLASSIFICATION	 jump this arg not null null fall through and build the d
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 value the last expression the block 
 WITHOUT_CLASSIFICATION	 now for the rest 
-WITHOUT_CLASSIFICATION	 both for fixed arity and variable arity main.methods
+WITHOUT_CLASSIFICATION	 both for fixed arity and variable arity methods 
 WITHOUT_CLASSIFICATION	 private interface 
 WITHOUT_CLASSIFICATION	 assign the closure the block variable the parent scope and return 
 WITHOUT_CLASSIFICATION	 line 
@@ -2443,7 +2443,7 @@ WITHOUT_CLASSIFICATION	 wont enter the loop just build the condition node
 WITHOUT_CLASSIFICATION	 build first node nonexpr and build second node 
 WITHOUT_CLASSIFICATION	 use irubyobject 
 WITHOUT_CLASSIFICATION	 defined and true are done 
-WITHOUT_CLASSIFICATION	 build the cfg for this scope supported only main.methods closures
+WITHOUT_CLASSIFICATION	 build the cfg for this scope supported only methods closures 
 WITHOUT_CLASSIFICATION	 for closures redo jump the beginning the closure for nonclosures redo jump the beginning the loop 
 WITHOUT_CLASSIFICATION	 what handles warnings 
 WITHOUT_CLASSIFICATION	 toplevel script 
@@ -2472,33 +2472,33 @@ WITHOUT_CLASSIFICATION	 scripts and modules
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 run the pass the passed scope 
 WITHOUT_CLASSIFICATION	 default return instructions cannot deleted 
-WITHOUT_CLASSIFICATION	 default implementation main.methods below
+WITHOUT_CLASSIFICATION	 default implementation methods below 
 WITHOUT_CLASSIFICATION	 run the passed compiler pass this scope 
 WITHOUT_CLASSIFICATION	 indicate that are done processing the loop 
-WITHOUT_CLASSIFICATION	 abstract main.methods without default implementation
+WITHOUT_CLASSIFICATION	 abstract methods without default implementation 
 WITHOUT_CLASSIFICATION	 check can optimize this call based the receiving method and receiver type use the simplified receiver 
 WITHOUT_CLASSIFICATION	 optimize some core class method calls for constant values 
 WITHOUT_CLASSIFICATION	 the cfg the method around print the cfg 
-WITHOUT_CLASSIFICATION	 public fields and main.methods below
+WITHOUT_CLASSIFICATION	 public fields and methods below 
 WITHOUT_CLASSIFICATION	 got simplified value mark the call dead and insert copy its place 
 WITHOUT_CLASSIFICATION	 readline 
 WITHOUT_CLASSIFICATION	 dataflow problem with which this node associated cfg node for which this node contains info 
 WITHOUT_CLASSIFICATION	 the call has been optimized away the previous step longer hard boundary for opts 
 WITHOUT_CLASSIFICATION	 protected fieldsmethods below 
-WITHOUT_CLASSIFICATION	 public abstract main.methods
+WITHOUT_CLASSIFICATION	 public abstract methods 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 the same 
 WITHOUT_CLASSIFICATION	 compute meet over all paths solution for this dataflow problem the input cfg this implements standard worklist algorithm 
 WITHOUT_CLASSIFICATION	 changed 
-WITHOUT_CLASSIFICATION	 public main.methods with default implementation
+WITHOUT_CLASSIFICATION	 public methods with default implementation 
 WITHOUT_CLASSIFICATION	 individual analyses should override this 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 want unique ids for dataflow variables 
 WITHOUT_CLASSIFICATION	 defined longer live before 
-WITHOUT_CLASSIFICATION	 private fields and main.methods below
-WITHOUT_CLASSIFICATION	 protected fields and main.methods below
+WITHOUT_CLASSIFICATION	 private fields and methods below 
+WITHOUT_CLASSIFICATION	 protected fields and methods below 
 WITHOUT_CLASSIFICATION	 unique assigned this variable 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 switch allocator based default constructor 
@@ -2507,13 +2507,13 @@ WITHOUT_CLASSIFICATION	 traverse the instructions this basic block reverse order
 WITHOUT_CLASSIFICATION	 out unioninsuccs 
 WITHOUT_CLASSIFICATION	 class module 
 WITHOUT_CLASSIFICATION	 public interface 
-WITHOUT_CLASSIFICATION	 protected package fields main.methods
-WITHOUT_CLASSIFICATION	 main.methods
+WITHOUT_CLASSIFICATION	 protected package fields methods 
+WITHOUT_CLASSIFICATION	 methods 
 WITHOUT_CLASSIFICATION	 not live the instruction site and has side effects mark dead 
 WITHOUT_CLASSIFICATION	 not mark this instructions operands live the instruction itself dead 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
-WITHOUT_CLASSIFICATION	 private fields main.methods
+WITHOUT_CLASSIFICATION	 private fields methods 
 WITHOUT_CLASSIFICATION	 used during optimization passes propagate type and other information 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 line 
@@ -2599,7 +2599,7 @@ WITHOUT_CLASSIFICATION	 complete using proc object
 WITHOUT_CLASSIFICATION	 clear basename its anonymous when raising 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 toplevel defines 
-WITHOUT_CLASSIFICATION	 timeout module main.methods
+WITHOUT_CLASSIFICATION	 timeout module methods 
 WITHOUT_CLASSIFICATION	 these are not really used timeout but exposed for compatibility 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 ensure room for terminating zero byte 
@@ -2772,17 +2772,17 @@ WITHOUT_CLASSIFICATION	 normally could leave these fall back the superclass but 
 WITHOUT_CLASSIFICATION	 confirm maximum not greater than optional 
 WITHOUT_CLASSIFICATION	 wrap self and store the wrapper 
 WITHOUT_CLASSIFICATION	 promise implement two three 
-WITHOUT_CLASSIFICATION	 list modules classes and main.methods defined this scope
+WITHOUT_CLASSIFICATION	 list modules classes and methods defined this scope 
 WITHOUT_CLASSIFICATION	 promise implement two 
 WITHOUT_CLASSIFICATION	 create constructor 
 WITHOUT_CLASSIFICATION	 returns the containing parent scope 
 WITHOUT_CLASSIFICATION	 promise implement one three 
 WITHOUT_CLASSIFICATION	 fields needed for dispatch and such 
 WITHOUT_CLASSIFICATION	 all other arities use dispatch path 
-WITHOUT_CLASSIFICATION	 load object and add few useful main.methods
+WITHOUT_CLASSIFICATION	 load object and add few useful methods 
 WITHOUT_CLASSIFICATION	 load self class and name 
 WITHOUT_CLASSIFICATION	 end constructor 
-WITHOUT_CLASSIFICATION	 all main.methods dispatch the simple version default which methodmissing normally
+WITHOUT_CLASSIFICATION	 all methods dispatch the simple version default which methodmissing normally 
 WITHOUT_CLASSIFICATION	 set ruby 
 WITHOUT_CLASSIFICATION	 set rubyclass 
 WITHOUT_CLASSIFICATION	 try specific name first falling back simple name 
@@ -2790,7 +2790,7 @@ WITHOUT_CLASSIFICATION	 the proxy wrapper type hierarchy
 WITHOUT_CLASSIFICATION	 promise implement three 
 WITHOUT_CLASSIFICATION	 handle redos restarting the block 
 WITHOUT_CLASSIFICATION	 promise implement zero three 
-WITHOUT_CLASSIFICATION	 map constants defined this scope not valid for main.methods
+WITHOUT_CLASSIFICATION	 map constants defined this scope not valid for methods 
 WITHOUT_CLASSIFICATION	 scripts classes and modules 
 WITHOUT_CLASSIFICATION	 proxy complete return 
 WITHOUT_CLASSIFICATION	 store the wrapper 
@@ -2821,13 +2821,13 @@ WITHOUT_CLASSIFICATION	 signalfacade
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 include all interfaces 
 WITHOUT_CLASSIFICATION	 add all public constructors note getconstructors only returns public ones 
-WITHOUT_CLASSIFICATION	 add all instance and static main.methods
+WITHOUT_CLASSIFICATION	 add all instance and static methods 
 WITHOUT_CLASSIFICATION	 ruby name 
 WITHOUT_CLASSIFICATION	 too much array creation 
-WITHOUT_CLASSIFICATION	 note the five match main.methods are aritysplit avoid the cost boxing arguments when theres already cached match not condense them into single method
-WITHOUT_CLASSIFICATION	 only include static main.methods specified
+WITHOUT_CLASSIFICATION	 note the five match methods are aritysplit avoid the cost boxing arguments when theres already cached match not condense them into single method 
+WITHOUT_CLASSIFICATION	 only include static methods specified 
 WITHOUT_CLASSIFICATION	 only public static fields that are valid constants 
-WITHOUT_CLASSIFICATION	 add few typespecific special main.methods
+WITHOUT_CLASSIFICATION	 add few typespecific special methods 
 WITHOUT_CLASSIFICATION	 add all static variables 
 WITHOUT_CLASSIFICATION	 initialize cache parameter types method 
 WITHOUT_CLASSIFICATION	 long first because its what fixnum claims 
@@ -2839,7 +2839,7 @@ WITHOUT_CLASSIFICATION	 walk all superclasses aggregating interfaces
 WITHOUT_CLASSIFICATION	 look through all mappings find match entry for this field 
 WITHOUT_CLASSIFICATION	 hit nonjava proxy class included modules can cause thisskip 
 WITHOUT_CLASSIFICATION	 could not find all them print out first one could print them all 
-WITHOUT_CLASSIFICATION	 next define few private main.methods that well use manipulate the java object contained within this ruby object
+WITHOUT_CLASSIFICATION	 next define few private methods that well use manipulate the java object contained within this ruby object 
 WITHOUT_CLASSIFICATION	 initialize this hasnt been 
 WITHOUT_CLASSIFICATION	 initialize these they havent been 
 WITHOUT_CLASSIFICATION	 construct the mirror class and parent classes 
@@ -2854,7 +2854,7 @@ WITHOUT_CLASSIFICATION	 get map all fields want define
 WITHOUT_CLASSIFICATION	 weve already done the above priming logic just add another interface the list intentions unless were past the point return already intend implement the given interface 
 WITHOUT_CLASSIFICATION	 jcreate instantiates the proxy object which implements all interfaces and which wrapped and implemented this object 
 WITHOUT_CLASSIFICATION	 implement all forces implementation all interfaces intend for this class implement 
-WITHOUT_CLASSIFICATION	 now add implement and implementall main.methods the class
+WITHOUT_CLASSIFICATION	 now add implement and implementall methods the class 
 WITHOUT_CLASSIFICATION	 not allowed for existing java interface modules 
 WITHOUT_CLASSIFICATION	 weakly reserved names 
 WITHOUT_CLASSIFICATION	 array creation should use this variant 
@@ -2875,12 +2875,12 @@ WITHOUT_CLASSIFICATION	 proxy class for concrete classes also used for concrete 
 WITHOUT_CLASSIFICATION	 theres constructor must prevent construction 
 WITHOUT_CLASSIFICATION	 something 
 WITHOUT_CLASSIFICATION	 modified only addmethod synchronization required 
-WITHOUT_CLASSIFICATION	 now add all aliases for the static main.methods fields appropriate
+WITHOUT_CLASSIFICATION	 now add all aliases for the static methods fields appropriate 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 nothing its nonimpl method 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 issomething containsthing 
-WITHOUT_CLASSIFICATION	 additionally add postfixed aliases any boolean main.methods and properties
+WITHOUT_CLASSIFICATION	 additionally add postfixed aliases any boolean methods and properties 
 WITHOUT_CLASSIFICATION	 add main impl used for detached commandline execution this script with new runtime root method script always stub method 
 WITHOUT_CLASSIFICATION	 support for encodings 
 WITHOUT_CLASSIFICATION	 many cases are convert float not one these error 
@@ -2896,7 +2896,7 @@ WITHOUT_CLASSIFICATION	 cant converted any more return
 WITHOUT_CLASSIFICATION	 javagetproxyclass deals with sync issues wont duplicate the logic here 
 WITHOUT_CLASSIFICATION	 old quasideprecated interface class 
 WITHOUT_CLASSIFICATION	 datagram set accordingly again afinet 
-WITHOUT_CLASSIFICATION	 all all superclasses but avoid adding superclass main.methods with same namesignature subclass main.methods see jruby
+WITHOUT_CLASSIFICATION	 all all superclasses but avoid adding superclass methods with same namesignature subclass methods see jruby 
 WITHOUT_CLASSIFICATION	 restrictive security policy matter only want public classes anyway 
 WITHOUT_CLASSIFICATION	 see note above return type 
 WITHOUT_CLASSIFICATION	 very restrictive policy disallows memberpublic wed never actually get this far that case 
@@ -2954,7 +2954,7 @@ WITHOUT_CLASSIFICATION	 fill local vars with nil avoid checking every access
 WITHOUT_CLASSIFICATION	 mode this will rubyarray containing the arguments mode this will irubyobject 
 WITHOUT_CLASSIFICATION	 catch logic for flowcontrol next break 
 WITHOUT_CLASSIFICATION	 not primitive class 
-WITHOUT_CLASSIFICATION	 rootlevel main.methods
+WITHOUT_CLASSIFICATION	 rootlevel methods 
 WITHOUT_CLASSIFICATION	 more than locals get and populate the locals array too 
 WITHOUT_CLASSIFICATION	 create list interfaces proxy and make sure they really are interfaces 
 WITHOUT_CLASSIFICATION	 line 
@@ -2965,24 +2965,24 @@ WITHOUT_CLASSIFICATION	 normal new class implementing interfaces
 WITHOUT_CLASSIFICATION	 initialize some components 
 WITHOUT_CLASSIFICATION	 for zero args case can stop searching 
 WITHOUT_CLASSIFICATION	 line 
-WITHOUT_CLASSIFICATION	 java reflection does not allow retrieving constructors like main.methods
+WITHOUT_CLASSIFICATION	 java reflection does not allow retrieving constructors like methods 
 WITHOUT_CLASSIFICATION	 module top stack 
 WITHOUT_CLASSIFICATION	 verify the class 
 WITHOUT_CLASSIFICATION	 store the local vars local variable there are any 
 WITHOUT_CLASSIFICATION	 matching ctor found 
-WITHOUT_CLASSIFICATION	 utility main.methods
+WITHOUT_CLASSIFICATION	 utility methods 
 WITHOUT_CLASSIFICATION	 start class 
 WITHOUT_CLASSIFICATION	 initialize simple frame 
 WITHOUT_CLASSIFICATION	 this test really means that this rubydefined subclass java class 
 WITHOUT_CLASSIFICATION	 matching method found 
 WITHOUT_CLASSIFICATION	 prepare faster handle handles are enabled and the method and class are public 
-WITHOUT_CLASSIFICATION	 search through all declared main.methods find closest match
+WITHOUT_CLASSIFICATION	 search through all declared methods find closest match 
 WITHOUT_CLASSIFICATION	 must public method 
 WITHOUT_CLASSIFICATION	 must public class 
 WITHOUT_CLASSIFICATION	 now create new bsfmanager 
 WITHOUT_CLASSIFICATION	 first need register the jruby engine 
 WITHOUT_CLASSIFICATION	 expand variables indentation final marker 
-WITHOUT_CLASSIFICATION	 for our purposes accessibles are also members and viceversa well include member main.methods here
+WITHOUT_CLASSIFICATION	 for our purposes accessibles are also members and viceversa well include member methods here 
 WITHOUT_CLASSIFICATION	 package scope 
 WITHOUT_CLASSIFICATION	 trigger class initialization for the class 
 WITHOUT_CLASSIFICATION	 populate values for the parameter names 
@@ -2990,12 +2990,12 @@ WITHOUT_CLASSIFICATION	 execute ruby script add the menubar the frame
 WITHOUT_CLASSIFICATION	 execute ruby statements 
 WITHOUT_CLASSIFICATION	 evaluates ruby expression and display the result 
 WITHOUT_CLASSIFICATION	 need names ordered for key generation later 
-WITHOUT_CLASSIFICATION	 rubylevel main.methods
-WITHOUT_CLASSIFICATION	 only collect main.methods and interfaces for userdefined proxy classes
+WITHOUT_CLASSIFICATION	 rubylevel methods 
+WITHOUT_CLASSIFICATION	 only collect methods and interfaces for userdefined proxy classes 
 WITHOUT_CLASSIFICATION	 finish class initializer 
 WITHOUT_CLASSIFICATION	 get any included interfaces 
 WITHOUT_CLASSIFICATION	 statically initialized below 
-WITHOUT_CLASSIFICATION	 lock the overridden main.methods for the new class and any asyet uninstantiated ancestor class
+WITHOUT_CLASSIFICATION	 lock the overridden methods for the new class and any asyet uninstantiated ancestor class 
 WITHOUT_CLASSIFICATION	 load static empty array 
 WITHOUT_CLASSIFICATION	 generate all constructors and let some fail during invocation later 
 WITHOUT_CLASSIFICATION	 matchdata 
@@ -3068,7 +3068,7 @@ WITHOUT_CLASSIFICATION	 return class body raises error
 WITHOUT_CLASSIFICATION	 ismbcharterm 
 WITHOUT_CLASSIFICATION	 last match 
 WITHOUT_CLASSIFICATION	 last read line string 
-WITHOUT_CLASSIFICATION	 main.methods foo and foo are possible but followed relop
+WITHOUT_CLASSIFICATION	 methods foo and foo are possible but followed relop 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 eof enebo after default 
 WITHOUT_CLASSIFICATION	 line 
@@ -3418,7 +3418,7 @@ WITHOUT_CLASSIFICATION	 frame management
 WITHOUT_CLASSIFICATION	 assert level 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 look for file method name for compiled roots 
-WITHOUT_CLASSIFICATION	 look for mangling markers for bound unframed main.methods class name
+WITHOUT_CLASSIFICATION	 look for mangling markers for bound unframed methods class name 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 all entries following removed node can stay list but all preceding ones need cloned 
 WITHOUT_CLASSIFICATION	 required and optional only 
@@ -3587,7 +3587,7 @@ WITHOUT_CLASSIFICATION	 line
 WITHOUT_CLASSIFICATION	 hashdef object hash with default 
 WITHOUT_CLASSIFICATION	 skip inner braces 
 WITHOUT_CLASSIFICATION	 failed try next recursion 
-WITHOUT_CLASSIFICATION	 helper main.methods
+WITHOUT_CLASSIFICATION	 helper methods 
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 try use posix for this first 
 WITHOUT_CLASSIFICATION	 mismatched bracesmove alongnothing see here 
@@ -3605,7 +3605,7 @@ WITHOUT_CLASSIFICATION	 pickaxe says must followed name character but mri does n
 WITHOUT_CLASSIFICATION	 line 
 WITHOUT_CLASSIFICATION	 bxtable for decoding base 
 WITHOUT_CLASSIFICATION	 simplesampler 
-WITHOUT_CLASSIFICATION	 ruby class main.methods
+WITHOUT_CLASSIFICATION	 ruby class methods 
 WITHOUT_CLASSIFICATION	 pickaxe says must followed name character but mri does not require this 
 WITHOUT_CLASSIFICATION	 complete according posix 
 WITHOUT_CLASSIFICATION	 get index last read byte 

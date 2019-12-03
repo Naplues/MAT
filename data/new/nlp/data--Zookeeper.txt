@@ -1,5 +1,4 @@
 SATD	 bug grizzly needs doc root you are going register multiple adapters 
-SATD	 dont need retry this operation the case failure will remove ephemeral files and dont wanna hang this process when closing cannot reconnect 
 SATD	 this likely problem means that file reloading broken probably because the directory are watching was deleted otherwise became inaccessible unmounted permissions changed for now log error and exit the watcher thread 
 SATD	 fixme this was originally seconds but realistically randomslowvirt hosts there way guarantee this 
 SATD	 this bit weird but need return the address and the number bytes distinguish between ipv and ipv 
@@ -13,7 +12,6 @@ SATD	 todo refactor quorumbase special case this
 SATD	 this might not right but its only used for printing connection info the netty implementation its probably 
 SATD	 problem before fix after session close the ephemeral node was not getting deleted but now after the fix after session close 
 SATD	 observer should write disk that the wont request too old txn from the leader which may lead getting entire snapshot however this may degrade performance has write disk and periodic snapshot which may double the memory requirements 
-SATD	 occasionally seen false negatives with timeout 
 SATD	 todo investigate why reconfig makes qps null 
 SATD	 todo zksprocesspacket changed take bytebuffer could implement zerocopy queueing 
 SATD	 note that this performance assumption might not hold true for architectures other than 
@@ -43,12 +41,12 @@ SATD	 todo rather than checking disjunction here should single member variable m
 SATD	 todo maybe should flush the loop above every packetsbytes but how determine the right value for 
 SATD	 need upgrade before can proceed 
 SATD	 todo exit server this point 
-SATD	 only make copy this thread isnt already holding lock 
 SATD	 multiple bad arguments 
 SATD	 xxx this doesnt need volatile should probably final 
 SATD	 test will still fail even though just logignore 
 SATD	 fixme ignore for now 
 SATD	 xxx really should not need this 
+SATD	 todo should depend zoocfg specified mechs but 
 SATD	 xxx hack 
 SATD	 not sure about argwhat 
 SATD	 fixme need way more cleanly exceptions 
@@ -115,6 +113,7 @@ WITHOUT_CLASSIFICATION	 add watcher for each node and add node collection watche
 WITHOUT_CLASSIFICATION	 generate new config string 
 WITHOUT_CLASSIFICATION	 nothing special stay with the current server 
 WITHOUT_CLASSIFICATION	 session has been revalidated 
+WITHOUT_CLASSIFICATION	 dont need retry this operation the case failure will remove ephemeral files and dont wanna hang this process when closing cannot reconnect 
 WITHOUT_CLASSIFICATION	 exactly now except for role change 
 WITHOUT_CLASSIFICATION	 make sure the watch removed when the connection closed 
 WITHOUT_CLASSIFICATION	 start server and wait for leader election finish 
@@ -545,6 +544,7 @@ WITHOUT_CLASSIFICATION	 fallthrough and log errors outside the synchronized bloc
 WITHOUT_CLASSIFICATION	 are going have extrapolate the epoch information 
 WITHOUT_CLASSIFICATION	 best effort print the path assoc with this request 
 WITHOUT_CLASSIFICATION	 and close the connection the leader 
+WITHOUT_CLASSIFICATION	 occasionally seen false negatives with timeout 
 WITHOUT_CLASSIFICATION	 neither option specified delete the quota node for thsi node 
 WITHOUT_CLASSIFICATION	 shutdown has explicitly called for every thread make sure that resources are freed properly and all fixed network ports are available for other test cases 
 WITHOUT_CLASSIFICATION	 are now going start getting transactions apply followed uptodate 
@@ -620,6 +620,8 @@ WITHOUT_CLASSIFICATION	 weve already validated therefore the path length its the
 WITHOUT_CLASSIFICATION	 pass 
 WITHOUT_CLASSIFICATION	 this replicates close the output stream before reading 
 WITHOUT_CLASSIFICATION	 command specified print links all commands instead 
+WITHOUT_CLASSIFICATION	 apply directly havent taken the snapshot 
+WITHOUT_CLASSIFICATION	 check stopped while request was queue 
 WITHOUT_CLASSIFICATION	 session should automatically expire after amount time 
 WITHOUT_CLASSIFICATION	 with padding the filename 
 WITHOUT_CLASSIFICATION	 are the final link the chain 
@@ -1613,6 +1615,7 @@ WITHOUT_CLASSIFICATION	 change the snapcount happen more often
 WITHOUT_CLASSIFICATION	 invalid acls 
 WITHOUT_CLASSIFICATION	 this code requires key pkcs format which not the default openssl format convert the pkcs format you use openssl pkcs topk 
 WITHOUT_CLASSIFICATION	 ignore this expected 
+WITHOUT_CLASSIFICATION	 only make copy this thread isnt already holding lock 
 WITHOUT_CLASSIFICATION	 encoding 
 WITHOUT_CLASSIFICATION	 there log record for the initial config thus after syncing with leader zookeeperconfig empty also possible that last committed config propagated during leader election without the propagation the corresponding log records should explicitly this this not necessary when were already followerobserver only 
 WITHOUT_CLASSIFICATION	 local session from the leader 
@@ -1822,7 +1825,6 @@ WITHOUT_CLASSIFICATION	 record leader election time
 WITHOUT_CLASSIFICATION	 wait connect one these 
 WITHOUT_CLASSIFICATION	 any arbitrary constant will 
 WITHOUT_CLASSIFICATION	 observer asks for epoch mocking learnerhandler behavior 
-WITHOUT_CLASSIFICATION	 todo should depend zoocfg specified mechs but 
 WITHOUT_CLASSIFICATION	 global session 
 WITHOUT_CLASSIFICATION	 wait until cant connect 
 WITHOUT_CLASSIFICATION	 otherwise wait for fixed amount time 
@@ -2520,6 +2522,7 @@ WITHOUT_CLASSIFICATION	 none not ready yet sets saslstate complete sideeffect
 WITHOUT_CLASSIFICATION	 instead starting rozk immediately wait some grace period before decide were partitioned thread used here because otherwise would require changes each election strategy classes which 
 WITHOUT_CLASSIFICATION	 this should never happen 
 WITHOUT_CLASSIFICATION	 logwarnack cxid requestcxid type requesttype requestsessionid requestaddrqrecprop 
+WITHOUT_CLASSIFICATION	 default constructor 
 WITHOUT_CLASSIFICATION	 this method can return empty iterator the requested zxid 
 WITHOUT_CLASSIFICATION	 log error level are returning marshalling error the user 
 WITHOUT_CLASSIFICATION	 have read data from the file and matchs the timep pattern 

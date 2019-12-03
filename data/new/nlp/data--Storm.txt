@@ -15,6 +15,7 @@ SATD	 todo substitution implementation not exactly efficient kind memory
 SATD	 todo need better way this 
 SATD	 todo need able set the tick tuple time the message timeout ideally without parameterization 
 SATD	 connection unavailable will drop pending messages and let atleastonce message replay kick another option would buffer the messages memory but this option has the risk causing oom errors especially for topologies that disable message acking because dont know whether the connection recovery will succeed not and how long the recovery will take 
+SATD	 todo add metrics 
 SATD	 todo consider adding shuffle grouping after the spout avoid much routing the argsreturninfo all over the place least until its possible just pack bolt logic into the spout itself 
 SATD	 this hack for nonras scheduler topology and worker resources 
 SATD	 todo move this logic the model class 
@@ -27,7 +28,6 @@ SATD	 todo would love standardize this
 SATD	 fixme this class can moved webapp once porting done 
 SATD	 this isnt strictly necessary but doesnt hurt and ensures that the machine stays date even callbacks dont all work exactly right 
 SATD	 work around should get alternative working way 
-SATD	 the topology zookeeper authentication configuration unset 
 SATD	 read last this should cause evicted next put 
 SATD	 todo more collection content type checking 
 SATD	 fixme were using default config since cannot serialized still needs provide some options externally 
@@ -35,6 +35,7 @@ SATD	 todo this can only ever null someone doing something odd with mocking shou
 SATD	 todo put some better exception mapping todo move populatecontext filter 
 SATD	 should fail the batch kill the worker 
 SATD	 getting the exact response code bit more complex todo should use better client 
+SATD	 todo deduplicate this logic with the code nimbus 
 SATD	 todo should worker even take the topologyid input this should deducible from cluster state searching through assignments what about theres inconsistency assignments but nimbus should guarantee this consistency param conf storm configuration param context param topologyid topology param assignmentid assignment param supervisorport parent supervisor thrift server port param port port which the worker runs param workerid worker 
 SATD	 this bit ugly but shows how this would happen worker will use the same apis 
 SATD	 fixme stores map topoconf topologycontext and expose these derived classes 
@@ -57,6 +58,7 @@ SATD	 todo add method for drpc stream needs know how automatically return result
 SATD	 todo the inner join incrementally emitting the cross join with this tuple against all other sides todo only cross join least one tuple each side 
 SATD	 todo once everything java this should not possible any more 
 SATD	 heck for backward compatibility need pass hbase conf the conf instance instance persistentmap making copy 
+SATD	 todo handle regular rich spout without batches need lots updates support this throughout 
 SATD	 this hack allow zookeepermain called this command 
 SATD	 perhaps there better way this 
 SATD	 todo can optimize further only querying backing map for keys not the cache 
@@ -66,9 +68,9 @@ SATD	 not implemented
 SATD	 todo what would good test ensure that least somewhat defensively copied 
 SATD	 todo the future want way include this logic the spout itself make unnecessary having storm include metadata about which grouping tuple came from 
 SATD	 todo does this work well windows 
-SATD	 filecontext supports atomic rename whereas filesystem doesnt 
 SATD	 not enough guaranteed use the age the topology instead todo need good way only this once 
 SATD	 use parsewithexception instead parse can capture deserialization errors the log they are likely bugs the spout code 
+SATD	 todo add logging that not all tuples were received 
 SATD	 todo take away knowledge storms internals here 
 SATD	 todo should handle ref 
 SATD	 todo make sure test these two functions manual tests 
@@ -390,6 +392,7 @@ WITHOUT_CLASSIFICATION	 used recognize the pattern active log files may remove t
 WITHOUT_CLASSIFICATION	 
 WITHOUT_CLASSIFICATION	 this class consists exclusively static factory mainmethods that create instances that are essential work with the jpmml library 
 WITHOUT_CLASSIFICATION	 seconds passed not timing out 
+WITHOUT_CLASSIFICATION	 its null one later transaction batch was emitted before this should skip this batch didnt exist and was created which case the stateinitializer was invoked and was emitted 
 WITHOUT_CLASSIFICATION	 end executor summary 
 WITHOUT_CLASSIFICATION	 test whether the integer power 
 WITHOUT_CLASSIFICATION	 release things that dont need wait for finish downloading 
@@ -596,7 +599,6 @@ WITHOUT_CLASSIFICATION	 rwrr
 WITHOUT_CLASSIFICATION	 one time scheduling 
 WITHOUT_CLASSIFICATION	 regardless ticketrenewwindow setting above and the ticket expiry time thread will not sleep between refresh attempts any less than minute milliseconds minute 
 WITHOUT_CLASSIFICATION	 and wait for the message get through the spout acks use the same path timeout resets 
-WITHOUT_CLASSIFICATION	 todo add metrics 
 WITHOUT_CLASSIFICATION	 subprocesses must send their pid first thing 
 WITHOUT_CLASSIFICATION	 null for system bolt 
 WITHOUT_CLASSIFICATION	 assume that get doesnt have any families defined this for not digging deeply 
@@ -1008,6 +1010,7 @@ WITHOUT_CLASSIFICATION	 check lock file presence
 WITHOUT_CLASSIFICATION	 interval which commit offsets milliseconds 
 WITHOUT_CLASSIFICATION	 remove the slot from the existing assignments 
 WITHOUT_CLASSIFICATION	 spout with parallel instances 
+WITHOUT_CLASSIFICATION	 the topology zookeeper authentication configuration unset 
 WITHOUT_CLASSIFICATION	 just ignore these for now are going throw away anyways 
 WITHOUT_CLASSIFICATION	 holds remaining streams 
 WITHOUT_CLASSIFICATION	 class that has the logic handle tuple failure 
@@ -1338,7 +1341,6 @@ WITHOUT_CLASSIFICATION	 shard iterator corresponding position shard for new mess
 WITHOUT_CLASSIFICATION	 level longer idling with threadsleep 
 WITHOUT_CLASSIFICATION	 this does not have atomic worst case update when one not needed 
 WITHOUT_CLASSIFICATION	 the windows should persisted state 
-WITHOUT_CLASSIFICATION	 todo deduplicate this logic with the code nimbus 
 WITHOUT_CLASSIFICATION	 define our taskids and loads 
 WITHOUT_CLASSIFICATION	 test for supervisor admin 
 WITHOUT_CLASSIFICATION	 read another line and see another log entry was made 
@@ -2212,7 +2214,6 @@ WITHOUT_CLASSIFICATION	 fail both emitted tuples
 WITHOUT_CLASSIFICATION	 theres not enough bytes the buffer 
 WITHOUT_CLASSIFICATION	 oneproducerconsumer twoproducerconsumer producerfwdconsumer 
 WITHOUT_CLASSIFICATION	 should allowed retry times addition original try 
-WITHOUT_CLASSIFICATION	 todo handle regular rich spout without batches need lots updates support this throughout 
 WITHOUT_CLASSIFICATION	 check allowedworkers only the scheduler not the resource aware scheduler 
 WITHOUT_CLASSIFICATION	 check that trypublish tryoverflowpublish work expected 
 WITHOUT_CLASSIFICATION	 put tuple cause the first tuple acked 
@@ -2741,6 +2742,7 @@ WITHOUT_CLASSIFICATION	 copy cluster that can modify but does not get committed 
 WITHOUT_CLASSIFICATION	 the jitter allows the clients get the data different times and avoids thundering herd 
 WITHOUT_CLASSIFICATION	 ranked last since rack has not cpu resources 
 WITHOUT_CLASSIFICATION	 read line and ack 
+WITHOUT_CLASSIFICATION	 filecontext supports atomic rename whereas filesystem doesnt 
 WITHOUT_CLASSIFICATION	 seconds milliseconds 
 WITHOUT_CLASSIFICATION	 use default stormgenerated file names 
 WITHOUT_CLASSIFICATION	 nothing expired yet 
@@ -2845,7 +2847,6 @@ WITHOUT_CLASSIFICATION	 service off now just interrupt
 WITHOUT_CLASSIFICATION	 fail tuple and call nexttuple then fail tuple 
 WITHOUT_CLASSIFICATION	 this bolt dosent emit downstream bolts 
 WITHOUT_CLASSIFICATION	 check that reemit emits exactly the same tuples the last batch even kafka returns more messages 
-WITHOUT_CLASSIFICATION	 todo add logging that not all tuples were received 
 WITHOUT_CLASSIFICATION	 executelatencyms 
 WITHOUT_CLASSIFICATION	 each context will have single client channel worker event loop group 
 WITHOUT_CLASSIFICATION	 try find way merge this code with whats already done tridentboltexecutor 
@@ -3494,6 +3495,7 @@ WITHOUT_CLASSIFICATION	 read remaining lines
 WITHOUT_CLASSIFICATION	 resolve references 
 WITHOUT_CLASSIFICATION	 for completeness 
 WITHOUT_CLASSIFICATION	 the topology are scheduling 
+WITHOUT_CLASSIFICATION	 the node already deleted nothing 
 WITHOUT_CLASSIFICATION	 should still fail 
 WITHOUT_CLASSIFICATION	 factories 
 WITHOUT_CLASSIFICATION	 test when supervisor fails ras does not alter existing assignments 

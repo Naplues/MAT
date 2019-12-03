@@ -1,21 +1,21 @@
 oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,"/*			Implement String += value;			According to the JLS, value may be anything.			In BeanShell, we'll disallow VOID (undefined) values.			(or should we map them to the empty string?)		*/"
 1,0,0,0,0,0,0,/* this should be before dockables are initialized */
-1,0,0,0,1,1,1,// is this right?
-1,0,0,0,1,1,1,// should we do this for both cases above?
+1,0,0,0,0,0,0,// is this right?
+1,0,0,0,0,0,0,// should we do this for both cases above?
 1,0,0,0,0,0,0,// need to loosen this to any throwable... do we need to handle // that in interpreter somewhere?  check first...
 1,0,0,0,0,0,0,// fucking GTK look and feel
 1,0,1,1,0,1,1,"/*		Note: this implementation is temporary. We currently keep a flat		namespace of the base name of classes.  i.e. BeanShell cannot be in the		process of defining two classes in different packages with the same		base name.  To remove this limitation requires that we work through		namespace imports in an analogous (or using the same path) as regular		class import resolution.  This workaround should handle most cases 		so we'll try it for now.	*/"
 1,0,0,0,0,0,0,// copy and paste from bsh/classpath/ClassManagerImpl.java...
 1,0,0,0,0,0,0,// I wish I could make this "friendly" to only NameSpace
 1,1,1,1,1,1,1,// undocumented hack to allow browser actions to work. // XXX - clean up in 4.3
-1,0,0,0,1,1,1,// Look for a default invoke() handler method in the namespace // Note: this code duplicates that in NameSpace getCommand() // is that ok?
+1,0,0,0,0,0,0,// Look for a default invoke() handler method in the namespace // Note: this code duplicates that in NameSpace getCommand() // is that ok?
 1,0,1,0,0,0,0,// This should be per instance
-1,0,0,0,1,1,1,// Can we use the proxy mechanism to cast a bsh.This to  // the correct interface?
+1,0,0,0,0,0,0,// Can we use the proxy mechanism to cast a bsh.This to  // the correct interface?
 1,0,0,0,0,0,0,// redundant with constructor
 1,0,0,0,0,0,0,"/*		Issues to resolve here...		1) In which classloader should we define the class?		if there is a BshClassLoader should we define it there?		2) should we use reflection to set it in a non-bsh classloader		if there is one or should we always create a bsh classloader		(and expose its defineClass)?	*/"
 1,0,0,1,0,1,1,// could refactor these a bit
-1,0,1,0,0,0,0,"/*	Note: This class essentially just delegates most of its main.methods to its	parent.  The setVariable() indirection is very small.  We could probably	fold this functionality back into the base NameSpace as a special case.	But this has changed a few times so I'd like to leave this abstraction for	now.*/"
+1,0,1,0,0,0,0,"/*	Note: This class essentially just delegates most of its methods to its	parent.  The setVariable() indirection is very small.  We could probably	fold this functionality back into the base NameSpace as a special case.	But this has changed a few times so I'd like to leave this abstraction for	now.*/"
 1,0,0,0,0,0,0,// simplified these settings a little...
 1,0,0,0,0,0,0,"/*		Should check for strict java here and use isJavaAssignable() instead	*/"
 1,0,1,1,0,1,1,// workaround for Swing rendering labels starting // with <html> using the HTML engine
@@ -31,7 +31,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// Imported full name wasn't found as an absolute class // If it is compound, try to resolve to an inner class.   // (maybe this should happen in the BshClassManager?)
 1,0,0,0,0,0,0,"/*	Can't this be combined with run() ?	run seems to have stuff in it for interactive vs. non-interactive...	compare them side by side and see what they do differently, aside from the	exception handling.	*/"
 1,0,0,0,0,0,0,// Null value is just a declaration // Note: we might want to keep any existing value here instead of reset
-1,0,0,0,1,1,1,// Can this be factored out...?   // Should be be adding the L...; here instead?
+1,0,0,0,0,0,0,// Can this be factored out...?   // Should be be adding the L...; here instead?
 1,0,0,0,0,0,0,"/* 							Catch the mismatch and continue to try the next							Note: this is innefficient, should have an 							isAssignableFrom() that doesn't throw 						*/"
 1,0,0,0,0,0,0,// should use try/finally here to pop ns
 1,0,0,0,0,0,0,"/*			Note: this could be made clearer by adding an inner class for the			cases and an object context for the child traversal.		*/"
@@ -52,7 +52,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,0,1,1,/* Spacing workaround */
 1,0,1,1,0,1,1,// I don't know of any other way to fix this, since invoking this // command from a menu results in the focus owner being the menu // until the menu goes away.
 1,1,1,1,1,1,1,// a little hack for reverse replace and find
-1,0,0,0,0,0,0,// Static main.methods that operate on compound ('.' separated) names // I guess we could move these to StringUtil someday
+1,0,0,0,0,0,0,// Static methods that operate on compound ('.' separated) names // I guess we could move these to StringUtil someday
 1,0,0,0,0,0,0,"/*	Note: which of these things should be checked at parse time vs. run time?*/"
 1,0,0,0,0,0,0,// this part sucks
 1,0,1,1,0,1,1,// Windows bug workaround in case a YES/NO confirm // was shown
@@ -60,19 +60,19 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,1,0,0,0,0,0,"/* this is stupid and misleading.					 * but 'path' is not used anywhere except					 * the above line, and if this is done					 * after the 'continue', then we will					 * either hang, or be forced to duplicate					 * it inside the buffer == null, or add					 * a 'finally' clause. you decide which one's					 * worse. */"
 1,0,1,1,0,1,1,// I'm too tired to think of a better way // to handle this right now.
 1,1,0,1,1,1,1,// hacked BufferIORequest to send VFSUpdates in case // two stage save is off now...
-1,0,0,0,0,0,0,// some other primitive // should avoid calling main.methods on primitive, as we do // in Name (can't treat primitive like an object message) // but the hole is useful right now.
+1,0,0,0,0,0,0,// some other primitive // should avoid calling methods on primitive, as we do // in Name (can't treat primitive like an object message) // but the hole is useful right now.
 1,0,0,0,0,0,0,// Change the parent (which was the class static) to the class instance // We really need to check if we're a static inner class here first... // but for some reason Java won't show the static modifier on our // fake inner classes...  could generate a flag field.
 1,0,0,0,0,0,0,// this is where checked exceptions piss me off. this method only uses // a StringReader which can never throw an exception...
 1,0,1,1,1,1,1,// If any subexpressions didn't terminate, they don't count // TODO check if this code ever gets hit
 1,0,0,1,0,1,1,// Parse pattern into tokens.  Does anyone know if it's more efficient // to use char[] than a String.charAt()?  I'm assuming so.
 1,0,0,0,0,0,0,"/*		Note: object is only used here for precondition... get rid of it?	*/"
-1,0,0,1,1,1,1,// Why both of these?
-1,0,0,0,1,1,1,// Cut off from parent, we must have our own class manager. // Can't do this in the run() command (needs to resolve stuff) // Should we do it by default when we create a namespace will no // parent of class manager?
+1,0,0,1,0,1,1,// Why both of these?
+1,0,0,0,0,0,0,// Cut off from parent, we must have our own class manager. // Can't do this in the run() command (needs to resolve stuff) // Should we do it by default when we create a namespace will no // parent of class manager?
 1,0,1,0,0,0,0,"/*		Note: the bsh command code should probably not be here...  we need to		scope it by the namespace that imported the command... so it probably		needs to be integrated into NameSpace.	*/"
 1,0,0,0,0,0,0,// This could be smarter...
-1,0,1,0,1,1,1,// It was explicitly imported, but we don't know what it is. // should we throw an error here??
+1,0,1,0,0,0,0,// It was explicitly imported, but we don't know what it is. // should we throw an error here??
 1,0,0,0,0,0,0,"/*		Note: we need a form of eval that passes the callstack through...	*/"
-1,0,0,0,0,0,0,"/* 		Primary interpreter set and get variable main.methods		Note: These are squeltching errors... should they?	*/"
+1,0,0,0,0,0,0,"/* 		Primary interpreter set and get variable methods		Note: These are squeltching errors... should they?	*/"
 1,0,1,1,0,1,1,// Workaround for JDK bug 4071281, where system.in.available()  // returns too large a value. This bug has been fixed in JDK 1.2.
 1,1,0,1,1,1,1,"/*				Somewhat of a hack.  If the special fields are visible (we're				operating relative to a 'this' type already) dissallow further				.this references to prevent user from skipping to things like				super.this.caller			*/"
 1,0,0,0,0,0,0,// Should clean this up to a single return statement
@@ -80,7 +80,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,0,0,0,"/*		Note: this impor pattern is becoming common... could factor it out into		an importedObject Vector class.	*/"
 1,0,1,0,0,0,0,// not sure if we should really recurse here for explicitly imported // class in parent...  
 1,0,0,0,0,0,0,// The following two boolean checks were tacked on. // This could probably be smoothed out.
-1,0,0,0,0,0,0,"/*		Notes:		This is broken.  It finds public but less specific main.methods over		non-public but more specific ones.		findMostSpecficMethod() needs to be rewritten to eliminate 		findAccessibleMethod.  We should implement the findMostSpecificMethod 		that uses the publicOnly flag.  FindMostSpecificMethod should also		operate in two passes to give standard Java assignable matches priority		over extended bsh type matches.	*/"
+1,0,0,0,0,0,0,"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		findMostSpecficMethod() needs to be rewritten to eliminate 		findAccessibleMethod.  We should implement the findMostSpecificMethod 		that uses the publicOnly flag.  FindMostSpecificMethod should also		operate in two passes to give standard Java assignable matches priority		over extended bsh type matches.	*/"
 1,0,1,0,0,0,0,//{{{ UnixWorkaround constructor
 1,0,0,0,0,0,0,// drag and drop support // I'd just move the code to // JEditTextArea but it // depends on JDK 1.4 APIs
 1,0,0,0,0,0,0,// next version: remove this
@@ -107,7 +107,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,1,1,1,1,1,1,"/* this is a sloppy hack to fix bug				   ""[ 677902 ] hitting return after collapsed				   fold""				   the idea is that if we extend the range then				   the problem described in the bug happends, so				   if the insert is at the very end of the range				   we don't extend it, instead we push the				   insert into the next range, however for this				   to work properly we also have to mess with				   screen line counts. */"
 1,1,1,1,1,1,1,// need this bullshit scroll bar policy for the preferred size // hack to work
 1,0,1,0,1,1,1,// XXX if we keep the createClassManager in getClassManager then we can axe // this?
-1,0,0,0,0,0,0,"/*	Note: This class is messy.  The method and field resolution need to be	rewritten.  Various main.methods in here catch NoSuchMethod or NoSuchField	exceptions during their searches.  These should be rewritten to avoid	having to catch the exceptions.  Method lookups are now cached at a high 	level so they are less important, however the logic is messy.*/"
+1,0,0,0,0,0,0,"/*	Note: This class is messy.  The method and field resolution need to be	rewritten.  Various methods in here catch NoSuchMethod or NoSuchField	exceptions during their searches.  These should be rewritten to avoid	having to catch the exceptions.  Method lookups are now cached at a high 	level so they are less important, however the logic is messy.*/"
 1,1,0,1,0,1,1,// the sooner ppl move to the new api, the less we'll need // crap like this
 1,0,0,0,0,0,0,// Nasty hardcoded values
 1,0,1,0,1,1,1,/* XXX magic number */
@@ -132,12 +132,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,1,1,1,0,1,1,// ugly workaround
 1,0,0,0,0,0,0,//{{{ Windows work around
 1,1,1,1,1,1,1,// hack since HelpViewer needs a URL...
-1,0,0,1,1,1,1,// Why is object in the args?
-1,0,0,0,1,1,1,// should implement getMinimumLength() -- any ideas?
-1,0,0,0,1,1,1,// Move me to classpath/ClassManagerImpl???
+1,0,0,1,0,1,1,// Why is object in the args?
+1,0,0,0,0,0,0,// should implement getMinimumLength() -- any ideas?
+1,0,0,0,0,0,0,// Move me to classpath/ClassManagerImpl???
 1,0,0,0,0,0,0,// they never taught you this in undergrad computer science
 1,0,0,0,0,0,0,// (should we cache info in not a class case too?)
-1,0,0,0,1,1,1,// wtf?
+1,0,0,0,0,0,0,// wtf?
 1,0,1,0,1,1,1,"/*	 *  XXX: hairy code that is basically just a functional(?) port of some	 *  other code i barely understood	 */"
 1,0,0,0,0,0,0,"/*			First try for an accessible version of the exact match.			This first lookup seems redundant with below, but is apparently			needed.  This whole thing is messy.		*/"
 1,0,0,0,0,0,0,// work around for broken FTP plugin!
@@ -159,7 +159,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// fuck me dead
 1,1,1,1,1,1,1,// stupid hack to handle referencing // a rule set that is defined later!
 1,0,1,1,0,1,1,// JDK 1.4 workaround
-1,0,1,1,1,1,1,// should the next two be public, maybe?
+1,0,1,1,0,1,1,// should the next two be public, maybe?
 1,0,0,0,0,0,0,"/*		Note: this method and resolveExpectedJavaField should be rewritten		to invert this logic so that no exceptions need to be caught		unecessarily.  This is just a temporary impl.		@return the field or null if not found	*/"
 1,0,0,1,0,1,1,"/*		Note: we need a singleton here so that things like 'this == this' work		(and probably a good idea for speed).		Caching a single instance here seems technically incorrect,		considering the declaringInterpreter could be different under some		circumstances.  (Case: a child interpreter running a source() / eval() 		command ).  However the effect is just that the main interpreter that		executes your script should be the one involved in call-backs from Java.		I do not know if there are corner cases where a child interpreter would		be the first to use a This reference in a namespace or if that would		even cause any problems if it did...  We could do some experiments		to find out... and if necessary we could cache on a per interpreter		basis if we had weak references...  We might also look at skipping 		over child interpreters and going to the parent for the declaring 		interpreter, so we'd be sure to get the top interpreter.	*/"
 1,0,0,0,0,0,0,"/* 			Resolve relative to a class type			static field, inner class, ?		*/"
@@ -175,13 +175,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,0,1,1,// On Unix, set permissions of port file to rw-------, // so that on broken Unices which give everyone read // access to user home dirs, people can't see your // port file (and hence send arbitriary BeanShell code // your way. Nasty.)
 1,0,0,0,0,0,0,// ??? this should only be called with // fully loaded action set
 1,0,1,1,0,1,1,// broken Eclipse workaround! // 24 Febuary 2004
-1,0,0,0,0,0,0,"/*		Notes:		This is broken.  It finds public but less specific main.methods over		non-public but more specific ones.		This method needs to be rewritten to eliminate findAccessibleMethod.		We should implement the findMostSpecificMethod that uses the publicOnly		flag.  FindMostSpecificMethod should also operate in two passes to give		standard Java assignable matches priority over extended bsh type		matches.	*/"
+1,0,0,0,0,0,0,"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		This method needs to be rewritten to eliminate findAccessibleMethod.		We should implement the findMostSpecificMethod that uses the publicOnly		flag.  FindMostSpecificMethod should also operate in two passes to give		standard Java assignable matches priority over extended bsh type		matches.	*/"
 1,0,1,0,1,1,1,// XXX: This should not be hardcoded
-1,0,0,0,1,1,1,// INTERVAL OPERATOR: //  {x} | {x,} | {x,y}  (RE_INTERVALS && RE_NO_BK_BRACES) //  \{x\} | \{x,\} | \{x,y\} (RE_INTERVALS && !RE_NO_BK_BRACES) // // OPEN QUESTION:  //  what is proper interpretation of '{' at start of string?
+1,0,0,0,0,0,0,// INTERVAL OPERATOR: //  {x} | {x,} | {x,y}  (RE_INTERVALS && RE_NO_BK_BRACES) //  \{x\} | \{x,\} | \{x,y\} (RE_INTERVALS && !RE_NO_BK_BRACES) // // OPEN QUESTION:  //  what is proper interpretation of '{' at start of string?
 1,0,1,1,1,1,1,// XXX: does this really belong here?
 1,0,0,0,0,0,0,// We do need to save every possible point, but the number of clone() // invocations here is really a killer for performance on non-stingy // repeat operators.  I'm open to suggestions...
 1,0,0,0,0,0,0,"/*		Note: this should really just throw NoSuchFieldException... need		to change related signatures and code.	*/"
-1,0,0,0,0,0,0,// Split the main.methods into constructors and regular method lists
+1,0,0,0,0,0,0,// Split the methods into constructors and regular method lists
 1,0,0,0,0,0,0,// need to add static block here
 1,0,1,1,1,1,1,"/** * An output stream that compresses into the BZip2 format (without the file * header chars) into another stream. TODO: Update to BZip2 1.0.1 * * @author <a href=""mailto:keiron@aftexsw.com"">Keiron Liddle</a> */"
 1,0,0,0,1,1,1,"/**    * Parse the XML declaration.    * <pre>    * [25] XMLDecl ::= '&lt;?xml' VersionInfo EncodingDecl? SDDecl? S? '?&gt;'    * [26] VersionInfo ::= S 'version' Eq ('""1.0""' | ""'1.0'"")    * [33] SDDecl ::= S 'standalone' Eq ""'"" ('yes' | 'no') ""'""    *               | S 'standalone' Eq '""' (""yes"" | ""no"") '""'    * [78] EncodingDecl ::= S 'encoding' Eq QEncoding    * </pre>    * <p>([80] to [82] are also significant.)    * <p>(The <code>&lt;?xml</code> and whitespace have already been read.)    * <p>TODO: validate value of standalone.    * @see #parseTextDecl    * @see #checkEncoding    */"
@@ -189,7 +189,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,0,0,0,// Need some format checking here
 1,0,0,0,0,0,0,// Need to calculate this... just fudging here for now.
 1,0,1,1,1,1,1,// TODO: Also check REG_ANCHORINDEX vs. anchor
-1,0,0,0,1,1,1,// skip header bytes // maybe should check if they're valid or not?
+1,0,0,0,0,0,0,// skip header bytes // maybe should check if they're valid or not?
 1,0,0,0,0,0,0,"/*		Debug utils are static so that they are reachable by code that doesn't		necessarily have an interpreter reference (e.g. tracing in utils).		In the future we may want to allow debug/trace to be turned on on		a per interpreter basis, in which case we'll need to use the parent 		reference in some way to determine the scope of the command that 		turns it on or off.	*/"
 1,0,0,1,1,1,1,"/**    * Parse an element-content model.    * [42] elements ::= (choice | seq) ('?' | '*' | '+')?    * [44] cps ::= S? %cp S?    * [45] choice ::= '(' S? %ctokplus (S? '|' S? %ctoks)* S? ')'    * [46] ctokplus ::= cps ('|' cps)+    * [47] ctoks ::= cps ('|' cps)*    * [48] seq ::= '(' S? %stoks (S? ',' S? %stoks)* S? ')'    * [49] stoks ::= cps (',' cps)*    * *NOTE: the opening '(' and S have already been read.    * *TODO: go over parameter entity boundaries more carefully.    */"
 1,0,1,0,0,0,0,// this convention may change...
@@ -304,7 +304,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getSelection() method
 0,0,0,0,0,0,0,// we expand those that are non-empty, and // remove those that are empty
 0,0,0,0,0,0,0,// no field, try property acces
-0,0,0,0,1,1,1,// Word boundary means input[index-1] was a word character // and input[index] is not, or input[index] is a word character // and input[index-1] was not //  In the string "one two three", these positions match: //  |o|n|e| |t|w|o| |t|h|r|e|e| //  ^     ^ ^     ^ ^         ^ // is current character a letter or digit? // is previous character a letter or digit?
+0,0,0,0,0,0,0,// Word boundary means input[index-1] was a word character // and input[index] is not, or input[index] is a word character // and input[index-1] was not //  In the string "one two three", these positions match: //  |o|n|e| |t|w|o| |t|h|r|e|e| //  ^     ^ ^     ^ ^         ^ // is current character a letter or digit? // is previous character a letter or digit?
 0,0,1,0,0,0,0,// we need this public not protected
 0,0,0,0,0,0,0,// start at 1 not 0 to skip Token.NULL
 0,0,0,0,0,0,0,// not a field, try property access
@@ -435,7 +435,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ dispose() method
 0,0,0,0,0,0,0,"/*                throw new EvalError(					""Sourced file: ""+sourceFileInfo+"" parser Error: "" 					+ e.getMessage( DEBUG ), node, callstack );				*/"
 0,0,0,0,0,0,0,// if the last key was a numeric keypad key // and NumLock is off, filter it out
-0,0,0,0,0,0,0,//{{{ Buffer management main.methods
+0,0,0,0,0,0,0,//{{{ Buffer management methods
 0,0,0,0,0,0,0,//{{{ addKeyBinding() method
 0,0,0,0,0,0,0,// only complete current buffer's keyword map
 0,0,0,0,0,0,0,// Pick screen with largest intersection
@@ -449,7 +449,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// build a list of unique words in all visible buffers
 0,0,0,0,0,0,0,//{{{ getToolTipText() method
 0,0,0,0,0,0,0,//{{{ getNonAlphaNumericWordChars() method
-0,0,0,0,0,0,0,// These JComponent main.methods provide the appropriate points // to subscribe and unsubscribe this object to the EditBus
+0,0,0,0,0,0,0,// These JComponent methods provide the appropriate points // to subscribe and unsubscribe this object to the EditBus
 0,0,0,0,0,0,0,//{{{ if there is only one competion, insert in buffer
 0,0,0,0,0,0,0,//{{{ setBlockCaretEnabled() method
 0,0,0,0,0,0,0,// check for match at start of line
@@ -463,7 +463,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// ok, this one seems to confuse newbies // endlessly, so log it as NOTICE, not // ERROR
 0,0,0,0,0,0,0,//{{{ Completion class
 0,0,0,0,0,0,0,//{{{ insertSelected() method
-0,0,1,0,0,0,0,// Note: if we want main.methods declared inside blocks to be accessible via // this.methodname() inside the block we could handle it here as a // special case.  See also resolveThisFieldReference() special handling // for BlockNameSpace case.  They currently work via the direct name // e.g. methodName().
+0,0,1,0,0,0,0,// Note: if we want methods declared inside blocks to be accessible via // this.methodname() inside the block we could handle it here as a // special case.  See also resolveThisFieldReference() special handling // for BlockNameSpace case.  They currently work via the direct name // e.g. methodName().
 0,0,0,0,0,0,0,/*, CallStack callstack */
 0,0,0,0,0,0,0,// $ at end is literal //}}}
 0,0,0,0,0,0,0,//{{{ RotatedTextIcon class
@@ -543,7 +543,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// updates max locals only (no stack change)
 0,0,0,0,0,0,0,//{{{ getCacheableActionNames() method
 0,0,0,0,0,0,0,// resolves previous forward references to label, if any
-0,0,0,0,0,0,0,// End BeanShell Modification - override error main.methods and toString
+0,0,0,0,0,0,0,// End BeanShell Modification - override error methods and toString
 0,0,0,0,0,0,0,/* package-private for speed */
 0,0,0,0,0,0,0,//{{{ createPosition() method
 0,0,0,0,0,0,0,//{{{ contains() method
@@ -556,7 +556,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ size() method
 0,0,0,0,0,0,0,//{{{ addPluginProps() method
 0,0,0,0,0,0,0,//{{{ removePluginProps() method
-0,0,0,0,1,1,1,// set flag that next should fail next time?
+0,0,0,0,0,0,0,// set flag that next should fail next time?
 0,0,0,0,0,0,0,// Listener interfaces
 0,0,0,0,0,0,0,//{{{ getDefaultRootElement() method
 0,0,0,0,0,0,0,//actions.clear();
@@ -579,7 +579,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ MouseHandler class
 0,0,0,0,0,0,0,// visitInsn // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // visitIntInsn // - // visitLdcInsn //int LDC_W = 19;           // - //int LDC2_W = 20;          // - // visitVarInsn // - // - // - // - //int ILOAD_0 = 26;         // - //int ILOAD_1 = 27;         // - //int ILOAD_2 = 28;         // - //int ILOAD_3 = 29;         // - //int LLOAD_0 = 30;         // - //int LLOAD_1 = 31;         // - //int LLOAD_2 = 32;         // - //int LLOAD_3 = 33;         // - //int FLOAD_0 = 34;         // - //int FLOAD_1 = 35;         // - //int FLOAD_2 = 36;         // - //int FLOAD_3 = 37;         // - //int DLOAD_0 = 38;         // - //int DLOAD_1 = 39;         // - //int DLOAD_2 = 40;         // - //int DLOAD_3 = 41;         // - //int ALOAD_0 = 42;         // - //int ALOAD_1 = 43;         // - //int ALOAD_2 = 44;         // - //int ALOAD_3 = 45;         // - // visitInsn // - // - // - // - // - // - // - // visitVarInsn // - // - // - // - //int ISTORE_0 = 59;        // - //int ISTORE_1 = 60;        // - //int ISTORE_2 = 61;        // - //int ISTORE_3 = 62;        // - //int LSTORE_0 = 63;        // - //int LSTORE_1 = 64;        // - //int LSTORE_2 = 65;        // - //int LSTORE_3 = 66;        // - //int FSTORE_0 = 67;        // - //int FSTORE_1 = 68;        // - //int FSTORE_2 = 69;        // - //int FSTORE_3 = 70;        // - //int DSTORE_0 = 71;        // - //int DSTORE_1 = 72;        // - //int DSTORE_2 = 73;        // - //int DSTORE_3 = 74;        // - //int ASTORE_0 = 75;        // - //int ASTORE_1 = 76;        // - //int ASTORE_2 = 77;        // - //int ASTORE_3 = 78;        // - // visitInsn // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // visitIincInsn // visitInsn // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // visitJumpInsn // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // visitVarInsn // visiTableSwitchInsn // visitLookupSwitch // visitInsn // - // - // - // - // - // visitFieldInsn // - // - // - // visitMethodInsn // - // - // - //int UNUSED = 186;         // NOT VISITED // visitTypeInsn // visitIntInsn // visitTypeInsn // visitInsn // - // visitTypeInsn // - // visitInsn // - //int WIDE = 196;           // NOT VISITED // visitMultiANewArrayInsn // visitJumpInsn // - //int GOTO_W = 200;         // - //int JSR_W = 201;          // -
 0,0,0,0,0,0,0,//{{{ quicksort() method
-0,0,0,0,1,1,1,// hopefully another caret update will come?
+0,0,0,0,0,0,0,// hopefully another caret update will come?
 0,0,0,0,0,0,0,// 1st step: // As explained above, resizing an instruction may require to resize another // one, which may require to resize yet another one, and so on. The first // step of the algorithm consists in finding all the instructions that // need to be resized, without modifying the code. This is done by the // following "fix point" algorithm: // - parse the code to find the jump instructions whose offset will need //   more than 2 bytes to be stored (the future offset is computed from the //   current offset and from the number of bytes that will be inserted or //   removed between the source and target instructions). For each such //   instruction, adds an entry in (a copy of) the indexes and sizes arrays //   (if this has not already been done in a previous iteration!) // - if at least one entry has been added during the previous step, go back //   to the beginning, otherwise stop. // In fact the real algorithm is complicated by the fact that the size of // TABLESWITCH and LOOKUPSWITCH instructions depends on their position in // the bytecode (because of padding). In order to ensure the convergence of // the algorithm, the number of bytes to be added or removed from these // instructions is over estimated during the previous loop, and computed // exactly only after the loop is finished (this requires another pass to // parse the bytecode of the method).
 0,0,0,0,0,0,0,// nodes remember from where they were sourced
 0,0,0,0,0,0,0,// jump offset // GOTO_W
@@ -596,7 +596,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ resetProperty() method
 0,0,0,0,0,0,0,// end JcmdProcessTest.java
 0,0,0,0,0,0,0,// Check that the attribute doesn't // already exist!
-0,0,0,0,0,0,0,// // helper main.methods //
+0,0,0,0,0,0,0,// // helper methods //
 0,0,0,0,0,0,0,// We have to open our own stream // to the URL.
 0,0,0,0,0,0,0,//{{{ getActiveView() method
 0,0,0,0,0,0,0,//{{{ charData() method
@@ -641,7 +641,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// end source and eval
 0,0,0,0,0,0,0,//{{{ isVisible() method
 0,0,0,0,0,0,0,// this notifies each display manager editing this // buffer of the screen line count change
-0,0,0,0,0,0,0,// end primary set and get main.methods
+0,0,0,0,0,0,0,// end primary set and get methods
 0,0,0,0,0,0,0,// No, it is not.
 0,0,0,0,0,0,0,//{{{ getEnterAddsToHistory() method
 0,0,0,0,0,0,0,// Careful here: // else fall through to override and install the new typed version
@@ -706,7 +706,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,1,0,1,1,"/*			Lots of preconditions checked here...			Once things are running smoothly we might comment these out			(That's what assertions are for).		*/"
 0,0,0,0,0,0,0,//{{{ equals() method
 0,0,0,0,0,0,0,// converts temporary opcodes 202 to 217 (inclusive), 218 and 219 // to IFEQ ... JSR (inclusive), IFNULL and IFNONNULL
-0,0,0,0,1,1,1,// no body?
+0,0,0,0,0,0,0,// no body?
 0,0,0,0,0,0,0,// Read the first four bytes for // autodetection.
 0,0,1,0,0,0,0,"/* Magic: UNTITLED is only set if newFile param to		 * constructor is set, NEW_FILE is also set if file		 * doesn't exist on disk.		 *		 * This is so that we can tell apart files created		 * with jEdit.newFile(), and those that just don't		 * exist on disk.		 *		 * Why do we need to tell the difference between the		 * two? jEdit.addBufferToList() checks if the only		 * opened buffer is an untitled buffer, and if so,		 * replaces it with the buffer to add. We don't want		 * this behavior to occur with files that don't		 * exist on disk; only untitled ones.		 */"
 0,0,0,0,0,0,0,//{{{ mouseDragged() method
@@ -814,7 +814,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ showSplashScreen() method
 0,0,0,0,0,0,0,//{{{ isPrefixActive() method
 0,0,0,0,0,0,0,//{{{ GutterOptionPane constructor
-0,0,0,0,1,1,1,// is it a header?
+0,0,0,0,0,0,0,// is it a header?
 0,0,0,0,0,0,0,// null some variables so that retaining references // to closed views won't hurt as much.
 0,0,0,0,0,0,0,// Push the existing status.
 0,0,0,0,0,0,0,// to avoid having to deal with read/write locks and such, // we insert the loaded data into the buffer in the // post-load cleanup runnable, which runs in the AWT thread.
@@ -897,7 +897,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// should normally be
 0,0,0,0,0,0,0,// remember the last executed action
 0,0,0,0,0,0,0,//{{{ handleKey() method
-0,0,0,0,0,0,0,"/*		Disallowing VOIDs here was an easy way to support the throwing of a 		more descriptive error message on use of an undefined argument to a 		method call (very common).  If it ever turns out that we need to 		support that for some reason we'll have to re-evaluate how we get 		""meta-information"" about the arguments in the various invoke() main.methods 		that take Object [].  We could either pass BSHArguments down to 		overloaded forms of the main.methods or throw an exception subtype 		including the argument position back up, where the error message would		be compounded.	*/"
+0,0,0,0,0,0,0,"/*		Disallowing VOIDs here was an easy way to support the throwing of a 		more descriptive error message on use of an undefined argument to a 		method call (very common).  If it ever turns out that we need to 		support that for some reason we'll have to re-evaluate how we get 		""meta-information"" about the arguments in the various invoke() methods 		that take Object [].  We could either pass BSHArguments down to 		overloaded forms of the methods or throw an exception subtype 		including the argument position back up, where the error message would		be compounded.	*/"
 0,0,0,0,0,0,0,//{{{ invokeReadNextChar() method
 0,0,0,0,0,0,0,//{{{ JCheckBoxList constructor
 0,0,0,0,0,0,0,// stop people doing dumb stuff like C+ENTER 100 C+n
@@ -992,7 +992,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// if auto wrap is on, always restart search. // if auto wrap is off, and we're called from // a macro, stop search. If we're called // interactively, ask the user what to do.
 0,0,0,0,0,0,0,//{{{ Factory constructor
 0,0,0,0,0,0,0,//{{{ getMinimumSize() method
-0,0,0,0,0,0,0,//{{{ Sorting main.methods
+0,0,0,0,0,0,0,//{{{ Sorting methods
 0,0,0,0,0,0,0,//{{{ addComponent() method
 0,0,0,0,0,0,0,//{{{ Instance part of class
 0,0,0,0,0,0,0,// updates current stack size (max stack size unchanged)
@@ -1059,7 +1059,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// SILLY: allow for anti-aliased characters' "fuzz"
 0,0,0,0,0,0,0,//{{{ hideDockableWindow() method
 0,0,0,0,0,0,0,// the search works by starting the anchor (first character // of the pattern) at the initial offset. as long as the // anchor is far enough from the enough of the text for the // pattern to match, and until the pattern matches, we // compare the pattern to the text from the last character // to the first character in reverse order. where a character // in the pattern mismatches, we use the two heuristics // based on the mismatch character and its position in the // pattern to determine the furthest we can move the anchor // without missing any potential pattern matches.
-0,0,0,0,1,1,1,// do some platforms throw exceptions if the file does not exist // when we ask for the canonical path?
+0,0,0,0,0,0,0,// do some platforms throw exceptions if the file does not exist // when we ask for the canonical path?
 0,0,0,0,0,0,0,//{{{ isDockableWindowVisible() method
 0,0,0,0,0,0,0,//{{{ _canonPath() method
 0,0,0,0,0,0,0,// No matter what happends... stops us from leaving buffer // in a bad state
@@ -1094,7 +1094,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// I'm not sure when this can happen, // but it does sometimes, witness the // jEdit bug tracker.
 0,0,0,0,0,0,0,//{{{ getColumnOnOtherLine() method
 0,0,0,0,0,0,0,/* otherwise just insert the text */
-0,0,0,0,0,0,0,"/** * A constant pool item. Constant pool items can be created with the 'newXXX' * main.methods in the {@link ClassWriter} class. */"
+0,0,0,0,0,0,0,"/** * A constant pool item. Constant pool items can be created with the 'newXXX' * methods in the {@link ClassWriter} class. */"
 0,0,0,0,0,0,0,//{{{ getRightDockingArea() method
 0,0,0,0,0,0,0,// Insert the attributes, if any.
 0,0,0,0,0,0,0,// we remember which classes we don't exist // because BeanShell tries loading all possible // <imported prefix>.<class name> combinations
@@ -1139,7 +1139,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*		Note: bshmethod needs to re-evaluate arg types here		This is broken.	*/"
 0,0,0,0,0,0,0,// if strictJava mode, check for loose parameters and return type
 0,0,0,0,0,0,0,// only set if open
-0,0,0,0,1,1,1,// WORD END OPERATOR  //  \> if ????
+0,0,0,0,0,0,0,// WORD END OPERATOR  //  \> if ????
 0,0,0,0,0,0,0,//{{{ adjustDockingAreasToFit() method
 0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Methods to compute offsets and to manage forward references // --------------------------------------------------------------------------
 0,0,0,0,0,0,0,//{{{ invalidateLayout() method
@@ -1149,7 +1149,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ TextAreaSelection class
 0,0,0,0,0,0,0,//{{{ getLineEndOffset() method
 0,0,0,0,0,0,0,"/*	 *  a good introduction to the Boyer-Moore fast string matching	 *  algorithm may be found on Moore's website at:	 *	 *   http://www.cs.utexas.edu/users/moore/best-ideas/string-searching/	 *	 */"
-0,0,0,0,1,1,1,// we don't know the right hand side of the assignment yet. // has at least one setter of the right name?
+0,0,0,0,0,0,0,// we don't know the right hand side of the assignment yet. // has at least one setter of the right name?
 0,0,0,0,0,0,0,//{{{ getLayoutAlignmentY() method
 0,0,0,0,0,0,0,// if chain returns false, it "rejected" the token due to // an optimization, and next was combined with lastToken
 0,0,0,0,0,0,0,//{{{ recordInput() method
@@ -1158,14 +1158,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// // QuickNotepadActions implementation //
 0,0,0,0,0,0,0,/*autoalloc*/
 0,0,0,0,0,0,0,// JSR_W
-0,0,0,0,1,1,1,// WORD BREAK OPERATOR //  \b if ????
+0,0,0,0,0,0,0,// WORD BREAK OPERATOR //  \b if ????
 0,0,0,0,0,0,0,// if at least one property listed here is true, // load the plugin
 0,0,0,0,0,0,0,//////////////////////////////////////////////////////////////////////// // Constants. ////////////////////////////////////////////////////////////////////////
 0,0,0,0,0,0,0,// multiple files w/ word bonus
 0,0,0,0,1,1,1,/* XXX */
 0,0,0,0,0,0,0,// send full range of events to avoid breaking plugins
 0,0,0,0,0,0,0,"/*     * always: in the range 0 .. 9.     * The current block size is 100000 * this number.     */"
-0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Utility main.methods: instruction resizing (used to handle GOTO_W and JSR_W) // --------------------------------------------------------------------------
+0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Utility methods: instruction resizing (used to handle GOTO_W and JSR_W) // --------------------------------------------------------------------------
 0,0,0,0,0,0,0,"/*			If we've fallen through here we are no longer resolving to			a class type.		*/"
 0,0,0,0,0,0,0,//{{{ Position center (edit pane, or split pane)
 0,0,0,0,0,0,0,// the +1's ensure that 99 gets 3 digits, 103 gets 4 digits, // and so on.
@@ -1186,7 +1186,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*			Is it a class name?			If we're just starting eval of name try to make it, else fail.		*/"
 0,0,0,0,0,0,0,// Java object
 0,0,0,0,0,0,0,// skip throws
-0,0,0,0,0,0,0,// Do not evaluate main.methods this() or super() in class instance space // (i.e. inside a constructor)
+0,0,0,0,0,0,0,// Do not evaluate methods this() or super() in class instance space // (i.e. inside a constructor)
 0,0,0,0,0,0,0,// Set the default entities here.
 0,0,0,0,0,0,0,"/*         * Decide how many coding tables to use         */"
 0,0,0,0,0,0,0,// Set up the input variables
@@ -1229,7 +1229,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// later on we need to know if certain code is called from // the main thread
 0,0,0,0,0,0,0,//{{{ saveGeometry() method
 0,0,0,0,0,0,0,//}}} //{{{ Insert the expansion
-0,0,0,0,0,0,0,// JDK 1.4 adds main.methods to obtain a drive letter label and // list the desktop on Windows
+0,0,0,0,0,0,0,// JDK 1.4 adds methods to obtain a drive letter label and // list the desktop on Windows
 0,0,0,0,0,0,0,//{{{ GZipped setting
 0,0,0,0,0,0,0,//{{{ setFoldLevel() method // Also sets 'fold level valid' flag
 0,0,0,0,0,0,0,//}}} //{{{ Bottom...
@@ -1257,7 +1257,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Big enough for a \r\n pair // lookBehind[0] = most recent // lookBehind[1] = second most recent
 0,0,0,0,0,0,0,// Define the new class in the classloader
 0,0,0,0,0,0,0,// Skip whitespace at the end.
-0,0,0,0,1,1,1,// Is this it? // Is the class public or can we use accessibility?
+0,0,0,0,0,0,0,// Is this it? // Is the class public or can we use accessibility?
 0,0,0,0,0,0,0,"/*                 * copy 2                 */"
 0,0,0,0,0,0,0,/* we don't handle key pressed A+ */
 0,0,0,0,0,0,0,// - don't do these checks while a save is in progress, // because for a moment newModTime will be greater than // oldModTime, due to the multithreading // - only supported on local file system
@@ -1317,7 +1317,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getPluginIcon() method
 0,0,0,0,0,0,0,// Some Java versions return the clipboard // contents using the native line separator, // so have to convert it here
 0,0,0,0,0,0,0,// Push the name of the method as a constant
-0,0,0,0,1,1,1,// user cancelled???
+0,0,0,0,0,0,0,// user cancelled???
 0,0,0,0,0,0,0,//case Constants.PUTFIELD:
 0,0,1,1,0,1,1,"/*         * The back end needs a place to store the MTF values         * whilst it calculates the coding tables.  We could         * put them in the zptr array.  However, these values         * will fit in a short, so we overlay szptr at the         * start of zptr, in the hope of reducing the number         * of cache misses induced by the multiple traversals         * of the MTF values when calculating coding tables.         * Seems to improve compression speed by about 1%.         */"
 0,0,0,0,0,0,0,// in case macro file name has a space in it. // spaces break the view.toolBar property, for instance, // since it uses spaces to delimit action names.
@@ -1333,15 +1333,15 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Wait for pending I/O requests
 0,0,0,0,0,0,0,//{{{ getKeyBinding() method
 0,0,0,0,0,0,0,// over estimation of the number of bytes to be added to this // instruction = 3 - current number of padding bytes = 3 - (3 - // u%4) = u%4 = u & 3
-0,0,0,0,0,0,0,// // Attribute main.methods //
+0,0,0,0,0,0,0,// // Attribute methods //
 0,0,1,0,0,0,0,"/*     * If you are ever unlucky/improbable enough     * to get a stack overflow whilst sorting,     * increase the following constant and try     * again.  In practice I have never seen the     * stack go above 27 elems, so the following     * limit seems very generous.     */"
 0,0,0,0,0,0,0,// helper method to get Font from plugin properties
 0,0,0,0,0,0,0,// throw new IOException("Invalid block size");
 0,0,0,0,0,0,0,// on insert, start search from beginning of // current match. This will continue to highlight // the current match until another match is found
 0,0,0,0,0,0,0,//for backwards compatibility, the color variable is stored also as a property
-0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Utility main.methods: control flow analysis algorithm // --------------------------------------------------------------------------
+0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Utility methods: control flow analysis algorithm // --------------------------------------------------------------------------
 0,0,0,0,0,0,0,// Useful for debugging purposes
-0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Other public main.methods // --------------------------------------------------------------------------
+0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Other public methods // --------------------------------------------------------------------------
 0,0,0,0,0,0,0,//{{{ ensureCapacity() method
 0,0,0,0,0,0,0,//}}} //{{{ Paint bracket scope
 0,0,0,0,0,0,0,//{{{ synchronizeMultiFileSettings() method
@@ -1366,7 +1366,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// check whether the other shortcut is the alt. shortcut
 0,0,0,0,0,0,0,// for compatibility with older jEdit versions
 0,0,0,0,0,0,0,// to hide current line highlight
-0,0,0,0,1,1,1,// we have binding foo // but user asks to remove foo bar?
+0,0,0,0,0,0,0,// we have binding foo // but user asks to remove foo bar?
 0,0,0,0,0,0,0,//{{{ getNonAlphaNumericChars() method
 0,0,0,0,0,0,0,//{{{ getStructureHighlightColor() method
 0,0,0,0,0,0,0,// impl note: since multiple searches now allowed, // extra level in hierarchy
@@ -1377,7 +1377,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ loadMenuItem() method
 0,0,0,0,0,0,0,// proxy port
 0,0,0,0,0,0,0,// skips 0 to 3 padding bytes
-0,0,0,0,0,0,0,//{{{ Delegate main.methods
+0,0,0,0,0,0,0,//{{{ Delegate methods
 0,0,0,0,0,0,0,//{{{ getPhysicalLineOfScreenLine() method
 0,0,0,0,0,0,0,// when the text area switches to us, it will do // a reset anyway
 0,0,0,0,0,0,0,// opcodes                  // visit method (- = idem)
@@ -1509,7 +1509,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//&& thisNameSpace.getParent().classInstance != null
 0,0,0,0,0,0,0,// previous round produced void
 0,0,0,0,0,0,0,//{{{ Fold mode
-0,0,0,0,1,1,1,// Do we have to grow the bucket?
+0,0,0,0,0,0,0,// Do we have to grow the bucket?
 0,0,0,0,0,0,0,//{{{ FontSelector constructor
 0,0,0,0,0,0,0,//{{{ Wrap mode
 0,0,0,0,0,0,0,// find the enclosing class instance space of the class name
@@ -1532,11 +1532,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ remove() method
 0,0,0,0,0,0,0,//{{{ translateKeyEvent() method
 0,0,0,0,0,0,0,// get the previous context (see notes for this class)
-0,0,0,0,1,1,1,// inner class?
+0,0,0,0,0,0,0,// inner class?
 0,0,0,0,0,0,0,//{{{ parseKey() method
 0,0,0,0,0,0,0,//{{{ getSymbolicModifierName() method
-0,0,0,0,1,1,1,// static field?
-0,0,0,0,1,1,1,// length access on array? 
+0,0,0,0,0,0,0,// static field?
+0,0,0,0,0,0,0,// length access on array? 
 0,0,0,0,0,0,0,// super is now the closure's super or class instance
 0,0,0,0,0,0,0,"//Log.log(Log.DEBUG, MiscUtilities.class, //	""- is not in system classpath.""); //}}}"
 0,0,0,0,0,0,0,// if we get here we have failed
@@ -1601,7 +1601,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//}}} //{{{ Right...
 0,0,0,0,0,0,0,// e.g. this.x=5;  or someThisType.x=5;
 0,0,0,0,0,0,0,// Finished eval and its a class.
-0,0,0,0,1,1,1,// can't happen?
+0,0,0,0,0,0,0,// can't happen?
 0,0,0,0,0,0,0,//{{{ getBooleanProperty() method
 0,0,0,0,0,0,0,"/*		object is a java.lang wrapper for boolean, char, or number type	*/"
 0,0,0,0,0,0,0,// ALTERNATION OPERATOR //  \| or | (if RE_NO_BK_VBAR) or newline (if RE_NEWLINE_ALT) //  not available if RE_LIMITED_OPS is set
@@ -1638,7 +1638,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ EditAbbrevDialog constructor
 0,0,0,0,0,0,0,//}}} //{{{ Handle ordinary abbrevs
 0,0,0,1,0,1,1,//{{{ Maybe show add abbrev dialog
-0,0,0,0,1,1,1,// Do we have the necessary jdk1.2 packages and optional package?
+0,0,0,0,0,0,0,// Do we have the necessary jdk1.2 packages and optional package?
 0,0,0,0,0,0,0,//{{{ getGlobalAbbrevs() method
 0,0,0,0,0,0,0,// I guess this is when we pass it as an argument? // Setting locally
 0,0,0,0,0,0,0,// not a comment // create RE subexpression as token.
@@ -1712,10 +1712,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ ignoreWord() method
 0,0,0,0,0,0,0,/*  || lname.endsWith(".txt") */
 0,0,0,0,0,0,0,// so that HelpViewer constructor doesn't try to expand
-0,0,0,0,1,1,1,// WORD BEGIN OPERATOR  //  \< if ????
+0,0,0,0,0,0,0,// WORD BEGIN OPERATOR  //  \< if ????
 0,0,0,0,0,0,0,// used to mark non-existent classes in class hash
 0,0,0,0,0,0,0,// evaluate a method declaration
-0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Utility main.methods: dump bytecode array // --------------------------------------------------------------------------
+0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Utility methods: dump bytecode array // --------------------------------------------------------------------------
 0,0,0,0,0,0,0,// the word
 0,0,0,0,0,0,0,// should try to print usage here if nothing found
 0,0,0,0,0,0,0,//{{{ addWord() method
@@ -1731,20 +1731,20 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ attribute() method
 0,0,0,0,0,0,0,//{{{ TOCHandler class
 0,0,0,0,0,0,0,"/*        NULL means ""no value"".        This ia a placeholder for primitive null value.    */"
-0,0,0,0,0,0,0,////////////////////////////////////////////////////////////////////// // High-level reading and scanning main.methods. //////////////////////////////////////////////////////////////////////
+0,0,0,0,0,0,0,////////////////////////////////////////////////////////////////////// // High-level reading and scanning methods. //////////////////////////////////////////////////////////////////////
 0,0,0,0,0,0,0,//{{{ CustomClassManager class
 0,0,0,0,0,0,0,//{{{ cut() method
 0,0,0,0,0,0,0,//{{{ TOCHandler constructor
 0,0,0,0,0,0,0,//{{{ TOCCellRenderer class
 0,0,0,0,0,0,0,//ToolTipManager ttm = ToolTipManager.sharedInstance();
 0,0,0,0,0,0,0,//{{{ cellRectIsVisible() method
-0,0,0,0,0,0,0,//{{{ Path name main.methods
+0,0,0,0,0,0,0,//{{{ Path name methods
 0,0,0,0,0,0,0,//{{{ TOCTree constructor
 0,0,0,0,0,0,0,//{{{ SendVFSUpdatesSafely class
 0,0,0,0,0,0,0,//{{{ TOCTree class
 0,0,0,0,0,0,0,//{{{ constructPath() method
 0,0,0,0,0,0,0,//{{{ getFileVFS() method
-0,0,0,0,0,0,0,//{{{ VFS main.methods
+0,0,0,0,0,0,0,//{{{ VFS methods
 0,0,0,0,0,0,0,//{{{ PluginCompare class
 0,0,0,0,0,0,0,//{{{ getUrlVFS() method
 0,0,0,0,0,0,0,//{{{ registerVFS() method
@@ -1769,7 +1769,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getRequestCount() method
 0,0,0,0,0,0,0,//{{{ getIOThreadPool() method
 0,0,0,0,0,0,0,//{{{ sendVFSUpdate() method
-0,0,0,0,0,0,0,//{{{ I/O request main.methods
+0,0,0,0,0,0,0,//{{{ I/O request methods
 0,0,0,0,0,0,0,// use system default short format
 0,0,0,0,0,0,0,//{{{ getLeadingWhiteSpaceWidth() method
 0,0,0,0,0,0,0,//{{{ addGlobalAbbrev() method
@@ -1806,7 +1806,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*eof*/
 0,0,0,0,0,0,0,// this has been changed since 1.03 to be non-overlapping matches
 0,0,0,0,0,0,0,// have to handle this case specially on windows. // insert \ between, eg A: and myfile.txt.
-0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Utility main.methods: constant pool management // --------------------------------------------------------------------------
+0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Utility methods: constant pool management // --------------------------------------------------------------------------
 0,0,0,0,0,0,0,//{{{ ToolBar-related constants
 0,0,0,0,0,0,0,//{{{ setBooleanProperty() method
 0,0,0,0,0,0,0,//{{{ getModeAbbrevs() method
@@ -2163,7 +2163,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// keep track of the original types
 0,0,0,0,0,0,0,// Add the new typed var
 0,0,0,0,0,0,0,// returns Object covering both Integer and Boolean return types
-0,0,0,0,0,0,0,// Don't generate private /*or loosely return typed */ main.methods
+0,0,0,0,0,0,0,// Don't generate private /*or loosely return typed */ methods
 0,0,0,0,0,0,0,//{{{ goToNextFold() method
 0,0,0,0,0,0,0,// type is correct here
 0,0,0,0,0,0,0,/* History count */
@@ -2230,7 +2230,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Cast input appropriately or throw exception
 0,0,0,0,0,0,0,// don't deal with object types here... unless above
 0,0,0,0,0,0,0,// can only cast boolean to boolean
-0,0,0,0,1,1,1,// Trying to cast null to primitive type?
+0,0,0,0,0,0,0,// Trying to cast null to primitive type?
 0,0,0,0,0,0,0,//{{{ addOptionPane() method
 0,0,0,0,0,0,0,/* Session management */
 0,0,0,0,0,0,0,//{{{ GeneralOptionPane constructor
@@ -2245,7 +2245,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// At this point we've either got too many or just the right amount. // See if this numRepeats works with the rest of the regexp.
 0,0,0,0,0,0,0,/* Footer */
 0,0,0,0,0,0,0,"/*         * Write `magic' bytes h indicating file-format == huffmanised,         * followed by a digit indicating blockSize100k.         */"
-0,0,0,0,1,1,1,// auto reload changed buffers?
+0,0,0,0,0,0,0,// auto reload changed buffers?
 0,0,0,0,0,0,0,/* Header */
 0,0,0,0,0,0,0,/* Sort buffers by names */
 0,0,0,0,0,0,0,// UCS-4 must begin with "<!XML" // 0x00 0x3c 0x00 0x00: UCS-4, unusual (3421)
@@ -2286,14 +2286,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Begin BeanShell Modification - added sourceFile info
 0,0,0,0,0,0,0,//{{{ ManagePanel constructor
 0,0,0,0,0,0,0,// End BeanShell Modification - added debug param
-0,0,0,0,0,0,0,// Begin BeanShell Modification - override error main.methods and toString
+0,0,0,0,0,0,0,// Begin BeanShell Modification - override error methods and toString
 0,0,0,0,0,0,0,// Compare with number of dimensions actually created with the // number specified (syntax uses the undefined ones here)
 0,0,0,1,0,1,1,// Some kind of 8-bit encoding without "<?XML" // (otherwise) UTF-8 without encoding/XML declaration
 0,0,0,0,0,0,0,"/*			dimensionsNode can return either a fully intialized array or VOID.			when VOID the prescribed array dimensions (defined and undefined)			are contained in the node.		*/"
 0,0,0,0,0,0,0,// so that we don't try to reset() right away
 0,0,0,0,0,0,0,"/*                 * Find the coding table which is best for this group,                 * and record its identity in the selector table.                 */"
 0,0,0,0,0,0,0,// in this case, we can't directly call // view.close(); we have to call closeView() // for all open views
-0,0,0,0,0,0,0,// Generate the delegate main.methods
+0,0,0,0,0,0,0,// Generate the delegate methods
 0,0,0,0,0,0,0,//{{{ transitiveClosure() method
 0,0,0,0,0,0,0,// Test it
 0,0,0,0,0,0,0,// execute nodes, skipping labels, until a break or return
@@ -2335,7 +2335,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// if no requests are running, requestDone() // will not be called, so we must queue the // AWT runner ourselves.
 0,0,0,0,0,0,0,//{{{ createBrowserMenuItems() method
 0,0,0,0,0,0,0,//{{{ PluginManager constructor
-0,0,0,0,0,0,0,//{{{ Deprecated main.methods
+0,0,0,0,0,0,0,//{{{ Deprecated methods
 0,0,0,0,0,0,0,// ensure consistent history; // eg we don't want both // foo/ and foo
 0,0,0,0,0,0,0,//{{{ isDownloadingList() method
 0,0,0,0,0,0,0,//{{{ createOptionPanes() method
@@ -2345,7 +2345,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ showWaitCursor() method
 0,0,0,0,0,0,0,// Also cache the class so that no import resolution must occur // this avoids having to load our enclosing class which isn't // finished being generated yet... oy.
 0,0,0,0,0,0,0,////////////////////////////////////////////////////////////////////// // Low-level I/O. //////////////////////////////////////////////////////////////////////
-0,0,0,0,1,1,1,// need to set the input stream - reinit the parser?
+0,0,0,0,0,0,0,// need to set the input stream - reinit the parser?
 0,0,0,0,0,0,0,// Primitive to arbitrary object type.  // Allow Primitive.castToType() to handle it as well as cases of  // Primitive.NULL and Primitive.VOID
 0,0,0,0,0,0,0,// a la Perl, $0 is whole thing, $1 - $9 are subexpressions
 0,0,0,0,0,0,0,// if started with java -jar jedit.jar
@@ -2452,7 +2452,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,//no need to always keep the same job name for every printout.
 0,0,0,0,0,0,0,// remove cache file
 0,0,0,0,0,0,0,// Add method body
-0,0,0,0,1,1,1,// push super class name // use superClassName var?
+0,0,0,0,0,0,0,// push super class name // use superClassName var?
 0,0,0,0,0,0,0,//{{{ toggleLineSeparator() method
 0,0,0,0,0,0,0,// push class static This object
 0,1,1,1,1,1,1,//{{{ Instance variables // this is a bad hack
@@ -2507,7 +2507,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ HyperSearchResult constructor
 0,0,0,0,0,0,0,// not found at all.
 0,0,0,0,0,0,0,//{{{ addOccur() method
-0,0,0,0,0,0,0,// Gather all of the main.methods of class and parents
+0,0,0,0,0,0,0,// Gather all of the methods of class and parents
 0,0,0,0,0,0,0,/* an error occurred */
 0,0,0,0,0,0,0,//{{{ toggleWordWrap() method
 0,0,0,0,0,0,0,//{{{ getNextFile() method
@@ -2519,7 +2519,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// WHITESPACE OPERATOR //  \s if RE_CHAR_CLASS_ESCAPES is set
 0,0,0,0,0,0,0,// RETURN ESCAPE //  \r
 0,0,0,0,0,0,0,//{{{ isEmpty() method
-0,0,0,0,1,1,1,// NON-WORD BREAK OPERATOR // \B if ????
+0,0,0,0,0,0,0,// NON-WORD BREAK OPERATOR // \B if ????
 0,0,0,0,0,0,0,//{{{ performOperationsInWorkThread() method
 0,0,0,0,0,0,0,// now activate the plugins
 0,0,0,0,0,0,0,//{{{ bufferSaved() method
@@ -2560,13 +2560,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// End Child node structure evaluated by insureNodesParsed
 0,0,0,0,0,0,0,// Succeeded.  Cache the resolved method.
 0,0,0,0,0,0,0,//{{{ getReverseSearch() method
-0,0,0,0,1,1,1,// Is the method public or are we in accessibility mode?
+0,0,0,0,0,0,0,// Is the method public or are we in accessibility mode?
 0,0,0,0,0,0,0,// Yes, it is.
 0,0,0,0,0,0,0,//{{{ searchFailed() method
 0,0,0,0,0,0,0,"/* package-private since they are accessed by inner classes and we	 * want this to be fast */"
 0,0,0,0,0,0,0,// Found at least one matching method but couldn't use
 0,0,0,0,0,0,0,// ignore and move on
-0,0,0,0,1,1,1,// Is this a class?
+0,0,0,0,0,0,0,// Is this a class?
 0,0,0,0,0,0,0,/*@bgen(jjtree) Type */
 0,0,0,0,0,0,0,// evaluate the args
 0,0,0,0,0,0,0,// D:\WINDOWS, or doesn't contain : at all
@@ -2575,7 +2575,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*modifiers*/
 0,0,0,0,0,0,0,//{{{ Getters and setters
 0,0,0,0,0,0,0,// find the matching super() constructor for the args
-0,0,0,0,1,1,1,// Are we choosing ourselves recursively through a this() reference?
+0,0,0,0,0,0,0,// Are we choosing ourselves recursively through a this() reference?
 0,0,0,0,0,0,0,// find the matching this() constructor for the args
 0,0,0,0,0,0,0,//{{{ Match class
 0,0,0,0,0,0,0,//{{{ ResultVisitor interface
@@ -2631,7 +2631,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// search settings
 0,0,0,0,0,0,0,//{{{ openFile() method
 0,0,0,0,0,0,0,//{{{ record() method
-0,0,0,0,1,1,1,// right?
+0,0,0,0,0,0,0,// right?
 0,0,0,0,0,0,0,//{{{ removeExtension() method
 0,0,0,0,0,0,0,// unwrap Primitive.Null to null
 0,0,0,0,0,0,0,// there is always a paramsNode
@@ -2656,7 +2656,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* fall through */
 0,0,0,0,0,0,0,//{{{ closeOrKeepDialog() method
 0,0,0,0,0,0,0,/*shouldn't happen*/
-0,0,0,1,1,1,1,// why so cute?
+0,0,0,1,0,1,1,// why so cute?
 0,0,0,0,0,0,0,/*@bgen(jjtree)*/
 0,0,0,0,0,0,0,// end stuff that was tacked on for boolean short-circuiting.
 0,0,0,0,0,0,0,// Unsafe caching of type here. // null (none), Void.TYPE, or a Class
@@ -2719,11 +2719,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// pattern test
 0,0,0,0,0,0,0,// position variable for pattern start
 0,0,0,0,0,0,0,// unless we are matching from the start of the buffer, // ^ should not match on the beginning of the substring
-0,0,0,0,1,1,1,// Is it an inner class?
+0,0,0,0,0,0,0,// Is it an inner class?
 0,0,0,0,0,0,0,//{{{ RESearchMatcher constructor
-0,0,0,0,0,0,0,// Boyer-Moore helper main.methods
+0,0,0,0,0,0,0,// Boyer-Moore helper methods
 0,0,0,0,0,0,0,// work through to class 'this'
-0,0,0,0,0,0,0,//{{{ Miscellaneous main.methods
+0,0,0,0,0,0,0,//{{{ Miscellaneous methods
 0,0,0,0,0,0,0,// MISMATCH: return -1 as defined by API
 0,0,0,0,0,0,0,//{{{ Token types
 0,0,0,0,0,0,0,//{{{ lookup() method
@@ -2826,7 +2826,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ handleTokenWithSpaces() method
 0,0,0,0,0,0,0,// used for SPAN_REGEXP rules; otherwise null
 0,0,0,0,0,0,0,/*min*/
-0,0,0,0,1,1,1,// Hypothetical question: can you have a RE that matches 1 times, // 3 times, 5 times, but not 2 times or 4 times?  Does having // the subexpression back-reference operator allow that?
+0,0,0,0,0,0,0,// Hypothetical question: can you have a RE that matches 1 times, // 3 times, 5 times, but not 2 times or 4 times?  Does having // the subexpression back-reference operator allow that?
 0,0,0,0,0,0,0,//{{{ isClosed() method
 0,0,0,0,0,0,0,//{{{ clone() method
 0,0,0,0,0,0,0,//{{{ Handle any remaining crud
@@ -2844,7 +2844,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// increment how many repeats we've successfully found
 0,0,0,0,0,0,0,// We're greedy, but ease off until a true match is found 
 0,0,0,0,0,0,0,// else did not match rest of the tokens, try again on smaller sample
-0,0,0,0,1,1,1,// does this get all?
+0,0,0,0,0,0,0,// does this get all?
 0,0,0,0,0,0,0,// If we fall out, no matches.
 0,0,0,0,0,0,0,//{{{ substitute() method
 0,0,0,0,0,0,0,// make sure we put the namespace back when we leave.
@@ -2881,9 +2881,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// value for end
 0,0,0,0,0,0,0,// closer to end
 0,0,0,0,0,0,0,// Allocate more space in the buffer.
-0,0,0,0,0,0,0,//{{{ Buffer creation main.methods
+0,0,0,0,0,0,0,//{{{ Buffer creation methods
 0,0,0,0,0,0,0,//{{{ Parse command line
-0,0,0,0,1,1,1,// open initial view?
+0,0,0,0,0,0,0,// open initial view?
 0,0,0,0,0,0,0,// move read position [index] clicks from 'charAt(0)'
 0,0,0,0,0,0,0,// script to run
 0,0,0,0,0,0,0,// If we have buffered replace data, use it.
@@ -2909,7 +2909,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Note that there is some debate over whether '_' should be included
 0,0,0,0,0,0,0,// field access
 0,0,0,0,0,0,0,"/*		Field access, .length on array, or a method invocation		Must handle toLHS case for each.	*/"
-0,0,0,0,0,0,0,//{{{ Static main.methods
+0,0,0,0,0,0,0,//{{{ Static methods
 0,0,0,0,0,0,0,// .length on array
 0,0,0,0,0,0,0,// convert the byte read into a char
 0,0,0,0,0,0,0,// Package scope constructor is used by RE.getMatchEnumeration()
@@ -2917,7 +2917,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//else
 0,0,0,0,0,0,0,// no match
 0,0,0,0,0,0,0,// doesn't happen
-0,0,0,0,1,1,1,// need to deep clone?
+0,0,0,0,0,0,0,// need to deep clone?
 0,0,0,0,0,0,0,// cut off alternates
 0,0,0,0,0,0,0,//{{{ getDockablesURI() method
 0,0,0,0,0,0,0,//{{{ getServicesURI() method
@@ -3088,7 +3088,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,// should try to use this as little as possible.
 0,0,0,0,0,0,0,//{{{ Paint line highlight and collapsed fold highlight
 0,0,0,0,0,0,0,//{{{ PaintLineBackground class
-0,0,0,0,0,0,0,// minimise access$ main.methods
+0,0,0,0,0,0,0,// minimise access$ methods
 0,0,0,0,0,0,0,//{{{ setCaretBlinkEnabled() method
 0,0,0,0,0,0,0,//{{{ getDisplayManager() method
 0,0,0,0,0,0,0,//{{{ getClassLoader() method
@@ -3132,7 +3132,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// to deal with empty subexpressions
 0,0,0,0,0,0,0,//{{{ getLineLength() method
 0,0,0,0,0,0,0,//{{{ Scroll vertically
-0,0,0,0,0,0,0,//{{{ Convenience main.methods
+0,0,0,0,0,0,0,//{{{ Convenience methods
 0,0,0,0,0,0,0,//{{{ invalidateScreenLineRange() method
 0,0,0,0,0,0,0,//{{{ Initialize server
 0,0,0,0,0,0,0,//{{{ getScreenLineOfOffset() method
@@ -3187,7 +3187,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// return the index following the '}'
 0,0,0,0,0,0,0,//classStaticNameSpace.importClass( fqClassName.replace('$','.') );
 0,0,0,0,0,0,0,//{{{ deleteToStartOfLine() method
-0,0,0,0,1,1,1,// do we lose index info?
+0,0,0,0,0,0,0,// do we lose index info?
 0,0,0,0,0,0,0,// value error shouldn't happen
 0,0,0,0,0,0,0,// match was successful
 0,0,0,0,0,0,0,"/*		If we want to support multiple commands in the command path we need to		change this to not throw the exception.	*/"
@@ -3250,7 +3250,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* private */
 0,0,0,0,0,0,0,// if label is default or equals switchVal
 0,0,0,0,0,0,0,// skip nodes until next label
-0,0,0,0,0,0,0,//{{{ Property main.methods
+0,0,0,0,0,0,0,//{{{ Property methods
 0,0,0,0,0,0,0,// generate the default branch of switch
 0,0,0,0,0,0,0,// eval it
 0,0,0,0,0,0,0,// get the first label
@@ -3284,7 +3284,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,// not sure if this is correct for OpenVMS.
 0,0,0,0,0,0,0,//{{{ fileToClass() method
 0,0,0,0,1,1,1,// XXX
-0,0,0,0,0,0,0,"/*	End main.methods for interacting with Parser */"
+0,0,0,0,0,0,0,"/*	End methods for interacting with Parser */"
 0,0,0,0,0,0,0,// If not found and there are arguments to match - // Look for an overloaded assignable match // (First find the method, then find accessible version of it)
 0,0,0,0,0,0,0,//{{{ removeTopComponent() method
 0,0,0,0,0,0,0,//{{{ isRectangularSelectionEnabled() method
@@ -3312,7 +3312,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Arguments
 0,0,0,0,0,0,0,/*paramNames*/
 0,0,0,0,0,0,0,// Get back to caller namespace
-0,1,0,0,1,1,1,// Need to scrape a value from the last line?
+0,1,0,0,0,0,0,// Need to scrape a value from the last line?
 0,0,0,0,0,0,0,// this must be in reverse order so that modes from the user // catalog get checked first!
 0,0,0,0,0,0,0,// XThis.this refers to the enclosing class instance
 0,0,0,0,0,0,0,// finaly block
@@ -3322,7 +3322,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*interp*/
 0,0,0,0,0,0,0,//Interpreter.debug("No class manager namespace:" +this);
 0,0,0,0,0,0,0,// we reuse the 'pp' vector to save time
-0,0,0,0,1,1,1,// does the variable already exist?
+0,0,0,0,0,0,0,// does the variable already exist?
 0,0,0,0,0,0,0,// unwrap 
 0,0,0,0,0,0,0,// Apply most specific signature matching
 0,0,0,0,0,0,0,/*object*/
@@ -3335,16 +3335,16 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Allow getSuper() to through BlockNameSpace to the method's super
 0,0,0,0,0,0,0,// Find target object or class identifier
 0,0,0,0,0,0,0,// It's a class
-0,0,0,0,1,1,1,// return null; ???
+0,0,0,0,0,0,0,// return null; ???
 0,0,0,0,0,0,0,//{{{ isSupportedEncoding() method
 0,0,0,0,0,0,0,//{{{ getSelectionEndLine() method
 0,0,0,0,0,0,0,//{{{ getComponent() method
-0,0,0,0,0,0,0,// // Begin main.methods which simply delegate to our parent (enclosing scope)  //
+0,0,0,0,0,0,0,// // Begin methods which simply delegate to our parent (enclosing scope)  //
 0,0,0,0,0,0,0,/* Pushes a node on to the stack. */
 0,0,0,0,0,0,0,// Unwrap primitives
 0,0,0,0,0,0,0,//{{{ select() method
 0,0,0,0,0,0,0,/*|| returnType == null*/
-0,0,0,0,1,1,1,// should check to disallow continue here?
+0,0,0,0,0,0,0,// should check to disallow continue here?
 0,0,0,0,0,0,0,//{{{ isMacOS() method
 0,0,0,0,0,0,0,// we don't want duplicate entries // in the kill ring
 0,0,0,0,0,0,0,/* can't happen? */
@@ -3582,7 +3582,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getPlugin(String, boolean) method
 0,0,0,0,0,0,0,// Only show class decs in CLASSES
 0,0,0,0,0,0,0,//{{{ removePluginJAR() method
-0,0,0,0,0,0,0,//{{{ Action main.methods
+0,0,0,0,0,0,0,//{{{ Action methods
 0,0,0,0,0,0,0,//{{{ getActionSetForAction() method
 0,0,0,0,0,0,0,//Selection[] selection = (Selection[])buffer.getProperty(Buffer.SELECTION);
 0,0,0,0,0,0,0,// lazy instantiation
@@ -3596,7 +3596,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// binaryOperation can return Primitive or wrapper type 
 0,0,0,0,0,0,0,//{{{ Load user catalog
 0,0,0,0,0,0,0,//{{{ Load macros and run startup scripts, after plugins and settings are loaded
-0,0,0,0,0,0,0,//{{{ Edit mode main.methods
+0,0,0,0,0,0,0,//{{{ Edit mode methods
 0,0,0,0,0,0,0,//{{{ reloadModes() method
 0,0,0,0,0,0,0,//{{{ getPort method
 0,0,0,0,0,0,0,// 4.1 plugin
@@ -3691,7 +3691,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ invalidateAll() method
 0,0,0,0,0,0,0,// Find the screen line containing this offset
 0,0,0,0,0,0,0,//{{{ adjustForScreenBounds() method
-0,0,0,0,1,1,1,// line is invisible?
+0,0,0,0,0,0,0,// line is invisible?
 0,0,0,0,0,0,0,//{{{ scrollDown() method
 0,0,0,0,0,0,0,//{{{ keyTyped() method
 0,0,0,0,0,0,0,//{{{ parseStyle() method
@@ -3756,7 +3756,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ setLogWriter() method
 0,0,0,0,0,0,0,//{{{ closeStream() method
 0,0,0,0,0,0,0,//{{{ flushStream() method
-0,0,0,0,0,0,0,//{{{ Icon main.methods
+0,0,0,0,0,0,0,//{{{ Icon methods
 0,0,0,0,0,0,0,//{{{ _log() method
 0,0,0,0,0,0,0,/* not really needed since threads don't start until after */
 0,0,0,0,0,0,0,//{{{ handleEditPaneUpdate() method
@@ -3843,7 +3843,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// setting the message to 'null' causes the status bar to // check if a recording is in progress
 0,0,0,0,0,0,0,//{{{ getPlugins() method
 0,0,0,0,0,0,0,//{{{ getSource() method
-0,0,0,0,0,0,0,//{{{ Getters/setter main.methods for various buffer meta-data
+0,0,0,0,0,0,0,//{{{ Getters/setter methods for various buffer meta-data
 0,0,0,0,0,0,0,//{{{ getLastModified() method
 0,0,0,0,0,0,0,//{{{ getVFS() method
 0,0,0,0,0,0,0,//{{{ addProgressListener() method
@@ -3876,7 +3876,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ Register interface
 0,0,0,0,0,0,0,//{{{ ClipboardRegister class
 0,0,0,0,0,0,0,//{{{ doSingleClick() method
-0,0,0,0,0,0,0,//{{{ Text main.methods
+0,0,0,0,0,0,0,//{{{ Text methods
 0,0,0,0,0,0,0,//{{{ macroNameToLabel() method
 0,0,0,0,0,0,0,//{{{ getHandler() method
 0,0,0,0,0,0,0,//{{{ AdjustHandler class
@@ -4122,7 +4122,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Insert a line
 0,0,0,0,0,0,0,//{{{ setReadOnly() method
 0,0,0,0,0,0,0,/* start of next expanded range */
-0,0,0,0,1,1,1,// How many characters have we read?
+0,0,0,0,0,0,0,// How many characters have we read?
 0,0,0,0,0,0,0,// Otherwise, the 8th bit may not be set in UTF-8
 0,0,0,0,0,0,0,// fixes dirty flag not being reset on // save/insert/undo/redo/undo
 0,0,0,0,0,0,0,// Check for the correct bits at the // start.
@@ -4145,11 +4145,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ EditAction constructor
 0,0,0,0,0,0,0,/* Mix files and directories */
 0,0,0,0,0,0,0,//{{{ getMouseOverText() method
-0,0,0,0,0,0,0,//{{{ View main.methods
+0,0,0,0,0,0,0,//{{{ View methods
 0,0,0,0,0,0,0,//{{{ getChunkList() method
 0,0,0,0,0,0,0,//{{{ isTemporary() method
 0,0,0,0,0,0,0,//{{{ Thread safety
-0,0,0,0,0,0,0,//{{{ Line offset main.methods
+0,0,0,0,0,0,0,//{{{ Line offset methods
 0,0,0,0,0,0,0,//{{{ setDefault() method
 0,0,0,0,0,0,0,//{{{ getTerminateChar() method
 0,0,0,0,0,0,0,// no need to lock since this just returns a value and that's it
@@ -4165,7 +4165,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// // Hashtables for DTD information on elements, entities, and notations. //
 0,0,0,0,0,0,0,//{{{ MenuItemCompare class
 0,0,0,0,0,0,0,//{{{ xToOffset() method
-0,0,0,0,0,0,0,//{{{ Plugin management main.methods
+0,0,0,0,0,0,0,//{{{ Plugin management methods
 0,0,0,0,0,0,0,//{{{ ServiceListHandler constructor
 0,0,0,0,0,0,0,// // Stack of entity names, to help detect recursion. //
 0,0,0,0,0,0,0,// // Symbol table, for internalising names. //
@@ -4298,7 +4298,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Begin Method components
 0,0,0,0,0,0,0,// Scripted method body
 0,0,0,0,0,0,0,/*isNative*/
-0,0,0,0,1,1,1,// is this a syncrhonized method?
+0,0,0,0,0,0,0,// is this a syncrhonized method?
 0,0,0,0,0,0,0,//{{{ 2. Check whether it is in the jEdit user settings jars folder:
 0,0,0,0,0,0,0,// jEdit will load it automatically
 0,0,0,0,0,0,0,//{{{ 3. Check whether it is in jEdit's system jars folder:
@@ -4382,7 +4382,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ Handle brackets
 0,0,0,0,0,0,0,//{{{ Insert constructor
 0,0,0,0,0,0,0,// Register for notification of classloader change
-0,0,0,0,1,1,1,// null not supported?
+0,0,0,0,0,0,0,// null not supported?
 0,0,0,0,0,0,0,//{{{ FirewallAuthenticator class
 0,0,0,0,0,0,0,// might come in handy useful some time
 0,0,0,0,0,0,0,//{{{ finishStartup() method
@@ -4405,13 +4405,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getParagraphElement() method
 0,0,0,0,0,0,0,//{{{ isFoldEnd() method
 0,0,0,0,0,0,0,//{{{ putProperty() method
-0,0,0,0,0,0,0,//{{{ Position main.methods
+0,0,0,0,0,0,0,//{{{ Position methods
 0,0,0,0,0,0,0,//{{{ getMarkerStatusPrompt() method
 0,0,0,0,0,0,0,// don't sort markers while buffer is being loaded
-0,0,0,0,0,0,0,//{{{ Folding main.methods
+0,0,0,0,0,0,0,//{{{ Folding methods
 0,0,0,0,0,0,0,//{{{ getCurrentIdentForLine() method
 0,0,0,0,0,0,0,//{{{ getFoldAtLine() method
-0,0,0,0,0,0,0,//{{{ Marker main.methods
+0,0,0,0,0,0,0,//{{{ Marker methods
 0,0,0,0,0,0,0,//  first node will either be PrimitiveType or AmbiguousName
 0,0,0,0,0,0,0,// backwards compatibility...
 0,0,0,0,0,0,0,// bad postURL
@@ -4468,7 +4468,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getListener() method
 0,0,0,0,0,0,0,// End instance data
 0,0,0,0,0,0,0,// don't do this on initial token marker
-0,0,0,0,0,0,0,//{{{ Event firing main.methods
+0,0,0,0,0,0,0,//{{{ Event firing methods
 0,0,0,0,0,0,0,// didn't find a line that contains non-whitespace chars // so return index of prior whitespace line
 0,0,0,0,0,0,0,// if user adds mode buffer-local property
 0,0,0,0,0,0,0,//{{{ addBufferToList() method
@@ -4516,7 +4516,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getStringCase() method
 0,0,0,0,0,0,0,//{{{ format() method
 0,0,0,0,0,0,0,//{{{ FavoritesMenuButton class
-0,0,0,0,1,1,1,// Is it typed?
+0,0,0,0,0,0,0,// Is it typed?
 0,0,0,0,0,0,0,// this will disable most operations if // files of multiple types are selected
 0,0,0,0,0,0,0,//{{{ FileCellRenderer constructor
 0,0,0,0,0,0,0,//{{{ createMenuItem() method
@@ -4534,7 +4534,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// avoid scrolling to the right
 0,0,0,0,0,0,0,//{{{ addAction() method
 0,0,0,0,0,0,0,// Add remaining stuff from buffer
-0,0,0,0,1,1,1,// what to do?
+0,0,0,0,0,0,0,// what to do?
 0,0,0,0,0,0,0,//{{{ compareChars()
 0,0,0,0,0,0,0,//{{{ expand() method
 0,0,0,0,0,0,0,// m contains either BshMethod or Vector of BshMethod
@@ -4556,7 +4556,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ setRoot() method
 0,0,0,0,0,0,0,//{{{ ExtendedAttribute class
 0,0,0,0,0,0,0,// we no longer have any // dirs using this extended // attribute
-0,0,0,0,1,1,1,// this vfs has an extended attribute which is not // in the list ???
+0,0,0,0,0,0,0,// this vfs has an extended attribute which is not // in the list ???
 0,0,0,0,0,0,0,//{{{ showFilePopup() method
 0,0,0,0,0,0,0,//{{{ clearExpansionState() method
 0,0,0,0,0,0,0,//{{{ compareTo() method
@@ -4593,7 +4593,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//{{{ getIndentSize() method
 0,0,0,0,0,0,0,//{{{ getTabSize() method
 0,0,0,0,0,0,0,//{{{ maybeReload() method
-0,0,0,0,0,0,0,//{{{ Input/output main.methods
+0,0,0,0,0,0,0,//{{{ Input/output methods
 0,0,0,0,0,0,0,//{{{ browseDirectory() method
 0,0,0,0,0,0,0,//{{{ addViewToList() method
 0,0,0,0,0,0,0,//{{{ GetFileTypeRequest class

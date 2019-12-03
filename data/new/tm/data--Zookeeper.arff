@@ -6,7 +6,6 @@
 @data
 
 'bug grizzly needs doc root you are going register multiple adapters ',positive
-'dont need retry this operation the case failure will remove ephemeral files and dont wanna hang this process when closing cannot reconnect ',positive
 'this likely problem means that file reloading broken probably because the directory are watching was deleted otherwise became inaccessible unmounted permissions changed for now log error and exit the watcher thread ',positive
 'fixme this was originally seconds but realistically randomslowvirt hosts there way guarantee this ',positive
 'this bit weird but need return the address and the number bytes distinguish between ipv and ipv ',positive
@@ -20,7 +19,6 @@
 'this might not right but its only used for printing connection info the netty implementation its probably ',positive
 'problem before fix after session close the ephemeral node was not getting deleted but now after the fix after session close ',positive
 'observer should write disk that the wont request too old txn from the leader which may lead getting entire snapshot however this may degrade performance has write disk and periodic snapshot which may double the memory requirements ',positive
-'occasionally seen false negatives with timeout ',positive
 'todo investigate why reconfig makes qps null ',positive
 'todo zksprocesspacket changed take bytebuffer could implement zerocopy queueing ',positive
 'note that this performance assumption might not hold true for architectures other than ',positive
@@ -50,12 +48,12 @@
 'todo maybe should flush the loop above every packetsbytes but how determine the right value for ',positive
 'need upgrade before can proceed ',positive
 'todo exit server this point ',positive
-'only make copy this thread isnt already holding lock ',positive
 'multiple bad arguments ',positive
 'xxx this doesnt need volatile should probably final ',positive
 'test will still fail even though just logignore ',positive
 'fixme ignore for now ',positive
 'xxx really should not need this ',positive
+'todo should depend zoocfg specified mechs but ',positive
 'xxx hack ',positive
 'not sure about argwhat ',positive
 'fixme need way more cleanly exceptions ',positive
@@ -122,6 +120,7 @@
 'generate new config string ',negative
 'nothing special stay with the current server ',negative
 'session has been revalidated ',negative
+'dont need retry this operation the case failure will remove ephemeral files and dont wanna hang this process when closing cannot reconnect ',negative
 'exactly now except for role change ',negative
 'make sure the watch removed when the connection closed ',negative
 'start server and wait for leader election finish ',negative
@@ -552,6 +551,7 @@
 'are going have extrapolate the epoch information ',negative
 'best effort print the path assoc with this request ',negative
 'and close the connection the leader ',negative
+'occasionally seen false negatives with timeout ',negative
 'neither option specified delete the quota node for thsi node ',negative
 'shutdown has explicitly called for every thread make sure that resources are freed properly and all fixed network ports are available for other test cases ',negative
 'are now going start getting transactions apply followed uptodate ',negative
@@ -627,6 +627,8 @@
 'pass ',negative
 'this replicates close the output stream before reading ',negative
 'command specified print links all commands instead ',negative
+'apply directly havent taken the snapshot ',negative
+'check stopped while request was queue ',negative
 'session should automatically expire after amount time ',negative
 'with padding the filename ',negative
 'are the final link the chain ',negative
@@ -1620,6 +1622,7 @@
 'invalid acls ',negative
 'this code requires key pkcs format which not the default openssl format convert the pkcs format you use openssl pkcs topk ',negative
 'ignore this expected ',negative
+'only make copy this thread isnt already holding lock ',negative
 'encoding ',negative
 'there log record for the initial config thus after syncing with leader zookeeperconfig empty also possible that last committed config propagated during leader election without the propagation the corresponding log records should explicitly this this not necessary when were already followerobserver only ',negative
 'local session from the leader ',negative
@@ -1829,7 +1832,6 @@
 'wait connect one these ',negative
 'any arbitrary constant will ',negative
 'observer asks for epoch mocking learnerhandler behavior ',negative
-'todo should depend zoocfg specified mechs but ',negative
 'global session ',negative
 'wait until cant connect ',negative
 'otherwise wait for fixed amount time ',negative
@@ -2527,6 +2529,7 @@
 'instead starting rozk immediately wait some grace period before decide were partitioned thread used here because otherwise would require changes each election strategy classes which ',negative
 'this should never happen ',negative
 'logwarnack cxid requestcxid type requesttype requestsessionid requestaddrqrecprop ',negative
+'default constructor ',negative
 'this method can return empty iterator the requested zxid ',negative
 'log error level are returning marshalling error the user ',negative
 'have read data from the file and matchs the timep pattern ',negative

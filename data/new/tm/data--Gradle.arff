@@ -10,12 +10,14 @@
 'the dsl for declaring plugins inject into included build todo plugins need located this builds buildsrc since ',positive
 'todo some kind context why the method was attached which plugin declared the rule todo some kind instance state for the method might the same context above ',positive
 'todo need track symbol strip tool ',positive
+'todo move baseservices once the progresslogger dependency removed ',positive
 'return dummy implementation this creating real hasher drags more services along with and hasher isnt actually needed the worker process side the moment ',positive
 'theres risk for some methods that the hash always recomputed but wont worse than before ',positive
 'this isnt quite right should close the worker classpath cache once were finished with the worker processes this may before the end this build they may used across multiple builds ',positive
 'todo need better mechanism wire tasks into lifecycle ',positive
 'todocedric this not quite right assume that are asking for specific binary then resolve the assembly instead the jar but should somehow parameterized ',positive
 'ensure that most one action that may have access the mutable state the build runs given time todo move this better home and reuse ',positive
+'todoew inject instead static use ',positive
 'todohh use managed views for this only applied when the respective language applied ',positive
 'todo there has simpler way this want create buildable filecollection based filtered view selected source directory sets ',positive
 'passing null for sha todo consider using the etag which hash the file when less than ',positive
@@ -28,6 +30,7 @@
 'todo need track symbol extraction tool ',positive
 'todo this should modeled differently perhaps dependency the implementation configuration ',positive
 'this not super nice but dependencies are created through reflection for decoration and assume constructor with arguments group name version which suitable for most cases could create empty attribute set directly the but then wouldnt mutable therefore proceed with late injection the attributes ',positive
+'todoew consider whether this belongs console here ',positive
 'todo should split this that the inputs are attached object that represents the binary which then later used configure the linkassemble tasks ',positive
 'need wrap this into loop because theres always risk that the method which weakly referenced has been collected between the creation time and now ',positive
 'tododaniel should support better way multi file invocation ',positive
@@ -44,7 +47,6 @@
 'todo make this work windows originalinclose ',positive
 'todo better exception type ',positive
 'note this would better housed scope that encapsulated the tree gradle objects ',positive
-'sane enough ',positive
 'link that can used task input property caches the matching set files during task execution and discards the result after task execution todo disallow further changes this collection once task has started todo keep the file entries snapshot later avoid stat each file during snapshot ',positive
 'todo this class and executionplan have many the same behavior and concerns should look for way generalize this pattern ',positive
 'remove this ',positive
@@ -124,6 +126,7 @@
 'todo reduce duplication with binary ',positive
 'todo this should more specific just the tasks that create the class files ',positive
 'todo arent considering the filter ',positive
+'send endofline this workaround convince the console that the cursor the start the line avoid indenting the next line text that displayed would better for the console listen for stuff read from stdin that would also echoed the output and update its state based this ',positive
 'todo exception when type cannot created ',positive
 'todo bind with the sourcecompatibility property todo link runtime configuration ',positive
 'track this input since the scala compiler output may depend todo this should replaced property the scala toolchain soon model these ',positive
@@ -142,6 +145,7 @@
 'doesnt really make sense ',positive
 'typeonly model reference type ambiguous multiple model elements are available for this typen created created ',positive
 'todo exceptions thrown here should point some extensive documentation the concept class rule sources ',positive
+'this workaround until this story completed hardcoding setting the idle timeout max mins this way avoid potential runaway daemons that steal resources linux and break builds windows ',positive
 'todo move this base plugin setup the dependency the main binary this should all replaced single dependency that points some testable variants the main binary ',positive
 'todo should support this adds void propnameobject value method that simply delegates the converting setter method ',positive
 'todo send message workers change their log level rather than stopping ',positive
@@ -151,6 +155,7 @@
 'todo want keep using sourcedirectoryset the new api would feel more natural dirs could added directly languagesourceset could also think about extending sourcedirectoryset ',positive
 'todolptr this should removed once binarycontainer modelmap need also implement all the interfaces the delegate type because otherwise binarycontainer wont recognize managed binaries binaryspecinternal ',positive
 'todo stream serialised value file todo handle hash collisions properly this time todo dont store null links child blocks leaf index blocks todo align block boundaries todo thread safety control todo merge small values into single data block todo discard when file corrupt todo include data directly index entry when serializer can guarantee small fixed sized data todo free list leaks disk space todo merge adjacent free blocks todo use more efficient lookup for free block with nearest size ',positive
+'this workaround for somehow the arraylist result ends being list nulls windows and ibms jdk ',positive
 'todo binaries arent input this rule theyre input the action ',positive
 'specifies how build and where place native executable file ptodohh resolve naming conflict with existing ',positive
 'this should replaced some stronger modelling and made open rather than hardcoding set source languages here ',positive
@@ -167,6 +172,7 @@
 'production code should handle these exceptions more gracefully ',positive
 'todo this isnt quite right ',positive
 'the isempty check not required might look innocent but guavas performance bad for empty immutable list because still creates inner class for iterator which delegates array iterator which does nothing just adding this check has significant impact because most components not declare any capability ',positive
+'todo are relying the registration having established these links should checking ',positive
 'todo add quotes both formats there will lots tests failing not sure worth ',positive
 'todoew consider whether this belongs buildprogressarea here ',positive
 'todo would better these were added via separate managed view rather than hard coded ',positive
@@ -186,16 +192,19 @@
 'todo this class attempts mimic the behavior the output mvn helpeffectivepom instead this class should walk the maven project object model instead parsing the xml ',positive
 'have name foobar and import foofoo this means foobar possibly foofoobar rather than foobar this means cut the dot foobar and foo for import ',positive
 'todo remove this once the above removed ',positive
+'this workaround for ',positive
 'todo only here because kotlin dsl uses this please remove once that fixed ',positive
 'hold the lock while creating the connection not generally good form this instance blocks other threads from creating the connection the same time ',positive
 'currently retains strong references types that are not loaded using this fine for jvm types but problem when custom classloader used which should probably deprecated instead supported ',positive
 'might fail hard here the assumption that something weird happened the daemon however since havent yet started running the build can recover just trying again ',positive
 'todo improve configuration reports ',positive
+'todo fix tests that rely this being set before process arguments like this ',positive
 'todo turn into set ',positive
 'theres potential problem here that reads from input the background this wont automatically stop when the process over therefore input not closed then this thread will run forever would better ensure that this thread stops when the process does ',positive
 'todo need better job routing messages when there are multiple endpoints this just going forward all queued messages the first waiting endpoint even there are multiple waiting work ',positive
 'create test suite component todo reuse logic from swiftplugin todo component name and extension name arent the same todo should use srcxctestswift the convention add the test suite and extension ',positive
 'not use this its here because some the services this type needs are not easily accessed certain cases and will removed some point use one the other methods instead ',positive
+'todo should validate that clazz non parameterized type ',positive
 'workaround for when the task given input file that doesnt exist ',positive
 'todo figure out how get rid origin scope snapshot outputs step ',positive
 'get rid the ivy token are not valid uri characters ',positive
@@ -218,6 +227,7 @@
 'todo use twirl library instead ',positive
 'not use this constructor directly its only there for backwards compatibility with the nebula plugin ',positive
 'groovy does something very strange here for some reason probably because the class java wont employ any dynamism even implementing invokemethod the java level has effect ',positive
+'todo should see can back using httpclient again this implementation borrowed from the apache httpclient project ',positive
 'todo change set ',positive
 'tododaniel should support better way multi file invocation override this method have multi file invocation ',positive
 'todo refactor this task configuration extend copy task and use replace tokens ',positive
@@ -248,14 +258,17 @@
 'this here trigger creation the shutdowncoordinator could this nicer way ',positive
 'todopm move this when scope changed ',positive
 'todo outputeventlistener and buildstandardinput are perbuild settings down the road should refactor the code accordingly and potentially attach them ',positive
+'exposes methods for those properties whose value closure todo use composition instead inheritance ',positive
 'platform specific arguments todo need lazily configure compile task ',positive
 'this occurs while running gradle running integration tests indicative problem this occurs while running unit tests then either use the the usesnativeservices annotation ',positive
 'ugly but there are few places where need instantiate javadebugoptions and regular objectfactory service not available ',positive
 'todo adding the parent project first because the converter needs this way atm this oversimplified the converter should not depend the order reactor projects should add coverage for nested multiproject builds with multiple parents ',positive
 'theres possibility that this listener called concurrently with the build finished listener the message happens graceful expire one then theres large risk that create deadlock because were trying remove the same listener from different notifications avoid this just set the reference null which says that were taking care removing the listener ',positive
 'todo need track tool ',positive
+'this copied from ant see mentions that there bug the windows jdk impls that this valid workaround for ive been unable find definitive reference this bug the thinking that this good enough for ant its good enough for ',positive
 'todo change this only add swiftapi artifacts and instead parse modulemaps discover compile task inputs ',positive
 'rough implementation get something work ',positive
+'todo remove these special cases ',positive
 'todo this not great paradigm for creating temporary directory see for alternative ',positive
 'todo this should part the cached result ',positive
 'implementation currently dumb can made smarter ',positive
@@ -280,6 +293,7 @@
 'todolptr what with the metaclass property here ',positive
 'todo this doesnt belong here that java plugin should add extension this guy with this ',positive
 'need make this better ',positive
+'todo maybe need allow additional dirs like sourcesetoutput does esp for backwards compatibility wonder its still necessary distinguish between classes and resources dirs instead just maintaining collection dirs far generated resources are concerned might better model them additional buildable resourceset ',positive
 'workaround for bug testng apparently fixed some listener notified twice per event ',positive
 'todo this isnt correct this means that weve detected cycle while determining the execution plan but the graph walker did not find one ',positive
 'todocedric the following validation should theory happen its own rule but not possible now because theres way iterate the map subject validate rule without gradle thinking youre trying mutate ',positive
@@ -294,7 +308,6 @@
 'use the class generator instead ',positive
 'todo implement this moving this resolver live alongside the external resolvers ',positive
 'todo this should use the same mutationvalidator infrastructure that use for other mutation types ',positive
-'the cached version still current ',positive
 'todo should just cache these classloaders and ejectstop them when they are longer use ',positive
 'todo should self closed ',positive
 'todolptr should collect all source sets the project source set however this messes ',positive
@@ -310,7 +323,9 @@
 'add install task todo should probably not add this for all executables ',positive
 'todolptr why dont check runningnodes here like hasnodesremaining ',positive
 'dumb terminal doesnt support ansi control codes todo remove this when use terminal rather than jansi render console ',positive
+'this workaround for several early typed operations have buildpath property the value which can only determined after the settings file for the build has loaded the workaround buffer all operation notifications memory until the root builds settings have loaded this works because all possible settings files have been evaluated the time the root one has been this not guaranteed hold into the future proper solution would change the operation detailsresults truly immutable and convey values known the time ',positive
 'amount immutable value some quantity such duration length each amount has decimal value and associated units todo need sort out scaling when dividing converting between units ',positive
+'todo move this propertyvalue instead ',positive
 'trailing slash name indicates that entry directory ',negative
 'allow organisation synonyms like org organization ',negative
 'include expression ignore ',negative
@@ -363,7 +378,6 @@
 'todo all this matching stuff constant for given dependencymetadata instance ',negative
 'delegate copyspec methods rootspec ',negative
 'matches task identifier closure ',negative
-'todo move baseservices once the progresslogger dependency removed ',negative
 'only for relative positioning ',negative
 'capture changes execution outcome ',negative
 'mark this listener type being notified ',negative
@@ -450,7 +464,6 @@
 'prefix internal fields with that they dont get into the way propertymissing ',negative
 'todo validate that the plugin accepts this kind argument ',negative
 'must some unix variant including cygwin msys windows ',negative
-'todoew inject instead static use ',negative
 'guard against testng calling this hook more than once with the same testclass see for details ',negative
 'parallel configuration ',negative
 'should not reach this point this validated the test framework implementation just propagate the failure ',negative
@@ -543,7 +556,6 @@
 'mixed case ',negative
 'always expand empty node ',negative
 'dependency artifact will defined the descriptor specified classifier nondefault type attribute ',negative
-'todoew consider whether this belongs console here ',negative
 'stream has been closed dont bother reading anything else ',negative
 'only care about http hosts right now ',negative
 'call return new implclassparam ',negative
@@ -656,6 +668,7 @@
 'todo honor changes build directory ',negative
 'the target component exists need fallback the traditional selection process ',negative
 'happens when dispatching taskdef via createnode ',negative
+'sane enough ',negative
 'retain strong references the values created for this session ',negative
 'configure test binary compile against binary under test ',negative
 'this task uses precompiled header ',negative
@@ -1480,7 +1493,6 @@
 'for example hey skipped foobarbaz uptodate but not foo ',negative
 'without the parent hangs without receiving the message above flushing does not help ',negative
 'save name before redirect ',negative
-'send endofline this workaround convince the console that the cursor the start the line avoid indenting the next line text that displayed would better for the console listen for stuff read from stdin that would also echoed the output and update its state based this ',negative
 'wrap the result processor chain blocking actor make the whole thing threadsafe ',negative
 'httpclient used parameter public method ',negative
 'path descendant this ',negative
@@ -1703,7 +1715,6 @@
 'matches task methodcall ',negative
 'largest free block too small ',negative
 'this potential nested rule visit method parameters ',negative
-'this workaround until this story completed hardcoding setting the idle timeout max mins this way avoid potential runaway daemons that steal resources linux and break builds windows ',negative
 'generated script class name must unique take advantage this avoid delegation ',negative
 'count from left screen left most count from bottom screen bottom most from bottom ',negative
 'need update pending count outside withlocks that dont have race condition where the pending count but child worker lease still held when the parent lease released ',negative
@@ -1780,7 +1791,6 @@
 'alternate appending packages beginning and end until reach max length ',negative
 'but all resolved ',negative
 'jdk does not have days hours minutes normalizing millis ',negative
-'this workaround for somehow the arraylist result ends being list nulls windows and ibms jdk ',negative
 'failure select the target from this component given the dependency attributesmetadata ',negative
 'all items are complete not release project lock and simply collect failures ',negative
 'serialize configuration daemon via the process stdin ',negative
@@ -1948,7 +1958,6 @@
 'todo the scope information superseded test attributes can delete the corresponding code bits once make sure that the majority buildship users use test sources ',negative
 'this configurations version conflict not traverse none the incoming edges are transitive remove previous state and not traverse not traversed before simply add all selected outgoing edges either hard pending edges traversed before net exclusions for this node have not changed ignore net exclusions for this node not changed remove previous state and traverse outgoing edges again ',negative
 'selected for the configuration ',negative
-'todo are relying the registration having established these links should checking ',negative
 'forward output immediately when the focus this operation group ',negative
 'note that compileclasspath here approximation and must fixed before deincubating see ',negative
 'this means the client has not reported memory usage yet ',negative
@@ -2139,7 +2148,6 @@
 '',negative
 'this approach should generally work because the moment reset capturing output per suite see and that reset happens earlier the chain theory when suite completed the output redirector has been already stopped and there shouldnt any output events passed see also gradle ',negative
 'when daemon process has started yet ',negative
-'this workaround for ',negative
 'dummy rule cause the extension realized ',negative
 'the registered nodes may contain nodes which are longer selected dont remove them from the list the first place because proved slower than filtering needed ',negative
 'this necessary because for the tooling api compatibility runner nativeservices can get initialized different classloader which then makes broken and unusable the test class because the native shared library loaded from another classloader initializing here ensure that loaded from the classloader the test class also uses ',negative
@@ -2167,7 +2175,6 @@
 'dont care collect the files later the correct order ',negative
 'mandatory ',negative
 'ensure have scope ',negative
-'todo fix tests that rely this being set before process arguments like this ',negative
 'used generated code ',negative
 'this deals with the fact that testng there are classlevel events but nevertheless want see the class name use rather than separator make clear that the class not separate level this matters when configuring granularity ',negative
 'drain the buffer before returning endofstream ',negative
@@ -2236,7 +2243,6 @@
 'capture input files state ',negative
 'have not root source folder information for the grammar files dont force relativeoutput cant calculate this results flat generated sources the output directory ',negative
 'gradle stuff ',negative
-'todo should validate that clazz non parameterized type ',negative
 'these fields are not covered mutation lock ',negative
 'select all entry points entry point publication that does not contain component whose parent also published ',negative
 'stack traces are filtered call order from bottom top ',negative
@@ -2370,7 +2376,6 @@
 'todo the suffix should deterministic function the known and enabled annotations for now just assign using counter ',negative
 'for tests using rich console standard out and error are combined output execution result ',negative
 'there already registered conflict with least one matching participant hook this conflict ',negative
-'todo should see can back using httpclient again this implementation borrowed from the apache httpclient project ',negative
 'contract requires build events are delivered single thread this taken care the daemon client when not embedded mode need apply some synchronization when embedded mode ',negative
 '',negative
 'explain that groovy for compile also needs the resources ',negative
@@ -2609,7 +2614,6 @@
 'use the jar when nothing has been requested ',negative
 'inputstream originalin systemin ',negative
 'decoration takes care the implementation ',negative
-'exposes methods for those properties whose value closure todo use composition instead inheritance ',negative
 'todo hook this the daemon build lifecycle ',negative
 'theres more than one module merge them into module set ',negative
 'opposite outgoing edges virtual edges are for now pretty rare they are created lazily ',negative
@@ -2697,7 +2701,6 @@
 'separate java class because ibm jdk see ',negative
 'update the state region ',negative
 'using array here because were going iterate pretty often and avoids the creation iterator that checks for concurrent modification ',negative
-'this copied from ant see mentions that there bug the windows jdk impls that this valid workaround for ive been unable find definitive reference this bug the thinking that this good enough for ant its good enough for ',negative
 'the download thread may still running ignore any further status events from ',negative
 'fall back propertymissing available ',negative
 'known value only write index ',negative
@@ -2750,7 +2753,6 @@
 'see ideascalaconfigurer which requires the ipr generated first ',negative
 'map the arguments this expression ',negative
 'noinspection ',negative
-'todo remove these special cases ',negative
 'dont retain the value allow classloader collected ',negative
 'disallow custom services type serviceregistry these are automatically provided ',negative
 'add link task ',negative
@@ -2993,6 +2995,7 @@
 'this slight different condition than that used for dependency declared gradle project which targethasvariants relying the fallback default for consumer attributes without any variants ',negative
 'todo merge this and the component container ',negative
 'lookup class all classloaders ',negative
+'would typically use but does not work with signatures ',negative
 'either macro function macro token concatenation ',negative
 'generate ',negative
 '',negative
@@ -3011,7 +3014,6 @@
 'could potentially coordinate with thread that snapshotting overlapping directory tree ',negative
 'supported nothing ',negative
 'the module matches add the root component into the mix ',negative
-'todo maybe need allow additional dirs like sourcesetoutput does esp for backwards compatibility wonder its still necessary distinguish between classes and resources dirs instead just maintaining collection dirs far generated resources are concerned might better model them additional buildable resourceset ',negative
 'too many requests not available through httpstatusxxx ',negative
 'unpacks the request serialize across the daemon and creates instance ',negative
 'cleanup will abort the process desired ',negative
@@ -3114,6 +3116,7 @@
 'use set here because for excludes order edges irrelevant hit the cache more using set ',negative
 'note the space the directory name intentional ',negative
 'browsers dont understand name ',negative
+'the cached version still current ',negative
 'convert properties object ',negative
 'delegate class not visible managed view type view type more general than delegate type use the delegate classloader instead ',negative
 'module was already visited there cycle ',negative
@@ -3315,7 +3318,6 @@
 'consumer didnt express any preferences everything fits ',negative
 'catch any unchecked exceptions and add the file path for troubleshooting ',negative
 'historic note this class still uses the groovy jsonbuilder was originally developed groovy class ',negative
-'this workaround for several early typed operations have buildpath property the value which can only determined after the settings file for the build has loaded the workaround buffer all operation notifications memory until the root builds settings have loaded this works because all possible settings files have been evaluated the time the root one has been this not guaranteed hold into the future proper solution would change the operation detailsresults truly immutable and convey values known the time ',negative
 'create client that will not match any existing daemons will always startup new one ',negative
 'try the owner ',negative
 'includes trailing ',negative
@@ -3324,7 +3326,6 @@
 'the first directory the one created used the default output directory for processed resources ',negative
 'for tests default method interface might not able get the implementation class directly this case need retrieve test plan get the real implementation class ',negative
 'just read the state region ',negative
-'todo move this propertyvalue instead ',negative
 'the value true output file false parent output file ',negative
 'matches task identifier taskidentifier ',negative
 'hackery ',negative

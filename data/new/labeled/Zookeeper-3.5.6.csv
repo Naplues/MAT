@@ -53,7 +53,7 @@ Label, Type, Content
 0, Line, //  do nothing special - stay with the current server 
 0, Line, //  Session has been re-validated 
 1, Line, //  BUG: Grizzly needs a doc root if you are going to register multiple adapters 
-1, Line, //  we don't need to retry this operation in the case of failure   as ZK will remove ephemeral files and we don't wanna hang   this process when closing if we cannot reconnect to ZK 
+0, Line, //  we don't need to retry this operation in the case of failure   as ZK will remove ephemeral files and we don't wanna hang   this process when closing if we cannot reconnect to ZK
 0, Line, //  exactly as it is now, except for role change 
 1, Line, //  This is likely a problem, it means that file reloading is broken, probably because the   directory we are watching was deleted or otherwise became inaccessible (unmounted, permissions   changed, ???).   For now, we log an error and exit the watcher thread. 
 0, Line, //  make sure the watch is removed when the connection closed 
@@ -497,7 +497,7 @@ Label, Type, Content
 0, Line, //  we are going to have to extrapolate the epoch information 
 0, Line, //  best effort to print the path assoc with this request 
 0, Line, //  and close the connection to the leader 
-1, Block, /*          * Occasionally seen false negatives with a 5s timeout.          */
+0, Block, /*          * Occasionally seen false negatives with a 5s timeout.          */
 0, Line, // if neither option -n or -b is specified, we delete   the quota node for thsi node. 
 0, Line, //  shutdown() has to be explicitly called for every thread to   make sure that resources are freed properly and all fixed network ports   are available for other test cases 
 0, Line, //  we are now going to start getting transactions to apply followed by an UPTODATE 
@@ -1597,7 +1597,7 @@ Label, Type, Content
 0, Line, // invalid acl's 
 0, Line, //  this code requires a key in PKCS8 format which is not the default openssl format   to convert to the PKCS8 format you use : openssl pkcs8 -topk8 ... 
 0, Line, //  ignore as this is expected 
-1, Line, //  only make a copy if this thread isn't already holding a lock 
+0, Line, //  only make a copy if this thread isn't already holding a lock
 0, Line, //  encoding 
 0, Line, //  There is no log record for the initial config, thus after syncing   with leader   /zookeeper/config is empty! it is also possible that last committed   config is propagated during leader election   without the propagation the corresponding log records.   so we should explicitly do this (this is not necessary when we're   already a Follower/Observer, only 
 0, Line, //  Local session from the leader 
@@ -1812,7 +1812,7 @@ Label, Type, Content
 0, Line, //  wait to connect to one of these 
 0, Line, //  any arbitrary constant will do  
 0, Line, //  Observer asks for epoch (mocking LearnerHandler behavior) 
-0, Line, //  TODO: should depend on zoo.cfg specified mechs, but if
+1, Line, //  TODO: should depend on zoo.cfg specified mechs, but if
 0, Line, //  Global session 
 0, Line, //  Wait until we can't connect 
 0, Line, //  Otherwise, wait for a fixed amount of time 

@@ -14,7 +14,7 @@
 // hear no evil, see no evil
 // When I tried using a length for LONGVARBINARY that is the max // length of the source records, I get the following exception: // // Exception condition 239. Data exception - string data, right truncation. // I tried bit varying(32767) with data that had max length of 16384. So // it's back to maximum length hard-coded for now. // registerColumnType(Types.LONGVARBINARY, 2147000000, "bit varying($l)");
 // TODO: is this right???
-"/*	 * TODO: This should not be public. Check all usages of it	 * and put appropriate main.methods in an API object.	 */"
+"/*	 * TODO: This should not be public. Check all usages of it	 * and put appropriate methods in an API object.	 */"
 "//	 JASON: Do we need these?"
 "// JASON: Do we need this? //		getSQLPanel().selected();"
 //TODO: Rename to IObjectTreeNodeExpander
@@ -43,7 +43,7 @@
 // TODO: Rename this to getTableType.
 // TODO: Bizarre that I couldn't find a valid SQL to drop an index.
 //TODO: ? Dialog Handling on Cancelled ?
-// This refactoring depends on the following API main.methods: // getCreateTableSQL
+// This refactoring depends on the following API methods: // getCreateTableSQL
 //Should probably create my own table model but i am being a bit slack.
 // TODO Probably want to allow the user to set these sequence properties ?? // Sequence settings.
 // We set expected and checksum to -1 here, since we don't have that information for release.xml file // TODO: Can HttpClient be used to get the byte-size of release.xml so we can perform this check?
@@ -57,7 +57,7 @@
 // Required otherwise it gets too wide.
 //??? For now, use the same renderer as everyone else. //?? //?? IN FUTURE: change this to use a new instance of renderer //?? for this data type.
 // TODO: Delete Me
-// This refactoring depends on the following dialect API main.methods: // getUpdateSQL
+// This refactoring depends on the following dialect API methods: // getUpdateSQL
 // For PointBase, if type maps to Pointbase "BLOB", and the size // isn't valid (PB requires size for BLOBS) then set it to something // reasonably large, like 16MB. 1 is the default size if no size // is specified.  That's practically useless :)
 // Should the data be first cloned so that the sorting doesn't take place // on the array that is used in getValue() // TODO: This is a must if sorting is done in a thread! ??
 "/*			 * TODO: When 1.4 is the earliest version supported, add the following line:			*		setSurrendersFocusOnKeystroke(true);			* This should help handle some problems with navigation using tab & return			* to move through cells.			*/"
@@ -122,7 +122,7 @@
 // TODO: should the constraint name simply be the column name or something more like a constraint // name?
 // Some tables have pseudo column primary keys and others // do not.  JDBC on some DBMSs does not handle pseudo // columns 'correctly'.  Also, getTables returns 'views' as // well as tables, so the thing we are looking at might not // be a table. (JDBC does not give a simple way to // determine what we are looking at since the type of // object is described in a DBMS-specific encoding.)  For // these reasons, rather than testing for all these // conditions, we just try using the pseudo column info to // get the table data, and if that fails, we try to get the // table data without using the pseudo column. // TODO: Should we change the mode from editable to // non-editable?
 // TODO: maybe instead of throwing an exception, we could ask // the user if they would like us to adjust their preference for // them.
-// HACK: some dbs (like Frontbase) don't support boolean // types. I've tried tinyint, bit and boolean as the column // type, and setBoolean fails for all three. It's a mystery // at this point what column the getBoolean/setBoolean main.methods // actually work on iin FrontBase.
+// HACK: some dbs (like Frontbase) don't support boolean // types. I've tried tinyint, bit and boolean as the column // type, and setBoolean fails for all three. It's a mystery // at this point what column the getBoolean/setBoolean methods // actually work on iin FrontBase.
 "/* work-around for this driver, which must have ""dbo"" for schema.  The       * JConnect family of drivers appears to not be affected and can accept a       * null schema, which is necessary to find tables in other schemas, within       * the same catalog.  Similarly, jTDS 1.2.2 doesn't require this, yet it       * doesn't return non-dbo schema tables, unfortunately.        */"
 "/** * A dialect delegate for the Progress database. TODO: Progress specification says that the sum of all column * lengths of a table row may not exceed 31960. Need to add an interface method to the HibernateDialect * interface that takes an array of lengths and and checks the sum of columns for a row. This maximum number * may be different across databases so this check method needs to be implemented by each dialect. *  * @author manningr */"
 "//TODO: Decide whether this should be a bound property or not. //		getPropertyChangeReporter().firePropertyChange(ISQLDriver.IPropertyNames.NAME, _name, _name);"
@@ -131,7 +131,7 @@
 "/** * TODO: Move all code other than for window creation up to AliasWindowManager * Factory to handle creation of maintenance sheets for SQL Alias objects. * * @author <A HREF=""mailto:colbell@users.sourceforge.net"">Colin Bell</A> */"
 // TODO: Why shouldn't we call registerSQLDriver here? RMM 20070401
 // TODO: Should have session listeners instead of these calls.
-// TODO: just noticed that MySQL 5.0 supports a multi-bit BIT // column by using the getObject/setObject main.methods with a byte[]. // So it would be valuable at some point to make this code a bit // more dbms-specific
+// TODO: just noticed that MySQL 5.0 supports a multi-bit BIT // column by using the getObject/setObject methods with a byte[]. // So it would be valuable at some point to make this code a bit // more dbms-specific
 "/** * TODO: Move all code other than for window creation up to AliasWindowManager * Factory to handle creation of maintenance sheets for SQL Driver objects. * * @author <A HREF=""mailto:colbell@users.sourceforge.net"">Colin Bell</A> */"
 // On Win 2000 & XP mnemonics are normally hidden. To make them // visible you press the alt key. Under the Windows L&F pressing // alt may not work. This code is a workaround. See bug report // 4736093 for more information.
 // TODO: Once we're happy that JFCUtilities is no longer required
@@ -151,7 +151,7 @@
 // tell caller that the underlying data was not updated //?? is this always true, or could the data be updated with a warning?
 // empty string ('') seems to be represented as null in some drivers. // Not sure if this is the best thing to do here, but it fixes an issue // where SQL returns is set default to '', when it is already null.
 // TODO: pass in a message handler so user gets error msgs.
-// Facade main.methods for IMessageHandler.  We don't want to allow code to  // directly access an internal IMessageHandler, now that the IMessageHandler // interface requires an ExceptionFormatter to be injected for main.methods that // accept Exceptions.
+// Facade methods for IMessageHandler.  We don't want to allow code to  // directly access an internal IMessageHandler, now that the IMessageHandler // interface requires an ExceptionFormatter to be injected for methods that // accept Exceptions.
 "// JASON: Mow that multiple object trees exist storing the edit // where by objectInfo within session won't work. It needs to be objectinfo // within something else. //	private final Map _editWhereColsSheets = new HashMap();"
 // TODO: Put in all the property accessors
 // DB delete worked correctly, so now delete from table //IMPORTANT: The user and the creator both work through the // SortableTableModel, not the Actual model.  Thus the row // indexes to delete are given in the SortableTableModel row numbers, // so we must work through that model model to actually do the delete.
@@ -266,7 +266,7 @@
 /* The second time that catalogs are asked for, return two */
 // i18n[i18n.wroteFixedFile=Wrote file {0}]
 // SS: now select/reorder columns
-// Done before actually reading the data from the ResultSet. If done // after // reading the data from the ResultSet Oracle throws a // NullPointerException // when processing ResultSetMetaData main.methods for the ResultSet // returned for // DatabasemetaData.getExportedKeys.
+// Done before actually reading the data from the ResultSet. If done // after // reading the data from the ResultSet Oracle throws a // NullPointerException // when processing ResultSetMetaData methods for the ResultSet // returned for // DatabasemetaData.getExportedKeys.
 "/*     * As the JCC driver code is obfuscated, we do not check the full class     * name, but resort to checking a prefix and suffix instead.     *      * In my version, the full class name is ""com.ibm.db2.jcc.c.SqlException""     */"
 // Prefix for the JCC SqlException class name
 // Class name for the JCC SqlException class
@@ -314,8 +314,8 @@
 // since user is now using popup, stop editing // using the in-cell editor, if any
 // Rob: Removed replacement via RegExp because it needed several RegExp escapes in val.
 // there was a problem with the read // It would be nice to report this to the user, but if we try we get in trouble // in some cases where the data is continually re-read after the dialog // goes away (because the cell is being re-painted). // cell is not editable
-// these are all more or less global loop variables // to keep from needing to pass them all into various // main.methods during parsing
-"/*    * First we have the main.methods for in-cell and Text-table operations    */"
+// these are all more or less global loop variables // to keep from needing to pass them all into various // methods during parsing
+"/*    * First we have the methods for in-cell and Text-table operations    */"
 // delete the row from the table
 // for convenience, cast the value object to its type
 // we have the whole contents of the CLOB
@@ -420,7 +420,7 @@
 // get the values from the "not use" list and convert to sorted set
 // i18n[I18n.info=Info]
 // check that the text is a valid representation
-// Helper main.methods
+// Helper methods
 // field is not nullable, so create a reasonable default value
 // setup dest mock file
 // handle null
@@ -539,7 +539,7 @@
 // Replace "-15" with Types.NCHAR when Java6 is the minimum supported version
 // Simulate the user switching the statement separator for the session
 // DB2 spec says max=2147483647, but the driver throws an exception
-//To change body of overridden main.methods use File | Settings | File Templates.
+//To change body of overridden methods use File | Settings | File Templates.
 // wait for command to complete
 // i18n[oracle.rows=Rows]
 // some cols are not to be used
@@ -654,7 +654,7 @@
 // this DataType does not limit the data read during the initial load of the table, // so there is no need to re-read the complete data later
 // The pw. If user name is anonymous this can be anything. But it has to // be supplied anyway.
 // i18n[popupeditableIoPanel.cannotOpenFile=Cannot open file {0}.\nError was:{1}]
-"/*	 * First we have the main.methods for in-cell and Text-table operations	 */"
+"/*	 * First we have the methods for in-cell and Text-table operations	 */"
 // MySQL disallows quoted column identifiers when dropping a column.
 // MySQL disallows quoted column identifiers.
 // file exists, is normal and is writable, so see if user // wants to overwrite contents of file
@@ -892,7 +892,7 @@
 // cannot delete rows in read-only table
 "/*     * Now the functions for the Popup-related operations.     */"
 //return (String)_renderer.renderObject(value);
-"/*     * First we have the main.methods for in-cell and Text-table operations     */"
+"/*     * First we have the methods for in-cell and Text-table operations     */"
 // since we cannot do exact matches on floating point // numbers, we cannot use this field in the WHERE clause.
 // i18n[popupeditableIoPanel.withCommand=With command:]
 /* the number of decimal digits allowed in the number */
@@ -1176,7 +1176,7 @@
 // Global misc
 // i18n[sqlbookmark.squirrelMarksInPopup=Show SQuirreL bookmarks in ctrl+j popup]
 // as a coding convenience, create a reference to the text component // that is typecast to JTextComponent. this is not essential, as we // could typecast every reference, but this makes the code cleaner
-//To change body of created main.methods use File | Settings | File Templates.
+//To change body of created methods use File | Settings | File Templates.
 //ScriptEnvironment env = new ScriptEnvironment(m_session.getSQLPanelAPI(m_plugin), ownerFrame);
 // Add panels for core Squirrel functionality.
 // set column heading // set data in first row
@@ -1188,7 +1188,7 @@
 // Misc
 "/*    		 * viewDefSql is the SQL that can be used to query the data dictionary for the body of a view.    		 * This should exclude the ""CREATE VIEW <viewname> AS"" prefix and just return the query.   		 */"
 // replace any instance of flag in command with file name
-// Utility main.methods
+// Utility methods
 // ThreadSearching
 // Needed to make the panel set the divider location from preferences
 "//				System.err.println(""Attempt to use dialect sql from "" + referenceDialect.getDisplayName() //					+ "" failed: "" + e2.getMessage());"
@@ -1268,7 +1268,7 @@
 // We are in the closing event of the Session main window. // We don't want to send this event again therefore // we pass withEvents = false.
 "// Ok button at bottom of dialog. //		JPanel btnsPnl = new JPanel(); //		JButton okBtn = new JButton(""OK"");"
 // Get list of all plugin developers names. Allow for multiple // developers for a plugin in the form "John Smith, James Brown".
-// EasyMock Class extension helpers.  Since classextension and interface  // EasyMock main.methods cannot be used on the same mocks, this provides convenience // to not have to specify the package name for classextension mocks.
+// EasyMock Class extension helpers.  Since classextension and interface  // EasyMock methods cannot be used on the same mocks, this provides convenience // to not have to specify the package name for classextension mocks.
 // SQL Reference Guide says 32k, but I get: // // The specified row size exceeded the maximum allowable row width., // SQL State: 50002, Error Code: 2045 // // when I go above 8000.
 "//	private static final class CellRenderer extends BasicComboBoxRenderer //	{ //		public Component getListCellRendererComponent(JList list, Object value, //						int index, boolean isSelected, boolean cellHasFocus) //		{ //			setText(((TableColumnInfo)value).getColumnName()); //			return this; //		} //	}"
 "//		JInternalFrame[] frames = GUIUtils.getOpenNonToolWindows(getDesktopPane().getAllFrames()); //		_app.getActionCollection().internalFrameOpenedOrClosed(frames.length);"
@@ -1306,7 +1306,7 @@
 // detect whether or not the object tree needs refreshing by comparing // old value to new and see if they changed.
 /////////////////////////////////////////////////////////////////////////// // // Override the functions that need to be changed to tell the table // mechanisms how to do editing. // //////////////////////////////////////////////////////////////////////////
 // ColumnDisplayDefinition[] colDefs = createColumnDefinitions(md, // columnIndices, computeWidths); // _dataSetDefinition = new DataSetDefinition(colDefs);
-// we should never get here because the areEqual function is only // called when we are trying to update the database, so we know // that we have a DataType object for this column (or we would // have been stopped from editing by the isEditableXXX main.methods), // but we need a return here to keep the compiler happy.
+// we should never get here because the areEqual function is only // called when we are trying to update the database, so we know // that we have a DataType object for this column (or we would // have been stopped from editing by the isEditableXXX methods), // but we need a return here to keep the compiler happy.
 // as a coding convenience, create a reference to the text component // that is typecast to JTextComponent.  this is not essential, as we // could typecast every reference, but this makes the code cleaner
 "// if text cannot be edited in the cell but can be edited in //				the popup, show that by changing the text colors."
 // the list of specific column names is in comma-separated format // with a comma in front of the first entry as well // empty the map of old values
@@ -1531,7 +1531,7 @@
 // errors
 // redirect the Esc key to Cancel button
 // start with illegal number of rows matching query
-// Reasons for this code mailed to Rob by Gerd on 9/20/2008. // // the Problem are main.methods like // // BaseSQLEntryPanel.getBoundsOfSQLToBeExecuted() // BaseSQLEntryPanel.moveCaretToPreviousSQLBegin() // // They rely on the line break being a single char. // Also I suppose some of our code generation (scripting) functions do the same. // At least I'm pretty sure if \r\n would be preserved // they could produce a mixture of \n and \r\n.
+// Reasons for this code mailed to Rob by Gerd on 9/20/2008. // // the Problem are methods like // // BaseSQLEntryPanel.getBoundsOfSQLToBeExecuted() // BaseSQLEntryPanel.moveCaretToPreviousSQLBegin() // // They rely on the line break being a single char. // Also I suppose some of our code generation (scripting) functions do the same. // At least I'm pretty sure if \r\n would be preserved // they could produce a mixture of \n and \r\n.
 // I thought this prevented GC. It doesn't // But if two Sessions are open and one is closed the one left open looses // key bindings. For example the Arrow navigation keys. //getKeymap().removeBindings();
 // info
 //i18n[DumpApplicationCommand.error.combiningtempfiles=Error combining temp files into dump file]
@@ -1561,7 +1561,7 @@
 "/*	 * Properties settable by the user	 */"
 // nothing found
 // GridLayout makes equal cells
-// ISessionListener interface main.methods
+// ISessionListener interface methods
 // Note: Temporary events need to be included // in case a modla dialog opens.
 // Data type keyword numeric-ids
 // i18n[graph.invalidWidth=Invalid width]
@@ -1738,7 +1738,7 @@
 // i18n[GeneralPreferencesPanel.squirrelHomePath=Home directory: -home {0}]
 // now drop the second.
 // check to see if the column index is within the bounds // of our header array
-// Unused main.methods - this is not a real dialog, just a fake.
+// Unused methods - this is not a real dialog, just a fake.
 // grab the current letter as a char
 // Center text vertically.
 //DatabaseObjectType.UDF_TYPE_DBO=UDF Type
@@ -1779,7 +1779,7 @@
 // Info
 /* Test the create statement */
 // build ui
-// We should never NOT have an object here because we only get here // when a DataType object has claimed that the column is editable. // If there is no DataType for the column, then the default in the // isEditableXXX() main.methods in this class is to say that the column // is not editable, and therefore we should never have this method // called in that case.
+// We should never NOT have an object here because we only get here // when a DataType object has claimed that the column is editable. // If there is no DataType for the column, then the default in the // isEditableXXX() methods in this class is to say that the column // is not editable, and therefore we should never have this method // called in that case.
 // If the update dir, is actually a file, log an error.
 // Since the user only wants to be notified of updates at startup, return here, thereby  // freeing up the thread.
 // The first argument is a JTable, which is only used by instances // of JTextField to convert coordinates on a double-click.  Since that // cannot happen with the JTextArea, do not bother passing the table.
@@ -1795,7 +1795,7 @@
 // 2. When the user clicks ok, then display update dialog again.
 // 1. Wait for user to click ok/close
 // Symbol used by user in Command field to indicate // "Put the file name here" when the command is executed.
-/* Helper main.methods */
+/* Helper methods */
 // based on defaults from DB, get the default object instance // for each column
 // current Schema says don't load
 // i18n[syntax.enableAutoCorr=Enable auto correct / abreviation]
@@ -2257,7 +2257,7 @@
 "/* (non-Javadoc)		 * @see javax.swing.table.DefaultTableModel#getColumnCount()		 */"
 "/* (non-Javadoc)		 * @see javax.swing.table.DefaultTableModel#isCellEditable(int, int)		 */"
 "/* (non-Javadoc)     * @see net.sourceforge.squirrel_sql.client.plugin.IPlugin#getAuthor()     */"
-"/* IDataTypeComponent interface main.methods 		/**	 * @see net.sourceforge.squirrel_sql.fw.datasetviewer.cellcomponent.IDataTypeComponent#canDoFileIO()	 */"
+"/* IDataTypeComponent interface methods 		/**	 * @see net.sourceforge.squirrel_sql.fw.datasetviewer.cellcomponent.IDataTypeComponent#canDoFileIO()	 */"
 "/*	 * (non-Javadoc)	 * 	 * @see net.sourceforge.squirrel_sql.plugins.smarttools.gui.ISmarttoolFrame#setFocusToFirstEmptyInputField()	 */"
 "/* (non-Javadoc)	 * @see net.sourceforge.squirrel_sql.client.session.event.ISQLExecutionListener#statementExecuted(java.lang.String)	 */"
 "/* (non-Javadoc)     * @see net.sourceforge.squirrel_sql.fw.sql.SQLDatabaseMetaData#getImportedKeysInfo(net.sourceforge.squirrel_sql.fw.sql.ITableInfo)     */"
@@ -2909,7 +2909,7 @@
 //void sessionInternalFrameOpened(SessionInternalFrame sessionInternalFrame, ISession sess);
 //  Metrics of the component used in the constructor
 // break when first braket found
-// Since 1.4 implements interfaces that became available in JDBC 3.0,  // let's warn the user if the driver doesn't support DatabaseMetaData // main.methods that were added in JDBC 2.1 and JDBC 3.0 specifications.
+// Since 1.4 implements interfaces that became available in JDBC 3.0,  // let's warn the user if the driver doesn't support DatabaseMetaData // methods that were added in JDBC 2.1 and JDBC 3.0 specifications. 
 "//		String EDIT = ""edit"";"
 // Activate another session since the current // active session has closed.
 "//	public SQLExecutionInfo() //	{ //		this(1, """"); //	}"
@@ -3306,7 +3306,7 @@
 // tables that are netiher children nor parents - utility tables
 "/*				* If you add this method to one of the standard DataTypes in the				* fw/datasetviewer/cellcomponent directory, you must also add the name				* of that DataType class to the list in CellComponentFactory, method				* getControlPanels, variable named initialClassNameList.				* If the class is being registered with the factory using registerDataType,				* then you should not include the class name in the list (it will be found				* automatically), but if the DataType is part of the case statement in the				* factory method getDataTypeObject, then it does need to be explicitly listed				* in the getControlPanels method also.				*/"
 "/*	 * When the table initiates editing and sets this field, remember the value as the	 * original value of the field	 */"
-"/*     * Now the Popup-related main.methods. These are not quite symmetric with the     * in-cell calls because the conversion of the object into the text to     * display in the popup is handled internally to the DataType object inside     * getJTextArea(), so we do not need a ""renderObjectInPopup"" function     * visible to the rest of the world.     */"
+"/*     * Now the Popup-related methods. These are not quite symmetric with the     * in-cell calls because the conversion of the object into the text to     * display in the popup is handled internally to the DataType object inside     * getJTextArea(), so we do not need a ""renderObjectInPopup"" function     * visible to the rest of the world.     */"
 // ALTER TABLE <table_name> ADD // FOREIGN KEY [<referential_constraint_name>] (<referencing_column>,...) // REFERENCES <referenced_table> [(<referenced_column>,...)] [<delete_rule>]
 // CREATE SEQUENCE sequenceName // INCREMENT BY increment MINVALUE minimum MAXVALUE maxvalue // RESTART WITH restart CACHE cache CYCLE;
 // Since we can use a correlated sub-query to update all rows in one statement, we don't care about the // set values, unless fromTables is null, in which case we go with a normal update. Using the set // values would require an update statement for each row in the merged table for each column that was // merged in, which is incredibly inefficient. However, the API is intended to support database // dialects that can't handle correlated sub-queries.
@@ -3344,7 +3344,7 @@
 // if we have seen a property for this DataType before, then the // hashmap already exists.  Otherwise, we need to create it now.
 "/*     * Properties settable by the user     */"
 "//				Comparable c1 = (Comparable)data1; //				return c1.compareTo(data2) * _iAscending;"
-"/*             * Do not return null when trying to use list(Filename Filter) on a             * file rather than a directory. All other ""list"" main.methods return             * null for this test case.             */"
+"/*             * Do not return null when trying to use list(Filename Filter) on a             * file rather than a directory. All other ""list"" methods return             * null for this test case.             */"
 // This is set here as SessionPanel.dispose() will attempt // to close the session.
 //testLongVarbinaryColType(sourceName, destName); //testNumericColType(sourceName, destName); //testRealColType(sourceName, destName); //testSmallIntColType(sourceName, destName); //testTimestampColType(sourceName, destName); //testTimeColType(sourceName, destName); //testTinyIntColType(sourceName, destName);
 "//		ISession mockSession = mockHelper.createMock(ISession.class); //		IApplication mockApplication = mockHelper.createMock(IApplication.class); //		expect(mockSession.getApplication()).andStubReturn(mockApplication); //		TaskThreadPool mockThreadPool = mockHelper.createMock(TaskThreadPool.class); //		mockThreadPool.addTask(EasyMock.isA(Runnable.class)); //		expectLastCall().anyTimes(); //		expect(mockApplication.getThreadPool()).andStubReturn(mockThreadPool); //		String[] tableTypes = new String[] { ""TABLE"" }; //		ISQLConnection mockSQLConnection = mockHelper.createMock(ISQLConnection.class); //		expect(mockSession.getSQLConnection()).andStubReturn(mockSQLConnection); //		SQLDatabaseMetaData mockSQLDatabaseMetaData = mockHelper.createMock(SQLDatabaseMetaData.class); //		expect(mockSQLConnection.getSQLMetaData()).andStubReturn(mockSQLDatabaseMetaData); //		expect(mockSQLDatabaseMetaData.getTableTypes()).andStubReturn(tableTypes); //		 //		 //		mockHelper.replayAll(); //		classUnderTest = new DefaultDatabaseExpander(mockSession); //		mockHelper.verifyAll(); //		mockHelper.resetAll();"
@@ -3468,10 +3468,10 @@
 /* -- Attribute accessors -- */
 // Save off selections so that selection/focus can be restored  // later.
 /* -- Path-component accessors -- */
-/* IDataTypeComponent interface main.methods */
+/* IDataTypeComponent interface methods */
 /* -- File operations -- */
 /* -- Filesystem interface -- */
-// CopyTableListener interface main.methods
+// CopyTableListener interface methods
 // / <summary> // / How much usable data has been read into the stream, // / which will not always be as long as Buffer.Length. // / </summary>
 // this flag is used as a loop exit condition // during parsing
 // Only for restoring from XML etc.
@@ -3906,7 +3906,7 @@
 // int sqlstate = sqlca.getSqlState();
 // treat it like a time - no date component
 // look up the table in the EditWhereCols list
-// Names of the various main.methods we need to invoke
+// Names of the various methods we need to invoke
 // treat it like a timestamp
 //  Set right/left margin
 "/* (non-Javadoc)		 * @see javax.swing.table.DefaultTableModel#getColumnName(int)		 */"
@@ -3939,7 +3939,7 @@
 "/*	 * Used by editing operations to reset the field to its original value.	 */"
 "/*	 * The original value set in this cell by the table	 */"
 // i18n[DataSetUpdateableTableModelImpl.error.tabledbmismatch=There may be a mismatch between the table and the DB:\n{0}\nDo you wish to proceed with the deletes anyway?]
-"/*     * Cell related main.methods come next.     */"
+"/*     * Cell related methods come next.     */"
 // Plugin knows only how to script Views and Stored Procedures on DB2. // So if it's not a DB2 Session we tell SQuirreL the Plugin should not be used.
 //setBounds(new Rectangle(600, 400));
 "/* (non-Javadoc)	 * @see com.mockobjects.sql.MockDatabaseMetaData#supportsPositionedUpdate()	 */"
@@ -4159,7 +4159,7 @@
 // "backup metadata only" // "inhibit garbage collection" // "save old style metadata descriptions" // "transportable format" // "backup external files as tables" // "start backup"
 // DROP VIEW viewName CASCADE;
 "/*		 * DB2 doesn't support adding an auto-increment column once the table has already been created. So this		 * can simulate one using trigger on the table to access a sequence. Found this idea at wikibooks:		 * http://en.wikibooks.org/wiki/SQL_dialects_reference/Data_structure_definition/Auto-increment_column		 * CREATE SEQUENCE sequence_name; CREATE TABLE table_name ( column_name INT ); CREATE TRIGGER		 * insert_trigger NO CASCADE BEFORE INSERT ON table_name REFERENCING NEW AS n FOR EACH ROW SET		 * n.column_name = NEXTVAL FOR sequence_name;		 */"
-// tell the rest of the world that the table has changed. // The 'fire' method used here is very course - it says that the whole table // has been changed when really only one row has been added. // However, finer-grained main.methods did not seem to cause the right // effect, so I'm using this one untill someone reports a problem with it. // Also, if either of these notifications (the actual model and the sortable // model) are eliminated, it either throws an exception or does not update // the GUI.  Go figure. // Finally, the 'fire' on the _acutalModel is triggered from this method // rather than from inside the MyJTable code because the add() method used // to add a row is also used when loading the table with lots of rows, and // in that case we do not want to generate events until all of the rows // have been added, so the 'fire' cannot happen there.
+// tell the rest of the world that the table has changed. // The 'fire' method used here is very course - it says that the whole table // has been changed when really only one row has been added. // However, finer-grained methods did not seem to cause the right // effect, so I'm using this one untill someone reports a problem with it. // Also, if either of these notifications (the actual model and the sortable // model) are eliminated, it either throws an exception or does not update // the GUI.  Go figure. // Finally, the 'fire' on the _acutalModel is triggered from this method // rather than from inside the MyJTable code because the add() method used // to add a row is also used when loading the table with lots of rows, and // in that case we do not want to generate events until all of the rows // have been added, so the 'fire' cannot happen there.
 // If we get here, then no data type object was found for this column. // (should not get here because switch default returns null.)
 // I tried to use the length from the source database (PostgreSQL) which // yielded 8192 for this test. So the column def in FB was // binary_column bit varying(8192). Yet it gave me an exception that // indicated truncation (string data right truncation???) // So for now, go back to hard-coded maximal length. // registerColumnType(Types.BINARY, 2147000000,"bit varying($l)");
 "/* (non-Javadoc)     * @see net.sourceforge.squirrel_sql.fw.sql.IDatabaseObjectInfo#getSimpleName()     */"
@@ -4384,7 +4384,7 @@
 //_tree.expandPath(new TreePath(newFolder.getPath()));
 // setColumns Error conditions
 // scale the page so the width fits...
-/* ------------------------------------- Helper main.methods ------------------------------------------------*/
+/* ------------------------------------- Helper methods ------------------------------------------------*/
 //i18n[FileEditorDropTargetListener.oneFileDropMessage=Only one file  //may be dropped onto the editor at a time.]
 // Test for toURI when the file is a directory.
 "//	private final class MyInternalFrameListener extends InternalFrameAdapter"

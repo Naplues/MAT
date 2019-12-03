@@ -1,6 +1,6 @@
 oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,/* TODO: MVW: Why is this not done in GEF? */
-1,0,1,1,1,1,1,// TODO: This is a temporary crutch to use until all Figs are updated // to use the constructor that accepts a DiagramSettings object
+1,0,1,0,1,1,1,// TODO: This is a temporary crutch to use until all Figs are updated // to use the constructor that accepts a DiagramSettings object
 1,0,1,1,1,1,1,// TODO: There is a cyclic dependency between SelectionRerouteEdge // and FigEdgeModelElement
 1,0,0,0,1,1,1,// TODO: We need to rethrow this as some other exception // type but that is too much change for the moment.
 1,0,1,1,1,1,1,// TODO: It's probably worthwhile to abstract and factor // this chooser and directory stuff. More file handling is // coming, I'm sure.
@@ -11,7 +11,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/*     * TODO: This is a temporary method of making sure the model is updated     * on loss of focus of a combo box. In the long term we should attempt to     * update the model on each keypress.     *      * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)     */"
 1,0,0,0,0,0,0,// These methods are based on the GraphEvents. These need replacing by // more specic meaningful requests of the diagram interface model
 1,0,1,1,1,1,1,// TODO: All super constrcutors should take a GraphModel
-1,0,0,1,0,1,1,// workaround for missing ability to parse "*"
+1,0,1,1,0,1,1,// workaround for missing ability to parse "*"
 1,0,1,1,1,1,1,// TODO: Needs to be tidied up after stable release. Graph model // should be created in constructor
 1,0,1,1,0,1,1,// this is wrongly called with a null handle, // as a workaround we return an empty collection
 1,0,1,1,1,1,1,// TODO: not navigable this direction? - tfm
@@ -20,17 +20,17 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: Need to clean up objectToId // (can we do it based on modelelement delete // notifications?)
 1,0,1,1,1,1,1,"/**     * The constructor.     * TODO: Why does this method not handle all settings     * (KEY_DEFAULT_SHADOW_WIDTH is missing)?     */"
 1,0,1,1,1,1,1,// TODO: Performance critical method
-1,0,0,0,1,1,1,// TODO: Needs work. Must determine which Figs enclosed // in the pool are within the bounds of this Fig // and translate those.
+1,0,0,1,1,1,1,// TODO: Needs work. Must determine which Figs enclosed // in the pool are within the bounds of this Fig // and translate those.
 1,0,0,1,1,1,1,// TODO: Optimize for root model case? - tfm
-1,0,0,1,1,1,1,// TODO: Do we really need to do this? Carried over from old behavior
+1,0,1,1,1,1,1,// TODO: Do we really need to do this? Carried over from old behavior
 1,0,0,1,1,1,1,// TODO ElementOwnership is not in ModelSubsys!!
 1,0,1,1,1,1,1,// TODO: This seems like a brute force workaround (and a very // indirect one at that).  It appears to be needed though until // we fix the problem properly. - tfm 20070904
 1,0,1,1,1,1,1,// TODO: Is this really needed?
 1,0,1,1,1,1,1,// TODO: UML 1.4 spec requires both client and supplier to be // in the same model - tfm
 1,0,1,1,1,1,1,// TODO: Unused?
-1,0,1,0,0,0,0,// These may not actually make any difference at present (the code // behind addTrigger needs more work).
+1,0,0,0,0,0,0,// These may not actually make any difference at present (the code // behind addTrigger needs more work).
 1,0,1,1,1,1,1,// TODO: temporary - let tree expand implicitly - tfm
-1,0,1,1,1,1,1,//TODO: split into an inherited attr critic and a local //attr critic
+1,0,0,1,1,1,1,//TODO: split into an inherited attr critic and a local //attr critic
 1,0,1,1,1,1,1,// TODO: Should throw if the string is not good?
 1,0,1,1,1,1,1,// TODO Handle multiple top level packages
 1,0,1,1,1,1,1,"/**  * A wizard which adjust the threshold for critics. <p> *  * TODO: Make the treshold setting adjustable without using the wizard,  * and make it persistent.  * Maybe by using the ""Configure"" button on the Browse Critics dialog. * * @see org.argouml.uml.cognitive.critics.AbstractCrTooMany * @author mkl * */"
@@ -38,7 +38,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// Create our bandbuffer which is just a small slice of the image // TODO: We used a fixed height buffer now, but we could be smarter and // compute a height which would fit in some memory budget, allowing us // to use taller buffers with narrower images, minimizing the overhead // of multiple rendering passes
 1,0,1,1,1,1,1,// TODO support iterate declarator
 1,0,1,1,1,1,1,"/**     * @return Returns the default stereotype view     * TODO: Enumeration here?     */"
-1,0,1,1,1,1,1,//TODO: How about FigAssociationClass?
+1,0,0,1,1,1,1,//TODO: How about FigAssociationClass?
 1,0,1,0,1,1,1,// TODO: This shouldn't depend on the current project, but for now // just make sure it's defined and that we have an undo manager
 1,0,1,1,1,1,1,"/**     * Remove this diagram from existence.     *      * TODO: Move to GEF     */"
 1,0,1,1,1,1,1,// TODO: This needs to be managing undo on a per-project basis // instead of using GEF's global undo manager
@@ -56,7 +56,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/**     * @return the set of offenders     *     * TODO: The return value needs to be more strongly typed. - tfm - 20070630     */"
 1,0,0,1,1,1,1,// TODO: Do all these classes need to be in their own files? public?
 1,0,0,0,0,0,0,// must be overridden to make sense // (I didn't want to make it abstract because it might not be required)
-1,0,0,1,1,1,1,//TODO: should fire its own event and ProjectBrowser //should register a listener
+1,0,1,1,1,1,1,//TODO: should fire its own event and ProjectBrowser //should register a listener
 1,0,0,1,1,1,1,// TODO: Use default value of appropriate type for TD
 1,0,0,1,0,1,1,// Our superclass no longer has this method, so perhaps this whole // thing should be removed? - tfm  //        super.updateListeners(newOwner);
 1,1,1,1,1,1,1,// TODO: // This is actually a hack! Some diagram types // (like the statechart diagrams) access the current // diagram to get some info. This might cause // problems if there's another statechart diagram // active, so I remove the current project, before // loading the new one.
@@ -75,8 +75,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,"/* TODO: Here we should e.g. show the user a message that         * the loaded project was using a Notation that is not         * currently available and a fall back on the default Notation         * was done. Maybe this can be implemented in the         * PersistenceManager? */"
 1,0,1,1,1,1,1,"/*     * TODO: This is the same as in parent - remove?     * @see org.argouml.uml.diagram.ui.FigNodeModelElement#updateBounds()     */"
 1,0,0,1,1,1,1,// TODO: Move magic number 10 to descriptive constant
-1,0,1,0,1,1,1,// TODO: Should we handle <<access>> and <<import>> here?
-1,0,0,1,1,1,1,// TODO: remove when code below in characters() is removed //    private static final String    RETURNSTRING  = "\n      ";
+1,0,1,1,1,1,1,// TODO: Should we handle <<access>> and <<import>> here?
+1,0,1,1,1,1,1,// TODO: remove when code below in characters() is removed //    private static final String    RETURNSTRING  = "\n      ";
 1,0,1,1,1,1,1,// TODO: This probably needs more qualification - tfm
 1,0,1,1,1,1,1,// TODO: This method is obsolete.  Use getInputMap etc as below
 1,0,1,1,1,1,1,// TODO: check semantics here - tfm
@@ -104,7 +104,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: Why is this not executed?  Remove if not needed - tfm
 1,0,1,1,1,1,1,"/**     * Loads a project displaying a nice ProgressMonitor     *     * @param file      the project to be opened     * @param showUI    whether to show the GUI or not     *     * TODO: This needs to be refactored to be GUI independent - tfm     */"
 1,0,1,1,1,1,1,// TODO: This doesn't belong here, but it's not a good time // to move it.  Find someplace less obtrusive than this // inner loop. - tfm
-1,0,1,1,1,1,1,// TODO asArgument??
+1,0,0,1,1,1,1,// TODO asArgument??
 1,0,1,1,1,1,1,// TODO: What does the magic number 6000 represent here? // Put it in an explanatory literal! - tfm - 20071205
 1,0,1,1,1,1,1,// TODO: This creates a dependency on the Critics subsystem. // Instead that subsystem should register its desired menus and actions.
 1,0,1,1,1,1,1,// TODO: Get rid of magic numbers!  Figure out which represent line // widths vs padding vs offsets
@@ -139,8 +139,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: Silently ignore instead? //        return false;
 1,0,1,0,1,1,1,"/**     * Find the Icon for a given model element.     *     * @return The Icon or <code>null</code> if there is no Icon.     * @param value The model element.     *     * TODO: This should not use string matching on classnames to do this     *       since this means that we have knowledge about how the model     *       elements are implemented outside of the Model component.     */"
 1,0,1,1,1,1,1,// Initialze GEF's version of the loader too // TODO: We should probably be passing icons that we loaded ourselves // but there doesn't seem to be a way to do that with GEF - tfm
-1,0,1,1,1,1,1,"/**     * Return the key (tag) of some tagged value.     *     * TODO: This does exactly the same as getTag(Object). Remove one of them.     *     * @param handle The tagged value.     * @return The found value as String.     */"
-1,0,0,1,1,1,1,// TODO: Lots more types - Duration, Instance, Interval
+1,0,1,0,1,1,1,"/**     * Return the key (tag) of some tagged value.     *     * TODO: This does exactly the same as getTag(Object). Remove one of them.     *     * @param handle The tagged value.     * @return The found value as String.     */"
+1,0,1,1,1,1,1,// TODO: Lots more types - Duration, Instance, Interval
 1,0,1,0,1,1,1,// TODO: Can we get this from the metamodel? //$NON-NLS-1$
 1,0,0,1,1,1,1,// TODO: How do we get the Connectors of an Association?
 1,0,1,1,1,1,1,// TODO: Remove?  Can't be localized
@@ -155,7 +155,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: Encountering a deleted object during // any part of this traversal will // abort the rest of the traversal. // We probably should do the whole traversal // in a single MDR transaction.
 1,0,1,1,1,1,1,"/**     * Return the default type for the return parameter of a method.     *      * @return a Classifier to use as the default type     * TODO: This belongs in ProjectSettings. - tfm     */"
 1,0,1,1,1,1,1,// TODO: Hold lock for entire recursive traversal?
-1,0,0,1,1,1,1,// TODO: Add EnumerationLiteral someplace
+1,0,1,1,1,1,1,// TODO: Add EnumerationLiteral someplace
 1,0,1,1,1,1,1,// TODO: This is well-formedness rule from UML1.4.2 // 4.5.3.20 [1] A root cannot have any Generalizations. // self.isRoot implies self.generalization->isEmpty
 1,0,1,1,1,1,1,// TODO: Lets build this into a separate buildToolbar method
 1,0,1,1,1,1,1,// TODO: This references the concrete factory // We need a factories factory
@@ -168,7 +168,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/* TODO: This is using internal knowledge of GEF.  It should         * handle this itself. - tfm         * MVW: Move into something like Main.initGEF() */"
 1,0,1,1,1,1,1,"/**     * For Locale selection.<p>     *     * TODO: Detect the available locales from the available files.     *     * @return Locales used in ArgoUML     */"
 1,0,0,1,1,1,1,"/**     * Return the default type for an attribute.     *      * @return a Classifier to use as the default type     * TODO: This belongs in ProjectSettings. - tfm     */"
-1,0,1,1,1,1,1,"/**     * Searches for a type/classifier with name s. If the type is not found, a     * new type is created and added to the current namespace.     * <p>     * TODO: Move to Model subsystem - tfm 20070307     *      * @param s     *            the name of the type/classifier to be found     * @return Classifier     */"
+1,0,1,0,1,1,1,"/**     * Searches for a type/classifier with name s. If the type is not found, a     * new type is created and added to the current namespace.     * <p>     * TODO: Move to Model subsystem - tfm 20070307     *      * @param s     *            the name of the type/classifier to be found     * @return Classifier     */"
 1,0,1,1,1,1,1,/* TODO: What if used elsewhere? */
 1,0,1,0,1,1,1,"/**     * Searches for a type/classifier with name s. If defineNew is     * true, a new type is defined if the type/classifier is not     * found. The newly created type is added to the currentNamespace     * and given the name s.     * <p>     * TODO: Move to Model subsystem - tfm 20070307     *      * @param s the name of the type/classifier to be found     * @param defineNew if true, define a new one     * @return Classifier the found classifier     */"
 1,0,0,1,1,1,1,"/**     * Moves some object to trash, i.e. deletes it completely with all     * dependent structures. <p>     *     * Deleting an object involves: <pre>     * - Removing Target history     * - Deleting all Fig representations for the object     * - Deleting the UML element     * - Deleting all dependent UML modelelements     * - Deleting CommentEdges (which are not UML elements)     * - Move to trash for enclosed objects, i.e. graphically drawn on top of     * - Move to trash subdiagrams for the object     * - Saveguard that there is always at least 1 diagram left     * - If the current diagram has been deleted, select a new one to show     * - Trigger the explorer when a diagram is deleted     * - Set the needsSave (dirty) flag of the projectmanager     * </pre>     *     * @param obj The object to be deleted     * @see org.argouml.kernel.ProjectImpl#trashInternal(Object)     * <p>      * TODO: This should just be named delete() or something which better      * tells what it does (since there really isn't a trash can).     */"
@@ -177,7 +177,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/**     * Updates the top level ModelElements for all projects. In UML2, each     * model knows it's root elements, so this could make setRoots(...)     * obsolete. E.g., applying a stereotype in UML2 adds a new root.     *      * TODO: This is redundant with setRoots/getRoots.  There are already too     * many ways this stuff is managed without adding an additional one.     * All current model subsystem implementations know their top level     * elements.  Responsibility can be moved to the model subsystem, but     * let's choose *one* way of managing this.     */"
 1,0,1,0,1,1,1,"/** * A datastructure for settings for a Project. <p> * * Most getters return a string, since they are used by ""argo.tee"". * This is also the reason all these attributes * are not part of a Map or something. <p> * * TODO: The header comment is currently not used - this function * is not completely implemented yet. How do we store this in the project? * Where should the user enter his header comment? See issue 4813. * * @author michiel */"
 1,0,1,0,1,1,1,"/** * Notation settings value object. Stores settings which control how text is * rendered on diagrams. * <p> * TODO: This needs to go on a diet. It's used everywhere, so is performance * sensitive. The current set of settings is the union of all those found in the * legacy code, but it's not clear that all of them are actually used. *  * @author Tom Morris <tfmorris@gmail.com> */"
-1,0,1,0,1,1,1,"/**     * This does a calculation of where our ""ext"" directory is.     * TODO: We should eventually make sure that this calculation is     *       only present in one place in the code and not several.     */"
+1,0,0,1,1,1,1,"/**     * This does a calculation of where our ""ext"" directory is.     * TODO: We should eventually make sure that this calculation is     *       only present in one place in the code and not several.     */"
 1,0,1,1,1,1,1,"/**     * In contrast to {@link #getZipName()} returns the member's     * name without the prepended name of the project     * (but with the extension). <p>     *      * TODO: This is not used anywhere - shall we remove it?     *     * @author Steffen Zschaler     *     * @return the member's name without any prefix or suffix     */"
 1,0,1,1,1,1,1,// TODO: End up with multiple models here
 1,0,1,1,1,1,1,// We're deleting the last diagram so lets create a new one // TODO: Once we go MDI we won't need this.
@@ -191,7 +191,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,1,0,0,0,0,0,// If c2 is empty, then we're done (or there is a // cycle in the message graph, which would be bad) If // c2 has more than one element, then the model is // crappy, but we'll just use one of them anyway
 1,0,1,1,1,1,1,"/**     * Utility method to encode a String in a way that allows it to be     * saved properly in an XML file and regained filtering out any noice     * that an XML framework might have seen fit to add.     *     * TODO: Why are we doing this ourselves?  Surely encoding information     * for XML serialization is a well known task - tfm     * I have never understood why this is being done. I think we should remove     * any usage - bob     *     * @param	str	The String to encode.     * @return	The encoded String.     */"
 1,0,0,1,0,1,1,//hence a less elegant workaround that works:
-1,0,1,0,0,0,0,// This should probably be inside xmiReader.parse // but there is another place in this source // where XMIReader is used, but it appears to be // the NSUML XMIReader.  When Argo XMIReader is used // consistently, it can be responsible for loading // the listener.  Until then, do it here.
+1,0,0,0,0,0,0,// This should probably be inside xmiReader.parse // but there is another place in this source // where XMIReader is used, but it appears to be // the NSUML XMIReader.  When Argo XMIReader is used // consistently, it can be responsible for loading // the listener.  Until then, do it here.
 1,0,1,1,1,1,1,"/** * A critic to suggest using the facade stereotype. <p> * * TODO: At the moment only a dummy implementation, * see issue 3093.*/"
 1,0,1,1,1,1,1,/* TODO: Is this needed? */
 1,0,0,0,0,0,0,// Could this be some other type of internal error that we want // to handle differently?  Don't think so.  - tfm
@@ -209,7 +209,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,"/**     * Translate the visibility flag of a Fig to the PGML ""visibility"" attribute     * value.     * The PGML values are 0=hidden and 1=shown.     * If not specified then 1 is the default so we return null for this to     * prevent redundent data being written to PGML.     * TODO: Remove on GEF release after 0.11.9 as it will be provided there.     *      * @param f The Fig     * @return ""0""=hidden, null=shown     */"
 1,0,0,1,1,1,1,"/** * The file persister for the UML model. * TODO: This is empty.  What is its purpose? - tfm * @author Bob Tarling */"
 1,0,1,0,1,1,1,"/*             * TODO: Not sure we need to do this, but just to be safe for now.             */"
-1,0,0,1,1,1,1,"/**     * Open a ZipInputStream to the first file found with a given extension.     *     * TODO: Remove since this is a duplicate of ZipFilePersister method     * when we have refactored the Persister subsystem.     *     * @param url     *            The URL of the zip file.     * @param ext     *            The required extension.     * @return the zip stream positioned at the required location.     * @throws IOException     *             if there is a problem opening the file.     */"
+1,0,0,0,1,1,1,"/**     * Open a ZipInputStream to the first file found with a given extension.     *     * TODO: Remove since this is a duplicate of ZipFilePersister method     * when we have refactored the Persister subsystem.     *     * @param url     *            The URL of the zip file.     * @param ext     *            The required extension.     * @return the zip stream positioned at the required location.     * @throws IOException     *             if there is a problem opening the file.     */"
 1,0,1,0,1,1,1,"/** * TODO: this doesn't need a full ProfileReference since it uses the * reader handed in the constructor. It doesn't make much sense to make * its callers init the path to some name which it doesn't need... * * @author Luis Sergio Oliveira (euluis) */"
 1,0,0,0,1,1,1,// TODO: Seems like overkill to load the model just to get the display // name, but that's where it's stored currently - tfm
 1,0,1,1,1,1,1,// TODO: This appears unused.  If it's needed, the Model API should // be enhanced to provide a method that does this directly.
@@ -226,13 +226,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: The following handling of multiselection is just a local // solution for the fill color, better find a more general solution: // (I don't know if it's undoable this way - thn)
 1,0,1,0,1,1,1,// TODO: We need to get the model/extent (and package?) associated with // the current diagram so that we can create the new element in the // right place.
 1,0,1,0,1,1,1,"/** * The dialog that allows the user to go to any diagram in the project * by doubleclicking on it.<p> * * This dialog is not modal, and can stay open while the user * is working on the model. It is even possible to open multiple * of these dialogs, although the purpose of such useraction eludes me.<p> * * TODO: This dialog should have multiple tabs named ""Help"", ""Diagram"", * ""Classifier"", ""StateVertex"", etc. Which would allow the user to go to other * things than diagrams. * * @author MVW * */"
-1,0,1,0,1,1,1,// TODO: Bob says - tabs that listen for target changes // should register themselves not expect DetailsPane to // listen and pass on the event. Otherwise these tabs // always rely on DetailsPane. TabToDoTarget and TabProps // currently listen directly.
+1,0,1,1,1,1,1,// TODO: Bob says - tabs that listen for target changes // should register themselves not expect DetailsPane to // listen and pass on the event. Otherwise these tabs // always rely on DetailsPane. TabToDoTarget and TabProps // currently listen directly.
 1,0,1,1,1,1,1,"/* TODO: Some parts of ArgoUML have preliminary support for multiple     * details panels, but we currently only support     * the default South (bottom) panel     */"
 1,0,1,1,1,1,1,// TODO: Check that this is correct
 1,0,0,1,1,1,1,"/**     * Flag to indicate if we are the main application     * or being integrated in another top level application such     * as Eclipse (via the ArgoEclipse plugin).     * TODO: This is a temporary measure until ProjectBrowser     * can be refactored more appropriately. - tfm     */"
 1,0,0,1,1,1,1,"/**     * Try to save the project.     * @param overwrite if true, then we overwrite without asking     * @param file the File to save to     * @param pmw       the ProgressMonitor to be updated;     * @return true if successful     *     * TODO: Separate this into a Swing specific class - tfm     * @deprecated in 0.29.1 by Bob Tarling use trySaveWithProgressMonitor     */"
 1,0,1,1,1,1,1,"/*     * TODO: Work in progress here to allow multiple details panes with     * different contents - Bob Tarling     */"
-1,0,0,1,1,1,1,// TODO: This causes a cyclic depencency with ActionSaveProject
+1,0,1,1,1,1,1,// TODO: This causes a cyclic depencency with ActionSaveProject
 1,0,0,1,1,1,1,"/**     * TODO: this needs work so that users can set the font     * size through a gui preference window.     */"
 1,0,1,1,1,1,1,"/**     * Loads a project displaying a nice ProgressMonitor     *     * @param overwrite if true, the file is going to be overwritten     * @param file      the target file     *     * TODO: Separate this into a Swing specific class - tfm     * @param exit if true: exit ArgoUML when done     */"
 1,0,1,0,1,1,1,// TODO: Bob says - // We're looking at focus change to // flag the start of an interaction. This // is to detect when focus is gained in a prop // panel field on the assumption editing of that // field is about to start. // Not a good assumption. We Need to see if we can get // rid of this.
@@ -258,7 +258,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: Make sure this shouldn't go into a previous // condition -tml
 1,0,1,1,1,1,1,// TODO: Shouldn't be creating a new instance here. We should // hold the delete action in some central place.
 1,0,1,1,1,1,1,"/**     * The tree structure has changed significantly.     * Inform the associated tree model.     *     * TODO:  This shouldn't be public.  Components desiring to     * inform the Explorer of changes should send events.     * @deprecated by mvw in V0.25.4. Use events instead.     */"
-1,0,0,1,1,1,1,// TODO: We really only care about events which affect things that // are visible in the current perspective (view).  This could be // tailored to cut down on event traffic. - tfm 20060410
+1,0,1,1,1,1,1,// TODO: We really only care about events which affect things that // are visible in the current perspective (view).  This could be // tailored to cut down on event traffic. - tfm 20060410
 1,0,1,1,1,1,1,"/**     * The singleton instance.     *     * TODO: Why is this a singleton? Wouldn't it be better to have exactly     * one for every Explorer?     */"
 1,0,1,1,1,1,1,// TODO: Rather than specifically ignore some item maybe it would be better // to specifically state what items are of interest. Otherwise we may still // be acting on other events we don't need
 1,0,1,0,1,1,1,// TODO: We need a factory pattern for GoXXX classes that can determine if they are required
@@ -273,7 +273,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: Do we need this Generalization is not a named element
 1,0,0,0,0,0,0,// // needed?
 1,0,1,0,1,1,1,"/**     * Find all the Figs that visualise the given model element in     * this layer, or null if there is none.     *      * TODO: once GEF includes this same method in Diagram then this can go     *      * @see org.tigris.gef.base.Diagram#presentationsFor(java.lang.Object)     */"
-1,0,0,1,1,1,1,// TODO: This uses a "last one wins" algorithm for registration // We should warn if a factory is being overwritten.
+1,0,1,1,1,1,1,// TODO: This uses a "last one wins" algorithm for registration // We should warn if a factory is being overwritten.
 1,0,1,1,1,1,1,"/**     * Gets font name. If it doesn't exist in configuration it creates new     * entries in configuration for appearance.     *     * TODO: Why create in a getter?     *     * @return the name of the configured font     */"
 1,1,1,1,1,1,1,// TODO: What is this trying to do? It's never going to get called - tfm // really dirty hack to remove unwanted listeners
 1,0,1,1,1,1,1,// TODO: This shouldn't be referencing the current project.  Instead // the appropriate UndoManager should have already been retrieved from // the correct project.
@@ -288,15 +288,15 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,"/**     * Actually instanciate the NetNode and FigNode objects and     * set the global next mode to ModePlace     * TODO: should call super, reduce code volume!     *     * @see org.tigris.gef.graph.GraphFactory#makeNode()     */"
 1,0,1,1,1,1,1,// TODO: This logic may well be worth moving into the model component. // Provide a similar grid to the connectionsGrid
 1,0,1,1,1,1,1,// TODO ? if this class listen the model, it will be able to // change in live as it is done in the figs (diagram)
-1,0,0,1,1,1,1,// TODO : Redo it (curBody should be as long as curLanguage+button)
+1,0,1,1,1,1,1,// TODO : Redo it (curBody should be as long as curLanguage+button)
 1,0,0,0,1,1,1,"/**	 * When we change the type, we need to create a new Initial Value. And	 * to display the Panel	 *	 * TODO: if we select the same type that the current, do nothing.	 */"
 1,0,1,0,1,1,1,// TODO: We definitely don't want to react to addition and // removal of transitions. Can't we be more specific when // we register ourselves as a listener.
-1,0,1,0,1,1,1,"/**     * The target model element     * In UML1.x this is the element that owns the expression.     * In UML2.x this is the expression itself     * TODO: This makes behaviour different enough that separate subclasses     * should be considered.     */"
-1,0,1,1,1,1,1,"/**     * Field TODO: TextArea or TextField     */"
+1,0,0,1,1,1,1,"/**     * The target model element     * In UML1.x this is the element that owns the expression.     * In UML2.x this is the expression itself     * TODO: This makes behaviour different enough that separate subclasses     * should be considered.     */"
+1,0,0,1,1,1,1,"/**     * Field TODO: TextArea or TextField     */"
 1,0,1,1,1,1,1,// TODO: Rather than specifically ignore some item  // maybe it would be better to specifically state  // what items are of interest. Otherwise we may still // be acting on other events we don't need
 1,0,1,1,1,1,1,// TODO: This can be a mess... There are any better solution?
 1,0,1,0,1,1,1,"/**     * TODO: Use it notify Set to true to forward events to model. Only one of     * Language and Body fields should have this set to true.     */"
-1,0,1,1,1,1,1,"/* TODO: If this is an ordered list, then you have to                                    add in the right location! */"
+1,0,0,1,1,1,1,"/* TODO: If this is an ordered list, then you have to                                    add in the right location! */"
 1,0,1,1,1,1,1,"/*     * @see java.beans.PropertyChangeListener#propertyChange(java.beans.PropertyChangeEvent)     *     * TODO: This should be reviewed to see if it can be improved with a view     * towards removing some of the overrriding methods used as workarounds for     * differences between NSUML and MDR - tfm - 20060302     */"
 1,0,1,1,1,1,1,// TODO: This is a redundant invocation
 1,0,1,0,1,1,1,// Get all classifiers in our model // TODO: We need the property panels to have some reference to // the project they belong to instead of using deprecated // functionality
@@ -315,7 +315,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,"/*             * modelImpl.getFacade().getRootElements()  gets all root elements             * in the UML repository, including available profiles that are not             * part of the current project (degrades performance).             *             * ProjectManager.getManager().getCurrentProject().getRoots() only             * returns user model roots, and no profiles.             *             * ProjectManager.getManager().getCurrentProject().getModels() gets             * all root models, but no root namespaces.             *             * TODO: Which is best? Is there any other way?             */"
 1,0,1,0,1,1,1,"/*     * TODO: As currently coded, this actually returns all BehavioralFeatures     * which are owned by Classifiers contained in the given namespace, which     * is slightly different then what's documented.  It will not include any     * BehavioralFeatures which are part of the Namespace, but which don't have     * an owner.     */"
 1,0,1,1,1,1,1,// TODO: Performance. Consider instantiating this just // once outside the for loops and clear at this point // instead.
-1,0,1,0,0,0,0,"/*     * Delete a model element.  Implements 'cascading delete' to make sure     * model is still valid after element has been deleted.<p>     *     * The actual deletion is delegated to delete methods in the rest of the     * factories. For example: a method deleteClass exists on CoreHelper. Delete     * methods as deleteClass should only do those extra actions that are     * necessary for the deletion of the modelelement itself. I.e. deleteClass     * should only take care of things specific to UmlClass.<p>     *     * The delete methods in the UML Factories should not be called directly     * throughout the code! Calls should always refer to this method and never     * call the deleteXXX method on XXXFactory directly. The reason that it is     * possible to call the deleteXXX methods directly is a pure implementation     * detail.<p>     *     * The implementation of this method uses a quite complicated if/then/else     * tree. This is done to provide optimal performance and full compliance to     * the UML 1.4 metamodel. The last remark refers to the fact that the     * UML 1.4 model uses multiple inheritance in several places.     * This has to be taken into account.<p>     *     * TODO: The requirements of the metamodel could probably be better     * determined by reflection on the metamodel.  Then each association     * that a deleted element participates in could be reviewed to make sure     * that it meets the requirements and, if not, be deleted. - tfm<p>     *     * Extensions and its children are not taken into account here. They do not     * require extra cleanup actions. Not in the form of a call to the remove     * method as is normal for all children of MBase and not in the form of     * other behaviour we want to implement via this operation.     *     * @param elem     *            The element to be deleted     *     * @see org.argouml.model.UmlFactory#delete(java.lang.Object)     */"
+1,0,1,0,1,1,1,"/*     * Delete a model element.  Implements 'cascading delete' to make sure     * model is still valid after element has been deleted.<p>     *     * The actual deletion is delegated to delete methods in the rest of the     * factories. For example: a method deleteClass exists on CoreHelper. Delete     * methods as deleteClass should only do those extra actions that are     * necessary for the deletion of the modelelement itself. I.e. deleteClass     * should only take care of things specific to UmlClass.<p>     *     * The delete methods in the UML Factories should not be called directly     * throughout the code! Calls should always refer to this method and never     * call the deleteXXX method on XXXFactory directly. The reason that it is     * possible to call the deleteXXX methods directly is a pure implementation     * detail.<p>     *     * The implementation of this method uses a quite complicated if/then/else     * tree. This is done to provide optimal performance and full compliance to     * the UML 1.4 metamodel. The last remark refers to the fact that the     * UML 1.4 model uses multiple inheritance in several places.     * This has to be taken into account.<p>     *     * TODO: The requirements of the metamodel could probably be better     * determined by reflection on the metamodel.  Then each association     * that a deleted element participates in could be reviewed to make sure     * that it meets the requirements and, if not, be deleted. - tfm<p>     *     * Extensions and its children are not taken into account here. They do not     * require extra cleanup actions. Not in the form of a call to the remove     * method as is normal for all children of MBase and not in the form of     * other behaviour we want to implement via this operation.     *     * @param elem     *            The element to be deleted     *     * @see org.argouml.model.UmlFactory#delete(java.lang.Object)     */"
 1,0,1,1,1,1,1,// Don't allow connections to be created from a read only // model element to any other // TODO: This should be considered a workaround.  It only works // because, by default, we place newly created relationships in // the namespace of the fromElement.  The correct behavior in // the presence of read-only elements really depends on the type of // connection as well as the writeability of both ends.
 1,0,1,0,1,1,1,"/**     * An array of valid connections, the combination of connecting class and     * node classes must exist as a row in this list to be considered valid.     * <ul>     * <li>The 1st column is the connecting element.     * <li>The 2nd column is the ""from"" element type.     * <li>The 3rd column is the ""to"" element type.     * The 3rd column is optional, if not given then it is assumed to be     * the same as the ""from"" element.     * <li>The existence of a 4th column indicates that the connection is valid     * in one direction only.     * </ul>     * TODO: This encodes not only what is legal in UML, but also what ArgoUML     * knows how to create, so not all legal connections are included. Probably     * should be split into two pieces: 1) legal UML (here) and 2) supported (in     * ArgoUML application someplace) - tfm - 20060325<p>     * See also issue 3863.<p>     *     * Most of these are subtypes of Relationship which includes Association,     * Dependency, Flow, Generalization, Extend, and Include. Dependency     * includes Binding, Abstraction, Usage, and Permission. AssociationRole and     * AssociationClass are Associations. The remaining items (Link, Transition,     * AssociationEnd, Message) are non-Relationship types which ArgoUML treats     * as connections/edges.     */"
 1,0,1,1,1,1,1,// TODO: check for duplicates (is this possible???)
@@ -378,7 +378,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: We should really set up our own profile instead of depending // on the default. // This depends on the default profile configuration containing the // type Integer to test properly.  Otherwise it will get created in // the main project, defeating the purpose
 1,0,1,0,1,1,1,"/**     * Called by propertyChanged when it detects that a stereotype     * has been added or removed. On removal the FigNode removes its     * listener to that stereotype. When a new stereotype is detected     * we add a listener.     * TODO: Bob says: In my opinion we shouldn't be doing this here.     * FigStereotype should always be listening to change of its     * owners name.     * FigStereotypesCompartment should always be listening for add     * or remove of Stereotypes to its owner.     * Those classes will need to pass some event to the FigNode on     * the AWT thread only if a change results in a change of size     * that requires a redraw.     * <p>NOTE: Runs at the Model (MDR) Thread </p>     * @param event the UmlChangeEvent that caused the change     */"
 1,0,1,1,1,1,1,// TODO: Do we want the top level package here instead of the immediate // parent?
-1,0,0,1,1,1,1,// TODO: This creates a dependency on the Critics subsystem. // We need a generic way for modules (including our internal // subsystems) to request addition of actions to the popup // menu. - tfm 20080430
+1,0,1,1,1,1,1,// TODO: This creates a dependency on the Critics subsystem. // We need a generic way for modules (including our internal // subsystems) to request addition of actions to the popup // menu. - tfm 20080430
 1,0,1,1,1,1,1,"/**     * This is a template method called by the ArgoUML framework as the result     * of a change to a model element. Do not call this method directly     * yourself.     * <p>Override this in any subclasses in order to change what model     * elements the FigNode is listening to as a result of change to the model.     * </p>     * <p>This method is guaranteed by the framework to be running on the same     * thread as the model subsystem.</p>     * TODO: Lets refactor this at some time to take UmlChangeEvent argument     *     * @param event the UmlChangeEvent that caused the change     */"
 1,0,0,1,1,1,1,// TODO: Generalize extension and remove critic specific code
 1,0,1,1,1,1,1,"/*     * TODO: Is this required? Why would the fig already be dashed?     *      * @see org.tigris.gef.presentation.FigEdge#setFig(     *      org.tigris.gef.presentation.Fig)     */"
@@ -392,8 +392,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: the namespace of created events is currently the model. // I think this is wrong, they should be // in the namespace of the activitygraph! //        vec.addAll( //                Model.getModelManagementHelper().getAllModelElementsOfKind( //                        Model.getFacade().getNamespace(getTarget()), //                        Model.getMetaTypes().getEvent()));
 1,0,1,1,1,1,1,"/**     * Changes the font for all Figs contained in the given FigGroup. <p>     *     *  TODO: In fact, there is a design error in this method:     *  E.g. for a class, if the name is Italic since the class is abstract,     *  then the classes features should be in Plain font.     *  This problem can be fixed by implementing     *  the updateFont() method in all subclasses.     *     * @param fg the FigGroup to change the font of.     */"
 1,0,1,1,1,1,1,// TODO: the namespace of enlisted events is currently the model.  // I think this is wrong, they should be // in the namespace of the activitygraph! //        vec.addAll(Model.getModelManagementHelper().getAllModelElementsOfKind( //                Model.getFacade().getNamespace(getTarget()), //                Model.getMetaTypes().getEvent()));
-1,0,0,1,1,1,1,"/**     * TODO: Move this in FigGroup (in GEF).     *     * @param scb The suppressCalcBounds to set.     */"
-1,0,0,0,0,0,0,// update the titleLabel // MVW: This overrules the icon set initiallly... Why do we need this?
+1,0,1,1,1,1,1,"/**     * TODO: Move this in FigGroup (in GEF).     *     * @param scb The suppressCalcBounds to set.     */"
+1,0,0,1,0,1,1,// update the titleLabel // MVW: This overrules the icon set initiallly... Why do we need this?
 1,0,1,1,1,1,1,"/**     * TODO: This function attempts to optimize the more generic     * code in the parent, which also works correctly in this case.     * Is this a good idea?     */"
 1,0,0,1,1,1,1,"/**     * Creates a new checkbox menu item attached to the specified     * action object and appends it to the end of this menu.     * TODO: This is almost a duplicate of ArgoJMenu.addCheckItem must find a     * way to merge.     *     * @param     a     the Action for the checkbox menu item to be added     * @return          the new checkbox menu item     */"
 1,0,1,1,1,1,1,// TODO: 21/12/2008 dthompson mouseClicked(me) above consumes the  // mouse event internally, so I suspect that this line might not be  // necessary.
@@ -437,16 +437,16 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: make the "magic numbers" configurable
 1,0,1,1,1,1,1,"/**     * Helper method for changeConnectedNode.     * TODO: This should probably be in superclass. Associations can be on     * several diagram types.     */"
 1,0,1,1,1,1,1,"/**     * Returns the current target.     * @deprecated As of ArgoUml version 0.13.5,     * the visibility of this method will change in the future, replaced by     * {@link org.argouml.ui.targetmanager.TargetManager#getTarget()     * TargetManager.getInstance().getTarget()}.     * TODO: MVW: I think this should not be deprecated.     *     * @return the target     * @see org.argouml.ui.TabTarget#getTarget()     */"
-1,0,1,1,0,1,1,"/**     * Reroutes the connection to the old node to be connected to     * the new node.     *     * delegates to rerouteXXX(,,,) for each of the 4 possible edges in     * a class diagram: Association, Dependency, Generalization, Link.     * TODO: This should probably be in superclass. Many Figs can be on     * several diagram types.     *     * @param newNode this is the new node that one of the ends is dragged to.     * @param oldNode this is the existing node that is already connected.     * @param edge this is the edge that is being dragged/rerouted     * @param isSource tells us which end is being rerouted.     */"
+1,0,1,1,1,1,1,"/**     * Reroutes the connection to the old node to be connected to     * the new node.     *     * delegates to rerouteXXX(,,,) for each of the 4 possible edges in     * a class diagram: Association, Dependency, Generalization, Link.     * TODO: This should probably be in superclass. Many Figs can be on     * several diagram types.     *     * @param newNode this is the new node that one of the ends is dragged to.     * @param oldNode this is the existing node that is already connected.     * @param edge this is the edge that is being dragged/rerouted     * @param isSource tells us which end is being rerouted.     */"
 1,0,1,1,1,1,1,"/**     * Prevent bold events if bold does not change.     * TODO: GEF should manage this after GEF 0.13.4 is included.     */"
 1,0,1,0,1,1,1,"/*     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)     * TODO: From ComboBox javadoc - ""This method is public as an      * implementation side effect. do not call or override.""     * We should find some other way to implement this.     */"
 1,0,1,1,1,1,1,// TODO: This shouldn't know about the specific type of Fig that // is being displayed.  That couples it too strongly to things it // shouldn't need to know about - tfm - 20070924
 1,0,1,0,1,1,1,"/** * The model for the table with the tagged values. Implementation for UML 1.4 * and TagDefinitions. * * TODO: This currently only supports TaggedValues with a TagDefinition which * has a type of String. */"
 1,0,0,1,1,1,1,// TODO: Use our extension registration mechanism for our internal // classes as well, so everything is treated the same
 1,0,1,1,1,1,1,// TODO: We should really be passing the default settings to // the diagram factory so they get set at creation time
-1,0,1,0,1,1,1,// idem, e.g. for a generalization with leaf/root object // TODO: but showing the message in the statusbar would help // TODO: IllegalArgumentException should not be used for // events we expect to happen. We need a different way of // catching well-formedness rules.
+1,0,1,1,1,1,1,// idem, e.g. for a generalization with leaf/root object // TODO: but showing the message in the statusbar would help // TODO: IllegalArgumentException should not be used for // events we expect to happen. We need a different way of // catching well-formedness rules.
 1,0,1,1,1,1,1,"/**     * The connect method specifying a connection     * type by class is unavailable in the ArgoUML implementation.     * TODO: This should be unsupported. Use the 3 Object version     *     * {@inheritDoc}     */"
-1,0,1,1,1,1,1,// TODO: We'd like these to not be filled, but GEF won't let us // select them if we do that. //        setFilled(false);
+1,0,0,1,1,1,1,// TODO: We'd like these to not be filled, but GEF won't let us // select them if we do that. //        setFilled(false);
 1,0,1,0,1,1,1,///////////////// GEF Methods //////////////////////////// // TODO: These should really be picked up automatically from // some GEF interface that we extend, but there is no such // thing.  NOTE: We've only added methods used by ArgoUML, // so it's possible that external consumers need other methods.
 1,0,0,0,1,1,1,"/** * Abstract class that is the parent of all actions adding diagrams to ArgoUML. * The children of this class should implement createDiagram to do any specific * actions for creating a diagram and isValidNamespace that checks if some * namespace is valid to add the diagram to. <p> * * ArgoUML shall never create a diagram for a read-only modelelement.<p> * * TODO: This class should be merged with ActionNewDiagram. * * @author jaap.branderhorst@xs4all.nl */"
 1,0,0,0,1,1,1,"/**     * TODO: MVW: I am not completely sure of the following:<p>     * The ""namespace"" of the diagram is e.g. used when creating new elements     * that are shown on the diagram; they will have their namespace set     * according this. It is NOT necessarily equal to the ""owner"".      *      * @return the namespace for the diagram     */"
@@ -462,12 +462,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: Fonts shouldn't be handled any differently than other // rendering attributes
 1,0,1,1,1,1,1,// TODO: No one should be sending the deprecated event // from outside ArgoUML, but keep responding to it for now // just in case
 1,0,1,1,1,1,1,"/**     * forwards this event to the tree model.     *     * @param element the modelelement to be added     *     * TODO:  This shouldn't be public.  Components desiring to     * inform the Explorer of changes should send events.     */"
-1,0,0,1,1,1,1,// TODO: This should not need to know about ProjectSettings - tfm
+1,0,1,1,1,1,1,// TODO: This should not need to know about ProjectSettings - tfm
 1,0,1,1,1,1,1,// TODO: Why can't we use ActionAddExistingNodes here? Bob.
 1,0,1,1,1,1,1,// TODO: We'd like to test this in its new guise as PackageImport, but // we don't have a good way to do it currently
 1,0,1,1,1,1,1,"/*     * Constraint: This code only deals with 1 supplier per dependency!     * TODO: Do we need more?     *      * @see org.argouml.uml.ui.AbstractActionAddModelElement#doIt(java.util.List)     */"
 1,0,0,1,1,1,1,"/** * Abstract action to trigger creation of a new diagram. <p> * * ArgoUML shall never create a diagram for a read-only modelelement. * <p> * TODO: Bobs says, can we merge ActionAddDiagram with this class? * * @author michiel */"
-1,0,0,0,1,1,1,// First of all, let's set up the duplicate hash. This hash contains // all the duplicate key for another key. // // TODO: every duplicate.put() is done twice - but how to avoid this?
+1,0,1,0,1,1,1,// First of all, let's set up the duplicate hash. This hash contains // all the duplicate key for another key. // // TODO: every duplicate.put() is done twice - but how to avoid this?
 1,0,1,0,1,1,1,// TODO: This should get the containing project from the list of // targets, not from some global
 1,1,1,1,1,1,1,"/**         * TODO: Bob says - This is a really nasty horrible hack.         * ShadowFig should not extend FigNodeModelElement. Instead         * we require a base class FigNode with common behaviour of ALL         * nodes in ArgoUML. ShadowFig should extend that and         * FigNodeModelElement should extend that same base class adding         * common functionality for FigNode that represent model element.         * @see org.argouml.uml.diagram.ui.FigNodeModelElement#setShadowSize(int)         */"
 1,0,1,0,1,1,1,"/** * A window that displays an exception to the user if we can't handle it * in any other way. *  * TODO: This has been partly converted to be a generic error dialog  * rather than something specific to exceptions.  This should be renamed * when that process is complete. */"
@@ -485,12 +485,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: This is in the wrong place.  It's not profile specific. // It needs to be moved to main XMI reading code. - tfm 20060326
 1,0,0,0,0,0,0,// This can be made public to allow others to extend their own persisters
 1,0,1,0,1,1,1,// Once all edges are connected do a compute route on each to make // sure that annotations and the edge port is positioned correctly // Only do this after all edges are connected as compute route // requires all edges to be connected to nodes. // TODO: It would be nice not to have to do this and restore annotation // positions instead.
-1,0,0,0,1,1,1,"/**     * @param project the ArgoUML {@link Project} to save in file.     * @param file the {@link File} in which an ArgoUML {@link Project} will     * be persisted.     * @return the persister used and usable for file.     * @throws SaveException if saving the file goes wrong.     * @throws InterruptedException if an interrupt occurs while saving.     * TODO: move this to an helper class.     */"
+1,0,0,1,1,1,1,"/**     * @param project the ArgoUML {@link Project} to save in file.     * @param file the {@link File} in which an ArgoUML {@link Project} will     * be persisted.     * @return the persister used and usable for file.     * @throws SaveException if saving the file goes wrong.     * @throws InterruptedException if an interrupt occurs while saving.     * TODO: move this to an helper class.     */"
 1,0,1,1,1,1,1,"/** * TODO: This whole class needs to be updated to remove use of deprecated * methods and (hopefully) test multi-root and multi-project methods. *  * @since Nov 17, 2002 * @author jaap.branderhorst@xs4all.nl */"
 1,0,1,1,1,1,1,// Method 2: (assign data immediately, see end of file). // TODO: if we ever want to extend PathItemPlacement, // we should modify this, so that we also recognise any // subclass of PathItemPlacement. // Is the class name a PathItemPlacment? // TODO: Use class reference to make this dependency obvious
 1,0,1,1,1,1,1,// TODO: There are cyclic dependencies between ActionStereotypeView* // and FigNodeModelElement.  Register these actions opaquely since // we don't what they are. - tfm
 1,0,1,1,1,1,1,// TODO: Do we care?
-1,0,0,1,1,1,1,// TODO: break into 3 main member types // model, diagram and other
+1,0,1,1,1,1,1,// TODO: break into 3 main member types // model, diagram and other
 1,0,1,1,1,1,1,"/**     * Get an {@link AbstractFilePersister} for file.     *     * @param file the {@link File} in which an ArgoUML {@link Project} will     * be persisted.     * @return the appropriate persister for file or null if the file's     * extension doesn't match a supported persister.     * TODO: move this to an helper class.     */"
 1,0,1,1,1,1,1,"/**     * Finds a type in a model by name     *     * FIXME: duplicated from the method with the same name in     * org.argouml.profile.internal.ModelUtils.     *     * @param s the type name     * @param model the model     * @return the type or <code>null</code> if the type has not been found.     */"
 1,0,1,1,1,1,1,"/** * This class manages the projects loaded in argouml, * and what the current project is. <p> * * Classes in ArgoUML can ask this class for the current * project and set the current project.  Since we only have one * project in ArgoUML at the moment, this class does not manage a list * of projects like one would expect. This could be a nice extension * for the future of ArgoUML.  As soon as the current project is * changed, a property changed event is fired. <p> * * TODO: Move everything related to the creation of a project * into the ProjectFactory. * * @since Nov 17, 2002 * @author jaap.branderhorst@xs4all.nl * @stereotype singleton */"
@@ -507,7 +507,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/** * The Project interface encapsulates all information about a designer's * project. It contains the list of diagrams and UML models, various project * properties such as the author's name, and defaults for various settings. * <p> * TODO: This interface was mechanically refactored from the implementation * class {@link ProjectImpl}. It needs to be reviewed and cleaned up, * eliminating methods which should be part of the public API and splitting the * interface into smaller function specific (e.g. TrashCan) interfaces. *  * @author Tom Morris <tfmorris@gmail.com>, Thomas Neustupny * @since 0.25.4 when it replaced the concrete class of the same name */"
 1,0,1,0,1,1,1,// TODO: This should listen for new target events  // fired by WizStep.updateTabToDo so that we // can decouple it from the ProjectBrowser.
 1,0,0,1,1,1,1,//TODO: should fire its own event and ProjectBrowser //TODO: should register a listener
-1,0,1,1,1,1,1,"/** * Agency manages Critics.  Since classes are not really first class * objects in java, a singleton instance of Agency is made and passed * around as needed.  The Agency keeps a registry of all Critics that * should be applied to each type of design material. When a * design material instance is critiqued it asks Agency to apply all * registered Critic's.  In the current scheme there is a thread that * proactively, continuously critiques the Design at hand, even if * the user is idle! This is simple and it works.  The disadvantage * is that _all_ active critics related to a given design material are * applied, regardless of the reason for the critiquing and a lot of * CPU time is basically wasted.  <p> * * TODO: I am moving toward a more reactionary scheme in * which specific design manipulations in the editor cause critics * relevant to those manipulations to be applied.  This transition is * still half done.  Triggers are the critiquing requests.  The code * for triggers is currently dormant (latent?).<p> * * TODO: There is a strong dependency cycle between Agency and Designer.  They * either need to be merged into a single class or partitioned differently, * perhaps using an interface to break the cycle.  The Designer singleton gets * passed to almost every single part of the Critic subsystem, creating strong * coupling throughout. - tfm 20070620 * * @author Jason Robbins */"
+1,0,0,1,1,1,1,"/** * Agency manages Critics.  Since classes are not really first class * objects in java, a singleton instance of Agency is made and passed * around as needed.  The Agency keeps a registry of all Critics that * should be applied to each type of design material. When a * design material instance is critiqued it asks Agency to apply all * registered Critic's.  In the current scheme there is a thread that * proactively, continuously critiques the Design at hand, even if * the user is idle! This is simple and it works.  The disadvantage * is that _all_ active critics related to a given design material are * applied, regardless of the reason for the critiquing and a lot of * CPU time is basically wasted.  <p> * * TODO: I am moving toward a more reactionary scheme in * which specific design manipulations in the editor cause critics * relevant to those manipulations to be applied.  This transition is * still half done.  Triggers are the critiquing requests.  The code * for triggers is currently dormant (latent?).<p> * * TODO: There is a strong dependency cycle between Agency and Designer.  They * either need to be merged into a single class or partitioned differently, * perhaps using an interface to break the cycle.  The Designer singleton gets * passed to almost every single part of the Critic subsystem, creating strong * coupling throughout. - tfm 20070620 * * @author Jason Robbins */"
 1,0,1,1,1,1,1,"/**     * Reply true iff this Critic is relevant to the goals that the     * Designer is trying to achieve. By default, all Critic's are     * relevant regardless of the GoalModel. Really this is something for a     * ControlMech to compute, but if a subclass of Critic encapsulates     * some information you may need to override this method. <p>     *     * TODO: I would like a better default action, but goals     * are typed and their values must be interpreted by critics. They     * are not as generic as the DecisionModel.     *     * @param dsgr the designer     * @return true if relevant     */"
 1,0,1,1,1,1,1,"/* TODO:  THIS IS A HACK.	 * A much better way of doing this would be not to start	 * the critic in the first place.	 */"
 1,0,0,0,1,1,1,"/**     * Return true iff the given ToDoItem is still valid and should be     * kept in the given designers ToDoList. Critics that are not     * enabled should always return false so that their ToDoItems will     * be removed. Subclasses of Critic that supply multiple offenders     * should always override this method. <p>     *     * By default this method basically asks the critic to again     * critique the offending Object and then it checks if the     * resulting ToDoItem is the same as the one already posted. This is     * simple and it works fine for light-weight critics. Critics that     * expend a lot of computational effort in making feedback that can     * be easily check to see if it still holds, should override this     * method. <p>     *     * TODO: Maybe ToDoItem should carry some data to make     * this method more efficient.     *     * {@inheritDoc}     */"
@@ -569,9 +569,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// This checks the order in addition to the contents // Is that really what we want here? - tfm 20070603
 1,0,1,0,1,1,1,"/**     * Builds a class with a given name.     *     * @param name the given name     * @return Class     * @see #buildClass()     * TODO: This needs an extra parameter to specify the model/extent where     * the new element should be created.     */"
 1,0,1,0,1,1,1,"/**     * Builds a method with a given name.     *     * @param name is the given name     * @return method     * TODO: This needs an extra parameter to specify the model/extent where     * the new element should be created.     */"
-1,0,1,0,1,1,1,"/**     * Recognizer for primary objects. A primary object is an object that is     * created by the parser or by a user. Object that are created as a side     * effect of importing some other object are not.     * <p>     * TODO: This doesn't belong in the Facade. It's a higher level function     * used specifically for certain reverse engineering operations. - tfmorris     *      * @param handle     *            candidate     * @return true if primary object.     */"
+1,0,1,1,1,1,1,"/**     * Recognizer for primary objects. A primary object is an object that is     * created by the parser or by a user. Object that are created as a side     * effect of importing some other object are not.     * <p>     * TODO: This doesn't belong in the Facade. It's a higher level function     * used specifically for certain reverse engineering operations. - tfmorris     *      * @param handle     *            candidate     * @return true if primary object.     */"
 1,0,1,1,1,1,1,"/**     * Recognizer for Parameter's with a DirectionKind of Return.     * TODO: This is a duplicate of {@link #hasReturnParameterDirectionKind(Object)}     * @param handle candidate parameter     * @return true if handle is a return parameter.     */"
-1,0,1,0,1,1,1,"/**     * Recognizer for ModelElements with package visibility.     *     * TODO: This method name was chosen for compatibility with     * the existing naming scheme, but has the potential of      * clashing with some future use.     *      * @param handle candidate     * @return true if handle has package visibility     */"
+1,0,1,1,1,1,1,"/**     * Recognizer for ModelElements with package visibility.     *     * TODO: This method name was chosen for compatibility with     * the existing naming scheme, but has the potential of      * clashing with some future use.     *      * @param handle candidate     * @return true if handle has package visibility     */"
 1,0,1,0,1,1,1,"/**     * Recognizer for ModelElements which have the <<singleton>> Stereotype     * applied.     * <p>     * TODO: Moved this out of the Facade to someplace elese since it's not     * Model subsystem specific - tfm 20070607     *      * @param handle     *            candidate     * @return true if handle is a singleton.     */"
 1,0,0,0,0,0,0,// this should be moved to a ui action.
 1,0,1,0,1,1,1,"/**     * Return the tagged value with a specific tag. <p>     *      * Warning: this method returns only the first TaggedValue found     *  with the given name. Hence, this method is a simplification of      *  the real problem and should be avoided.     *     *  TODO: What should be done about the above problem?  Options are     *  to deprecate the method, throw an exception if the name is ambiguous,     *  or leave the caller to figure it out themselves.     *       * @param handle The model element the tagged value belongs to.     * @param name The tag name.     * @return The found tag, null if not found     */"
@@ -582,7 +582,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/**     * Add a path to the list of paths to be searched when looking for XMI files     * to resolve external references with. The list is maintained in a static     * structure shared by all instances.     * <p>     * TODO: It's desirable to have separate search paths for separate files,     * but more work is required in ArgoUML so that it knows how to maintain     * separate contexts for the profiles and user models.     *      * @param path     *                a directory path to add to the search path     */"
 1,0,1,1,1,1,1,"/** * The buttons on selection for a Stereotype. <p> *  * TODO: Find a way to hide the OperationsCompartment  * on the FigClass of the created metaclass. *  * @author michiel */"
 1,0,1,0,1,1,1,"/** * A ChangeCommand that updates its label. * <p> * The label of this command can contain the character '#' that will be replaced * with information about an object when the label is returned. * <p> * TODO: Switch this to use Java string formatting instead of private # notation? *  * @author Bogdan Pistol */"
-1,0,1,1,1,1,1,// TODO: This is probably related to the SendEvent that is sending the // Signal, but the association is not navigable in that direction
+1,0,0,1,1,1,1,// TODO: This is probably related to the SendEvent that is sending the // Signal, but the association is not navigable in that direction
 1,0,1,1,1,1,1,// TODO: ActionState, CallState, and SubactivityState have been // replaced in UML 2.0 by explicitly modeled Actions
 1,0,1,1,1,1,1,"/**     * TODO: see if protected or need to be present in each subclass     */"
 1,0,1,1,1,1,1,// TODO: We don't want to do this once we have dropped UML1.3 // Map UML 1.4 names to UML 1.3 equivalents
@@ -594,9 +594,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: just a guess, probably not right - tfm //        return handle instanceof LinkEndData;
 1,0,1,1,1,1,1,// TODO: this doesn't belong in the implementation specific piece - tfm
 1,0,1,1,1,1,1,// TODO: The UML 1.4 concept of a Multiplicity & Multiplicity Range has // been replaced by a single element
-1,0,1,0,1,1,1,// TODO: Not sure the semantics are an exact match here between // UML 1.4 Aggregate and UML 2.x Shared.
+1,0,1,1,1,1,1,// TODO: Not sure the semantics are an exact match here between // UML 1.4 Aggregate and UML 2.x Shared.
 1,0,1,1,1,1,1,// TODO: Changed in UML 2.x to special type of Property?
-1,0,0,1,1,1,1,// TODO: TagDefinitions are gone from UML 2 // they are now Properties of Stereotypes;
+1,0,0,0,1,1,1,// TODO: TagDefinitions are gone from UML 2 // they are now Properties of Stereotypes;
 1,0,1,1,1,1,1,// TODO: Moved this out of the implementation-specific piece - tfm // everything is primary for now (ie not reverse engineered)
 1,0,1,1,1,1,1,"/**     * This keeps track of the editing domain that is used to track all changes     * to the model.     * <p>     * TODO: This probably needs to be a set of EditingDomain so that we can     * manage an EditingDomain per project.     */"
 1,0,1,1,1,1,1,// TODO: This method is mostly (entirely?) redundant - tfm
@@ -608,7 +608,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// TODO: In UML2.x Event has no parameters. The Event metaclass in // UML1.x corresponds to the Trigger metaclass in UML2.x (see UML // Superstructure page 456).
 1,0,1,1,1,1,1,// TODO: This should be built by reflection from the metamodel - tfm //       Update for UML 2.x metamodel if not replaced by reflection
 1,0,0,0,0,0,0,// Don't implement - deprecated method in interface.
-1,0,1,1,1,1,1,// TODO: BooleanExpresion is removed from UML2.x, is it OK to use // ValueSpecification?
+1,0,0,1,1,1,1,// TODO: BooleanExpresion is removed from UML2.x, is it OK to use // ValueSpecification?
 1,0,1,1,1,1,1,// TODO: This will need to be adapted to send undo/redo commands back // to our consumer (e.g. ArgoUML) if a new undo mechanism is implemented // for the Model subsystem - tfm
 1,0,1,1,1,1,1,"/**     * This sets up the editing domain for the model editor.     *     * TODO: We probably need an EditingDomain per Argo project so that we can     * keep the ResourceSets separate.     */"
 1,0,1,1,1,1,1,// TODO: Model implementation independent
@@ -633,7 +633,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: An Iterator filter would be nice here instead of the // mucking around with the Collection.
 1,0,1,1,1,1,1,// TODO: Doing this violates the minimal cardinality of 1 // if we allow it we at least need a critic to warn about it
 1,1,0,1,1,1,1,// apply <<profile>> stereotype to make it a "profile" (our convention) // (hack: create that stereotype instead using the UML 1.4 profile)
-1,0,1,1,1,1,1,// If systemId is a valid URL, simply use it. // TODO: This causes a network connection attempt for profiles
+1,0,0,1,1,1,1,// If systemId is a valid URL, simply use it. // TODO: This causes a network connection attempt for profiles
 1,0,1,0,1,1,1,"/* TODO: Make this work when the given stereotype     * has more than one baseclass.     * TODO: Currently only works for stereotypes where the baseclass is     * equal to the given one - inheritance does not work.*/"
 1,0,1,1,1,1,1,"/* TODO: mvw: do we really look into super-types of the stereotype,             * or should we be looking into super-types of the baseclass? */"
 1,0,0,0,1,1,1,// TODO: Using just the last piece of the ID leaves the potential for // name collisions if two linked files have the same name in different // directories
@@ -641,17 +641,17 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: What type of validation can we do here on tagType?
 1,0,1,1,1,1,1,// TODO: this can be simplified to just //((Include) extend).setBase((UseCase) base);
 1,0,1,1,1,1,1,// Anything not found is newly created, so return a null SystemID // indicating that it is in the parent document.  // TODO: This assumption will be invalid if/when we allow editing of // linked sub-models
-1,0,1,0,1,1,1,// TODO: Distinguish between deferred resolution and things which // are unresolved at end of load and should be reported to user.
+1,0,1,1,1,1,1,// TODO: Distinguish between deferred resolution and things which // are unresolved at end of load and should be reported to user.
 1,0,1,1,1,1,1,// TODO: this assumes ranges are sorted. Is this true? - tfm
 1,0,1,1,1,1,1,// TODO: Is this adequate for finding profiles in Java WebStart jars? //       - tfm
 1,0,1,1,1,1,1,// TODO: Check whether this is really needed.  I think it's // left over from an incomplete understanding of the MagicDraw // composition error problem - tfm
 1,0,1,1,1,1,1,// TODO: Not sure whether the above is better in some cases, but // the code below is better for both Java Web Start and Eclipse.
 1,0,1,1,1,1,1,// TODO: this returns a Collection, not a single Object // Is this what the callers expect?
 1,0,1,1,1,1,1,"/*             * TODO: This code manually processes the ElementImports of a             * Package, but we need to check whether MDR already does something             * similar automatically as part of its namespace processing.             * - tfm - 20060408             */"
-1,0,0,0,1,1,1,// TODO: This has different semantics than everything else
+1,0,0,1,1,1,1,// TODO: This has different semantics than everything else
 1,0,1,1,1,1,1,// TODO: This does not belong here - use getImportedElement.
 1,0,0,1,1,1,1,// TODO: Rationalize this with getModelElementContainer
-1,0,0,1,1,1,1,// TODO: Temporary stopgap for EnumerationLiteral
+1,0,1,1,1,1,1,// TODO: Temporary stopgap for EnumerationLiteral
 1,0,1,1,1,1,1,// TODO: More is required here to support referenceValues
 1,0,1,1,1,1,1,// TODO: What other non-ModelElement types do we need to handle here?
 1,0,1,0,0,0,0,// This causes problems. It can make multiple return messages // refer to the same activator even if not returning to the same // classifier role as the activator emenates from. // I'm not sure that changing the activator of one message // should amend any other messages but this is certainly changing // too many - Bob.
@@ -659,7 +659,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,"/**     * Register a listener for metamodel Class (and all its     * subclasses), optionally qualified by a list of     * property names.     *     * TODO: verify that property/event names are legal for     * this class in the metamodel     */"
 1,0,1,1,1,1,1,// TODO: Do we want to construct an artificial name here?
 1,0,1,1,1,1,1,// TODO: Implement support for types other than String
-1,0,1,0,1,1,1,// TODO: This should be done after all events are delivered, but leave // it here for now to avoid last minute synchronization problems
+1,0,0,0,1,1,1,// TODO: This should be done after all events are delivered, but leave // it here for now to avoid last minute synchronization problems
 1,0,1,1,1,1,1,// Only do verification if debug level logging is on // TODO: Should we leave this on always? - tfm
 1,0,1,1,1,1,1,"/*     * TODO: MVW: This needs rethinking/rework! I have the following questions:     * Why does it not search for a stereotype in the namespace using properties     * and only create a new stereotype if it will actually be used? Ie, why is     * there not a getStereotype(String name, String baseClass)? (edited by     * d00mst)  <these comments imported from NSUML implementation - tfm>     *      * @see org.argouml.model.ExtensionMechanismsFactory#buildStereotype(java.lang.Object, java.lang.Object, java.lang.Object)     */"
 1,0,1,0,1,1,1,// TODO: the type of the model element used in a type parameter // (ie the formal) needs to match the actual parameter that it // gets replaced with later.  This code is going to restrict that // to always being a Parameter which doesn't seem right, but I // don't have time to debug it right now. - tfm - 20090608
@@ -677,11 +677,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// Check that the two elements aren't already linked the opposite way // TODO: This is a part implementation of well-formedness rule // UML1.4.2 - 4.5.3.20 [3] Circular inheritance is not allowed. // not self.allParents->includes(self)
 1,0,1,1,1,1,1,// TODO: This is a part implementation of well-formedness rule // UML1.4.2 - 4.5.3.20 [3] Circular inheritance is not allowed. // not self.allParents->includes(self)
 1,0,0,0,1,1,1,"/* TODO: This is not according the contract for this function, but             * it is used in several places, and I (MVW) presume that             * we need this generally.             * This part (1) is about drawing an <<import>> permission             * between packages.             * The part (2) below is about ModelManagement.ElementImport. */"
-1,0,0,1,1,1,1,// TODO: Should we handle <<access>> and <<import>>?
+1,0,1,1,1,1,1,// TODO: Should we handle <<access>> and <<import>>?
 1,0,1,1,1,1,1,// TODO: ?delete Instances which have this as their classifier? // or should we leave them since they contain so much state that the // user would have to recreate?? //        nsmodel.getUmlHelper().deleteCollection( //                nsmodel.getUmlPackage().getCommonBehavior() //                        .getAInstanceClassifier().getInstance(cls)); // TODO: ?delete ObjectFlowStates which have this as their type? //        nsmodel.getUmlHelper().deleteCollection( //                nsmodel.getUmlPackage().getActivityGraphs() //                        .getATypeObjectFlowState().getObjectFlowState(cls)); // TODO: ?delete ClassifierInStates which have this as their type?
 1,0,1,1,1,1,1,// TODO: This should probably throw an exception if it gets // invalid arguments rather than just returning null
 1,0,1,1,1,1,1,// TODO: Delete old multiplicity? Why is "copy" using hard coded value? - tfm
-1,0,1,0,1,1,1,"/*     * TODO: As currently implemented, this expects a list of     * MultiplicityRanges. Is this an interface change from the NSUML     * implementation? I suspect it used to accept a list of Integers. - tfm     *     * @see org.argouml.model.DataTypesFactory#createMultiplicity(java.util.List)     */"
+1,0,1,1,1,1,1,"/*     * TODO: As currently implemented, this expects a list of     * MultiplicityRanges. Is this an interface change from the NSUML     * implementation? I suspect it used to accept a list of Integers. - tfm     *     * @see org.argouml.model.DataTypesFactory#createMultiplicity(java.util.List)     */"
 1,0,1,0,1,1,1,"/**         * TODO: Copied from UmlDiagramRenderer.         *         * Find the Figs in the given layer that should be the source and         * destination and attach these to either end of the FigEdge         * @param layer the layer to look for the FigNodes         * @param newEdge The edge to attach         */"
 1,0,1,0,1,1,1,"/*         * TODO: This is probably not the right location         * for switching off the ""filterNewlines"".         * The setting gets lost after selecting a different         * ModelElement in the diagram.         * BTW, see how it is used in         * javax.swing.text.PlainDocument.         * See issue 1812.         */"
 1,0,1,1,1,1,1,// TODO: This can be a mess... There are any better solution?
@@ -697,10 +697,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/**     * TODO: Is is really used ?     *     * @see javax.swing.JComponent#removeNotify()     */"
 1,0,1,0,1,1,1,// TODO: Bob says the reflective code following should be replaced // with something more specific like this commented out code. // This would mean we need sType changed to a meta type Object // rather than a String.
 1,0,1,1,1,1,1,"/*     * TODO: Are the 3 methods uses ?     */"
-1,0,1,0,1,1,1,"/** * An OpaqueExpression can have n body n language *  * When display to user, we only show one body. A ""..."" button is enabled for * edit other. *  * TODO: Can we, by Import XMI, have 0 language/body ? *  * @author Laurent Braud */"
+1,0,1,1,1,1,1,"/** * An OpaqueExpression can have n body n language *  * When display to user, we only show one body. A ""..."" button is enabled for * edit other. *  * TODO: Can we, by Import XMI, have 0 language/body ? *  * @author Laurent Braud */"
 1,0,1,1,1,1,1,// TODO: We have some quirk that the a baseClass addition or // removal from a steroetype comes back as an AttributeChangeEvent // rather than an AssociationChangeEvent. This needs further // investigation to see if this can be made consistent.
 1,0,1,1,1,1,1,"/* TODO: This needs work...         * We also need to listen to addition/removal         * of states to/from a ClassifierInState.         */"
-1,0,1,0,1,1,1,// TODO: We may want to restrict the list to parameters which  // conform to the following WFR: //              parameter.type = ofstype //              or (parameter.kind = #in //              and ofstype.allSupertypes->includes(type)) //              or ((parameter.kind = #out or parameter.kind = #return) //              and type.allSupertypes->includes(ofstype)) //              or (parameter.kind = #inout //              and ( ofstype.allSupertypes->includes(type) //              or type.allSupertypes->includes(ofstype))))
+1,0,1,1,1,1,1,// TODO: We may want to restrict the list to parameters which  // conform to the following WFR: //              parameter.type = ofstype //              or (parameter.kind = #in //              and ofstype.allSupertypes->includes(type)) //              or ((parameter.kind = #out or parameter.kind = #return) //              and type.allSupertypes->includes(ofstype)) //              or (parameter.kind = #inout //              and ( ofstype.allSupertypes->includes(type) //              or type.allSupertypes->includes(ofstype))))
 1,0,1,1,1,1,1,// TODO: getAllModelElementsOfKind should probably do this // processing of imported elements automatically
 1,0,1,1,1,1,1,// TODO Part of this is copied from ActionDeleteModelElement. We // maybe need some subclass for common code.
 1,0,1,1,1,1,1,// TODO: We should really test the model instead for this // but we have no API yet. // Can we just check if the collection to build the JList // control implements the List interface?
@@ -727,18 +727,18 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: Why is this disabled always?
 1,0,1,1,1,1,1,// TODO: should have an image of a wizard or some logo
 1,0,1,1,1,1,1,"/* TODO: These buttons for future enhancement:	buttonPanel.add(configButton);	buttonPanel.add(networkButton); */"
-1,0,1,1,1,1,1,// TODO: check type!
+1,0,0,1,1,1,1,// TODO: check type!
 1,0,1,1,1,1,1,"/** * TODO: For UML 2.x, powertypes are accessed indirectly through the  * GeneralizationSets that contain a Generalization. *  * @since Nov 3, 2002 * @author jaap.branderhorst@xs4all.nl */"
 1,0,0,0,0,0,0,// Unused currently //            StringBuffer taggedValuesSb = getTaggedValues(modelElement);
 1,0,1,1,1,1,1,// TODO: Placeholder implementation until support for tracking on // a per-project basis is implemented //        return dirty;
 1,0,0,0,0,0,0,// Empty implementation.
 1,0,1,1,1,1,1,// TODO: Why is this a special case? - tfm
 1,0,1,1,1,1,1,"/**     * Flag to indicate we are creating a new current project.     * TODO: This isn't a thread-safe way of doing mutual exclusion.     */"
-1,0,1,1,1,1,1,/* TODO: Indicate the direction! */
+1,0,0,1,1,1,1,/* TODO: Indicate the direction! */
 1,0,1,1,1,1,1,// TODO: We need a way to set the line color and width here, but // TestDependencies thinks this creates a dependency cycle //        Fig line = new ArgoFigLine(snapX, snapY, snapX, snapY,  //                ArgoFig.LINE_COLOR); //        line.setLineWidth(ArgoFig.LINE_WIDTH);
 1,0,0,0,0,0,0,// Apparently, this method is never called.
 1,0,1,1,1,1,1,// TODO: This code can be removed when getCurrentProject is removed
-1,0,0,1,1,1,1,// TODO: Can we just do this every time, no need for else - Bob
+1,0,1,1,1,1,1,// TODO: Can we just do this every time, no need for else - Bob
 1,0,1,1,1,1,1,// TODO: Tentative implementation. Do we want something that updates // the list of open projects or just simple open and close events? -tfm
 1,0,1,1,1,1,1,// TODO: Add empty placeholder here?
 1,0,1,1,1,1,1,// TODO: Needs completing - stub implementation only! - tfm
@@ -746,10 +746,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: Why aren't we throwing an exception here? // Returning null results in NPE and no explanation why.
 1,0,0,1,1,1,1,// TODO: We expect an association end here -  // check more carefully? - tfm
 1,0,1,1,1,1,1,// TODO: This should only be checking for the top level package // (if anything at all)
-1,0,1,1,1,1,1,// Use a little trick to find out where Argo is being loaded from. // TODO: Use a different resource here. ARGOINI is unused and deprecated
+1,0,1,0,1,1,1,// Use a little trick to find out where Argo is being loaded from. // TODO: Use a different resource here. ARGOINI is unused and deprecated
 1,0,1,1,1,1,1,// TODO: Placeholder implementation until support for tracking on // a per-project basis is implemented
 1,0,1,0,1,1,1,// TODO: It is a performance drain to load all classes at startup time. // They should be lazy loaded when needed.  Instead of scanning all // classes for ones which implement our loadable module interface, we // should use a manifest entry or a special name/name pattern that we // look for to find the single main module class to load here.  - tfm
-1,0,1,0,1,1,1,// Enable it. // TODO: This by default selects all modules that are found. //       Eventually we would rather obey a default either from the //       modules themselves, from how they are found, and also //       have information on what modules are selected from the //       configuration.
+1,0,0,0,1,1,1,// Enable it. // TODO: This by default selects all modules that are found. //       Eventually we would rather obey a default either from the //       modules themselves, from how they are found, and also //       have information on what modules are selected from the //       configuration.
 1,0,0,0,0,0,0,// If it's a jar, clean it up and make it look like a file url
 1,0,1,1,1,1,1,// We also show tagged values for UML 1 // TODO: what to do for UML2 here?
 1,0,1,1,1,1,1,// TODO: Mark diagram/project as dirty?
@@ -772,11 +772,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// TODO: add stereotype application (eCore AnyType?)
 1,0,1,1,1,1,1,// TODO: Do we want isaUMLElement here?
 1,0,0,1,1,1,1,// TODO: Any special handling for null names? append will use "null"
-1,0,1,1,1,1,1,"// TODO: This DTD doesn't exist, so we can't tell readers to // look for it //		w.println(""<!DOCTYPE profile SYSTEM \""profile.dtd\"" >""); // but we need a 2nd line to make the funky UML persister work // remove this line if the above is uncommented"
+1,0,1,0,1,1,1,"// TODO: This DTD doesn't exist, so we can't tell readers to // look for it //		w.println(""<!DOCTYPE profile SYSTEM \""profile.dtd\"" >""); // but we need a 2nd line to make the funky UML persister work // remove this line if the above is uncommented"
 1,0,1,1,1,1,1,/* TODO: Add implementation. */
 1,0,1,1,1,1,1,// TODO: We need the project specific diagram settings here
 1,0,0,0,0,0,0,// ignored - it shouldn't have been in the project in the 1st place
-1,0,0,1,1,1,1,// TODO: add recent patterns
+1,0,1,1,1,1,1,// TODO: add recent patterns
 1,0,1,1,1,1,1,"/**     * TODO: These can not simply be translated...     */"
 1,0,1,1,1,1,1,// TODO is it possible to use more than one variable?
 1,0,1,1,1,1,1,// TODO support other name kinds
@@ -786,7 +786,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO support real types
 1,0,1,0,1,1,1,// XXX: hypotheses no qualifiers (I don't know)
 1,0,0,1,1,1,1,// TODO check types!
-1,0,0,1,1,1,1,"/** * StylePanel class which provides additional parameters for changing Text * elements provided by GEF. *  TODO: i18n */"
+1,0,1,1,1,1,1,"/** * StylePanel class which provides additional parameters for changing Text * elements provided by GEF. *  TODO: i18n */"
 1,0,0,1,1,1,1,// TODO implement iterate() // TODO implement sortedBy() // TODO implement subSequence()
 1,0,0,0,0,0,0,// how to handle empty target lists? // probably the TabText should only show an empty pane in that case
 1,0,0,1,1,1,1,// TODO investigate the "unnamed opposite end"
@@ -800,7 +800,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: Do we want to use the Project here instead of just its name?
 1,0,1,1,1,1,1,// TODO: This could be made more efficient by working with iterators // directly and creating a composite iterator made up of all the  // various sub iterators.
 1,0,1,1,1,1,1,// TODO: This is going to cause the color to be reset on a refresh
-1,0,1,1,1,1,1,// TODO presentation??
+1,0,0,1,1,1,1,// TODO presentation??
 1,0,1,0,1,1,1,// For tagged values, use their containing ModelElement since they // don't have property panels of their own // TODO: May want to do this for other types too?
 1,0,1,1,1,1,1,// reorder submenu // TODO: I think this requires I18N, but not sure - tfm
 1,0,0,0,0,0,0,//  Empty implementation - not used.
@@ -816,7 +816,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// TODO: Do we want all enabled tabs to listen or // only the one that is selected/visible? - tfm
 1,0,1,1,1,1,1,"/**     * The drag gesture listener is notified of drag gestures by a recognizer.     * The typical response is to initiate a drag by invoking     * DragSource.startDrag().     * <p>     *     * TODO: find a way to show a different image when multiple elements are     * dragged.     *     * @param dragGestureEvent     *            the DragGestureEvent describing the gesture that has just     *            occurred     * @see java.awt.dnd.DragGestureListener#dragGestureRecognized(java.awt.dnd.DragGestureEvent)     */"
 1,0,1,1,1,1,1,// TODO: consider inherited attributes?
-1,0,1,1,1,1,1,"/* TODO: support other types of drag.         * Here you set the owner by dragging into a namespace.         * An alternative could be to drag states into composite states...         */"
+1,0,0,1,1,1,1,"/* TODO: support other types of drag.         * Here you set the owner by dragging into a namespace.         * An alternative could be to drag states into composite states...         */"
 1,0,0,0,1,1,1,"/**     * Returns a set (union) of all unique applicable stereotypes for a given     * collection of model elements. TODO: This is not optimized for     * performance.     *      * @param elements the given collection of model elements     * @return the set with stereotype UML objects     */"
 1,0,1,1,1,1,1,// TODO: handle n-way Associations
 1,0,1,1,1,1,1,// TODO: Ignore and report exception until getTop // implemented.
@@ -839,7 +839,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// TODO: Make another pass to deal with overlaps?
 1,0,1,0,1,1,1,"/* TODO: We may return something useful when the         * relocate() has been implemented, like         * all StateMachines that are not ActivityGraphs. */"
 1,0,0,1,1,1,1,"/** * Stylepanel which adds a checkbox to show or hide the stereotype.<p> * TODO: i18n. * * @author mvw@tigris.org */"
-1,0,1,0,1,1,1,// TODO: To enable models and subsystems, change this flag // Work started by Markus I believe where does this stand? - Bob.
+1,0,1,1,1,1,1,// TODO: To enable models and subsystems, change this flag // Work started by Markus I believe where does this stand? - Bob.
 1,0,0,1,1,1,1,// TODO: ToDoItem stuff should be made an opaque extension
 1,0,1,1,1,1,1,// TODO: for UML 2.x this is isStatic
 1,0,1,1,1,1,1,/* TODO: Why do I need to do this? */
@@ -858,7 +858,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//assert Arrays.asList(properties).contains( //    event.getPropertyName()) //  : event.getPropertyName(); // TODO: Do we really always need to do this or only if // notationProvider is null?
 1,0,1,0,1,1,1,// let's test which situation we have. 3 Possibilities: // 1. The nodes are already on the diagram, we can use //    canAddEdge for this. // 2. One of the nodes is already on the diagram. The other //    has to be added. // 3. Both of the nodes are not yet on the diagram. // For the time being we will only implement situation 1. // TODO: implement situation 2 and 3.
 1,0,1,1,1,1,1,// TODO: A more strongly typed data structure could be used here.
-1,0,1,0,1,1,1,"/*     * Perform re-routing if src/dest nodes have changed.     *     * <p>This method needs to be 'armed' by a previous mouseDragged()     * to avoid the situation where the user just clicks on the node     * then clicks on some unrelated Fig, without moving the edge...     *     * <p>TODO: improve the fig finding algorithm to find the top most fig     * in the layer. will be useful for nested states in a statechart.     *     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)     */"
+1,0,1,0,0,0,0,"/*     * Perform re-routing if src/dest nodes have changed.     *     * <p>This method needs to be 'armed' by a previous mouseDragged()     * to avoid the situation where the user just clicks on the node     * then clicks on some unrelated Fig, without moving the edge...     *     * <p>TODO: improve the fig finding algorithm to find the top most fig     * in the layer. will be useful for nested states in a statechart.     *     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)     */"
 1,0,1,0,1,1,1,"/** * A window that shows the progress bar and a cancel button. As a convenience to * callers which may be executing on a thread other than the Swing event thread, * all methods use SwingUtilities.invokeLater() or * SwingUtilities.invokeAndWait() to make sure that Swing calls happen on the * appropriate thread. *<p> * TODO: React on the close button as if the Cancel button was pressed. */"
 1,0,0,1,1,1,1,"/**     * write TODO: Check if sections are not used within the file and     * put them as comments at the end of the file.     * Hint: use a second Map to compare with the used keys.     *    * @param filename the file name     * @param indent the current indentation     * @param outputLostSections true if lost sections are to be written     */"
 1,0,1,1,1,1,1,// TODO: UML2 - what do we do here?
@@ -870,13 +870,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,"/**     * Utility function to localize the given string with help text,     * and show it in the status bar of the ArgoUML window.     * This function is used in favour of the inline call     * to enable later improvements; e.g. it would be possible to     * show a help-balloon. TODO: Work this out.     * One matter to possibly improve: show multiple lines.     *     * @param s the given string to be localized and shown     */"
 1,0,1,1,1,1,1,// _compileCheckBox = new JCheckBox(); // nameButton(_compileCheckBox, "checkbox.compile-generated-source"); // TODO: Implement the compile feature. For now, disable the checkbox. // _compileCheckBox.setEnabled(false); // southPanel.add(_compileCheckBox, BorderLayout.SOUTH);
 1,0,1,1,1,1,1,"/**     * Save the source language in the model.     * <p>     * TODO: Support multiple languages now that we have UML 1.4 tagged values.     *     * @param node     * @param language     */"
-1,0,1,0,1,1,1,"/*         * TODO: This transformation is Java specific. We need a more         * language/notation scheme for specifying qualified names.         * Possible algorithm - replace all punctuation with our         * internal separator, replace multiple separators with a single         * instance (for languages like C++).  What about I18N? - tfm         */"
+1,0,1,1,1,1,1,"/*         * TODO: This transformation is Java specific. We need a more         * language/notation scheme for specifying qualified names.         * Possible algorithm - replace all punctuation with our         * internal separator, replace multiple separators with a single         * instance (for languages like C++).  What about I18N? - tfm         */"
 1,0,1,1,1,1,1,// TODO: Need to add FileChooser
 1,0,1,1,1,1,1,// TODO: this needs to be improved // even for nongui calling, the config panel needs to be initialized:
 1,0,1,1,1,1,1,// TODO implement additional operations in 4.5.3.5
 1,0,1,1,1,1,1,"/**     * Return the fully qualified name of a model element in Java (dot     * separated) format.     * <p>     * TODO: We really need a language independent format here. Perhaps the list     * of names that form the hierarchy? - tfm     */"
 1,0,1,1,1,1,1,// TODO: Need UML 2.x equivalent
-1,0,1,0,1,1,1,"/**     * The list with objects that should be shown in the combobox.     * TODO: Using a list here forces a linear search when we're trying to add     * a new element to the model which can be very slow for large models.     */"
+1,0,0,0,1,1,1,"/**     * The list with objects that should be shown in the combobox.     * TODO: Using a list here forces a linear search when we're trying to add     * a new element to the model which can be very slow for large models.     */"
 1,0,1,0,1,1,1,"/**     * Generates a new unique ID and returns it as a String. The contents     * of the String is supposed to be unique with respect to all Strings     * generated by other instances of this class.     * TODO: We should consider using java.util.UUID for this instead.     *     * @return	A String with unique content.     */"
 1,0,0,1,1,1,1,// TODO: I18n
 1,0,1,1,1,1,1,// TODO: Add Up/Down buttons to control the ordering of items
@@ -886,7 +886,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: is this the right range here?
 1,0,0,0,0,0,0,// how to handle empty target lists? // probably the wizstep should only show an empty pane in that case
 1,0,1,0,1,1,1,"/** * This class provides a text field that can be used to display * the text of all Comments associated with an annotated ModelElement. * * TODO: This could use more work.  Currently it returns all * Comment.name or Comment.body attributes concatenated together * into a single read-only document. * * @since 1 Nov 2005 * @author Tom Morris (tfmorris@gmail.com) */"
-1,0,1,1,1,1,1,// TODO: We should assert this never happens before removing // panels should control their own listeners
+1,0,1,0,1,1,1,// TODO: We should assert this never happens before removing // panels should control their own listeners
 1,0,1,1,1,1,1,/* TODO: Implement this! */
 1,0,1,1,1,1,1,// TODO: This is updating model on a per character basis as // well as unregistering/reregistering event listeners every // character - very wasteful - tfm
 1,0,1,1,1,1,1,// TODO: The project should be bound to the action when it is created?
@@ -942,7 +942,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: Review all callers to make sure that they localize the title // In process by Harold Braun 20070912
 1,0,1,1,1,1,1,// TODO: Once the default constructor is deleted we only set dirty flag
 1,0,1,1,1,1,1,// TODO: All super constructors should take a GraphModel
-1,0,1,1,1,1,1,// TODO: Get Project or other necessary context from source?? // e.getSource();
+1,0,1,0,1,1,1,// TODO: Get Project or other necessary context from source?? // e.getSource();
 1,0,1,1,1,1,1,// TODO: Make this more efficient for large I/Os
 1,0,1,1,1,1,1,// TODO: We failed to resolve URL - signal error
 1,0,0,1,1,1,1,// TODO: Count/report unresolved references
@@ -959,8 +959,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,"/**     * TODO: Not implemented yet. If the given ToDoItem can     * be fixed automatically, and the user wants that to happen, then do     * it. Obviously, this depends on the specific Critic and     * problem. By default this method does nothing.     *     * @param item the todo item     * @param arg the design material (?)     */"
 1,0,1,1,1,1,1,"/**     * List of ChecklistStatus:es.     *     * Indexed on the model element itself.     * TODO: Should use weak references so that this is forgotten about     * when the object is removed.     */"
 1,0,1,1,1,1,1,// TODO: Maybe the exception strings should be internationalized
-1,0,0,1,1,1,1,// TODO understand qualifiers
-1,0,0,1,1,1,1,// TODO: Convert this to some sensible logging
+1,0,1,1,1,1,1,// TODO understand qualifiers
+1,0,1,1,1,1,1,// TODO: Convert this to some sensible logging
 1,0,1,0,1,1,1,"/**     * Reply the ToDoItem that the designer should see iff predicate()     * returns true. By default it just fills in the fields of the     * ToDoItem from accessor methods of this Critic. Critic Subclasses     * may override this method or the accessor methods to add computed     * fields to the ToDoItem.     *     * TODO: Critic's may want to add new fields to a     * ToDoItem to make stillValid more efficent.     *     * @see Critic#critique     *     * @param dm the offender     * @param dsgr the designer     * @return ToDoItem     */"
 1,0,1,1,1,1,1,// TODO implementation?
 1,0,0,1,1,1,1,// TODO: Removed from UML 2.x
@@ -1001,7 +1001,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// and the stereotypes of its features
 0,0,1,1,1,1,1,/* Owner related todo items: */
 0,0,0,0,0,0,0,// A binary association is not a node so reject.
-0,0,1,1,1,1,1,/* Fig related todo items: */
+0,0,0,1,1,1,1,/* Fig related todo items: */
 0,0,0,0,0,0,0,// intentional: if there is nonsense in the field, // we do not set the value
 0,0,0,0,0,0,0,// parse the text that was edited
 0,0,0,0,0,0,0,// intentional: if there is nonsense in the field, // we return false
@@ -1019,7 +1019,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Set the tooltip string:
 0,0,0,0,0,0,0,"/*     * @see org.tigris.gef.persistence.pgml.PGMLStackParser#setAttrs(     * org.tigris.gef.presentation.Fig, org.xml.sax.Attributes)     */"
 0,0,0,0,0,0,0,"/*         * Since body ever looks         * at the type of the diagram appearance event, we can simplify from         * sending every existing event to one event only. But since there is no         * catch-all event defined, we just use one. Rationale: reduce the         * number of total refreshes of the drawing.         */"
-0,0,1,0,0,0,0,// Note that "multiplicity" is what is the notation is listening // for in UML1.4 "uppervalue" are listened to in UML2. It is not // currently why it is not required to register for "lowerValue" // also.
+0,0,0,0,0,0,0,// Note that "multiplicity" is what is the notation is listening // for in UML1.4 "uppervalue" are listened to in UML2. It is not // currently why it is not required to register for "lowerValue" // also.
 0,0,0,0,0,0,0,"/*         * A use case has an external separator.         * External means external to the compartment box.          * This horizontal line sticks out of the box,          * and touches the ellipse edge.         */"
 0,0,0,0,0,0,0,// fail silently as we expect users to accidentally drop // on to wrong component
 0,0,0,0,0,0,0,// Required for MouseListener interface, but we only care about clicks
@@ -1037,7 +1037,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//newFC = _content;
 0,0,0,0,0,0,0,// number of goals should now be 0
 0,0,0,0,0,0,0,// GEF sets a different Fig than the one that we had at construction // time, so we need to set its color and width
-0,0,1,0,0,0,0,// Mark this as newly created. This is to get round the problem with // creating figs for loaded comments that had stereotypes. They are // saved with their dimensions INCLUDING the stereotype, but since we // pretend the stereotype is not visible, we add height the first time // we render such a comment. This is a complete fudge, and really we // ought to address how comment objects with stereotypes are saved. But // that will be hard work.
+0,0,0,0,0,0,0,// Mark this as newly created. This is to get round the problem with // creating figs for loaded comments that had stereotypes. They are // saved with their dimensions INCLUDING the stereotype, but since we // pretend the stereotype is not visible, we add height the first time // we render such a comment. This is a complete fudge, and really we // ought to address how comment objects with stereotypes are saved. But // that will be hard work.
 0,0,0,0,0,0,0,// place the edge on the layer and update the diagram
 0,0,0,0,0,0,0,// update the priority of the critic to be the same priority as the // decision
 0,0,0,0,0,0,0,/* end computeRoute */
@@ -1189,7 +1189,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* No further listeners required in this case - the rest is handled         * by the notationProvider and sub-Figs. */"
 0,0,0,0,0,0,0,// Compile Checkbox
 0,0,0,1,1,1,1,// TODO: the last argument (recursive flag) should be a // selectable option
-0,0,0,1,0,1,1,// skip backup files. This is actually a workaround for the // cpp generator, which always creates backup files (it's a // bug).
+0,0,1,1,0,1,1,// skip backup files. This is actually a workaround for the // cpp generator, which always creates backup files (it's a // bug).
 0,0,1,1,1,1,1,// TODO: The following is carried over from setOwner, but probably // isn't needed //        renderingChanged(); // It does the following (add as needed): //        updateNameText(); //        updateStereotypeText(); //        updateStereotypeIcon(); //        updateBounds(); //        damage();
 0,0,0,0,1,1,1,// TODO: This is using the default platform character // encoding.  Specifying an encoding will produce more // predictable results
 0,0,1,1,1,1,1,// TODO: Get saved default directory // outputDirectoryComboBox.getModel().setSelectedItem(savedDir);
@@ -1365,7 +1365,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Not in UML1.4
 0,0,0,0,0,0,0,"/*     * @see javax.swing.event.DocumentListener#changedUpdate(javax.swing.event.DocumentEvent)     */"
 0,0,0,0,0,0,0,// We have no model event listeners, so no need to do anything
-0,0,0,0,1,1,1,// initialize new ToDoItem
+0,0,0,0,0,0,0,// initialize new ToDoItem
 0,0,0,0,0,0,0,// store wizard?
 0,0,0,0,0,0,0,/* dm is a transition */
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.diagram.state.ui.FigState#getInitialY()     */"
@@ -1543,7 +1543,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Get the assocations and connections. No problem (there is a separate // critic) if this is a binary association or is an association role.
 0,0,0,0,0,0,0,// make buttons layout
 0,0,0,0,0,0,0,// make listeners
-0,0,0,0,1,1,1,"//    private Property	prpTodo; //    private Property	prpProperties; //    private Property	prpDocumentation; //    private Property	prpStyle; //    private Property	prpSource; //    private Property	prpConstraints; //    private Property	prpTaggedValues;"
+0,0,0,0,0,0,0,"//    private Property	prpTodo; //    private Property	prpProperties; //    private Property	prpDocumentation; //    private Property	prpStyle; //    private Property	prpSource; //    private Property	prpConstraints; //    private Property	prpTaggedValues;"
 0,0,0,0,0,0,0,// Build namespace hierarchy like this: //   g     a //         /\ //        b  c //           /\ //          d  e f
 0,0,0,0,0,0,0,"/*     * @see javax.swing.Action#isEnabled()     */"
 0,0,0,0,0,0,0,// Enumerate declaring class
@@ -1607,7 +1607,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The FigMessage that triggered this FigActivation into existence
 0,0,0,0,0,0,0,// Create an image which will do deferred rendering of the GEF // diagram on demand as data is pulled from it
 0,0,1,1,1,1,1,// TODO real numbers not yet supported //assertEquals(DefaultOclEvaluator.getInstance() //.evaluate(null, null, "1.5"), 1.5);
-0,0,1,0,0,0,0,// NOTE: GEF's GIF writer uses Jeff Poskanzer's GIF encoder, but that // saves a copy of the entire image in an internal buffer before // starting work, defeating the whole purpose of our incremental // rendering.
+0,0,0,0,0,0,0,// NOTE: GEF's GIF writer uses Jeff Poskanzer's GIF encoder, but that // saves a copy of the entire image in an internal buffer before // starting work, defeating the whole purpose of our incremental // rendering.
 0,0,0,0,0,0,0,//        LayerPerspective layer = DiagramUtils.getActiveDiagram().getLayer();
 0,0,0,0,0,0,0,// Correct Exception was thrown.
 0,0,1,1,1,1,1,"/** * Action to save a diagram as a GIF image in a supplied OutputStream. * * TODO: This requires Java 6 in its current state, so don't use. * * @author Tom Morris <tfmorris@gmail.com> */"
@@ -1626,7 +1626,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* Correct lazy initialization of static field              * without further updates: */"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.cognitive.ToDoListListener#toDoListChanged(org.argouml.cognitive.ToDoListEvent)     */"
 0,0,0,0,0,0,0,// Look for a TagDefinition matching the given name
-0,0,0,0,1,1,1,//////////////////////////////////////////////////////////////// // ToDoListListener implementation
+0,0,0,0,0,0,0,//////////////////////////////////////////////////////////////// // ToDoListListener implementation
 0,0,0,0,0,0,0,"/*     * @see javax.swing.tree.TreeModel#isLeaf(java.lang.Object)     */"
 0,0,0,0,0,0,0,// if is a message, it must return the sender // and the receiver of the message.
 0,0,1,1,1,1,1,"/**     * Return just the comment edges for a specific layer.     * TODO: Document: Diagram / layer?     *     * @param diagram The diagram.     * @return a {@link List} with the edges.     */"
@@ -1648,7 +1648,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// There are one or more regions so find the one that the //vertex was dropped in
 0,0,0,0,0,0,0,// for debugging
 0,0,0,0,0,0,0,"/*     * @see org.argouml.ui.targetmanager.TargetListener#targetRemoved(org.argouml.ui.targetmanager.TargetEvent)     */"
-0,0,0,0,1,1,1,/* end class ToDoByOffender */
+0,0,0,0,0,0,0,/* end class ToDoByOffender */
 0,0,0,0,0,0,0,"/*     * Override FigNode implementation to keep setOwner from getting called.     */"
 0,0,1,0,0,0,0,// We really shouldn't add it until after it is set up, but we // need it to have an owner for the following method calls
 0,0,0,0,0,0,0,//////////////////////////////////////////////////////////////// // constants //////////////////////////////////////////////////////////////// // instance variables
@@ -1740,7 +1740,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// setting the tooltip to type and name
 0,0,0,0,0,0,0,"/*     * @see org.argouml.profile.ProfileManager#lookForRegisteredProfile(java.lang.String)     */"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.persistence.SAXParserBase#handleEndElement(     *         org.argouml.persistence.XMLElement)     */"
-0,0,0,0,0,0,0,"/* In the next line, replacing makeEmptyProject         * by getCurrentProject fails the test,         * except when run in Eclipse.         * MVW: I have no idea why.*/"
+0,0,0,1,0,1,1,"/* In the next line, replacing makeEmptyProject         * by getCurrentProject fails the test,         * except when run in Eclipse.         * MVW: I have no idea why.*/"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.persistence.ProjectFilePersister#doLoad(java.io.File)     */"
 0,0,0,0,0,0,0,"/*     * @see javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event.ListSelectionEvent)     */"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.persistence.MemberFilePersister#getMainTag()     */"
@@ -1794,7 +1794,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see tudresden.ocl.parser.analysis.DepthFirstAdapter#caseAFeaturePrimaryExpression(tudresden.ocl.parser.node.AFeaturePrimaryExpression)     */"
 0,0,0,0,0,0,0,/* (MModelElement) */
 0,0,0,0,0,0,0,//to be able to remove dependencies later
-0,0,1,1,1,1,1,// TODO: Removed from UML 2.x - phase out usage - tfm 20070530
+0,0,0,1,1,1,1,// TODO: Removed from UML 2.x - phase out usage - tfm 20070530
 0,0,0,0,0,0,0,"/*             * @see             * java.awt.event.ActionListener#actionPerformed(java.awt.event.             * ActionEvent)             */"
 0,0,0,0,0,0,0,// copy to new file and let the regular load code // do the actual load
 0,0,0,0,0,0,0,/* end class ActionAddAttribute */
@@ -1849,12 +1849,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see org.argouml.cognitive.ToDoItem#deselect()     */"
 0,0,1,0,0,0,0,// There was a comment saying that the below has no cycles, but // Classycle thinks there's a cycle here too, so I believe there // really is one - tfm 20070702 //            "org.argouml.uml.cognitive.critics",
 0,0,0,0,0,0,0,// Just completed the first step where we make our choices. First // see if we have a choice. We always should, so print a rude // message if we don't
-0,0,1,0,1,1,1,//TODO:{"org.argouml.ui", "org.argouml.cognitive.ui"},//fails due to subpackages //TODO:{"org.argouml.cognitive", "org.argouml.cognitive.critics"},
+0,0,0,0,0,0,0,//TODO:{"org.argouml.ui", "org.argouml.cognitive.ui"},//fails due to subpackages //TODO:{"org.argouml.cognitive", "org.argouml.cognitive.critics"},
 0,0,0,0,0,0,0,"/*     * @see org.argouml.cognitive.checklist.CheckItem#expand(java.lang.String,     *      java.lang.Object)     */"
 0,0,0,0,0,0,0,//{"org.argouml.kernel", "org.argouml.uml.diagram.ui"},//why does this fail?
 0,0,0,0,0,0,0,"/*     * @see javax.swing.plaf.metal.MetalTheme#getControlTextFont()     */"
 0,0,0,0,0,0,0,// do nothing by design
-0,0,0,1,1,1,1,//TODO: different critic or special message for classes //that inherit all ops but define none of their own.
+0,0,1,1,1,1,1,//TODO: different critic or special message for classes //that inherit all ops but define none of their own.
 0,0,0,0,0,0,0,// Obey the contract ourselves!
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.cognitive.critics.CrUML#getCriticizedDesignMaterials()     */"
 0,0,0,0,0,0,0,// register all of the event listener trackers
@@ -1892,8 +1892,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// isRelevant should still be true
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.UmlHelper#getDestination(java.lang.Object)     */"
 0,0,0,0,0,0,0,// initialize test data
-0,0,0,0,1,1,1,// initialize the ToDoList
-0,0,0,0,1,1,1,// add a ToDoItem
+0,0,0,0,0,0,0,// initialize the ToDoList
+0,0,0,0,0,0,0,// add a ToDoItem
 0,0,0,0,0,0,0,// if the current shortcut has been set but is void, then the // current shortcut is not set --> then the default value does not // change
 0,0,0,0,0,0,0,// redundantly add item again which should be ignored
 0,0,0,0,0,0,0,// size should be 1 since addition of second item would have been ignored
@@ -1911,7 +1911,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// number of goals should now be 1
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.cognitive.critics.CrUML#predicate2(     * java.lang.Object, org.argouml.cognitive.Designer)     */"
 0,0,0,0,0,0,0,//        UMLSequenceDiagram seqdiag = new UMLSequenceDiagram();
-0,0,1,0,1,1,1,// This test calls ToDoList.addElement which requires the // Model.  We are able to get away with using the Mock model.
+0,0,1,0,0,0,0,// This test calls ToDoList.addElement which requires the // Model.  We are able to get away with using the Mock model.
 0,0,0,0,0,0,0,//        checkAssignIDToObject(seqdiag, true, true);
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.diagram.ui.UMLDiagram#propertyChange(java.beans.PropertyChangeEvent)     */"
 0,0,0,0,0,0,0,// FigEdgeNote has no UUID
@@ -1980,7 +1980,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// create a dependency between the project's model and the user defined  // profile
 0,0,0,0,0,0,0,"/*     * @see org.argouml.cognitive.critics.Critic#toDoItem(java.lang.Object,     *      org.argouml.cognitive.Designer)     */"
 0,0,0,0,0,0,0,// save the project
-0,0,1,0,0,0,0,// Notation events are fired on the Swing event thread. // We assume that serializing on the final call is sufficient
+0,0,0,0,0,0,0,// Notation events are fired on the Swing event thread. // We assume that serializing on the final call is sufficient
 0,0,0,0,0,0,0,// load the project
 0,0,0,0,0,0,0,// remove the user defined profile and the directory where it is
 0,0,0,0,0,0,0,// Success - expected exception
@@ -2034,7 +2034,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * Nothing is editable, since a Link takes its identity      * from the Association.     *      * @see org.argouml.uml.diagram.ui.FigEdgeModelElement#canEdit(     * org.tigris.gef.presentation.Fig)     */"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.diagram.ui.FigNodeModelElement#initNotationProviders(java.lang.Object)     */"
 0,0,0,0,0,0,0,// See if we can copy a datatype right off
-0,0,1,0,0,0,0,// // This function will, by design, contain long lists of i18n keys. // It might be tempting to shorten these by constructing them from // the parts but please then consider that we might loose the // possibility to build tools to statically check the property files // against this file. //
+0,0,0,0,0,0,0,// // This function will, by design, contain long lists of i18n keys. // It might be tempting to shorten these by constructing them from // the parts but please then consider that we might loose the // possibility to build tools to statically check the property files // against this file. //
 0,0,0,0,0,0,0,// See if two copies look like copies of each other
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.diagram.ui.UMLDiagram#getDependentElement()     */"
 0,0,0,0,0,0,0,// See if we can copy an interface right off
@@ -2056,7 +2056,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Create a new arg list with a different set of args (but same types)
 0,0,0,0,0,0,0,"/*     * If the new encloser is null, and the old one is a Component,     * then the ""enclosed"" Fig has been moved on the diagram.     * This causes the model to be adapted as follows:     * remove the elementResidence     * between the ""enclosed"" and the oldEncloser.     *     * @see org.argouml.ui.ArgoDiagram#changeFigEncloser(org.tigris.gef.presentation.FigNode, org.tigris.gef.presentation.FigNode, org.tigris.gef.presentation.FigNode)     */"
 0,0,0,0,0,0,0,// not static
-0,0,1,0,0,0,0,"/*     * The Transition has a name text box. It contains:     * <ul>     * <li>The event-signature     * <li>The guard condition between []     * <li>The action expression     * </ul><p>     *     * The content of the text box is generated by its own notationProvider.     *      * @see org.argouml.uml.diagram.ui.FigEdgeModelElement#getNotationProviderType()     */"
+0,0,0,0,0,0,0,"/*     * The Transition has a name text box. It contains:     * <ul>     * <li>The event-signature     * <li>The guard condition between []     * <li>The action expression     * </ul><p>     *     * The content of the text box is generated by its own notationProvider.     *      * @see org.argouml.uml.diagram.ui.FigEdgeModelElement#getNotationProviderType()     */"
 0,0,0,0,0,0,0,// Test passed
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.diagram.UMLMutableGraphSupport#isRemoveFromDiagramAllowed(Collection)     */"
 0,0,0,0,0,0,0,//The source was one of the referenced state's path which // has got a new name.
@@ -2099,8 +2099,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.diagram.ui.StereotypeContainer#isStereotypeVisible()     */"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.diagram.ui.FigNodeModelElement#updateStereotypeText()     */"
 0,0,0,0,0,0,0,// abstract
-0,0,0,0,1,1,1,"/** * Rule for Project->Root (Top level) Elements. *  * TODO: As currently implemented it returns all top level elements in  * the model repository, not just those in a given project.  Since we * only support a single project at a time currently, these are equivalent * but this will need to be enhanced with additional bookkeeping in  * Project when we support multiple open projects - tfm. * * TODO: I changed it to get the roots from the project. It was showing * the profiles that were loaded but were not applied to the current project * - maurelio1234. *  * @author Tom Morris <tfmorris@gmail.com> */"
-0,0,1,0,0,0,0,"/*     * Listen for a RemoveAssociationEvent between the comment     * and the annotated element. When recieved delete the CommentEdge     * and this FigEdgeNote.     * @see org.argouml.uml.diagram.ui.FigEdgeModelElement#modelChanged(java.beans.PropertyChangeEvent)     */"
+0,0,1,0,1,1,1,"/** * Rule for Project->Root (Top level) Elements. *  * TODO: As currently implemented it returns all top level elements in  * the model repository, not just those in a given project.  Since we * only support a single project at a time currently, these are equivalent * but this will need to be enhanced with additional bookkeeping in  * Project when we support multiple open projects - tfm. * * TODO: I changed it to get the roots from the project. It was showing * the profiles that were loaded but were not applied to the current project * - maurelio1234. *  * @author Tom Morris <tfmorris@gmail.com> */"
+0,0,0,0,0,0,0,"/*     * Listen for a RemoveAssociationEvent between the comment     * and the annotated element. When recieved delete the CommentEdge     * and this FigEdgeNote.     * @see org.argouml.uml.diagram.ui.FigEdgeModelElement#modelChanged(java.beans.PropertyChangeEvent)     */"
 0,0,0,0,0,0,0,// Make sure we start off clean
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.ui.PropPanel#shouldBeEnabled(java.lang.Object)     */"
 0,0,0,0,0,0,0,// The association should have same namespace as from class
@@ -2162,7 +2162,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// WFR Transitions, OMG UML 1.3
 0,0,0,0,0,0,0,// Instance (in UML 1.4) and Classifier are abstract and not tested
 0,0,0,0,0,0,0,"/*     * @see org.argouml.application.api.ProgressMonitor#updateSubTask(java.lang.String)     */"
-0,0,1,0,0,0,0,"/*         *  Extend, Include, UseCaseInstance & ExtensionPoint not implemented         */"
+0,0,0,0,0,0,0,"/*         *  Extend, Include, UseCaseInstance & ExtensionPoint not implemented         */"
 0,0,0,0,0,0,0,"/*         * We return a new List with the options instead of the options themself         * because we don't want the user to be able to change the options.         *          * @see org.argouml.uml.reveng.SettingsTypes.UniqueSelection#getOptions()         */"
 0,0,0,0,0,0,0,// reuse time event:
 0,0,0,0,0,0,0,// Do nothing.
@@ -2228,7 +2228,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,1,1,1,1,"/* TODO: Why is there a space before the ( here,          * and not in case of the operation name? */"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.ModelImplementation#getCommonBehaviorHelper()     */"
 0,0,0,0,0,0,0,/* The action still has the argument from above. */
-0,0,0,0,0,0,0,//this is not a very useful transition
+0,0,1,0,0,0,0,//this is not a very useful transition
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.ModelImplementation#getVisibilityKind()     */"
 0,0,0,0,0,0,0,/* Mixed case */
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.util.namespace.Namespace#isEmpty()     */"
@@ -2543,7 +2543,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see org.tigris.gef.presentation.Fig#setFilled(boolean)     */"
 0,0,0,0,0,0,0,// Operations ...
 0,0,0,0,0,0,0,"/*     * @see org.tigris.gef.graph.GraphListener#nodeAdded(org.tigris.gef.graph.GraphEvent)     */"
-0,0,0,0,1,1,1,//TODO: add logging, but this will never happen and is handled
+0,0,1,0,1,1,1,//TODO: add logging, but this will never happen and is handled
 0,0,0,0,0,0,0,// If possible we determine this by checking the destination // and source Figs are the same. If this is not possible // because the edge is not yet connected then we check the // model.
 0,0,0,0,0,0,0,// we update the activations...
 0,0,0,0,0,0,0,"/*     * @see org.tigris.gef.presentation.Fig#setBoundsImpl(int, int, int, int)     */"
@@ -2583,7 +2583,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see org.tigris.gef.graph.MutableGraphModel#canConnect(java.lang.Object,     *      java.lang.Object)     */"
 0,0,0,0,0,0,0,//    Object getImportedPackage(Object element);
 0,0,0,0,0,0,0,//    Object getIncludingCase(Object handle);
-0,0,0,0,0,0,0,//////// Javadoc reviewed above this point - tfm /////////////
+0,0,1,0,0,0,0,//////// Javadoc reviewed above this point - tfm /////////////
 0,0,0,0,0,0,0,//    Object getImportingNamespace(Object element);
 0,0,0,0,0,0,0,"/*     * Override setBounds to keep shapes looking right.     *     * @see org.tigris.gef.presentation.Fig#setBoundsImpl(int, int, int, int)     */"
 0,0,0,0,0,0,0,//Object createStereotype();
@@ -2631,7 +2631,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see javax.swing.text.Document#render(Runnable r)     */"
 0,0,0,0,0,0,0,"/*     * Perform recursive search of subtree rooted at 'node', selecting all nodes     * which have a userObject matching one of our targets.     */"
 0,0,0,0,0,0,0,// Gone from UML 2.x //        throw new NotImplementedException();
-0,0,0,0,0,0,0,// Get all the relationships, that this model element has. // and filter everything, that is not an import.
+0,0,1,0,0,0,0,// Get all the relationships, that this model element has. // and filter everything, that is not an import.
 0,0,0,0,0,0,0,// Can't be done in the general case of federated repositories, // but at least get what we can find for the current resource set
 0,0,0,0,0,0,0,// should be Element not EObject really
 0,0,0,0,0,0,0,"/*     * @see     * org.argouml.kernel.DelayedVChangeListener#delayedVetoableChange(java.     * beans.PropertyChangeEvent)     */"
@@ -2722,12 +2722,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Job done.
 0,0,1,0,1,1,1,// TODO: Get default output directory from user settings // Project p = ProjectManager.getManager().getCurrentProject(); // p.getProjectSettings().setGenerationOutputDir(path);
 0,0,0,0,0,0,0,// It seems, there was no implementation of // our current target language, so we just add one.
-0,0,1,0,0,0,0,"/*     * Compare path of two elements in reverse order (inner to outer)     * using a primary strength text collator.      * This will collate e, E, 锟? 锟?together, but not eliminate non-identical     * strings which collate in the same place.     *      * @return equivalent of list1.compareTo(list2)     */"
+0,0,0,0,0,0,0,"/*     * Compare path of two elements in reverse order (inner to outer)     * using a primary strength text collator.      * This will collate e, E, 锟? 锟?together, but not eliminate non-identical     * strings which collate in the same place.     *      * @return equivalent of list1.compareTo(list2)     */"
 0,0,0,0,0,0,0,// We cannot set the body of this model element type.
 0,0,0,0,0,0,0,// Removed from UML 2.x
 0,0,0,0,0,0,0,"/*     * @see GUISettingsTabInterface#handleSettingsTabRefresh()     */"
 0,0,0,0,0,0,0,// also parse 1_* or 0_N etc.
-0,0,0,0,0,0,0,// WARNING - This has containment side effects! // Eclipse UML2 will move the Property from the Classifier to // the Association when the navigability is changed.
+0,0,1,0,0,0,0,// WARNING - This has containment side effects! // Eclipse UML2 will move the Property from the Classifier to // the Association when the navigability is changed.
 0,0,1,1,1,1,1,"/**     * @param item the todo item     * @param reason the reason TODO: Use it!     * @return <code>true</code> if the argument was a component of this list;     *         <code>false</code> otherwise     * @throws UnresolvableException unable to resolve     */"
 0,0,0,0,0,0,0,// UML 2.x only
 0,0,0,0,0,0,0,// The Machine State has got a new name
@@ -2750,7 +2750,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,///////////////////////////////////////////////////////////////////////// // TargetListener methods implemented so notified when selected // diagram changes. Used to update the window title.
 0,0,0,0,0,0,0,"/* mvw: Indeed. The intention of the constructor parameter is to prove         * that there is a valid UML object to bind the notation to.          * So, the next statement should fail on a null parameter,          * and on anything that is not an object of which          * we can retrieve the multiplicity. */"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.UmlHelper#getSource(java.lang.Object)     */"
-0,0,0,0,1,1,1,"//        prpTodo = createProperty(""label.todo-pane"", positions, TabToDo.class); //        prpProperties = //            createProperty(""label.properties-pane"", //                    positions, TabProps.class); //        prpDocumentation = //            createProperty(""label.documentation-pane"", //                    positions, TabDocumentation.class); //        prpStyle = //            createProperty(""label.style-pane"", //                    positions, TabStyle.class); //        prpSource = //            createProperty(""label.source-pane"", //                    positions, TabSrc.class); //        prpConstraints = //            createProperty(""label.constraints-pane"", //                    positions, TabConstraints.class); //        prpTaggedValues = //            createProperty(""label.tagged-values-pane"", //                    positions, TabTaggedValues.class); // //        Property[] propertyList = new Property[] { //            prpTodo, prpProperties, prpDocumentation, prpStyle, //	    prpSource, prpConstraints, prpTaggedValues, //        }; //        Arrays.sort(propertyList); // //        top.add(new JScrollPane(new PropertyTable( //						  propertyList, //						  paneColumnHeader, //						  positionColumnHeader)), //		BorderLayout.CENTER);"
+0,0,0,0,0,0,0,"//        prpTodo = createProperty(""label.todo-pane"", positions, TabToDo.class); //        prpProperties = //            createProperty(""label.properties-pane"", //                    positions, TabProps.class); //        prpDocumentation = //            createProperty(""label.documentation-pane"", //                    positions, TabDocumentation.class); //        prpStyle = //            createProperty(""label.style-pane"", //                    positions, TabStyle.class); //        prpSource = //            createProperty(""label.source-pane"", //                    positions, TabSrc.class); //        prpConstraints = //            createProperty(""label.constraints-pane"", //                    positions, TabConstraints.class); //        prpTaggedValues = //            createProperty(""label.tagged-values-pane"", //                    positions, TabTaggedValues.class); // //        Property[] propertyList = new Property[] { //            prpTodo, prpProperties, prpDocumentation, prpStyle, //	    prpSource, prpConstraints, prpTaggedValues, //        }; //        Arrays.sort(propertyList); // //        top.add(new JScrollPane(new PropertyTable( //						  propertyList, //						  paneColumnHeader, //						  positionColumnHeader)), //		BorderLayout.CENTER);"
 0,0,0,0,0,0,0,"/*         * Initialize the module loader. At least the plug-ins that provide         * profiles need to be initialized before the project is loaded,         * because some of these profile may have been set as default         * profiles and need to be applied to the project as soon as it has         * been created or loaded. The first instance of a Project is needed         * during the GUI initialization.         */"
 0,0,0,0,0,0,0,// create an anonymous class as a kind of adaptor for the cognitive // System to provide proper translation/i18n.
 0,0,0,0,0,0,0,// in UML2, we model a method as a Behavior (initially OpaqueBehavior)
@@ -2810,7 +2810,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// trying to get a built-in standard profile from eclipse UML2
 0,0,0,0,0,0,0,// Removed from UML 2
 0,0,0,0,0,0,0,// Start interception UI interactions
-0,0,1,1,0,1,1,// Perhaps something like the following would workd.  If not, then // traverse up the component hierarchy to a MultEditorPane //        Rectangle drawingArea = //            Globals.curEditor().getJComponent().getVisibleRect();
+0,0,0,1,0,1,1,// Perhaps something like the following would workd.  If not, then // traverse up the component hierarchy to a MultEditorPane //        Rectangle drawingArea = //            Globals.curEditor().getJComponent().getVisibleRect();
 0,0,0,0,0,0,0,// Only interested in the "ownedElement" property. Either something has // been added to the namespace for this model, or removed. In the // latter case the "something" will be in the old value of the // property, which is the collection of owned elements, and the new value // will be the element import describing the model element and the // model from which it was removed
 0,0,0,0,0,0,0,// Roll back transaction to remove any partial results read
 0,0,1,0,0,0,0,/////////////////////////////////////////////////////////////////////////// // // Methods that implement the MutableGraphModel interface // ///////////////////////////////////////////////////////////////////////////
@@ -2821,7 +2821,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// InputSource xformedInput = chainedTransform(transformFiles, pIs);
 0,0,1,0,1,1,1,"/**     * TODO: The next text was copied - to adapt.     *      * Sets the target. If the old target is an UML Element, it also removes     * the model from the element listener list of the target. If the new target     * is an UML Element, the model is added as element listener to the     * new target. <p>     *     * This function is called when the user changes the target.      * Hence, this shall not result in any UML model changes.<p>     *      * This function looks a lot like the one in UMLComboBoxModel2.     * <p>     * As a possible future extension, we could allow listening to      * other model elements.     *      * @param theNewTarget the new target     */"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.XmiReader#getXMIUUIDToObjectMap()     */"
-0,0,1,0,0,0,0,"/*         * This comment was included in a previous version (before 1/2005)         * of the test which had this assertion commented out:         * ------         * Interaction should not be removed when removing ClassifierRole...         * maybe if the last message is removed from the interaction but even         * then it's doubtfull since it will probably lead to backward         * compatibility problems in save formats.         * ------         * but my reading of the UML 1.4 specification is that an Interaction         * without at least one message is definitely illegal, so MDR is         * doing the right thing by removing it in this case where we only         * have a single message, which then gets deleted. - tfm         */"
+0,0,0,0,0,0,0,"/*         * This comment was included in a previous version (before 1/2005)         * of the test which had this assertion commented out:         * ------         * Interaction should not be removed when removing ClassifierRole...         * maybe if the last message is removed from the interaction but even         * then it's doubtfull since it will probably lead to backward         * compatibility problems in save formats.         * ------         * but my reading of the UML 1.4 specification is that an Interaction         * without at least one message is definitely illegal, so MDR is         * doing the right thing by removing it in this case where we only         * have a single message, which then gets deleted. - tfm         */"
 0,0,0,0,0,0,0,// Set up source for style sheet
 0,0,0,0,0,0,0,// Create & set up temporary output file
 0,0,0,0,0,0,0,// In UML2.x there is no metaclass named Method, but we use the // 'method' association of BehavioralFeature
@@ -2844,7 +2844,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.ModelImplementation#getModelEventPump()     */"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.ModelImplementation#getDirectionKind()     */"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.ModelImplementation#getActivityGraphsFactory()     */"
-0,0,1,0,0,0,0,/* The default (16) puts the icons too close together: */
+0,0,0,0,0,0,0,/* The default (16) puts the icons too close together: */
 0,0,0,0,0,0,0,"/*                 * If the name is too long or multi-line (e.g. for comments)                 * then we reduce to the first line or 80 chars.                 */"
 0,0,0,0,0,0,0,// If we've got a streaming input, copy it to make sure we'll // be able to rewind it if necessary
 0,0,1,1,1,1,1,// to rupdate the diagram set the stimulus name again // TODO: Explain that this really works also in the // MDR case. Linus is a sceptic.
@@ -2863,7 +2863,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.ModelImplementation#getCoreFactory()     */"
 0,0,0,0,0,0,0,// //  as long as they aren't both null //   (or a really rare identical string pointer)
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.ModelImplementation#getDataTypesFactory()     */"
-0,0,0,0,1,1,1,//        savePosition(prpTodo, TabToDo.class); //        savePosition(prpProperties, TabProps.class); //        savePosition(prpDocumentation, TabDocumentation.class); //        savePosition(prpStyle, TabStyle.class); //        savePosition(prpSource, TabSrc.class); //        savePosition(prpConstraints, TabConstraints.class); //        savePosition(prpTaggedValues, TabTaggedValues.class);
+0,0,0,0,0,0,0,//        savePosition(prpTodo, TabToDo.class); //        savePosition(prpProperties, TabProps.class); //        savePosition(prpDocumentation, TabDocumentation.class); //        savePosition(prpStyle, TabStyle.class); //        savePosition(prpSource, TabSrc.class); //        savePosition(prpConstraints, TabConstraints.class); //        savePosition(prpTaggedValues, TabTaggedValues.class);
 0,0,0,0,0,0,0,// Alphabetic order!
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.ModelImplementation#getModelManagementFactory()     */"
 0,0,0,0,0,0,0,"/*     * @see javax.swing.AbstractListModel#fireIntervalRemoved(     *          Object, int, int)     */"
@@ -2884,7 +2884,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.ExtensionMechanismsHelper#getAllPossibleStereotypes(java.util.Collection, java.lang.Object)     */"
 0,0,0,0,0,0,0,/* end class CrInvalidSynch */
 0,0,0,0,0,0,0,// there is nothing to do in UML1.4
-0,0,0,0,1,1,1,//        loadPosition(prpTodo, TabToDo.class); //        loadPosition(prpProperties, TabProps.class); //        loadPosition(prpDocumentation, TabDocumentation.class); //        loadPosition(prpStyle, TabStyle.class); //        loadPosition(prpSource, TabSrc.class); //        loadPosition(prpConstraints, TabConstraints.class); //        loadPosition(prpTaggedValues, TabTaggedValues.class);
+0,0,0,0,0,0,0,//        loadPosition(prpTodo, TabToDo.class); //        loadPosition(prpProperties, TabProps.class); //        loadPosition(prpDocumentation, TabDocumentation.class); //        loadPosition(prpStyle, TabStyle.class); //        loadPosition(prpSource, TabSrc.class); //        loadPosition(prpConstraints, TabConstraints.class); //        loadPosition(prpTaggedValues, TabTaggedValues.class);
 0,0,0,0,0,0,0,// forbid instantiation
 0,0,0,0,0,0,0,// Loop through all the ends, comparing the name against those already // seen (ignoring any with no name). // No problem if there are no connections defined, we will fall // through immediately.
 0,0,0,0,0,0,0,// If this is not overridden it will revert to the old behavior // All internal subclasses have been updated, but this if for // compatibility of non-ArgoUML extensions.
@@ -3355,7 +3355,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * Utility function to remove an element listener     * and adapt the remembered list of registration.     *     * @param element     *            element to listen for changes on     * @see org.argouml.model.ModelEventPump#addModelEventListener(PropertyChangeListener, Object, String)     */"
 0,0,0,0,0,0,0,// Get Features owned by those Classifiers
 0,0,0,0,0,0,0,// now we construct the zig zag inheritance line //getUnderlyingFig()
-0,0,0,0,0,0,0,// The 5 main component : 2 label, a panel for langage , a panel with // button, a textarea
+0,0,1,0,0,0,0,// The 5 main component : 2 label, a panel for langage , a panel with // button, a textarea
 0,0,0,0,0,0,0,// Copy previous element
 0,0,0,0,0,0,0,"/*             * For a Classifier:             * <pre>             * [10] The operation allContents returns a Set containing             * all ModelElements contained in the Classifier together             * with the contents inherited from its parents.             *   allContents : Set(ModelElement);             *   allContents = self.contents->union(             *       self.parent.allContents->select(e |             *            e.elementOwnership.visibility = #public or             *            e.elementOwnership.visibility = #protected))             * where parent is defined for GeneralizableElement as:             * [1] The operation parent returns a Set containing all direct             * parents             *   parent : Set(GeneralizableElement);             *   parent = self.generalization.parent             * </pre><p>             */"
 0,0,0,0,0,0,0,// Copy next element
@@ -3407,7 +3407,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,1,1,1,"/*     * TODO: All the ToDos in the doCopyFoo methods below are inherited from the     * NSUML implementation and do not reflect new issues. One additional thing     * which does need to be dealt with is the copying of any attributes which     * have been added since this code was implemented for UML 1.3.     */"
 0,0,1,0,1,1,1,"/**     * Used by the copy functions. Do not call this function directly.     * TODO: actions? instances? collaborations etc?     *     * @param source     *            the source classifier     * @param target     *            the target classifier     */"
 0,0,1,1,1,1,1,//TODO: This should be the name of the designer that created //      the todoitem, not the current username!
-0,0,0,0,1,1,1,// LOG.log(Level.FINE, "predicate() returned true, creating ToDoItem");
+0,0,0,0,0,0,0,// LOG.log(Level.FINE, "predicate() returned true, creating ToDoItem");
 0,0,0,0,0,0,0,//////////////////////////////////////////////////////////////// // corrective automations, wizards
 0,0,0,0,0,0,0,// check param types: only some connections are legal uml connections:
 0,0,0,0,0,0,0,"/* In this case, either the container was not set,             * or it was not contained in a statemachine.             */"
@@ -3558,9 +3558,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// general icons for poster
 0,0,0,0,0,0,0,"/*             * @see java.lang.Runnable#run()             */"
 0,0,0,0,0,0,0,// specialised icons for designer
-0,0,0,0,1,1,1,/* end class ToDoTreeRenderer */
+0,0,1,0,0,0,0,/* end class ToDoTreeRenderer */
 0,0,0,0,0,0,0,//   public static Decision decisionUNCATEGORIZED = //   new Decision("Uncategorized", 1);
-0,0,0,0,1,1,1,/* end class ToDoByDecision */
+0,0,0,0,0,0,0,/* end class ToDoByDecision */
 0,0,0,0,0,0,0,"/*     * @see org.argouml.ui.explorer.PerspectiveManagerListener#removePerspective(java.lang.Object)     */"
 0,0,0,0,0,0,0,// if the control is a panel, add it
 0,0,0,0,0,0,0,//     c.gridx = 1; //     c.gridy = 3; //     c.gridheight = GridBagConstraints.REMAINDER; //     SpacerPanel spacer2 = new SpacerPanel(); //     gb.setConstraints(spacer2, c); //     _mainPanel.add(spacer2);
@@ -3574,7 +3574,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* end class ActionGoToCritique */
 0,0,0,0,0,0,0,// does nothing
 0,0,0,0,0,0,0,/* end class ActionAutoCritique */
-0,0,0,0,1,1,1,// stop/start cleaning up invalid TodoItems.
+0,0,1,0,0,0,0,// stop/start cleaning up invalid TodoItems.
 0,0,0,0,0,0,0,// reuse Opaque..., just set it's attributes
 0,0,0,0,0,0,0,//otherwise parent must be an offending design material
 0,0,0,0,0,0,0,/* end class ActionOpenGoals */
@@ -3582,7 +3582,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// If visibility is already changed for this class, respect it.
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.ui.UMLModelElementListModel2#isValidElement(     *         java.lang.Object)     */"
 0,0,0,0,0,0,0,"/*     * @see java.util.Collection#add(java.lang.Object)     */"
-0,0,0,0,1,1,1,// the target of description will always be set directly by tabtodo
+0,0,0,0,0,0,0,// the target of description will always be set directly by tabtodo
 0,0,0,0,0,0,0,// ------------- MouseListener implementation ---------------
 0,0,0,0,0,0,0,//p  = new UMLValueSpecificationPanel(model, propertyName);
 0,0,0,0,0,0,0,/* end class WizStepConfirm */
@@ -3592,7 +3592,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// -------------TreeSelectionListener implementation -----------
 0,0,0,0,0,0,0,// not needed in UML 1.x
 0,0,0,0,0,0,0,"/*     * Prepare for typing in rationale field when window is opened.     *     * @see java.awt.Component#setVisible(boolean)     */"
-0,0,0,0,1,1,1,// Only interrupt for one todoitem
+0,0,0,0,0,0,0,// Only interrupt for one todoitem
 0,0,0,0,0,0,0,/* end class ActionOpenDecisions */
 0,0,0,0,0,0,0,// blinks?
 0,0,0,0,0,0,0,// add the perspectives to a list for the combobox
@@ -3810,7 +3810,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.util.namespace.Namespace#iterator()     */"
 0,0,0,0,0,0,0,/* This automatically pulls in a TagDefinition from the profile: */
 0,0,0,0,0,0,0,/* The TV existed, but maybe it was not "true": */
-0,0,1,1,1,1,1,/* TODO: For UML2: Check if the type of the TV is String. */
+0,0,0,1,1,1,1,/* TODO: For UML2: Check if the type of the TV is String. */
 0,0,0,0,0,0,0,"/* Generate all the existing internal transitions,         * so that we can compare them as text with the newly entered ones.         */"
 0,0,0,0,0,0,0,// Allow concatenation order and separator to be localized
 0,0,0,0,0,0,0,/*Parameter etc.*/
@@ -3917,7 +3917,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Create it [Here, OpaqueExpression which is the first // choice] // Note that if we edit the Initial value in the diagram // (double clic) // it was replaced by an OpaqueExpression
 0,0,0,0,0,0,0,// If we get a 2nd error, just ignore it
 0,0,0,0,0,0,0,// we have to give a message to user and set the system to unsaved!
-0,0,0,0,0,0,0,// Should never happen - something's really wrong
+0,0,1,0,0,0,0,// Should never happen - something's really wrong
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.diagram.ui.UMLDiagram#getUmlActions()     */"
 0,0,0,0,0,0,0,//////////////////////////////////////////////////////////////// // main parsing methods
 0,0,0,0,0,0,0,"/*         * @see java.io.InputStream#close()         */"
@@ -3954,7 +3954,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The owner should always have already been set in the constructor
 0,0,0,0,0,0,0,// happens when 'is' comes from a zip file
 0,0,0,0,0,0,0,// continue with null stream, readDiagram(...) will take care of // it
-0,0,1,1,1,1,1,// TODO: Localize these
+0,0,0,1,1,1,1,// TODO: Localize these
 0,0,0,0,0,0,0,"/* This would be solution (1):                  * Model.getExtensionMechanismsHelper().setDataValues(                 *      taggedValue, new String[] {""false""});                 */"
 0,0,0,0,0,0,0,// If there is no dot then this must be a top level Fig and can be // assumed to be a FigNode.
 0,0,0,0,0,0,0,// FigNodeModelElements should match here
@@ -3992,7 +3992,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Skip the <?xml... first line
 0,0,0,0,0,0,0,// NOP
 0,0,0,0,0,0,0,/* This is expected to be safe, don't add a try block here */
-0,0,0,0,1,1,1,//cat.debug("Added ToDoItem: " + _headline);
+0,0,1,0,0,0,0,//cat.debug("Added ToDoItem: " + _headline);
 0,0,0,0,0,0,0,"/*     * @see org.argouml.ui.explorer.PerspectiveManagerListener#addPerspective(java.lang.Object)     */"
 0,0,0,0,0,0,0,"/*     * @see org.xml.sax.ContentHandler#startElement(java.lang.String,     *         java.lang.String, java.lang.String, org.xml.sax.Attributes)     */"
 0,0,0,0,0,0,0,"/*     * @see org.xml.sax.ContentHandler#endElement(java.lang.String,     *         java.lang.String, java.lang.String)     */"
@@ -4198,14 +4198,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see javax.swing.JTree#setModel(javax.swing.tree.TreeModel)     */"
 0,0,0,1,0,1,1,/* It looks better if the height increases, too */
 0,0,0,0,0,0,0,// the model is changed - job done
-0,0,0,1,1,1,1,// TODO: 10 and 120 were found by trial and error.  Calculate them.
+0,0,1,1,1,1,1,// TODO: 10 and 120 were found by trial and error.  Calculate them.
 0,0,0,0,0,0,0,//pack();
 0,0,0,0,0,0,0,// Not localized:
 0,0,0,0,0,0,0,/* end class AboutBox */
 0,0,0,0,0,0,0,//These are the positions of child figs inside this fig //They must be added in the constructor in this order. //For now the name must not be last as this would force //zero width lines (until GEF is fixed)
 0,0,0,0,0,0,0,// saves the project
 0,0,0,0,0,0,0,"/*     * Return true if the given object is a valid node in this graph.     *     * @see org.tigris.gef.graph.MutableGraphModel#canAddNode(java.lang.Object)     */"
-0,0,1,0,0,0,0,"/* MVW: We should use default font sizes as much as possible.         * BTW, this impacts only the width, and reduces readibility:         */"
+0,0,0,0,0,0,0,"/* MVW: We should use default font sizes as much as possible.         * BTW, this impacts only the width, and reduces readibility:         */"
 0,0,0,0,0,0,0,"/* The stereoDim has height=2, even if it is empty,          * hence the -2 below: */"
 0,0,0,0,0,0,0,// This enables tooltips for tree; this one won't be shown:
 0,0,0,0,0,0,0,// ------------ methods that override JTree methods ---------
@@ -4260,7 +4260,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//Remove the element from Available List
 0,0,0,0,0,0,0,// loads the project
 0,0,0,0,0,0,0,"/*     * @see java.awt.event.WindowListener#windowIconified(java.awt.event.WindowEvent)     */"
-0,0,1,1,1,1,1,// default tab todo
+0,0,0,1,1,1,1,// default tab todo
 0,0,0,0,0,0,0,// Special case for backward compatibility
 0,0,0,0,0,0,0,// Add the path of the model to the search path, so we can // read dependent models
 0,0,0,0,0,0,0,// Select prop panel if current panel is not appropriate // for selected target
@@ -4295,8 +4295,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see org.argouml.model.ModelImplementation#getXmiWriter(java.lang.Object, java.io.Writer, java.lang.String)     */"
 0,0,0,0,0,0,0,// Add a listener to focus changes. // Rationale: reset the undo manager to start a new chain.
 0,0,0,0,0,0,0,// Load modules specified by a System property. // Modules specified by a system property is for // running modules from within Eclipse and running // from Java Web Start.
-0,0,0,1,0,1,1,/* We get many many events (why?), so let's filter: */
-0,0,1,0,1,1,1,// create the todopane
+0,0,0,0,0,0,0,/* We get many many events (why?), so let's filter: */
+0,0,1,0,0,0,0,// create the todopane
 0,0,1,0,0,0,0,// If we delete a FigEdge // or FigNode we actually call this method with the owner not // the Fig itself. However, this method // is called by ActionDeleteModelElements // for primitive Figs (without owner).
 0,0,0,0,0,0,0,"/*     * @see javax.swing.JFrame#getJMenuBar()     */"
 0,0,0,0,0,0,0,"/*     * @see org.argouml.persistence.SAXParserBase#isElementOfInterest(String)     */"
@@ -4384,7 +4384,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//     c.gridy = 0; //     c.gridx = 1; //     JLabel offLabel = new JLabel("Off"); //     gb.setConstraints(offLabel, c); //     _mainPanel.add(offLabel);
 0,0,1,1,1,1,1,// TODO: assumes public, user pref for default visibility? //do I have to check the namespace here? (Toby)
 0,0,0,0,0,0,0,// how to handle empty target lists?  probably the // MultiEditorPane should only show an empty pane in that case
-0,0,1,1,1,1,1,//TODO: qualifiers (e.g., const) //TODO: stereotypes...
+0,0,0,1,1,1,1,//TODO: qualifiers (e.g., const) //TODO: stereotypes...
 0,0,0,0,0,0,0,//    private JPanel constraintsTab = new JPanel();
 0,0,0,0,0,0,0,//The child is sometimes not found when the tree is being updated
 0,0,0,0,0,0,0,//    private JTabbedPane tabs = new JTabbedPane();
@@ -4400,7 +4400,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see java.awt.event.ActionListener#actionPerformed(     * java.awt.event.ActionEvent)     */"
 0,0,0,0,0,0,0,"/*     * @see java.util.List#listIterator()     */"
 0,0,0,0,0,0,0,// If this fails, then there is a problem... // dthompson 29/12/2008: It seems that the returned value is  // irrelevant here, so I assume that the purpose of this call // is just to throw an exception in case of a problem.
-0,0,0,0,0,0,0,// This text is for the developers. // It doesn't need to be localized.
+0,0,1,0,0,0,0,// This text is for the developers. // It doesn't need to be localized.
 0,0,0,0,0,0,0,"/*     * @see org.argouml.uml.diagram.ui.FigEdgeModelElement#modelChanged(java.beans.PropertyChangeEvent)     */"
 0,0,0,0,0,0,0,// These shouldn't really be <br> instead of <p> elements, but // the lines all get run together when pasted into a browser window.
 0,0,0,0,0,0,0,"//        initConstraintsTab(); //        tabs.addTab(Translator.localize(""tab.constraints""), //		     constraintsTab); //        tabs.setEnabledAt(3, false);"
@@ -4618,7 +4618,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*         * The drag gesture recognizer fires events         * in response to drag gestures in a component.         */"
 0,0,0,0,0,0,0,//specifies valid actions
 0,0,0,0,0,0,0,"/*     * @see org.argouml.ui.targetmanager.TargetListener#targetSet(     *          org.argouml.ui.targetmanager.TargetEvent)     */"
-0,0,0,0,0,0,0,// Eliminates right mouse clicks as valid actions
+0,0,1,0,0,0,0,// Eliminates right mouse clicks as valid actions
 0,0,0,0,0,0,0,"/*         * Get the cell renderer (which is a JLabel)         * for the path being dragged.         */"
 0,0,0,0,0,0,0,/* The layout manager would normally do this: */
 0,0,0,0,0,0,0,"/*     * @see java.awt.dnd.DragSourceListener#dragDropEnd(java.awt.dnd.DragSourceDropEvent)     */"
@@ -4705,10 +4705,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// the responsibility of determining if the given target is a // correct one for this tab has been moved from the // DetailsPane to the member tabs of the details pane. Reason for // this is that the details pane is configurable and cannot // know what's the correct target for some tab.
 0,0,0,0,0,0,0,"/*     * @see org.argouml.ui.StylePanelFig#refresh()     */"
 0,0,0,0,0,0,0,// abstractions are represented in the Inheritance Node.
-0,0,0,0,0,0,0,// Only return once per diagram so we don't, for example, find // a class as a diagram element and also as a child of a package // which is on the diagram
+0,0,1,0,0,0,0,// Only return once per diagram so we don't, for example, find // a class as a diagram element and also as a child of a package // which is on the diagram
 0,0,0,0,0,0,0,//JTabbedPane tabs = new JTabbedPane(); //mainPanel.add(tabs, BorderLayout.CENTER); //tabs.addTab("All Diagrams", allDiagrams);
 0,0,0,0,0,0,0,// the name of this instance of diagram
-0,0,1,0,1,1,1,"/** * A Fig designed to be the child of some FigNode or FigEdge to display the * stereotypes of the model element represented by the parent Fig. * Currently, multiple stereotypes are shown stacked one on top of the other, * each enclosed by guillemets.<p> * * The minimum width of this fig is the largest minimum width of its child * figs. The minimum height of this fig is the total minimum height of its child * figs.<p> * * The owner of this Fig is the UML element that is extended * with the stereotypes. We are listening to changes to the model: * addition and removal of stereotypes. <p> * * This fig supports showing one keyword * as the first ""stereotype"" in the list. <p> * * There is no way to remove a keyword fig, once added. <p> * * TODO: Allow for UML2 style display where all stereotypes are displayed in * the same guillemet pair and are delimited by commas. The style should be * changeable by calling getOrientation(Orientation). The swidget Orientation * class can be used for this. * @author Bob Tarling */"
+0,0,0,0,1,1,1,"/** * A Fig designed to be the child of some FigNode or FigEdge to display the * stereotypes of the model element represented by the parent Fig. * Currently, multiple stereotypes are shown stacked one on top of the other, * each enclosed by guillemets.<p> * * The minimum width of this fig is the largest minimum width of its child * figs. The minimum height of this fig is the total minimum height of its child * figs.<p> * * The owner of this Fig is the UML element that is extended * with the stereotypes. We are listening to changes to the model: * addition and removal of stereotypes. <p> * * This fig supports showing one keyword * as the first ""stereotype"" in the list. <p> * * There is no way to remove a keyword fig, once added. <p> * * TODO: Allow for UML2 style display where all stereotypes are displayed in * the same guillemet pair and are delimited by commas. The style should be * changeable by calling getOrientation(Orientation). The swidget Orientation * class can be used for this. * @author Bob Tarling */"
 0,0,0,0,0,0,0,// --------------- tree nodes -------------------------
 0,0,0,0,0,0,0,// Needs to happen after initialization is done & modules loaded
 0,0,0,0,0,0,0,"/*     * @see org.tigris.gef.persistence.pgml.HandlerFactory#getHandler(     * HandlerStack, Object, String, String, String, Attributes)     */"
@@ -4742,7 +4742,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// cannot break here since an object can be multiple // times in history
 0,0,0,0,0,0,0,// FigClass calls setBoundsImpl before we set // the stereotypeFigProfileIcon
 0,0,0,0,0,0,0,// CommentEdge - the owner of a FigEdgeNote
-0,0,0,1,0,1,1,// Write any left over bytes in the input buffer // (perhaps from a partially decoded character)
+0,0,0,0,0,0,0,// Write any left over bytes in the input buffer // (perhaps from a partially decoded character)
 0,0,0,0,0,0,0,// check if there are new elements in the list // if the old and new list are of the same size // set the oldTargets to the correct selection
 0,0,0,0,0,0,0,// If not found, try the parent namespace
 0,0,0,0,0,0,0,// Listen for the removal of diagrams from project
@@ -4884,7 +4884,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// return;
 0,0,0,1,1,1,1,// TODO: Comments are on Element in UML 2.x
 0,0,0,0,0,0,0,// There is a constructor.
-0,0,0,0,0,0,0,"/*     * Create a diagram.  This 4-arg version is only for internal use.  The     * 'namespace' argument is deprecated and not used in the new APIs.     */"
+0,0,1,0,0,0,0,"/*     * Create a diagram.  This 4-arg version is only for internal use.  The     * 'namespace' argument is deprecated and not used in the new APIs.     */"
 0,0,0,0,0,0,0,"/*     * @see ProfileModelLoader#loadModel(ProfileReference)     */"
 0,0,0,0,0,0,0,// This shouldn't be possible, but just in case
 0,0,0,0,0,0,0,/* end class CrTooManyStates */
@@ -4923,7 +4923,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// 3. Make sure all FigEdges are attached to a valid FigNode // The report
 0,0,0,0,0,0,0,// 5. Make sure all FigNodes and FigEdges have a valid owner // The report
 0,0,0,0,0,0,0,// Do nothing, override in subclass.
-0,0,1,0,0,0,0,// If we haven't succeeded in getting a namespace then abort
+0,0,0,0,0,0,0,// If we haven't succeeded in getting a namespace then abort
 0,0,1,0,0,0,0,// This should always be true, but just in case...
 0,0,0,0,0,0,0,"/*     * The diagram to be laid out.     */"
 0,0,0,0,0,0,0,"/*     * Point at which to start layout (initial state goes here). The X     * coordinate must be greater than half the width of the widest figure to     * be placed (because figures are centered on this location).     */"
@@ -4936,7 +4936,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//        figClone.seperator = (FigLine) it.next();
 0,0,0,0,0,0,0,//Needed for project deletion
 0,0,0,0,0,0,0,// we want to maintain a minimum size for the partition
-0,0,0,1,1,1,1,// TODO: midpoints for side handles
+0,0,1,1,1,1,1,// TODO: midpoints for side handles
 0,0,0,0,0,0,0,/* We removed the last partition, so now remove the pool, too: */
 0,0,0,0,0,0,0,// no action required in case of veto on setName
 0,0,0,0,0,0,0,// This test needed for project deletion
@@ -4964,7 +4964,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* Set up the property panels for activity diagrams: */
 0,0,0,0,0,0,0,// overrule the single-line name-fig created by the parent
 0,0,0,0,0,0,0,//setBlinkPorts(false); //make port invisible unless mouse enters
-0,0,1,1,1,1,1,/* TODO: Do we need to clone the stereotype(s)? */
+0,0,0,1,1,1,1,/* TODO: Do we need to clone the stereotype(s)? */
 0,0,0,0,0,0,0,/*(MGeneralization)*/
 0,0,0,0,0,0,0,// the width needs to be > the height
 0,0,0,1,1,1,1,// TODO:?
@@ -5039,7 +5039,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// there can only be one
 0,0,0,0,0,0,0,/*The group must be resized if a text field exceed the bounds*/
 0,0,0,0,0,0,0,"/*         * A Concurrent region cannot have incoming or outgoing transitions so         * incoming or outgoing transitions are redirected to its concurrent         * composite state container.         */"
-0,0,1,0,1,1,1,//cat.debug("NOTE: TodoParser handleStartTag:" + e.getName());
+0,0,1,0,0,0,0,//cat.debug("NOTE: TodoParser handleStartTag:" + e.getName());
 0,0,0,0,0,0,0,"/*     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)     */"
 0,0,0,0,0,0,0,// or just the owner?
 0,0,0,0,0,0,0,"/* Listen to machine deletion,         * to delete the diagram. */"
@@ -5151,7 +5151,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * @see org.tigris.gef.presentation.FigEdge#setSourceFigNode(org.tigris.gef.presentation.FigNode)     */"
 0,0,0,0,0,0,0,// element will normally be null when called from PGML parser // It will get it's source & destination set later in attachEdges
 0,0,0,0,0,0,0,// unimplemented
-0,0,1,0,0,0,0,"/* Alternatively, we could just return null here,          * so that you can not create a comment just          * linked to a comment this way - which is a bit uncommon,         * but not illegal, so for consistency, we better allow it.          */"
+0,0,1,1,0,1,1,"/* Alternatively, we could just return null here,          * so that you can not create a comment just          * linked to a comment this way - which is a bit uncommon,         * but not illegal, so for consistency, we better allow it.          */"
 0,0,0,0,0,0,0,//        return null;
 0,0,1,0,1,1,1,"/** * Class to display a Stereotype declaration figure using * Classifier box notation.<p> * * TODO: This is just a place-holder right now! - tfm * This needs to show tags and constraints. */"
 0,0,0,0,0,0,0,// Add...

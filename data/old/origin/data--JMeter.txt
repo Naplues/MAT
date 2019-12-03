@@ -76,7 +76,7 @@
 // This is effectively the same as saver.toXML(Object, Writer) except we get to provide the DataHolder // Don't know why there is no method for this in the XStream class
 // TODO fix up for Nimbus LAF
 "/** * FIXME Why is searchTF not getting focus correctly after having been setVisible(false) once */"
-// MenuBar related main.methods // TODO: Do we really need to have all these menubar main.methods duplicated // here? Perhaps we can make the menu bar accessible through GuiPackage?
+// MenuBar related methods // TODO: Do we really need to have all these menubar methods duplicated // here? Perhaps we can make the menu bar accessible through GuiPackage?
 // Hack to get full modifier value
 "/*     * TODO consider removing this method, and providing method wrappers instead.     * This would allow the Gui package to do any additional clearups if required,     * as has been done with clearTestPlan()    */"
 //Maybe do nothing at all?
@@ -149,7 +149,7 @@
 // TODO: Should the method signature of this method be changed to // match the super-implementation (using a TestElement parameter // instead of AbstractListenerElement)? This would require an // instanceof check before adding the listener (below), but would // also make the behavior a bit more obvious for sub-classes -- the // Java rules dealing with this situation aren't always intuitive, // and a subclass may think it is calling this version of the method // when it is really calling the superclass version instead.
 // TODO Should this method be synchronized ? all other function execute are
 // TODO should the engine be static?
-// N.B. Commons IO IOUtils has equivalent main.methods; these were added before IO was included // TODO - perhaps deprecate these in favour of Commons IO?
+// N.B. Commons IO IOUtils has equivalent methods; these were added before IO was included // TODO - perhaps deprecate these in favour of Commons IO?
 // TODO should this be getMin()?
 "/*                 * Fix bug: -D arg1=arg2 was causing parse error; however                 * --define arg1=arg2 is OK This seems to be because the parser                 * skips the terminator for the long options, but was not doing                 * so for the short options.                 */"
 // TODO improve the error handling
@@ -163,7 +163,7 @@
 // TODO - should this be a failure?
 "/*     * Wrapper to convert a JUnit4 class into a TestCase     *     *  TODO - work out how to convert JUnit4 assertions so they are treated as failures rather than errors     */"
 // TODO should really return most specific (i.e. longest) match.
-// TODO - should this be done for embedded usage? // Note: the element is a ConfigTestElement when used standalone, so we cannot use FTPSampler access main.methods
+// TODO - should this be done for embedded usage? // Note: the element is a ConfigTestElement when used standalone, so we cannot use FTPSampler access methods
 // TODO: replace all this url2 mess with a proper method // "areEquivalent(url1, url2)" that // would also ignore case in protocol and host names, etc. -- use that // method in the CookieManager too.
 // TODO is this possible?
 "/*     * Holder for storing cache details.     * Perhaps add original response later?     */"
@@ -217,13 +217,13 @@
 //$NON-NLS-1$ TODO should this be variable?
 // TODO - is this the correct default?
 // TODO do we need to add a charset for the file contents? // $NON-NLS-1$
-// TODO merge put and post main.methods as far as possible. // e.g. post checks for multipart form/files, and if not, invokes sendData(HttpEntityEnclosingRequestBase)
+// TODO merge put and post methods as far as possible. // e.g. post checks for multipart form/files, and if not, invokes sendData(HttpEntityEnclosingRequestBase)
 // Get the content length, it tells us how much data to read // TODO : Maybe support chunked encoding, then we cannot rely on content length
 // TODO: is this the correct default?
 // TODO should we allow mimetype only?
 "/*     * TODO should these fields be public?     * They don't appear to be used externally.     *      * Also, are they any different from HTTPConstants.GET etc. ?     * In some cases they seem to be used as the method name from the Tomcat log.     * However the RMETHOD field is used as the value for HTTPSamplerBase.METHOD,     * for which HTTPConstants is most approriate.     */"
 // NOTUSED org.apache.jmeter.monitor.model.Status st = // TODO - charset?
-// TODO: find out how to retrieve these from the script // At present the script has to use SampleResult main.methods to set them. // $NON-NLS-1$ // $NON-NLS-1$
+// TODO: find out how to retrieve these from the script // At present the script has to use SampleResult methods to set them. // $NON-NLS-1$ // $NON-NLS-1$
 // TODO: process warnings? Set Code and Message to success?
 // TODO - should the encoding be configurable? // $NON-NLS-1$
 //$NON-NLS-1$ // TODO - probably wrong
@@ -435,7 +435,7 @@
 // file panel //$NON-NLS-1$ //$NON-NLS-2$
 // $NON-NLS-1$ // $NON-NLS-1$ proxy.binary.filetype=binary
 "/*             * We don't want to store any cookies in the generated test plan             */"
-"/*                     * TestSuite only finds testXXX() main.methods, and does not look                     * for suite() main.methods.                     *                      * To provide more compatibilty with stand-alone tests,                     * where JUnit does look for a suite() method, check for it                     * first here.                     *                      */"
+"/*                     * TestSuite only finds testXXX() methods, and does not look                     * for suite() methods.                     *                      * To provide more compatibilty with stand-alone tests,                     * where JUnit does look for a suite() method, check for it                     * first here.                     *                      */"
 // Set the form data
 // Tell the sampler to do a multipart post
 // $NON-NLS-1$ // $NON-NLS-1$
@@ -728,7 +728,7 @@
 // Get the preference for the recent files
 // Use special field ip source address (for pseudo 'ip spoofing')
 // Extract transfer data.
-"/*         *  We use the HostConfiguration as the key to retrieve the HttpClient,         *  so need to ensure that any items used in its equals/hashcode main.methods are         *  not changed after use, i.e.:         *  host, port, protocol, localAddress, proxy         *        */"
+"/*         *  We use the HostConfiguration as the key to retrieve the HttpClient,         *  so need to ensure that any items used in its equals/hashcode methods are         *  not changed after use, i.e.:         *  host, port, protocol, localAddress, proxy         *        */"
 // If getSendFileAsPostBody returned true, it's sure that file is not null
 // NT Includes other types of Credentials
 // If there are no arguments, we can send a file as the body of the request // TODO: needs a multiple file upload scenerio
@@ -1060,7 +1060,7 @@
 // default: normal //$NON-NLS-1$
 // Function name //$NON-NLS-1$
 // force reopen on next sample
-"/*     * The testStarted/testEnded main.methods are called at the start and end of a test.     *     * However, when a test is run on multiple nodes, there is no guarantee that all the     * testStarted() main.methods will be called before all the threadStart() or sampleOccurred()     * main.methods for other threads - nor that testEnded() will only be called after all     * sampleOccurred() calls. The ordering is only guaranteed within a single test.     *     */"
+"/*     * The testStarted/testEnded methods are called at the start and end of a test.     *     * However, when a test is run on multiple nodes, there is no guarantee that all the     * testStarted() methods will be called before all the threadStart() or sampleOccurred()     * methods for other threads - nor that testEnded() will only be called after all     * sampleOccurred() calls. The ordering is only guaranteed within a single test.     *     */"
 // Content-length
 //$NON-NLS-1$ // so we can add them again in init
 // Marker for query string attribute
@@ -1070,7 +1070,7 @@
 // Host always
 //Empty override of superclass method
 // Allow for some margin of error // Check that the throughput uses the time elapsed for the sub results
-// Empty overrides of superclass main.methods
+// Empty overrides of superclass methods
 // content-type
 //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ // $NON-NLS-1$
 // Add SamplerData for consistency with BeanShell Sampler //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
@@ -1111,7 +1111,7 @@
 // Use default encoding
 // FILE_FIELD is kept for backward compatibility with old test plans // $NON-NLS-1$
 // Pass request to new proxy thread
-// $NON-NLS-1$ // Supported main.methods:
+// $NON-NLS-1$ // Supported methods:
 // check there is a GUI
 // i.e. GET
 // Derive the mapping of content types to parsers
@@ -1166,7 +1166,7 @@
 // Append body if it is a post or put
 // N.B. these are not multi-threaded, so don't make it static // ISO format $NON-NLS-1$
 // The object used for each row
-"/*     * The suite() method creates separate test suites for each of the types of     * test. The suitexxx() main.methods create a list of items to be tested, and     * create a new test instance for each.     *      * Each test type has its own constructor, which saves the item to be tested     *      * Note that the suite() method must be static, and the main.methods to run the     * tests must be instance main.methods so that they can pick up the item value     * which was saved by the constructor.     *      */"
+"/*     * The suite() method creates separate test suites for each of the types of     * test. The suitexxx() methods create a list of items to be tested, and     * create a new test instance for each.     *      * Each test type has its own constructor, which saves the item to be tested     *      * Note that the suite() method must be static, and the methods to run the     * tests must be instance methods so that they can pick up the item value     * which was saved by the constructor.     *      */"
 // Transaction is done, we do not have a sampler to sample
 "/*     * Private iterator used to unwrap the URL from the URLString class     *     */"
 // is there a separator? // case of name=value, name=
@@ -1233,7 +1233,7 @@
 // Target
 // Add any assertion that failed as children of the sample node
 // for new test plans that don't have FILE/PARAM/MIME properties
-//$NON-NLS-1$ //$NON-NLS-1$ // These are the names of the get/set main.methods
+//$NON-NLS-1$ //$NON-NLS-1$ // These are the names of the get/set methods
 // Updated the property lists
 // Does not need to be synch. because it is only accessed from the sampler thread // The ClientPool does access it in a different thread, but ClientPool is fully synch.
 // Action
@@ -1299,12 +1299,12 @@
 "/*-------------------------------------------------------------------------     * Methods (used by UserParameterXML to get XML parameters from XML file)     *----------------------------------------------------------------------- */"
 // record some sizes to allow HTTPSampleResult.getBytes() with different options
 // don't call isHeadless() here, as it has a side effect. // --
-// Handle the various main.methods
+// Handle the various methods
 // The value is in the second group
 // Expected results established using the DDA // algorithm (see // http://www.siggraph.org/education/materials/HyperGraph/scanline/outprims/drawline.htm): // 0/1 vs. 1/1 -> 0 is // closer to 33.33 // 0/2 vs. 1/2 -> 50.0 is closer to // 33.33 // 1/3 vs. 2/3 -> 33.33 is // closer to 33.33 // 1/4 vs. 2/4 -> 25.0 is closer to // 33.33 // 1/5 vs. 2/5 -> 40.0 is closer to // 33.33 // 2/6 vs. 3/6 -> 33.33 is // closer to 33.33
 // Allows HTTPSamplerProxy to call notifyFirstSampleAfterLoopRestart; subclasses can override if necessary
 "/*     * Map of translations for tags; only created if there is at least     * one tag and a ResourceBundle has been provided.     */"
-// Provide access to HTTPSamplerBase main.methods
+// Provide access to HTTPSamplerBase methods
 // did not want to spoof the IP address
 // add listener to intercept texttofind changes and reset search
 // OK to set pre-emptive auth?
@@ -1413,7 +1413,7 @@
 // Used for per-thread/user numbers
 // For example: // jar:file:/JMeter/lib/ext/ApacheJMeter_core.jar!/org/apache/jmeter/util/JMeterVersion.class // or if using an IDE         // file:/workspaces/JMeter/build/core/org/apache/jmeter/util/JMeterVersion.class
 // Used by SampleSaveConfigurationConverter.unmarshall()
-"/*     * Implementation notes:     *     * All of the main.methods in this class are currently read-only. If update     * main.methods are included in the future, they should be defined so that a     * single instance of JavaSamplerContext can be associated with each thread.     * Therefore, no synchronization should be needed. The same instance should     * be used for the call to setupTest, all calls to runTest, and the call to     * teardownTest.     */"
+"/*     * Implementation notes:     *     * All of the methods in this class are currently read-only. If update     * methods are included in the future, they should be defined so that a     * single instance of JavaSamplerContext can be associated with each thread.     * Therefore, no synchronization should be needed. The same instance should     * be used for the call to setupTest, all calls to runTest, and the call to     * teardownTest.     */"
 // Note that sampleStarted() and sampleStopped() is not made to appear // in synch with sampleOccured() when replaying held samples. // For now this is not critical since sampleStarted() and sampleStopped() // is not used, but it may become an issue in the future. Then these // events must also be stored so that replay of all events may occur and // in the right order. Each stored event must then be tagged with something // that lets you distinguish between occured, started and ended.
 // Test ignore trailing split characters // Ignore adjacent delimiters
 // Resource names for column headers // $NON-NLS-1$
@@ -1498,7 +1498,7 @@
 // PreparedStatementMap is associated to one connection so  //  2 threads cannot use the same PreparedStatement map at the same time
 //flag - if all machines within a given domain can access the variable. //(from http://www.cookiecentral.com/faq/ 3.5)
 // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$
-"/*     * N.B. NoThreadClone is used to ensure that the testStarted() main.methods will share the same     * instance as the sampleOccured() main.methods, so the testStarted() method can fetch the     * Totals accumulator object for the samples to be stored in.     */"
+"/*     * N.B. NoThreadClone is used to ensure that the testStarted() methods will share the same     * instance as the sampleOccured() methods, so the testStarted() method can fetch the     * Totals accumulator object for the samples to be stored in.     */"
 // Add the main panel and the graph
 // Do we have some data, or a trailing empty field? // we have some data // we've started a field // Just seen ""
 // First write the start multipart file // TODO - charset?
@@ -1537,7 +1537,7 @@
 // N.B. this needs to be done before opening the connection
 // Write boundary end marker
 // get access to buffer
-// wrap read() main.methods to track output buffer
+// wrap read() methods to track output buffer
 // Can't have two matching cookies
 // Preload the output so that can be read back as HTTP
 // reset colors index
@@ -1554,7 +1554,7 @@
 // we don't want interrupt to try disconnection again
 // Draw the graph
 // Test can't have a duration more than 2^31 secs (cast from long to int)
-// Override all the super-class Socket main.methods.
+// Override all the super-class Socket methods.
 "/*     * The method will check to see if JMeter was started in NonGui mode. If it     * was, it will try to pick up the proxy host and port values if they were     * passed to JMeter.java.     */"
 // Calculate intermediate values (if needed)
 // Look for special Cookie request //$NON-NLS-1$
@@ -1754,12 +1754,12 @@
 // This assumes the header names are all single words with no spaces // word followed by 0 or more repeats of (non-word char + word) // where the non-word char (\2) is the same // e.g. abc|def|ghi but not abd|def~ghi // $NON-NLS-1$ // last entries may be quoted strings
 // Set if we were successful or not
 // ensure counts are updated correctly
-// These variable names must have .displayName properties and agree with the getXXX()/setXXX() main.methods // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$
+// These variable names must have .displayName properties and agree with the getXXX()/setXXX() methods // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$ // $NON-NLS-1$
 // private static final String LABEL_DEFAULT = "JavaTest";
 "/*     * Utility method to set up all the values     */"
 // Let the GUI show that it will not be encoded
 // set this false to suppress some items for use in HTTP Request defaults
-// Make sure the sample start time and sample end time are recorded // in order not to confuse the statistics calculation main.methods: if //  an error occurs and an exception is thrown it is possible that // the result.sampleStart() or result.sampleEnd() won't be called
+// Make sure the sample start time and sample end time are recorded // in order not to confuse the statistics calculation methods: if //  an error occurs and an exception is thrown it is possible that // the result.sampleStart() or result.sampleEnd() won't be called
 // If we're not storing subsequent samplers, we'll need the // first sampler to do all the work...:
 // Find the first empty line of the multipart, it signals end of headers for multipart // Agents are supposed to terminate lines in CRLF:
 // Used by Request Panel //$NON-NLS-1$
@@ -2024,7 +2024,7 @@
 //new Font("SansSerif", Font.PLAIN, 10)
 // Ensure properties files don't use special characters
 // enable embedded html resources
-// ----------- get/set main.methods ------------------- //
+// ----------- get/set methods ------------------- //
 // If the -j  or -l flag is set to LAST or LAST.log|LAST.jtl, then the last loaded file name is used to // generate the log file name by removing .JMX and replacing it with .log|.jtl
 // sampleOccurred is called from multiple threads; not safe to write from multiple threads. // also decouples the file IO from sample generation
 // ci (degree 1)
@@ -2188,10 +2188,10 @@
 // - JMX names
 // + JMX names, do not change their values
 // default charset is deliberate here
-// N.B. this will be a config element, so we cannot use the getXXX() main.methods
+// N.B. this will be a config element, so we cannot use the getXXX() methods
 // Default to original behaviour, i.e. re-use connection
-"/** * <p> * Super-class for TestElements that can be applied to main sample, sub-samples or both. * [Assertions use a different class because they use a different value for the {@link #getScopeName()} constant] * </p> * * <p> * Their corresponding GUI classes need to add the ScopePanel to the GUI * using the AbstractXXXGui main.methods: * <ul> * <li>createScopePanel()</li> * <li>saveScopeSettings()</li> * <li>showScopeSettings()</li> * </ul> * </p> */"
-// N.B. this will be a config element, so we cannot use the setXXX() main.methods
+"/** * <p> * Super-class for TestElements that can be applied to main sample, sub-samples or both. * [Assertions use a different class because they use a different value for the {@link #getScopeName()} constant] * </p> * * <p> * Their corresponding GUI classes need to add the ScopePanel to the GUI * using the AbstractXXXGui methods: * <ul> * <li>createScopePanel()</li> * <li>saveScopeSettings()</li> * <li>showScopeSettings()</li> * </ul> * </p> */"
+// N.B. this will be a config element, so we cannot use the setXXX() methods
 "/*     * <p> Returns a <code>String</code> value for a character-delimited column     * value enclosed in the quote character, if required. </p>     *      * <p> If the value contains a special character, then the String value is     * returned enclosed in the quote character. </p>     *      * <p> Any quote characters in the value are doubled up. </p>     *      * <p> If the value does not contain any special characters, then the String     * value is returned unchanged. </p>     *      * <p> N.B. The list of special characters includes the quote character.     * </p>     *      * @param input the input column String, may be null (without enclosing     * delimiters)     *      * @param specialChars special characters; second one must be the quote     * character     *      * @return the input String, enclosed in quote characters if the value     * contains a special character, <code>null</code> for null string input     */"
 "/* (non-Javadoc)     * @see org.apache.jmeter.report.writers.PageSummary#pageStarted()     */"
 // Version information for test plan header // This is written to JMX files by ScriptWrapperConverter // Also to JTL files by ResultCollector // $NON-NLS-1$
@@ -2337,7 +2337,7 @@
 "/*     * If not running under AllTests.java, make sure that the properties (and     * log file) are set up correctly.     *      * N.B. In order for this to work correctly, the JUnit test must be started     * in the bin directory, and all the JMeter jars (plus any others needed at     * run-time) need to be on the classpath.     *      */"
 // draw a red line for 90% point
 //    Remaining implementations delegate to the wrapped key manager
-// Names of JUnit3 main.methods //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
+// Names of JUnit3 methods //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
 // draw an orange line for 50% point
 // This is used to keep track of local (non-remote) tests // The name is chosen to be an unlikely host-name // $NON-NLS-1$
 // Process escaped characters // Store the \
@@ -2347,7 +2347,7 @@
 // Note: originally the code did use the ClientPool to "share" subscribers, however since the // key was "this" and each sampler is unique - nothing was actually shared.
 // there is also a javax.swing.text.Document class.
 // HELP MENU // $NON-NLS-1$
-"/** * Generates Configure pop-up dialogue for Listeners from all main.methods in SampleSaveConfiguration * with the signature ""boolean saveXXX()"". * There must be a corresponding ""void setXXX(boolean)"" method, and a property save_XXX which is * used to name the field on the dialogue. * */"
+"/** * Generates Configure pop-up dialogue for Listeners from all methods in SampleSaveConfiguration * with the signature ""boolean saveXXX()"". * There must be a corresponding ""void setXXX(boolean)"" method, and a property save_XXX which is * used to name the field on the dialogue. * */"
 // clear result tab on Ctrl-E
 // throws HeadlessException
 // OPTIONS MENU // $NON-NLS-1$ // $NON-NLS-1$
@@ -2355,7 +2355,7 @@
 // Must return a valid node, or may generate an NPE
 "/*         * Need to reset the containers for repeated runs; about the only way         * for functions to detect that a run is starting seems to be the         * setParameters() call.         */"
 // RUN MENU // $NON-NLS-1$
-// // Override the implementations of the superclass, forwarding all main.methods // from the CellEditor interface to our delegate. //
+// // Override the implementations of the superclass, forwarding all methods // from the CellEditor interface to our delegate. //
 // EDIT MENU // $NON-NLS-1$ // From the Java Look and Feel Guidelines: If all items in a menu // are disabled, then disable the menu. Makes sense.
 // strPathsOrJars - pathnames or jarfiles to search for classes // classNames - required parent class(es) or annotations // $NON-NLS-1$ // innerClasses - should we include inner classes? // contains - classname should contain this string // Ignore the classes which are specific to the reporting tool // $NON-NLS-1$ // notContains - classname should not contain this string // annotations - true if classnames are annotations
 // FILE MENU // $NON-NLS-1$
@@ -2918,7 +2918,7 @@
 // mainPanel.add(threadPropsPanel, BorderLayout.NORTH); // add(mainPanel, BorderLayout.CENTER);
 // Check can cast for clone // Don't clone NoThreadClone unless honourNoThreadClone == false
 // clone will produce correct type
-// Dummy main.methods needed by Function interface
+// Dummy methods needed by Function interface
 // For use by FunctionHelper
 // Handle escapes
 // tree1.add("a3");
@@ -3145,13 +3145,13 @@
 // For testing only at present
 // Mostly delegates to model
 //Set default single model
-// Next two main.methods implement new API by delegation to model
+// Next two methods implement new API by delegation to model
 // Restore state display
 //Listen for enable changes
 //Convenience cast
 // Assume that the UI has not changed since the checkbos was created
 // Iterate state
-// Overrides of superclass main.methods
+// Overrides of superclass methods
 // Fire ActionEvent
 // force the events to fire
 // Send ItemEvent
@@ -3260,7 +3260,7 @@
 // Not currently needed by any Remoteable classes // Anyway, would probably be too expensive in terms of network traffic //  // void testIterationStart(LoopIterationEvent event);
 // ensure output is flushed
 // server log file
-"/** * Holds details of which sample attributes to save. * * The pop-up dialogue for this is created by the class SavePropertyDialog, which assumes: * For each field XXX * - main.methods have the signature ""boolean saveXXX()"" * - a corresponding ""void setXXX(boolean)"" method * - messages.properties contains the key save_XXX * * */"
+"/** * Holds details of which sample attributes to save. * * The pop-up dialogue for this is created by the class SavePropertyDialog, which assumes: * For each field XXX * - methods have the signature ""boolean saveXXX()"" * - a corresponding ""void setXXX(boolean)"" method * - messages.properties contains the key save_XXX * * */"
 //add(makeTitlePanel(), BorderLayout.NORTH);
 // Initialise values from properties
 // Save bytes read // $NON_NLS-1$
@@ -3272,10 +3272,10 @@
 // Defaults from properties:
 // reversed compare allows for null
 // Don't save this, as not settable via GUI
-// $NON_NLS-1$ // N.B. Remember to update the equals and hashCode main.methods when adding new variables.
+// $NON_NLS-1$ // N.B. Remember to update the equals and hashCode methods when adding new variables.
 // Give access to initial configuration
 // We know we are comparing to another SampleSaveConfiguration
-///////////////////// Start of standard save/set access main.methods /////////////////////
+///////////////////// Start of standard save/set access methods /////////////////////
 // as per 2.0 branch
 // maintain relationship
 // Defaults to empty;
@@ -3315,7 +3315,7 @@
 // Check for quoted string // $NON-NLS-1$ // remove quotes
 // List of types that are known to be binary
 // List of types that are known to be ascii, although they may appear to be binary
-"/*     * Helper main.methods N.B. setStartTime must be called before setEndTime     *     * setStartTime is used by HTTPSampleResult to clone the parent sampler and     * allow the original start time to be kept     */"
+"/*     * Helper methods N.B. setStartTime must be called before setEndTime     *     * setStartTime is used by HTTPSampleResult to clone the parent sampler and     * allow the original start time to be kept     */"
 // how many times we had to wait to queue a sample
 // Can now afford to wait a bit longer between checks
 // created by client 
@@ -3412,7 +3412,7 @@
 // method is only ever called from one thread at a time // so it's OK to use a static DateFormat
 // can this happen?
 // Strip off the trailing delimiter
-// Map header names to set() main.methods
+// Map header names to set() methods
 // These entries must be in the same order as columns are saved/restored.
 // Try // default // delimiter
 // now validate the // result
@@ -3423,8 +3423,8 @@
 // they are always last
 // unknown column name
 // out of order
-// These main.methods handle parameters that could contain delimiters or // quotes:
-// These main.methods handle parameters that cannot contain delimiters or // quotes
+// These methods handle parameters that could contain delimiters or // quotes:
+// These methods handle parameters that cannot contain delimiters or // quotes
 // Need both sample and error count to be any use
 // add a message when no http sample //$NON-NLS-1$ //$NON-NLS-1$
 "/*     * Private versions of what might eventually be part of Commons-CSV or     * Commons-Lang/Io...     */"
@@ -3534,7 +3534,7 @@
 // may be impossible, but no harm in // checking ...
 // Add titles that don't need to be documented //guiTitles.put("Root", Boolean.FALSE);
 //- JMX
-// Get a WrapperEditor to provide the field or combo -- we'll delegate // most main.methods to it:
+// Get a WrapperEditor to provide the field or combo -- we'll delegate // most methods to it:
 // acceptsNull // acceptsExpressions // acceptsOther // default
 // assume it's string
 //- JMX field names
@@ -3549,7 +3549,7 @@
 // setFunctionalMode(false); // setSerialized(false);
 // Default implementation
 // Moved from JMeter class
-// lifecycle main.methods
+// lifecycle methods
 // Use different XPath for both threads
 // JMX property name: do not change
 // value is the correct class
@@ -3566,7 +3566,7 @@
 // NOOP        
 // based on this scheduler is enabled or disabled
 // Gives access to parent thread threadGroup
-// For access to stop main.methods.
+// For access to stop methods.
 "/*     * The following variables may be set/read from multiple threads.     */"
 // may be set from a different thread
 // threadContext is not thread-safe, so keep within thread
@@ -3661,8 +3661,8 @@
 // BSF/JSR223 language to use //-- For TestBean implementations only
 // can be the empty string
 // Save the actual socket
-// Forward all the SSLSocket main.methods to the input socket
-// Also forward all the Socket main.methods.
+// Forward all the SSLSocket methods to the input socket
+// Also forward all the Socket methods.
 // Test New cookie is returned
 // Must wrap non-scriptable objects before presenting to Rhino
 // includes JavaScriptException, rethrows Errors
@@ -3921,7 +3921,7 @@
 // otherwise there's a vgap too many // Work out the anchor paint
 // do layout
 // closes reader as well
-// non-instantiable - static main.methods only
+// non-instantiable - static methods only
 // Further configuration
 // Make sure same hierarchy is used
 // This happens if the default log-target id-ref specifies a non-existent target
@@ -3990,7 +3990,7 @@
 //++ JMX file attributes - do not change
 // i.e. no filter
 // The TestCase to run
-// the Method objects for setUp (@Before) and tearDown (@After) main.methods // Will be null if not provided or not required
+// the Method objects for setUp (@Before) and tearDown (@After) methods // Will be null if not provided or not required
 // The method name to be invoked
 // The wrapper used to invoke the method
 // The name of the class containing the method
@@ -4036,7 +4036,7 @@
 // private boolean startDoc = false; // private boolean endDoc = false;
 // this.startDoc = true; // Reset all work variables so reusing the instance starts afresh.
 // this.startDoc = false; // this.endDoc = true;
-// Note: the element is a ConfigTestElement, so cannot use FTPSampler access main.methods
+// Note: the element is a ConfigTestElement, so cannot use FTPSampler access methods
 // used for interrupting the sampler
 // should probably come from the setup dialog
 // Could not access file or other error

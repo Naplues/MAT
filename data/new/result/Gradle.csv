@@ -4,27 +4,30 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,/*  * The DSL for declaring plugins to inject into an included build. * * TODO: Plugins need to be located in this build's buildSrc. * * @since 4.6  */
 1,0,1,1,1,1,1,//  TODO some kind of context of why the method was attached (e.g. which plugin declared the rule)   TODO some kind of instance state for the method (might be the same as context above) 
 1,0,0,1,1,1,1,//  TODO: Need to track version/implementation of symbol strip tool. 
+1,0,1,1,1,1,1,// TODO move to base-services once the ProgressLogger dependency is removed
 1,0,1,0,0,0,0,//  Return a dummy implementation of this as creating a real hasher drags ~20 more services   along with it, and a hasher isn't actually needed on the worker process side at the moment. 
 1,0,1,0,0,0,0,//  there's a risk, for some methods, that the hash is always   recomputed but it won't be worse than before 
 1,0,0,0,0,0,0,//  This isn't quite right. Should close the worker classpath cache once we're finished with the worker processes. This may be before the end of this build   or they may be used across multiple builds 
 1,0,1,1,1,1,1,//  TODO Need a better mechanism to wire tasks into lifecycle 
-1,0,1,1,1,1,1,//  TODO:Cedric This is not quite right. We assume that if we are asking for a specific binary, then we resolve to the assembly instead   of the jar, but it should be somehow parameterized 
+1,0,1,1,0,1,1,//  TODO:Cedric This is not quite right. We assume that if we are asking for a specific binary, then we resolve to the assembly instead   of the jar, but it should be somehow parameterized 
 1,0,1,1,1,1,1,//  Ensure that at most one action that may have access to the mutable state of the build runs at a given time   TODO - move this to a better home and reuse 
-1,0,1,0,1,1,1,//  TODO:HH Use managed views for this, only applied when the respective language is applied
+1,0,0,0,0,0,0,//  TODO(ew): inject BuildOperationIdentifierRegistry instead of static use
+1,0,1,0,0,0,0,//  TODO:HH Use managed views for this, only applied when the respective language is applied
 1,0,0,1,1,1,1,//  TODO: There has to be a simpler way to do this.   We want to create a buildable filecollection based on a filtered view of selected source directory sets 
 1,0,0,1,1,1,1,//  Passing null for sha1 - TODO - consider using the etag which is an MD5 hash of the file (when less than 5Gb) 
-1,0,0,0,1,1,1,//  TODO:ADAM - need to do this earlier 
+1,0,0,0,0,0,0,//  TODO:ADAM - need to do this earlier 
 1,0,0,1,1,1,1,//  TODO - exception when no default type 
 1,0,0,0,0,0,0,//  Don't force evaluation of rules here, let the task container do what it needs to
 1,0,1,1,1,1,1,//  result is a scala.util.Either   right is a Seq of files that were generated   left is routes compilation errors   TODO: It might be nice to pass along these errors in some way 
 1,0,0,1,1,1,1,//  TODO deleteOnExit won't clean up non-empty directories (and it leaks memory for long-running processes). 
 1,0,1,1,1,1,1,/*  * Meta-info about a Java component. * * TODO - this is some legacy stuff, to be merged into other component interfaces  */
-1,0,1,1,1,1,1,//  TODO: Need to track version/implementation of symbol extraction tool. 
+1,0,0,1,1,1,1,//  TODO: Need to track version/implementation of symbol extraction tool. 
 1,0,1,1,1,1,1,//  TODO: This should be modeled differently, perhaps as a dependency on the implementation configuration 
 1,0,0,0,0,0,0,//  This is not super nice, but dependencies are created through reflection, for decoration   and assume a constructor with 3 arguments (Group, Name, Version) which is suitable for   most cases. We could create an empty attribute set directly in the AbstractDependencyImpl,   but then it wouldn't be mutable. Therefore we proceed with "late injection" of the attributes 
-1,0,0,1,1,1,1,//  TODO - should split this up, so that the inputs are attached to an object that represents the binary, which is then later used to configure the link/assemble tasks 
+1,0,1,0,0,0,0,//  TODO(ew): Consider whether this belongs in Console or here
+1,0,1,1,1,1,1,//  TODO - should split this up, so that the inputs are attached to an object that represents the binary, which is then later used to configure the link/assemble tasks 
 1,0,1,0,0,0,0,//  we need to wrap this into a loop, because there's always a risk   that the method, which is weakly referenced, has been collected   in between the creation time and now 
-1,0,0,1,1,1,1,//  TODO(daniel): Should support in a better way multi file invocation. 
+1,0,0,1,0,1,1,//  TODO(daniel): Should support in a better way multi file invocation. 
 1,0,0,0,0,0,0,//  It's true right now that this is always coming from the TestKit, but might not be in the future.
 1,0,0,1,1,1,1,//  TODO - don't select again here, as the selection is already performed to select the toolchain 
 1,0,1,1,1,1,1,//  TODO include link to documentation giving more explanation of what's going on here. 
@@ -32,13 +35,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,1,1,1,0,1,1,//  This looks ugly, very ugly, but that is apparently what Ant does itself 
 1,0,1,1,1,1,1,//  TODO - should be incremental 
 1,0,1,1,1,1,1,//  TODO: this is terrible 
-1,0,1,1,1,1,1,//  TODO: This should actually be a Routable message with a single handler,   but we need some way to correlate a given request with a specific response channel 
+1,0,1,0,1,1,1,//  TODO: This should actually be a Routable message with a single handler,   but we need some way to correlate a given request with a specific response channel 
 1,0,0,1,1,1,1,//  TODO - this is pretty nasty, look at avoiding using a time bomb stub here 
-1,0,0,0,1,1,1,// TODO:rbo Change the parameter type to `Transformer<String, @Nullable String>` once we migrate to Java 8
+1,0,0,0,0,0,0,// TODO:rbo Change the parameter type to `Transformer<String, @Nullable String>` once we migrate to Java 8
 1,0,1,1,1,1,1,// TODO - make this work on windows  originalIn.close();
 1,0,1,1,1,1,1,//  TODO better exception type 
 1,0,1,1,0,1,1,//  Note: This would be better housed in a scope that encapsulated the tree of Gradle objects. 
-1,0,0,0,0,0,0,// is it sane enough? 
 1,0,0,1,1,1,1,/*  * A {@link org.gradle.api.file.ConfigurableFileCollection} that can be used as a task input property. Caches the matching set of files during task execution, and discards the result after task execution. * * TODO - disallow further changes to this collection once task has started * TODO - keep the file entries to snapshot later, to avoid a stat on each file during snapshot  */
 1,0,1,1,1,1,1,//  TODO This class, DefaultBuildOperationQueue and ExecutionPlan have many of the same   behavior and concerns - we should look for a way to generalize this pattern. 
 1,0,0,0,0,0,0,// TODO:instant-execution: remove this 
@@ -46,7 +48,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  This isn't quite right, as we may lose precision when converting to a double 
 1,0,0,0,0,0,0,//  decimalFormat is not thread safe - synchronize access to the instance 
 1,0,1,1,1,1,1,//  TODO - wire this stuff in properly 
-1,0,1,0,1,1,1,//  TODO:ADAM - need to cleanup completion too, if not used 
+1,0,0,0,0,0,0,//  TODO:ADAM - need to cleanup completion too, if not used 
 1,0,1,1,1,1,1,//  TODO: Need to check for proper type/cast 
 1,0,1,1,1,1,1,//  TODO - should use a resolver so that this method is consistent with Project.uri(string) 
 1,0,1,1,1,1,1,//  TODO wolfs - schedule fingerprinting separately, it can be done without having the project lock 
@@ -56,17 +58,17 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: move bootclasspath to platform 
 1,0,1,1,1,1,1,//  TODO: This should be modeled as a source set 
 1,0,1,1,1,1,1,//  TODO - the project model should be reachable from ProjectState without another lookup 
-1,0,1,1,1,1,1,//  TODO: Locate this tool from a tool provider   hide main symbol 
+1,0,0,1,1,1,1,//  TODO: Locate this tool from a tool provider   hide main symbol 
 1,0,1,1,1,1,1,//  TODO: This prefix shouldn't be hardcoded 
-1,0,1,0,1,1,1,//  TODO:LPTR Remove projection for reference node   This shouldn't be needed, but if there's no actual value referenced, model report can only   show the type of the node if we do this for now. It should use the schema instead to find   the type of the property node instead. 
-1,0,0,0,1,1,1,//  TODO:ADAM - switch the logging back on. Need to make sending messages from daemon to client async wrt log event generation                  LOGGER.debug("Ignoring failure to extract throwable stack trace.", ignored); 
+1,0,1,0,0,0,0,//  TODO:LPTR Remove projection for reference node   This shouldn't be needed, but if there's no actual value referenced, model report can only   show the type of the node if we do this for now. It should use the schema instead to find   the type of the property node instead. 
+1,0,0,0,0,0,0,//  TODO:ADAM - switch the logging back on. Need to make sending messages from daemon to client async wrt log event generation                  LOGGER.debug("Ignoring failure to extract throwable stack trace.", ignored); 
 1,0,1,1,1,1,1,//  TODO: Need failure handling, e.g., cannot clone repository 
 1,0,1,1,1,1,1,//  TODO This should actually compare a SortedSet 
 1,0,1,1,1,1,1,//  TODO - validate that it's a valid model path 
-1,0,0,0,1,1,1,//  The visual C++ tools use the path to find other executables   TODO:ADAM - restrict this to the specific path for the target tool 
-1,0,0,0,1,1,1,//  TODO:pm Move this to WARN level once we fixed maven-publish, see gradle/gradle#1662 
-1,0,1,0,1,1,1,//  TODO:ADAM - This isn't quite right   MB: I think ^ refers to the first capable classloader loading the class. This could be different   from the loader which originally loaded it, which could pose equality and lifecycle issues. 
-1,0,1,0,1,1,1,//  TODO:Cedric This is an approximation: when a component wants to compile against the assembly of   a library (not the jar), then we should give it the *stubbed classes* instead of the raw classes. However:   - there's no such thing as a "stubbed classes assembly"   - for performance reasons only the classes that belong to the API are stubbed, so we would miss the classes that do not belong to the API   So this makes the UsageKind.API misleading (should this be COMPILE?).
+1,0,0,0,0,0,0,//  The visual C++ tools use the path to find other executables   TODO:ADAM - restrict this to the specific path for the target tool 
+1,0,0,0,0,0,0,//  TODO:pm Move this to WARN level once we fixed maven-publish, see gradle/gradle#1662 
+1,0,1,0,0,0,0,//  TODO:ADAM - This isn't quite right   MB: I think ^ refers to the first capable classloader loading the class. This could be different   from the loader which originally loaded it, which could pose equality and lifecycle issues. 
+1,0,1,0,0,0,0,//  TODO:Cedric This is an approximation: when a component wants to compile against the assembly of   a library (not the jar), then we should give it the *stubbed classes* instead of the raw classes. However:   - there's no such thing as a "stubbed classes assembly"   - for performance reasons only the classes that belong to the API are stubbed, so we would miss the classes that do not belong to the API   So this makes the UsageKind.API misleading (should this be COMPILE?).
 1,0,1,1,1,1,1,/*  * An _immutable_ view of the variant of a component. * * TODO - this should replace or merge into VariantResolveMetadata, OutgoingVariant, ConfigurationMetadata  */
 1,0,0,0,0,0,0,//  because it's a capability conflict resolution, there is only one candidate per module identifier   so we can be lenient wrt the version number used in the descriptor, which helps whenever the user   used the convenience "notation" method 
 1,0,1,1,1,1,1,//  TODO improve lookup by reusing AvailableJavaHomes testfixture   for now we play it safe and just return false; 
@@ -74,20 +76,20 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO removing this stuff from the store should be handled through some sort of decoration 
 1,0,1,1,1,1,1,//  TODO: fix the way we work out which exception is important: TaskExecutionException is not always the most helpful
 1,0,1,1,1,1,1,//  TODO: do we need any factories here? 
-1,0,1,0,1,1,1,//  TODO:HH This should be moved back into languageNative project 
+1,0,1,0,0,0,0,//  TODO:HH This should be moved back into languageNative project 
 1,0,1,1,1,1,1,//  TODO make this work with pending elements
 1,0,0,1,1,1,1,//  TODO: Ultimately, this should be some kind of 3rd party dependency that's visible to dependency management.
 1,0,1,1,1,1,1,//  TODO: These should come from somewhere else, probably 
 1,0,1,1,1,1,1,//  TODO: This should become smarter and move into the compiler infrastructure instead     of the task, similar to how the other native languages are done.     For now, this does a rudimentary incremental build analysis by looking at     which files changed . 
 1,0,0,0,1,1,1,/*  * A minimal resolver, which does not use any native services. Used during bootstrap only. You should generally use {@link FileResolver} instead. * * TODO - share more stuff with AbstractFileResolver.  */
 1,0,0,0,0,0,0,// a list instance is needed here, as org.gradle.internal.snapshot.ValueSnapshotter.processValue() does not support  serializing Iterators directly 
-1,0,0,0,1,1,1,//  TODO:lptr this should be added only if the scan plugin is applied, but SnapshotTaskInputsOperationIntegrationTest   TODO:lptr expects it to be added also when the build cache is enabled (but not the scan plugin) 
+1,0,0,0,0,0,0,//  TODO:lptr this should be added only if the scan plugin is applied, but SnapshotTaskInputsOperationIntegrationTest   TODO:lptr expects it to be added also when the build cache is enabled (but not the scan plugin) 
 1,0,1,1,1,1,1,//  TODO: We should set this for macOS, but this currently breaks XCTest support for Swift   when Swift depends on C++ libraries built by Gradle. 
-1,0,1,0,1,1,1,//  TODO:lptr When we drop Java 8 support we can switch to using ClassLoader.getName() instead of storing our own
+1,0,1,0,0,0,0,//  TODO:lptr When we drop Java 8 support we can switch to using ClassLoader.getName() instead of storing our own
 1,0,1,1,1,1,1,//  TODO: Provide an abstraction for accessing resources within the same module (maven-metadata, directory listing, etc)   That way we can avoid passing `ivyPatterns` and `artifactPatterns` around everywhere 
 1,0,0,0,0,0,0,//  TODO:instant-execution - remove kotlin predicate after updating the wrapper
 1,0,1,1,1,1,1,/*      * Closes the tooling API, releasing all resources. Blocks until completed.     *     * <p>May attempt to expire some or all daemons started by this tooling API client. The exact behaviour here is implementation-specific and not guaranteed.     * The expiration is best effort only. This method may return before the daemons have stopped.</p>     *     * <p>Note: this is not yet part of the public tooling API yet.</p>     *     * TODO - need to model this as a long running operation, and allow stdout, stderr and progress listener to be supplied.     * TODO - need to define exceptions.     * TODO - no further operations are allowed after this has been called     * TODO - cancel current operations or block until complete     * TODO - introduce a 'tooling API client' interface and move this method there      */
-1,0,0,1,1,1,1,//  TODO LD use something more stable than a cast here 
+1,0,1,1,1,1,1,//  TODO LD use something more stable than a cast here 
 1,0,1,1,1,1,1,//  TODO: Make this more intelligent by matching the attributes of the runtime usage on the variant identities 
 1,0,1,1,0,1,1,//  Workaround for backwards compatibility. Previously, this case would unintentionally cause the method to be invoked on the owner   continue below 
 1,0,1,1,1,1,1,//  TODO - capitalise the target name in the task name   TODO - don't create a launch target for a library 
@@ -101,7 +103,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,1,1,1,//  TODO: This exists because we detect all available native tool chains on a system (clang, gcc, swiftc, msvc).     Many of our old tests assume that available tool chains can compile many/most languages, so they do not try to   restrict the required set of tool chains.     The swiftc tool chain can build _only_ Swift, so tests that expect to use the swiftc tool chain properly annotate   their requirements with ToolChainRequirement.SWIFTC (or a version-specific requirement).     Our multi-test runner is smart enough to disable tests that do not meet the test's requirements, but since many   of the old tests do not have requirements, we assume the tests require a "C" like tool chain (GCC, Clang, MSVC).     In the future... we want to go back to old tests and annotate them with tool chains requirements.
 1,0,0,0,0,0,0,// we don't handle Variables at the moment because users didn't request it yet  and it would probably push us to add support in the tooling api to retrieve the variable mappings.
 1,0,1,1,1,1,1,//  TODO: VersionSelector should be more descriptive, so it can be directly translated 
-1,0,0,0,1,1,1,//  TODO:LPTR Should be a content-less @InputDirectory 
+1,0,0,0,0,0,0,//  TODO:LPTR Should be a content-less @InputDirectory 
 1,0,1,1,1,1,1,//  TODO Need a smarter way to map usage to artifact classifier 
 1,0,1,1,1,1,1,/*      * TODO once source compatibility is raised to 1.7, this should be rewritten using the java.nio.FileSystem API,     * which can deal with jars and folders the same way instead of duplicating code.      */
 1,0,1,1,1,1,1,//  TODO - better exception 
@@ -118,24 +120,26 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  TODO - reduce duplication with C++ binary 
 1,0,1,1,1,1,1,//  TODO: This should be more specific to just the tasks that create the class files? 
 1,0,1,1,1,1,1,//  TODO: we aren't considering the filter 
+1,0,0,1,0,1,1,//  Send a end-of-line. This is a workaround to convince the console that the cursor is at the start of the line to avoid indenting the next line of text that is displayed   It would be better for the console to listen for stuff read from stdin that would also be echoed to the output and update its state based on this
 1,0,0,1,1,1,1,//  TODO - exception when type cannot be created 
 1,0,0,1,1,1,1,//  TODO bind with the sourceCompatibility property   TODO link to runtime configuration ? 
 1,0,1,1,1,1,1,//  We track this as an input since the Scala compiler output may depend on it.   TODO: This should be replaced by a property in the Scala toolchain as soon as we model these. 
-1,0,0,0,1,1,1,//  TODO:LPTR Instead of the first view property, we should figure out these parameters from the actual property 
+1,0,0,0,0,0,0,//  TODO:LPTR Instead of the first view property, we should figure out these parameters from the actual property 
 1,0,1,1,1,1,1,//  TODO - DSL documentation? 
 1,0,1,1,1,1,1,//  TODO We can probably now support more versions with `strictly` but we'll need more test coverage 
 1,0,1,1,1,1,1,//  TODO: move this to ObjectFactory 
 1,0,0,0,0,0,0,// there are some exceptions attached to the suite. Let's make sure they are reported to the user.  this may happen for example when suite initialisation fails and no tests are executed 
-1,0,0,1,1,1,1,//  TODO: Does a static library have runtime elements? 
-1,0,0,0,1,1,1,//  TODO:LPTR This ignores changes to Project.buildDir after model node has been created
-1,0,1,0,1,1,1,//  TODO:LPTR Remove projection for reference node   This shouldn't be needed, but if there's no actual value referenced, model report can only   show the type of the node if we do this for now. It should use the schema instead to find 
-1,0,1,1,1,1,1,//  TODO: what if this errors? 
+1,0,1,1,1,1,1,//  TODO: Does a static library have runtime elements? 
+1,0,0,0,0,0,0,//  TODO:LPTR This ignores changes to Project.buildDir after model node has been created
+1,0,1,0,0,0,0,//  TODO:LPTR Remove projection for reference node   This shouldn't be needed, but if there's no actual value referenced, model report can only   show the type of the node if we do this for now. It should use the schema instead to find 
+1,0,0,1,1,1,1,//  TODO: what if this errors? 
 1,0,0,0,0,0,0,//  TODO:instant-execution - remove this 
 1,0,1,1,1,1,1,//  TODO: remove this special case 
 1,0,1,0,0,0,0,//  Need to move those implicit JVM args that contain a space to the Gradle command-line (if possible)   Note that this isn't strictly correct as some system properties can only be set on JVM start up.   Should change the implementation to deal with these properly
 1,0,1,0,0,0,0,//  Doesn't really make sense 
-1,0,1,0,0,0,0,// "type-only model reference of type '%s'%s is ambiguous as multiple model elements are available for this type:%n  %s (created by %s)%n  %s (created by %s)",
+1,0,0,0,0,0,0,// "type-only model reference of type '%s'%s is ambiguous as multiple model elements are available for this type:%n  %s (created by %s)%n  %s (created by %s)",
 1,0,0,1,1,1,1,//  TODO - exceptions thrown here should point to some extensive documentation on the concept of class rule sources 
+1,0,1,1,0,1,1,// (SF) this is a workaround until this story is completed. I'm hardcoding setting the idle timeout to be max X mins.  this way we avoid potential runaway daemons that steal resources on linux and break builds on windows.
 1,0,1,1,1,1,1,//  TODO - move this to a base plugin   Setup the dependency on the main binary   This should all be replaced by a single dependency that points at some "testable" variants of the main binary 
 1,0,0,1,1,1,1,//  TODO - should we support this?   Adds a void $propName(Object value) method that simply delegates to the converting setter method 
 1,0,1,1,1,1,1,//  TODO: Send a message to workers to change their log level rather than stopping 
@@ -143,17 +147,18 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO - visit the contents of this collection instead.   This is just a super simple implementation for now 
 1,0,1,1,1,1,1,//  TODO We should get rid of this reflection (will need to reimplement the parser to act on the metadata directly) 
 1,0,1,1,1,1,1,//  TODO: do we want to keep using SourceDirectorySet in the new API?   would feel more natural if dirs could be added directly to LanguageSourceSet   could also think about extending SourceDirectorySet 
-1,0,0,0,1,1,1,//  TODO:LPTR This should be removed once BinaryContainer is a ModelMap   We need to also implement all the interfaces of the delegate type because otherwise   BinaryContainer won't recognize managed binaries as BinarySpecInternal
+1,0,0,0,0,0,0,//  TODO:LPTR This should be removed once BinaryContainer is a ModelMap   We need to also implement all the interfaces of the delegate type because otherwise   BinaryContainer won't recognize managed binaries as BinarySpecInternal
 1,0,1,1,1,1,1,//  todo - stream serialised value to file   todo - handle hash collisions (properly, this time)   todo - don't store null links to child blocks in leaf index blocks   todo - align block boundaries   todo - thread safety control   todo - merge small values into a single data block   todo - discard when file corrupt   todo - include data directly in index entry when serializer can guarantee small fixed sized data   todo - free list leaks disk space   todo - merge adjacent free blocks   todo - use more efficient lookup for free block with nearest size 
+1,0,1,1,0,1,1,//  This is a workaround for https://issues.gradle.org/browse/GRADLE-3324.   Somehow the ArrayList 'result' in `org.sonatype.aether.impl.internal.Utils#sortMetadataGeneratorFactories` ends up   being a list of nulls on windows and IBM's 1.6 JDK.
 1,0,1,1,1,1,1,//  TODO - binaries aren't an input to this rule, they're an input to the action 
 1,0,0,0,0,0,0,/*  * Specifies how to build and where to place a native executable file. * * <p>TODO:HH resolve naming conflict with existing NativeExecutableSpec</p>  */
 1,0,0,0,0,0,0,//  This should be replaced by some stronger modelling and made open rather than hardcoding a set of source languages here 
 1,0,1,1,0,1,1,//  We moved the API back into internal, so this isn't really correct. 
 1,0,1,1,1,1,1,//  TODO - refactor this action out so it can be unit tested 
 1,0,0,1,1,1,1,//  TODO - error if there are unknowns? 
-1,0,0,0,1,1,1,//  TODO:ADAM - using a UUID means we create a ClassLoader hierarchy for each daemon process we talk to. Instead, use the spec to decide whether to reuse a ClassLoader 
+1,0,0,0,0,0,0,//  TODO:ADAM - using a UUID means we create a ClassLoader hierarchy for each daemon process we talk to. Instead, use the spec to decide whether to reuse a ClassLoader 
 1,0,0,1,1,1,1,//  TODO - should supply and check for the same parameters as passed to reserveNewClient() 
-1,0,0,1,1,1,1,//  TODO - should use the _install_ task for an executable 
+1,0,1,1,1,1,1,//  TODO - should use the _install_ task for an executable 
 1,0,0,0,0,0,0,//  Implement this if you need to specify individual toolchains via "org.gradle.integtest.versions" 
 1,0,1,1,1,1,1,//  todo annotate as required 
 1,0,1,1,1,1,1,//  TODO: CC cannot enable this assertion because moduleSource is not serialized, so doesn't appear in the deserialized form  assert metadata.equals(forceRead);
@@ -161,13 +166,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  production code should handle these exceptions more gracefully 
 1,0,1,1,1,1,1,//  TODO - this isn't quite right 
 1,0,1,0,0,0,0,//  The isEmpty check is not required, might look innocent, but Guava's performance bad for an empty immutable list   because it still creates an inner class for an iterator, which delegates to an Array iterator, which does... nothing.   so just adding this check has a significant impact because most components do not declare any capability 
+1,0,1,1,1,1,1,//  TODO we are relying on the registration having established these links, we should be checking
 1,0,1,0,1,1,1,// TODO SF add quotes to both formats (there will be *lots* of tests failing so I'm not sure if it is worth it). 
-1,0,1,0,1,1,1,//  TODO(ew): Consider whether this belongs in BuildProgressArea or here 
+1,0,0,0,0,0,0,//  TODO(ew): Consider whether this belongs in BuildProgressArea or here 
 1,0,1,1,1,1,1,//  TODO It would be better if these were added via a separate managed view, rather than hard coded. 
 1,0,0,0,0,0,0,//  Shouldn't really be here. Currently this goal is used by {@link #bindAllReferences} which also expects the subject to be bound 
 1,0,0,0,0,0,0,//  This doesn't work.   It used to because at the bottom of the hierarchy chain the object implemented methodMissing().   However, our normal “decorated” classes do not do this so it is not realistic. 
 1,0,1,0,1,1,1,//  TODO: This returns the wrong public type for domain objects   created with the eager APIs or added directly to the container.   This can leak internal types.   We do not currently keep track of the type used when creating   a domain object (via create) or the type of the container when   a domain object is added directly (via add). 
-1,0,1,0,1,1,1,//  TODO:LPTR What happens when the property has multiple accessors in the same role but with different type? 
+1,0,0,0,0,0,0,//  TODO:LPTR What happens when the property has multiple accessors in the same role but with different type? 
 1,0,1,1,1,1,1,//  TODO: Should not be ignoring DEPENDENCY_ATTRIBUTE modifications after resolve
 1,0,1,1,1,1,1,// TODO this should be a container of platforms 
 1,1,1,1,1,1,1,/*      * TODO - hack to avoid classloading issues. We should use org.gradle.util.TextUtil     *     * Currently we can't use it reliably because it causes CNF issues with cross version integration tests running against tooling api < 1.3.      */
@@ -180,17 +186,20 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO this class attempts to mimic the behavior of the output of mvn help:effective-pom  instead of this class we should walk the maven project object model (instead of parsing the xml!)
 1,0,0,0,0,0,0,/*      * we have a name foo.bar and an import foo.foo. This means foo.bar is possibly     * foo.foo.bar rather than foo.bar. This means to cut at the dot in foo.bar and     * foo for import      */
 1,0,1,1,1,1,1,//  TODO - remove this once the above is removed 
+1,0,1,1,0,1,1,//  This is a workaround for https://github.com/gradle/gradle-private/issues/1690
 1,0,1,1,1,1,1,/*  * TODO only here because Kotlin DSL uses this. Please remove once that is fixed.  */
 1,0,0,0,0,0,0,//  Hold the lock while creating the connection. Not generally good form.   In this instance, blocks other threads from creating the connection at the same time 
 1,0,1,0,0,0,0,//  Currently retains strong references to types that are not loaded using a VisitableURLClassLoader   This is fine for JVM types, but a problem when a custom ClassLoader is used (which should probably be deprecated instead of supported) 
 1,0,0,0,0,0,0,// We might fail hard here on the assumption that something weird happened to the daemon.  However, since we haven't yet started running the build, we can recover by just trying again... 
 1,0,1,1,1,1,1,//  todo: improve configuration of reports 
+1,0,1,1,1,1,1,//  TODO: Fix tests that rely on this being set before we process arguments like this...
 1,0,1,1,1,1,1,//  TODO: turn into Set? 
 1,0,0,0,0,0,0,/*             There's a potential problem here in that DisconnectableInputStream reads from input in the background.            This won't automatically stop when the process is over. Therefore, if input is not closed then this thread            will run forever. It would be better to ensure that this thread stops when the process does.          */
 1,0,1,0,1,1,1,//  TODO - need to do a better job of routing messages when there are multiple endpoints. This is just going to forward all queued messages to the first   waiting endpoint, even if there are multiple waiting to do work 
 1,0,1,1,1,1,1,//  Create test suite component   TODO - Reuse logic from Swift*Plugin   TODO - component name and extension name aren't the same   TODO - should use `src/xctest/swift` as the convention?   Add the test suite and extension 
 1,0,0,0,0,0,0,//  Do not use this. It's here because some of the services this type needs are not easily accessed in certain cases and will be removed ay some point. Use one of the other methods instead 
-1,0,0,1,0,1,1,//  Workaround for when the task is given an input file that doesn't exist
+1,0,1,1,1,1,1,//  TODO: should validate that clazz is of a non parameterized type
+1,0,1,1,0,1,1,//  Workaround for when the task is given an input file that doesn't exist
 1,0,1,1,1,1,1,//  TODO: Figure out how to get rid of origin scope id in snapshot outputs step 
 1,0,0,0,0,0,0,//  get rid of the ivy [] token, as [ ] are not valid URI characters 
 1,0,1,1,1,1,1,//  todo remove this property once configuration can handle normal file system dependencies 
@@ -212,10 +221,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: use Twirl library instead? 
 1,0,0,0,0,0,0,//  DO NOT USE THIS CONSTRUCTOR DIRECTLY   It's only there for backwards compatibility with the Nebula plugin 
 1,0,1,0,0,0,0,//  Groovy does something very strange here.   For some reason (probably because the class is Java), it won't employ any dynamism.   Even implementing invokeMethod at the Java level has no effect. 
+1,0,0,0,1,1,1,//  TODO: We should see if we can go back to using HttpClient again.   This implementation is borrowed from the Apache HttpClient project   https://github.com/apache/httpclient/blob/4.2.2/httpclient/src/main/java/org/apache/http/conn/ssl/SSLSocketFactory.java#L246-L354
 1,0,1,1,1,1,1,//  TODO Change to Set? 
-1,0,0,1,1,1,1,//  TODO(daniel): Should support in a better way multi file invocation.   Override this method to have multi file invocation 
+1,0,0,1,0,1,1,//  TODO(daniel): Should support in a better way multi file invocation.   Override this method to have multi file invocation 
 1,0,1,1,1,1,1,//  @Todo: refactor this task configuration to extend a copy task and use replace tokens 
-1,0,0,0,1,1,1,//  TODO:REUSE Refactor after removing reuse   This is horrendously bad.   We need to set the platform, _before_ the @Defaults rules of NativeBinaryRules assign the toolchain.   We can't just assign the toolchain here because the initializer would be closing over the toolchain which is not reusable, and this breaks model reuse.   So here we are just closing over the safely reusable things and then using proper dependencies for the tool chain registry.   Unfortunately, we can't do it in the create action because that would fire _after_ @Defaults rules.   We have to use a @Defaults rule to assign the tool chain because it needs to be there in user @Mutate rules   Or at least, the file locations do so that they can be tweaked.   LD - 5/6/14 
+1,0,0,0,0,0,0,//  TODO:REUSE Refactor after removing reuse   This is horrendously bad.   We need to set the platform, _before_ the @Defaults rules of NativeBinaryRules assign the toolchain.   We can't just assign the toolchain here because the initializer would be closing over the toolchain which is not reusable, and this breaks model reuse.   So here we are just closing over the safely reusable things and then using proper dependencies for the tool chain registry.   Unfortunately, we can't do it in the create action because that would fire _after_ @Defaults rules.   We have to use a @Defaults rule to assign the tool chain because it needs to be there in user @Mutate rules   Or at least, the file locations do so that they can be tweaked.   LD - 5/6/14 
 1,0,0,0,0,0,0,//  Check enum equality without checking loading ClassLoader.   There is a slight risk that two versions of the same enum class are compared,   (that's why classloaders are used in equality checks), but checking both name   and ordinal should make this very unlikely. 
 1,0,1,1,1,1,1,// TODO version - could be different from main artifact's version 
 1,0,0,0,0,0,0,//  Should really be a parameter to the 'withContent' methods or baked into the accessor 
@@ -229,7 +239,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: this doesn't quite guarantee immutability, because the source may be holding closures that are doing god knows what 
 1,0,1,1,1,1,1,//  TODO: Get rid of destinationDirectory entirely and replace it with a   collection of link outputs 
 1,0,1,1,1,1,1,//  TODO: Migrate this to the worker API once the FileSystem and FileOperations services can be injected
-1,0,0,0,1,1,1,//  TODO:LPTR Have the paths of the projects serve as @Input maybe? 
+1,0,0,0,0,0,0,//  TODO:LPTR Have the paths of the projects serve as @Input maybe? 
 1,0,1,0,0,0,0,//  This could be handled, just not implemented yet 
 1,0,1,1,1,1,1,//  TODO: Wrong, using the full classpath of the application
 1,0,1,0,0,0,0,//  this is not very beautiful but at some point we will   get rid of ArchiveOutputStreamFactory in favor of the writable Resource 
@@ -240,30 +250,33 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO should include some context on what the rule was trying to do (create vs. mutate) 
 1,0,1,1,1,1,1,//  TODO: Get this from somewhere else? 
 1,0,1,0,0,0,0,//  This is here to trigger creation of the ShutdownCoordinator. Could do this in a nicer way 
-1,0,0,0,1,1,1,//  TODO:pm Move this to RunAsBuildOperationBuildActionRunner when BuildOperationWorkerRegistry scope is changed 
+1,0,0,0,0,0,0,//  TODO:pm Move this to RunAsBuildOperationBuildActionRunner when BuildOperationWorkerRegistry scope is changed 
 1,0,1,1,1,1,1,// TODO - outputEventListener and buildStandardInput are per-build settings  so down the road we should refactor the code accordingly and potentially attach them to BuildActionParameters 
+1,0,1,1,1,1,1,/*  * Exposes methods for those properties whose value is a closure. * * TODO: use composition instead of inheritance  */
 1,0,0,1,1,1,1,//  Platform specific arguments   TODO: Need to lazily configure compile task
 1,0,0,0,0,0,0,//  If this occurs while running gradle or running integration tests, it is indicative of a problem.   If this occurs while running unit tests, then either use the NativeServicesTestFixture or the '@UsesNativeServices' annotation. 
 1,0,1,1,0,1,1,//  Ugly, but there are a few places where we need to instantiate a JavaDebugOptions and a regular ObjectFactory service   is not available. 
 1,0,0,0,1,1,1,// TODO adding the parent project first because the converter needs it this way ATM. This is oversimplified.  the converter should not depend on the order of reactor projects.  we should add coverage for nested multi-project builds with multiple parents. 
 1,0,0,0,0,0,0,//  there's a possibility that this listener is called concurrently with   the build finished listener. If the message happens to be a graceful expire   one, then there's a large risk that we create a deadlock, because we're trying to   remove the same listener from 2 different notifications. To avoid this, we just   set the reference to null, which says that we're taking care of removing the listener
 1,0,1,1,1,1,1,//  TODO: Need to track version/implementation of ar tool.
+1,0,1,1,0,1,1,//  This is copied from Ant (see org.apache.tools.ant.util.FileUtils.tryHardToDelete).   It mentions that there is a bug in the Windows JDK impls that this is a valid   workaround for. I've been unable to find a definitive reference to this bug.   The thinking is that if this is good enough for Ant, it's good enough for us.
 1,0,1,1,1,1,1,//  TODO Change this to only add SWIFT_API artifacts and instead parse modulemaps to discover compile task inputs
 1,0,0,0,0,0,0,//  Rough implementation to get something to work 
+1,0,1,1,1,1,1,//  TODO: remove these special cases
 1,0,1,1,1,1,1,//  TODO: This is not a great paradigm for creating a temporary directory.   See http://guava-libraries.googlecode.com/svn/tags/release08/javadoc/com/google/common/io/Files.html#createTempDir%28%29 for an alternative. 
 1,0,1,1,1,1,1,//  TODO: This should be part of the cached result? 
 1,0,1,0,0,0,0,//  Implementation is currently dumb, can be made smarter 
-1,0,1,1,1,1,1,//  TODO:RBO Clarify what it means and what's possible to do with it.   TODO:RBO E.g. Can the return value always be used to resolve back to the identified component? If so, how?   TODO:RBO Wouldn't it be better to define a proper type for project/model paths?
-1,0,0,1,1,1,1,//  TODO: This can throw a NPE: will need an identifier for a variant without an owning component 
+1,0,1,1,0,1,1,//  TODO:RBO Clarify what it means and what's possible to do with it.   TODO:RBO E.g. Can the return value always be used to resolve back to the identified component? If so, how?   TODO:RBO Wouldn't it be better to define a proper type for project/model paths?
+1,0,1,1,1,1,1,//  TODO: This can throw a NPE: will need an identifier for a variant without an owning component 
 1,0,1,0,0,0,0,//  This implementation is broken. It does not consider include and exclude patterns 
 1,0,0,1,1,1,1,//  TODO LJA Using the root as the NodeState here is a bit of a cheat, investigate if we can track the proper NodeState 
-1,0,0,0,1,1,1,/*      * Produces an ArtifactIdentifier for this artifact (it's not actually an identifier - just a bucket of attributes).     * TODO:ADAM - remove this      */
+1,0,0,0,0,0,0,/*      * Produces an ArtifactIdentifier for this artifact (it's not actually an identifier - just a bucket of attributes).     * TODO:ADAM - remove this      */
 1,0,0,1,1,1,1,//  TODO - property order needs to be deterministic across JVM invocations, i.e. sort the properties by name
-1,0,1,0,1,1,1,//  TODO - this will leave invalid types in the cache when it fails 
+1,0,0,0,1,1,1,//  TODO - this will leave invalid types in the cache when it fails 
 1,0,0,0,0,0,0,//  Should repositories be able to participate in incremental?   At the least, they may be able to express themselves as output files   They *might* have input files and other dependencies as well though   Inputs: The credentials they need may be expressed in a file   Dependencies: Can't think of a case here 
 1,0,1,1,1,1,1,//  TODO - have to do much better here 
 1,0,1,1,1,1,1,//  TODO: these should be moved off to a separate type
-1,0,0,0,1,1,1,//  TODO:LPTR This should be @Defaults @Each PlayApplicationBinarySpecInternal 
+1,0,0,0,0,0,0,//  TODO:LPTR This should be @Defaults @Each PlayApplicationBinarySpecInternal 
 1,0,1,1,1,1,1,//  TODO we should refactor this to general, compatibility mapping solution, as we have it for model loading. See HasCompatibilityMapping class. 
 1,0,0,0,0,0,0,//  This is a heuristic, more than truth: it is possible that the 2 long hashs   are identical AND that the sizes of collections are identical, but it's   extremely unlikely (never happened on test cases even on large dependency graph) 
 1,0,0,0,0,0,0,//  failing, seems to be that set method override doesn't work for iterables - GRADLE-2097  assertThat(call("{ bean, list -> bean.things(list) }", bean, new LinkedList<Object>()), nullValue());  assertThat(bean.getThings().size(), equalTo(0)); 
@@ -271,16 +284,17 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  TODO return a richer data structure that provides meta data about how the source was found, for use is diagnostics 
 1,0,0,0,0,0,0,//  The configuration has been used in a resolution, and it is an error for build logic to change any dependencies,   exclude rules or parent configurations (values that will affect the resolved graph).
 1,0,0,0,0,0,0,//  This method is sometimes called directly (i.e. not via an operation executor).   In these cases, the context is null. 
-1,0,0,0,1,1,1,//  TODO:LPTR What is with the "metaClass" property here? 
+1,0,0,0,0,0,0,//  TODO:LPTR What is with the "metaClass" property here? 
 1,0,1,1,1,1,1,//  TODO this doesn't belong here, that java plugin should add an extension to this guy with this 
 1,0,1,1,0,1,1,//  need to make this better 
+1,0,1,1,1,1,1,//  TODO: maybe we need to allow additional dirs like SourceSetOutput does   (esp. for backwards compatibility). Wonder if it's still necessary to distinguish   between classes and resources dirs, instead of just maintaining a collection of dirs.   As far as generated resources are concerned, it might be better to model   them as an additional (Buildable) ResourceSet.
 1,0,1,1,0,1,1,//  workaround for bug in TestNG 6.2 (apparently fixed in some 6.3.x): listener is notified twice per event 
 1,0,0,1,1,1,1,//  TODO: This isn't correct. This means that we've detected a cycle while determining the execution plan, but the graph walker did not find one.   https://github.com/gradle/gradle/issues/2293 
-1,0,0,0,1,1,1,//  TODO:Cedric The following validation should in theory happen in its own rule, but it is not possible now because   there's no way to iterate on the map as subject of a `@Validate` rule without Gradle thinking you're trying to mutate it
+1,0,0,0,0,0,0,//  TODO:Cedric The following validation should in theory happen in its own rule, but it is not possible now because   there's no way to iterate on the map as subject of a `@Validate` rule without Gradle thinking you're trying to mutate it
 1,0,1,1,1,1,1,// TODO: Simplify this class by busting it up into a locator for legacy SDKs and locator(s) for Windows 8 kits 
 1,0,1,1,1,1,1,//  TODO - this is all terribly lame. We need some proper reporting here (which means implementing Reporting). 
 1,0,1,1,1,1,1,//  TODO - implement these cases 
-1,0,0,0,1,1,1,//  TODO(daniel): Swift compiler should extends from an abstraction of NativeCompiler (most of it applies to SwiftCompiler) 
+1,0,0,0,0,0,0,//  TODO(daniel): Swift compiler should extends from an abstraction of NativeCompiler (most of it applies to SwiftCompiler) 
 1,0,1,1,1,1,1,//  TODO: should use target platform to make this decision 
 1,0,1,1,1,1,1,//  TODO There should be a more explicit way to execute an action against existing services 
 1,0,0,0,0,0,0,//  Have an unprocessed/new selector for this module. Need to re-select the target version. 
@@ -288,11 +302,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// TODO:instant-execution - use the class generator instead 
 1,0,1,1,1,1,1,//  TODO - implement this by moving this resolver to live alongside the external resolvers 
 1,0,1,0,1,1,1,//  TODO This should use the same `MutationValidator` infrastructure that we use for other mutation types 
-1,0,0,0,0,0,0,//  Is the cached version still current? 
 1,0,1,0,1,1,1,//  TODO: we should just cache these classloaders and eject/stop them when they are no longer in use 
 1,0,0,1,1,1,1,//  TODO - should be >= self closed 
-1,0,0,0,1,1,1,//  TODO:LPTR We should collect all source sets in the project source set, however this messes up ComponentReportRenderer 
-1,0,1,1,1,1,1,//  TODO Only log expired workers count, log their "identity" once they are nameable/describable 
+1,0,0,0,0,0,0,//  TODO:LPTR We should collect all source sets in the project source set, however this messes up ComponentReportRenderer 
+1,0,0,1,1,1,1,//  TODO Only log expired workers count, log their "identity" once they are nameable/describable 
 1,0,1,1,1,1,1,//  TODO This is not nice: work out a better way to collect the plugin requests from invoking the plugins block. 
 1,0,1,1,1,1,1,//  TODO This is a brain-dead way to ensure that the reference project's model is ready to access 
 1,0,1,0,1,1,1,//  TODO - this is not quite right, eg given *,!A->A;*,!B->B the result should be B->A and A->B but will in fact be B-> and A-> 
@@ -302,9 +315,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,0,1,1,//  Simulate a stuck worker. There's probably a way to inject this failure... 
 1,0,1,1,1,1,1,//  TODO - this should be an outgoing variant of the component under test 
 1,0,1,1,1,1,1,//  Add an install task   TODO - should probably not add this for all executables? 
-1,0,0,1,1,1,1,//  TODO:lptr why don't we check runningNodes here like we do in hasNodesRemaining()? 
+1,0,1,1,0,1,1,//  TODO:lptr why don't we check runningNodes here like we do in hasNodesRemaining()? 
 1,0,1,1,1,1,1,//  Dumb terminal doesn't support ANSI control codes.   TODO - remove this when we use Terminal rather than JAnsi to render to console 
+1,0,0,1,0,1,1,//  This is a workaround for https://github.com/gradle/gradle/issues/4241   Several early typed operations have `buildPath` property,   the value of which can only be determined after the settings file for the build has loaded.     The workaround is to buffer all operation notifications in memory until the root build's settings have loaded.   This works because all possible settings files have been evaluated by the time the root one has been.   This is not guaranteed to hold into the future.   A proper solution would be to change the operation details/results to be   truly immutable and convey values known at the time.
 1,0,1,1,1,1,1,/*  * An amount is an immutable value of some quantity, such as duration or length. Each amount has a decimal value and associated units. * * TODO - need to sort out scaling when dividing or converting between units.  */
+1,0,1,1,1,1,1,//  TODO - move this to PropertyValue instead
 0,0,0,0,0,0,0,//  Trailing slash in name indicates that entry is a directory 
 0,0,0,0,0,0,0,//  allow organisation synonyms, like 'org' or 'organization' 
 0,0,0,0,0,0,0,//  No include expression, ignore 
@@ -347,7 +362,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Sort source files to work around https://issues.apache.org/jira/browse/GROOVY-7966 
 0,0,0,0,0,0,0,//  No macro includes were seen in the include graph of this file, so the result can be reused if this file is seen again 
 0,0,0,0,0,0,0,//  Use an injected ObjectFactory to create a Server object 
-0,0,0,0,1,1,1,//  TODO:ADAM - switch the logging back on.                  LOGGER.debug("Ignoring failure to extract throwable cause.", ignored);
+0,0,0,0,0,0,0,//  TODO:ADAM - switch the logging back on.                  LOGGER.debug("Ignoring failure to extract throwable cause.", ignored);
 0,0,0,0,0,0,0,//  On Windows, / and \ are separators, on Unix only / is a separator. 
 0,0,0,0,0,0,0,//  Discard the body when the expression is not resolvable 
 0,0,0,0,0,0,0,//  GROOVY-4043: Do this check up the hierarchy, if needed 
@@ -357,7 +372,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,1,1,1,1,//  TODO - all this matching stuff is constant for a given DependencyMetadata instance
 0,0,0,0,0,0,0,//  -----------------------------------------------   ---- Delegate CopySpec methods to rootSpec ----   ----------------------------------------------- 
 0,0,0,0,0,0,0,//  Matches: task <identifier> <closure> 
-0,0,1,1,1,1,1,// TODO move to base-services once the ProgressLogger dependency is removed
 0,0,0,0,0,0,0,//  Only for relative positioning 
 0,0,0,0,0,0,0,//  Capture changes in execution outcome 
 0,0,0,0,0,0,0,//  Mark this listener type as being notified 
@@ -368,7 +382,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  since we have B and want to get A we start with the most   outer class, put them together and then see if that does   already exist. In case of B from within A$B we are done   after the first step already. In case of for example   A.B.C.D.E.F and accessing E from F we test A$E=failed,   A$B$E=failed, A$B$C$E=fail, A$B$C$D$E=success 
 0,0,0,0,0,0,0,//  not supported by javax.xml.transform.Transformer; use two spaces instead 
 0,0,0,0,0,0,0,//  Short circuit logic when only 2 candidates 
-0,0,0,0,0,0,0,//  In a similar way to Ivy, Maven may use other hosts for additional artifacts, but not POMs 
+0,0,1,0,0,0,0,//  In a similar way to Ivy, Maven may use other hosts for additional artifacts, but not POMs 
 0,0,0,1,1,1,1,//  TODO get normal resolving to set declaring class
 0,0,0,0,0,0,0,//  copy in case any actions mutate the store 
 0,0,0,0,0,0,0,//  we would normally log at a lower level than lifecycle, but the Ant message priority is actually higher   than (or equal to) the set lifecycle log level 
@@ -444,7 +458,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// prefix internal fields with _ so that they don't get into the way of propertyMissing() 
 0,0,1,1,1,1,1,//  TODO validate that the plugin accepts this kind of argument
 0,0,0,0,0,0,0,//  We must be on some Unix variant, including Cygwin or MSYS(2) on Windows... 
-0,0,0,0,1,1,1,//  TODO(ew): inject BuildOperationIdentifierRegistry instead of static use 
 0,0,0,0,0,0,0,//  Guard against TestNG calling this hook more than once with the same testClass.   See https://github.com/cbeust/testng/issues/1618 for details. 
 0,0,0,0,0,0,0,//  Parallel configuration 
 0,0,1,0,0,0,0,//  Should not reach this point as this is validated in the test framework implementation - just propagate the failure 
@@ -537,7 +550,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Mixed case 
 0,0,0,0,0,0,0,//  Always expand empty node 
 0,0,0,0,0,0,0,//  A dependency artifact will be defined if the descriptor specified a classifier or non-default type attribute. 
-0,0,1,0,1,1,1,//  TODO(ew): Consider whether this belongs in Console or here 
 0,0,0,0,0,0,0,//  stream has been closed, don't bother reading anything else 
 0,0,0,0,0,0,0,//  only care about HTTP hosts right now 
 0,0,0,0,0,0,0,//  Call return new <implClass>(param1) 
@@ -551,7 +563,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Transient, don't serialize all the views that happen to have been visited, recreate them when visited via the deserialized view 
 0,0,0,0,0,0,0,//  some implementation uses null to represent bootstrap classloader   i.e. Object.class.getClassLoader()==null 
 0,0,0,0,0,0,0,//  TaskListenerInternal 
-0,0,0,0,0,0,0,//  Ignore. Currently the actions don't need to run, it's just better if they do   By the time this node is notified that the task in the other build has completed, it's too late to run the action   Instead, the action should be attached to the task in the other build rather than here 
+0,0,1,0,0,0,0,//  Ignore. Currently the actions don't need to run, it's just better if they do   By the time this node is notified that the task in the other build has completed, it's too late to run the action   Instead, the action should be attached to the task in the other build rather than here 
 0,0,0,0,0,0,0,//  Here, we will distribute A ∩ (B ∪ C) if, and only if, at   least one of the distribution operations (A ∩ B) can be simplified 
 0,0,0,0,0,0,0,//  Find the nearest parent up that we care about and use that as the parent. 
 0,0,0,0,0,0,0,//  When the outputs are generated, throw away all state for files that do not live in an append-only cache.   This is intentionally very simple, to be improved later 
@@ -614,7 +626,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,1,1,1,1,//  TODO - deal with more than one directory
 0,0,0,0,0,0,0,//  private member: implementation details 
 0,0,0,0,0,0,0,//  Don't inline the Groovy jar as the Groovy “tools locator” searches for it by name 
-0,0,0,0,1,1,1,//  TODO:ADAM - switch the logging back on.                  LOGGER.debug("Ignoring failure to serialize throwable.", ignored);
+0,0,0,0,0,0,0,//  TODO:ADAM - switch the logging back on.                  LOGGER.debug("Ignoring failure to serialize throwable.", ignored);
 0,0,0,0,0,0,0,//  min chunk size 4kB, max size 1MB 
 0,0,0,0,0,0,0,// for updates to private JDK caches of the environment state 
 0,0,0,0,0,0,0,//  Set the system properties and use this process 
@@ -650,6 +662,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,1,1,1,1,//  TODO: Honor changes to build directory 
 0,0,0,0,0,0,0,//  the target component exists, so we need to fallback to the traditional selection process 
 0,0,0,0,0,0,0,//  happens when dispatching to taskdef via createNode() 
+0,0,0,0,0,0,0,// is it sane enough?
 0,0,0,0,0,0,0,//  Retain strong references to the values created for this session 
 0,0,0,0,0,0,0,//  Configure test binary to compile against binary under test 
 0,0,0,0,0,0,0,//  If this task uses a pre-compiled header 
@@ -666,7 +679,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Wrap in generic 'build failed' cross version exception 
 0,0,0,0,0,0,0,//  Otherwise, macro or macro function call 
 0,0,0,0,0,0,0,//  can't be equal otherwise wouldn't have been collected 
-0,0,0,1,1,1,1,//  TODO: Reuse more of BuildActionsFactory
+0,0,1,1,1,1,1,//  TODO: Reuse more of BuildActionsFactory
 0,0,0,0,0,0,0,//  Configure test binary to link against tested component compiled objects 
 0,0,0,0,0,0,0,//  Use writeFile because the cache can internally recover from datafile   corruption, so we don't care at this level if it's corrupt 
 0,0,0,0,0,0,0,//  Exit value is unreliable for determination of process failure. 
@@ -845,7 +858,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  triggering file resolve 
 0,0,0,0,0,0,0,//  only an input for other task instances 
 0,0,0,0,0,0,0,//  Wrap in a <span>, to work around CSS problem in IE 
-0,0,1,1,0,1,1,//  Collect a map from component to its owning component. This might be better to move to the component or some publications model 
+0,0,0,1,0,1,1,//  Collect a map from component to its owning component. This might be better to move to the component or some publications model 
 0,0,0,0,0,0,0,//  Can use arg without conversion 
 0,0,0,0,0,0,0,//  super class not on the classpath - unable to scan parent class 
 0,0,0,0,0,0,0,//  Get the next page, in the next iteration of this loop. 
@@ -899,7 +912,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  GENERATE getAsDynamicObject().setProperty(name, value) 
 0,0,0,0,0,0,0,//  attributes. 
 0,0,0,0,0,0,0,// assertThat(call("{ bean -> bean.things([1,2,3]) }", bean), nullValue());  assertThat(bean.getThings().size(), equalTo(3)); 
-0,0,1,0,1,1,1,//  TODO:LPTR This should be like @Finalize void generatedSourcesAreInputs(@Each PlayApplicationBinarySpecInternal binary) 
+0,0,0,0,0,0,0,//  TODO:LPTR This should be like @Finalize void generatedSourcesAreInputs(@Each PlayApplicationBinarySpecInternal binary) 
 0,0,0,0,0,0,0,//  It is okay to have redundant generated 'is'-getters 
 0,0,0,0,0,0,0,/*      * This inner class hides the fact that the actual de-duplication algorithm is stateful.      */
 0,0,0,0,0,0,0,// we're spinning a thread to do work to avoid blocking the connection  This means that the Daemon potentially can do multiple things but we only allows a single build at a time 
@@ -963,7 +976,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Need to compile all secondary routes ("Foo.routes") before primary ("routes") 
 0,0,0,0,0,0,0,// handler.registerResolver(new UpgradeCapabilityResolver()); 
 0,0,0,0,0,0,0,//  we do not do our name mangling to find an inner class   if the type is a ConstructedClassWithPackage, because in this case we   are resolving the name at a different place already 
-0,0,0,0,1,1,1,/*      * <p>Allows the container to be configured, creating missing objects as they are referenced.</p>     *     * <p>TODO: example usage</p>     *     * @param configureClosure The closure to configure this container with     * @return This.      */
+0,0,0,0,0,0,0,/*      * <p>Allows the container to be configured, creating missing objects as they are referenced.</p>     *     * <p>TODO: example usage</p>     *     * @param configureClosure The closure to configure this container with     * @return This.      */
 0,0,0,0,0,0,0,//  Ends up with: 1 2 3 -> 4 <- 5 6 
 0,0,0,0,0,0,0,//  This agent should be loaded via the custom system ClassLoader 
 0,0,0,0,0,0,0,//  Update the cache entry in the index: this resets the age of the cached entry to zero 
@@ -1003,7 +1016,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Fallback to ClassLoader's lookup 
 0,0,0,0,0,0,0,// argument quoting:   - " must be encoded as \"   - % must be encoded as %%   - pathological case: \" must be encoded as \\\", but other than that, \ MUST NOT be quoted   - other characters (including ') will not be quoted   - use a state machine rather than regexps 
 0,0,0,0,0,0,0,//  test if vanilla name is current class name 
-0,0,0,0,0,0,0,//  revisit all dependencies and possibly change the classpath order! 
+0,0,1,0,0,0,0,//  revisit all dependencies and possibly change the classpath order! 
 0,0,0,0,0,0,0,//  Any node that the preceding task must run after is also a preceding node. 
 0,0,0,0,0,0,0,//  return var 
 0,0,0,0,0,0,0,//  Never up to date 
@@ -1147,7 +1160,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  NOTE: Windows uses Path, but allows asking for PATH, and PATH         is set within builder object for some things such         as CommandLineIntegrationTest, try PATH first, and         then revert to default of Path if null 
 0,0,0,0,0,0,0,//  Use Java serialization for everything else 
 0,0,0,0,0,0,0,//  Save the processed metadata for next time. 
-0,0,0,0,1,1,1,//  TODO:LPTR Should be @Nested with @Console inside 
+0,0,0,0,0,0,0,//  TODO:LPTR Should be @Nested with @Console inside 
 0,0,0,0,0,0,0,//  We need to add missing files as source roots, since the package name for deleted files provided by IncrementalTaskInputs also need to be determined. 
 0,0,0,0,0,0,0,//  ignore classes in method bodies 
 0,0,0,0,0,0,0,//  There are only enough entries to make up 1 block, so move the entries of the right sibling into   this block and discard this block. Might also need to merge the parent 
@@ -1176,7 +1189,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Treat all errors as warnings, for backwards compatibility 
 0,0,0,0,0,0,0,//  tag::host-and-path[] 
 0,0,0,0,0,0,0,//  Just the minimal stuff necessary for the worker infrastructure 
-0,0,0,1,0,1,1,//  unclear what the best thing to do here would be 
+0,0,0,0,0,0,0,//  unclear what the best thing to do here would be 
 0,0,1,1,1,1,1,//  TODO wolfs: Move these identifiers to the actual strategy classes when they live in :snapshots 
 0,0,0,0,0,0,0,//  May (or may not) be mutable - unpack the state 
 0,0,0,0,0,0,0,//  Host: x86   Target: ia64 
@@ -1212,9 +1225,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Must close each input first 
 0,0,0,0,0,0,0,//  64 bit   32 bit 
 0,0,0,0,0,0,0,//  prevent file system change events when generated content 
-0,0,0,0,0,0,0,//  there are no left candidate, do not bother checking other attributes 
+0,0,1,0,0,0,0,//  there are no left candidate, do not bother checking other attributes 
 0,0,0,0,0,0,0,// partial match 
-0,0,0,0,1,1,1,//  TODO:lptr this should be added only if the scan plugin is applied, but SnapshotTaskInputsOperationIntegrationTest     expects it to be added also when the build cache is enabled (but not the scan plugin)
+0,0,0,0,0,0,0,//  TODO:lptr this should be added only if the scan plugin is applied, but SnapshotTaskInputsOperationIntegrationTest     expects it to be added also when the build cache is enabled (but not the scan plugin)
 0,0,0,0,0,0,0,//  Based on https://github.com/playframework/twirl/blob/1.3.13/compiler/src/main/scala/play/twirl/compiler/TwirlCompiler.scala#L156     
 0,0,0,0,0,0,0,//  no-op 
 0,0,0,0,0,0,0,//  path(Type) 
@@ -1228,8 +1241,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  tag::custom-task-class[] 
 0,0,0,0,0,0,0,//  Use the file from the cache when it does not 
 0,0,0,0,0,0,0,//  see if the grammar if out-of-date by way of its super-grammar(s) as gleaned from parsing the grammar file 
-0,0,1,0,0,0,0,//  This is a performance optimization. Most modules do not declare capabilities. So, instead of systematically registering   an implicit capability for each module that we see, we only consider modules which _declare_ capabilities. If they do,   then we try to find a module which provides the same capability. It that module has been found, then we register it.   Otherwise, we have nothing to do. This avoids most of registrations.
-0,1,0,1,1,1,1,//  Use a dummy security manager, which hacks the application classpath into the system ClassLoader 
+0,0,0,0,0,0,0,//  This is a performance optimization. Most modules do not declare capabilities. So, instead of systematically registering   an implicit capability for each module that we see, we only consider modules which _declare_ capabilities. If they do,   then we try to find a module which provides the same capability. It that module has been found, then we register it.   Otherwise, we have nothing to do. This avoids most of registrations.
+0,1,0,1,0,1,1,//  Use a dummy security manager, which hacks the application classpath into the system ClassLoader 
 0,0,0,0,0,0,0,//  GENERATE this.services() 
 0,0,0,0,0,0,0,//  A reference to this class 
 0,0,0,0,0,0,0,//  checks if it's a derived platform 
@@ -1250,7 +1263,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,1,1,1,1,//  TODO: Make plan executor respond to changes in parallelism configuration 
 0,0,1,1,1,1,1,//  TODO: Change the default location for these reports to follow the convention defined in #configureReportOutputDirectory
 0,0,0,0,0,0,0,//  do nothing 
-0,0,1,0,0,0,0,//  An application ClassLoader: Inspect class to collect up the classpath for it 
+0,0,0,0,0,0,0,//  An application ClassLoader: Inspect class to collect up the classpath for it 
 0,0,1,0,0,0,0,//  do not include module-info files, as they would represent a bundled dependency module, instead of Gradle itself 
 0,0,0,0,0,0,0,// We might leave that in if we decide it's a good idea for an extra safety net. 
 0,0,0,0,0,0,0,//  User scope is expected to be persisted in the global cache since 4.0. 
@@ -1261,7 +1274,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  need to validate that the selected configuration still matches the consumer attributes   Note that this validation only occurs when `dependencyConfiguration != null` (otherwise we would select with attribute matching)
 0,0,0,0,0,0,0,//  rename project dependencies 
 0,0,0,0,0,0,0,//  Convert Swift-like macros to a Map like NativeCompileSpec expects 
-0,0,0,0,1,1,1,// TODO:HH installTask.dependsOn(executable)
+0,0,0,0,0,0,0,// TODO:HH installTask.dependsOn(executable)
 0,0,0,0,0,0,0,//  Will create `ivy.xml` even for Maven publishing! (as long as `Upload.uploadDescriptor == true`) 
 0,0,0,0,0,0,0,//  The directory is now empty so delete it 
 0,0,0,0,0,0,0,//  Take a deep copy of the compilerArgs because the following methods mutate it. 
@@ -1321,7 +1334,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Reached the end of input, worker has exited without failing 
 0,0,0,0,0,0,0,//  don't evaluate children, see if we know it's without validating it 
 0,0,0,0,0,0,0,//  Collect any container level add actions then add the object specific action 
-0,0,1,0,0,0,0,//  Should ask the annotation handler to figure this out instead
+0,0,0,0,0,0,0,//  Should ask the annotation handler to figure this out instead
 0,0,0,0,0,0,0,//  Transient fields 
 0,0,0,0,0,0,0,//  Have to alter the "type" of the artifact to match what is published 
 0,0,0,0,0,0,0,//  Cannot configure Slf4j logger. This will happen if:   - Tests are executed with a custom classloader (e.g using `java.system.class.loader`)   - Tests are run with `--module-path`, effectively hiding Gradle classes
@@ -1394,7 +1407,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  List modules based on metadata files, but only if we won't check for maven-metadata (which is preferred) 
 0,0,0,0,0,0,0,//  used in integration tests 
 0,0,0,0,0,0,0,//  end::custom-task-class[] 
-0,0,0,0,0,0,0,/*         Note: there is deliberately no internal synchronizing or caching at this level.        Class generation should be performed behind a ManagedProxyFactory.      */
+0,0,1,0,0,0,0,/*         Note: there is deliberately no internal synchronizing or caching at this level.        Class generation should be performed behind a ManagedProxyFactory.      */
 0,0,0,0,0,0,0,//  Should use `InstantiatorFactory` instead to pick up some validation, but this is currently somewhat expensive
 0,0,1,1,1,1,1,//  TODO: Add other build like files `build.gradle.kts`, `settings.gradle(.kts)`, other `.gradle`, `gradle.properties`
 0,0,0,0,0,0,0,//  Something else may have removed it 
@@ -1446,7 +1459,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Reuse parent label if possible 
 0,0,0,0,0,0,0,// We need to ensure that the conflict is orderly injected to the list of conflicts  Brand new conflict goes to the end  If we find any matching conflict we have to hook up with it 
 0,0,0,0,0,0,0,//  Any Swift 5.x compiler 
-0,0,1,0,0,0,0,//  Do nothing since the only side effect is that we wouldn't   be able to log the plugin descriptor file name.  Shouldn't   be a reasonable scenario where this occurs since these   descriptors should be generated from real files. 
+0,0,0,0,0,0,0,//  Do nothing since the only side effect is that we wouldn't   be able to log the plugin descriptor file name.  Shouldn't   be a reasonable scenario where this occurs since these   descriptors should be generated from real files. 
 0,0,0,0,0,0,0,//  If there is no known last descriptor, associate it with the root test suite 
 0,0,0,0,0,0,0,/* This is an internal option, it's used in com.sun.tools.javac.util.Names#createTable(Options options). The -XD backdoor switch is used to set it, as described in a comment        in com.sun.tools.javac.main.RecognizedOptions#getAll(OptionHelper helper). This option was introduced in JDK 7 and controls if compiler's name tables should be reused.        Without this option being set they are stored in a static list using soft references which can lead to memory pressure and performance deterioration        when using the daemon, especially when using small heap and building a large project.        Due to a bug (https://builds.gradle.org/viewLog.html?buildId=284033&tab=buildResultsDiv&buildTypeId=Gradle_Master_Performance_PerformanceExperimentsLinux) no instances of        SharedNameTable are actually ever reused. It has been fixed for JDK9 and we should consider not using this option with JDK9 as not using it  will quite probably improve the        performance of compilation.        Using this option leads to significant performance improvements when using daemon and compiling java sources with JDK7 and JDK8. */
 0,0,0,0,0,0,0,//  cleanup 
@@ -1474,7 +1487,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// for example: ':hey' or ':a SKIPPED' or ':foo:bar:baz UP-TO-DATE' but not ':a FOO' 
 0,0,0,0,0,0,0,// without it, the parent hangs without receiving the message above (flushing does not help). 
 0,0,0,0,0,0,0,//  save name before redirect 
-0,0,0,1,0,1,1,//  Send a end-of-line. This is a workaround to convince the console that the cursor is at the start of the line to avoid indenting the next line of text that is displayed   It would be better for the console to listen for stuff read from stdin that would also be echoed to the output and update its state based on this
 0,0,0,0,0,0,0,//  Wrap the result processor chain up in a blocking actor, to make the whole thing thread-safe 
 0,0,0,0,0,0,0,//  HttpClient is used as a parameter of a public method 
 0,0,0,0,0,0,0,//  Path is a descendant of this 
@@ -1542,7 +1554,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  GENERATE public <return-type> <setter>(<type> v) { <return-type> v = super.<setter>(v); __<prop>__ = true; return v; } 
 0,0,0,0,0,0,0,//  Rewrite the method call to match TransformedModelDslBacking#create(String, Closure), which is what the delegate will be 
 0,0,0,0,0,0,0,//  Filter imported classes which are not available yet 
-0,0,1,0,0,0,0,/*          * This method returns the dependencies in buckets (projects first, then modules, then files),         * because that's what we used to do since 1.0. It would be better to return the dependencies         * in the same order as they come from the resolver, but we'll need to change all the tests for         * that, so defer that until later.          */
+0,0,0,0,0,0,0,/*          * This method returns the dependencies in buckets (projects first, then modules, then files),         * because that's what we used to do since 1.0. It would be better to return the dependencies         * in the same order as they come from the resolver, but we'll need to change all the tests for         * that, so defer that until later.          */
 0,0,0,0,0,0,0,//  Must be no higher than this scope as needs cache repository services. 
 0,0,0,0,0,0,0,//  guard against edge cases (e.g. JUnit 4 classes with custom runners that report the class as ignored after reporting it as started) 
 0,0,0,0,0,0,0,//  Default Xcode installation 
@@ -1583,7 +1595,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  All local/cached options failed, get directly 
 0,0,1,0,0,0,0,//  Should use stronger modelling for this and make the set of tools open, rather than hard-coding here 
 0,0,0,0,0,0,0,//  Remove .pdb file if present 
-0,0,0,1,1,1,1,//  TODO: Enable this by default when toolVersion >= 6.0.0 if it's stable enough. 
+0,0,1,1,1,1,1,//  TODO: Enable this by default when toolVersion >= 6.0.0 if it's stable enough. 
 0,0,0,0,0,0,0,//  Target module can change, if this is called as the result of a module replacement conflict. 
 0,0,0,0,0,0,0,//  ProjectEvaluationListener 
 0,0,0,0,0,0,0,//  For project dependencies de-duplication   Ignore scope on purpose   Ignore version because Maven doesn't support dependencies with different versions on different scopes   Ignore exclusions because we don't know how to choose/merge them   Consequence is that we use the highest version and the exclusions of highest priority dependency when de-duplicating   Use Maven Dependency "Management Key" as discriminator: groupId:artifactId:type:classifier
@@ -1681,7 +1693,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  not a 'Jar', not a 'test' 
 0,0,0,0,0,0,0,//  Redraw every entry of this area 
 0,0,0,0,0,0,0,//  This is fine, just ignore it 
-0,0,0,1,1,1,1,//  TODO some representation of state of the inputs 
+0,0,1,1,1,1,1,//  TODO some representation of state of the inputs 
 0,0,0,0,0,0,0,//  prefer to use the actual memory usage reported by the worker 
 0,0,0,0,0,0,0,//  In order to use a newer version of jna the resources must not be available in the old location 
 0,0,0,0,0,0,0,//  Exit early as we are reusing the create actions from the provider 
@@ -1697,7 +1709,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Matches: task <method-call> 
 0,0,0,0,0,0,0,//  Largest free block is too small 
 0,0,0,0,0,0,0,//  This is a potential nested rule.   Visit method parameters 
-0,0,1,1,0,1,1,// (SF) this is a workaround until this story is completed. I'm hardcoding setting the idle timeout to be max X mins.  this way we avoid potential runaway daemons that steal resources on linux and break builds on windows. 
 0,0,0,0,0,0,0,//  Generated script class name must be unique - take advantage of this to avoid delegation 
 0,0,0,0,0,0,0,//  count from left of screen, 0 = left most   count from bottom of screen, 0 = bottom most, 1 == 2nd from bottom 
 0,0,0,0,0,0,0,//  We need to update pending count outside of withLocks() so that we don't have a race   condition where the pending count is 0, but a child worker lease is still held when   the parent lease is released. 
@@ -1774,7 +1785,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Alternate appending packages at beginning and end until we reach max length 
 0,0,0,0,0,0,0,//  but all resolved ok 
 0,0,0,0,0,0,0,// jdk5 does not have days, hours or minutes, normalizing to millis 
-0,0,1,1,0,1,1,//  This is a workaround for https://issues.gradle.org/browse/GRADLE-3324.   Somehow the ArrayList 'result' in `org.sonatype.aether.impl.internal.Utils#sortMetadataGeneratorFactories` ends up   being a list of nulls on windows and IBM's 1.6 JDK. 
 0,0,0,0,0,0,0,//  Failure to select the target variant/configurations from this component, given the dependency attributes/metadata. 
 0,0,0,0,0,0,0,//  All items are complete. Do not release project lock and simply collect failures. 
 0,0,0,0,0,0,0,//  Serialize configuration to daemon via the process' stdin 
@@ -1868,7 +1878,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  return state.equals(((GeneratedView)arg).__view_state()); 
 0,0,0,0,0,0,0,//  When age == 0, verified since the start of this build, assume listing hasn't changed 
 0,0,0,0,0,0,0,//  Emulate secondary inputs as a single property for now 
-0,0,1,1,1,1,1,//  TODO - push all this stuff down to the tool chain and let it create the specific platform and provider 
+0,0,0,1,1,1,1,//  TODO - push all this stuff down to the tool chain and let it create the specific platform and provider 
 0,0,0,0,0,0,0,//    Add `boolean immutable() { return true }`   
 0,0,0,0,0,0,0,//  Don't know about this type 
 0,0,0,0,0,0,0,//  Add the block line-number as an argument to call `plugins(int lineNumber, Closure pluginsBlock)` 
@@ -1883,7 +1893,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Disabled before 2.3 release due to not wanting to validate task names (which may contain invalid chars), at least not yet   ModelPath.validateName(name); 
 0,0,0,0,0,0,0,//  Last group; what ever is left take that replace all characters that are not alphanum or '_' or '-' 
 0,0,0,1,0,1,1,//  Else, the provider is of incompatible type, maybe we have a domain object collection of Provider, fallthrough 
-0,0,1,0,1,1,1,//  TODO: Default branch can be different from just master 
+0,0,0,0,1,1,1,//  TODO: Default branch can be different from just master 
 0,0,0,0,0,0,0,//  only create an intermediate collection if there's something to copy 
 0,0,0,0,0,0,0,//  Convert the UTF-8 manifest bytes to the requested content charset 
 0,0,0,0,0,0,0,//  Same as above, if we have wrapped a closure in a WrappedConfigureAction or a ClosureBackedAction, we want to 
@@ -1903,9 +1913,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  If textArea is on a status line but nothing was written, this means a new line was just written. While   we wait for additional text, we assume this row doesn't count as overlapping and use it as a status   line. In the opposite case, we want to scroll the progress area one more line. This avoid having an one 
 0,0,0,0,0,0,0,//  Add artifact format as an implicit attribute when all artifacts have the same format 
 0,0,1,1,1,1,1,//  TODO extract common stuff from this and ModelSet and reuse 
-0,0,0,0,1,1,1,/*      * Allow null as a valid input. The default is to disallow null.     *     * <p>When this is enabled, all converters must be null safe.     *     * TODO - attach the null safety to each converter and infer whether null is a valid input or not.      */
+0,0,0,1,1,1,1,/*      * Allow null as a valid input. The default is to disallow null.     *     * <p>When this is enabled, all converters must be null safe.     *     * TODO - attach the null safety to each converter and infer whether null is a valid input or not.      */
 0,0,0,0,0,0,0,//  (ia64 is no longer supported on later versions of Visual Studio) 
-0,0,1,1,1,1,1,//  TODO - this belongs with the 'var' data structure 
+0,0,0,1,1,1,1,//  TODO - this belongs with the 'var' data structure 
 0,0,0,0,0,0,0,//  Dependencies 
 0,0,0,0,0,0,0,//  See JLS3 "Binary Compatibility" (13.1) 
 0,0,1,0,0,0,0,//  This could probably be more efficient 
@@ -1942,12 +1952,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,1,1,1,//  TODO The scope information is superseded by test attributes. We can delete the corresponding code bits once we make sure that the majority of Buildship users use test sources.
 0,0,0,0,0,0,0,//  If this configuration's version is in conflict, do not traverse.   If none of the incoming edges are transitive, remove previous state and do not traverse.   If not traversed before, simply add all selected outgoing edges (either hard or pending edges)   If traversed before:        If net exclusions for this node have not changed, ignore        If net exclusions for this node not changed, remove previous state and traverse outgoing edges again. 
 0,0,0,0,0,0,0,//  Selected for the configuration 
-0,0,1,1,1,1,1,//  TODO we are relying on the registration having established these links, we should be checking 
 0,0,0,0,0,0,0,//  Forward output immediately when the focus is on this operation group 
-0,0,1,0,0,0,0,//  Note that @CompileClasspath here is an approximation and must be fixed before de-incubating getAstTransformationClasspath()   See https://github.com/gradle/gradle/pull/9513 
+0,0,0,0,0,0,0,//  Note that @CompileClasspath here is an approximation and must be fixed before de-incubating getAstTransformationClasspath()   See https://github.com/gradle/gradle/pull/9513 
 0,0,0,0,0,0,0,//  This means the client has not reported memory usage yet 
 0,0,0,0,0,0,0,//  first let antlr preprocess the grammars... 
-0,0,0,1,0,1,1,/*             Note: we currently extract this information from the execution plan because it's            buried under functions in #filter. This could be detangled/simplified by introducing            excludeTasks(Iterable<Task>) as an analog to addEntryTasks(Iterable<Task>).            This is too drastic a change for the stage in the release cycle were exposing this information            was necessary, therefore the minimal change solution was implemented.          */
+0,0,0,0,0,0,0,/*             Note: we currently extract this information from the execution plan because it's            buried under functions in #filter. This could be detangled/simplified by introducing            excludeTasks(Iterable<Task>) as an analog to addEntryTasks(Iterable<Task>).            This is too drastic a change for the stage in the release cycle were exposing this information            was necessary, therefore the minimal change solution was implemented.          */
 0,0,0,0,0,0,0,//  When cancelled, try to stop the download thread but don't attempt to wait for it to complete   Could possibly loop here for a while trying to force the thread to exit 
 0,0,0,0,0,0,0,//  possibly an inner class 
 0,0,0,0,0,0,0,//  File loop exceptions are ignored. When we encounter a loop (via symbolic links), we continue   so we include all the other files apart from the loop.   This way, we include each file only once. 
@@ -1961,10 +1970,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Unrecognized extension 
 0,0,0,0,0,0,0,//  The CustomRunner class will fail this test if this class is initialized before its    run method is triggered.
 0,0,0,0,0,0,0,//  Cannot yet publish module metadata without component 
-0,0,0,0,1,1,1,//  in-process Groovy compilation throws a CompilationFailedException from another classloader, hence testing class name equality   TODO:pm Prefer class over class name for equality check once using WorkerExecutor for in-process groovy compilation 
+0,0,0,0,0,0,0,//  in-process Groovy compilation throws a CompilationFailedException from another classloader, hence testing class name equality   TODO:pm Prefer class over class name for equality check once using WorkerExecutor for in-process groovy compilation 
 0,0,0,1,1,1,1,//  TODO - do not hold lock while computing value 
 0,0,0,0,0,0,0,//  Generate: int getFactoryId() { return <factory-id-field> } 
-0,0,1,0,0,0,0,//  Using the caches for these connections leaves the Jar files open. Don't use the cache, so that the Jar file is closed when the stream is closed below   There are other options for solving this that may be more performant. However a class is inspected this way once and the result reused, so this approach is probably fine
+0,0,0,0,0,0,0,//  Using the caches for these connections leaves the Jar files open. Don't use the cache, so that the Jar file is closed when the stream is closed below   There are other options for solving this that may be more performant. However a class is inspected this way once and the result reused, so this approach is probably fine
 0,0,0,0,0,0,0,//  for guessing right side part of a mapping 
 0,0,0,0,0,0,0,//  Update any previously known files with a bogus timestamp to force a rebuild 
 0,0,0,0,0,0,0,//  In case of getting a ConstructedClassWithPackage here we do not do checks for partial   matches with imported classes. The ConstructedClassWithPackage is already a constructed 
@@ -2125,7 +2134,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Ignored 
 0,0,0,0,0,0,0,//  Reasonable default threshold bounds: between 384M and 1G 
 0,0,0,0,0,0,0,//  solution   IllegalAccessException 
-0,0,0,0,0,0,0,//  This can happen if this is used in a constructor or a @Before method. It also happens when using   @RunWith(SomeRunner) when the runner does not support rules. 
+0,0,1,0,0,0,0,//  This can happen if this is used in a constructor or a @Before method. It also happens when using   @RunWith(SomeRunner) when the runner does not support rules. 
 0,0,0,0,0,0,0,//  Mark all affected configurations as observed 
 0,0,0,0,0,0,0,//  no filtering in place 
 0,0,0,0,0,0,0,//  These will also be copied across to any daemon used 
@@ -2133,7 +2142,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  end::isolating-annotation-processor[] 
 0,0,0,0,0,0,0,// (SF) This approach should generally work because at the moment we reset capturing output per suite  (see CaptureTestOutputTestResultProcessor) and that reset happens earlier in the chain.  So in theory when suite is completed, the output redirector has been already stopped  and there shouldn't be any output events passed  See also GRADLE-2035 
 0,0,0,0,0,0,0,// when no daemon process has started yet 
-0,0,1,1,0,1,1,//  This is a workaround for https://github.com/gradle/gradle-private/issues/1690 
 0,0,0,0,0,0,0,//  Dummy rule to cause the extension to be realized 
 0,0,0,0,0,0,0,//  The registered nodes may contain nodes which are no longer selected.   We don't remove them from the list in the first place because it proved to be   slower than filtering as needed. 
 0,0,0,0,0,0,0,//  This is necessary because for the Tooling Api compatibility runner, NativeServices   can get initialized in a different classloader, which then makes it broken and unusable   in the test class (because the native shared library is loaded from another classloader).   By initializing it here, we ensure that it is loaded from the classloader the test class   also uses. 
@@ -2161,7 +2169,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Don't care, collect the files later (in the correct order) 
 0,0,0,0,0,0,0,//  Mandatory 
 0,0,0,0,0,0,0,//  Ensure we have a scope 
-0,0,1,1,1,1,1,//  TODO: Fix tests that rely on this being set before we process arguments like this... 
 0,0,0,0,0,0,0,//  Used by generated code 
 0,0,1,0,0,0,0,//  This deals with the fact that in TestNG, there are no class-level events,   but we nevertheless want to see the class name. We use "." rather than   " > " as a separator to make it clear that the class is not a separate   level. This matters when configuring granularity. 
 0,0,0,0,0,0,0,//  Drain the buffer before returning end-of-stream 
@@ -2230,7 +2237,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Capture input files state 
 0,0,0,0,0,0,0,//  we have not root source folder information for the grammar files,   so we don't force relativeOutput as we can't calculate it.   This results in flat generated sources in the output directory 
 0,0,0,0,0,0,0,//  Gradle stuff 
-0,0,1,1,1,1,1,//  TODO: should validate that clazz is of a non parameterized type 
 0,0,0,0,0,0,0,//  These fields are not covered by mutation lock 
 0,0,0,0,0,0,0,//  Select all entry points. An entry point is a publication that does not contain a component whose parent is also published 
 0,0,0,0,0,0,0,//  stack traces are filtered in call order (from bottom to top) 
@@ -2320,7 +2326,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// some validation: 
 0,0,1,1,1,1,1,//  TODO: match with status, order versions correctly 
 0,0,0,0,0,0,0,//  Check other behaviour still works 
-0,0,0,0,0,0,0,//  Check already resolved results for a compatible version, and use it for this dependency rather than re-resolving. 
+0,0,1,0,0,0,0,//  Check already resolved results for a compatible version, and use it for this dependency rather than re-resolving. 
 0,0,0,0,0,0,0,//  Evaluate init scripts 
 0,0,0,0,0,0,0,//  It's an intersection, and this method is always called on the remainder   of a reduction operation. If the remainder is empty then it means that   the intersection is empty 
 0,0,0,0,0,0,0,//  Any available GCC compatible implementation (including mingw, cygwin, and clang) 
@@ -2328,7 +2334,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  NOTE: There isn't much we can do about collection.matching { } filters as the spec requires a realized element, unless make major changes 
 0,0,0,0,0,0,0,//  Presence of capabilities is bound to the definition of a capabilities extension to the project 
 0,0,0,0,0,0,0,//  Do NOT change the order of members used in hash code here, it's been empirically   tested to reduce the number of collisions on a large dependency graph (performance test) 
-0,0,1,0,0,0,0,//  Have received all requests, or have released something, so downstream can wait. This isn't quite right 
+0,0,0,0,0,0,0,//  Have received all requests, or have released something, so downstream can wait. This isn't quite right 
 0,0,0,0,0,0,0,//  Avoid creating a copy if the resulting configuration is identical 
 0,0,0,0,0,0,0,//  Convert Scala Seq[RoutesCompilationError] -> Java List<RoutesCompilationError> 
 0,0,0,0,0,0,0,//  registry doesn't exist yet 
@@ -2349,10 +2355,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Make sure getters end up before the setters 
 0,0,0,0,0,0,0,//  GENERATE <method>(…, ConfigureUtil.configureUsing(v)); 
 0,0,0,0,0,0,0,//  default Scala version 
-0,0,0,0,1,1,1,//  TODO:ADAM - ARM only if the target OS is Windows 8 or later   TODO:MPUT - ARM also if the target OS is Windows RT or Windows Phone/Mobile/CE   TODO:ADAM - IA64 only if the target OS is Windows 2008 or earlier
+0,0,0,0,0,0,0,//  TODO:ADAM - ARM only if the target OS is Windows 8 or later   TODO:MPUT - ARM also if the target OS is Windows RT or Windows Phone/Mobile/CE   TODO:ADAM - IA64 only if the target OS is Windows 2008 or earlier
 0,0,0,0,0,0,0,//  Exception has already been reported 
 0,0,0,0,0,0,0,//  Define some additional variants 
-0,0,0,1,1,1,1,//  TODO - mix this in using decoration. Also validate closure parameter types, if declared 
+0,0,1,1,1,1,1,//  TODO - mix this in using decoration. Also validate closure parameter types, if declared 
 0,0,0,0,0,0,0,// First, we replace slashes because they have special meaning in the javadoc options file  Then, we replace every linebreak with slash+linebreak. Slash is needed according to javadoc options file format 
 0,0,0,0,0,0,0,// we don't serialise the module dependencies at this stage so we need to keep track  of the mapping module dependency <-> resolved dependency 
 0,0,0,0,0,0,0,//  We intentionally consider “execution” done before doing afterEvaluate.   The Android plugin relies on this behaviour. 
@@ -2364,13 +2370,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,1,1,1,1,//  TODO - the suffix should be a deterministic function of the known and enabled annotations   For now, just assign using a counter
 0,0,0,0,0,0,0,//  for tests using rich console standard out and error are combined in output of execution result 
 0,0,0,0,0,0,0,// there is already registered conflict with at least one matching participant, hook up to this conflict 
-0,0,0,0,1,1,1,//  TODO: We should see if we can go back to using HttpClient again.   This implementation is borrowed from the Apache HttpClient project   https://github.com/apache/httpclient/blob/4.2.2/httpclient/src/main/java/org/apache/http/conn/ssl/SSLSocketFactory.java#L246-L354 
 0,0,0,0,0,0,0,//  Contract requires build events are delivered by a single thread. This is taken care of by the daemon client when not in embedded mode   Need to apply some synchronization when in embedded mode 
 0,0,0,0,0,0,0,//  end::custom-task-implementation[] 
 0,0,0,0,0,0,0,//  Explain that Groovy, for compile, also needs the resources (#9872) 
 0,0,0,0,0,0,0,//  no retry 
 0,0,0,0,0,0,0,//  There are 2 possibilities here:   1. the "platform" referenced is a real module, in which case we directly add it to the graph   2. the "platform" is a virtual, constructed thing, in which case we add virtual edges to the graph 
-0,0,1,0,1,1,1,// TODO reuse cached result from downstream users of our classes directory 
+0,0,1,1,1,1,1,// TODO reuse cached result from downstream users of our classes directory 
 0,0,0,0,0,0,0,//  standard doclet options 
 0,0,0,0,0,0,0,//  no luck 
 0,0,0,0,0,0,0,//  verify URL by making a HTTP call 
@@ -2503,7 +2508,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Set the implicit system properties regardless of whether default JVM args are required or not, this should not interfere with tests' intentions 
 0,0,0,0,0,0,0,//  Setting the length improves upload performance 
 0,0,0,0,0,0,0,//  Ignore and fall back to growl notify 
-0,0,1,0,1,1,1,//  TODO:Cedric find out why if we use the same ID directly, it fails resolution by trying to get the artifacts   from the resolving metadata instead of the resolved metadata 
+0,0,1,0,0,0,0,//  TODO:Cedric find out why if we use the same ID directly, it fails resolution by trying to get the artifacts   from the resolving metadata instead of the resolved metadata 
 0,0,0,0,0,0,0,//  according to JVM documentation 
 0,0,0,0,0,0,0,//  Ensure target project is configured 
 0,0,0,0,0,0,0,//  Lock protects the following state, using an intentionally simple locking strategy 
@@ -2525,7 +2530,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Otherwise, expand 
 0,0,0,0,0,0,0,//  List<? extends String>[] 
 0,0,0,0,0,0,0,//  we have C[] if the list is empty -> should be an array then! 
-0,0,0,0,1,1,1,// TODO:HH wire binary libs via executable 
+0,0,0,0,0,0,0,// TODO:HH wire binary libs via executable 
 0,0,0,0,0,0,0,//  Do not cache Test task if Jacoco doesn't produce its output as files 
 0,0,0,0,0,0,0,//  do same decoration as in addListener to remove correctly 
 0,0,0,0,0,0,0,//  GENERATE getAsDynamicObject().getProperty(name); 
@@ -2549,7 +2554,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Capture output files state 
 0,0,0,0,0,0,0,//  If there is no previous state, then we do have output changes 
 0,0,0,0,0,0,0,//  Should reuse `GlobalScopeServices` here, however this requires a bunch of stuff in order to discover the plugin service registries   For now, re-implement the discovery here 
-0,0,0,0,0,0,0,//  This should apply some locking, but most access to the build state does not happen via this method yet 
+0,0,1,0,0,0,0,//  This should apply some locking, but most access to the build state does not happen via this method yet 
 0,0,0,0,0,0,0,//  Do not cache the task if we are not writing execution data to a file 
 0,0,0,0,0,0,0,//  Not resolvable. Discard the body when the expression is not resolvable
 0,0,0,0,0,0,0,//  Adding an action that is not a duplicate 
@@ -2594,7 +2599,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  since we might generate the deployment descriptor, record each top-level module 
 0,0,0,0,0,0,0,//  Log events 
 0,0,1,0,0,0,0,//  This import must be here due to a clash in Java 8 between this and java.util.Optional.   Be careful running “Optimize Imports” as it will wipe this out.   If there's no import below this comment, this has happened. 
-0,0,0,0,0,0,0,//  These two are here to work around https://github.com/gradle/gradle/issues/6027 
+0,0,1,0,0,0,0,//  These two are here to work around https://github.com/gradle/gradle/issues/6027 
 0,0,0,0,0,0,0,//  remove leading '$', remove last child segment, use '/' as separator 
 0,0,0,0,0,0,0,//  Returns a parameter 
 0,0,0,0,0,0,0,//  Generate: Class immutable() { return <properties.empty> && <read-only-properties.empty> } 
@@ -2603,7 +2608,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Use the jar when nothing has been requested 
 0,0,0,0,0,0,0,// InputStream originalIn = System.in; 
 0,0,0,0,0,0,0,//  Decoration takes care of the implementation 
-0,0,1,1,1,1,1,/*  * Exposes methods for those properties whose value is a closure. * * TODO: use composition instead of inheritance  */
 0,0,1,1,1,1,1,//  TODO hook this in to the (daemon) build lifecycle
 0,0,0,0,0,0,0,//  If there's more than one module id, merge them into a module id set 
 0,0,0,0,0,0,0,//  In opposite to outgoing edges, virtual edges are for now pretty rare, so they are created lazily 
@@ -2640,7 +2644,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,//  Don't go up the parent chain.   Don't want to risk classes crossing “scope” boundaries and being non collectible. 
 0,0,0,0,0,0,0,// see GRADLE-3027 
 0,0,0,0,0,0,0,//  The name of the test method 
-0,0,0,0,0,0,0,// we should consider to change the return type to DirectDependency, which requires adjustment in Kotlin DSL 
+0,0,1,0,0,0,0,// we should consider to change the return type to DirectDependency, which requires adjustment in Kotlin DSL 
 0,0,0,0,0,0,0,//  File resources are handled slightly differently at present.   file:// repos are treated differently   1) we don't cache their files
 0,0,0,0,0,0,0,//  tag::sample[] 
 0,0,0,0,0,0,0,//  Discard listeners 
@@ -2668,7 +2672,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  we decided if we have a vanilla name starting with a lower case   letter that we will not try to resolve this name against .*   imports. Instead a full import is needed for these.   resolveAliasFromModule will do this check for us. This method   does also check the module contains a class in the same package   of this name. This check is not done for vanilla names starting 
 0,0,0,0,0,0,0,//  Need to do this here, so that the transfer is 'restarted' when HttpClient reopens the resource (DIGEST AUTH only) 
 0,0,0,0,0,0,0,//  Not an OpenJDK-compatible compiler or signature changed 
-0,0,0,0,1,1,1,//  TODO:ADAM - Deprecate 
+0,0,0,0,0,0,0,//  TODO:ADAM - Deprecate 
 0,0,0,0,0,0,0,//  Ignore tasks created after not closed 
 0,0,0,0,0,0,0,//  Already reached this goal 
 0,0,0,0,0,0,0,//  We always want to include className, even if longer than max length 
@@ -2681,7 +2685,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*        The GroovyObject interface defines dynamic property and dynamic method methods. Implementers       are free to implement their own logic in these methods which makes it invisible to the metaclass.       The most notable case of this is Closure.       So in this case we use these methods directly on the GroovyObject in case it does implement logic at this level.      */
 0,0,0,1,1,1,1,//  TODO: Stop all daemon services 
 0,0,0,0,0,0,0,//  for each level in the file path, add the path 
-0,0,1,0,0,0,0,// below could be better.  Throwing InvalidUserDataException here means that useful context information (including candidate formats, etc.) is not presented to the user 
+0,0,0,0,0,0,0,// below could be better.  Throwing InvalidUserDataException here means that useful context information (including candidate formats, etc.) is not presented to the user 
 0,0,0,0,0,0,0,//  If nobody said anything about this variant's target platform, use whatever the convention says 
 0,0,0,0,0,0,0,//  Reference class via `ModelType` to avoid strong reference 
 0,0,0,0,0,0,0,//  Used for testing the plugins DSL 
@@ -2691,7 +2695,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Separate Java class because IBM JDK 6 -- See https://issues.apache.org/jira/browse/GROOVY-7010 
 0,0,0,0,0,0,0,//  Update the state region 
 0,0,0,0,0,0,0,//  Using an array here because we're going to iterate pretty often and it avoids the creation of an iterator   that checks for concurrent modification 
-0,0,1,1,0,1,1,//  This is copied from Ant (see org.apache.tools.ant.util.FileUtils.tryHardToDelete).   It mentions that there is a bug in the Windows JDK impls that this is a valid   workaround for. I've been unable to find a definitive reference to this bug.   The thinking is that if this is good enough for Ant, it's good enough for us.
 0,0,0,0,0,0,0,//  The download thread may still be running. Ignore any further status events from it 
 0,0,0,0,0,0,0,//  Fall back to propertyMissing, if available 
 0,0,0,0,0,0,0,//  known value, only write index 
@@ -2723,7 +2726,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  this dependency is internal only 
 0,0,0,0,0,0,0,//  Will be overwritten by setIdle if not idle. 
 0,0,0,0,0,0,0,//  There is no script class when there are no statements or methods declared in the script 
-0,0,0,0,1,1,1,//  TODO(daniel): Swift compiler should extends from an abstraction of NativeCompiler (most of is applies to SwiftCompiler) 
+0,0,0,0,0,0,0,//  TODO(daniel): Swift compiler should extends from an abstraction of NativeCompiler (most of is applies to SwiftCompiler) 
 0,0,0,0,0,0,0,//  No services to be mixed in 
 0,0,0,0,0,0,0,//  Any available Visual Studio implementation 
 0,0,0,0,0,0,0,//  Here, we know that the user requested a specific classifier. There may be multiple   candidate variants left, but maybe only one of them provides the classified artifact   we're looking for. 
@@ -2737,14 +2740,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Milestone 3 
 0,0,0,0,0,0,0,//  Override this, so that the working directory is not canonicalised. Some int tests require that   the working directory is not canonicalised 
 0,0,0,0,0,0,0,//  Generate an authentication token, which must be provided by the client in any requests it makes 
-0,0,1,1,1,1,1,//  TODO - creating a bundle should be done by some general purpose plugin 
+0,0,0,1,1,1,1,//  TODO - creating a bundle should be done by some general purpose plugin 
 0,0,0,0,0,0,0,//  Wire build dependent components tasks dependencies 
 0,0,0,0,0,0,0,// ibm vm 1.6 + windows XP gotchas:  we need to print something else to the stream after we print the daemon greeting. 
 0,0,1,1,1,1,1,//  TODO: Turn this into an `@implSpec` annotation on the comment above:   https://github.com/gradle/gradle/issues/7486 
 0,0,0,0,0,0,0,//  see IdeaScalaConfigurer which requires the ipr to be generated first 
 0,0,0,0,0,0,0,//  Map the arguments of this expression 
 0,0,0,0,0,0,0,// noinspection SuspiciousMethodCalls 
-0,0,1,1,1,1,1,//  TODO: remove these special cases
 0,0,0,0,0,0,0,//  Don't retain the value, to allow ClassLoader to be collected 
 0,0,0,0,0,0,0,//  Disallow custom services of type ServiceRegistry, as these are automatically provided 
 0,0,0,0,0,0,0,//  Add a link task 
@@ -2873,7 +2875,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  We have to keep this for a while: https://github.com/gradle/gradle/issues/4856 
 0,0,0,0,0,0,0,//  Wire build dependent binaries tasks dependencies 
 0,0,0,0,0,0,0,//  These files have an unreliable timestamp - discard any cached state for them and rehash next time they are seen 
-0,0,0,0,0,0,0,//  If the previous result is still not rejected, do not need to re-resolve. The previous result is still good. 
+0,0,1,0,0,0,0,//  If the previous result is still not rejected, do not need to re-resolve. The previous result is still good. 
 0,0,0,0,0,0,0,// put the whole arguments string in single quotes, unless defaultJvmOpts was empty, 
 0,0,0,0,0,0,0,//  A CONSTANT_Class entry, read the class descriptor 
 0,0,0,0,0,0,0,//  we see a different value, or the set already exists, in which case we initialize   the set if it wasn't done already, and collect all values. 
@@ -2953,7 +2955,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  GENERATE null 
 0,0,0,0,0,0,0,//  return 
 0,0,0,0,0,0,0,//  Detect anonymous static classes of enum constants with class body   See https://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#d5e12300   And https://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#jls-8.9.1   "The optional class body of an enum constant implicitly defines an anonymous class declaration    that extends the immediately enclosing enum type." 
-0,0,1,0,1,1,1,//  Hackery to make closure execution faster, by short-circuiting the expensive property and method lookup on Closure
+0,0,1,0,0,0,0,//  Hackery to make closure execution faster, by short-circuiting the expensive property and method lookup on Closure
 0,0,0,0,0,0,0,//  Only managed implementation and value types are allowed as a managed property type unless marked with @Unmanaged 
 0,0,0,0,0,0,0,/*  isInitialPass  */
 0,0,0,0,0,0,0,//  Read-only property with managed type 
@@ -2987,6 +2989,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  This is a slight different condition than that used for a dependency declared in a Gradle project,   which is (targetHasVariants || consumerHasAttributes), relying on the fallback to 'default' for consumer attributes without any variants. 
 0,0,1,1,1,1,1,/*  * TODO - merge this and the component container  */
 0,0,0,0,0,0,0,//  lookup class in all classloaders 
+0,0,0,0,0,0,0,// Would typically use GetObjectMetadataRequest but it does not work with v4 signatures
 0,0,0,0,0,0,0,//  Either a macro function, a macro or token concatenation 
 0,0,0,0,0,0,0,//  GENERATE instantiator.newInstance(type) 
 0,0,0,0,0,0,0,//  1.8 
@@ -3005,7 +3008,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Could potentially coordinate with a thread that is snapshotting an overlapping directory tree 
 0,0,0,0,0,0,0,//  Supported, nothing to do. 
 0,0,0,0,0,0,0,//  If the module matches, add the root component into the mix 
-0,0,1,1,1,1,1,//  TODO: maybe we need to allow additional dirs like SourceSetOutput does   (esp. for backwards compatibility). Wonder if it's still necessary to distinguish   between classes and resources dirs, instead of just maintaining a collection of dirs.   As far as generated resources are concerned, it might be better to model   them as an additional (Buildable) ResourceSet. 
 0,0,0,0,0,0,0,//  Too many requests (not available through HttpStatus.XXX) 
 0,0,0,0,0,0,0,//  Unpacks the request to serialize across to the daemon and creates instance of   TestExecutionRequestAction 
 0,0,0,0,0,0,0,//  cleanup() will abort the process as desired 
@@ -3108,6 +3110,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  We use a set here because for excludes, order of edges is irrelevant   so we hit the cache more by using a set 
 0,0,0,0,0,0,0,//  NOTE: the space in the directory name is intentional
 0,0,0,0,0,0,0,// browsers dont understand <a name="..."/> 
+0,0,0,0,0,0,0,//  Is the cached version still current?
 0,0,0,0,0,0,0,//  Convert properties to ParallelismConfiguration object 
 0,0,1,0,0,0,0,//  Delegate class is not visible to managed view type -> view type is more general than delegate type, so use the delegate classloader instead 
 0,0,0,0,0,0,0,// module was already visited, there is a cycle 
@@ -3126,7 +3129,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Can get duplicate finish events 
 0,0,0,0,0,0,0,//  This method is effectively part of a cross Gradle version contract. 
 0,0,0,0,0,0,0,//  Read worker implementation classpath 
-0,0,0,0,0,0,0,//  Any logging prior to this point will not end up in the daemon log file. 
+0,0,1,0,0,0,0,//  Any logging prior to this point will not end up in the daemon log file. 
 0,0,0,0,0,0,0,//  with normalized line endings 
 0,0,0,0,0,0,0,//  The following values are relatively expensive to create, so defer creation until required 
 0,0,0,0,0,0,0,//  Use java 7 APIs, if available, otherwise fallback to no-op 
@@ -3220,7 +3223,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  currently, we leave it to ZincScalaCompiler to also compile the Java code 
 0,0,0,0,0,0,0,//  Don't log 
 0,0,0,0,0,0,0,//  evicted, but it can still be reintegrated later in a different path.
-0,0,0,0,0,0,0,//  state, cachedResolvedConfiguration, and extendsFrom intentionally not copied - must re-resolve copy   copying extendsFrom could mess up dependencies when copy was re-resolved 
+0,0,1,0,0,0,0,//  state, cachedResolvedConfiguration, and extendsFrom intentionally not copied - must re-resolve copy   copying extendsFrom could mess up dependencies when copy was re-resolved 
 0,0,0,0,0,0,0,//  tag::task-arg-method[] 
 0,0,0,0,0,0,0,//  GENERATE public Object getProperty(String name) { return getAsDynamicObject().getProperty(name); } 
 0,0,0,0,0,0,0,//  This method tries to minimize the number of volatile read/writes.   Do NOT try to inline the variables there. 
@@ -3309,7 +3312,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  consumer didn't express any preferences, everything fits 
 0,0,0,0,0,0,0,//  Catch any unchecked io exceptions and add the file path for troubleshooting 
 0,0,0,0,0,0,0,//  Historic note: this class still uses the Groovy JsonBuilder, as it was originally developed as a Groovy class. 
-0,0,0,1,0,1,1,//  This is a workaround for https://github.com/gradle/gradle/issues/4241   Several early typed operations have `buildPath` property,   the value of which can only be determined after the settings file for the build has loaded.     The workaround is to buffer all operation notifications in memory until the root build's settings have loaded.   This works because all possible settings files have been evaluated by the time the root one has been.   This is not guaranteed to hold into the future.   A proper solution would be to change the operation details/results to be   truly immutable and convey values known at the time. 
 0,0,0,0,0,0,0,//  Create a client that will not match any existing daemons, so it will always startup a new one 
 0,0,0,0,0,0,0,//  try the owner 
 0,0,0,0,0,0,0,//  Includes trailing '/' 
@@ -3318,7 +3320,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  The first directory is the one created by JvmComponentPlugin.configureJvmBinaries()   to be used as the default output directory for processed resources 
 0,0,0,0,0,0,0,//  For tests in default method of interface,   we might not be able to get the implementation class directly.   In this case, we need to retrieve test plan to get the real implementation class. 
 0,0,0,0,0,0,0,//  Just read the state region 
-0,0,1,1,1,1,1,//  TODO - move this to PropertyValue instead
 0,0,0,0,0,0,0,//  The value is true if it is an output file, false if it is a parent of an output file 
 0,0,0,0,0,0,0,//  Matches: task <identifier> or task(<identifier>) 
-0,0,1,0,1,1,1,//  Hackery
+0,0,1,0,0,0,0,//  Hackery

@@ -1,106 +1,106 @@
 oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
-1,0,1,1,1,1,1,"/** XXX I really don't like this - the XML processor is still             * too 'involved' in the processing. A better solution (IMO)             * would be to create UE for Project and Target too, and             * then process the tree and have Project/Target deal with             * its attributes ( similar with Description ).             *             * If we eventually switch to ( or add support for ) DOM,             * things will work smoothly - UE can be avoided almost completely             * ( it could still be created on demand, for backward compatibility )             */"
+1,1,1,1,1,1,1,"/** XXX I really don't like this - the XML processor is still             * too 'involved' in the processing. A better solution (IMO)             * would be to create UE for Project and Target too, and             * then process the tree and have Project/Target deal with             * its attributes ( similar with Description ).             *             * If we eventually switch to ( or add support for ) DOM,             * things will work smoothly - UE can be avoided almost completely             * ( it could still be created on demand, for backward compatibility )             */"
 1,1,1,1,1,1,1,// JUnit 4 wraps solo tests this way. We can extract // the original test name with a little hack.
 1,0,0,1,1,1,1,// XXX ignore attributes in a different NS ( maybe store them ? )
 1,0,0,0,0,0,0,//borrowed from TokenFilterTest
-1,0,1,1,1,1,1,// XXX Move to Project ( so it is shared by all helpers )
-1,0,0,0,1,1,1,// What is the property supposed to be?
-1,0,1,1,1,1,1,// PR: Hack for ant-type value //  an ant-type is a component name which can // be namespaced, need to extract the name // and convert from qualified name to uri/name
+1,1,1,1,1,1,1,// XXX Move to Project ( so it is shared by all helpers )
+1,0,0,0,0,0,0,// What is the property supposed to be?
+1,1,1,1,1,1,1,// PR: Hack for ant-type value //  an ant-type is a component name which can // be namespaced, need to extract the name // and convert from qualified name to uri/name
 1,0,0,0,0,0,0,// there's a convenient xsltc class version but data are // private so use package information
 1,0,0,0,0,0,0,// stolen from org.apache.xerces.impl.XMLEntityManager#getUserDir() // of the Xerces-J team // which ASCII characters need to be escaped
-1,0,0,0,0,0,0,// bingo append it. (this should normally not be done here)
+1,1,0,0,0,0,0,// bingo append it. (this should normally not be done here)
 1,0,0,0,0,0,0,// This is faintly ridiculous:
 1,0,0,0,0,0,0,//cannot remove underscores due to protected visibility >:(
-1,0,1,1,1,1,1,// TODO not read, yet in a public setter
-1,0,0,0,0,0,0,//  PR: I do not know what to do if the object class //      has multiple defines //      but this is for logging only...
-1,0,1,0,0,0,0,// not sure what could be the need of this...
-1,0,1,0,1,1,1,// XXX: (Jon Skeet) Any reason for writing a message and then using a bare // RuntimeException rather than just using a BuildException here? Is it // in case the message could end up being written to no loggers (as the // loggers could have failed to be created due to this failure)?
+1,1,1,1,1,1,1,// TODO not read, yet in a public setter
+1,1,0,0,0,0,0,//  PR: I do not know what to do if the object class //      has multiple defines //      but this is for logging only...
+1,1,1,0,0,0,0,// not sure what could be the need of this...
+1,1,1,0,1,1,1,// XXX: (Jon Skeet) Any reason for writing a message and then using a bare // RuntimeException rather than just using a BuildException here? Is it // in case the message could end up being written to no loggers (as the // loggers could have failed to be created due to this failure)?
 1,0,0,0,0,0,0,// Experimental/Testing, will be removed
-1,0,1,0,1,1,1,// XXX should instead make a new ProtectionDomain with a CodeSource // corresponding to container.toURI().toURL() and the same // PermissionCollection as Project.class.protectionDomain had
-1,0,1,1,0,1,1,//this is really irritating; we need a way to set stuff
+1,1,1,0,1,1,1,// XXX should instead make a new ProtectionDomain with a CodeSource // corresponding to container.toURI().toURL() and the same // PermissionCollection as Project.class.protectionDomain had
+1,1,1,1,0,1,1,//this is really irritating; we need a way to set stuff
 1,1,1,1,1,1,1,//XXX // All this to convert source to destination directory according // to weblogic standards Can be written better... this is too hacky!
 1,1,1,1,1,1,1,//silly hack to avoid stack overflow...
-1,0,1,1,0,1,1,// -------------------- Access to property tables  -------------------- // This is used to support ant call and similar tasks. It should be // deprecated, it is possible to use a better (more efficient) // mechanism to preserve the context.
-1,0,1,1,1,1,1,// XXX - should throw an exception instead?
-1,0,0,1,0,1,1,// Temporary - until we figure a better API
-1,0,1,1,0,1,1,// There is a better way to save the context. This shouldn't // delegate to next, it's for backward compatibility only.
+1,1,1,1,0,1,1,// -------------------- Access to property tables  -------------------- // This is used to support ant call and similar tasks. It should be // deprecated, it is possible to use a better (more efficient) // mechanism to preserve the context.
+1,1,1,1,1,1,1,// XXX - should throw an exception instead?
+1,1,0,1,0,1,1,// Temporary - until we figure a better API
+1,1,1,1,0,1,1,// There is a better way to save the context. This shouldn't // delegate to next, it's for backward compatibility only.
 1,0,1,0,0,0,0,// quick fix for Ant.java use of property before // initializing the project
-1,0,1,0,1,1,1,// XXX: we should use JCVS (www.ice.com/JCVS) instead of // command line execution so that we don't rely on having // native CVS stuff around (SM)
-1,0,0,0,0,0,0,"/*             * two reasons are mentioned in the API docs for File.list             * (1) dir is not a directory. This is impossible as             *     we wouldn't get here in this case.             * (2) an IO error occurred (why doesn't it throw an exception             *     then???)             */"
-1,0,1,1,1,1,1,"/** * Jakarta Commons Logging listener. * Note: do not use the SimpleLog as your logger implementation as it * causes an infinite loop since it writes to System.err, which Ant traps * and reroutes to the logger/listener layer. * * The following names are used for the log: *  org.apache.tools.ant.Project.PROJECT_NAME  - for project events *  org.apache.tools.ant.Target.TARGET_NAME - for target events *  TASK_CLASS_NAME.TARGET_NAME - for events in individual targets. * * In all target and project names we replace ""."" and "" "" with ""-"". * * TODO: we should use the advanced context logging features (and expose them * in c-l first :-) * TODO: this is _very_ inefficient. Switching the out and tracking the logs * can be optimized a lot - but may require few more changes to the core. * * @since Ant 1.5 */"
-1,0,1,1,1,1,1,//     * @TODO using taskName here is brittle, as a user could override it. //     *       this should probably be modified to use the classname instead.
+1,1,1,0,1,1,1,// XXX: we should use JCVS (www.ice.com/JCVS) instead of // command line execution so that we don't rely on having // native CVS stuff around (SM)
+1,1,0,0,0,0,0,"/*             * two reasons are mentioned in the API docs for File.list             * (1) dir is not a directory. This is impossible as             *     we wouldn't get here in this case.             * (2) an IO error occurred (why doesn't it throw an exception             *     then???)             */"
+1,1,1,1,1,1,1,"/** * Jakarta Commons Logging listener. * Note: do not use the SimpleLog as your logger implementation as it * causes an infinite loop since it writes to System.err, which Ant traps * and reroutes to the logger/listener layer. * * The following names are used for the log: *  org.apache.tools.ant.Project.PROJECT_NAME  - for project events *  org.apache.tools.ant.Target.TARGET_NAME - for target events *  TASK_CLASS_NAME.TARGET_NAME - for events in individual targets. * * In all target and project names we replace ""."" and "" "" with ""-"". * * TODO: we should use the advanced context logging features (and expose them * in c-l first :-) * TODO: this is _very_ inefficient. Switching the out and tracking the logs * can be optimized a lot - but may require few more changes to the core. * * @since Ant 1.5 */"
+1,1,1,1,1,1,1,//     * @TODO using taskName here is brittle, as a user could override it. //     *       this should probably be modified to use the classname instead.
 1,0,0,0,0,0,0,//these are pathological cases, but retained in case somebody //subclassed us.
 1,0,0,0,0,0,0,"/*                 * This is a rather hairy case.                 *                 * One of our subclasses knows that we need to update the                 * archive, but at the same time, there are no resources                 * known to us that would need to be added.  Only the                 * subclass seems to know what's going on.                 *                 * This happens if <jar> detects that the manifest has changed,                 * for example.  The manifest is not part of any resources                 * because of our support for inline <manifest>s.                 *                 * If we invoke createEmptyZip like Ant 1.5.2 did,                 * we'll loose all stuff that has been in the original                 * archive (bugzilla report 17780).                 */"
-1,0,0,1,0,1,1,// This is deprecated - use classespath in the future
-1,0,0,0,1,1,1,//XXX  this array stuff is a remnant of prev trials.. gotta remove.
-1,0,1,1,1,1,1,"/**     * Set the number of milliseconds leeway to give before deciding a     * target is out of date.     * TODO: This is not yet used.     * @param granularity the granularity used to decide if a target is out of     *                    date.     */"
+1,1,0,1,0,1,1,// This is deprecated - use classespath in the future
+1,1,0,0,1,1,1,//XXX  this array stuff is a remnant of prev trials.. gotta remove.
+1,1,1,1,1,1,1,"/**     * Set the number of milliseconds leeway to give before deciding a     * target is out of date.     * TODO: This is not yet used.     * @param granularity the granularity used to decide if a target is out of     *                    date.     */"
 1,0,1,0,0,0,0,// This may change, if we add advanced parsing capabilities.
-1,0,0,0,1,1,1,// We assume, that every output, jikes does, stands for an error/warning // XXX // Is this correct?
+1,1,0,0,1,1,1,// We assume, that every output, jikes does, stands for an error/warning // XXX // Is this correct?
 1,1,0,1,1,1,1,// The line below is a hack: the system id must an URI, but it is not // cleat to get the URI of an resource, so just set the name of the // resource as a system id
-1,0,0,1,1,1,1,// XXX what is the following doing? //     should it run if !javadoc4 && executable != null?
-1,0,1,1,1,1,1,// MAC OS 9 and previous //TODO: I have no idea how to get it, someone must fix it
-1,0,1,1,1,1,1,//TODO: nothing appears to read this but is set using a public setter.
-1,0,0,0,1,1,1,// XXX - we are committing CombiningChar and Extender here
-1,0,0,1,1,1,1,"/*                 * XXX - failed to load the class properly.                 *                 * should we print a warning here?                 */"
-1,0,1,1,1,1,1,// XXX could perhaps also call thread.stop(); not sure if anyone cares
-1,0,1,1,1,1,1,"/**         * XXX         * Perhaps we shouldn't use properties for these         * three options (emacs mode, warnings and pedantic),         * but include it in the javac directive?         */"
-1,0,1,1,1,1,1,// XXX maybe use reflection to addPathElement (other patterns ?)
-1,0,1,1,1,1,1,// TODO there is a problem with the constructor for the RBC. // you have to provide the rules in the constructors - no setters // available.
+1,1,0,1,1,1,1,// XXX what is the following doing? //     should it run if !javadoc4 && executable != null?
+1,1,1,1,1,1,1,// MAC OS 9 and previous //TODO: I have no idea how to get it, someone must fix it
+1,1,1,1,1,1,1,//TODO: nothing appears to read this but is set using a public setter.
+1,1,0,0,1,1,1,// XXX - we are committing CombiningChar and Extender here
+1,1,0,1,1,1,1,"/*                 * XXX - failed to load the class properly.                 *                 * should we print a warning here?                 */"
+1,1,1,1,1,1,1,// XXX could perhaps also call thread.stop(); not sure if anyone cares
+1,1,1,1,1,1,1,"/**         * XXX         * Perhaps we shouldn't use properties for these         * three options (emacs mode, warnings and pedantic),         * but include it in the javac directive?         */"
+1,1,1,1,1,1,1,// XXX maybe use reflection to addPathElement (other patterns ?)
+1,1,1,1,1,1,1,// TODO there is a problem with the constructor for the RBC. // you have to provide the rules in the constructors - no setters // available.
 1,0,0,1,0,1,1,// probably not the best choice, but it solves the problem of // relative paths in CLASSPATH
 1,0,0,1,0,1,1,// Fix for invalid characters. If you think of more add to the list.
-1,0,1,0,0,0,0,"/*             * fallback in case we have trouble loading the class or             * don't know how to handle it (there is no easy way to             * know what IDL mode would generate.             *             * This is supposed to make Ant always recompile the             * class, as a file of that name should not exist.             */"
+1,1,1,0,0,0,0,"/*             * fallback in case we have trouble loading the class or             * don't know how to handle it (there is no easy way to             * know what IDL mode would generate.             *             * This is supposed to make Ant always recompile the             * class, as a file of that name should not exist.             */"
 1,1,0,1,0,1,1,// Check it out; also ugly.
-1,0,0,0,1,1,1,//I can't get my head around this; is encoding treatment needed here?
+1,1,0,0,0,0,0,//I can't get my head around this; is encoding treatment needed here?
 1,0,0,0,0,0,0,//quick & dirty, to make nested mapped p-sets work:
-1,0,1,0,1,1,1,// XXX is this code still necessary? is there any 1.2+ port? // Pull in *.zip from packages directory
+1,1,1,0,1,1,1,// XXX is this code still necessary? is there any 1.2+ port? // Pull in *.zip from packages directory
 1,0,0,0,0,0,0,// only: the developer knows what (s)he is doing
 1,1,1,1,1,1,1,// XXX Unfortunately JDK1.2 adds entrySet(), keySet(), values() - // implementing this requires a small hack, we can add it later.
-1,0,0,0,0,0,0,// first: developer could use a little help
-1,0,1,0,1,1,1,// XXX     should we silently catch possible exceptions and try to //         load a different implementation?
-1,0,0,1,0,1,1,// since Java 1.4 //return normalizedPath.split("/"); // workaround for Java 1.2-1.3
+1,1,0,0,0,0,0,// first: developer could use a little help
+1,1,1,0,1,1,1,// XXX     should we silently catch possible exceptions and try to //         load a different implementation?
+1,1,0,1,0,1,1,// since Java 1.4 //return normalizedPath.split("/"); // workaround for Java 1.2-1.3
 1,0,0,0,0,0,0,// HAMMER // end inline mainGTU
-1,0,1,1,1,1,1,"/**     * This array really shouldn't be here.     * Again, for historical purposes it is.     *     * <p>FIXME: This array should be in a private or package private     * location, since it could be modified by malicious code.</p>     */"
-1,0,0,0,0,0,0,// Should move to a separate public class - and have API to add // listeners, etc.
+1,1,1,1,1,1,1,"/**     * This array really shouldn't be here.     * Again, for historical purposes it is.     *     * <p>FIXME: This array should be in a private or package private     * location, since it could be modified by malicious code.</p>     */"
+1,1,0,0,0,0,0,// Should move to a separate public class - and have API to add // listeners, etc.
 1,0,1,0,0,0,0,// "" should become a single empty argument, same for '' // PR 5906
-1,0,1,0,0,0,0,// not very nice but will do the job
+1,1,1,0,0,0,0,// not very nice but will do the job
 1,0,0,0,0,0,0,// provide public visibility
-1,0,0,0,1,1,1,// not used, but public so theoretically must remain for BC?
-1,0,0,0,0,0,0,// super.validateAttributes(); // don't want to call this method
-1,0,1,1,1,1,1,// XXX what is this for?
+1,0,0,0,0,0,0,// not used, but public so theoretically must remain for BC?
+1,1,0,0,0,0,0,// super.validateAttributes(); // don't want to call this method
+1,1,1,1,1,1,1,// XXX what is this for?
 1,0,0,0,0,0,0,// We keep this, so we have something to delete in later tests :-)
 1,0,0,0,0,0,0,// *************  copied from ConcatTest  *************
-1,0,0,0,0,0,0,// not sure whether this is clean, but this method is // declared not to throw exceptions.
+1,1,0,0,0,0,0,// not sure whether this is clean, but this method is // declared not to throw exceptions.
 1,0,0,0,0,0,0,// We just set the prefix for this fileset, and pass it up. // Do we need to do this? LH
-1,0,0,0,1,1,1,//why do we do nothing?
-1,0,1,1,0,1,1,// // We have to deal with assembly!!! // The programmer can be writing little 32 byte chunks for all // we know, and we must assemble complete records for writing. // REVIEW Maybe this should be in TarBuffer? Could that help to // eliminate some of the buffer copying. //
-1,0,0,0,0,0,0,// This is the new, better way - use classespath instead // of sourcespath.  The code is currently the same - you // need class files in a directory to use this or jar files.
-1,0,0,1,1,1,1,// XXX - why not simply new File(dir, filename)?
-1,1,0,1,0,1,1,// This is ugly; checking for the root folder.
-1,0,1,0,1,1,1,//TODO: Parameterise ?? //Call compiler as class... dont want to fork again //Use classic compiler -- can be parameterised?
+1,1,0,0,0,0,0,//why do we do nothing?
+1,1,1,1,0,1,1,// // We have to deal with assembly!!! // The programmer can be writing little 32 byte chunks for all // we know, and we must assemble complete records for writing. // REVIEW Maybe this should be in TarBuffer? Could that help to // eliminate some of the buffer copying. //
+1,1,0,0,0,0,0,// This is the new, better way - use classespath instead // of sourcespath.  The code is currently the same - you // need class files in a directory to use this or jar files.
+1,1,0,1,1,1,1,// XXX - why not simply new File(dir, filename)?
+1,0,0,1,0,1,1,// This is ugly; checking for the root folder.
+1,1,1,0,1,1,1,//TODO: Parameterise ?? //Call compiler as class... dont want to fork again //Use classic compiler -- can be parameterised?
 1,1,1,1,1,1,1,//XXX // All this to get package according to weblogic standards // Can be written better... this is too hacky! // Careful.. similar code in scanDir , but slightly different!!
 1,0,0,0,0,0,0,//stolen from writeManifest
 1,1,1,1,1,1,1,"/* If the jarfile already exists then whack it and recreate it.             * Should probably think of a more elegant way to handle this             * so that in case of errors we don't leave people worse off             * than when we started =)             */"
-1,0,1,1,1,1,1,// XXX is the following really necessary? it is in the same thread group...
-1,0,1,0,0,0,0,// we have to find a cleaner way to put this output
-1,0,0,1,0,1,1,// This is the old way and is deprecated - classespath is // the right way to do this and is above
-1,0,0,1,0,1,1,// For Script example that modifies id'ed tasks in other // targets to work. *very* Ugly // The reference is replaced by RuntimeConfigurable
+1,1,1,1,1,1,1,// XXX is the following really necessary? it is in the same thread group...
+1,1,1,0,0,0,0,// we have to find a cleaner way to put this output
+1,1,0,1,0,1,1,// This is the old way and is deprecated - classespath is // the right way to do this and is above
+1,1,0,1,0,1,1,// For Script example that modifies id'ed tasks in other // targets to work. *very* Ugly // The reference is replaced by RuntimeConfigurable
 1,0,0,0,0,0,0,// don't call super.close() because that reader is used // on other places ...
 1,0,1,0,0,0,0,// report error if something weird happens...this is diagnostic.
 1,0,0,0,0,0,0,// sorry - otherwise we will get a ClassCastException because the MockCache // is loaded by two different classloader ...
-1,0,1,1,1,1,1,// ***HACK*** We ask the VM to create an instance // by voluntarily providing illegal arguments to force // the VM to run the class' static initializer, while // at the same time not running a valid constructor.
+1,1,1,1,1,1,1,// ***HACK*** We ask the VM to create an instance // by voluntarily providing illegal arguments to force // the VM to run the class' static initializer, while // at the same time not running a valid constructor.
 1,0,0,0,0,0,0,// Singleton for now, it may change ( per/classloader )
-1,0,1,1,1,1,1,// XXX - shouldn't this always return false in isolated mode?
+1,1,1,1,1,1,1,// XXX - shouldn't this always return false in isolated mode?
 1,0,0,0,0,0,0,//TO DO : delete the file if it is not a valid file.
-1,0,1,1,1,1,1,"/** * TODO: * comment field doesn't include all options yet */"
-1,0,0,0,1,1,1,"/**     * This method checks the timestamp on each file listed in the <code>     * ejbFiles</code> and compares them to the timestamp on the <code>jarFile     * </code>.  If the <code>jarFile</code>'s timestamp is more recent than     * each EJB file, <code>true</code> is returned.  Otherwise, <code>false     * </code> is returned.     * TODO: find a way to check the manifest-file, that is found by naming convention     *     * @param ejbFiles Hashtable of EJB classes (and other) files that will be     *                 added to the completed JAR file     * @param jarFile  JAR file which will contain all of the EJB classes (and     *                 other) files     * @return         boolean indicating whether or not the <code>jarFile</code>     *                 is up to date     */"
+1,1,1,1,1,1,1,"/** * TODO: * comment field doesn't include all options yet */"
+1,1,0,0,1,1,1,"/**     * This method checks the timestamp on each file listed in the <code>     * ejbFiles</code> and compares them to the timestamp on the <code>jarFile     * </code>.  If the <code>jarFile</code>'s timestamp is more recent than     * each EJB file, <code>true</code> is returned.  Otherwise, <code>false     * </code> is returned.     * TODO: find a way to check the manifest-file, that is found by naming convention     *     * @param ejbFiles Hashtable of EJB classes (and other) files that will be     *                 added to the completed JAR file     * @param jarFile  JAR file which will contain all of the EJB classes (and     *                 other) files     * @return         boolean indicating whether or not the <code>jarFile</code>     *                 is up to date     */"
 1,0,0,0,0,0,0,// Have to think about lazy initialization here...  JHM // comparator = new java.text.RuleBasedCollator();
-1,0,1,1,1,1,1,//TODO no main.methods yet for getClassname //TODO no method for newInstance using a reverse-classloader
-1,0,1,0,0,0,0,"/*     * The displayName variable stores the value of the ""display-name"" element     * from the standard EJB descriptor.  As a future enhancement to this task,     * we may determine the name of the EJB JAR file using this display-name,     * but this has not be implemented yet.     */"
+1,1,1,1,1,1,1,//TODO no methods yet for getClassname //TODO no method for newInstance using a reverse-classloader
+1,1,1,0,0,0,0,"/*     * The displayName variable stores the value of the ""display-name"" element     * from the standard EJB descriptor.  As a future enhancement to this task,     * we may determine the name of the EJB JAR file using this display-name,     * but this has not be implemented yet.     */"
 1,0,1,1,1,1,1,"/** * An output stream that compresses into the BZip2 format (without the file * header chars) into another stream. * <p>The compression requires large amounts of memory. Thus you * should call the {@link #close() close()} method as soon as * possible, to force <tt>CBZip2OutputStream</tt> to release the * allocated memory.</p> * * <p>You can shrink the amount of allocated memory and maybe raise * the compression speed by choosing a lower blocksize, which in turn * may cause a lower compression ratio.  You can avoid unnecessary * memory allocation by avoiding using a blocksize which is bigger * than the size of the input. </p> * * <p>You can compute the memory usage for compressing by the * following formula:</p> * <pre> * <code>400k + (9 * blocksize)</code>. * </pre> *  * <p>To get the memory required for decompression by {@link * CBZip2InputStream CBZip2InputStream} use</p> * <pre> * <code>65k + (5 * blocksize)</code>. * </pre> * * <table width=""100%"" border=""1""> *  <colgroup> *    <col width=""33%"" /> *    <col width=""33%"" /> *    <col width=""33%"" /> *  </colgroup> *  <tr> *    <th colspan=""3"">Memory usage by blocksize</th> *  </tr><tr> *    <th align=""right"">Blocksize</th> *    <th align=""right"">Compression<br>memory usage</th> *    <th align=""right"">Decompression<br>memory usage</th> *  </tr><tr> *    <td align=""right"">100k</td> *    <td align=""right"">1300k</td> *    <td align=""right""> 565k</td> *  </tr><tr> *    <td align=""right"">200k</td> *    <td align=""right"">2200k</td> *    <td align=""right"">1065k</td> *  </tr><tr> *    <td align=""right"">300k</td> *    <td align=""right"">3100k</td> *    <td align=""right"">1565k</td> *  </tr><tr> *    <td align=""right"">400k</td> *    <td align=""right"">4000k</td> *    <td align=""right"">2065k</td> *  </tr><tr> *    <td align=""right"">500k</td> *    <td align=""right"">4900k</td> *    <td align=""right"">2565k</td> *  </tr><tr> *    <td align=""right"">600k</td> *    <td align=""right"">5800k</td> *    <td align=""right"">3065k</td> *  </tr><tr> *    <td align=""right"">700k</td> *    <td align=""right"">6700k</td> *    <td align=""right"">3565k</td> *  </tr><tr> *    <td align=""right"">800k</td> *    <td align=""right"">7600k</td> *    <td align=""right"">4065k</td> *  </tr><tr> *    <td align=""right"">900k</td> *    <td align=""right"">8500k</td> *    <td align=""right"">4565k</td> *  </tr> * </table> * * <p>For decompression <tt>CBZip2InputStream</tt> allocates less * memory if the bzipped input is smaller than one block.</p> * * <p>Instances of this class are not threadsafe.</p> * * <p> * TODO:    Update to BZip2 1.0.1 * </p> * */"
-1,0,0,0,1,1,1,// XXX - log an error?  throw an exception?
-1,0,1,1,1,1,1,// TODO: allow user to request the system or no parent
-1,0,1,1,1,1,1,//if there was any text before this, add it as a fragment //TODO, this check could be modified to go if pos>prev; //seems like this current version could stick empty strings //into the list
-1,0,0,0,1,1,1,// XXX add exceptions
+1,1,0,0,1,1,1,// XXX - log an error?  throw an exception?
+1,1,1,1,1,1,1,// TODO: allow user to request the system or no parent
+1,1,1,1,1,1,1,//if there was any text before this, add it as a fragment //TODO, this check could be modified to go if pos>prev; //seems like this current version could stick empty strings //into the list
+1,1,0,0,1,1,1,// XXX add exceptions
 0,0,0,0,0,0,0,// test a process that runs and failed
 0,0,0,0,0,0,0,// ignore
 0,0,0,0,0,0,0,// process should abort
@@ -124,8 +124,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// -ndata
 0,0,0,0,0,0,0,// C0644 filesize filename - header for a regular file // T time 0 time 0\n - present if perserve time. // D directory - this is the header for a directory.
 0,0,0,0,0,0,0,// -version
-0,0,0,1,0,1,1,//wince isn't really 9x, but crippled enough to //be a muchness. Ant doesnt run on CE, anyway.
-0,0,0,0,0,0,0,// -nwarn
+0,1,0,1,0,1,1,//wince isn't really 9x, but crippled enough to //be a muchness. Ant doesnt run on CE, anyway.
+0,1,0,0,0,0,0,// -nwarn
 0,0,0,0,0,0,0,// if a label has been supplied and it is a revision label, use the raw // the view as the snapshot
 0,0,0,0,0,0,0,// Class doesn't have a String constructor but a decent factory method
 0,0,0,0,0,0,0,/* total number of entries in      */
@@ -133,7 +133,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,// // Success!  The xml-commons resolver library is // available, so use it. //
 0,0,0,0,0,0,0,// it is a new file // set the revision but not the prevrevision
 0,0,0,0,0,0,0,//catch script/ant mismatch with a meaningful message //we could ignore it, but there are likely to be other //version problems, so we stamp down on the configuration now
-0,0,0,0,1,1,1,// don't know the type, should throw exception instead?
+0,1,0,0,0,0,0,// don't know the type, should throw exception instead?
 0,0,0,0,0,0,0,// char and Character get special treatment - take the first character
 0,0,0,0,0,0,0,// do nothing
 0,0,0,0,0,0,0,// scan base dirs to build up compile lists only if a // specific classname is not given
@@ -156,8 +156,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// selectors are implicitly ANDed in DirectoryScanner.  To // revert their logic we wrap them into a <none> selector // instead.
 0,0,0,0,0,0,0,// first off, make sure that we've got a srcdir and destdir
 0,0,0,0,0,0,0,// ZIPs store time with a granularity of 2 seconds, round up
-0,0,0,0,0,0,0,// viewpath
-0,0,0,0,0,0,0,// ------------------------------------------------------ //   Helper main.methods - should be in BuildFileTest // -----------------------------------------------------
+0,1,0,0,0,0,0,// viewpath
+0,0,0,0,0,0,0,// ------------------------------------------------------ //   Helper methods - should be in BuildFileTest // -----------------------------------------------------
 0,0,0,0,0,0,0,// build the command line from what we got the format is // cleartool lsco [options...] [viewpath ...] // as specified in the CLEARTOOL.EXE help
 0,0,0,0,0,0,0,// Check if list of files to check has been specified
 0,0,0,0,0,0,0,// testNoCrash is the test invoked by the captureToSummary's junit task
@@ -172,12 +172,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// bit3 set to signal, we use a data descriptor
 0,0,0,0,0,0,0,//underscores go in front of invalid start chars
 0,0,0,0,0,0,0,// use to scan own archive
-0,0,0,0,1,1,1,"/** * Tests the {@link XSLTProcess} task. * XXX merge with {@link StyleTest}? * @since Ant 1.5 */"
+0,1,0,0,1,1,1,"/** * Tests the {@link XSLTProcess} task. * XXX merge with {@link StyleTest}? * @since Ant 1.5 */"
 0,0,0,0,0,0,0,// it is a modified file // set the revision and the prevrevision
 0,0,0,0,0,0,0,"/*             * throw in drive letters             */"
 0,0,0,0,0,0,0,//set our parent dir
 0,0,0,0,0,0,0,"/*             * promised to eliminate consecutive slashes after drive letter.             */"
-0,0,0,0,0,0,0,// -cfile
+0,1,0,0,0,0,0,// -cfile
 0,0,0,0,0,0,0,// avoid multiple configurations
 0,0,0,0,0,0,0,/** Version to use for addXXX and addConfiguredXXX */
 0,0,0,0,0,0,0,// Compare the destination with the temp file
@@ -196,7 +196,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//check that dir and src are incompatible
 0,0,0,0,0,0,0,// OK, try without.
 0,0,0,0,0,0,0,// Set up a VSSHistory task
-0,0,0,0,0,0,0,// -ptime
+0,1,0,0,0,0,0,// -ptime
 0,0,0,0,0,0,0,// Throws EjbcException if unsuccessful
 0,0,0,0,0,0,0,// tests one the file object
 0,0,0,0,0,0,0,// Make a limited attempt to extract a sanitized name and email address // Algorithm based on the one found in Ant's MailMessage.java
@@ -244,12 +244,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Mac-style linebreak or EOF (or both)
 0,0,0,0,0,0,0,// build the command line from what we got. the format is // cleartool mkelem [options...] [viewpath ...] // as specified in the CLEARTOOL.EXE help
 0,0,0,0,0,0,0,// variables to hold arguments
-0,0,0,0,0,0,0,// impossible as getMethods should only return public main.methods
+0,0,0,0,0,0,0,// impossible as getMethods should only return public methods
 0,0,0,0,0,0,0,// copy the source and support files
 0,0,0,0,0,0,0,// boolean and Boolean get special treatment because we // have a nice method in Project
 0,0,0,0,0,0,0,// create an array of strings for input to the compiler: one array // comes from the compile options, the other from the compileList
 0,0,0,0,0,0,0,"/*         * Should choose either -ci or -nco.         */"
-0,0,0,0,0,0,0,// -nco
+0,1,0,0,0,0,0,// -nco
 0,0,0,0,0,0,0,// 'sync' is needed - otherwise 2 threads can load the same class // twice, resulting in LinkageError: duplicated class definition. // findLoadedClass avoids that, but without sync it won't work.
 0,0,0,0,0,0,0,// make sure we aren't going to get the path separator next
 0,0,0,0,0,0,0,// error level logging for compiler errors
@@ -273,14 +273,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//ignore
 0,0,0,0,0,0,0,// -master
 0,0,0,0,0,0,0,// Initialize the globalFileSet's project
-0,0,1,0,0,0,0,"/*     * I'm not fond of this pattern: ""sub-method expected to throw     * task-cancelling exceptions"".  It feels too much like programming     * for side-effects to me...     */"
+0,1,1,0,0,0,0,"/*     * I'm not fond of this pattern: ""sub-method expected to throw     * task-cancelling exceptions"".  It feels too much like programming     * for side-effects to me...     */"
 0,0,1,0,0,0,0,// don't have to check for public, since // getMethod finds public method only. // don't have to check for abstract, since then // taskClass would be abstract too.
 0,0,0,0,0,0,0,// overriding target from imported buildfile is allowed
 0,0,0,0,0,0,0,// end of try-catch
 0,0,0,0,0,0,0,// sorted by newest Kaffe version first
 0,0,0,0,0,0,0,// remainder zeros
 0,0,0,0,0,0,0,// first build exception
-0,0,0,0,0,0,0,// -eltype
+0,1,0,0,0,0,0,// -eltype
 0,0,0,0,0,0,0,// Not been visited
 0,0,0,0,0,0,0,// Create the stream pumpers to forward listcab's stdout and stderr to the log // note: listcab is an interactive program, and issues prompts for every new line. //       Therefore, make it show only with verbose logging turned on.
 0,0,0,0,0,0,0,// Create.
@@ -288,7 +288,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// the buildfile to use
 0,0,0,0,0,0,0,//not included, do nothing
 0,0,0,0,0,0,0,// process should be dead and well finished
-0,0,0,0,0,0,0,// Mac
+0,1,0,0,0,0,0,// Mac
 0,0,0,0,0,0,0,// Already present
 0,0,0,0,0,0,0,//empty
 0,0,0,0,0,0,0,// initialResources is not empty
@@ -316,7 +316,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// byte - byte compare
 0,0,0,0,0,0,0,// specify output in UTF8 otherwise accented characters will blow // up everything
 0,0,0,0,0,0,0,"/* Had to make two separate commands here because if a space is               inserted between the flag and the value, it is treated as a               Windows filename with a space and it is enclosed in double               quotes (""). This breaks clearcase.            */"
-0,0,0,1,0,1,1,// print the stacktrace in the build file it is always useful... // better have too much info than not enough.
+0,1,0,1,0,1,1,// print the stacktrace in the build file it is always useful... // better have too much info than not enough.
 0,0,0,0,0,0,0,// may be on a case insensitive file system.  We want // the results to show what's really on the disk, so // we need to double check.
 0,0,0,0,0,0,0,// build the command line from what we got. the format is // cleartool checkin [options...] [viewpath ...] // as specified in the CLEARTOOL.EXE help
 0,0,0,0,0,0,0,// put back the original security manager //The following will never eval to true. (PD)
@@ -336,14 +336,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// get the fileset and its basedir
 0,0,0,0,0,0,0,// Shouldn't happen
 0,0,0,0,0,0,0,// Return the type-selector
-0,0,0,0,0,0,0,"/*          Now another magic 48-bit number, 0x177245385090, to          indicate the end of the last block.  (sqrt(pi), if          you want to know.  I did want to use e, but it contains          too much repetition -- 27 18 28 18 28 46 -- for me          to feel statistically comfortable.  Call me paranoid.)        */"
+0,1,0,0,0,0,0,"/*          Now another magic 48-bit number, 0x177245385090, to          indicate the end of the last block.  (sqrt(pi), if          you want to know.  I did want to use e, but it contains          too much repetition -- 27 18 28 18 28 46 -- for me          to feel statistically comfortable.  Call me paranoid.)        */"
 0,0,0,0,0,0,0,// LF is always end of line (i.e. CRLF or single LF)
 0,0,0,0,0,0,0,// -full
 0,0,0,0,0,0,0,//sort the list. Makes SCM and manual diffs easier.
 0,0,0,0,0,0,0,// create XML document
 0,0,0,0,0,0,0,// -incremental
 0,0,0,0,0,0,0,// CR without LF - send buffer then add char
-0,0,0,0,0,0,0,// -nlabel
+0,1,0,0,0,0,0,// -nlabel
 0,0,0,0,0,0,0,// implementation of org.apache.tools.ant.taskdefs.ExecuteStreamHandler interface
 0,0,0,0,0,0,0,// baseline_root_name
 0,0,0,0,0,0,0,// add into buffer
@@ -353,10 +353,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// just append beginToken and search further
 0,0,0,0,0,0,0,// java.home is bogus
 0,0,0,0,0,0,0,// Set up a SOSGet task
-0,1,0,0,0,0,0,// Try a silly case
+0,0,0,0,0,0,0,// Try a silly case
 0,0,0,0,0,0,0,// either end of buffer or a line separator char
 0,0,0,0,0,0,0,"/*              Now ftab contains the first loc of every small bucket.              Calculate the running order, from smallest to largest              big bucket.        */"
-0,0,0,0,0,0,0,//  =====================  helper main.methods and classes  ====================
+0,0,0,0,0,0,0,//  =====================  helper methods and classes  ====================
 0,0,0,0,0,0,0,// =====================  scenario tests  =====================
 0,0,0,0,0,0,0,// ==============  testcases for the algorithm implementations  ==============
 0,0,0,0,0,0,0,//$NON-NLS-1$
@@ -367,9 +367,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// '**/**' situation, so skip one
 0,0,0,0,0,0,0,// build the command line from what we got the format is // ss Label VSS items [-C] [-H] [-I-] [-Llabel] [-N] [-O] [-V] [-Y] [-?] // as specified in the SS.EXE help
 0,0,0,0,0,0,0,// build the command line from what we got the format is // cleartool lock [options...] // as specified in the CLEARTOOL.EXE help
-0,0,0,0,0,0,0,/////////////////////////////////////////////////////////////// // GET/SET main.methods. // Setters, of course are where ant user passes in values. ///////////////////////////////////////////////////////////////
+0,0,0,0,0,0,0,/////////////////////////////////////////////////////////////// // GET/SET methods. // Setters, of course are where ant user passes in values. ///////////////////////////////////////////////////////////////
 0,0,0,0,0,0,0,//now we instantiate
-0,0,0,0,0,0,0,///////////////////////////////////////////////////////// // GET/SET main.methods. // Setters, of course are where ant user passes in values. /////////////////////////////////////////////////////////
+0,0,0,0,0,0,0,///////////////////////////////////////////////////////// // GET/SET methods. // Setters, of course are where ant user passes in values. /////////////////////////////////////////////////////////
 0,0,0,0,0,0,0,// either use default path or root local mapping, // which is now embedded in the root folder
 0,0,0,0,0,0,0,// Write the contents to our master list of links // This method assumes that all links are defined in // terms of absolute paths, or paths relative to the // working directory:
 0,0,0,0,0,0,0,// Mac does \n\r, but that's tough to distinguish from Windows \r\n\r\n. // Don't tackle that problem right now.
@@ -391,26 +391,26 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// -global
 0,0,0,0,0,0,0,// -rename
 0,0,0,0,0,0,0,// initializes extra data to an empty byte array
-0,0,0,0,0,0,0,// -obsolete
+0,1,0,0,0,0,0,// -obsolete
 0,0,0,0,0,0,0,// Fall Through
-0,0,0,0,0,0,0,// -noverwrite
+0,1,0,0,0,0,0,// -noverwrite
 0,0,0,0,0,0,0,// we look through the source path elements. If the element is a dir // we look for the file. If it is a zip, we look for the zip entry. // This isn't normal for source paths but we get it for free
 0,0,0,0,0,0,0,/* null */
 0,0,0,0,0,0,0,/* local file header signature     */
 0,0,0,0,0,0,0,// set user-defined properties
 0,0,0,0,0,0,0,// set Java built-in properties separately, // b/c we won't inherit them.
-0,0,0,0,0,0,0,// -ctime
+0,1,0,0,0,0,0,// -ctime
 0,0,0,0,0,0,0,"/*               If verbosity is MSG_VERBOSE, that mean we are doing               regular logging (backwards as that sounds).  In that               case, we want to print one message about deleting the               top of the directory tree.  Otherwise, the removeDir               method will handle messages for _all_ directories.             */"
 0,0,0,0,0,0,0,/* Methods below all add specific selectors */
 0,0,0,0,0,0,0,// expect the worst
 0,0,0,0,0,0,0,// set all properties from calling project
 0,0,0,0,0,0,0,//now any inner assertions
-0,0,0,0,0,0,0,// -pbranch
+0,1,0,0,0,0,0,// -pbranch
 0,0,0,0,0,0,0,//append the ... suffix if not there already
 0,0,0,0,0,0,0,// File[] filesInDir = directory.listFiles();
 0,0,0,0,0,0,0,//convert to lower case in the English locale,
 0,0,0,0,0,0,0,// has been set explicitly
-0,0,0,1,1,1,1,// Strip off drive letters! // REVIEW Would a better check be "(File.separator == '\')"?
+0,1,0,1,0,1,1,// Strip off drive letters! // REVIEW Would a better check be "(File.separator == '\')"?
 0,0,0,0,0,0,0,// -shared
 0,0,0,0,0,0,0,// class found but restricted name; this is // actually the case we're looking for in JDK 1.3+, // so catch the exception and return
 0,0,0,0,0,0,0,//this is the list of lu
@@ -446,18 +446,18 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// this iterator is exhausted. Can we pop one off the stack
 0,0,0,0,0,0,0,// if buildFile was not specified on the command line,
 0,0,0,0,0,0,0,// check to make sure that the given dir isn't a symlink // the comparison of absolute path and canonical path // catches this
-0,0,0,0,0,0,0,// \ doesn't have a special meaning anymore - this is different from // what the Unix sh does but causes a lot of problems on DOS // based platforms otherwise
+0,1,0,0,0,0,0,// \ doesn't have a special meaning anymore - this is different from // what the Unix sh does but causes a lot of problems on DOS // based platforms otherwise
 0,0,0,0,0,0,0,// now recover all the dependencies collected and add to the list.
 0,0,0,0,0,0,0,// pick up the last round of dependencies that were determined
 0,0,0,0,0,0,0,//validation logic
 0,0,0,0,0,0,0,// right we have a good looking class file.
 0,0,0,0,0,0,0,/* int minorVersion = */
 0,0,0,0,0,0,0,// but -find then search for it
-0,0,0,0,0,0,0,"/*                        If the argument is not a String or Location,                        and if there                        is an overloaded form of this method already defined,                        we just override that with the new one.                        This mechanism does not guarantee any specific order                        in which the main.methods will be selected: so any code                        that depends on the order in which ""set"" main.methods have                        been defined, is not guaranteed to be selected in any                        particular order.                    */"
-0,0,0,0,0,0,0,//this isnt strictly needed, but by being fussy now, //we can change implementation details later
+0,0,0,0,0,0,0,"/*                        If the argument is not a String or Location,                        and if there                        is an overloaded form of this method already defined,                        we just override that with the new one.                        This mechanism does not guarantee any specific order                        in which the methods will be selected: so any code                        that depends on the order in which ""set"" methods have                        been defined, is not guaranteed to be selected in any                        particular order.                    */"
+0,1,0,0,0,0,0,//this isnt strictly needed, but by being fussy now, //we can change implementation details later
 0,0,0,0,0,0,0,/* int majorVersion = */
 0,0,0,0,0,0,0,/* int accessFlags = */
-0,0,1,0,0,0,0,"/* Interestingly enough, we get to here when a user                 * uses -Dname=value. However, in some cases, the OS                 * goes ahead and parses this out to args                 *   {""-Dname"", ""value""}                 * so instead of parsing on ""="", we just make the ""-D""                 * characters go away and skip one argument forward.                 *                 * I don't know how to predict when the JDK is going                 * to help or not, so we simply look for the equals sign.                 */"
+0,1,1,0,0,0,0,"/* Interestingly enough, we get to here when a user                 * uses -Dname=value. However, in some cases, the OS                 * goes ahead and parses this out to args                 *   {""-Dname"", ""value""}                 * so instead of parsing on ""="", we just make the ""-D""                 * characters go away and skip one argument forward.                 *                 * I don't know how to predict when the JDK is going                 * to help or not, so we simply look for the equals sign.                 */"
 0,0,0,0,0,0,0,//special case single jar handling with signedjar attribute set
 0,0,0,0,0,0,0,// read the dependency cache from the disk
 0,0,0,0,0,0,0,// not cached - so need to read directly from the class file
@@ -465,7 +465,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// make sure buildfile exists
 0,0,0,0,0,0,0,// should always be the case...
 0,0,0,0,0,0,0,// single jar processing
-0,0,1,0,0,0,0,// -------------------- Optional main.methods   -------------------- // You can override those main.methods if you want to optimize or // do advanced things (like support a special syntax). // The main.methods do not chain - you should use them when embedding ant // (by replacing the main helper)
+0,1,1,0,0,0,0,// -------------------- Optional methods   -------------------- // You can override those methods if you want to optimize or // do advanced things (like support a special syntax). // The methods do not chain - you should use them when embedding ant // (by replacing the main helper)
 0,0,0,0,0,0,0,// This class depends on each class in the dependency list. For each // one of those, add this class into their affected classes list
 0,0,0,0,0,0,0,// The captureToSummary test writes to stdout and stderr, good for // verifying that the TestListener support doesn't break anything.
 0,0,0,0,0,0,0,// now determine which jars each class depends upon
@@ -535,20 +535,20 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// On OpenVMS Runtime#exec() doesn't support the environment array, // so we only return the new values which then will be set in // the generated DCL script, inheriting the parent process environment
 0,0,0,0,0,0,0,// Mono 1.0's wsdl doesn't deal with absolute paths
 0,0,0,0,0,0,0,// If this TransformOperation has DrawOperation children // then Rotate the first child and return.
-0,0,0,0,0,0,0,//add in any extra files. //this is an error in mono, but we do not warn on it as they may fix that outside //the ant build cycle.
+0,1,0,0,0,0,0,//add in any extra files. //this is an error in mono, but we do not warn on it as they may fix that outside //the ant build cycle.
 0,0,0,0,0,0,0,//noop default encoding used
 0,0,0,0,0,0,0,//if, by any means, the destfile and source match,
 0,0,0,0,0,0,0,"/*         * Writes the command into a temporary DCL script and returns the         * corresponding File object.  The script will be deleted on exit.         * @param cmd the command line to execute as an array of strings.         * @param env the environment to set as an array of strings.         * @return the command File.         * @throws IOException if errors are encountered creating the file.         */"
 0,0,0,0,0,0,0,//mark for a rebuild if we are newer
 0,0,0,0,0,0,0,// add the single group arguments // Javadoc 1.2 rules: //   Multiple -group args allowed. //   Each arg includes 3 strings: -group [name] [packagelist]. //   Elements in [packagelist] are colon-delimited. //   An element in [packagelist] may end with the * wildcard.
-0,0,0,0,0,0,0,//conditionally compile
+0,1,0,0,0,0,0,//conditionally compile
 0,0,0,0,0,0,0,// ensure that parent dir of dest file exists!
 0,0,0,0,0,0,0,// Set up a Timestamp
 0,0,0,0,0,0,0,// for each sourcePath entry, add a directoryset with includes // taken from packagenames attribute and nested package // elements and excludes taken from excludepackages attribute // and nested excludepackage elements
 0,0,0,0,0,0,0,//we check the presence of signatures on lazy signing
 0,0,0,0,0,0,0,// if it's a non source file, copy it if a later date than the // dest // if it's a source file, see if the destination class file // needs to be recreated via compilation
 0,0,0,0,0,0,0,// Errors
-0,0,0,0,0,0,0,// ------------------------------------------------------ //   Helper main.methods // -----------------------------------------------------
+0,0,0,0,0,0,0,// ------------------------------------------------------ //   Helper methods // -----------------------------------------------------
 0,0,0,0,0,0,0,//bail on no references
 0,0,0,0,0,0,0,"/*         * In Ant 1.1, <chmod dir=""foo"" /> means, change the permissions         * of directory foo, not anything inside of it.  This is the case the         * second branch of the if statement below catches for backwards         * compatibility.         */"
 0,0,0,0,0,0,0,//if they are different, the timestamps are used
@@ -560,12 +560,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Load the property files specified by -propertyfile
 0,0,0,0,0,0,0,//hand down
 0,0,0,0,0,0,0,//just log this
-0,0,1,0,0,0,0,"/* for historical and performance reasons we have to do               things in a rather complex way.               (1) Move is optimized to move directories if a fileset               has been included completely, therefore FileSets need a               special treatment.  This is also required to support               the failOnError semantice (skip filesets with broken               basedir but handle the remaining collections).               (2) We carry around a few protected main.methods that work               on basedirs and arrays of names.  To optimize stuff, all               resources with the same basedir get collected in               separate lists and then each list is handled in one go.            */"
+0,1,1,0,0,0,0,"/* for historical and performance reasons we have to do               things in a rather complex way.               (1) Move is optimized to move directories if a fileset               has been included completely, therefore FileSets need a               special treatment.  This is also required to support               the failOnError semantice (skip filesets with broken               basedir but handle the remaining collections).               (2) We carry around a few protected methods that work               on basedirs and arrays of names.  To optimize stuff, all               resources with the same basedir get collected in               separate lists and then each list is handled in one go.            */"
 0,0,0,0,0,0,0,//loop through all definitions
 0,0,0,0,0,0,0,// we have started to (over)write dest, but failed. // Try to delete the garbage we'd otherwise leave // behind.
 0,0,0,0,0,0,0,//set up response file options
 0,0,0,0,0,0,0,//not modified so no file download. just return //instead and trace out something so the user //doesn't think that the download happened when it //didn't
-0,0,0,0,0,0,0,// fileutils
+0,1,0,0,0,0,0,// fileutils
 0,0,0,0,0,0,0,// Ignore exception
 0,0,0,0,0,0,0,//if the refs are out of date, force a build.
 0,0,0,0,0,0,0,// we have already started reading this section // this line is the first attribute. set it and then // let the normal read handle the rest
@@ -588,7 +588,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// check if the target file exists in the current directory
 0,0,0,0,0,0,0,//On VMS platform, we need to create a special java options file //containing the arguments and classpath for the javac command. //The special file is supported by the "-V" switch on the VMS JVM.
 0,0,0,0,0,0,0,// Parser with specified options can't be built
-0,0,0,0,0,0,0,//must keep for subclass BC, though unused: // CheckStyle:ConstantNameCheck OFF - bc
+0,1,0,0,0,0,0,//must keep for subclass BC, though unused: // CheckStyle:ConstantNameCheck OFF - bc
 0,0,0,0,0,0,0,// I/O error
 0,0,0,0,0,0,0,// Set up a VSSCheckIn task
 0,0,0,0,0,0,0,// Set the prefix for this node to include its tag name.
@@ -611,8 +611,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Set up a VSSCheckOut task
 0,0,0,0,0,0,0,//error if both are empty, or both are set
 0,0,0,0,0,0,0,// set the thread priorities
-0,0,0,0,0,0,0,// we are forced to fork ANTLR since there is a call // to System.exit() and there is nothing we can do // right now to avoid this. :-( (SBa) // I'm not removing this method to keep backward compatibility
-0,0,0,0,1,1,1,// Is there an id attribute?
+0,1,0,0,0,0,0,// we are forced to fork ANTLR since there is a call // to System.exit() and there is nothing we can do // right now to avoid this. :-( (SBa) // I'm not removing this method to keep backward compatibility
+0,0,0,0,0,0,0,// Is there an id attribute?
 0,0,0,0,0,0,0,//The following is data used while processing stdout of CVS command
 0,0,0,0,0,0,0,// Now, iterate through the attributes adding them.
 0,0,0,0,0,0,0,// swallow
@@ -676,7 +676,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* Expose members for extensibility */
 0,0,0,0,0,0,0,/* Inner classes follow */
 0,0,0,0,0,0,0,// End of EjbcException inner class
-0,0,0,1,0,1,1,// delegate this way around to support subclasses that // overwrite getFile
+0,1,0,1,0,1,1,// delegate this way around to support subclasses that // overwrite getFile
 0,0,0,0,0,0,0,// Tracks current element // Tracks current text data // "session" or "entity"
 0,0,0,0,0,0,0,/* Search the resource Map and (if not found) file Map */
 0,0,0,0,0,0,0,// now, start printing the targets and their descriptions
@@ -697,7 +697,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* Check that the specified instance variables are valid */
 0,0,0,0,0,0,0,"/*         * Use the Runtime object to execute an external command.  Use the         * RedirectOutput inner class to direct the standard and error output         * from the command to the JRE's standard output         */"
 0,0,0,0,0,0,0,// now to the expected failures
-0,0,0,0,0,0,0,// got a bit annoyed that I couldn't find a pad function
+0,1,0,0,0,0,0,// got a bit annoyed that I couldn't find a pad function
 0,0,0,0,0,0,0,//handle new style full paths to an antlib, in which //all but the forward slashes are allowed.
 0,0,0,0,0,0,0,/* Check that the EJB "source" classes all exist */
 0,0,0,0,0,0,0,//downgrade warnings on RMI stublike classes, as they are generated //by rmic, so there is no need to tell the user that their source is //missing.
@@ -712,7 +712,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// let's be nice with the next generation of developers
 0,0,0,0,0,0,0,// make the spawned process run 4 seconds
 0,0,0,0,0,0,0,"/*         * Two Maps are used to track local DTDs that will be used in case the         * remote copies of these DTDs cannot be accessed.  The key for the Map         * is the DTDs public ID and the value is the local location for the DTD         */"
-0,0,0,0,0,0,0,// catalog1 --> catalog2 --> catalog3 --> catalog1
+0,1,0,0,0,0,0,// catalog1 --> catalog2 --> catalog3 --> catalog1
 0,0,0,0,0,0,0,//always trigger file mode if commands are big enough
 0,0,0,0,0,0,0,// is the zip file in the cache
 0,0,0,0,0,0,0,// without closure we may delete an inner class but not the // top level class which would not trigger a recompile.
@@ -728,7 +728,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * Directory where ""source"" EJB files are stored and where stubs and     * skeletons will also be written.     */"
 0,0,0,0,0,0,0,//trick to evoke "basedir not set" if null:
 0,0,0,0,0,0,0,// catalog2 --> catalog1 --> catalog
-0,0,1,0,0,0,0,// EJB's display name // EJB's home interface name // EJB's remote interface name // EJB's implementation class // EJB's primary key class // or "stateful" or "stateless" // Does this EJB support CMP? // Does this EJB support IIOP? // Does this EJB require failover? // CMP descriptor list
+0,1,1,0,0,0,0,// EJB's display name // EJB's home interface name // EJB's remote interface name // EJB's implementation class // EJB's primary key class // or "stateful" or "stateless" // Does this EJB support CMP? // Does this EJB support IIOP? // Does this EJB require failover? // CMP descriptor list
 0,0,0,0,0,0,0,//no sources = nothing to compare; no targets = nothing to delete:
 0,0,0,0,0,0,0,"/*     * Validates URL     */"
 0,0,0,0,0,0,0,/* Check the timestamp on the remote interface */
@@ -742,8 +742,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//bail out early if there were no files
 0,0,0,0,0,0,0,//now scan the hashtable and add the files
 0,0,0,0,0,0,0,// Have to catch this because of the semantics of calling main()
-0,0,0,0,1,1,1,// List of all stubs & skels // Earliest mod time // Has each been found?
-0,0,0,0,0,0,0,// additionalargs
+0,0,0,0,0,0,0,// List of all stubs & skels // Earliest mod time // Has each been found?
+0,1,0,0,0,0,0,// additionalargs
 0,0,0,0,0,0,0,// ejb jar file
 0,0,0,0,0,0,0,//Public //Private //Family //Assembly //Family and Assembly //Family or Assembly //Private Scope
 0,0,0,0,0,0,0,// class name (search in the classpath provided for the ejbjar element)
@@ -756,7 +756,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* Keep track of the oldest modification timestamp */
 0,0,0,0,0,0,0,// RFC 822 s4.1: //   "Header fields are NOT required to occur in any particular order, //    except that the message body MUST occur AFTER the headers" // (the same section specifies a reccommended order, which we ignore)
 0,0,0,0,0,0,0,// End of EjbInfo inner class
-0,0,0,1,0,1,1,// need to close files and perhaps rename output
+0,1,0,1,0,1,1,// need to close files and perhaps rename output
 0,0,0,0,0,0,0,// CheckStyle:VisibilityModifier OFF - bc // CheckStyle:ConstantNameCheck OFF - bc
 0,0,0,0,0,0,0,"/*                         * stub is derived from implementation,                         * tie from interface name.                         */"
 0,0,0,0,0,0,0,/* Filenames of the standard EJB descriptor and the iAS-specific descriptor */
@@ -782,34 +782,34 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*             * If this is a standard EJB 1.1 descriptor, we are looking for one             * set of data, while if this is an iAS-specific descriptor, we're             * looking for different set of data.  Hand the processing off to             * the appropriate method.             */"
 0,0,0,0,0,0,0,//the trick to integrating test output to the formatter, is to //create a special test class that asserts an error //and tell the formatter that it raised.
 0,0,0,0,0,0,0,// we don't have any more args to recognize!
-0,0,1,1,0,1,1,// this comment extract from JUnit Task may also apply here // "in VM is not very nice since it could probably hang the // whole build. IMHO this method should be avoided and it would be best // to remove it in future versions. TBD. (SBa)"
+0,1,1,1,0,1,1,// this comment extract from JUnit Task may also apply here // "in VM is not very nice since it could probably hang the // whole build. IMHO this method should be avoided and it would be best // to remove it in future versions. TBD. (SBa)"
 0,0,0,0,0,0,0,// if it's no other arg, it may be the target
 0,0,0,0,0,0,0,//remove the .class
 0,0,0,0,0,0,0,// keys to optional attributes
 0,0,0,0,0,0,0,// A special parent loader which is not the system class loader:
 0,0,0,0,0,0,0,// check that a reference zipfileset gets the same attributes as the original
-0,0,0,1,0,1,1,// null watchdog means no timeout, you'd better not check with null
+0,1,0,1,0,1,1,// null watchdog means no timeout, you'd better not check with null
 0,0,0,0,0,0,0,//class-BFT
 0,0,0,0,0,0,0,//do nothing
 0,0,0,0,0,0,0,"/*         * Below are getter's and setter's for each of the instance variables.         * Note that (in addition to supporting setters with the same type as         * the instance variable) a setter is provided with takes a String         * argument -- this are provided so the XML document handler can set         * the EJB values using the Strings it parses.         */"
-0,0,0,0,0,0,0,//-- XSLTProcess
+0,1,0,0,0,0,0,//-- XSLTProcess
 0,0,0,0,0,0,0,// add -file xxxxx to the commandline
 0,0,0,0,0,0,0,// Create an instance of the rmic
 0,0,0,0,0,0,0,//clientname = ejbjarfile+client.jar
-0,0,0,0,1,1,1,// not necessary as JDepend would fail, but why loose // some time?
+0,1,0,0,0,0,0,// not necessary as JDepend would fail, but why loose // some time?
 0,0,0,0,0,0,0,// end of else
 0,0,0,0,0,0,0,// Self-describing as of JUnit 4 (#38811). But trim "(ClassName)".
 0,0,1,0,0,0,0,// The timestamp of the "newest" class // Timestamp for a given class // File for the remote interface class // File for the home interface class // File for the EJB implementation class // File for the EJB primary key class
 0,0,0,0,0,0,0,// Fully qualified name of the Java class // Name of the package for this class // Name of the class without the package
 0,0,0,0,0,0,0,// ignored.
 0,0,0,0,0,0,0,// if there is a suite method available, then try // to extract the suite from it. If there is an error // here it will be caught below and reported.
-0,0,0,0,0,0,0,// NumberFormatException or ArrayOutOfBondsException could happen here
+0,1,0,0,0,0,0,// NumberFormatException or ArrayOutOfBondsException could happen here
 0,0,0,0,0,0,0,// ignore it
 0,0,0,0,0,0,0,// make sure it's not a directory (this falls into the ultra // paranoid lets check everything category
 0,0,0,0,0,0,0,// to remove directories, start by the end of the list // the trunk does not let itself be removed before the leaves
 0,0,0,0,0,0,0,// use a system manager that prevents from System.exit()
 0,0,0,0,0,0,0,//Throw exception on errors (except up-to-date) // //When a server is down, the code expects : //Perforce client error: //Connect to server failed; check $P4PORT. //TCP connect to localhost:1666 failed. //connect: localhost:1666: Connection refused //Some forms producing commands (p4 -s change -o) do tag the output //others don't..... //Others mark errors as info, for example edit a file //which is already open for edit..... //Just look for error: - catches most things....
-0,0,0,1,0,1,1,//we mark the file to be deleted on exit. //the alternative would be to cache the filename and delete //after execution finished, which is much better for long-lived runtimes //though spawning complicates things...
+0,1,0,1,0,1,1,//we mark the file to be deleted on exit. //the alternative would be to cache the filename and delete //after execution finished, which is much better for long-lived runtimes //though spawning complicates things...
 0,0,0,0,0,0,0,// If the element starts with the configured prefix, then // convert the prefix to the configured 'to' value.
 0,0,0,0,0,0,0,// We try to update the status once to give StarTeam // another chance.
 0,0,0,0,0,0,0,// Currently, we deal with only two path formats: Unix and Windows // And Unix is everything that is not Windows
@@ -820,7 +820,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* GenIC options */
 0,0,0,0,0,0,0,// path containing one or more elements
 0,0,0,0,0,0,0,// We want to display the folder the same way you would // enter it on the command line ... so we remove the // View name (which is also the name of the root folder, // and therefore shows up at the start of the path).
-0,0,0,0,0,0,0,// may be altered in validateSetup // may be altered in validateSetup
+0,1,0,0,0,0,0,// may be altered in validateSetup // may be altered in validateSetup
 0,0,0,0,0,0,0,// Catch everything - some of the above return nulls, // throw exceptions or generally misbehave // in the event of a problem etc
 0,0,0,0,0,0,0,// Path to the SourceOffSite home directory /home/user/.sos
 0,0,0,0,0,0,0,/* other options */
@@ -834,9 +834,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// -I- // ignore all errors // -Vd
 0,0,0,0,0,0,0,// JOnAS-specific descriptor deployment
 0,0,0,0,0,0,0,// Apply the path prefix map
-0,0,0,0,0,0,0,// note, it's important to scan the items BEFORE we make the // UnmatchedFileMap because that creates a bunch of NEW // folders and files (unattached to repository) and we // don't want to include those in our traversal.
+0,1,0,0,0,0,0,// note, it's important to scan the items BEFORE we make the // UnmatchedFileMap because that creates a bunch of NEW // folders and files (unattached to repository) and we // don't want to include those in our traversal.
 0,0,0,0,0,0,0,// Now convert the path and file separator characters from the // current os to the target os.
-0,0,1,0,0,0,0,//SecurityManager can not be installed here for backwards //compatibility reasons (PD). Needs to be loaded prior to //ant class if we are going to implement it. //System.setSecurityManager(new NoExitSecurityManager());
+0,1,1,0,0,0,0,//SecurityManager can not be installed here for backwards //compatibility reasons (PD). Needs to be loaded prior to //ant class if we are going to implement it. //System.setSecurityManager(new NoExitSecurityManager());
 0,0,0,0,0,0,0,// since filesize keeps on decreasing we have to store the // initial filesize
 0,0,0,0,0,0,0,// security
 0,0,0,0,0,0,0,// JDK usage command line says that -jar must be the first option, as there is // a bug in JDK < 1.4 that forces the jvm type to be specified as the first // option, it is appended here as specified in the docs even though there is // in fact no order.
@@ -855,7 +855,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Not a .class file or the one we'd generate
 0,0,0,0,0,0,0,// baseNameTerminator not found: the descriptor use the // JOnAS naming convention, ie [Foo.xml,jonas-Foo.xml] and // not [Foo<baseNameTerminator>-ejb-jar.xml, // Foo<baseNameTerminator>-jonas-ejb-jar.xml].
 0,0,0,0,0,0,0,// We have the loader which is being used to load the // CatalogResolver. Can it see the ApacheResolver? The // base resolver will only be able to create the ApacheResolver // if it can see it - doesn't use the context loader.
-0,0,0,0,0,0,0,// Following block contains unrolled code which could be shortened by // coding it in additional loops.
+0,1,0,0,0,0,0,// Following block contains unrolled code which could be shortened by // coding it in additional loops.
 0,0,0,0,0,0,0,// Determine the separator strings.  The dirsep and pathsep attributes // override the targetOS settings.
 0,0,0,0,0,0,0,// override with pathsep=
 0,0,0,0,0,0,0,// override with dirsep=
@@ -866,14 +866,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/* now check each Resource in case the child only           lets through files from any children IT may have: */"
 0,0,0,0,0,0,0,/* other options setter */
 0,0,0,0,0,0,0,// write namespace declarations
-0,0,0,0,0,0,0,/* other main.methods */
+0,0,0,0,0,0,0,/* other methods */
 0,0,0,0,0,0,0,// Check if used by attributes
 0,0,0,0,0,0,0,//find the out-of-date targets:
 0,0,0,0,0,0,0,// the method deleteOnExit() do not work because the directory is not empty
 0,0,0,0,0,0,0,// create the generic jar first
 0,0,0,0,0,0,0,//no need to synchronize, as Vector is always synchronized
-0,0,0,0,1,1,1,// ? is there an xml api for this ?
-0,0,0,0,0,0,0,// NotReached
+0,0,0,0,0,0,0,// ? is there an xml api for this ?
+0,1,0,0,0,0,0,// NotReached
 0,0,0,0,0,0,0,// GenIC call on generic jar
 0,0,0,0,0,0,0,// fall through
 0,0,0,0,0,0,0,// create the real jar
@@ -896,14 +896,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// bsBuffShadow |= 0 << (32 - bsLiveShadow - 1);
 0,0,0,0,0,0,0,// no . found
 0,0,0,0,0,0,0,////////////////////////////////////////////////////////////////////// // ACCESSOR METHODS
-0,0,0,1,0,1,1,// The clean way would be to throw an exception. //throw new IOException("crc error");
+0,1,0,1,0,1,1,// The clean way would be to throw an exception. //throw new IOException("crc error");
 0,0,0,0,0,0,0,// try to find JOnAS specific convention name
 0,0,0,0,0,0,0,//  900021 byte // 3600000 byte // 3600000 byte // ------------ // 8433529 byte // ============
 0,0,0,0,0,0,0,// else get standard baseName
 0,0,0,0,0,0,0,// make sure the cache is cleared.
 0,0,0,0,0,0,0,//Validate mandatory attributes
 0,0,0,0,0,0,0,// Step 2: // Now scan this big bucket so as to synthesise the // sorted order for small buckets [t, ss] for all t != ss.
-0,0,0,0,0,0,0,// jonasroot
+0,1,0,0,0,0,0,// jonasroot
 0,0,0,0,0,0,0,"/*                  Complete the big bucket [ss] by quicksorting                  any unsorted small buckets [ss, j].  Hopefully                  previous pointer-scanning phases have already                  completed many of the small buckets [ss, j], so                  we don't have to sort them at all.            */"
 0,0,0,0,0,0,0,// Translate periods into path separators, add .class to the // name, create the File object and add it to the Hashtable.
 0,0,0,0,0,0,0,"/*          Setting up the unzftab entries here is not strictly          necessary, but it does save having to do it later          in a separate pass, and so saves a block's worth of          cache misses.        */"
@@ -912,9 +912,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//check that fullpath and prefix are incompatible
 0,0,0,0,0,0,0,// add the types of the parent project
 0,0,0,0,0,0,0,//the property attribute must have access to a property file
-0,0,0,0,0,0,0,// outputdir
+0,1,0,0,0,0,0,// outputdir
 0,0,0,0,0,0,0,//if either of them is missing, they are different
-0,0,1,1,0,1,1,// work around a bug of GenIC 2.5
+0,1,1,1,0,1,1,// work around a bug of GenIC 2.5
 0,0,0,0,0,0,0,//Make sure property exists in property file
 0,0,0,0,0,0,0,// All characters in the string are used. Check if only '*'s are // left in the pattern. If so, we succeeded. Otherwise failure.
 0,0,0,0,0,0,0,// classpath
@@ -927,20 +927,20 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//now any assertions are added
 0,0,0,0,0,0,0,// Avoid runtime problem on pre 1.4 when compiling post 1.4
 0,0,0,0,0,0,0,// Creation is done here rather than in isSelected() because some // containers may do a validation pass before running isSelected(), // but we need to check for the existence of the created class.
-0,0,0,0,0,0,0,// keepgenerated
+0,1,0,0,0,0,0,// keepgenerated
 0,0,0,0,0,0,0,// process pattern between stars. padIdxStart and patIdxEnd point // always to a '*'.
-0,0,0,0,0,0,0,// nocompil
+0,1,0,0,0,0,0,// nocompil
 0,0,0,0,0,0,0,// The EnumeratedAttributes for the three interface implementations. // Name-Classname mapping is done in the configure() method.
 0,0,0,0,0,0,0,// end of finally
-0,0,0,0,0,0,0,// ----- BuildListener interface main.methods -----
-0,0,0,0,0,0,0,// novalidation
+0,0,0,0,0,0,0,// ----- BuildListener interface methods -----
+0,1,0,0,0,0,0,// novalidation
 0,0,0,0,0,0,0,// // -----  Set the special attributes, pattern '*.*'  ----- //
 0,0,0,0,0,0,0,// javac
 0,0,0,0,0,0,0,// use Cache defined via name
 0,0,0,0,0,0,0,// tell the build it is finished
 0,0,0,0,0,0,0,// Get the values and do the comparison
 0,0,0,0,0,0,0,// An AntClassLoader which is supposed to delegate to // the parent and then to the disk path:
-0,0,0,0,1,1,1,// should the following two be switched?  If r1 and r2 refer to the same file, // isn't their content equal regardless of whether that file is a directory?
+0,0,0,0,0,0,0,// should the following two be switched?  If r1 and r2 refer to the same file, // isn't their content equal regardless of whether that file is a directory?
 0,0,0,0,0,0,0,// Only file specified -> Fail
 0,0,0,0,0,0,0,// -----  additional  -----
 0,0,0,0,0,0,0,// resource doesn't exist -> property 'test' == null
@@ -949,9 +949,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//log uptodateness of all targets:
 0,0,0,0,0,0,0,// Expecting an exception to be thrown by this call: // IllegalArgumentException: wrong number of Arguments
 0,0,0,0,0,0,0,// // Cannot return a null source, because we have to call // setEntityResolver (see setEntityResolver javadoc comment) //
-0,0,0,0,0,0,0,// javacopts
+0,1,0,0,0,0,0,// javacopts
 0,0,0,0,0,0,0,// Determine the Java version by looking at available classes // java.net.Proxy was introduced in JDK 1.5 // java.lang.CharSequence was introduced in JDK 1.4 // java.lang.StrictMath was introduced in JDK 1.3 // java.lang.ThreadLocal was introduced in JDK 1.2 // java.lang.Void was introduced in JDK 1.1 // Count up version until a NoClassDefFoundError ends the try
-0,0,0,0,0,0,0,// rmicopts
+0,1,0,0,0,0,0,// rmicopts
 0,0,0,0,0,0,0,//last character isn't a digit
 0,0,0,0,0,0,0,//look for and print warnings
 0,0,0,0,0,0,0,// fall back to JRE bin directory, also catches JDK 1.0 and 1.1 // where java.home points to the root of the JDK and Mac OS X where // the whole directory layout is different from Sun's
@@ -959,9 +959,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// now wait until the spawned process is finished
 0,0,0,0,0,0,0,// use the classloader that loaded this class otherwise // it will not be able to run inner classes if this test // is ran in non-forked mode.
 0,0,0,0,0,0,0,// ignore expected
-0,0,0,0,0,0,0,// secpropag
+0,1,0,0,0,0,0,// secpropag
 0,0,0,0,0,0,0,//at this point the paths are set up with lists of files, //and the mapper is ready to map from source dirs to dest files //now we iterate through every JAR giving source and dest names // deal with the paths
-0,0,0,0,0,0,0,// verbose
+0,1,0,0,0,0,0,// verbose
 0,0,0,0,0,0,0,"/*             * ZipOutputStream.putNextEntry expects the ZipEntry to             * know its size and the CRC sum before you start writing             * the data when using STORED mode - unless it is seekable.             *             * This forces us to process the data twice.             */"
 0,0,0,0,0,0,0,// depending on the implementation the actual RE won't // get instantiated in the constructor.
 0,0,0,0,0,0,0,// we need to search the components of the path to see if we can // find the class we want.
@@ -990,24 +990,24 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// this is the classname to run as well as its arguments. // in case of 'executeJar', the executable is a jar file.
 0,0,0,0,0,0,0,// GenIC task // GenIC class (3 are supported for various // versions
 0,0,0,0,0,0,0,// bootclasspath is "-Xbootclasspath:<classpath>" -> 1 arg
-0,0,1,1,0,1,1,// // If you don't do this, you get all sorts of annoying // warnings about a missing properties file.  However, it // seems to work just fine with default values.  Ultimately, // we should probably include a "CatalogManager.properties" // file in the ant jarfile with some default property // settings.  See CatalogManager.java for more details. //
-0,0,0,0,0,0,0,"/*                  This loop is hammered during decompression,                  hence avoid native method call overhead of                  System.arraycopy for very small ranges to copy.                */"
+0,1,1,1,0,1,1,// // If you don't do this, you get all sorts of annoying // warnings about a missing properties file.  However, it // seems to work just fine with default values.  Ultimately, // we should probably include a "CatalogManager.properties" // file in the ant jarfile with some default property // settings.  See CatalogManager.java for more details. //
+0,1,0,0,0,0,0,"/*                  This loop is hammered during decompression,                  hence avoid native method call overhead of                  System.arraycopy for very small ranges to copy.                */"
 0,0,0,0,0,0,0,// Do nothing
 0,0,0,0,0,0,0,// Is the ser file or any of the source files newer then the class files. // firstly find the oldest of the two class files.
-0,0,1,0,0,0,0,"/*     * Regardless of the name of the iAS-specific EJB descriptor file, it will     * written in the completed JAR file as ""ias-ejb-jar.xml"".  This is the     * naming convention implemented by iAS.     */"
+0,1,1,0,0,0,0,"/*     * Regardless of the name of the iAS-specific EJB descriptor file, it will     * written in the completed JAR file as ""ias-ejb-jar.xml"".  This is the     * naming convention implemented by iAS.     */"
 0,0,0,0,0,0,0,// build the list of sources which are out of date with // respect to the target
 0,0,0,0,0,0,0,// this loader was first but it didn't find it - try the parent
 0,0,0,0,0,0,0,// push the current iterator onto the stack and then // iterate through this directory.
 0,0,0,0,0,0,0,// add the generated files to the ejbFiles
 0,0,0,0,0,0,0,// not before the filesystem root and not after it, since root // already contains one
-0,0,0,0,0,0,0,// orb
+0,1,0,0,0,0,0,// orb
 0,0,0,0,0,0,0,// can safely use '/' because Windows understands '/' as separator
 0,0,0,0,0,0,0,// get index of parts which are equal
-0,0,0,0,0,0,0,/* utilitary main.methods */
+0,0,0,0,0,0,0,/* utilitary methods */
 0,0,0,0,0,0,0,// different size =>different files
 0,0,0,0,0,0,0,"/*             * Check for the odd case where the terminator and/or filename             * extension aren't found.  These will ensure ""ias-"" appears at the             * end of the name and before the '.' (if present).             */"
 0,0,0,0,0,0,0,// Add the class in dotted notation 'com.company.Class'
-0,0,0,0,0,0,0,// dummy1 --> dummy2 --> dummy3 --> dummy1
+0,1,0,0,0,0,0,// dummy1 --> dummy2 --> dummy3 --> dummy1
 0,0,0,0,0,0,0,// For all Files in this folder, we need to check // if there have been modifications.
 0,0,0,0,0,0,0,"/**     * When using this as a custom selector, this method will be called.     * It translates each parameter into the appropriate setXXX() call.     *     * @param parameters the complete set of parameters for this selector.     */"
 0,0,0,0,0,0,0,// line separators in values and tokens are "\n" // in order to compare with the file contents, replace them // as needed
@@ -1029,7 +1029,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// no errors so far
 0,0,0,0,0,0,0,// swallow, throw the original exception instead
 0,0,0,0,0,0,0,// Then the toplink deployment descriptor
-0,0,0,0,0,0,0,// Setup a naming standard here?.
+0,1,0,0,0,0,0,// Setup a naming standard here?.
 0,0,0,0,0,0,0,//do not use a FileResource b/c it pulls File info from the filesystem:
 0,0,0,0,0,0,0,// resource does exist -> property 'test' == 'true'
 0,0,0,0,0,0,0,// try a netware-volume length path w/forward slash, see how it is handled
@@ -1042,13 +1042,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// tt.length should always be >= length, but theoretically // it can happen, if the compressor mixed small and large // blocks.  Normally only the last block will be smaller // than others.
 0,0,0,0,0,0,0,// deprecated, but email is byte-oriented
 0,0,0,0,0,0,0,// We must check if the process was not stopped // before being here
-0,0,0,0,0,0,0,// // NOTE // We have fit EOF, and the block is not full! // // This is a broken archive. It does not follow the standard // blocking algorithm. However, because we are generous, and // it requires little effort, we will simply ignore the error // and continue as if the entire block were read. This does // not appear to break anything upstream. We used to return // false in this case. // // Thanks to 'Yohann.Roussel@alcatel.fr' for this fix. //
+0,1,0,0,0,0,0,// // NOTE // We have fit EOF, and the block is not full! // // This is a broken archive. It does not follow the standard // blocking algorithm. However, because we are generous, and // it requires little effort, we will simply ignore the error // and continue as if the entire block were read. This does // not appear to break anything upstream. We used to return // false in this case. // // Thanks to 'Yohann.Roussel@alcatel.fr' for this fix. //
 0,0,0,0,0,0,0,// OK, properties file may be absolute
 0,0,0,0,0,0,0,// do we need to regenerate the file
 0,0,0,0,0,0,0,// write 8-bit
 0,0,0,0,0,0,0,// make next blocks readable without error // (repair feature, not yet documented, not tested)
 0,0,0,0,0,0,0,// Delegate to the parent:
-0,0,0,0,0,0,0,// // inlined: bsW(len_selCtr[sfmap_i] & 0xff, //              code_selCtr[sfmap_i]); //
+0,1,0,0,0,0,0,// // inlined: bsW(len_selCtr[sfmap_i] & 0xff, //              code_selCtr[sfmap_i]); //
 0,0,0,0,0,0,0,// the process is not terminated, if this is really // a timeout and not a manual stop then kill it.
 0,0,0,0,0,0,0,// // -----  Set default values  ----- //
 0,0,0,0,0,0,0,// there was an exception - run with no exit to get proper error
@@ -1056,14 +1056,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,////////////////////////////////////////////////////////////////////// // CORE / MAIN BODY
 0,0,0,0,0,0,0,// END class ManifestClassPathTest
 0,0,0,0,0,0,0,// Check for bsf first then javax // This version does not check if the scriptManager // supports the language.
-0,0,0,0,0,0,0,// ClassLoader.this.parent is already delegated to from // ClassLoader.getResources, no need:
+0,1,0,0,0,0,0,// ClassLoader.this.parent is already delegated to from // ClassLoader.getResources, no need:
 0,0,0,0,0,0,0,// get the recorder entry
 0,0,0,0,0,0,0,// I assume that starting this takes less than TIME_OUT/2 ms...
 0,0,0,0,0,0,0,//File other then class changed   rebuild
 0,0,0,0,0,0,0,// create the -generic.jar, if required
 0,0,0,0,0,0,0,//create the command to run Java, including user specified options
 0,0,0,0,0,0,0,//Cycle Through generic and make sure its in websphere
-0,0,0,0,0,0,0,// // Get Method instances for each of the main.methods we need to // call on the resolverImpl using reflection.  We can't // call them directly, because they require on the // xml-commons resolver library which may not be available // in the classpath. //
+0,0,0,0,0,0,0,// // Get Method instances for each of the methods we need to // call on the resolverImpl using reflection.  We can't // call them directly, because they require on the // xml-commons resolver library which may not be available // in the classpath. //
 0,0,0,0,0,0,0,// // Use the passed in base in preference to the base // from matchingEntry, which is either null or the // directory in which the external catalog file from // which it was obtained is located.  We make a copy // so matchingEntry's original base is untouched. // // This is the standard behavior as per my reading of // the JAXP and XML Catalog specs.  CKS 11/7/2002 //
 0,0,0,0,0,0,0,// This available optional package satisfies the requirements
 0,0,0,0,0,0,0,// build the command line from what we got the format is // ss Add VSS items [-B] [-C] [-D-] [-H] [-I-] [-K] [-N] [-O] [-R] [-W] [-Y] [-?] // as specified in the SS.EXE help
@@ -1081,7 +1081,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,////////////////////////////////////////////////////////////////////// // INNER CLASSES
 0,0,0,0,0,0,0,//If we get here, it could be because we are trying to put a //directory entry that already exists. //For example, we're trying to write "com", but a previous //entry from another mergefile was called "com". //In that case, just ignore the error and go on to the //next entry.
 0,0,0,0,0,0,0,// If it's a primitive wrapper then we shouldn't try and put // it into the jar, so ignore it.
-0,0,0,0,0,0,0,"/*          First, some notes.          On MRJ 2.2.2, getting the size, compressed size, and CRC32 from the          ZipInputStream does not work for compressed (deflated) files.  Those calls return -1.          For uncompressed (stored) files, those calls do work.          However, using ZipFile.getEntries() works for both compressed and          uncompressed files.          Now, from some simple testing I did, it seems that the value of CRC-32 is          independent of the compression setting. So, it should be easy to pass this          information on to the output entry.        */"
+0,1,0,0,0,0,0,"/*          First, some notes.          On MRJ 2.2.2, getting the size, compressed size, and CRC32 from the          ZipInputStream does not work for compressed (deflated) files.  Those calls return -1.          For uncompressed (stored) files, those calls do work.          However, using ZipFile.getEntries() works for both compressed and          uncompressed files.          Now, from some simple testing I did, it seems that the value of CRC-32 is          independent of the compression setting. So, it should be easy to pass this          information on to the output entry.        */"
 0,0,0,0,0,0,0,// create a recorder entry
 0,0,0,0,0,0,0,// Weblogic will throw an error if the deployment descriptor does // not match the class files.
 0,0,0,0,0,0,0,// create the output .jar, if required
@@ -1100,7 +1100,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// none to register for generic
 0,0,0,0,0,0,0,// give it some time to display
 0,0,0,0,0,0,0,// constructs the "-url <url> -debug <action> <password>" portion // of the commmand line
-0,0,0,0,0,0,0,/////////////////////////////////////////////////////////////////////////// // // Set/get main.methods // ///////////////////////////////////////////////////////////////////////////
+0,0,0,0,0,0,0,/////////////////////////////////////////////////////////////////////////// // // Set/get methods // ///////////////////////////////////////////////////////////////////////////
 0,0,0,0,0,0,0,//we create a fileset with the source file. //this lets us combine our logic for handling output directories, //mapping etc.
 0,0,0,0,0,0,0,// Add any support classes specified in the build file
 0,0,0,0,0,0,0,// if input files are specified, inputString and inputStream are ignored; // classes that work with redirector attributes can enforce // whatever warnings are needed
@@ -1110,7 +1110,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Determine the JAR filename (without filename extension)
 0,0,0,0,0,0,0,// Locate the auxiliary script
 0,0,0,0,0,0,0,// default to the global setting and then see // if this class belongs to a package which has been // designated to use a specific loader first // (this one or the parent one)
-0,0,0,0,0,0,0,//************************************************************************ //  protected and private main.methods //************************************************************************
+0,0,0,0,0,0,0,//************************************************************************ //  protected and private methods //************************************************************************
 0,0,0,0,0,0,0,// load command line with optional attributes
 0,0,0,0,0,0,0,// Build the command
 0,0,0,0,0,0,0,// First the regular deployment descriptor
@@ -1137,7 +1137,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// try to be smart, not to be fooled by a weird directory name
 0,0,0,0,0,0,0,// create a new Vector to avoid ConcurrentModificationExc when // the listeners get added/removed while we are in fire
 0,0,0,0,0,0,0,// Log that the file is up to date...
-0,0,0,0,0,0,0,// Ignore - we are interested only in the side // effect - that of getting the static initializers // invoked.  As we do not want to call a valid // constructor to get this side effect, an // attempt is made to call a hopefully // invalid constructor - come on, nobody // would have a constructor that takes in // 256 String arguments ;-) // (In fact, they can't - according to JVM spec // section 4.10, the number of method parameters is limited // to 255 by the definition of a method descriptor. // Constructors count as main.methods here.)
+0,1,0,0,0,0,0,// Ignore - we are interested only in the side // effect - that of getting the static initializers // invoked.  As we do not want to call a valid // constructor to get this side effect, an // attempt is made to call a hopefully // invalid constructor - come on, nobody // would have a constructor that takes in // 256 String arguments ;-) // (In fact, they can't - according to JVM spec // section 4.10, the number of method parameters is limited // to 255 by the definition of a method descriptor. // Constructors count as methods here.)
 0,0,0,0,0,0,0,// add in support classes if any
 0,0,0,0,0,0,0,// ioe.printStackTrace();
 0,0,0,0,0,0,0,// Work out what the base name is
@@ -1147,7 +1147,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// clean the addedfiles set
 0,0,0,0,0,0,0,// If you felt daring, you could cache the basedir absolute path
 0,0,0,0,0,0,0,// Create the streams necessary to write the jarfile
-0,0,0,0,0,0,0,// following could be done in a loop, but // unrolled it for performance:
+0,1,0,0,0,0,0,// following could be done in a loop, but // unrolled it for performance:
 0,0,0,0,0,0,0,// class does exist -> property 'test' == 'true'
 0,0,0,0,0,0,0,// dummy1 --> dummy2 --> dummy3 (with Path "/a")
 0,0,0,0,0,0,0,//get and clean up innerclass name
@@ -1165,8 +1165,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,// having a space between the file and its path causes commandline // to add quotes around the argument thus making JDepend not taking // it into account. Thus we split it in two
 0,0,0,0,0,0,0,"/*     * Actually performs the merging of f into the output.     * f should be a zip or jar file.     */"
 0,0,0,0,0,0,0,// add the parsed namespaces of the parent project
-0,0,0,0,1,1,1,//Weblogic jspc does not seem to work unless u explicitly set this... // Does not take the classpath from the env.... // Am i missing something about the Java task??
-0,0,0,1,0,1,1,// should be the default, as it integrates better in ant.
+0,1,0,0,0,0,0,//Weblogic jspc does not seem to work unless u explicitly set this... // Does not take the classpath from the env.... // Am i missing something about the Java task??
+0,1,0,1,0,1,1,// should be the default, as it integrates better in ant.
 0,0,0,0,0,0,0,//trim the META_INF\ off of the file name
 0,0,0,0,0,0,0,// build the command line from what we got the format is // cleartool checkout [options...] [viewpath ...] // as specified in the CLEARTOOL.EXE help
 0,0,0,0,0,0,0,// Specified property-name is "" -> true
@@ -1197,7 +1197,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//Cycle Through generic and make sure its in weblogic
 0,0,0,0,0,0,0,// File name/path match
 0,0,0,0,0,0,0,// Check files see if same
-0,0,0,0,0,0,0,"/*     * A convenience method that several other main.methods might call.     */"
+0,0,0,0,0,0,0,"/*     * A convenience method that several other methods might call.     */"
 0,0,0,0,0,0,0,//File are different see if its an object or an interface
 0,0,0,0,0,0,0,//Interface changed   rebuild jar.
 0,0,0,0,0,0,0,// is it the manifest. If so ignore it
@@ -1227,7 +1227,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//running under an IDE that doesn't set ANT_HOME
 0,0,0,0,0,0,0,//success: proceed with more steps
 0,0,0,0,0,0,0,// no existing archive
-0,0,0,1,0,1,1,// run with no exit for better reporting
+0,1,0,1,0,1,1,// run with no exit for better reporting
 0,0,0,0,0,0,0,// Ignore close exception
 0,0,0,0,0,0,0,// we want to save this info if we are going to make another pass
 0,0,0,0,0,0,0,/* Add CMP descriptors to the list of EJB files */
@@ -1240,7 +1240,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* Check to see if the standard name is used (there's no basename) */
 0,0,0,0,0,0,0,//choose the right vendor DD
 0,0,0,0,0,0,0,// ejb jar file to verify
-0,0,0,0,1,1,1,//debug ?
+0,0,0,0,0,0,0,//debug ?
 0,0,0,0,0,0,0,//set the classpath
 0,0,0,0,0,0,0,//end class
 0,0,0,0,0,0,0,// ignore event
@@ -1265,13 +1265,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Set the Environment variable
 0,0,0,0,0,0,0,"/*     * returns non null IBM JDK 1.3 Linux     */"
 0,0,0,0,0,0,0,// only the second iteration would pass because of PR 27218
-0,0,0,0,0,0,0,//too bad
+0,1,0,0,0,0,0,//too bad
 0,0,0,0,0,0,0,// compile the source files
 0,0,0,0,0,0,0,//add path URLs
-0,0,1,0,0,0,0,// -------------------- Default implementation  -------------------- // Methods used to support the default behavior and provide backward // compatibility. Some will be deprecated, you should avoid calling them.
+0,1,1,0,0,0,0,// -------------------- Default implementation  -------------------- // Methods used to support the default behavior and provide backward // compatibility. Some will be deprecated, you should avoid calling them.
 0,0,0,0,0,0,0,// namespace that does not contain antlib
 0,0,0,0,0,0,0,// We have to compare the decompressed content instead:
-0,0,0,1,0,1,1,//if we are a webapp, hand off to the compiler, which had better handle it
+0,1,0,1,0,1,1,//if we are a webapp, hand off to the compiler, which had better handle it
 0,0,0,0,0,0,0,// Specified dir is "" -> this is the current directory and should // always exist
 0,0,0,0,0,0,0,// Already processed
 0,0,0,0,0,0,0,// scan source directories and dest directory to build up both copy // lists and compile lists
@@ -1300,7 +1300,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// a file doesn't exist rebuild
 0,0,0,0,0,0,0,//Copy files from old websphere jar
 0,0,0,0,0,0,0,// append the err and output streams to the log
-0,0,0,0,0,0,0,// -------------------- Property parsing  -------------------- // Moved from ProjectHelper. You can override the static method - // this is used for backward compatibility (for code that calls // the parse method in ProjectHelper).
+0,1,0,0,0,0,0,// -------------------- Property parsing  -------------------- // Moved from ProjectHelper. You can override the static method - // this is used for backward compatibility (for code that calls // the parse method in ProjectHelper).
 0,0,0,0,0,0,0,// if the source file isn't there, throw an exception
 0,0,0,0,0,0,0,//use fle from original websphere jar
 0,0,0,0,0,0,0,// Specification Name must match
@@ -1328,14 +1328,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//Add all the dependency data to manifest for "optional" //dependencies
 0,0,0,0,0,0,0,//add in something like //"Extension-List: javahelp java3d"
 0,0,0,0,0,0,0,//here we successfully loaded the class or failed.
-0,0,0,0,0,0,0,//all main.methods static
+0,0,0,0,0,0,0,//all methods static
 0,0,0,0,0,0,0,"/*     * Gets the destination file     */"
 0,0,0,0,0,0,0,//So long as the line isn't empty and isn't a comment...
 0,0,0,0,0,0,0,//hey, there is nothing wrong with us
 0,0,0,0,0,0,0,//Legal Key-Value separators are :, = and white space.
 0,0,0,0,0,0,0,//Only if we do have a key is there going to be a value
 0,0,0,0,0,0,0,//Handle line continuations, if any
-0,0,0,0,1,1,1,//Has key already been loaded into resourceMap?
+0,0,0,0,0,0,0,//Has key already been loaded into resourceMap?
 0,0,1,0,0,0,0,// // These shenanigans are necessary b/c Norm Walsh's resolver // has a different idea of how file URLs are created on windoze // ie file://c:/foo instead of file:///c:/foo //
 0,0,0,0,0,0,0,// the driver must still be cached.
 0,0,0,0,0,0,0,// Core class that exists in system classpath is ignored
@@ -1350,7 +1350,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// If there is a white space or = or :, then // it isn't to be treated as a valid key.
 0,0,0,0,0,0,0,// find the replace string
 0,0,0,0,0,0,0,// generate the new line
-0,0,0,0,0,0,0,// forceLoadClass is not convenient here since it would not // properly deal with inner classes of these classes.
+0,1,0,0,0,0,0,// forceLoadClass is not convenient here since it would not // properly deal with inner classes of these classes.
 0,0,0,0,0,0,0,// execute the test and get the return code
 0,0,0,0,0,0,0,// set start position for next search
 0,0,0,0,0,0,0,// If the listeners already has this listener, do nothing
@@ -1394,7 +1394,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// start the timeout thread
 0,0,0,0,0,0,0,// determine if the generated java file is up-to-date
 0,0,0,0,0,0,0,// Extract file's base-name
-0,0,1,1,0,1,1,// in VM is not very nice since it could probably hang the // whole build. IMHO this method should be avoided and it would be best // to remove it in future versions. TBD. (SBa)
+0,1,1,1,0,1,1,// in VM is not very nice since it could probably hang the // whole build. IMHO this method should be avoided and it would be best // to remove it in future versions. TBD. (SBa)
 0,0,0,0,0,0,0,// will cause trouble in JDK 1.1 if omitted
 0,0,0,0,0,0,0,// now find available running slots for the remaining threads
 0,0,0,0,0,0,0,// Replace the file's extension with '.java'
@@ -1408,7 +1408,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// required attributes // Deprecated! // Use this going forward
 0,0,0,0,0,0,0,// are all threads finished
 0,0,0,0,0,0,0,// optional attributes
-0,0,0,0,1,1,1,// who would interrupt me at a time like this?
+0,1,0,0,0,0,0,// who would interrupt me at a time like this?
 0,0,0,0,0,0,0,// now did any of the threads throw an exception
 0,0,0,0,0,0,0,// // Ensure that an external entity resolves as expected Using an // XMLCatalog: // // Transform an XML file that contains a reference to a _second_ XML file // via the document() function.  The _second_ XML file refers to an entity. // The entity is listed in the XMLCatalog pointing to a different file. // Stuff result into the property: val4 //
 0,0,0,0,0,0,0,// return a bogus number
@@ -1420,11 +1420,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Sort and run the dependency tree. // Sorting checks if all the targets (and dependencies) // exist, and if there is any cycle in the dependency // graph.
 0,0,0,0,0,0,0,// try to find the executable
 0,0,0,0,0,0,0,// now try to resolve against the dir if given
-0,0,0,0,1,1,1,// What's the difference between id and name ?
+0,0,0,0,0,0,0,// What's the difference between id and name ?
 0,0,0,0,0,0,0,// no warning, this is not changing anything
 0,0,0,0,0,0,0,// This bit turns <exclude> child tags into patters to ignore
 0,0,0,0,0,0,0,// if not set, auto-create the ClassPath from the project
-0,0,1,0,0,0,0,// This is the new way - use classespath - code is the // same for now
+0,1,1,0,0,0,0,// This is the new way - use classespath - code is the // same for now
 0,0,0,0,0,0,0,// The intended result URLs:
 0,0,0,0,0,0,0,// JDK 1.4: return Collections.list(e);
 0,0,0,0,0,0,0,//file time checks for java1.2+
@@ -1477,7 +1477,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Not strictly necessary but probably desirable. // JUnit 4-specific test GUIs will show just "failures". // But Ant's output shows "failures" vs. "errors". // We would prefer to show "failure" for things that logically are.
 0,0,0,0,0,0,0,//use the systemclasspath as well, to include the ant jar
 0,0,0,0,0,0,0,//Finally set the property
-0,0,0,1,1,1,1,//TODO Test on other versions of weblogic //TODO add more attributes to the task, to take care of all jspc options //TODO Test on Unix
+0,1,0,1,1,1,1,//TODO Test on other versions of weblogic //TODO add more attributes to the task, to take care of all jspc options //TODO Test on Unix
 0,0,0,0,0,0,0,//only test on java1.5+
 0,0,0,0,0,0,0,// test for not searching parents
 0,0,0,0,0,0,0,// If next has handled the property
@@ -1495,7 +1495,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The complete list of files to copy
 0,0,0,0,0,0,0,// Copy all the necessary out-of-date files
 0,0,0,0,0,0,0,// -------------------- Getting properties  --------------------
-0,0,0,0,0,0,0,// nope ;-)
+0,1,0,0,0,0,0,// nope ;-)
 0,0,0,0,0,0,0,// Get rid of all files not listed in the source filesets.
 0,0,0,0,0,0,0,// Output the default excludes
 0,0,0,0,0,0,0,//search for the next instance of $ from the 'prev' position
@@ -1510,17 +1510,17 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// finally, lets execute the compiler!!
 0,0,0,0,0,0,0,// check if dir exists by trying to change into it.
 0,0,0,0,0,0,0,//peek ahead to see if the next char is a property or not //not a property: insert the char as a literal
-0,0,0,0,0,0,0,/*<TargetElement>*/
+0,1,0,0,0,0,0,/*<TargetElement>*/
 0,0,0,0,0,0,0,//demand create vector of filesets
 0,0,0,0,0,0,0,// try a multi-part netware-volume length path with UNIX // separator (this testcase if from an actual bug that was // found, in AvailableTest, which uses PathTokenizer)
 0,0,0,0,0,0,0,// check if one of the builds failed in keep going mode
 0,0,0,0,0,0,0,// make sure that we've got a destdir
 0,0,0,0,0,0,0,//bind to a compiler
-0,0,0,0,0,0,0,//     REVISIT: Defaults to the target name that contains this task if not specified.
+0,1,0,0,0,0,0,//     REVISIT: Defaults to the target name that contains this task if not specified.
 0,0,0,0,0,0,0,// make sure that we've got a srcdir
 0,0,0,0,0,0,0,// if the compiler does its own dependency stuff, we just call it right now
 0,0,0,0,0,0,0,// END class SubAnt
-0,0,0,0,0,0,0,//the remainder of this method is only for compilers that need their dependency work done
+0,1,0,0,0,0,0,//the remainder of this method is only for compilers that need their dependency work done
 0,0,0,0,0,0,0,//        String srcFileDir=srcFile.getParent();
 0,0,0,0,0,0,0,// adding something to the excludes'
 0,0,0,0,0,0,0,//  =====================  constructors, factories  =====================
@@ -1537,14 +1537,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// acrobatic cast.
 0,0,0,0,0,0,0,// set the destination directory relative from the project if needed.
 0,0,0,0,0,0,0,// If an initial command was configured then send it. // Some FTP servers offer different modes of operation, // E.G. switching between a UNIX file system mode and // a legacy file system.
-0,0,1,0,0,0,0,// This class acts as a custom Ant task also // and uses these variables/main.methods in that mode
+0,1,1,0,0,0,0,// This class acts as a custom Ant task also // and uses these variables/methods in that mode
 0,0,0,0,0,0,0,//CVS missing
 0,0,0,0,0,0,0,// init the testclasses path object
 0,0,0,0,0,0,0,// If style dir is not specified we have to retrieve // the stylesheet from the classloader
 0,0,0,0,0,0,0,// If we are here, then the style dir is here and we // should read the stylesheet from the filesystem
 0,0,0,0,0,0,0,// xalan 2
 0,0,0,0,0,0,0,// =======  testcases for the attributes and nested elements of the selector  =====
-0,0,0,0,0,0,0,// xalan xsltc
+0,1,0,0,0,0,0,// xalan xsltc
 0,0,0,0,0,0,0,// jdk 1.5 xsltc
 0,0,0,0,0,0,0,// pre JUnit 3.7
 0,0,0,0,0,0,0,// file does exist -> property 'test' == 'true'
@@ -1558,7 +1558,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//and the hostname.
 0,0,0,0,0,0,0,// Revoke permission to write user.home (granted above via user.*), still able to read though. // and the default granted permission to read os.name.
 0,0,0,0,0,0,0,// a TestSuite can contain Tests from multiple classes, // even tests with the same name - disambiguate them.
-0,0,0,0,1,1,1,// Do we send output to the formatters ?
+0,0,0,0,0,0,0,// Do we send output to the formatters ?
 0,0,0,0,0,0,0,//new behaviour: $X maps to $X for all values of X!='$'
 0,0,0,0,0,0,0,//   Attributes for basetest
 0,0,0,0,0,0,0,//property found, extract its name or bail on a typo
@@ -1568,17 +1568,17 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Make sure the dependency is not empty string
 0,0,0,0,0,0,0,// Should work whether or not redirector.inputStream == null:
 0,0,0,0,0,0,0,// test if os match
-0,0,1,1,1,1,1,// set the default values if not specified //@todo should be moved to the test class instead.
+0,1,1,1,1,1,1,// set the default values if not specified //@todo should be moved to the test class instead.
 0,0,0,0,0,0,0,"/*         * After changing CommandlineJava to search for the java         * executable, I don't know, how to tests the value returned         * here without using the same logic as applied in the class         * itself.         *         * assertTrue(""no classpath"", ""java"", s[0]);         */"
 0,0,0,0,0,0,0,// exec command on system runtime
 0,0,0,0,0,0,0,// Create a temporary file to pass the test cases to run to // the runner (one test case per line)
-0,0,1,1,1,1,1,// CheckStyle:VisibilityModifier OFF - bc //ToDo: If dealing with default cl need to parse out <enter description here>
+0,1,1,1,1,1,1,// CheckStyle:VisibilityModifier OFF - bc //ToDo: If dealing with default cl need to parse out <enter description here>
 0,0,0,0,0,0,0,// copy input and error to the output stream
 0,0,0,0,0,0,0,// make sure the test will be accepted as a TestCase
 0,0,0,0,0,0,0,// Make sure that depends attribute does not // end in a ,
 0,0,0,0,0,0,0,// starts pumping away the generated output/error
 0,0,0,0,0,0,0,// make sure the test annotation are accepted
-0,0,1,0,0,0,0,// NOTE kirk@radik.com 04-April-2001 -- If you put in the -s, you // have to start running through regular expressions here. Much easier // to just not include the scripting information than to try to add it // and strip it later.
+0,1,1,0,0,0,0,// NOTE kirk@radik.com 04-April-2001 -- If you put in the -s, you // have to start running through regular expressions here. Much easier // to just not include the scripting information than to try to add it // and strip it later.
 0,0,0,0,0,0,0,// local copy since LogOutputStream.task is private
 0,0,0,0,0,0,0,// Wait for everything to finish
 0,0,0,0,0,0,0,// dummy output for the framed report // it's all done by extension...
@@ -1602,15 +1602,15 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// First, try the system property
 0,0,0,0,0,0,0,// if binary check if incompatible attributes are used
 0,0,0,0,0,0,0,// Sanity check our inputs.
-0,0,0,0,0,0,0,//----- from now, the main.methods are all related to DOM tree manipulation
+0,0,0,0,0,0,0,//----- from now, the methods are all related to DOM tree manipulation
 0,0,0,0,0,0,0,// A JDK1.3 'service' ( like in JAXP ). That will plug a helper // automatically if in CLASSPATH, with the right META-INF/services.
 0,0,0,0,0,0,0,// no need to do anything
 0,0,0,0,0,0,0,// writers do not throw exceptions, so check for them.
 0,0,0,0,0,0,0,// create the dom tree
 0,0,0,0,0,0,0,// Log using WARN so it displays in 'quiet' mode.
 0,0,0,0,0,0,0,// get all files and add them to the document
-0,0,0,0,0,0,0,// make sure that this is REALLY a testsuite.
-0,0,1,1,0,1,1,// This code is needed by EBCDIC and other strange systems. // It's a fix for bugs reported in xerces
+0,1,0,0,0,0,0,// make sure that this is REALLY a testsuite.
+0,1,1,1,0,1,1,// This code is needed by EBCDIC and other strange systems. // It's a fix for bugs reported in xerces
 0,0,0,0,0,0,0,// try next method
 0,0,0,0,0,0,0,// non-existing files are not allowed
 0,0,0,0,0,0,0,//wrong root element name // issue a warning.
@@ -1636,13 +1636,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// return the stack unfiltered
 0,0,0,0,0,0,0,"/*     * Constant for the PCLI listversionedfiles recursive i a format ""get"" understands     */"
 0,0,0,0,0,0,0,// Extract the name of the directory from the filename
-0,0,0,0,0,0,0,// To compile on pre-JDK 4 (even though this should always succeed):
+0,1,0,0,0,0,0,// To compile on pre-JDK 4 (even though this should always succeed):
 0,0,0,0,0,0,0,// Check to see if the target directory exists.
 0,0,0,0,0,0,0,// needed since project properties are not accessible
-0,0,0,0,0,0,0,/*<UnknownElement>*/
+0,1,0,0,0,0,0,/*<UnknownElement>*/
 0,0,0,0,0,0,0,// Create a ZipFileSet for this file, and pass it up.
 0,0,0,0,0,0,0,// pre-3.4
-0,0,0,0,0,0,0,// JUnitTestRunner
+0,1,0,0,0,0,0,// JUnitTestRunner
 0,0,0,0,0,0,0,//rethrow
 0,0,0,0,0,0,0,//wrap
 0,0,0,0,0,0,0,// implicit else: ignore the ':' since we have either a // UNIX or a relative path
@@ -1686,7 +1686,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//if we have a RedirectorElement, return a decoy
 0,0,0,0,0,0,0,// ignore this if the class being used as a task does not have // a set location method.
 0,0,0,0,0,0,0,// 0 --> srcIndex
-0,0,0,0,0,0,0,// srcIndex --> targetIndex
+0,1,0,0,0,0,0,// srcIndex --> targetIndex
 0,0,0,0,0,0,0,// targets are already absolute file names
 0,0,0,0,0,0,0,// put in the newroots map the include patterns without // wildcard tokens
 0,0,0,0,0,0,0,// targetIndex --> end
@@ -1698,8 +1698,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// For a unix ftp server you can set the default mask for all files // created.
 0,0,0,0,0,0,0,// If the action is MK_DIR, then the specified remote // directory is the directory to create.
 0,0,0,0,0,0,0,// in this case we want to find how much time span there is between local // and remote
-0,0,0,0,0,0,0,//socks
-0,0,0,0,0,0,0,//this may be a java1.4 thingy only
+0,1,0,0,0,0,0,//socks
+0,1,0,0,0,0,0,//this may be a java1.4 thingy only
 0,0,0,0,0,0,0,// simple one-shot execution
 0,0,0,0,0,0,0,// need nested read/write elements
 0,0,0,0,0,0,0,// Mask, block from being edited, all characters in constants.
@@ -1708,12 +1708,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// contains AbstractFileSet // (both DirSet and FileSet)
 0,0,0,0,0,0,0,//We have to create a unlocked label first
 0,0,0,0,0,0,0,// All three specified but class missing -> null
-0,0,0,0,1,1,1,// Specified resource is "" -> can such a thing exist?
+0,0,0,0,0,0,0,// Specified resource is "" -> can such a thing exist?
 0,0,0,0,0,0,0,// Specified dir is "../taskdefs" -> should exist since it's the // location of the buildfile used...
 0,0,0,0,0,0,0,// Core class that exists in system classpath is not ignored with default ignoresystemclasses value
 0,0,0,0,0,0,0,// removing something from the defaults
 0,0,0,0,0,0,0,// don't catch the JUnit exceptions
-0,0,0,0,0,0,0,// targetIndex --> srcIndex
+0,1,0,0,0,0,0,// targetIndex --> srcIndex
 0,0,0,0,0,0,0,// srcIndex --> end
 0,0,0,0,0,0,0,// readable form of parameter kind
 0,0,0,0,0,0,0,// no targetFilePos
@@ -1729,7 +1729,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//catch permissions denial and keep going
 0,0,0,0,0,0,0,// we need to escape the description in case there are /
 0,0,0,0,0,0,0,//EoF
-0,0,0,0,0,0,0,//-- XSLTLiaison
+0,1,0,0,0,0,0,//-- XSLTLiaison
 0,0,0,0,0,0,0,// CheckStyle:VisibilityModifier OFF - bc //Input //Output //Error // CheckStyle:VisibilityModifier ON
 0,0,0,0,0,0,0,"/* Here we can either revert any unchanged files in a changelist         * or         * any files regardless of whether they have been changed or not         *         *         * The whole process also accepts a p4 filespec         */"
 0,0,0,0,0,0,0,// Write the properties file back out
@@ -1739,12 +1739,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// if we have an in file and out then process them
 0,0,0,0,0,0,0,//-- make sure destination directory exists...
 0,0,0,0,0,0,0,// Process all the directories marked for styling
-0,0,0,1,0,1,1,// only resource collections, there better be some
+0,1,0,1,0,1,1,// only resource collections, there better be some
 0,0,0,0,0,0,0,// get the cache, so we can check our things
 0,0,0,0,0,0,0,//anything else is a classname
 0,0,0,0,0,0,0,// Massage PCLI lvf output transforming '\' to '/' so get command works appropriately
 0,0,0,0,0,0,0,//Read back the label spec from perforce, //Replace Options //Submit back to Perforce
-0,0,0,0,0,0,0,//-- processXML
+0,1,0,0,0,0,0,//-- processXML
 0,0,0,0,0,0,0,//sync says "error:" when a file is up-to-date
 0,0,0,0,0,0,0,//sometimes there's "info1:
 0,0,0,0,0,0,0,// Param
@@ -1756,7 +1756,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// the test
 0,0,0,0,0,0,0,//Get default P4 settings from environment - Mark would have done something cool with //introspection here.....:-)
 0,0,0,0,0,0,0,// reset error flags before executing the command
-0,0,0,0,0,0,0,//Check API for these - it's how CVS does it...
+0,1,0,0,0,0,0,//Check API for these - it's how CVS does it...
 0,0,0,0,0,0,0,// private static final String PCLI_LVF_ARGS = "lvf -z -aw";
 0,0,0,0,0,0,0,// Check workspace exists // Launch PCLI listversionedfiles -z -aw // Capture output // build the command line from what we got the format is
 0,0,0,0,0,0,0,// default pvcs project is "/"
@@ -1764,7 +1764,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// add the test classes to its classpath
 0,0,0,0,0,0,0,// plain impossible to get here, maybeConfigure should // have thrown an exception.
 0,0,0,0,0,0,0,// Launch get on output captured from PCLI lvf
-0,0,0,0,0,0,0,// Change these through their GET and SET main.methods.
+0,0,0,0,0,0,0,// Change these through their GET and SET methods.
 0,0,0,0,0,0,0,// These fields deal with includes and excludes
 0,0,0,0,0,0,0,// Check all of the properties that are required.
 0,0,0,0,0,0,0,// Finished executing the task, null it to allow // GC do its job // If this UE is used again, a new "realthing" will be made
@@ -1790,7 +1790,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// If we are here we cannot set the stylesheet as // a resource, but we can set it as a file. So, // we make an attempt to get it as a file
 0,0,0,0,0,0,0,// Now, build an array of the property names.
 0,0,0,0,0,0,0,// Pre-fetch the item properties and cache them.
-0,0,0,0,1,1,1,// Are the names the same ?
+0,0,0,0,0,0,0,// Are the names the same ?
 0,0,0,0,0,0,0,// only 'name' and 'value' exist.
 0,0,0,0,0,0,0,// Now, search for items in the selected folder.
 0,0,0,0,0,0,0,// convert whatever separator char is in starteam to that of the target system.
@@ -1800,7 +1800,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Change all EOL characters to match the calculated EOL string. If // configured to do so, append a trailing EOL so that the file ends on // a EOL.
 0,0,0,0,0,0,0,// only want to do this the first time
 0,0,0,0,0,0,0,// return the clean value
-0,0,0,0,1,1,1,// Are attributes the same ?
+0,0,0,0,0,0,0,// Are attributes the same ?
 0,0,0,0,0,0,0,// -- class Attribute
 0,0,0,0,0,0,0,// Process all items in this folder.
 0,0,0,0,0,0,0,// Process all subfolders recursively if recursion is on.
@@ -1808,7 +1808,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Get descriptors for this item type.
 0,0,0,0,0,0,0,// // Ensure that an external entity resolves as expected with NO // XMLCatalog involvement: // // Transform an XML file that contains a reference to a _second_ XML file // via the document() function.  The _second_ XML file refers to an entity. // Stuff result into the property: val3 //
 0,0,0,0,0,0,0,// VERBOSE MODE ONLY
-0,0,0,0,1,1,1,// Are the sub elements the same ?
+0,0,0,0,0,0,0,// Are the sub elements the same ?
 0,0,0,0,0,0,0,// error message strings
 0,0,0,0,0,0,0,// Show folder only if changed.
 0,0,0,0,0,0,0,// Show if the file is locked.
@@ -1828,7 +1828,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Try using a JDK 1.3 launcher
 0,0,0,0,0,0,0,// Show the secondary descriptor, if there is one. // Some item types have one, some don't.
 0,0,0,0,0,0,0,// Change the item to be checked out to a StarTeam File.
-0,0,0,0,0,0,0,// Begin SET and GET main.methods
+0,0,0,0,0,0,0,// Begin SET and GET methods
 0,0,0,0,0,0,0,// Begin filter getters and setters
 0,0,0,0,0,0,0,//this field will hold unnnn right after reading a non latin character //afterwards it will be truncated of one char every call to read
 0,0,0,0,0,0,0,// ----------------------------------------- //  Predefined tokenizers // -----------------------------------------
@@ -1845,7 +1845,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// -------------------------------------------- // //      Tokenizer Classes (impls moved to oata.util) // // --------------------------------------------
 0,0,0,0,0,0,0,// Set the location of the implicit target associated with the project tag
 0,0,0,0,0,0,0,// Check if this target is in the current build file
-0,0,0,0,0,0,0,/*<RuntimeConfigurable>*/
+0,1,0,0,0,0,0,/*<RuntimeConfigurable>*/
 0,0,0,0,0,0,0,// Generic
 0,0,0,0,0,0,0,// add -command CheckInProject to the commandline
 0,0,0,0,0,0,0,// look for a recursive option
@@ -1869,7 +1869,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// VSS project is required
 0,0,0,0,0,0,0,// Task included in a target ( including the default one ).
 0,0,0,0,0,0,0,// poly type
-0,0,0,0,0,0,0,// -verbose
+0,1,0,0,0,0,0,// -verbose
 0,0,0,0,0,0,0,// Disable Compression
 0,0,0,0,0,0,0,// Every key identified by the Properties must have been loaded.
 0,0,0,0,0,0,0,// Text
@@ -1891,7 +1891,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// build successfull!
 0,0,0,0,0,0,0,// Substitute .xml with .properties
 0,0,0,0,0,0,0,// cache must return a stored value
-0,0,0,0,0,0,0,/*AbstractSshMessage*/
+0,1,0,0,0,0,0,/*AbstractSshMessage*/
 0,0,0,0,0,0,0,// dir does not exist.
 0,0,0,0,0,0,0,// get I/O streams for remote scp
 0,0,0,0,0,0,0,// this indicates an error.
@@ -1917,7 +1917,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// basedir of subant/subant-test1/subant.xml is .. // therefore we expect here the subant/subant-test1 subdirectory
 0,0,0,0,0,0,0,// clear the cache
 0,0,0,0,0,0,0,// further equivalence name of previous logical
-0,0,0,0,1,1,1,// new logical?
+0,0,0,0,0,0,0,// new logical?
 0,0,0,0,0,0,0,// already got this logical from a higher order table
 0,0,0,0,0,0,0,// if a label has been supplied and it is a view label, use it // to configure the view
 0,0,0,0,0,0,0,/* the arguments: */
@@ -1937,7 +1937,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// handle the files so they appear first
 0,0,0,0,0,0,0,// now do it again for the directories so they appear last.
 0,0,0,0,0,0,0,// Assert !=null and equality
-0,0,0,0,0,0,0,// Is the text the same? //   Need to use equals on the string and not //   on the stringbuffer as equals on the string buffer //   does not compare the contents.
+0,1,0,0,0,0,0,// Is the text the same? //   Need to use equals on the string and not //   on the stringbuffer as equals on the string buffer //   does not compare the contents.
 0,0,0,0,0,0,0,// Create the new label and update the repository
 0,0,0,0,0,0,0,// Create an instance of the rmic, redirecting output to // the project log
 0,0,0,0,0,0,0,// Assume that this is an not supported attribute type // thrown for example by a dymanic attribute task // Do nothing
@@ -1945,7 +1945,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Use cmd.exe to change to the specified drive and // directory before running the command
 0,0,0,0,0,0,0,// Output 'OUTPUT OF ECHO'
 0,0,0,0,0,0,0,//if-isFile //for
-0,0,0,0,0,0,0,// we are on a dos style system so this path could be a drive // spec. We look at the next token
+0,1,0,0,0,0,0,// we are on a dos style system so this path could be a drive // spec. We look at the next token
 0,0,0,0,0,0,0,// Use cmd.exe to change to the specified directory before running // the command
 0,0,0,0,0,0,0,// need to set the project on unknown element
 0,0,0,0,0,0,0,// we know we are on a DOS style platform and the next path // starts with a slash or backslash, so we know this is a // drive spec
@@ -1954,7 +1954,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// files to move
 0,1,1,1,0,1,1,// prune away any files not belonging to the revision label // this is one ugly API from Starteam SDK
 0,0,0,0,0,0,0,//not yet supported see note in selector
-0,0,0,0,1,1,1,//Is this file still available to be moved?
+0,1,0,0,0,0,0,//Is this file still available to be moved?
 0,0,0,0,0,0,0,// PR 31965 says that it can return null
 0,0,0,0,0,0,0,// no root local mapping has been specified.
 0,0,0,0,0,0,0,// implicit target must be first on dependency list
@@ -1962,7 +1962,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Inspect everything in the root folder and then recursively
 0,0,0,0,0,0,0,// Tell user what he is doing
 0,0,0,0,0,0,0,// ignore ";" and get the next token
-0,0,0,1,1,1,1,// maybe io error?
+0,0,0,1,0,1,1,// maybe io error?
 0,0,0,0,0,0,0,// set the local folder.
 0,0,0,0,0,0,0,// found a file
 0,0,0,0,0,0,0,// ATTRIBUTES
@@ -1984,20 +1984,20 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Miscellaneous typical temporary files
 0,0,0,0,0,0,0,// should be impossible
 0,0,0,0,0,0,0,// is the href a valid URL
-0,0,0,0,0,0,0,// CVS
+0,1,0,0,0,0,0,// CVS
 0,0,0,0,0,0,0,// ok - just skip
 0,0,0,0,0,0,0,//return
 0,0,0,0,0,0,0,/* BuildListener stuff */
 0,0,0,0,0,0,0,// ensure <condition> follows the immutability rule
 0,0,0,0,0,0,0,// Configure the selector - only defaults are used
-0,0,0,0,0,0,0,// SCCS
+0,1,0,0,0,0,0,// SCCS
 0,0,0,0,0,0,0,/////////////////////////////////////////////////////////////// // INCLUDE-EXCLUDE processing ///////////////////////////////////////////////////////////////
 0,0,0,0,0,0,0,// find the starteam folder specified to be the root of the // operation.  Throw if it can't be found.
 0,0,0,0,0,0,0,// Visual SourceSafe
 0,0,0,0,0,0,0,// Valid extension point
 0,0,0,0,0,0,0,// make sure that the parsing does not break
 0,0,0,0,0,0,0,// fill up a Properties object with link and resource names:
-0,0,0,0,0,0,0,// Subversion
+0,1,0,0,0,0,0,// Subversion
 0,0,0,0,0,0,0,// find the resource of the existing link:
 0,0,0,0,0,0,0,// rename the resource, thus breaking the link:
 0,0,0,0,0,0,0,// delete the (now) broken link:
@@ -2034,7 +2034,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Tests property element, using XML schema properties as an example.
 0,0,0,0,0,0,0,// If using an external file, write the command line options to it
 0,0,0,0,0,0,0,// Javadoc 1.2/1.3 parameters:
-0,0,0,0,1,1,1,// are there any java files in this directory?
+0,0,0,0,0,0,0,// are there any java files in this directory?
 0,0,0,0,0,0,0,// If location of ss.ini is specified we need to set the // environment-variable SSDIR to this value
 0,0,1,0,0,0,0,// We don't need to care for duplicates here, // Path.list does it for us.
 0,0,0,0,0,0,0,// build the command line from what we got the format is // ss Checkin VSS items [-H] [-C] [-I-] [-N] [-O] [-R] [-W] [-Y] [-?] // as specified in the SS.EXE help
@@ -2053,7 +2053,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//default is compatibility
 0,0,0,0,0,0,0,//anything else
 0,0,0,0,0,0,0,// delete the directory
-0,0,0,0,1,1,1,//do nothing with the value? or go -v+stubVersion??
+0,0,0,0,0,0,0,//do nothing with the value? or go -v+stubVersion??
 0,0,0,0,0,0,0,//set the non-null stubOption
 0,0,0,0,0,0,0,//add the files from the default fileset:
 0,0,0,0,0,0,0,// we know that name.endsWith(".class")
@@ -2066,7 +2066,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//for java1.5+, we generate compatible stubs, that is, unless //the caller asked for IDL or IIOP support.
 0,0,0,0,0,0,0,//deal with jdk1.4.2 bug:
 0,0,0,0,0,0,0,// JRMP with simple naming convention
-0,0,0,0,0,0,0,"/*                 * I know, this is not necessary, but I prefer it explicit (SB)                 */"
+0,1,0,0,0,0,0,"/*                 * I know, this is not necessary, but I prefer it explicit (SB)                 */"
 0,0,0,0,0,0,0,// no package
 0,0,0,0,0,0,0,// EOL was "\r\n"
 0,0,0,0,0,0,0,// only stub, no tie
@@ -2107,7 +2107,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// I am the only one so I have to close the reader
 0,0,0,0,0,0,0,// Process all transactions
 0,0,0,0,0,0,0,// // The xml-commons resolver library is not // available, so we can't use it. //
-0,0,0,0,0,0,0,// the following line seems to be necessary on Windows under JDK 1.2
+0,1,0,0,0,0,0,// the following line seems to be necessary on Windows under JDK 1.2
 0,0,0,0,0,0,0,// Catch any statements not followed by ;
 0,0,0,0,0,0,0,// // for classpath lookup we ignore the base directory //
 0,0,0,0,0,0,0,// Check and ignore empty statements
@@ -2126,7 +2126,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// // Use the passed in base in preference to the base // from matchingEntry, which is either null or the // directory in which the external catalog file from // which it was obtained is located.  We make a copy // so matchingEntry's original base is untouched.  Of // course, if there is no base, no need to make a // copy... // // This is the standard behavior as per my reading of // the JAXP and XML Catalog specs.  CKS 11/7/2002 //
 0,0,0,0,0,0,0,// Parse each catalog listed in nested <catalogpath> elements
 0,0,0,0,0,0,0,// assume (eol == CrLf.LF || eol == CrLf.UNIX)
-0,0,0,0,0,0,0,//-- XMLCatalog
+0,1,0,0,0,0,0,//-- XMLCatalog
 0,0,0,0,0,0,0,// execute
 0,0,0,0,0,0,0,// Mark all files which should be selected as (T)rue and all others // as (F)alse. Directories are always selected so they always are // (T)rue.
 0,0,0,0,0,0,0,// Add/Remove tabs
@@ -2135,22 +2135,22 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// given cache must be empty
 0,0,0,0,0,0,0,//this call should succeed as unless overrides if
 0,0,0,0,0,0,0,// override some of the code so we can test the handling of the // return code only.
-0,0,0,0,0,0,0,//req // req
+0,1,0,0,0,0,0,//req // req
 0,0,0,0,0,0,0,// scan source directories and dest directory to build up // compile lists
 0,0,0,0,0,0,0,// cleanup the environment
 0,0,0,0,0,0,0,//there is no need to expand properties here as that happens when Transaction.addText is //called; to do so here would be an error.
 0,0,0,0,0,0,0,// We can't do it ourselves as jCVS is GPLed, a third party task // outside of jakarta repositories would be possible though (SB).
 0,0,0,0,0,0,0,/* package-private for now */
 0,0,0,0,0,0,0,// we are chmodding the given directory
-0,0,0,0,0,0,0,// special case in ZIPs, we do not want this thing included
+0,1,0,0,0,0,0,// special case in ZIPs, we do not want this thing included
 0,0,0,0,0,0,0,// ask ant to update the properties...
 0,0,0,0,0,0,0,// EOL
-0,0,0,0,0,0,0,// may be altered in validateAttributes
+0,1,0,0,0,0,0,// may be altered in validateAttributes
 0,0,0,0,0,0,0,// first check if the archive needs to be scanned again
 0,0,0,0,0,0,0,// spare scanning again and again
 0,0,0,0,0,0,0,// will be removed in validateAttributes
 0,0,0,0,0,0,0,/* cached DirectoryScanner instance for our own Project only */
-0,0,0,0,0,0,0,// SelectorContainer main.methods
+0,0,0,0,0,0,0,// SelectorContainer methods
 0,0,0,0,0,0,0,// EOL was "\n"
 0,0,0,0,0,0,0,// make sure we don't have an illegal set of options
 0,0,0,0,0,0,0,// WIN9x uses a bat file for executing commands
@@ -2178,7 +2178,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* ============ ResourceFactory interface ====================== */
 0,0,0,0,0,0,0,// restrict to out-of-date resources
 0,0,0,0,0,0,0,// Return current look-ahead
-0,0,0,0,0,0,0,// clean up again, so this instance can be used a second // time
+0,1,0,0,0,0,0,// clean up again, so this instance can be used a second // time
 0,0,0,0,0,0,0,// reuse the array created by the mapper
 0,0,0,0,0,0,0,// third run
 0,0,0,0,0,0,0,//now patch in all system properties
@@ -2187,7 +2187,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// ignore: don't trust anyone
 0,0,0,0,0,0,0,// Gump friendly - don't mess with the core loader if only classpath
 0,0,0,0,0,0,0,// last: don't trust the developer
-0,0,0,0,0,0,0,// newer versions of Kaffe (1.1.1+) won't have this, // but this will be sorted by FileSet anyway.
+0,1,0,0,0,0,0,// newer versions of Kaffe (1.1.1+) won't have this, // but this will be sorted by FileSet anyway.
 0,0,0,0,0,0,0,// just to be sure
 0,0,0,0,0,0,0,// the directories to check
 0,0,0,0,0,0,0,// EOL was "\r\r" - handle as two consecutive "\r" and // "\r"
@@ -2230,7 +2230,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The core loader must be reverse //reverse=true;
 0,0,0,0,0,0,0,// First read in zero bytes
 0,0,0,0,0,0,0,// This allows the core loader to load optional tasks // without delegating
-0,0,0,0,1,1,1,// Are we trying to call the target in which we are defined (or // the build file if this is a top level task)?
+0,0,0,0,0,0,0,// Are we trying to call the target in which we are defined (or // the build file if this is a top level task)?
 0,0,0,0,0,0,0,// ignore this if the class being referenced does not have // a set project method.
 0,0,0,0,0,0,0,// @note: it is a string and not a file to handle relative/absolute // otherwise a relative file will be resolved based on the current // basedir.
 0,0,0,0,0,0,0,//wait for the StreamPumpers to finish
@@ -2256,9 +2256,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//replace the last 0s by the chars contained in s
 0,0,0,0,0,0,0,// add in the warnings
 0,0,0,0,0,0,0,//Ignore exception
-0,0,0,0,0,0,0,//-- ResourceLocation
+0,1,0,0,0,0,0,//-- ResourceLocation
 0,0,0,0,0,0,0,// For each child, pass the object added by // processNode to its children -- in other word, each // object can pass information along to its children.
-0,0,0,0,0,0,0,// This should be the manifest version
+0,1,0,0,0,0,0,// This should be the manifest version
 0,0,0,0,0,0,0,// Add base set of permissions
 0,0,0,0,0,0,0,// use Algorithm specified by classname
 0,0,0,0,0,0,0,// ensure <pathconvert> follows the immutability rule
@@ -2276,7 +2276,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// temporary variable
 0,0,0,0,0,0,0,//off by default
 0,0,0,0,0,0,0,// This is included
-0,0,0,0,0,0,0,//s.addParam(createParam("algorithm.provider","---")); // i don't know any valid
+0,1,0,0,0,0,0,//s.addParam(createParam("algorithm.provider","---")); // i don't know any valid
 0,0,0,0,0,0,0,// first and second run
 0,0,0,0,0,0,0,//class-MockProject
 0,0,0,0,0,0,0,// make sure that elapsed time in set via date works
@@ -2289,7 +2289,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// If this attribute was added by this task, then // we append this value to the existing value. // We use the setProperty method which will // forcibly override the property if it already exists. // We need to put these properties into the project // when we read them, though (instead of keeping them // outside of the project and batch adding them at the end) // to allow other properties to reference them.
 0,0,0,0,0,0,0,// should be new moon
 0,0,0,0,0,0,0,// write the remaining characters
-0,0,0,0,0,0,0,//- ApacheCatalog
+0,1,0,0,0,0,0,//- ApacheCatalog
 0,0,0,0,0,0,0,// // Make sure CatalogResolver instantiates ApacheCatalog, // rather than a plain Catalog //
 0,0,0,0,0,0,0,// debug // CatalogManager.getStaticManager().setVerbosity(4);
 0,0,0,0,0,0,0,// Pass in reference to ourselves so we can be called back.
@@ -2300,11 +2300,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//new oata.util.ReaderInputStream(new InputStreamReader(
 0,0,0,0,0,0,0,//, encoding), encoding);
 0,0,0,0,0,0,0,//first the easy way, if all children are filesystem-only, return true:
-0,0,0,0,0,0,0,// for NetWare and OS/2, piggy-back on Windows, since here and // in the apply code, the same assumptions can be made as with // windows - that \\ is an OK separator, and do comparisons // case-insensitive.
+0,1,0,0,0,0,0,// for NetWare and OS/2, piggy-back on Windows, since here and // in the apply code, the same assumptions can be made as with // windows - that \\ is an OK separator, and do comparisons // case-insensitive.
 0,0,0,0,0,0,0,/* cached DirectoryScanner instance */
 0,0,0,0,0,0,0,//if no nested, natural order:
 0,0,0,0,0,0,0,// use an anonymous subclass since ProjectComponent is abstract
-0,0,0,0,0,0,0,// ReplaceRegExpTest
+0,1,0,0,0,0,0,// ReplaceRegExpTest
 0,0,0,0,0,0,0,// and a little longer
 0,0,0,0,0,0,0,//dummy
 0,0,0,0,0,0,0,//implement ResourceSelector; inherit doc
@@ -2349,8 +2349,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// this happens if the projecthelper was not registered with the project.
 0,0,0,0,0,0,0,// Find the pattern between padIdxStart & padIdxTmp in str between // strIdxStart & strIdxEnd
 0,0,0,0,0,0,0,"/* I wrote the testcases in one java file because I want also to test the * combined behaviour (see end of the class).*/"
-0,0,0,0,0,0,0,// main.methods to register and unregister shutdown hooks
-0,0,0,0,0,0,0,// check to see if the shutdown hook main.methods exists // (support pre-JDK 1.3 VMs)
+0,0,0,0,0,0,0,// methods to register and unregister shutdown hooks
+0,0,0,0,0,0,0,// check to see if the shutdown hook methods exists // (support pre-JDK 1.3 VMs)
 0,0,1,0,0,0,0,// wait to add shutdown hook as needed
 0,0,0,0,0,0,0,// Pattern contains only '*', which matches anything
 0,0,0,0,0,0,0,// Process characters before first star
@@ -2364,7 +2364,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Two stars next to each other, skip the first one.
 0,0,0,0,0,0,0,// All characters in the string are used. Check if only '*'s are left // in the pattern. If so, we succeeded. Otherwise failure.
 0,0,0,0,0,0,0,// We know that dynselector must be non-null if no error message
-0,0,1,0,0,0,0,// -------------------------------------------------------- //  static utility main.methods - could be placed somewhere else // --------------------------------------------------------
+0,1,1,0,0,0,0,// -------------------------------------------------------- //  static utility methods - could be placed somewhere else // --------------------------------------------------------
 0,0,0,0,0,0,0,// Deal with if and unless properties first
 0,0,0,0,0,0,0,// -----  attributes  -----
 0,0,0,0,0,0,0,// ----- internal member variables -----
@@ -2396,7 +2396,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// load the specified class
 0,0,0,0,0,0,0,// -----  the selection work  -----
 0,0,0,0,0,0,0,// We have a 'resourced' file, so reconvert it and use // the 'old' implementation.
-0,0,0,0,0,0,0,// If we don't know the type of the line // and we are in emacs mode, it will be // an error, because in this mode, jikes won't // always print "error", but sometimes other // keywords like "Syntax". We should look for // all those keywords.
+0,1,0,0,0,0,0,// If we don't know the type of the line // and we are in emacs mode, it will be // an error, because in this mode, jikes won't // always print "error", but sometimes other // keywords like "Syntax". We should look for // all those keywords.
 0,0,0,0,0,0,0,// Use '/' to calculate digest based on file name. // This is required in order to get the same result // on different platforms.
 0,0,0,0,0,0,0,// You can not compute a value for a directory
 0,0,0,1,0,1,1,// Maybe update the cache
@@ -2430,12 +2430,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// -----  Cache-Configuration  -----
 0,0,0,0,0,0,0,// -----  Data Access
 0,0,0,0,0,0,0,// Process the factory class
-0,0,0,0,0,0,0,// swallow as this simply doesn't seem to be Kaffe
+0,1,0,0,0,0,0,// swallow as this simply doesn't seem to be Kaffe
 0,0,0,0,0,0,0,// no further processing
 0,0,0,0,0,0,0,// Process the factory path
 0,0,0,0,0,0,0,// avoid endless loop
 0,0,0,0,0,0,0,"/*         * Now test some relative file name magic.         */"
-0,0,0,0,1,1,1,// set explicitly before starting ?
+0,0,0,0,0,0,0,// set explicitly before starting ?
 0,0,0,0,0,0,0,//set up the javac options
 0,0,0,0,0,0,0,// Check if the service is configured correctly
 0,0,0,0,0,0,0,//then add the Apt options
@@ -2468,13 +2468,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// ... do not display a Message about this.
 0,0,0,0,0,0,0,// Write attributes
 0,0,0,0,0,0,0,// Write element close
-0,0,0,0,0,0,0,// Do not display Logo
+0,1,0,0,0,0,0,// Do not display Logo
 0,0,0,0,0,0,0,// relative path
 0,0,0,0,0,0,0,//add the files
 0,0,0,0,0,0,0,//run
-0,0,0,0,1,1,1,// does the modern compiler exist?
+0,0,0,0,0,0,0,// does the modern compiler exist?
 0,0,0,0,0,0,0,// What's the working directory?  If local, then its the // folder of the input file.  Otherwise, its the "current" dir..
-0,0,0,0,0,0,0,//To change body of implemented main.methods use File | Settings | File Templates.
+0,0,0,0,0,0,0,//To change body of implemented methods use File | Settings | File Templates.
 0,0,0,0,0,0,0,// Windows adds the drive letter in uppercase, unless you run Cygwin
 0,0,0,0,0,0,0,// If this is the same name specified in 'manifest', this // is the manifest to use
 0,0,0,0,0,0,0,// assuming 'skip' otherwise // don't warn if skip has been requested explicitly, warn if user // didn't set the attribute
@@ -2482,7 +2482,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// swallow as we've hit the max class version that // we have
 0,0,0,0,0,0,0,// number of milliseconds in a day
 0,0,0,0,0,0,0,// On IBM's JDK 1.2 the directory layout is different, 1.3 follows // Sun's layout.
-0,0,1,0,0,0,0,// Unfortunately on Windows java.home doesn't always refer // to the correct location, so we need to fall back to // assuming java is somewhere on the PATH.
+0,1,1,0,0,0,0,// Unfortunately on Windows java.home doesn't always refer // to the correct location, so we need to fall back to // assuming java is somewhere on the PATH.
 0,0,0,0,0,0,0,// can't access the booleans in MyPrinter here (even if they // were static) since the MyPrinter instance that was used in // the test has likely been loaded via a different classloader // than this class.  Therefore we make the printer assert its // state and only check for the tail invocation.
 0,0,0,0,0,0,0,// This is the most common extension case - exe for windows and OS/2, // nothing for *nix.
 0,0,0,0,0,0,0,//In Java1.5, the apache stuff moved.
@@ -2530,7 +2530,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// container.addTask(task); // This is a nop in UE: task.init();
 0,0,0,0,0,0,0,//Java1.5: reachable = address.isReachable(timeout * 1000);
 0,0,0,0,0,0,0,// store the octets
-0,0,0,0,0,0,0,//utterly implausible, but catered for anyway
+0,1,0,0,0,0,0,//utterly implausible, but catered for anyway
 0,0,0,0,0,0,0,// **   simple name specified   == path in list + name
 0,0,0,0,0,0,0,// load the parser class
 0,0,0,0,0,0,0,// padding
@@ -2551,7 +2551,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// execute the script
 0,0,0,0,0,0,0,// support for -source 1.1 and -source 1.2 has been // added with JDK 1.4.2, Jikes doesn't like it
 0,0,0,0,0,0,0,//assume this is an IOexception about un readability
-0,0,0,0,0,0,0,//any kind of fault: not reachable.
+0,1,0,0,0,0,0,//any kind of fault: not reachable.
 0,0,0,0,0,0,0,//java1.4 or earlier
 0,0,0,0,0,0,0,// check build.compiler provides defaults
 0,0,0,0,0,0,0,//get a time
@@ -2582,7 +2582,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*         * The initial version used DateFormat.SHORT for the         * time format, which ignores seconds.  If we want         * seconds as well, we need DateFormat.MEDIUM, which         * in turn would break all old build files.         *         * First try to parse with DateFormat.SHORT and if         * that fails with MEDIUM - throw an exception if both         * fail.         */"
 0,0,0,0,0,0,0,// check if the package structure is more than 1 level deep
 0,0,0,0,0,0,0,// class name has more than 1 package level 'com.company.Class'
-0,0,0,0,0,0,0,// When we leave this block we can be sure all data is really // stored in main memory before the new threads start, the new // threads will for sure load the data from main memory. // // This probably is slightly paranoid.
+0,1,0,0,0,0,0,// When we leave this block we can be sure all data is really // stored in main memory before the new threads start, the new // threads will for sure load the data from main memory. // // This probably is slightly paranoid.
 0,0,0,0,0,0,0,// doesn't java know interruptions are rude? // just pretend it didn't happen and go about out business. // sheesh!
 0,0,0,0,0,0,0,//check that older is up to date with a newer dest
 0,0,0,0,0,0,0,//We have ended changelog for that particular file //so we can save it
@@ -2599,7 +2599,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// we look through the classpath elements. If the element is a dir // we look for the file. IF it is a zip, we look for the zip entry
 0,0,0,0,0,0,0,// first letter of the previous segment of the class name 'Class' // is upper case ascii. so according to the spec it's an inner class
 0,0,0,0,0,0,0,// Default config of <mycopy> for our purposes.
-0,0,0,0,1,1,1,// Do we need to perform further processing?
+0,0,0,0,0,0,0,// Do we need to perform further processing?
 0,0,0,0,0,0,0,//Skip dates that are too late
 0,0,0,0,0,0,0,// Register Groovy ourselves, since BSF did not // natively support it in versions previous to 1.2.4.
 0,0,0,0,0,0,0,// want to keep toDir itself
@@ -2615,7 +2615,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Do the substitution
 0,0,0,0,0,0,0,// replace \1 with the corresponding group
 0,0,0,0,0,0,0,"/*          Nodes and heap entries run from 1.  Entry 0          for both the heap and nodes is a sentinel.        */"
-0,0,0,0,0,0,0,//        blockNo++;
+0,1,0,0,0,0,0,//        blockNo++;
 0,0,0,0,0,0,0,// // When we get here we have EITHER: // o An empty "assemble" buffer. // o No bytes to write (numToWrite == 0) //
 0,0,0,0,0,0,0,// This directory may have become empty... // We need to re-query its children list!
 0,0,0,0,0,0,0,// List of files that must be copied, irrelevant from the // fact that they are newer or not than the destination.
@@ -2624,11 +2624,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* 20 is just a paranoia constant */
 0,0,0,0,0,0,0,// Nothing to concatenate!
 0,0,0,0,0,0,0,// ensure that the parent dir of dest file exists
-0,0,0,0,0,0,0,// could still be OS/2
+0,1,0,0,0,0,0,// could still be OS/2
 0,0,0,0,0,0,0,// empty block at end of file
 0,0,0,0,0,0,0,// Append the fragment -- we defer property replacement until // later just in case we get a partial property in a fragment.
 0,0,0,0,0,0,0,/* sort the block and establish posn of original string */
-0,0,0,0,0,0,0,// 27224 = magic (a random port which is unlikely to be in use)
+0,1,0,0,0,0,0,// 27224 = magic (a random port which is unlikely to be in use)
 0,0,0,0,0,0,0,// support multiple packages
 0,0,0,0,0,0,0,/* Now the block's CRC, so it is in a known place. */
 0,0,0,0,0,0,0,/* Now a single bit indicating randomisation. */
@@ -2683,7 +2683,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Read message from a file
 0,0,0,0,0,0,0,// copy
 0,0,0,0,0,0,0,// start inline mainGTU
-0,0,0,0,0,0,0,// We assume, that everything jikes writes goes to // standard output, not to standard error. The option // -Xstdout that is given to Jikes in Javac.doJikesCompile() // should guarantee this. At least I hope so. :)
+0,1,0,0,0,0,0,// We assume, that everything jikes writes goes to // standard output, not to standard error. The option // -Xstdout that is given to Jikes in Javac.doJikesCompile() // should guarantee this. At least I hope so. :)
 0,0,0,0,0,0,0,// while x > 0
 0,0,0,0,0,0,0,// Set up the 2-byte frequency table
 0,0,0,0,0,0,0,// shortcut for "<address>"
@@ -2718,14 +2718,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//    1040 byte //    2064 byte //    2064 byte
 0,0,0,0,0,0,0,// Just print a message, like the previous versions of this class did
 0,0,0,0,0,0,0,// Aside, the JDK is clearly unaware of the Scottish // 'session', which involves excessive quantities of // alcohol :-)
-0,0,0,0,0,0,0,// Variables used by setup* main.methods exclusively
+0,0,0,0,0,0,0,// Variables used by setup* methods exclusively
 0,0,0,0,0,0,0,// We call liason.configure() and then liaison.setStylesheet() // so that the internal variables of liaison can be set up
 0,0,0,0,0,0,0,// Give always a slash as file separator, so the stylesheet could be sure about that // Use '.' so a dir+"/"+name would not result in an absolute path
 0,0,0,0,0,0,0,// currBlockNo++;
 0,0,0,0,0,0,0,// SMTP provider
 0,0,0,0,0,0,0,// A bad CRC is considered a fatal error.
 0,0,0,0,0,0,0,/* Receive the mapping table */
-0,0,0,0,1,1,1,//XXX task.setTaskType(tag);
+0,1,0,0,1,1,1,//XXX task.setTaskType(tag);
 0,0,0,0,0,0,0,//create the message
 0,0,0,0,0,0,0,/* Now the selectors */
 0,0,0,0,0,0,0,/* Now the coding tables */
@@ -2754,12 +2754,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* not a char and not EOF */
 0,0,1,0,0,0,0,// if we run into a timeout, the run-away thread shall not // make the VM run forever - if no timeout occurs, Ant's // main thread will still be there to let the new thread // finish
 0,0,0,0,0,0,0,// (with blockSize 900k) //      256 byte
-0,0,0,0,1,1,1,// Make intermediate directories if needed // XXX JDK 1.1 doesn't have File.getParentFile,
+0,1,0,0,1,1,1,// Make intermediate directories if needed // XXX JDK 1.1 doesn't have File.getParentFile,
 0,0,0,0,0,0,0,//     1024 byte
 0,0,0,0,0,0,0,//this.fork = s;
 0,0,0,0,0,0,0,// No need to keep track of Bcc'd addresses
 0,0,0,0,0,0,0,// Blindly trust the user doesn't set any invalid headers
-0,0,1,1,1,1,1,//TODO: use ANTLR to parse the grammar file to do this.
+0,1,1,1,1,1,1,//TODO: use ANTLR to parse the grammar file to do this.
 0,0,0,0,0,0,0,// RFC 822 s4.1: "Reply-To:" header is optional
 0,0,0,0,0,0,0,// Fine, Java 1.3 or earlier, do it by hand.
 0,0,0,0,0,0,0,// if no output directory is specified, used the target's directory
@@ -2786,7 +2786,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//on openvms even exit value signals failure; // for other platforms nonzero exit value signals failure
 0,0,0,0,0,0,0,//  3600000 byte //   900000 byte //--------------- //  4560782 byte //===============
 0,0,0,0,0,0,0,// Make a limited attempt to extract a sanitized email address // Prefer text in <brackets>, ignore anything in (parentheses)
-0,0,0,0,0,0,0,// * * * * * Raw protocol main.methods below here * * * * *
+0,0,0,0,0,0,0,// * * * * * Raw protocol methods below here * * * * *
 0,0,0,0,0,0,0,// make sure dot is on new line
 0,0,0,0,0,0,0,// raw supports <CRLF>.<CRLF>
 0,0,0,0,0,0,0,// Check that the response is one of the valid codes
@@ -2816,7 +2816,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Unexpected EOF!
 0,0,0,0,0,0,0,// remove log file from testSpawn
 0,0,0,0,0,0,0,// Unexpected target exception? Should not happen.
-0,0,0,0,1,1,1,// ?? Should this be the default for ant?
+0,1,0,0,0,0,0,// ?? Should this be the default for ant?
 0,0,0,0,0,0,0,/* method is STORED and we used RandomAccessFile */
 0,0,0,0,0,0,0,// If random access output, write the local file header containing // the correct CRC and compressed/uncompressed sizes
 0,0,0,0,0,0,0,// constants for the messages to suppress by flags and their corresponding properties
@@ -2829,9 +2829,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//store method in local variable to prevent multiple method calls
 0,0,0,0,0,0,0,// CRC // mode // link length // uid, gid
 0,0,0,0,0,0,0,// Fallback method for Java 1.3 or earlier.
-0,0,0,0,0,0,0,// destDir
+0,1,0,0,0,0,0,// destDir
 0,0,0,0,0,0,0,// compression method
-0,0,0,0,0,0,0,// srcDir
+0,1,0,0,0,0,0,// srcDir
 0,0,0,0,0,0,0,// last mod. time and date
 0,0,0,0,0,0,0,// file name length
 0,0,0,0,0,0,0,// version made by
@@ -2905,7 +2905,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// no include pattern implicitly means includes="**"
 0,0,0,0,0,0,0,// private static final int FG_BLACK = 30;
 0,0,0,0,0,0,0,// see if it is a SAX1 Parser
-0,0,0,0,0,0,0,"/*     * Closes an unused connection after an error and doesn't rethrow     * a possible SQLException     * @since Ant 1.7     */"
+0,1,0,0,0,0,0,"/*     * Closes an unused connection after an error and doesn't rethrow     * a possible SQLException     * @since Ant 1.7     */"
 0,0,0,0,0,0,0,// Validates property
 0,0,0,0,0,0,0,// wait 2 second extras // the test failed with 100 ms of margin on cvs.apache.org on August 1st, 2003
 0,0,0,0,0,0,0,// Print out the name of the task if we're in one
@@ -2918,7 +2918,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//if there were no main targets, we list all subtargets //as it means nothing has a description
 0,0,0,0,0,0,0,// private static final int FG_WHITE = 37;
 0,0,0,0,0,0,0,// Property
-0,0,0,0,0,0,0,// For NetWare, use the boolean=true mode, so we can use delimiter // information to make a better decision later.
+0,1,0,0,0,0,0,// For NetWare, use the boolean=true mode, so we can use delimiter // information to make a better decision later.
 0,0,0,0,0,0,0,// we are on NetWare, tokenizing is handled a little differently, // due to the fact that NetWare has multiple-character volume names.
 0,0,0,0,0,0,0,// add ant properties
 0,0,0,0,0,0,0,// NB: this makes use of Project#setProperty rather than Project#setNewProperty //     due to backwards compatiblity reasons
@@ -2926,7 +2926,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// shouldn't be possible
 0,0,0,0,0,0,0,//Ignore - we will use the defaults.
 0,0,1,0,0,0,0,// CheckStyle - magic numbers // checking for "X:\ 0=dquote,1=letter,2=:,3=\
-0,0,0,0,0,0,0,// get files from old main.methods - includes and nested include
+0,0,0,0,0,0,0,// get files from old methods - includes and nested include
 0,0,0,0,0,0,0,// Pump streams asynchronously
 0,0,0,0,0,0,0,// A wild default for when the thread is interrupted
 0,0,0,0,0,0,0,// On junit3 this is a FAILURE, on junit4 this is an ERROR
@@ -2942,7 +2942,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"/*     * Converts DOS time to Java time (number of milliseconds since epoch).     */"
 0,0,0,0,0,0,0,"/* ========================================================================    *    * Constructors    */"
 0,0,0,0,0,0,0,// CRC will be added later
-0,0,0,0,0,0,0,/*<ZipExtraField>*/
+0,1,0,0,0,0,0,/*<ZipExtraField>*/
 0,0,0,0,0,0,0,// The local file name is simply the local target path (tgt) which has // been passed recursively down from the top of the tree, with the item's name appended.
 0,0,0,0,0,0,0,"/* ========================================================================    *    * Methods    */"
 0,0,0,0,0,0,0,//add -revision xxxxx to the commandline
@@ -2972,10 +2972,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// 2003-02-21 new replace algorithm by tbee (tbee@tbee.org) // because it wasn't able to replace something like "@aaa;@bbb;"
 0,0,1,0,0,0,0,//although this code appears to duplicate that of ClasspathUtils.newInstance, //we cannot use that because this formatter may run in a forked process, //without that class.
 0,0,0,0,0,0,0,// build the command line from what we got the format is // ss History elements [-H] [-L] [-N] [-O] [-V] [-Y] [-#] [-?] // as specified in the SS.EXE help
-0,0,1,1,0,1,1,//there are places (in this file, and perhaps elsewhere, where it is assumed //that null is an acceptable parameter.
-0,0,0,0,0,0,0,// // Just call the getExecuteStreamHandler() and let it handle //     the semantics of instantiation or retrieval. //
+0,1,1,1,0,1,1,//there are places (in this file, and perhaps elsewhere, where it is assumed //that null is an acceptable parameter.
+0,1,0,0,0,0,0,// // Just call the getExecuteStreamHandler() and let it handle //     the semantics of instantiation or retrieval. //
 0,0,0,0,0,0,0,// converted from sun internal classes to // new Base64Converter // utility class extracted from Get task
-0,0,0,0,0,0,0,// No further main.methods necessary. This is just an amalgamation of two other // interfaces.
+0,0,0,0,0,0,0,// No further methods necessary. This is just an amalgamation of two other // interfaces.
 0,0,0,0,0,0,0,// copying of dirs is trivial and can be done // for non-file resources as well as for real // files.
 0,0,0,0,0,0,0,// // -----  The "Singleton"  ----- //
 0,0,0,0,0,0,0,// simplest case - setAttribute expects String

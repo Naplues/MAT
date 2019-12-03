@@ -10,7 +10,6 @@
 'remind rewrite multiple headers received single remind change character set remind forgot what the previous remind means ',positive
 'wait for acknowledgement from other server fixme please not wait only for three characters better control that the wait ack message correct throws ioexception error occurred ',positive
 'convert char and fill the charchunk xxx not optimized converts string first ',positive
-'create dummy include directive node ',positive
 'fixme behavior already started ',positive
 'todo should only use body encoding true otherwise should use uriencoding the problem that the connector not available add the fun the uri default changed servlet utf ',positive
 'todo this isnt pretty but works significant refactoring would required avoid the exception ',positive
@@ -23,8 +22,10 @@
 'fixme how inform other session cache like singlesignon ',positive
 'any call this method result problem reading from the client this point that state the connection unknown attempt send close frame the client and then close the socket immediately there point waiting for close frame from the client because there guarantee that can recover from whatever messed state the client put the connection into ',positive
 'fixme sender ack mode this method check only the state transfer and resend problem ',positive
+'sessions already exist remove and insert again todo check exists database and use update ',positive
 'doesnt work all platforms see ',positive
 'fixme should probably checking for things like pagecontext bodycontent and parent here akv ',positive
+'calling code should ensure that there data the buffers for nonblocking writes todo validate the assertion above ',positive
 'dont know how evaluate this ',positive
 'this method should only called there chance that the socket currently being used the poller generally bad idea call this directly from known error condition ',positive
 'xxx making these absolute till work out the addition pathinfo issue ',positive
@@ -67,6 +68,7 @@
 'the jdbc spec requires that statement close any open resultsets when closed fixme the preparedstatement were wrapping should handle this for see dbcp for what could happen when resultsets are closed twice ',positive
 'message that represents drawing action note that use primitive types instead point color etc reduce object allocationbrbr todo but color objects needs created anyway for drawing this onto graphicsd object this probably does not save much ',positive
 'fixme feature idea add support for patterns webinf webinfxml where would only check least one resource newer than apptimestamp ',positive
+'jasper incorrectly smaps certain nodes giving them outputstartline this can cause fatal error optimizelinesection making impossible for jasper compile the jsp until can fix the underlying ',positive
 'xxx todo source code line length xxx todo more javadoc xxx optional add support for comsunmanagement specific mbean xxx optional wire additional public static methods implemented here the manager think about manager access roles setloggerlevel resetpeakusage setusagethreshold ',positive
 'todo servlet add comments param classname todo throws called from link method link that was not defined webxml file webfragmentxml file nor annotated with link for example link defined tld would not able use this method since servlet ',positive
 'xxx group use group type ',positive
@@ -74,6 +76,7 @@
 'get jmx broadcaster info fixme this two events not send jeestatefailed and jeeattributechanged see ',positive
 'keepalive return boolean todo implement this method ',positive
 'has been previously resolved ',positive
+'todo add other attributes ',positive
 'todo these certificate setters can removed once longer necessary support the old configuration attributes tomcat ',positive
 'memberadded param member member todo implement this method ',positive
 'end tomcat specific hack ',positive
@@ -147,7 +150,10 @@
 'were using shared channel document says its thread safe todo check optimization one channel per thread ',positive
 'fixme older spec revisions may still check this ',positive
 'connect blocking this operation throws ioexception todo implement this method ',positive
+'xxx should length ',positive
+'todo add new state the asyncstatemachine and remove asyncend possible ',positive
 'note hardcoded domain used since this object per serverjvm ',positive
+'todo may need add code here once additional states are used ',positive
 'changes from commonsmodeler use dynamicmbean remove methods not used tomcat and redundantnot very generic must created from the managedbean dont think there were any direct uses but now required some the gratuitous flexibility removed instead this more predictive and strict with the use cases all method and metadata stored managedbean basemodelbmean and managedbean act like object and class setmodelmbean longer called resources not used tomcat caching methods for now operations and setters are not called repeatedly most management use cases getters shouldnt called very frequently either and even they are the overhead getting the method should small compared with other jmx costs rmi etc can add getter cache needed removed unused constructor fields todo clean catalinambeans stop using weird inheritance ',positive
 'number tries the number attempts connect the database during this login attempt need open the database this needs rewritten wuth better pooling support the existing code needs signature changes since the prepared statements needs cached with the connections the code below will try twice there sqlexception the connection may try opened again normal conditions including ',positive
 'the player that associated with this endpoint and the current room note that this variable only accessed from the room threadbrbr todo currently tomcat uses endpoint instance once however the java doc endpoint says each instance websocket endpoint guaranteed not called more than one thread time per active connection this could mean that after calling onclose the instance could reused for another connection onopen will get called possibly from another threadbr this the case would need variable holder for the variables that are accessed the room thread and read the reference the holder the beginning onopen onmessage onclose methods ensure the room thread always gets the correct instance the variable holder ',positive
@@ -169,17 +175,21 @@
 'hack via static since cant pass instance the test ',positive
 'remind this method feels too big should rewritten ',positive
 'since servlet todo servlet add comments ',positive
+'todo this certificate setter can removed once longer necessary support the old configuration attributes tomcat ',positive
 'xxx not sure whether the following mbeans should better retrieved demand whether they can change dynamically the mbeanserver ',positive
 'checks see there are any writes pending and there are calls link trigger callback once the pending writes have completed note once this method has returned codefalsecode bmust notb called again until the pending write has completed and the callback has been fired todo modify link the above restriction enforced there rather than relying the caller return codetruecode writes are pending and data can written otherwise codefalsecode ',positive
+'todo move this validation the parsing stage ',positive
 'param servletrequest the servletrequest with which initialise the asynchronous context param servletresponse the servletresponse with which initialise the asynchronous context return todo throws async not supported for this request since servlet todo servlet add comments ',positive
 'todo not entirely sure when onerror should called ',positive
 'add context programmatic mode default webxml used this means that there jsp support jsp servlet default servlet and web socket support unless explicitly enabled via the programmatic interface there also link processing and annotation processing link added programmatically there will still scanning for link matches api calls equivalent with webxml precode contextparam ctxaddparametername value errorpage errorpage new errorpage epseterrorcode ctxadderrorpageep type pre note you reload the context all your configuration will lost you need reload support consider using lifecyclelistener provide your configuration todo add the rest param contextpath the context mapping use for root context param docbase base directory for the context for static files must exist relative the server home return the deployed context ',positive
 'todo servlet add comments param filtername todo return todo throws called from link method link that was not defined webxml file webfragmentxml file nor annotated with link for example link defined tld would not able use this method since servlet ',positive
+'todo remove the internal representation and use ranges ',positive
 'indicate whether the session has been idle for longer than its expiration date the supplied time fixme probably belongs the session class param session the session check param timenow the current time check for return codetruecode the session past its expiration ',positive
 'proprietary method evaluate expressions xxx this method should away once the interpreter moves out jstl and into its own project for now this necessary because the standard machinery too slow param expression the expression evaluated param expectedtype the expected resulting type param pagecontext the page context param functionmap maps prefix and name method return the result the evaluation throws elexception error occurs during the evaluation ',positive
 'fixme removing status pages ',positive
 'destroy needs clean the context completely the problem that undoing all the config start and restoring fresh state impossible after should have the same state fresh start was done read modified webxml etc this can only done completely removing the context object and remapping new one cleaning everything xxx should this done stop ',positive
 'filter todo should support multiple description elements with language todo should support multiple displayname elements with language todo should support multiple icon elements ',positive
+'todo optimize destinationlength then can getoptionflag and just send one message ',positive
 'this not optimal but this not very common shouldnt matter ',positive
 'xxx another possible optimization would for lone expressions need pushbody here either ',positive
 'todo openssl alpn callback doesnt support failing the handshake with error protocol can negotiated therefore need fail the connection here once this fixed replace the code below with the commented out block ',positive
@@ -200,12 +210,14 @@
 'going have have some casts raw types somewhere doing here keeps them all one place there might neater better solution ',positive
 'filter out the default watched resources remove standard ones param context the context instance param wresources the raw watched resources list return the filtered watched resources throws exception configuration storing error todo relative watched resources todo absolute handling configfile todo filename case handling for windows todo digester variable substitution catalinabase catalinahome ',positive
 'unsupported transfer encoding unimplemented ',positive
+'note dont try reauthenticate using any existing sso session because that will only work the original authentication was basic form which are less secure than the clientcert authtype specified for this webapp change true below allow previous form basic authentications authenticate users for this webapp todo make this configurable attribute singlesignon ',positive
 'serviceref todo should support multiple description elements with language todo should support multiple displaynames elements with language ',positive
 'not threadsafe for this test not for use the real world ',positive
 'todo this case possible ',positive
 'the only body element for this named attribute node template text need not generate extra call pushbody and popbody maybe can further optimize here getting rid the temporary variable but reality looks like javac does this for ',positive
 'listener called dispatch complete this error srv search for error dispatch take local copy avoid threading issues another thread clears this can happen during error handling with noncontainer threads ',positive
 'fixme add instance already started ',positive
+'todo should never happen ',positive
 'todo this operation not thread safe ',positive
 'ignored todo perhaps add tracker delete failure list somehow ',positive
 'note this hack since nextchar only returns single char safe since does not require special treatment for for literals ',positive
@@ -245,6 +257,8 @@
 'todo handle remove also work dir content stop the context first nicer ',positive
 'cheap hack return empty hash ',positive
 'xxx used only for headers shouldnt stored here ',positive
+'fixme implement ssl environment variables ',positive
+'todo description for initparam ignored ',positive
 'utf bigendian bom could turn out ucs revisit what should this ',positive
 'todo this case possible see old server impl ',positive
 'todo should support multiple description elements with language ',positive
@@ -256,6 +270,7 @@
 'logging credentials could security concern but they are invalid and that probably bigger problem ',positive
 'xxx this bit silly but want have start and stop time and duration consistent would better keep start and stop simply the request andor response object and remove time duration from the interface ',positive
 'leading zero nonzero octet not valid ambiguous ',positive
+'alltoall replication for hash map implementation each node the cluster will carry identical copy the mapbrbr this map implementation doesnt have background thread running replicate changes you have changes without invoking putremove then you need invoke one the following methods replicates only the object that belongs the keyli scans the entire map for changes and replicates datali the codebooleancode value the codereplicatecode method used decide whether only replicate objects that implement the interface replicate all objects object doesnt implement the interface each time the object gets replicated the entire object gets serialized hence call will replicate all objects this map that are using this node primary brbrbremember call codebreakdowncode codefinalizecode when you are done with the map avoid memory leaksbbrbr todo implement periodic synctransfer threadbr todo memberdisappeared should nothing except change map membership default relocates the primary objects param the type key param the type value ',positive
 'hard coded for now consider making this optional valve level page level ',positive
 'this method slightly ugly cest vie you cannot stop ugliness you can only hope contain apologies marv albert regarding ',positive
 'the socket write buffer capacity todo this only matters when using tls for nontls connections should possible write the bytebuffer single write ',positive
@@ -276,7 +291,7 @@
 'dummy implementation ',positive
 'todo servlet add comments param wrappedtype the class compare the class the wrapped request return codetruecode the request wrapped this wrapper series wrappers the same type the supplied type otherwise codefalsecode since servlet ',positive
 'create the map hold our stats however todo need improve the eviction selection ',positive
-'jasper incorrectly smaps certain nodes giving them outputstartline this can cause fatal error optimizelinesection making impossible for jasper compile the jsp until can fix the underlying ',negative
+'todo consider implications sso cookies ',positive
 'enable solinger ensure close only returns when tcp closing handshake completes ',negative
 'fallback jspbody char char jspbody jspbody translationerror jspfallback char char jspfallback jspfallback ',negative
 'else ',negative
@@ -613,6 +628,7 @@
 'use portcomponentref ',negative
 'generated byjjtree not edit this line astchoicejava ',negative
 'parse name the query string ',negative
+'create dummy include directive node ',negative
 'stop the old component necessary ',negative
 'jspservletwrapper for tag files ',negative
 'compare for tag dont match taglib ',negative
@@ -973,7 +989,6 @@
 'should overridden jaasrealm avoid pretty inefficient conversions ',negative
 'ensure caches for timing stats are the right size filling with nulls ',negative
 'enable deployer ',negative
-'sessions already exist remove and insert again todo check exists database and use update ',negative
 'the frame handling code ',negative
 'nothing always generate list ',negative
 'expected behaviour for deployment xml file that points external war deployxml copyxml unpackwars xml war dir notes war file present the appbase because external war any contextxml file embedded the external war file ignored ',negative
@@ -988,7 +1003,6 @@
 'copy old constant pool return index sde symbol found ',negative
 'also need remove this stream from the list ',negative
 'something went wrong reading the class bytes and will have been logged debug level ',negative
-'calling code should ensure that there data the buffers for nonblocking writes todo validate the assertion above ',negative
 'validate required extensions ',negative
 'notify change sessionid ',negative
 'not enough space the destination buffer store all the data could use bytes read value buffersizerequired signal the new buffer size required but explicit exception clearer ',negative
@@ -1111,6 +1125,7 @@
 'exceptions ',negative
 'update the auto commit flag ',negative
 'read the global ref addr ',negative
+'optimization lenavail length after fill the buffer with what can the remaining will fit the buffer well just copy the first part flush then copy the second part write and still have some space for more well still have writes but write more the first ',negative
 'owwwwww ',negative
 'theres way specify this with simpledateformat translateputuweek year with first sunday first day ',negative
 '',negative
@@ -2909,7 +2924,6 @@
 'ensure that the sslengine consistent with that used for ssl init ',negative
 'valueunbound will called session expiration ',negative
 'render the link our parent required ',negative
-'todo add other attributes ',negative
 'test ',negative
 'failed send close message close the socket and let the caller ',negative
 'upgrade write lock ',negative
@@ -4558,6 +4572,7 @@
 'buffer depleted ',negative
 'default contenttype processing deferred until after the page has ',negative
 'extract the session path element exists the given url ',negative
+'accept again new thread since may block ',negative
 'note strips new lines ',negative
 'close can triggered wide range scenarios far simpler just always use dispatch than try and track whether not this method was called the same thread that triggered the write ',negative
 'check required interceptors ',negative
@@ -6367,14 +6382,12 @@
 'store nested clusterlistener elements ',negative
 'avoid possible resource leak ',negative
 'overridden methods from channel interceptor base ',negative
-'xxx should length ',negative
 'tracking the base name and the latest valid version found sufficient able create the renaming map required ',negative
 'limits ',negative
 'transaction was rolled back proceed there never was transaction ',negative
 'inner class ',negative
 'persist configuration section ',negative
 'evaluate conditions ',negative
-'todo add new state the asyncstatemachine and remove asyncend possible ',negative
 'add the eos bytes have not finished single byte ',negative
 'should not happen late send batched messages now since the session has been closed complain loudly ',negative
 'change stream and reuse ',negative
@@ -6393,7 +6406,6 @@
 'ignore access connection open errors ',negative
 'double checked locking because instance volatile ',negative
 'end ',negative
-'todo may need add code here once additional states are used ',negative
 'set nonblocking mode for the listening socket ',negative
 'java doesnt support multirelease default false ',negative
 'ccm ciphersuites from rfc ',negative
@@ -7366,7 +7378,6 @@
 'there data process trigger read immediately this optimisation for the typical case dont create ',negative
 'filter out cipher suites that openssl does not implement ',negative
 'set distributable else every app will prevented from being distributable when the tomcat fragment merged with the main ',negative
-'todo this certificate setter can removed once longer necessary support the old configuration attributes tomcat ',negative
 'look see this request include ',negative
 'instantiate the indicated options implementation ',negative
 'size simple request ',negative
@@ -7435,7 +7446,6 @@
 'http upgrade ',negative
 'non hex character ',negative
 'jvms may limit the maximum array size slightly less than integermaxvalue markts desktop the limit maxvalue comments the jre source code for arraylist and other classes indicate that may low maxvalue some systems ',negative
-'todo move this validation the parsing stage ',negative
 'prepare the results written ',negative
 'support for the factory methods ',negative
 'first try the servlet property ',negative
@@ -7609,7 +7619,6 @@
 'close the socket now that are done with ',negative
 'bug ',negative
 'check for container level optional packages ',negative
-'todo remove the internal representation and use ranges ',negative
 'nothing internalproxies ips are not appended the ',negative
 'these methods are always allowed they may return not the resource does not exist ',negative
 'authentication was not successful just return false ',negative
@@ -7746,7 +7755,6 @@
 'returns null the input path not valid path that will acceptable ',negative
 'print from the global counter ',negative
 'mark and parse the expression and create its node ',negative
-'todo optimize destinationlength then can getoptionflag and just send one message ',negative
 'hitting limit stops processing further params but does not cause request fail ',negative
 'need check default ',negative
 'visitor class for traversing elnodes ',negative
@@ -8678,7 +8686,6 @@
 'javaccoptions ',negative
 'list the ciphers that the client permitted negotiate ',negative
 'classloader pinning were about ',negative
-'note dont try reauthenticate using any existing sso session because that will only work the original authentication was basic form which are less secure than the clientcert authtype specified for this webapp change true below allow previous form basic authentications authenticate users for this webapp todo make this configurable attribute singlesignon ',negative
 'cipher ',negative
 'extract and save the server cookies from the incoming response ',negative
 'while not null ',negative
@@ -9170,6 +9177,7 @@
 'skip threads that have already died ',negative
 'functional change ',negative
 'link and related methods are all native methods isnt immediately obvious they are threadsafe not pre windows jdk thread safe osx jdk not thread safe osx jdk not thread safe pre therefore have assume that link not thread safe ',negative
+'ping ',negative
 'subprotocols ',negative
 'handle ordered libs directly ',negative
 'now compute some delays beware the units ',negative
@@ -9260,7 +9268,6 @@
 'continue unwrap long the input buffer has stuff ',negative
 'only those methods need change use different direct logger ',negative
 'note internally the mapper does not use the leading wildcard host this allow this shortcut ',negative
-'todo should never happen ',negative
 'definite node constructed from specified number children that number nodes are popped from the stack and made the children the definite node then the definite node pushed the stack ',negative
 'this jar was web application this equivalent how ',negative
 'unregister this component ',negative
@@ -10137,6 +10144,7 @@
 'instantiate the required listeners ',negative
 'set available status depending upon startup success ',negative
 'consume extra bytes ',negative
+'numactive has changed ',negative
 'now the start the mechtype list ',negative
 'check for leaks triggered threadlocals loaded this class loader ',negative
 'constructors ',negative
@@ -11031,11 +11039,9 @@
 'sneak the regular node the not will resolved when the next opp comes along ',negative
 'clear all servlet context attributes ',negative
 'need lookup the key not the map ',negative
-'fixme implement ssl environment variables ',negative
 'jwtauth available ',negative
 'literal never indexed ',negative
 'add this class the cache ',negative
-'todo description for initparam ignored ',negative
 'crosscontext enabled can always return the context ',negative
 'userinfo unreserved pctencoded subdelims ',negative
 'the param tag has parents throw exception ',negative
@@ -11529,7 +11535,6 @@
 'accessible ',negative
 'try double start the ',negative
 'assume this triggered the user closing their browser and ignore ',negative
-'alltoall replication for hash map implementation each node the cluster will carry identical copy the mapbrbr this map implementation doesnt have background thread running replicate changes you have changes without invoking putremove then you need invoke one the following methods replicates only the object that belongs the keyli scans the entire map for changes and replicates datali the codebooleancode value the codereplicatecode method used decide whether only replicate objects that implement the interface replicate all objects object doesnt implement the interface each time the object gets replicated the entire object gets serialized hence call will replicate all objects this map that are using this node primary brbrbremember call codebreakdowncode codefinalizecode when you are done with the map avoid memory leaksbbrbr todo implement periodic synctransfer threadbr todo memberdisappeared should nothing except change map membership default relocates the primary objects param the type key param the type value ',negative
 'cipher ',negative
 'this always returns false otherwise the superclass will call ',negative
 'uri the form urnjsptagdirpath references tag file dir ',negative
@@ -11718,6 +11723,7 @@
 'ciapacheorg allow margin and use ',negative
 'override headers ',negative
 'pause connectors first ',negative
+'first fallback see current directory bin directory normal tomcat install ',negative
 'todo ',negative
 'there saved principal ',negative
 'reached end stream before sni could processed ',negative
@@ -12217,4 +12223,3 @@
 'trigger automatic deployment ',negative
 'set the contentlanguage for header output ',negative
 'remove all path parameters any needed path parameter should set using the request object rather than passing the url ',negative
-'todo consider implications sso cookies ',negative

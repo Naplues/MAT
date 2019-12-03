@@ -4,7 +4,6 @@
 1, Line, // REMIND: rewrite multiple headers as if received as single  REMIND: change character set  REMIND: I forgot what the previous REMIND means 
 1, JavaDoc, /*      * Wait for Acknowledgement from other server.     * FIXME Please, not wait only for three characters, better control that the wait ack message is correct.     * @throws IOException An IO error occurred      */
 1, JavaDoc, /*      * Convert to char[] and fill the CharChunk.     * XXX Not optimized - it converts to String first.      */
-1, Line, //  Create a dummy Include directive node 
 1, Line, //  FIXME - behavior if already started? 
 1, Line, //  TODO   - Should only use body encoding if useBodyEncodingForURI is true   - Otherwise, should use URIEncoding   - The problem is that the connector is not available...   - To add to the fun, the URI default changed in Servlet 4.0 to UTF-8 
 1, Line, //  TODO: This isn't pretty but it works. Significant refactoring would         be required to avoid the exception. 
@@ -17,8 +16,10 @@
 1, Line, //  FIXME How inform other session id cache like SingleSignOn 
 1, Block, /*          * Any call to this method is a result of a problem reading from the         * client. At this point that state of the connection is unknown.         * Attempt to send a close frame to the client and then close the socket         * immediately. There is no point in waiting for a close frame from the         * client because there is no guarantee that we can recover from         * whatever messed up state the client put the connection into.          */
 1, Line, //  FIXME At sender ack mode this method check only the state         transfer and resend is a problem! 
+1, Line, //  If sessions already exist in DB, remove and insert again.   TODO:   * Check if ID exists in database and if so use UPDATE.
 1, Line, //  Doesn't work on all platforms - see BZ 56448. 
 1, Block, /*                      * FIXME: should probably be checking for things like                     * pageContext, bodyContent, and parent here -akv                      */
+1, Line, //  Calling code should ensure that there is no data in the buffers for   non-blocking writes.   TODO Validate the assertion above
 1, Block, /*  I don't know how to evaluate this!  */
 1, Block, /*      * This method should only be called if there is no chance that the socket     * is currently being used by the Poller. It is generally a bad idea to call     * this directly from a known error condition.      */
 1, Line, //  XXX   making these absolute till we work out the   addition of a PathInfo issue 
@@ -69,6 +70,7 @@
 1, JavaDoc, /*      * Get JMX Broadcaster Info     * FIXME: This two events we not send j2ee.state.failed and j2ee.attribute.changed!     * @see javax.management.NotificationBroadcaster#getNotificationInfo()      */
 1, JavaDoc, /*      * keepalive     *     * @return boolean     * TODO Implement this org.apache.catalina.tribes.transport.DataSender method      */
 1, Line, //  Has it been previously resolved? 
+1, Line, //  TODO add other attributes
 1, Line, //  TODO: These certificate setters can be removed once it is no longer   necessary to support the old configuration attributes (Tomcat 10?). 
 1, JavaDoc, /*      * memberAdded     *     * @param member Member     * TODO Implement this org.apache.catalina.tribes.MembershipListener     *   method      */
 1, Line, //  End of Tomcat specific hack 
@@ -142,7 +144,10 @@
 1, Line, // were using a shared channel, document says its thread safe  TODO check optimization, one channel per thread? 
 1, Line, //  FIXME: Older spec revisions may still check this 
 1, JavaDoc, /*      * connect - blocking in this operation     *     * @throws IOException     * TODO Implement this org.apache.catalina.tribes.transport.IDataSender method      */
+1, Line, //  XXX   should a length of 0 be an IllegalArgumentException
+1, Line, //  TODO Add a new state to the AsyncStateMachine and remove        ASYNC_END (if possible)
 1, Line, //  Note: Hard-coded domain used since this object is per Server/JVM 
+1, Line, //  TODO - May need to add code here once additional   states are used
 1, Block, /*  * Changes from commons.modeler: * *  - use DynamicMBean *  - remove methods not used in tomcat and redundant/not very generic *  - must be created from the ManagedBean - I don't think there were any direct *    uses, but now it is required. *  - some of the gratuitous flexibility removed - instead this is more predictive and *    strict with the use cases. *  - all Method and metadata is stored in ManagedBean. BaseModelBMean and ManagedBean act *    like Object and Class. *  - setModelMBean is no longer called on resources ( not used in tomcat ) *  - no caching of Methods for now - operations and setters are not called repeatedly in most *  management use cases. Getters shouldn't be called very frequently either - and even if they *  are, the overhead of getting the method should be small compared with other JMX costs ( RMI, etc ). *  We can add getter cache if needed. *  - removed unused constructor, fields * *  TODO: *   - clean up catalina.mbeans, stop using weird inheritance  */
 1, Line, //  Number of tries is the number of attempts to connect to the database   during this login attempt (if we need to open the database)   This needs rewritten wuth better pooling support, the existing code   needs signature changes since the Prepared statements needs cached   with the connections.   The code below will try twice if there is an SQLException so the   connection may try to be opened again. On normal conditions (including 
 1, JavaDoc, /*      * The player that is associated with this Endpoint and the current room.     * Note that this variable is only accessed from the Room Thread.<br><br>     *     * TODO: Currently, Tomcat uses an Endpoint instance once - however     * the java doc of endpoint says:     * "Each instance of a websocket endpoint is guaranteed not to be called by     * more than one thread at a time per active connection."     * This could mean that after calling onClose(), the instance     * could be reused for another connection so onOpen() will get called     * (possibly from another thread).<br>     * If this is the case, we would need a variable holder for the variables     * that are accessed by the Room thread, and read the reference to the holder     * at the beginning of onOpen, onMessage, onClose methods to ensure the room     * thread always gets the correct instance of the variable holder.      */
@@ -164,17 +169,21 @@
 1, Line, //  Hack via a static since we can't pass an instance in the test. 
 1, Block, /*              * REMIND:  this method feels too big; should it be re-written?              */
 1, JavaDoc, /*  * @since Servlet 3.0 * TODO SERVLET3 - Add comments  */
+1, Line, //  TODO: This certificate setter can be removed once it is no longer   necessary to support the old configuration attributes (Tomcat 10?).
 1, Line, //  XXX Not sure whether the following MBeans should better   be retrieved on demand, i.e. whether they can change   dynamically in the MBeanServer. 
 1, JavaDoc, /*      * Checks to see if there are any writes pending and if there are calls     * {@link #registerWriteInterest()} to trigger a callback once the pending     * writes have completed.     * <p>     * Note: Once this method has returned <code>false</code> it <b>MUST NOT</b>     *       be called again until the pending write has completed and the     *       callback has been fired.     *       TODO: Modify {@link #registerWriteInterest()} so the above     *       restriction is enforced there rather than relying on the caller.     *     * @return <code>true</code> if no writes are pending and data can be     *         written otherwise <code>false</code>      */
+1, Line, //  TODO Move this validation to the parsing stage
 1, JavaDoc, /*      * @param servletRequest    The ServletRequest with which to initialise the     *                          asynchronous context     * @param servletResponse   The ServletResponse with which to initialise the     *                          asynchronous context     * @return TODO     * @throws IllegalStateException If async is not supported for this request     * @since Servlet 3.0 TODO SERVLET3 - Add comments      */
 1, Line, //  TODO: I'm not entirely sure when onError should be called 
 1, JavaDoc, /*      * Add a context - programmatic mode, no default web.xml used. This means     * that there is no JSP support (no JSP servlet), no default servlet and     * no web socket support unless explicitly enabled via the programmatic     * interface. There is also no     * {@link javax.servlet.ServletContainerInitializer} processing and no     * annotation processing. If a     * {@link javax.servlet.ServletContainerInitializer} is added     * programmatically, there will still be no scanning for     * {@link javax.servlet.annotation.HandlesTypes} matches.     *     * <p>     * API calls equivalent with web.xml:     *     * <pre>{@code     *  // context-param     *  ctx.addParameter("name", "value");     *     *     *  // error-page     *  ErrorPage ep = new ErrorPage();     *  ep.setErrorCode(500);     *  ep.setLocation("/error.html");     *  ctx.addErrorPage(ep);     *     *  ctx.addMimeMapping("ext", "type");     * }</pre>     *     *     * <p>     * Note: If you reload the Context, all your configuration will be lost. If     * you need reload support, consider using a LifecycleListener to provide     * your configuration.     *     * <p>     * TODO: add the rest     *     * @param contextPath The context mapping to use, "" for root context.     * @param docBase Base directory for the context, for static files.     *  Must exist, relative to the server home     * @return the deployed context      */
 1, JavaDoc, /*      * TODO SERVLET3 - Add comments     * @param filterName TODO     * @return TODO     * @throws UnsupportedOperationException    If called from a     *    {@link ServletContextListener#contextInitialized(ServletContextEvent)}     *    method of a {@link ServletContextListener} that was not defined in a     *    web.xml file, a web-fragment.xml file nor annotated with     *    {@link javax.servlet.annotation.WebListener}. For example, a     *    {@link ServletContextListener} defined in a TLD would not be able to     *    use this method.     * @since Servlet 3.0      */
+1, Line, //  TODO: Remove the internal representation and use Ranges
 1, JavaDoc, /*      * Indicate whether the session has been idle for longer     * than its expiration date as of the supplied time.     *     * FIXME: Probably belongs in the Session class.     * @param session The session to check     * @param timeNow The current time to check for     * @return <code>true</code> if the session is past its expiration      */
 1, JavaDoc, /*      * Proprietary method to evaluate EL expressions. XXX - This method should     * go away once the EL interpreter moves out of JSTL and into its own     * project. For now, this is necessary because the standard machinery is too     * slow.     *     * @param expression     *            The expression to be evaluated     * @param expectedType     *            The expected resulting type     * @param pageContext     *            The page context     * @param functionMap     *            Maps prefix and name to Method     * @return The result of the evaluation     * @throws ELException If an error occurs during the evaluation      */
 1, Line, //  FIXME : Removing status pages 
 1, JavaDoc, /*  Destroy needs to clean up the context completely.     *     * The problem is that undoing all the config in start() and restoring     * a 'fresh' state is impossible. After stop()/destroy()/init()/start()     * we should have the same state as if a fresh start was done - i.e     * read modified web.xml, etc. This can only be done by completely     * removing the context object and remapping a new one, or by cleaning     * up everything.     *     * XXX Should this be done in stop() ?     *      */
 1, Line, //  filter   TODO: Should support multiple description elements with language   TODO: Should support multiple display-name elements with language   TODO: Should support multiple icon elements 
+1, Line, // todo, optimize, if destination.length==1, then we can do  msg.setOptions(msg.getOptions() & (~getOptionFlag())  and just send one message
 1, Line, //  This is not optimal, but as this is not very common, it   shouldn't matter 
 1, Line, //  XXX - Another possible optimization would be for   lone EL expressions (no need to pushBody here either). 
 1, Line, //  TODO:   OpenSSL 1.0.2's ALPN callback doesn't support   failing the handshake with an error if no   protocol can be negotiated. Therefore, we need to   fail the connection here. Once this is fixed,   replace the code below with the commented out   block. 
@@ -195,12 +204,14 @@
 1, Line, //  Going to have to have some casts /raw types somewhere so doing it here   keeps them all in one place. There might be a neater / better solution 
 1, JavaDoc, /*      * Filter out the default watched resources, to remove standard ones.     *     * @param context The context instance     * @param wresources The raw watched resources list     * @return The filtered watched resources     * @throws Exception Configuration storing error     * TODO relative watched resources     * TODO absolute handling configFile     * TODO Filename case handling for Windows?     * TODO digester variable substitution $catalina.base, $catalina.home      */
 1, Line, //  Unsupported transfer encoding   501 - Unimplemented 
+1, Line, //  NOTE: We don't try to reauthenticate using any existing SSO session,   because that will only work if the original authentication was   BASIC or FORM, which are less secure than the CLIENT-CERT auth-type   specified for this webapp     Change to true below to allow previous FORM or BASIC authentications   to authenticate users for this webapp   TODO make this a configurable attribute (in SingleSignOn??)
 1, Line, //  service-ref   TODO: Should support multiple description elements with language   TODO: Should support multiple display-names elements with language 
 1, Block, /*          * Not thread-safe. OK for this test. NOt OK for use in the real world.          */
 1, Line, //  @TODO is this case possible? 
 1, Line, //  If the only body element for this named attribute node is   template text, we need not generate an extra call to   pushBody and popBody. Maybe we can further optimize   here by getting rid of the temporary variable, but in   reality it looks like javac does this for us. 
 1, Line, //  No listener called dispatch() or complete(). This is an error.   SRV.2.3.3.3 (search for "error dispatch")   Take a local copy to avoid threading issues if another thread   clears this (can happen during error handling with non-container   threads) 
 1, Line, //  FIXME - add instance if already started? 
+1, Line, //  TODO - Should never happen
 1, Line, // TODO this operation is not thread safe 
 1, Line, //  ignored TODO perhaps add to tracker delete failure list somehow? 
 1, Line, //  Note this is a hack since nextChar only returns a single char   It is safe since %> does not require special treatment for EL   or for literals 
@@ -240,6 +251,8 @@
 1, Line, //  TODO Handle remove also work dir content !   Stop the context first to be nicer 
 1, Line, //  cheap hack to return an empty hash 
 1, Line, //  XXX used only for headers - shouldn't be stored here. 
+1, Line, //  FIXME: Implement SSL environment variables
+1, Line, //  TODO: Description for init-param is ignored
 1, Line, //  UTF-16, big-endian, no BOM   (or could turn out to be UCS-2...   REVISIT: What should this be? 
 1, Line, //  TODO is this case possible? (see it a old Server 5.0 impl) 
 1, Line, //  TODO: Should support multiple description elements with language 
@@ -251,6 +264,7 @@
 1, Line, //  Logging credentials could be a security concern but they are   invalid and that is probably a bigger problem 
 1, JavaDoc, /*          * XXX This is a bit silly, but we want to have start and stop time and         * duration consistent. It would be better to keep start and stop         * simply in the request and/or response object and remove time         * (duration) from the interface.          */
 1, Line, //  Leading zero in non-zero octet. Not valid (ambiguous). 
+1, JavaDoc, /*  * All-to-all replication for a hash map implementation. Each node in the cluster will carry an identical * copy of the map.<br><br> * This map implementation doesn't have a background thread running to replicate changes. * If you do have changes without invoking put/remove then you need to invoke one of the following methods: * <ul> * <li><code>replicate(Object,boolean)</code> - replicates only the object that belongs to the key</li> * <li><code>replicate(boolean)</code> - Scans the entire map for changes and replicates data</li> *  </ul> * the <code>boolean</code> value in the <code>replicate</code> method used to decide * whether to only replicate objects that implement the <code>ReplicatedMapEntry</code> interface * or to replicate all objects. If an object doesn't implement the <code>ReplicatedMapEntry</code> interface * each time the object gets replicated the entire object gets serialized, hence a call to <code>replicate(true)</code> * will replicate all objects in this map that are using this node as primary. * * <br><br><b>REMEMBER TO CALL <code>breakdown()</code> or <code>finalize()</code> * when you are done with the map to avoid memory leaks.</b><br><br> * TODO implement periodic sync/transfer thread<br> * TODO memberDisappeared, should do nothing except change map membership *       by default it relocates the primary objects * * @param <K> The type of Key * @param <V> The type of Value  */
 1, Line, //  Hard coded for now. Consider making this optional. At Valve level or   page level? 
 1, Block, /*              * This method is slightly ugly; c'est la vie.             * "You cannot stop [ugliness], you can only hope to contain [it]"             * (apologies to Marv Albert regarding MJ)              */
 1, Line, //  The socket write buffer capacity is socket.appWriteBufSize   TODO This only matters when using TLS. For non-TLS connections it        should be possible to write the ByteBuffer in a single write 
@@ -271,6 +285,7 @@
 1, Line, //  Dummy implementation 
 1, JavaDoc, /*      * TODO SERVLET3 - Add comments     * @param wrappedType The class to compare to the class of the wrapped     *                    request     * @return <code>true</code> if the request wrapped by this wrapper (or     *         series of wrappers) is the same type as the supplied type,     *         otherwise <code>false</code>     * @since Servlet 3.0      */
 1, Line, // create the map to hold our stats  however TODO we need to improve the eviction  selection 
+1, Line, //  TODO: Consider implications of SSO cookies
 0, Line, //  Enable SO_LINGER to ensure close() only returns when TCP closing   handshake completes 
 0, Block, /*      * Fallback ::= '/>' | ( `>' S? `<jsp:body>' ( ( S? ( Char* - ( Char* `</jsp:body>' ) ) `</jsp:body>'     * S? ) | <TRANSLATION_ERROR> ) `</jsp:fallback>' ) | ( '>' ( Char* - (     * Char* '</jsp:fallback>' ) ) '</jsp:fallback>' )      */
 0, Line, // else 
@@ -607,6 +622,7 @@
 0, Line, //  Use port-component-ref 
 0, Block, /*  Generated By:JJTree: Do not edit this line. AstChoice.java  */
 0, Block, /*      * Parse a name in the query string.      */
+0, Line, //  Create a dummy Include directive node
 0, Line, //  Stop the old component if necessary 
 0, Block, /*      * JspServletWrapper for tag files.      */
 0, Line, //  compare for "tag ", so we don't match "taglib" 
@@ -967,7 +983,6 @@
 0, Line, //  Should be overridden in JAASRealm - to avoid pretty inefficient conversions 
 0, Line, //  Ensure caches for timing stats are the right size by filling with   nulls. 
 0, Line, //  Enable deployer 
-0, Line, //  If sessions already exist in DB, remove and insert again.   TODO:   * Check if ID exists in database and if so use UPDATE. 
 0, Line, //  the frame handling code 
 0, Line, //  Nothing to do - always generate list 
 0, Block, /*      * Expected behaviour for deployment of an XML file that points to an     * external WAR.     * deployXML  copyXML  unpackWARs      XML  WAR  DIR     *    Y/N       Y/N        Y            Y    N    Y     *    Y/N       Y/N        N            Y    N    N     *     * Notes: No WAR file is present in the appBase because it is an external     *        WAR.     *        Any context.xml file embedded in the external WAR file is ignored.      */
@@ -982,7 +997,6 @@
 0, Line, //  copy old constant pool return index of SDE symbol, if found 
 0, Line, //  Also need to remove this stream from the p2 list 
 0, Line, //  Something went wrong reading the class bytes (and will have   been logged at debug level). 
-0, Line, //  Calling code should ensure that there is no data in the buffers for   non-blocking writes.   TODO Validate the assertion above 
 0, Line, //  Validate required extensions 
 0, Line, //  notify change sessionID 
 0, Line, //  Not enough space in the destination buffer to   store all of the data. We could use a bytes read   value of -bufferSizeRequired to signal the new   buffer size required but an explicit exception is   clearer. 
@@ -2904,7 +2918,6 @@
 0, Line, //  Ensure that the SSLEngine is consistent with that used for SSL init 
 0, Line, //  #valueUnbound() will be called on session expiration 
 0, Line, //  Render the link to our parent (if required) 
-0, Line, //  TODO add other attributes 
 0, Line, //  TEST 
 0, Line, //  Failed to send close message. Close the socket and let the caller 
 0, Line, //  Upgrade to write lock 
@@ -6363,14 +6376,12 @@
 0, Line, //  Store nested <ClusterListener> elements 
 0, Line, //  avoid possible resource leak 
 0, Line, // ============================================================================================================                OVERRIDDEN METHODS FROM CHANNEL INTERCEPTOR BASE 
-0, Line, //  XXX   should a length of 0 be an IllegalArgumentException 
 0, Line, //  Tracking the base name and the latest valid version found is   sufficient to be able to create the renaming map required 
 0, Line, //  Limits 
 0, Line, //  transaction was rolled back... proceed as if there never was a transaction 
 0, Line, //  --------------------------------- SocketWithOptionsProcessor Inner Class 
 0, Line, //  Persist Configuration Section 
 0, Line, //  Evaluate conditions 
-0, Line, //  TODO Add a new state to the AsyncStateMachine and remove        ASYNC_END (if possible) 
 0, Line, // add the EOS bytes if we have not finished on a single byte 
 0, Line, //  Should not happen. To late to send batched messages now since   the session has been closed. Complain loudly. 
 0, Line, //  Change stream Id and re-use 
@@ -6389,7 +6400,6 @@
 0, Line, //  ignore access or connection open errors 
 0, Line, //  Double checked locking. OK because instance is volatile. 
 0, Line, //  End 
-0, Line, //  TODO - May need to add code here once additional   states are used 
 0, Line, //  set non-blocking mode for the listening socket 
 0, Line, //  Java 8 doesn't support multi-release so default to false 
 0, Line, //  CCM ciphersuites from RFC6655 
@@ -7362,7 +7372,6 @@
 0, Line, //  If there is no data to process, trigger a read immediately. This is   an optimisation for the typical case so we don't create an 
 0, Line, //  Filter out cipher suites that OpenSSL does not implement 
 0, Line, //  Set to distributable else every app will be prevented from being   distributable when the Tomcat fragment is merged with the main 
-0, Line, //  TODO: This certificate setter can be removed once it is no longer   necessary to support the old configuration attributes (Tomcat 10?). 
 0, Line, //  Look to see if this request is an include 
 0, Line, //  Instantiate the indicated Options implementation 
 0, Line, //  size of a simple request (8k) 
@@ -7431,7 +7440,6 @@
 0, Line, //  HTTP Upgrade 
 0, Line, //  Non hex character 
 0, Block, /*      * JVMs may limit the maximum array size to slightly less than     * Integer.MAX_VALUE. On markt's desktop the limit is MAX_VALUE - 2.     * Comments in the JRE source code for ArrayList and other classes indicate     * that it may be as low as MAX_VALUE - 8 on some systems.      */
-0, Line, //  TODO Move this validation to the parsing stage 
 0, Line, // prepare the results to be written 
 0, Line, //  Support for the factory methods 
 0, Line, //  First try the Servlet 2.2 javax.servlet.context.tempdir property 
@@ -7605,7 +7613,6 @@
 0, Line, //  Close the socket now that we are done with it 
 0, Line, //  Bug 54395 
 0, Line, //  check for container level optional packages 
-0, Line, //  TODO: Remove the internal representation and use Ranges 
 0, Line, //  do nothing, internalProxies IPs are not appended to the 
 0, Line, //  These methods are always allowed. They may return a 404 (not a 405)   if the resource does not exist. 
 0, Line, //  If authentication was not successful, just return false 
@@ -7742,7 +7749,6 @@
 0, Block, /*      * Returns null if the input path is not valid or a path that will be     * acceptable to resources.getResource().      */
 0, Line, // print from the global counter 
 0, Line, //  Mark and parse the EL expression and create its node: 
-0, Line, // todo, optimize, if destination.length==1, then we can do  msg.setOptions(msg.getOptions() & (~getOptionFlag())  and just send one message 
 0, Line, //  Hitting limit stops processing further params but does   not cause request to fail. 
 0, Line, //  Need to check default 
 0, Block, /*      * A visitor class for traversing ELNodes      */
@@ -8674,7 +8680,6 @@
 0, Block, /*  JavaCCOptions:  */
 0, Line, //  List the ciphers that the client is permitted to negotiate 
 0, Line, //  ClassLoader pinning we're about to do. 
-0, Line, //  NOTE: We don't try to reauthenticate using any existing SSO session,   because that will only work if the original authentication was   BASIC or FORM, which are less secure than the CLIENT-CERT auth-type   specified for this webapp     Change to true below to allow previous FORM or BASIC authentications   to authenticate users for this webapp   TODO make this a configurable attribute (in SingleSignOn??) 
 0, Line, //  Cipher C4 
 0, Block, /*      * extract and save the server cookies from the incoming response      */
 0, Line, //  while   Not Null 
@@ -9257,7 +9262,6 @@
 0, Line, //  continue to unwrap as long as the input buffer has stuff 
 0, Line, //  only those 2 methods need to change to use a different direct logger. 
 0, Line, //  Note: Internally, the Mapper does not use the leading * on a         wildcard host. This is to allow this shortcut. 
-0, Line, //  TODO - Should never happen 
 0, Block, /*  A definite node is constructed from a specified number of     children.  That number of nodes are popped from the stack and     made the children of the definite node.  Then the definite node     is pushed on to the stack.  */
 0, Line, //  If this JAR was in a web application, this is equivalent to how it 
 0, Line, //  unregister this component 
@@ -11029,11 +11033,9 @@
 0, Line, //  Sneak the regular node in. The NOT will   be resolved when the next opp comes along. 
 0, Line, //  Clear all application-originated servlet context attributes 
 0, Line, //  No need to lookup if the key is not in the map 
-0, Line, //  FIXME: Implement SSL environment variables 
 0, Line, //  if MP JWT-Auth is available 
 0, Line, // literal never indexed 
 0, Line, //  Add this class to the cache 
-0, Line, //  TODO: Description for init-param is ignored 
 0, Line, //  If crossContext is enabled, can always return the context 
 0, Line, //  userinfo    = *( unreserved / pct-encoded / sub-delims / ":" ) 
 0, Line, // if the param tag has no parents, throw a exception 
@@ -11527,7 +11529,6 @@
 0, Line, //  accessible 
 0, Line, // try to double start the RX 
 0, Line, //  Assume this is triggered by the user closing their browser and   ignore it. 
-0, JavaDoc, /*  * All-to-all replication for a hash map implementation. Each node in the cluster will carry an identical * copy of the map.<br><br> * This map implementation doesn't have a background thread running to replicate changes. * If you do have changes without invoking put/remove then you need to invoke one of the following methods: * <ul> * <li><code>replicate(Object,boolean)</code> - replicates only the object that belongs to the key</li> * <li><code>replicate(boolean)</code> - Scans the entire map for changes and replicates data</li> *  </ul> * the <code>boolean</code> value in the <code>replicate</code> method used to decide * whether to only replicate objects that implement the <code>ReplicatedMapEntry</code> interface * or to replicate all objects. If an object doesn't implement the <code>ReplicatedMapEntry</code> interface * each time the object gets replicated the entire object gets serialized, hence a call to <code>replicate(true)</code> * will replicate all objects in this map that are using this node as primary. * * <br><br><b>REMEMBER TO CALL <code>breakdown()</code> or <code>finalize()</code> * when you are done with the map to avoid memory leaks.</b><br><br> * TODO implement periodic sync/transfer thread<br> * TODO memberDisappeared, should do nothing except change map membership *       by default it relocates the primary objects * * @param <K> The type of Key * @param <V> The type of Value  */
 0, Line, //  Cipher C009 
 0, Line, //  This always returns false otherwise the superclass will call   #getArchiveEntry(String) 
 0, Line, //  uri (of the form "urn:jsptagdir:path") references tag file dir 
@@ -12216,4 +12217,3 @@
 0, Line, //  Trigger automatic deployment 
 0, Line, //  Set the contentLanguage for header output 
 0, Line, //  Remove all path parameters; any needed path parameter should be set   using the request object rather than passing it in the URL 
-0, Line, //  TODO: Consider implications of SSO cookies 

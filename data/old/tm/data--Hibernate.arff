@@ -112,7 +112,7 @@
 'todo iteratively get transient entities and retry merge until one the following conditions not decreasing and copycachesize not increasing todo find out retrying can add entities copycache dont think can for now just retry once throw there are still any transient entities ',positive
 'null brand new collection this will also inefficiently handle arrays which have snapshot cant any better ',positive
 'todo perhaps should additionally require that the incoming entity version equivalent the defined unsavedvalue ',positive
-'provides query splitting main.methods which were originally querytranslator todo this will need refactored some point author josh ',positive
+'provides query splitting methods which were originally querytranslator todo this will need refactored some point author josh ',positive
 'todo most below was taken verbatim from dotnode should either delegate this logic supertype ',positive
 'todo currently expects that the individual with expressions apply the same sql table join this may not the case for joinedsubclass where the property values might coming from different tables the joined hierarchy some point should expand this support that capability however that has some difficulties the biggest how handle ors when the individual comparisons are linked different sql joins here would need track each comparison individually along with the join alias which applies and then pass that information back the fromelement can pass along the joinsequence ',positive
 'explicit select expression render the and properties projection lists for every persister the from clause into single token node todo the only reason need this stuff now collection filters should get rid derived select clause completely ',positive
@@ -167,7 +167,7 @@
 'ugly hack for cases like multipart path expression ending elements indices ',positive
 'fixme hacky workaround jbcache ',positive
 'todo copypaste from sessionimpl pull ',positive
-'todo need find clean way handle the event source role seperate classs responsible for events just duplicates most the session main.methods passing around seperate reto interceptor factory actionqueue and persistentcontext not manageable ',positive
+'todo need find clean way handle the event source role seperate classs responsible for events just duplicates most the session methods passing around seperate reto interceptor factory actionqueue and persistentcontext not manageable ',positive
 'must done here because sideeffect yuck ',positive
 'should actually rework this class not implement parser and just process path expressions the most convenient way ',positive
 'todo should remove this exposure and have all references the sessions batcher use the connectionmanager ',positive
@@ -343,7 +343,7 @@
 'todo can limit stored procedures ',positive
 'todo formulas ',positive
 'todo better error message since actually support composites names are explicitly listed ',positive
-'todo use these main.methods above ',positive
+'todo use these methods above ',positive
 'todo cache the persister this shows yourkit ',positive
 'todo add referencedclass disambiguate fks the same columns pointing different tables ',positive
 'todo create loaders for component properties ',positive
@@ -511,7 +511,7 @@
 'note that string deprecated ',negative
 'the object already loaded return the loaded one ',negative
 'create new lock that times out immediately ',negative
-'convenience main.methods relating operations across arrays types ',negative
+'convenience methods relating operations across arrays types ',negative
 'really could refresh the item not lock but might slower return freshtimestamp txtimestamp ',negative
 'due the complexity initializing the selectclause not generate one here not found simply return null also not cache since gets generated well after are created ',negative
 'discriminator ',negative
@@ -584,7 +584,7 @@
 'properties ',negative
 'sqlresulttypes type new ',negative
 'identifier ',negative
-'call getkeyfromresultset here that can know the key value upon which perform the breaking logic however also then called from getrowfromresultset which certainly not the most efficient but the call here needed and there currently other way without refactoring the main.methods ',negative
+'call getkeyfromresultset here that can know the key value upon which perform the breaking logic however also then called from getrowfromresultset which certainly not the most efficient but the call here needed and there currently other way without refactoring the methods ',negative
 'version ',negative
 'operations which cascade far the collection also cascade collection elements ',negative
 'where string ',negative
@@ -718,7 +718,7 @@
 'dont even bother trying read any further ',negative
 'prepend value and type list with null for any positions before the wanted position ',negative
 'not used for backward compatibility ',negative
-'static helper main.methods ',negative
+'static helper methods ',negative
 'base expectation impls ',negative
 'this property belongs the table and inserted ',negative
 'need extract the component values and check for subtype replacements ',negative
@@ -926,7 +926,7 @@
 'otherwise ',negative
 'starts with the name mapped class new style ',negative
 'treat just like new collection ',negative
-'skip finalize main.methods ',negative
+'skip finalize methods ',negative
 'return the fully resolved identifier value but not resolve the actual referenced entity instance note the owner the association not really the owner the ',negative
 'this work only the very highest level the load dont let this method called recursively ',negative
 'public static jdbcexception string sqlexception root string sql string string sql logerrorstring root logexceptionsroot return new jdbcexceptionstring root sql public static jdbcexception string sqlexception root logerrorstring root logexceptionsroot return new jdbcexceptionstring root ',negative
@@ -974,7 +974,7 @@
 'null not considered the same type integer nonnls nonnls ',negative
 'properly handle propertyrefbased associations ',negative
 'the needs come before where clause properly handle dynamic filters ',negative
-'determine the getter and setter main.methods from the proxy interface any determine all interfaces needed the resulting proxy ',negative
+'determine the getter and setter methods from the proxy interface any determine all interfaces needed the resulting proxy ',negative
 'add another inner nested select add the main query close off the inner nested select ',negative
 'destination this was the cause hhh originsettype fromfragment set the parent node type that the ast properly formed the destination node will have all the from text the parent node collection join too voodoo see joinprocessor ',negative
 'then handle any userdefined entity modes ',negative
@@ -1294,7 +1294,7 @@
 'the owner the association not the owner the ',negative
 'constructors ',negative
 'instance variables ',negative
-'public main.methods ',negative
+'public methods ',negative
 'compare the two maps for equality ',negative
 'simple tests that require synchronization ',negative
 'sybase fail dont that sigh ',negative
@@ -1309,7 +1309,7 @@
 'clone ',negative
 'serialize ',negative
 'warning can cause recursive calls proxy initialization ',negative
-'static main.methods only hide constructor ',negative
+'static methods only hide constructor ',negative
 'character ',negative
 'returnign null ',negative
 'includes last ',negative
@@ -1352,7 +1352,7 @@
 'its the listener instance better ',negative
 'readresolveobject ',negative
 'true ',negative
-'defensive convenience main.methods ',negative
+'defensive convenience methods ',negative
 'make sure you log the exception might swallowed ',negative
 'begin unit work ',negative
 'write html header ',negative
@@ -1520,7 +1520,7 @@
 'shallow query although technically there should fetching here ',negative
 'delegate the queryloader ',negative
 'remember the parameters for the compilation ',negative
-'package local main.methods for the queryloader delegate ',negative
+'package local methods for the queryloader delegate ',negative
 'double ',negative
 'now done entity sourcegetentitymode ',negative
 'use the token identifier ',negative
@@ -1928,7 +1928,7 @@
 'private constructor stops checkstyle from complaining ',negative
 'reset the dotcount but not the path after reset ',negative
 'after reset ',negative
-'following main.methods dont delegate since they have little logic its clearer just implement them here ',negative
+'following methods dont delegate since they have little logic its clearer just implement them here ',negative
 'dotcount ',negative
 'local variables target obj each oldvalue ',negative
 'astore store exception ',negative
@@ -2172,7 +2172,7 @@
 'the oldtime standby ',negative
 'parameter bind values ',negative
 'parameter handling code ',negative
-'execution main.methods ',negative
+'execution methods ',negative
 'note special case onetoone constrainedfalse cannot proxied default join and nonlazy ',negative
 'use old defaults outerjoin specified ',negative
 'have cglib enhanced entity ',negative
@@ -2258,7 +2258,7 @@
 'only returned one entity query key more efficient ',negative
 'the element has been removed from the set ',negative
 'the element has changed ',negative
-'careful these main.methods not initialize the collection ',negative
+'careful these methods not initialize the collection ',negative
 'needed that remove this collection from the secondlevel cache ',negative
 'override some subclasses ',negative
 'override some subclasses ',negative
@@ -2333,8 +2333,8 @@
 'register cleanup synch ',negative
 'wrap the session the proxy ',negative
 'then bind ',negative
-'limit the main.methods available transaction active ',negative
-'allow these deprecated main.methods pass through ',negative
+'limit the methods available transaction active ',negative
+'allow these deprecated methods pass through ',negative
 'serialization ',negative
 'add temp entry that the next step circularreference safe only needed because some types dont take proper advantage twophaseload esp components ',negative
 'this the second pass through merge here limit the replacement associations types value types were already replaced during the first pass ',negative
@@ -2363,7 +2363,7 @@
 'pre behavior ',negative
 'finally use the sqltype hibernate types did not find match ',negative
 'because numeric can anything ',negative
-'constructors and factory main.methods ',negative
+'constructors and factory methods ',negative
 'standard sql functions can overridden subclasses ',negative
 'map ansi extract override subclasses ',negative
 'database type mapping support ',negative
@@ -2381,10 +2381,10 @@
 'loader overrides ',negative
 'not isnull isnotnull ',negative
 'here assume sqlserver using snapshot isolation which does not have this problem ',negative
-'query translator main.methods ',negative
+'query translator methods ',negative
 'oracle and previous define only date type which used represent all aspects datetime ',negative
 'cascade ',negative
-'implementation private main.methods ',negative
+'implementation private methods ',negative
 'trim off the ',negative
 'check violation ',negative
 'unique violation ',negative
@@ -2423,11 +2423,11 @@
 'verify the state this new method hibernate dialectjava ',negative
 'origial dialectjava returns true ',negative
 'index should last column listed ',negative
-'sequence main.methods start the rdms dialect needs these ',negative
-'main.methods make possible use the native generator ',negative
+'sequence methods start the rdms dialect needs these ',negative
+'methods make possible use the native generator ',negative
 'formula index use the element columns the ',negative
 'dont create unique key cos some databases dont like nullable columns ',negative
-'sequence main.methods end ',negative
+'sequence methods end ',negative
 'used with drop table delete all records the table ',negative
 'foreign key element for onetomany ',negative
 'todo could just return all false ',negative
@@ -2441,7 +2441,7 @@
 'hsqldb only supports readuncommitted transaction isolation ',negative
 'the entity associated with the session check its status ',negative
 'timesten has blobclob support but these types may suitable for some applications the length limited million bytes ',negative
-'new main.methods dialect ',negative
+'new methods dialect ',negative
 'public boolean return false ',negative
 'timesten has known variation select for update syntax ',negative
 'iterate entries ordered capacity find first fit ',negative

@@ -20,8 +20,8 @@ public class NLP extends Method {
 
     public static void main(String[] args) throws Exception {
         //prepareData();
-        new NLP().predict();
-        //resultBySingleProject();
+        //new NLP().predict();
+        new NLP().predictWithLimitedTrainingSet();
     }
 
 
@@ -91,40 +91,51 @@ public class NLP extends Method {
      * 单个源项目预测单个目标项目
      *
      * @throws IOException
-     *//*
-    public static void resultBySingleProject() throws IOException {
+     */
+    public void predictWithLimitedTrainingSet() throws IOException {
 
+        List<Double> P = new ArrayList<>();
+        List<Double> R = new ArrayList<>();
+        List<Double> F1 = new ArrayList<>();
         for (String testProject : projects) {
-            // 处理测试项目
-            StringBuilder allText = new StringBuilder();
+            double precision = .0, recall = .0, f1 = .0;
 
+            // 处理测试项目
             String testFile = methodPath + "data--" + testProject + ".txt";
             for (String trainProject : projects) {
                 // 处理训练项目
                 if (trainProject.equals(testProject)) continue;
                 String trainFile = methodPath + "data--" + trainProject + ".txt";
-                String resultFile = methodPath + "result--" + testProject + ".txt";
-                StringBuilder text = new StringBuilder();
+                String oracleFile = originPath + "label--" + testProject + ".txt";
 
+                List<String> resultFileLines = new ArrayList<>();
                 ColumnDataClassifier cdc = new ColumnDataClassifier(methodPath + "cheese2007.prop");
                 cdc.trainClassifier(trainFile);
 
                 for (String line : ObjectBank.getLineIterator(testFile, "utf-8")) {
                     Datum<String, String> d = cdc.makeDatumFromLine(line);
-                    if (cdc.classOf(d).equals("WITHOUT_CLASSIFICATION")) text.append("0").append("\n");
-                    else text.append("1").append("\n");
+                    if (cdc.classOf(d).equals("WITHOUT_CLASSIFICATION")) resultFileLines.add("0");
+                    else resultFileLines.add("1");
                 }
-                FileHandle.writeStringToFile(resultFile, text.toString());
 
-                List<String> resultFileLines = FileHandle.readFileToLines(resultFile);
-                List<String> oracleFileLines = FileHandle.readFileToLines(Settings.rootPath + "/result/" + testProject + ".csv");
+                List<String> oracleFileLines = FileHandle.readFileToLines(oracleFile);
 
-                List<String> oracle = new ArrayList<>();
-                for (int i = 1; i < oracleFileLines.size(); i++) oracle.add(oracleFileLines.get(i).split(",")[0]);
+                double[] scores = evaluate(oracleFileLines, resultFileLines);
+                precision += scores[0];
+                recall += scores[1];
+                f1 += scores[2];
 
-                allText.append(evaluate(oracle, resultFileLines)).append("\n");
-            }
-            FileHandle.writeStringToFile(methodPath + "result--" + testProject + ".csv", allText.toString(), true);
-        }
-    }*/
+            } // end for train project
+            // 收集结果
+            int len = projects.length - 1;
+            P.add(precision / len);
+            R.add(recall / len);
+            F1.add(f1 / len);
+        } // end for a test project
+
+        // 打印结果
+        System.out.println();
+        for (int i = 0; i < projects.length; i++)
+            System.out.printf("%.3f, %.3f, %.3f\n", P.get(i), R.get(i), F1.get(i));
+    }
 }

@@ -3,9 +3,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// FIXME (@author karlpeder): Is 3.2 the proper version of html to refer to?
 1,1,1,1,1,1,1,// this is a hack for the multiline column
 1,0,1,1,1,1,1,//TODO (@author tstich): do something
-1,0,1,1,1,1,1,// TODO (@author fdietz): i18n
+1,0,0,1,1,1,1,// TODO (@author fdietz): i18n
 1,0,1,1,1,1,1,// FIXME remove method // toolbarPane.add(c);
-1,0,1,1,1,1,1,//TODO (@author fdietz): i18n
+1,0,0,1,1,1,1,//TODO (@author fdietz): i18n
 1,0,1,1,1,1,1,// TODO @author hubms: copied from frederiks search builder
 1,1,0,0,0,0,0,// real stupid recreation of whole list model // -> replace with id-based listmodel update
 1,0,1,1,1,1,1,// TODO (@author karlpeder): Extend handling of special entities as in restoreSpecialCharacters
@@ -25,7 +25,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//      TODO: reactivate when feature is supported
 1,0,1,1,1,1,1,// If this folder has children add them // TODO: In the future we should try to fetch additional children on demand // when the tree of the dialog is opened
 1,0,1,1,1,1,1,// TODO (@author fdietz): Add more special entities - e.g. accenture chars such as ?
-1,0,0,0,1,1,1,// TODO (@author waffel): encrypt AND sign dosN#t work. The message is // always only // encrypted. We need a function that knows, here // is an encrypted AND signed Message. Thus first encyrpt and then // verifySign the message // if this message is signed/encrypted we have to use // GnuPG to extract the decrypted bodypart // - multipart/encrypted // - multipart/signed
+1,0,1,0,1,1,1,// TODO (@author waffel): encrypt AND sign dosN#t work. The message is // always only // encrypted. We need a function that knows, here // is an encrypted AND signed Message. Thus first encyrpt and then // verifySign the message // if this message is signed/encrypted we have to use // GnuPG to extract the decrypted bodypart // - multipart/encrypted // - multipart/signed
 1,0,0,1,1,1,1,"/**     * Transforms urls into HTML just as substituteURL(String),     * but tries to ignore urls, which are already links, if the ignore     * links flag is set.     * <br>     * This extended functionality is necessary when parsing a text which     * is already (partly) html.     * <br>     * FIXME: Can this be done smarter, i.e. directly with reg. expr. without manual parsing??     *     * @param         s                                input text     * @param        ignoreLinks                if true link tags are ignored. This gives a     *                                                         wrong result if some urls are already links     *                                                         (but uses reg. expr. directly, and is     *                                                         therefore faster)     * @return        text with urls     */"
 1,0,0,1,1,1,1,// TODO @author fdietz: ensure that we don't fetch individual // headers // to reduce client/server roundtrips
 1,0,1,0,0,0,0,// ??? bad to have release hardocoded here. Fix later...right.
@@ -37,8 +37,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: use UndoableEditEvent to make this really work
 1,0,1,1,1,1,1,// TODO: Should we take some action to ensure signature is valid // html?
 1,0,1,0,1,1,1,/* XXX should this be fired by a different thread? */
-1,0,1,0,1,1,1,//TODO:add a configuration of the cache size
-1,0,1,1,1,1,1,"/**	 * Command executes the search.	 * <p>	 * In case new result results arrive, it ensures that all interested	 * listeners are notified from inside the EDT.	 * <p>	 * FIXME: fdietz: No locking of folders currently implemented! TODO: fdietz:	 * create new Command for every provider to introduce real ""parallel"" search	 * 	 * @author fdietz	 */"
+1,0,1,0,0,0,0,//TODO:add a configuration of the cache size
+1,0,0,1,1,1,1,"/**	 * Command executes the search.	 * <p>	 * In case new result results arrive, it ensures that all interested	 * listeners are notified from inside the EDT.	 * <p>	 * FIXME: fdietz: No locking of folders currently implemented! TODO: fdietz:	 * create new Command for every provider to introduce real ""parallel"" search	 * 	 * @author fdietz	 */"
 1,0,1,0,1,1,1,/*XXX this is not thread-safe, though luck. It isn't supposed to be. */
 1,0,1,1,1,1,1,// TODO (@author fdietz): move this to AbstractMessageFolder constructor
 1,0,1,1,1,1,1,//TODO: Should this be renamed to cLoc or something more appropriate than clock?
@@ -52,13 +52,13 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,"/*TODO before inserting, find out if there's already a menu item     * with the same action command. if so, replace it, otherwise insert new     */"
 1,0,1,1,1,1,1,// TODO (@author fdietz): add import feature
 1,0,1,1,1,1,1,// TODO (@author hubms): implement custom menuitem renderer
-1,0,1,1,1,1,1,// TODO @author fdietz: no paging used currently // show only first 5 results
-1,1,0,0,0,0,0,// real stupid recreation of whole menu model
+1,0,0,1,1,1,1,// TODO @author fdietz: no paging used currently // show only first 5 results
+1,1,1,0,0,0,0,// real stupid recreation of whole menu model
 1,0,0,1,1,1,1,// TODO: throw IllegalArgumentException in case a variable == null
 1,0,0,1,1,1,1,//TODO (@author fdietz): associate help with button and root pane
 1,0,1,1,1,1,1,// FIXME -- This will most likely not work. //          You want the element removed if the contents are the same //          Not just if the element reference is the same.
 1,0,1,0,0,0,0,// // @author: fdietz // using shutdown-manager is wrong here, because this // automatically also calls the FrameManager, which  // also starts a second shutdown thread // -> This leads into two parallel shutdown thread which // -> is why sometimes config-files, etc. get messed up //
-1,1,1,1,1,1,1,// @author fdietz: hackish way of creating a search toolbar //JToolBar searchToolBar = new ExtendableToolBar();
+1,1,1,1,0,1,1,// @author fdietz: hackish way of creating a search toolbar //JToolBar searchToolBar = new ExtendableToolBar();
 1,0,0,1,1,1,1,"/** * A Command uses the information provided from {@link DefaultCommandReference} * to execute itself. * <p> * TODO: remove IFrameMediator dependency *  * @author Timo Stich <tstich@users.sourceforge.net> */"
 1,0,0,0,0,0,0,// manually rewrite the connection url, because // if there is no rewrite the database files are created // in the starting directory, we don't want that!
 1,0,1,1,1,1,1,// TODO: fix updateActions //enableActions(getCurrentOwner());
@@ -98,7 +98,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO (@author karlpeder): If existing meta tags are to be kept, code changes are // necessary
 1,0,1,1,1,1,1,/* TODO create exception for this */
 1,0,1,1,1,1,1,// TODO (@author javaprog): better exception handling
-1,0,1,1,1,1,1,// TODO (@author fdietz): fix account info panel check
+1,0,0,1,1,1,1,// TODO (@author fdietz): fix account info panel check
 1,0,1,1,1,1,1,// TODO (@author fdietz): move this to AbstractMessageFolder constructor // create filterlist datastructure
 1,0,1,1,1,1,1,// TODO: @author fdietz replace with regular expression
 1,0,1,1,1,1,1,// TODO implement me!
@@ -122,10 +122,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// update status message // TODO (@author fdietz): i18n
 1,0,1,1,1,1,1,//TODO (@author fdietz): keep track of progress here
 1,0,0,1,1,1,1,// TODO localize filter action names
-1,0,1,1,1,1,1,//TODO (@author fdietz):  i18n
+1,0,0,1,1,1,1,//TODO (@author fdietz):  i18n
 1,0,1,1,1,1,1,// TODO implement clear()
 1,0,1,1,1,1,1,// TODO (@author fdietz):: implement action for font size combo box!
-1,0,1,1,1,1,1,// TODO (@author fdietz):  i18n
+1,0,0,1,1,1,1,// TODO (@author fdietz):  i18n
 1,0,0,1,1,1,1,// FIXME threaded-view auto collapse
 0,0,0,0,0,0,0,// get selected folder
 0,0,0,0,0,0,0,// Create a FormLayout instance.
@@ -238,7 +238,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// AShape textShape = new TextAShape("text", "$" + GridRow.NAME + "$", // textRect, TextAShape.TYPE_SINGE_LINE, font, fgColor, // AtFraction.CENTER, AtStart.START0, Boolean.FALSE);
 0,0,0,0,0,0,0,// only local folders have an full-text indexing capability
 0,0,0,0,0,0,0,"/*		 * mainConstraints.fill = GridBagConstraints.BOTH;		 * mainConstraints.insets = new Insets(0, 0, 0, 0);		 * mainConstraints.gridwidth = GridBagConstraints.REMAINDER;		 * mainConstraints.weightx = 1.0; mainConstraints.weighty = 1.0;		 */"
-0,0,1,1,1,1,1,// TODO i18n "Close" button
+0,0,0,1,1,1,1,// TODO i18n "Close" button
 0,0,0,0,0,0,0,// get unique boundary (not checked against att. // list part - but guess its ok)
 0,0,0,0,0,0,0,// get column of list
 0,0,0,0,0,0,0,// if user cancelled task exit immediately
@@ -1088,7 +1088,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Important!! // -> replacing this character must happen first
 0,0,0,0,0,0,0,// update treemodel
 0,0,0,0,0,0,0,//      notify tree //getRealModel().getTreeModel().nodeStructureChanged(getRootNode()); //}
-0,0,0,0,1,1,1,// only import VEVENT and VTODO for now
+0,0,0,0,0,0,0,// only import VEVENT and VTODO for now
 0,0,0,0,0,0,0,// save every MessageNode in hashmap for later reference
 0,0,0,0,0,0,0,// add this node to cache
 0,0,0,0,0,0,0,// init bottom panel with OK, Cancel buttons
@@ -1206,7 +1206,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// re-add all top components like recipient editor/subject editor
 0,0,0,0,0,0,0,// no sorting
 0,0,0,0,0,0,0,// If rootFolder is not cached traverse the tree
-0,0,0,0,0,0,0,// if window is maximized -> ignore the window size properties // otherwise, use window size property // but ensure that the window is completly visible on the // desktop
+0,0,1,0,0,0,0,// if window is maximized -> ignore the window size properties // otherwise, use window size property // but ensure that the window is completly visible on the // desktop
 0,0,0,0,0,0,0,// create temporary folder in "<your-config-folder>/mail/"
 0,0,0,0,0,0,0,// Check for default Ports
 0,0,0,0,0,0,0,// check if it contains comma character
@@ -1454,7 +1454,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// remove the bodypart from the mimeparts // that are added to the attachment viewer
 0,0,0,0,0,0,0,// wait for 2 seconds until the dialog is openened
 0,0,0,0,0,0,0,// message colour should be black as default
-0,0,1,0,0,0,0,// Was this message actually copied?
+0,0,0,0,0,0,0,// Was this message actually copied?
 0,0,0,0,0,0,0,//uid = o;
 0,0,0,0,0,0,0,// ... or, add the file in case there was no "%1" used
 0,0,0,0,0,0,0,// check if the optional value exists
@@ -1755,7 +1755,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// mark as read
 0,0,0,0,0,0,0,// this internally used headerfields can be of every basic // type, including String, Integer, Boolean, Date, etc.
 0,0,0,0,0,0,0,/* nothing to dispose, yet... */
-0,0,0,0,0,0,0,// this is needed to update the titlebar
+0,0,1,0,0,0,0,// this is needed to update the titlebar
 0,0,0,0,0,0,0,// check current file list for changes
 0,0,0,0,0,0,0,/*in case of a stop-start */
 0,0,0,0,0,0,0,/* start pooling thread */
@@ -1996,7 +1996,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// fall-back to formatted name
 0,0,0,0,0,0,0,// height of content // + top margin // + bottom margin // height corrected for scaling
 0,0,0,0,0,0,0,// get flags of message
-0,0,0,0,0,0,0,// <email> // <work>value</work> // <home>value</home> // </email>
+0,0,1,0,0,0,0,// <email> // <work>value</work> // <home>value</home> // </email>
 0,0,0,0,0,0,0,// close streams
 0,0,0,0,0,0,0,// this property is ignored under java 1.5.
 0,0,0,0,0,0,0,// width unchanged
@@ -2069,7 +2069,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// the group of the given parent
 0,0,0,0,0,0,0,// on startup, there's shouldn't be any recent messages // -> we simply remember 0 recent messages here // property.addAttribute("recent", "0");
 0,0,0,0,0,0,0,// for each JComboBox item
-0,0,1,0,0,0,0,// this probably means that the configuration // is wrong // -> change this to a sane default value
+0,0,0,0,0,0,0,// this probably means that the configuration // is wrong // -> change this to a sane default value
 0,0,0,0,0,0,0,// ok, now the tool is initialized correctly
 0,0,0,0,0,0,0,// for time consuming tasks you need to create // your own Command
 0,0,0,0,0,0,0,"//		 create Command reference"

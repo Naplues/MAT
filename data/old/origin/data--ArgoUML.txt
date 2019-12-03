@@ -8,7 +8,7 @@
 //setFontFamily("dialog"); /* TODO: Is this needed?*/
 "/**     * TODO: Move this into the toolbar project.     */"
 "/*     * TODO: This is a temporary method of making sure the model is updated     * on loss of focus of a combo box. In the long term we should attempt to     * update the model on each keypress.     *      * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)     */"
-// These main.methods are based on the GraphEvents. These need replacing by // more specic meaningful requests of the diagram interface model
+// These methods are based on the GraphEvents. These need replacing by // more specic meaningful requests of the diagram interface model
 // TODO: All super constrcutors should take a GraphModel
 // workaround for missing ability to parse "*"
 // TODO: Needs to be tidied up after stable release. Graph model // should be created in constructor
@@ -296,7 +296,7 @@
 // TODO: This can be a mess... There are any better solution?
 "/**     * TODO: Use it notify Set to true to forward events to model. Only one of     * Language and Body fields should have this set to true.     */"
 "/* TODO: If this is an ordered list, then you have to                                    add in the right location! */"
-"/*     * @see java.beans.PropertyChangeListener#propertyChange(java.beans.PropertyChangeEvent)     *     * TODO: This should be reviewed to see if it can be improved with a view     * towards removing some of the overrriding main.methods used as workarounds for     * differences between NSUML and MDR - tfm - 20060302     */"
+"/*     * @see java.beans.PropertyChangeListener#propertyChange(java.beans.PropertyChangeEvent)     *     * TODO: This should be reviewed to see if it can be improved with a view     * towards removing some of the overrriding methods used as workarounds for     * differences between NSUML and MDR - tfm - 20060302     */"
 // TODO: This is a redundant invocation
 // Get all classifiers in our model // TODO: We need the property panels to have some reference to // the project they belong to instead of using deprecated // functionality
 "/**         * TODO: Copied from UmlDiagramRenderer.         *         * Get the FigNode from the given layer that represents the given         * model element.         * The FigNode portion of an association class is returned in preference         * to the FigEdge portion.         * If no FigNode is found then a FIgEdge is searched for and the FigNode         * that acts as its edge port is returned.         * @param lay the layer containing the Fig         * @param modelElement the model element to find presentation for         * @return the FigNode presentation of the model element         */"
@@ -314,7 +314,7 @@
 "/*             * modelImpl.getFacade().getRootElements()  gets all root elements             * in the UML repository, including available profiles that are not             * part of the current project (degrades performance).             *             * ProjectManager.getManager().getCurrentProject().getRoots() only             * returns user model roots, and no profiles.             *             * ProjectManager.getManager().getCurrentProject().getModels() gets             * all root models, but no root namespaces.             *             * TODO: Which is best? Is there any other way?             */"
 "/*     * TODO: As currently coded, this actually returns all BehavioralFeatures     * which are owned by Classifiers contained in the given namespace, which     * is slightly different then what's documented.  It will not include any     * BehavioralFeatures which are part of the Namespace, but which don't have     * an owner.     */"
 // TODO: Performance. Consider instantiating this just // once outside the for loops and clear at this point // instead.
-"/*     * Delete a model element.  Implements 'cascading delete' to make sure     * model is still valid after element has been deleted.<p>     *     * The actual deletion is delegated to delete main.methods in the rest of the     * factories. For example: a method deleteClass exists on CoreHelper. Delete     * main.methods as deleteClass should only do those extra actions that are     * necessary for the deletion of the modelelement itself. I.e. deleteClass     * should only take care of things specific to UmlClass.<p>     *     * The delete main.methods in the UML Factories should not be called directly     * throughout the code! Calls should always refer to this method and never     * call the deleteXXX method on XXXFactory directly. The reason that it is     * possible to call the deleteXXX main.methods directly is a pure implementation     * detail.<p>     *     * The implementation of this method uses a quite complicated if/then/else     * tree. This is done to provide optimal performance and full compliance to     * the UML 1.4 metamodel. The last remark refers to the fact that the     * UML 1.4 model uses multiple inheritance in several places.     * This has to be taken into account.<p>     *     * TODO: The requirements of the metamodel could probably be better     * determined by reflection on the metamodel.  Then each association     * that a deleted element participates in could be reviewed to make sure     * that it meets the requirements and, if not, be deleted. - tfm<p>     *     * Extensions and its children are not taken into account here. They do not     * require extra cleanup actions. Not in the form of a call to the remove     * method as is normal for all children of MBase and not in the form of     * other behaviour we want to implement via this operation.     *     * @param elem     *            The element to be deleted     *     * @see org.argouml.model.UmlFactory#delete(java.lang.Object)     */"
+"/*     * Delete a model element.  Implements 'cascading delete' to make sure     * model is still valid after element has been deleted.<p>     *     * The actual deletion is delegated to delete methods in the rest of the     * factories. For example: a method deleteClass exists on CoreHelper. Delete     * methods as deleteClass should only do those extra actions that are     * necessary for the deletion of the modelelement itself. I.e. deleteClass     * should only take care of things specific to UmlClass.<p>     *     * The delete methods in the UML Factories should not be called directly     * throughout the code! Calls should always refer to this method and never     * call the deleteXXX method on XXXFactory directly. The reason that it is     * possible to call the deleteXXX methods directly is a pure implementation     * detail.<p>     *     * The implementation of this method uses a quite complicated if/then/else     * tree. This is done to provide optimal performance and full compliance to     * the UML 1.4 metamodel. The last remark refers to the fact that the     * UML 1.4 model uses multiple inheritance in several places.     * This has to be taken into account.<p>     *     * TODO: The requirements of the metamodel could probably be better     * determined by reflection on the metamodel.  Then each association     * that a deleted element participates in could be reviewed to make sure     * that it meets the requirements and, if not, be deleted. - tfm<p>     *     * Extensions and its children are not taken into account here. They do not     * require extra cleanup actions. Not in the form of a call to the remove     * method as is normal for all children of MBase and not in the form of     * other behaviour we want to implement via this operation.     *     * @param elem     *            The element to be deleted     *     * @see org.argouml.model.UmlFactory#delete(java.lang.Object)     */"
 // Don't allow connections to be created from a read only // model element to any other // TODO: This should be considered a workaround.  It only works // because, by default, we place newly created relationships in // the namespace of the fromElement.  The correct behavior in // the presence of read-only elements really depends on the type of // connection as well as the writeability of both ends.
 "/**     * An array of valid connections, the combination of connecting class and     * node classes must exist as a row in this list to be considered valid.     * <ul>     * <li>The 1st column is the connecting element.     * <li>The 2nd column is the ""from"" element type.     * <li>The 3rd column is the ""to"" element type.     * The 3rd column is optional, if not given then it is assumed to be     * the same as the ""from"" element.     * <li>The existence of a 4th column indicates that the connection is valid     * in one direction only.     * </ul>     * TODO: This encodes not only what is legal in UML, but also what ArgoUML     * knows how to create, so not all legal connections are included. Probably     * should be split into two pieces: 1) legal UML (here) and 2) supported (in     * ArgoUML application someplace) - tfm - 20060325<p>     * See also issue 3863.<p>     *     * Most of these are subtypes of Relationship which includes Association,     * Dependency, Flow, Generalization, Extend, and Include. Dependency     * includes Binding, Abstraction, Usage, and Permission. AssociationRole and     * AssociationClass are Associations. The remaining items (Link, Transition,     * AssociationEnd, Message) are non-Relationship types which ArgoUML treats     * as connections/edges.     */"
 // TODO: check for duplicates (is this possible???)
@@ -352,7 +352,7 @@
 // TODO: In UML 2.0, ClassifierRole, AssociationRole, and // AssociationEndRole have been replaced by the internal // structure of the Collaboration
 // TODO: The above populate works but seems rather heavy here. // I can see something like this is needed though as events // won't manage this quick enough. Could we make // FigEditableCompartment.createModelElement() create // the new child Fig instance? It may also be useful // for it to return the new model element rather than // the current void return - Bob.
 "/*         * TODO: Is this needed/correct?         * For when all compartments are hidden?         */"
-"/**     * This tag is set on elements that are generated by reference when     * importing.     * If it is set, then the critics could ignore those objects if they want.     *      * TODO: This is really belongs in a higher level utility class     * that uses the Facade's tagged value main.methods.  Also, it needs to     * be updated to use a UML 1.4 TagDefinition instead of a simple String.     */"
+"/**     * This tag is set on elements that are generated by reference when     * importing.     * If it is set, then the critics could ignore those objects if they want.     *      * TODO: This is really belongs in a higher level utility class     * that uses the Facade's tagged value methods.  Also, it needs to     * be updated to use a UML 1.4 TagDefinition instead of a simple String.     */"
 "/**     * Recognizer for N-ary Association.     *     * TODO: This is not a recognizer for some type. Rename to     * isNaryAssociation?     *     * @param handle candidate     * @return true if handle is an Association     */"
 "/**     * Builds an interface with a given name.     *     * @param name is the given name.     * @return Interface     * TODO: This needs an extra parameter to specify the model/extent where     * the new element should be created.     */"
 "/**     * Builds a default implementation for an interface. The interface     * is not owned by any model element by default. Users should not     * forget to add ownership.     *     * @return Interface     * TODO: This needs an extra parameter to specify the model/extent where     * the new element should be created.     */"
@@ -400,7 +400,7 @@
 "/**     * The constructor.     * TODO: The ""name"" parameter is used for the icon and for the tooltip.     * This makes i18n of the tooltip impossible.     *     * @param modeClass the next global editor mode     * @param modeArgs arguments for the new mode     * @param name the name of the command that is the tooltip text.     */"
 "/**     * Fix up bad figs.     * <p>     * Due to errors in earlier releases of argouml it can happen that there is     * a generalization without a child or parent.     * <p>     * TODO: Move into XSL. We should not remove from the graph model while     * we're writing to it or we have a possible cause of concurrent     * modification exception.     *      * @param owner     */"
 // TODO: The above doesn't work reliably in a constructor. // We need a better way of getting default fig settings  // for the owning project rather than using the  // project manager singleton. - tfm
-"/** * Defines the main.methods to generate source code from the model. Each class * providing code generation functionality must implement this to be recognized * by ArgoUML as a code generator. * <p> * TODO: A GUI-independent mechanism to pass settings to the code generator is * needed similar to what we have for reverse engineering.  See * {@link org.argouml.uml.reveng.ImportInterface#getImportSettings()} and * {@link org.argouml.uml.reveng.SettingsTypes} *  * @since 0.20 when it replaced the FileGenerator interface. */"
+"/** * Defines the methods to generate source code from the model. Each class * providing code generation functionality must implement this to be recognized * by ArgoUML as a code generator. * <p> * TODO: A GUI-independent mechanism to pass settings to the code generator is * needed similar to what we have for reverse engineering.  See * {@link org.argouml.uml.reveng.ImportInterface#getImportSettings()} and * {@link org.argouml.uml.reveng.SettingsTypes} *  * @since 0.20 when it replaced the FileGenerator interface. */"
 // Hack: don't show first column, where the model element object is // placed.
 // TODO: It doesn't matter what these get set to because GEF can't // draw anything except 1 pixel wide lines
 // TODO: Workaround for GEF redraw problem // Force all child figs into the same layer
@@ -408,7 +408,7 @@
 "/**     * <p>Determines if the FigEdge is currently connected to the correct     * FigNodes, if not the edges is the correct FigNodes set and the edge     * rerouted.     * <p>Typically this is used when a user has amended from the property     * panel a relationship from one model element to another and the graph     * needs to react to that change.     * <p>e.g. if the participant of an association end is changed.     * <p>Calls a helper method (layoutThisToSelf) to avoid this edge     * disappearing if the new source and dest are the same node.     *     * TODO: This method is called far too frequently. It should only be called     * when a specific event is received. It seems to be currently called whenever     * any event is received from the owner.     *     * @return boolean whether or not the update was sucessful     */"
 "/** * TODO: this class should be moved to package * org.argouml.uml.ui.behavior.common_behavior */"
 // TODO: Dependency cycle between FigNodeModelElement and FigEdgeME // Is this needed?  If so, introduce a Removable interface to decouple
-"/**     * FigMyCircle is a FigCircle with corrected connectionPoint method:     *   this main.methods calculates where a connected edge ends.<p>     *        *   TODO: Once we are at GEF version 0.13.1M4, this whole class can be      *   removed, since it was taken over by GEF.     */"
+"/**     * FigMyCircle is a FigCircle with corrected connectionPoint method:     *   this methods calculates where a connected edge ends.<p>     *        *   TODO: Once we are at GEF version 0.13.1M4, this whole class can be      *   removed, since it was taken over by GEF.     */"
 "/**         * Compute the border point of the ellipse that is on the edge         *   between the stored upper left corner and the given parameter.<p>         *            *   TODO: Once we are at GEF version 0.13.1M4, this method          *   and in fact the whole class can be          *   removed, since it was taken over by GEF in revision 1279.         *         * @param anotherPt  The remote point to which an edge is drawn.         *         * @return           The connection point on the boundary of the         *                   ellipse.         */"
 "/** * Class to display graphics for N-ary association (association node), * i.e. the diamond. <p> *  * TODO: Improve the location of the stereotypes! * * @author pepargouml@yahoo.es */"
 "/**     * The constructor.     * TODO: The ""name"" parameter is used for the icon and for the tooltip.     * This makes i18n of the tooltip impossible.     *     * @param modeClass the next global editor mode     * @param arg the name of a new argument for the new mode     * @param value the value of a new argument for the new mode     * @param name the name of the command that is the tooltip text.     */"
@@ -446,7 +446,7 @@
 // idem, e.g. for a generalization with leaf/root object // TODO: but showing the message in the statusbar would help // TODO: IllegalArgumentException should not be used for // events we expect to happen. We need a different way of // catching well-formedness rules.
 "/**     * The connect method specifying a connection     * type by class is unavailable in the ArgoUML implementation.     * TODO: This should be unsupported. Use the 3 Object version     *     * {@inheritDoc}     */"
 // TODO: We'd like these to not be filled, but GEF won't let us // select them if we do that. //        setFilled(false);
-///////////////// GEF Methods //////////////////////////// // TODO: These should really be picked up automatically from // some GEF interface that we extend, but there is no such // thing.  NOTE: We've only added main.methods used by ArgoUML, // so it's possible that external consumers need other main.methods.
+///////////////// GEF Methods //////////////////////////// // TODO: These should really be picked up automatically from // some GEF interface that we extend, but there is no such // thing.  NOTE: We've only added methods used by ArgoUML, // so it's possible that external consumers need other methods.
 "/** * Abstract class that is the parent of all actions adding diagrams to ArgoUML. * The children of this class should implement createDiagram to do any specific * actions for creating a diagram and isValidNamespace that checks if some * namespace is valid to add the diagram to. <p> * * ArgoUML shall never create a diagram for a read-only modelelement.<p> * * TODO: This class should be merged with ActionNewDiagram. * * @author jaap.branderhorst@xs4all.nl */"
 "/**     * TODO: MVW: I am not completely sure of the following:<p>     * The ""namespace"" of the diagram is e.g. used when creating new elements     * that are shown on the diagram; they will have their namespace set     * according this. It is NOT necessarily equal to the ""owner"".      *      * @return the namespace for the diagram     */"
 // TODO: Use default value of appropriate type here
@@ -485,7 +485,7 @@
 // This can be made public to allow others to extend their own persisters
 // Once all edges are connected do a compute route on each to make // sure that annotations and the edge port is positioned correctly // Only do this after all edges are connected as compute route // requires all edges to be connected to nodes. // TODO: It would be nice not to have to do this and restore annotation // positions instead.
 "/**     * @param project the ArgoUML {@link Project} to save in file.     * @param file the {@link File} in which an ArgoUML {@link Project} will     * be persisted.     * @return the persister used and usable for file.     * @throws SaveException if saving the file goes wrong.     * @throws InterruptedException if an interrupt occurs while saving.     * TODO: move this to an helper class.     */"
-"/** * TODO: This whole class needs to be updated to remove use of deprecated * main.methods and (hopefully) test multi-root and multi-project main.methods. *  * @since Nov 17, 2002 * @author jaap.branderhorst@xs4all.nl */"
+"/** * TODO: This whole class needs to be updated to remove use of deprecated * methods and (hopefully) test multi-root and multi-project methods. *  * @since Nov 17, 2002 * @author jaap.branderhorst@xs4all.nl */"
 // Method 2: (assign data immediately, see end of file). // TODO: if we ever want to extend PathItemPlacement, // we should modify this, so that we also recognise any // subclass of PathItemPlacement. // Is the class name a PathItemPlacment? // TODO: Use class reference to make this dependency obvious
 // TODO: There are cyclic dependencies between ActionStereotypeView* // and FigNodeModelElement.  Register these actions opaquely since // we don't what they are. - tfm
 // TODO: Do we care?
@@ -503,7 +503,7 @@
 "/*         * The UML 2.x package structure is *entirely* different, so we have to         * remap a bunch of stuff. Names without embedded colons (:) indicate         * that the entire package is remapped. e.g. Kernel->Core As a matter of         * fact the only package which did NOT get renamed or moved is UseCases.         *          * TODO: This section is very incomplete. - tfm         */"
 "/**     * Set the URI for this project. <p>     *      * Don't use this directly! Use instead:     * {@link org.argouml.persistence.PersistenceManager     * #setProjectURI(URI, Project)}     * <p>     * TODO: Why isn't this deprecated or private if it is not to be used?     *      * @param theUri The URI to set.     */"
 // TODO: ProjectBrowser doesn't need to mediate this conversation // Use an event listener in the ToDoPane to communicate instead. - tfm
-"/** * The Project interface encapsulates all information about a designer's * project. It contains the list of diagrams and UML models, various project * properties such as the author's name, and defaults for various settings. * <p> * TODO: This interface was mechanically refactored from the implementation * class {@link ProjectImpl}. It needs to be reviewed and cleaned up, * eliminating main.methods which should be part of the public API and splitting the * interface into smaller function specific (e.g. TrashCan) interfaces. *  * @author Tom Morris <tfmorris@gmail.com>, Thomas Neustupny * @since 0.25.4 when it replaced the concrete class of the same name */"
+"/** * The Project interface encapsulates all information about a designer's * project. It contains the list of diagrams and UML models, various project * properties such as the author's name, and defaults for various settings. * <p> * TODO: This interface was mechanically refactored from the implementation * class {@link ProjectImpl}. It needs to be reviewed and cleaned up, * eliminating methods which should be part of the public API and splitting the * interface into smaller function specific (e.g. TrashCan) interfaces. *  * @author Tom Morris <tfmorris@gmail.com>, Thomas Neustupny * @since 0.25.4 when it replaced the concrete class of the same name */"
 // TODO: This should listen for new target events  // fired by WizStep.updateTabToDo so that we // can decouple it from the ProjectBrowser.
 //TODO: should fire its own event and ProjectBrowser //TODO: should register a listener
 "/** * Agency manages Critics.  Since classes are not really first class * objects in java, a singleton instance of Agency is made and passed * around as needed.  The Agency keeps a registry of all Critics that * should be applied to each type of design material. When a * design material instance is critiqued it asks Agency to apply all * registered Critic's.  In the current scheme there is a thread that * proactively, continuously critiques the Design at hand, even if * the user is idle! This is simple and it works.  The disadvantage * is that _all_ active critics related to a given design material are * applied, regardless of the reason for the critiquing and a lot of * CPU time is basically wasted.  <p> * * TODO: I am moving toward a more reactionary scheme in * which specific design manipulations in the editor cause critics * relevant to those manipulations to be applied.  This transition is * still half done.  Triggers are the critiquing requests.  The code * for triggers is currently dormant (latent?).<p> * * TODO: There is a strong dependency cycle between Agency and Designer.  They * either need to be merged into a single class or partitioned differently, * perhaps using an interface to break the cycle.  The Designer singleton gets * passed to almost every single part of the Critic subsystem, creating strong * coupling throughout. - tfm 20070620 * * @author Jason Robbins */"
@@ -542,8 +542,8 @@
 "/** * This is the interface for registering interest in events sent from * the model component.<p> * * Neither the registration or unregistration, nor the events themselves * contain any reference to the model implementation.  Instead they * use the {@link java.beans.PropertyChangeListener}, * {@link java.beans.PropertyChangeEvent} to * deliver events.<p> * * The reference to the listener is a WeakReference so you don't need to * call removeWHATEVERListener, you can just forget about your listener * and it is eventually finalized and removed. This also means that you * will have to keep a reference to your listener while it is active. * Since the garbage collecting mechanism is not really deterministic * a forgotten about listener might still receive events. Unless it can * handle them in a harmless way, this approach should not be used. * * TODO: (Is this still true or does it refer to the NSUML * implementation? - tfm 20051109) * (This is part of the contract that is established between the Model * subsystem and its users. If that is not fulfilled by the current * implementation, then the current implementation is incorrect. * Linus 20060411).<p> * * TODO: What event names? * The event names generated are {@link String}s and their values and * meanings are not really well documented. In general they are the * name of an an association end or attribute in the UML metamodel.<p> * * Here are some highlights:<ul> * <li>""remove"" - event sent when the element is removed. * </ul> * * @author Linus Tolke */"
 "/**     * Create an empty but initialized instance of a UML Method.     *     * @return an initialized UML Method instance.     * TODO: This needs an extra parameter to specify the model/extent where     * the new element should be created.     */"
 "/**     * Create an empty but initialized instance of a UML Binding.     *     * @return an initialized UML Binding instance.     * TODO: This needs an extra parameter to specify the model/extent where     * the new element should be created.     */"
-"/**     * Returns names of all metamodel value elements including datatypes,     * enumerations, and primitive types.     *      * TODO: This method rightly belongs in a separate interface dealing     * with instances of MOF types as opposed to UML types like all the     * rest of the main.methods here do.     *      * @return Collection containing Strings with names of all metatypes     */"
-"/**     * Returns names of all metatypes in metamodel.     *      * TODO: This method rightly belongs in a separate interface dealing     * with instances of MOF types as opposed to UML types like all the     * rest of the main.methods here do.     *      * @return Collection containing Strings with names of all metatypes     */"
+"/**     * Returns names of all metamodel value elements including datatypes,     * enumerations, and primitive types.     *      * TODO: This method rightly belongs in a separate interface dealing     * with instances of MOF types as opposed to UML types like all the     * rest of the methods here do.     *      * @return Collection containing Strings with names of all metatypes     */"
+"/**     * Returns names of all metatypes in metamodel.     *      * TODO: This method rightly belongs in a separate interface dealing     * with instances of MOF types as opposed to UML types like all the     * rest of the methods here do.     *      * @return Collection containing Strings with names of all metatypes     */"
 "/**     * Create an empty but initialized instance of a UML Class.     *     * @return an initialized UML Class instance.     * TODO: This needs an extra parameter to specify the model/extent where     * the new element should be created.     */"
 "/**     * Create an empty but initialized instance of a UML AssociationClass.     *      * @return an initialized UML AssociationClass instance.     * TODO: This needs an extra parameter to specify the model/extent where     * the new element should be created.     */"
 "/**     * Create an empty but initialized instance of an Artifact     *      * @since UML 1.4     * @return an initialized Artifact instance.     * TODO: This needs an extra parameter to specify the model/extent where     * the new element should be created.     */"
@@ -685,7 +685,7 @@
 "/*         * TODO: This is probably not the right location         * for switching off the ""filterNewlines"".         * The setting gets lost after selecting a different         * ModelElement in the diagram.         * BTW, see how it is used in         * javax.swing.text.PlainDocument.         * See issue 1812.         */"
 // TODO: This can be a mess... There are any better solution?        
 "/**     * The list of operations shall contain     * all operations of all classifiers     * contained in the same package as the callaction itself. <p>     *     * TODO: In fact, we also should include operations of imported     * clasifiers.     *     * @see org.argouml.uml.ui.UMLComboBoxModel#buildModelList()     */"
-"/*     * @see javax.swing.event.DocumentListener#changedUpdate(javax.swing.event.     * DocumentEvent) TODO: Are the 3 main.methods uses ?     */"
+"/*     * @see javax.swing.event.DocumentListener#changedUpdate(javax.swing.event.     * DocumentEvent) TODO: Are the 3 methods uses ?     */"
 "/**     * Creates a new field that selects the language for an expression.     *     * @param m Expression model, should be shared between     * Language and Body fields     * @param n Only one of Language and Body fields should     * forward events to model     * TODO: MVW: I do not understand that.     */"
 // TODO: Why do we need this as well as control? Why is it // instantiated when its not always needed.
 "/**     * The constructor.     *     * @param expressionModel     *            Expression model, should be shared between Language and Body     *            fields     * @param notify     *            Set to true to forward events to model. Only one of Language     *            and Body fields should have this set to true.     *            TODO: MVW: I do not understand that.     */"
@@ -695,7 +695,7 @@
 // TODO: consider a conditional feature in the xml panel def for this:
 "/**     * TODO: Is is really used ?     *     * @see javax.swing.JComponent#removeNotify()     */"
 // TODO: Bob says the reflective code following should be replaced // with something more specific like this commented out code. // This would mean we need sType changed to a meta type Object // rather than a String.
-"/*     * TODO: Are the 3 main.methods uses ?     */"
+"/*     * TODO: Are the 3 methods uses ?     */"
 "/** * An OpaqueExpression can have n body n language *  * When display to user, we only show one body. A ""..."" button is enabled for * edit other. *  * TODO: Can we, by Import XMI, have 0 language/body ? *  * @author Laurent Braud */"
 // TODO: We have some quirk that the a baseClass addition or // removal from a steroetype comes back as an AttributeChangeEvent // rather than an AssociationChangeEvent. This needs further // investigation to see if this can be made consistent.
 "/* TODO: This needs work...         * We also need to listen to addition/removal         * of states to/from a ClassifierInState.         */"
@@ -858,7 +858,7 @@
 // let's test which situation we have. 3 Possibilities: // 1. The nodes are already on the diagram, we can use //    canAddEdge for this. // 2. One of the nodes is already on the diagram. The other //    has to be added. // 3. Both of the nodes are not yet on the diagram. // For the time being we will only implement situation 1. // TODO: implement situation 2 and 3.
 // TODO: A more strongly typed data structure could be used here.
 "/*     * Perform re-routing if src/dest nodes have changed.     *     * <p>This method needs to be 'armed' by a previous mouseDragged()     * to avoid the situation where the user just clicks on the node     * then clicks on some unrelated Fig, without moving the edge...     *     * <p>TODO: improve the fig finding algorithm to find the top most fig     * in the layer. will be useful for nested states in a statechart.     *     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)     */"
-"/** * A window that shows the progress bar and a cancel button. As a convenience to * callers which may be executing on a thread other than the Swing event thread, * all main.methods use SwingUtilities.invokeLater() or * SwingUtilities.invokeAndWait() to make sure that Swing calls happen on the * appropriate thread. *<p> * TODO: React on the close button as if the Cancel button was pressed. */"
+"/** * A window that shows the progress bar and a cancel button. As a convenience to * callers which may be executing on a thread other than the Swing event thread, * all methods use SwingUtilities.invokeLater() or * SwingUtilities.invokeAndWait() to make sure that Swing calls happen on the * appropriate thread. *<p> * TODO: React on the close button as if the Cancel button was pressed. */"
 "/**     * write TODO: Check if sections are not used within the file and     * put them as comments at the end of the file.     * Hint: use a second Map to compare with the used keys.     *    * @param filename the file name     * @param indent the current indentation     * @param outputLostSections true if lost sections are to be written     */"
 // TODO: UML2 - what do we do here?
 // TODO: implement this - show some documentation?
@@ -909,7 +909,7 @@
 "/**          * TODO: minimum height should not be calculated every time, but only           * when an FigMessage has been added or removed.          * Currently doing that doesn't work because of an unknown problem.           * How to test: create only two CRs and a create message between them.           * Then move the create message to the bottom!          * Until that is fixed the workaround is to call updateMinimumHeight()          * every time the minimum size is needed          */"
 // TODO: Implement
 "/**     * Finds the operation to which a CallEvent refers, based on the given      * transition. This function determines the context of the statemachine      * that contains the given transition. If the context is a Classifier, then      * all operations of this classifier are candidates. If the context is a      * BehavioralFeature, then all operations of the owner Classifier are      * candidates. The first operation of which the name matches is the result.     * For Activity diagrams: If the context is a Package, then     * all Operations of all Classifiers in the package are candidates.     * TODO: This function works for the most normal cases,     * but needs some testing for rare cases, e.g. internal transitions,...     * TODO: The Parameters of the candidates are ignored. Maybe this      * method should return a set of matching operations.     *     * @author MVW     * @param trans Object of type Transition     * @param opname the name of the operation sought     * @return Object the operation with the given name, or null     */"
-"/**     * Get the innermost containing Model of a ModelElement.     * <p>     * If no containing Model can be found, the outermost containing     * ModelElement is returned (which could be the original element itself if     * it has no owner).     * <p>     * This method is intended to return the innermost     * containing Model, but there are circumstances where one may     * really expect the outermost containing Model or root package to     * be returned (e.g. where     * it's being used to test if two elements are from disjoint namespace     * hierarchies). Hence, there are two separate main.methods     * with different semantics. The method {@link #getRoot(Object)}     * returns the outermost containing object.      * <p>     * TODO: Note also that some code uses     * org.argouml.kernel.Project#getRoot() to navigate down from the top     * instead of up from the bottom. We need to use a consistent algorithm for     * this. - tfm 20070724     *      * @param handle     *                to the model element.     * @return model for the model element.     */"
+"/**     * Get the innermost containing Model of a ModelElement.     * <p>     * If no containing Model can be found, the outermost containing     * ModelElement is returned (which could be the original element itself if     * it has no owner).     * <p>     * This method is intended to return the innermost     * containing Model, but there are circumstances where one may     * really expect the outermost containing Model or root package to     * be returned (e.g. where     * it's being used to test if two elements are from disjoint namespace     * hierarchies). Hence, there are two separate methods     * with different semantics. The method {@link #getRoot(Object)}     * returns the outermost containing object.      * <p>     * TODO: Note also that some code uses     * org.argouml.kernel.Project#getRoot() to navigate down from the top     * instead of up from the bottom. We need to use a consistent algorithm for     * this. - tfm 20070724     *      * @param handle     *                to the model element.     * @return model for the model element.     */"
 // there's more to be handled, which still need to be implemented:
 "/**     * Builds an actor in the same namespace as the given actor. If     * the object is not and actor nothing is built.<p>     *      * TODO: This shouldn't just silently fail if it is passed a bad     * argument.  This contract will change. - tfm 20070607     *     * @param model The namespace.     * @param actor the given actor     * @return Actor the newly built actor     */"
 // List<Transition> result = new ArrayList<Transition>(); // TODO: not complete - how to retrieve the transitions?
@@ -918,7 +918,7 @@
 // TODO: gone in UML 2.1
 // TODO: unfinished implementation
 "/** * Eclipse UML2 implementation of XmiWriter. *  * TODO: We need facilities for writing and reading stable IDs to/from either * xmi.id or xmi.uuid. *  * @author Tom Morris */"
-// TODO: All build/create main.methods need Undo support - tfm
+// TODO: All build/create methods need Undo support - tfm
 // TODO: Bob says - how can we auto-generate this list?
 "/* TODO: correctly implement next function                 * in the model subsystem for                 * issue 1942: */"
 // A language must be unique // So, select the current empty language. // TODO ? Alert
@@ -960,7 +960,7 @@
 // TODO: Maybe the exception strings should be internationalized
 // TODO understand qualifiers
 // TODO: Convert this to some sensible logging
-"/**     * Reply the ToDoItem that the designer should see iff predicate()     * returns true. By default it just fills in the fields of the     * ToDoItem from accessor main.methods of this Critic. Critic Subclasses     * may override this method or the accessor main.methods to add computed     * fields to the ToDoItem.     *     * TODO: Critic's may want to add new fields to a     * ToDoItem to make stillValid more efficent.     *     * @see Critic#critique     *     * @param dm the offender     * @param dsgr the designer     * @return ToDoItem     */"
+"/**     * Reply the ToDoItem that the designer should see iff predicate()     * returns true. By default it just fills in the fields of the     * ToDoItem from accessor methods of this Critic. Critic Subclasses     * may override this method or the accessor methods to add computed     * fields to the ToDoItem.     *     * TODO: Critic's may want to add new fields to a     * ToDoItem to make stillValid more efficent.     *     * @see Critic#critique     *     * @param dm the offender     * @param dsgr the designer     * @return ToDoItem     */"
 // TODO implementation?
 // TODO: Removed from UML 2.x
 "//            Category.getRoot().getLoggerRepository().setThreshold(Level.OFF); // TODO: Find the proper implementation in java.util.logging API	    "
@@ -1031,7 +1031,7 @@
 "/**     * Private utility routine to work out the (positive) x coordinate of a     * point on an oval, given the radii and y coordinate.<p>     * TODO: Use this to calculate the separator lines!     *     * @param a  radius in X direction     * @param b  radius in Y direction     * @param y  Y coordinate     * @return   Positive X coordinate for the given Y coordinate     */"
 // Both ends must be defined and nodes that are on the graph already.
 // Link the new include relationship in to the ends
-//////////////////////////////////////////////////////////////// // internal main.methods
+//////////////////////////////////////////////////////////////// // internal methods
 // FigAssociationRole figassociationrole = new FigAssociationRole();
 //newFC = _content;
 // number of goals should now be 0
@@ -1105,7 +1105,7 @@
 // add Figs to the FigNode in back-to-front order // Put this rectangle behind the rest, so it goes first
 // TODO: We should be able to just call renderingChanged on the child // figs here instead of doing an updateOperations...
 // Make the line dashed
-"/*     * List of objects.     *      * NOTE: This main.methods which read/write this don't appear to be used.     */"
+"/*     * List of objects.     *      * NOTE: This methods which read/write this don't appear to be used.     */"
 // Add an arrow with an open arrow head
 // This module will still register as enabled for UML1.4 but it won't // actually do anything.
 // Make the edge go between nearest points
@@ -1177,7 +1177,7 @@
 // empty list
 "/*	 * @see TargetListener#targetSet(TargetEvent)	 */"
 // Although we register for notification of diagrams being // deleted, we currently depend on the TargetManager to assign // a new target when this happens // When we implement MDI and have our own list of open diagrams // we can ressurect the use of this
-// some convenience main.methods
+// some convenience methods
 // Optimize for the normal case to minimize target changes
 // read until the end section is found, discard // generated content
 // Class Table
@@ -1316,7 +1316,7 @@
 // I am only prepared to go this far.
 "/*|  //removed to workaround problems with autosplit                     OCLEditor.OPTIONMASK_AUTOSPLIT*/"
 "/**     * ADDONLY_COMMAND determines a changeability kind.     * TODO: Removed from UML 2.x.  Phase out of UI - tfm - 20070529     */"
-//TabModelTarget interface main.methods
+//TabModelTarget interface methods
 // warn about inherited name conflicts, different critic?
 // Process the listeners last to first, notifying // those that are interested in this event
 "/*     * @see javax.swing.plaf.metal.MetalTheme#getSystemTextFont()     */"
@@ -1457,7 +1457,7 @@
 //ArgoDiagram activeDiagram = DiagramUtils.getActiveDiagram(); //return (activeDiagram instanceof UMLClassDiagram);
 // simply create 3 usecases and an actor in a package with individual names
 // usage of other sureRemove method is legacy. They should be // integrated.
-// Multiplicity, MultiplicityRange, and all Expression subtypes // don't have 0-argument create main.methods, so we special case them.
+// Multiplicity, MultiplicityRange, and all Expression subtypes // don't have 0-argument create methods, so we special case them.
 // the diagram contains figs so lets ask the user if // he/she is sure
 // build extend // these parameters seem to be in correct order // add an extend. We do not need an assoc on the extending use case
 // TODO: This catch block needs to be narrower and do something // with the caught exception - tfm 20071120 // Ignore
@@ -1488,7 +1488,7 @@
 /* Try adding the extension from the chosen filter. */
 // adding project files icon
 //        Object icon = ResourceLoaderWrapper.lookupIcon(s); //        putValue(Action.NAME, Translator.localize(s)); //        putValue(Action.SMALL_ICON, icon); //        // Set the tooltip string: //        putValue(Action.SHORT_DESCRIPTION, Translator.localize(s));
-//////////////////////////////////////////////////////////////// // main main.methods
+//////////////////////////////////////////////////////////////// // main methods
 "/*	 * @see javax.swing.table.TableModel#getValueAt(int, int)	 */"
 /* end class ActionOpenProject */
 "/*     * The property value has changed so rebuild our view.     * @see java.beans.PropertyChangeListener#propertyChange(java.beans.PropertyChangeEvent)     */"
@@ -1506,7 +1506,7 @@
 "/*             * MDR has a hardcoded printStackTrace on all exceptions,             * even if they're caught, which is unsightly, so we handle             * unknown elements ourselves rather than letting MDR throw             * an exception for us to catch.             *             * org/netbeans/lib/jmi/util/Logger.java             *             * This can be uses to disable logging.  Default output is             * System.err             * setProperty(""org.netbeans.lib.jmi.Logger.fileName"", """")             *              org.netbeans.mdr.Logger             *             * The property org.netbeans.lib.jmi.Logger controls the minimum             * severity level for logging             */"
 "/*     * @see javax.management.NotificationBroadcaster#getNotificationInfo()     */"
 /* Testing: does not fire. */
-/////////////////////////////////////////////////////////////////////// // Proxy main.methods for real UMLModelElementTaggedValue ///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////// // Proxy methods for real UMLModelElementTaggedValue ///////////////////////////////////////////////////////////////////////
 // Only do this for classifiers
 // Rearrange the diagram layout
 // Compound critics
@@ -1832,7 +1832,7 @@
 // Ignore any nested exceptions. We don't want infinite loop.
 // Didn't work.
 // First step. Create the panel if not already done and options are // available. Otherwise it retains its default value of null.
-// Likely a NoSuchMethodException or an IllegalAccessException loading/invoking eawt.Application main.methods
+// Likely a NoSuchMethodException or an IllegalAccessException loading/invoking eawt.Application methods
 "/*     * @see org.argouml.kernel.AbstractProjectMember#getZipFileExtension()     */"
 // If the target method returns a boolean, use that as a hint
 // For eclipse setup
@@ -2080,7 +2080,7 @@
 "/*     * Listen also to the association, of which the link is an instantiation,      * since we want to update the rendering when      * the association name changes.     *      * @see org.argouml.uml.diagram.ui.FigEdgeModelElement#updateListeners(     * java.lang.Object, java.lang.Object)     */"
 // Check superclass. //Make sure this class does not extend or reference non-ArgoUML classes
 // valid elements for a Stereotype to contain
-// Enumerate main.methods // Enumerate method arguments
+// Enumerate methods // Enumerate method arguments
 // A list of valid connections between elements, the // connection type first and then the elements to be connected
 // NIF: runTruthTest(Model.getFacade().isAInteraction(o), //           Model.getFacade().INTERACTION);
 "// NIF: unTruthTest(Model.getFacade().isAMethod(o), //	Model.getMetaTypes().getMethod());"
@@ -2088,7 +2088,7 @@
 // specifies valid elements for a Use Case to contain
 // NIF: runTruthTest(Model.getFacade().isAStructuralFeature(o), //          Model.getMetaTypes().getStructuralFeature()); // NIF: runTruthTest(Model.getFacade().isATaggedValue(o), //          Model.getMetaTypes().getTaggedValue());
 "/*     * @see org.argouml.uml.diagram.ui.AbstractActionCheckBoxMenuItem#valueOfTarget(java.lang.Object)     */"
-// Call main.methods that exists for all objects and that always return // something meaningful
+// Call methods that exists for all objects and that always return // something meaningful
 // specifies valid elements for an Operation to contain
 //        LOG.log(Level.FINE, "getData returning raster = " + translatedRaster);
 // Find the create method in the offical API
@@ -2116,13 +2116,13 @@
 /* end class CrNameConflictAC */
 // This is a private method in Model.
 /* end class CrMultipleAgg */
-// Handling main.methods that doesn't return
+// Handling methods that doesn't return
 "/*     * @see org.argouml.uml.reveng.ImportSettings#getInputSourceEncoding()     */"
 // Handling the isInitiated method
 "/*     * @see org.argouml.ui.GUISettingsTabInterface#getTabKey()     */"
 // Handling the initialise method
 "/*     * @see org.argouml.uml.diagram.ui.FigEditableCompartment#getUmlCollection()     */"
-// Handle main.methods which return opaque objects
+// Handle methods which return opaque objects
 // one of the expected errors, just ignore
 "/*     * @see org.argouml.uml.diagram.ui.AbstractActionRadioMenuItem#toggleValueOfTarget(java.lang.Object)     */"
 // Could not find model.
@@ -2178,7 +2178,7 @@
 "/*     * @see org.argouml.uml.ui.UMLComboBox2#UMLComboBox2( UMLComboBoxModel2,     *      Action, boolean)     */"
 // CommonBehaviorFactory // DataTypesFactory // ExtensionMechanismsFactory // ModelManagementFactory
 "/*     * @see org.argouml.uml.ui.UMLUserInterfaceContainer#formatCollection(java.util.Iterator)     */"
-// set up all parameters. Some main.methods are invoked with // primitives or collections, so we need to create them // accordingly
+// set up all parameters. Some methods are invoked with // primitives or collections, so we need to create them // accordingly
 // The following should fail
 // and leave things unchanged
 "/*     * @see org.argouml.uml.ui.UMLExpressionModel2#setExpression(java.lang.Object)     */"
@@ -2441,7 +2441,7 @@
 // if the current shortcut has not been set, then the actual // shortcut value is the default one
 // if the user cancelled the operation, // we don't have to save anything
 "/*     * @see java.awt.event.WindowListener#windowActivated(java.awt.event.WindowEvent)     */"
-// Generate and register the OSXAdapter, passing the main.methods // we wish to use as delegates for various // com.apple.eawt.ApplicationListener main.methods
+// Generate and register the OSXAdapter, passing the methods // we wish to use as delegates for various // com.apple.eawt.ApplicationListener methods
 // TODO: no Links in UML 2
 "/*     * @see tudresden.ocl.parser.analysis.DepthFirstAdapter#caseAExpressionListOrRange(tudresden.ocl.parser.node.AExpressionListOrRange)     */"
 // nothing we can do about veto, so just ignore it
@@ -2586,7 +2586,7 @@
 //    Object getImportingNamespace(Object element);
 "/*     * Override setBounds to keep shapes looking right.     *     * @see org.tigris.gef.presentation.Fig#setBoundsImpl(int, int, int, int)     */"
 //Object createStereotype();
-// ADiagramElementProperty delegate main.methods
+// ADiagramElementProperty delegate methods
 "/*     * @see org.omg.uml.diagraminterchange.ADiagramElementProperty#add(     *         org.omg.uml.diagraminterchange.DiagramElement,     *         org.omg.uml.diagraminterchange.Property)     */"
 "/*     * @see org.omg.uml.diagraminterchange.ADiagramElementProperty#exists(     *         org.omg.uml.diagraminterchange.DiagramElement,     *         org.omg.uml.diagraminterchange.Property)     */"
 //easy interface to properties
@@ -2596,7 +2596,7 @@
 //additional support for tagged values
 "/*         * @see java.awt.event.ActionListener#actionPerformed(         *         java.awt.event.ActionEvent)         */"
 "/*     * @see tudresden.ocl.parser.analysis.DepthFirstAdapter#caseAListExpressionListOrRangeTail(tudresden.ocl.parser.node.AListExpressionListOrRangeTail)     */"
-//////////////////////////////////////////////////////////////// // public main.methods
+//////////////////////////////////////////////////////////////// // public methods
 /* end class UUIDManager */
 "/*     * @see java.awt.dnd.DropTargetListener#dragExit(     *         java.awt.dnd.DropTargetEvent)     */"
 // Write out something for us to read back in
@@ -2659,7 +2659,7 @@
 // OK, so that didn't work out... Just ignore // any problems and don't set the name in the // constraint body better had log it.
 // Even though this is not relevant for UML2 we have // code calling this that expects it for UML1.4 // and we must handle it gracefully.
 //        return ((RedefinableElement) handle).isRoot(); // TODO: One part of UML 2.1.1 spec says that this is as above, // but it appears to be gone - tfm
-// All of the ApplicationListener main.methods are void; return null regardless of what happens
+// All of the ApplicationListener methods are void; return null regardless of what happens
 // Place in the middle of the line and ensure the line is dashed.  Add // an arrow with an open arrow head. Remember that for an extends // relationship, the arrow points to the base use case, but because of // the way we draw it, that is still the destination end.
 "/*     * @see org.argouml.cognitive.critics.Critic#initWizard(     *      org.argouml.cognitive.ui.Wizard)     */"
 // an AssociationEnd is now a Property owned by an Association
@@ -2716,7 +2716,7 @@
 // Create a new implementation.
 /* This will contain the Figs that we do not need anymore: */
 // And set the specification to the current operation.
-// Add it to the operation's main.methods.
+// Add it to the operation's methods.
 // Look, if there's already a java implementation
 // Job done.
 // TODO: Get default output directory from user settings // Project p = ProjectManager.getManager().getCurrentProject(); // p.getProjectSettings().setGenerationOutputDir(path);
@@ -2737,7 +2737,7 @@
 // For the .uml files in the eclipse jar files, we need this:
 // Only add MOF elements, not primitive datatypes
 "/* TODO: Verify this.             * IIUC, then this triggers the CompountStateFig             * to draw itself correctly.             * Hence, there was a reason to wait this long             * to make the state concurrent. */"
-// Notation events are likely to cause GEF/Swing operations, so we // dispatch them on the Swing event thread as a convenience so that // the receiving notationChanged() main.methods don't need to deal with it
+// Notation events are likely to cause GEF/Swing operations, so we // dispatch them on the Swing event thread as a convenience so that // the receiving notationChanged() methods don't need to deal with it
 // We clear the save-required flag on the Swing event thread // in the hopes that it gets done after any other background // work (listener updates) that is being done there
 // Not needed currently for UML 2
 // Make the result inmediately visible in case of apply:
@@ -2746,7 +2746,7 @@
 // There are various details panes all of which could hold // different tabs pages according to users settings. // Place each pane in the required border area.
 // final Object scope,
 // Remove the old project first.  It's wasteful to create a temp // empty project, but too much of ArgoUML depends on having a // current project
-///////////////////////////////////////////////////////////////////////// // TargetListener main.methods implemented so notified when selected // diagram changes. Used to update the window title.
+///////////////////////////////////////////////////////////////////////// // TargetListener methods implemented so notified when selected // diagram changes. Used to update the window title.
 "/* mvw: Indeed. The intention of the constructor parameter is to prove         * that there is a valid UML object to bind the notation to.          * So, the next statement should fail on a null parameter,          * and on anything that is not an object of which          * we can retrieve the multiplicity. */"
 "/*     * @see org.argouml.model.UmlHelper#getSource(java.lang.Object)     */"
 "//        prpTodo = createProperty(""label.todo-pane"", positions, TabToDo.class); //        prpProperties = //            createProperty(""label.properties-pane"", //                    positions, TabProps.class); //        prpDocumentation = //            createProperty(""label.documentation-pane"", //                    positions, TabDocumentation.class); //        prpStyle = //            createProperty(""label.style-pane"", //                    positions, TabStyle.class); //        prpSource = //            createProperty(""label.source-pane"", //                    positions, TabSrc.class); //        prpConstraints = //            createProperty(""label.constraints-pane"", //                    positions, TabConstraints.class); //        prpTaggedValues = //            createProperty(""label.tagged-values-pane"", //                    positions, TabTaggedValues.class); // //        Property[] propertyList = new Property[] { //            prpTodo, prpProperties, prpDocumentation, prpStyle, //	    prpSource, prpConstraints, prpTaggedValues, //        }; //        Arrays.sort(propertyList); // //        top.add(new JScrollPane(new PropertyTable( //						  propertyList, //						  paneColumnHeader, //						  positionColumnHeader)), //		BorderLayout.CENTER);"
@@ -2915,7 +2915,7 @@
 // Look for an existing reference matching our MofID
 // only add all if there are some to add.
 // probably redundant - just in case
-// Helper interfaces and main.methods.
+// Helper interfaces and methods.
 "/*     * @see javax.swing.tree.TreeNode#isLeaf()     */"
 // CHECKSTYLE:ON
 // specifies valid elements for an AssociationRole to contain
@@ -3394,7 +3394,7 @@
 // why?
 // If menus don't containt menu item necessary for this class, create it
 "/*         * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)         */"
-//////////////////////////////////////////////////////////////// // constructor and singeton main.methods
+//////////////////////////////////////////////////////////////// // constructor and singeton methods
 "/**     * Used by the copy functions. Do not call this function directly.     * TODO: generalizations, specializations?     *     * @param source     *            the source generalizable element     * @param target     *            the target generalizable element     */"
 //                      && getAutoCritique()
 // Delete dependencies where this is the only client
@@ -3403,7 +3403,7 @@
 "/*     * @see org.argouml.uml.notation.NotationProvider#getParsingHelp()     */"
 //decision model listener
 /* end class ChildGenDMElements */
-"/*     * TODO: All the ToDos in the doCopyFoo main.methods below are inherited from the     * NSUML implementation and do not reflect new issues. One additional thing     * which does need to be dealt with is the copying of any attributes which     * have been added since this code was implemented for UML 1.3.     */"
+"/*     * TODO: All the ToDos in the doCopyFoo methods below are inherited from the     * NSUML implementation and do not reflect new issues. One additional thing     * which does need to be dealt with is the copying of any attributes which     * have been added since this code was implemented for UML 1.3.     */"
 "/**     * Used by the copy functions. Do not call this function directly.     * TODO: actions? instances? collaborations etc?     *     * @param source     *            the source classifier     * @param target     *            the target classifier     */"
 //TODO: This should be the name of the designer that created //      the todoitem, not the current username!
 // LOG.log(Level.FINE, "predicate() returned true, creating ToDoItem");
@@ -3549,7 +3549,7 @@
 //     c.gridy = 0; //     c.gridx = 5; //     JLabel fourLabel = new JLabel("asd"); //     gb.setConstraints(fourLabel, c); //     _mainPanel.add(fourLabel);
 //     c.gridy = 0; //     c.gridx = 6; //     JLabel highLabel = new JLabel("High"); //     gb.setConstraints(highLabel, c); //     _mainPanel.add(highLabel);
 "/*     * @see org.argouml.ui.targetmanager.TargetListener#targetSet(     *         org.argouml.ui.targetmanager.TargetEvent)     */"
-// ------------ other main.methods ------------
+// ------------ other methods ------------
 "/*     * @see java.util.List#get(int)     */"
 "/*     * @see org.argouml.ui.explorer.TreeModelUMLEventListener#modelElementRemoved(java.lang.Object)     */"
 //////////////////////////////////////////////////////////////// // TreeModel implementation - todo specific stuff
@@ -3628,7 +3628,7 @@
 // Make sure it isn't caching anything that should be written
 //        assert !initialized; // GUITestActionOpenProject fails over this...
 // Retain the original one:
-"/*     * Internal initialization method.  Handles initialization which     * is common to both public main.methods.     */"
+"/*     * Internal initialization method.  Handles initialization which     * is common to both public methods.     */"
 // Flag the command as to whether it is first in a chain
 /* end class DelayedChangeNotify */
 /* end class CrConflictingComposites */
@@ -3666,16 +3666,16 @@
 // NOTE: No longer a separate type in UML 2.1
 "/*	 * @see javax.swing.table.TableModel#getRowCount()	 */"
 // Make the topmost diagram (that is not the one being deleted) // current.
-//////////////////////////////////////////////////////////////// // trash related main.methods
+//////////////////////////////////////////////////////////////// // trash related methods
 // Fire an event some anyone who cares about diagrams being // removed can listen for it
 // there's just one ProfileConfiguration in a project // and there's no other way to add another one
 "/** * Tab for the settings dialog that makes it possible to * select the modules that are to be enabled. * * TODO: Header for the table. * * @author Linus Tolke */"
 "/*     * @see java.util.Collection#retainAll(java.util.Collection)     */"
 // Do nothing - these buttons are not shown.
 // Do nothing! // The next time we refresh, we will fetch the values again.
-// Access main.methods for modules that need to query about the status of // other modules.
-// Access main.methods for the GUI that the user uses to enable and disable // modules.
-// Access main.methods for the program infrastructure
+// Access methods for modules that need to query about the status of // other modules.
+// Access methods for the GUI that the user uses to enable and disable // modules.
+// Access methods for the program infrastructure
 // Catch all exceptions and errors, however severe
 // TODO: huntForModulesFromJavaWebStart();
 // We expect all extensions to have a manifest even though we // can operate without one if necessary.
@@ -3706,7 +3706,7 @@
 // We also show parameters
 //  We also show types of parameters
 /* Listen to the modelelement itself: */
-//////////////////////////////////////////////////////////////// // convenience main.methods
+//////////////////////////////////////////////////////////////// // convenience methods
 // register for events from all modelelements // that change the name and body text // i.e. when the CallAction is replaced:
 // and when the owner is replaced (unlikely for operations), // and when the operation changes name:
 // removed stereotype
@@ -3918,7 +3918,7 @@
 // we have to give a message to user and set the system to unsaved!
 // Should never happen - something's really wrong
 "/*     * @see org.argouml.uml.diagram.ui.UMLDiagram#getUmlActions()     */"
-//////////////////////////////////////////////////////////////// // main parsing main.methods
+//////////////////////////////////////////////////////////////// // main parsing methods
 "/*         * @see java.io.InputStream#close()         */"
 //boolean upgradeRequired = !checkVersion(fileVersion, releaseVersion)
 // Upgrade is in the way for UML2 projects, so we turn it off in that case:
@@ -3999,16 +3999,16 @@
 "/**     * Test creating modelelements from a given notation, and then      * re-generate the notation-string again, and check if they are equal.     * Some of these tests are not very usefulll,      * since they may fail on white space differences.      * TODO: White space should best be ignored.      */"
 /* These strings match the XML element names in the argo.tee exactly. */
 // The following is deprecated, but can never be removed to preserve  // backward compatibility with old project files
-//////////////////////////////////////////////////////////////// // protected main.methods
+//////////////////////////////////////////////////////////////// // protected methods
 // empty constructor
-//////////////////////////////////////////////////////////////// // abstract main.methods
-//////////////////////////////////////////////////////////////// // non-abstract main.methods
+//////////////////////////////////////////////////////////////// // abstract methods
+//////////////////////////////////////////////////////////////// // non-abstract methods
 //e.g:org.argouml.uml.generator.ui.ClassGenerationDialog -> poseidon.jar
 /* end class SAXParserBase */
 // Stop UI interception
 // Jaap Branderhorst 2002-23-09 added next lines to link // parameters and operations to the figs that represent // them
 // possibly use the following instead //            MemberFilePersister persister = new DiagramMemberFilePersister();
-//////////////////////////////////////////////////////////////// // class main.methods
+//////////////////////////////////////////////////////////////// // class methods
 /* end class XMLTokenTableBase */
 // These are the file formats I know about:
 "/* make sure this setting exists in the configuration file         * to facilitate changing: */"
@@ -4026,7 +4026,7 @@
 // load profile name
 // changing the sequence only
 // Yes, scroll up one row
-"/*    * Get a list of UML metaclass names from the XMI document.    * <p>    * Though some of the DOM main.methods such as getAttributes    * may return null values under other conditions,    * in the context of this test    * and assuming a valid XMI file    * none should occur.    * <p>    * Hence there is no special checking for those abnormal    * cases, allowing the test to fail simply with a    * NullPointerException, with this comment indicating that    * either the input data is incorrect or the test needs    * to be improved.    */"
+"/*    * Get a list of UML metaclass names from the XMI document.    * <p>    * Though some of the DOM methods such as getAttributes    * may return null values under other conditions,    * in the context of this test    * and assuming a valid XMI file    * none should occur.    * <p>    * Hence there is no special checking for those abnormal    * cases, allowing the test to fail simply with a    * NullPointerException, with this comment indicating that    * either the input data is incorrect or the test needs    * to be improved.    */"
 /* Testing: Works Ok. */
 // if there is only one package in the model, // we should suppose it's the profile model, // if there is more than one, we take the ones // marked as <<profile>>
 "/*                     * Now we have to see if any state in any statemachine of                     * classifier is named [name]. If so, then we only have to                     * link the state to c.                     */"
@@ -4207,12 +4207,12 @@
 "/* MVW: We should use default font sizes as much as possible.         * BTW, this impacts only the width, and reduces readibility:         */"
 "/* The stereoDim has height=2, even if it is empty,          * hence the -2 below: */"
 // This enables tooltips for tree; this one won't be shown:
-// ------------ main.methods that override JTree main.methods ---------
+// ------------ methods that override JTree methods ---------
 // with a name...
 // Look for stereotype
 // Use default formatting for any other type of UML element
 // The event source is the stub state's referenced state // or one of the referenced state's path.
-// ------------- other main.methods ------------------
+// ------------- other methods ------------------
 /* Labels at the left ... */
 // and when the class changes name:
 /* ... and fields at the right. */
@@ -4304,7 +4304,7 @@
 "/*     * @see org.argouml.uml.diagram.ui.PathContainer#setPathVisible(boolean)     */"
 // Add target listeners for details panes
 "/*     * @see java.awt.dnd.DragSourceListener#dragEnter(java.awt.dnd.DragSourceDragEvent)     */"
-// Convenience main.methods to return saved width and height values
+// Convenience methods to return saved width and height values
 // In theory there can be multiple details pane (work in // progress). It must first be determined which details // page contains the properties tab. Bob Tarling 7 Dec 2002
 "/*     * Override setBounds to keep shapes looking right.     *     * @see org.tigris.gef.presentation.Fig#setBounds(int, int, int, int)     */"
 /* end class WindowCloser */
@@ -4366,7 +4366,7 @@
 //     c.gridy = 0; //     c.gridx = 4; //     JLabel threeLabel = new JLabel("asd"); //     gb.setConstraints(threeLabel, c); //     _mainPanel.add(threeLabel);
 "/*     * Called when the user selects a tab, by clicking or otherwise.     *     * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)     */"
 "/*     * @see org.argouml.uml.reveng.ImportCommon#isChangedOnlySelected()     */"
-// We don't know what thread events will be delivered on, so make sure // we run Swing main.methods on the Swing thread
+// We don't know what thread events will be delivered on, so make sure // we run Swing methods on the Swing thread
 //This instead of the label ??? //displayPane.setBorder(new TitledBorder( //    Translator.localize("Display: ")));
 // Eclipse UML2 implementation classes often start with "UML" //$NON-NLS-1$
 // add in front of the others // add the label in front of the "pane"
@@ -4513,7 +4513,7 @@
 // customized shortcut --> CUSTOM
 // update the values
 // let's reload the shortcuts
-"/*     * @see org.argouml.model.CoreHelper#clearStereotypes(java.lang.Object)     *      * All main.methods below similarly override main.methods in CoreHelper.     */"
+"/*     * @see org.argouml.model.CoreHelper#clearStereotypes(java.lang.Object)     *      * All methods below similarly override methods in CoreHelper.     */"
 // saving shortcuts
 // If the id does not look like a top-level Fig then we can assume // that this is an id of a FigEdgePort inside some FigEdge. // So extract the FigEdgePort from the FigEdge and return that as // the FigNode.
 // if a shortcut has been select then we have to check if the actual // action is in conflict with other ones
@@ -4576,7 +4576,7 @@
 // Override superclass to do nothing. // Fill property cannot be changed.
 "/*     * @see org.argouml.model.OrderingKind#getUnordered()     */"
 "/*     * @see org.argouml.model.DirectionKind#getReturnParameter()     */"
-"/*     * @see org.argouml.model.ActivityGraphsHelper#findClassifierByName(java.lang.Object, java.lang.String)     *     * all main.methods below similarly implement main.methods from ActivityGraphsHelper      */"
+"/*     * @see org.argouml.model.ActivityGraphsHelper#findClassifierByName(java.lang.Object, java.lang.String)     *     * all methods below similarly implement methods from ActivityGraphsHelper      */"
 // remove the ones already selected (if a perspective is selected)
 "/*     * @see org.argouml.model.AggregationKind#getNone()     */"
 // add them
@@ -4651,7 +4651,7 @@
 "/*             * The next condition becomes false when dragging in             * something from another application.             */"
 "/*                 * If a drag image is not supported by the platform,                 * then draw my own drag image.                 */"
 /* Rub out the last ghost image and cue line: */
-// Access main.methods for program infrastructure.
+// Access methods for program infrastructure.
 // Just rub out the last cue line
 "/*             * In any case draw (over the ghost image if necessary)             * a cue line indicating where a drop will occur.             */"
 // Retrieve an existing GlassPane if old one already exist or  // create a new one, otherwise return null
@@ -4845,7 +4845,7 @@
 //     umlReserved.add("initial"); //     umlReserved.add("final"); //     umlReserved.add("fork"); //     umlReserved.add("join"); //     umlReserved.add("history");
 // check if there is no OCL_END; if so, the critic expression // is not correct and can not be expanded
 "/*     * @see org.argouml.uml.diagram.layout.LayoutedEdge#layout()     */"
-//////////////////////////////////////////////////////////////// // display related main.methods
+//////////////////////////////////////////////////////////////// // display related methods
 // Create a different client to bind to the same supplier
 /* end class CrInterfaceAllPublic */
 // return original string if no replacements made
@@ -4878,7 +4878,7 @@
 // We don't consider secondary stuff.
 "/*     * @see org.tigris.gef.graph.MutableGraphModel#containsNode(java.lang.Object)     */"
 //        newEdge.setDiElement( //            GraphChangeAdapter.getInstance().createElement(gm, edge));
-/////////////////// End GEF main.methods ////////////////////////
+/////////////////// End GEF methods ////////////////////////
 // not allowed
 // return;
 // TODO: Comments are on Element in UML 2.x
@@ -5135,12 +5135,12 @@
 /*? 2*LINE_WIDTH? */
 "/*     * @see org.tigris.gef.graph.GraphNodeRenderer#getFigNodeFor(     *         org.tigris.gef.graph.GraphModel,     *         org.tigris.gef.base.Layer, java.lang.Object, java.util.Map)     */"
 // Make a seamless integration of the text // in the note figure.
-//////////////////////////////////////////////////////////////// // user interaction main.methods
-//////////////////////////////////////////////////////////////// // accessor main.methods
+//////////////////////////////////////////////////////////////// // user interaction methods
+//////////////////////////////////////////////////////////////// // accessor methods
 // If we have a stereotype displayed, then allow some space for that // (width and height)
 // And add the gaps around the textfield to get the minimum // size of the note.
 // Just move the corner to it's new position.
-/////////////////////////////////////////////////////////////////// // Internal main.methods
+/////////////////////////////////////////////////////////////////// // Internal methods
 // all connected edges
 // Only adjust the stereotype height if we are not newly // created. This gets round the problem of loading classes with // stereotypes defined, which have the height already including // the stereotype.
 // Whatever happened we are no longer newly created, so clear the // flag. Then set the bounds for the rectangle we have defined.
@@ -5224,7 +5224,7 @@
 // if there are no stereotypes, we return (0,0), preventing // double lines in the class (see issue 4939)
 /* end class StylePanelFigAssociationClass */
 /////////////////////////////////////////////////////////////////////////// // // Constructors // ///////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////// // // Main main.methods // ///////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////// // // Main methods // ///////////////////////////////////////////////////////////////////////////
 // Create the singleton if it does not exist, and then return it
 // When a new target is selected, we have to check if it 's a use case. //Then, the icone "add extension point" have to become enabled.
 // Create a new extension point and make it the browser target. Then // invoke the superclass action method.

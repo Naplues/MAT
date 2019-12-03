@@ -16,6 +16,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO need a better way to do this 
 1,0,1,1,1,1,1,//  TODO: Need to be able to set the tick tuple time to the message timeout, ideally without parameterization 
 1,0,1,0,0,0,0,/*              * Connection is unavailable. We will drop pending messages and let at-least-once message replay kick in.             *             * Another option would be to buffer the messages in memory.  But this option has the risk of causing OOM errors,             * especially for topologies that disable message acking because we don't know whether the connection recovery will             * succeed  or not, and how long the recovery will take.              */
+1,0,1,1,1,1,1,//  TODO add metrics
 1,0,0,1,1,1,1,//  TODO: consider adding a shuffle grouping after the spout to avoid so much routing of the args/return-info all over the place   (at least until its possible to just pack bolt logic into the spout itself) 
 1,1,1,1,1,1,1,//  This is a hack for non-ras scheduler topology and worker resources 
 1,0,1,1,1,1,1,// TODO move this logic to the model class 
@@ -28,7 +29,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  FIXME: This class can be moved to webapp once UI porting is done. 
 1,0,0,0,0,0,0,//  This isn't strictly necessary, but it doesn't hurt and ensures that the machine stays up   to date even if callbacks don't all work exactly right 
 1,0,1,0,0,0,0,//  To work around it we should get it an alternative (working) way. 
-1,0,0,0,0,0,0,//  Is the topology ZooKeeper authentication configuration unset? 
 1,0,0,0,0,0,0,//  read s1 last....  This should cause s2 to be evicted on next put 
 1,0,1,1,1,1,1,//  TODO more collection content type checking 
 1,0,0,0,1,1,1,//  FIXME: We're using default config since it cannot be serialized   We still needs to provide some options externally 
@@ -36,6 +36,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO put in some better exception mapping...  TODO move populateContext to a filter... 
 1,0,0,0,0,0,0,//  should we fail the batch or kill the worker? 
 1,0,1,1,1,1,1,// Getting the exact response code is a bit more complex.  TODO should use a better client 
+1,0,1,1,1,1,1,//  TODO: de-duplicate this logic with the code in nimbus
 1,1,1,1,1,1,1,/*      * TODO: should worker even take the topologyId as input? this should be deducible from cluster state (by searching through assignments)     * what about if there's inconsistency in assignments? -> but nimbus should guarantee this consistency.     *     * @param conf           - Storm configuration     * @param context        -     * @param topologyId     - topology id     * @param assignmentId   - assignment id     * @param supervisorPort - parent supervisor thrift server port     * @param port           - port on which the worker runs     * @param workerId       - worker id      */
 1,1,1,1,0,1,1,// This is a bit ugly, but it shows how this would happen in a worker so we will use the same APIs 
 1,0,1,1,1,1,1,//  FIXME: stores map (topoConf), topologyContext and expose these to derived classes 
@@ -58,6 +59,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// TODO: do the inner join incrementally, emitting the cross join with this tuple, against all other sides  TODO: only do cross join if at least one tuple in each side 
 1,0,1,1,1,1,1,// TODO once everything is in java this should not be possible any more 
 1,0,0,0,0,0,0,// heck for backward compatibility, we need to pass TOPOLOGY_AUTO_CREDENTIALS to hbase conf  the conf instance is instance of persistentMap so making a copy. 
+1,0,1,1,1,1,1,//  TODO: handle regular rich spout without batches (need lots of updates to support this throughout)
 1,1,1,1,1,1,1,// This is a hack to allow ZooKeeperMain to be called by this command. 
 1,0,1,1,0,1,1,// Perhaps there is a better way to do this??? 
 1,0,1,1,1,1,1,//  TODO: can optimize further by only querying backing map for keys not in the cache 
@@ -67,9 +69,9 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: What would be a good test to ensure that RankableObjectWithFields is at least somewhat defensively copied? 
 1,0,1,1,1,1,1,//  TODO: in the future, want a way to include this logic in the spout itself,   or make it unnecessary by having storm include metadata about which grouping a tuple   came from 
 1,0,1,1,1,1,1,//  TODO: does this work well on windows? 
-1,0,0,0,0,0,0,//  FileContext supports atomic rename, whereas FileSystem doesn't 
 1,0,1,1,1,1,1,// Not enough guaranteed use the age of the topology instead.  TODO need a good way to only do this once... 
-1,0,0,0,0,0,0,//  Use parseWithException instead of parse so we can capture deserialization errors in the log.   They are likely to be bugs in the spout code. 
+1,0,1,0,0,0,0,//  Use parseWithException instead of parse so we can capture deserialization errors in the log.   They are likely to be bugs in the spout code. 
+1,0,0,1,1,1,1,// TODO: add logging that not all tuples were received
 1,0,1,1,1,1,1,//  TODO: take away knowledge of storm's internals here 
 1,0,1,1,1,1,1,// TODO we should handle '\n'. ref DelimitedRecordFormat 
 1,0,1,0,1,1,1,/*  TODO: make sure test these two functions in manual tests  */
@@ -381,7 +383,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  also called from processLogConfigChange 
 0,0,0,0,0,0,0,//  load the first part of entries 
 0,0,0,0,0,0,0,//  If future got interrupted exception, we want to interrupt parent thread itself. 
-0,0,0,0,0,0,0,// Ignore changes to scheduling while downloading the topology blobs   We don't support canceling the download through the future yet,   because pending blobs may be shared by multiple workers and cancel it   may lead to race condition   To keep everything in sync, just wait for all workers 
+0,0,1,0,0,0,0,// Ignore changes to scheduling while downloading the topology blobs   We don't support canceling the download through the future yet,   because pending blobs may be shared by multiple workers and cancel it   may lead to race condition   To keep everything in sync, just wait for all workers 
 0,0,0,0,0,0,0,//  DOUBLE_ARG 
 0,0,0,0,0,0,0,// Node ID and supervisor ID are the same. 
 0,0,0,0,0,0,0,//  3) read 6th line and see if another log entry was made 
@@ -391,6 +393,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  baseDir/supervisor/usercache/user1/filecache/archives 
 0,0,0,0,0,0,0,/*  * This class consists exclusively of static factory main.methods that create instances that are essential to work with the *  Jpmml library.  */
 0,0,0,0,0,0,0,//  11 seconds passed by, not timing out 
+0,0,0,0,0,0,0,//  it's null if one of:     a) a later transaction batch was emitted before this, so we should skip this batch     b) if didn't exist and was created (in which case the StateInitializer was invoked and        it was emitted
 0,0,0,0,0,0,0,//  end executor summary 
 0,0,0,0,0,0,0,//  Test whether the integer is a power of 2. 
 0,0,0,0,0,0,0,// Release things that don't need to wait for us to finish downloading. 
@@ -597,7 +600,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// One time scheduling. 
 0,0,0,0,0,0,0,//  Regardless of TICKET_RENEW_WINDOW setting above and the ticket expiry time,   thread will not sleep between refresh attempts any less than 1 minute (60*1000 milliseconds = 1 minute). 
 0,0,0,0,0,0,0,// and to wait for the message to get through to the spout (acks use the same path as timeout resets) 
-0,0,1,1,1,1,1,//  TODO add metrics
 0,0,0,0,0,0,0,// subprocesses must send their pid first thing 
 0,0,0,0,0,0,0,//  null for __system bolt 
 0,0,0,0,0,0,0,//  assume that Get doesn't have any families defined. this is for not digging deeply...
@@ -658,7 +660,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// This is because the tests are checking that a hard cap of maxUncommittedOffsets + maxPollRecords - 1 uncommitted offsets exists 
 0,0,0,0,0,0,0,// Good so far, check if we are in a CGroup 
 0,0,0,0,0,0,0,//  supervisor which was never back to normal in tolerance period will be removed from cache 
-0,0,0,0,0,0,0,//  maybe it needs a start phase (where it can do a retrieval, an update phase, and then a finish phase...?   shouldn't really be a one-at-a-time interface, since we have all the tuples already?   TOOD: used for the new values stream   the list is needed to be able to get reduceragg and combineragg persistentaggregate   for grouped streams working efficiently
+0,0,1,0,0,0,0,//  maybe it needs a start phase (where it can do a retrieval, an update phase, and then a finish phase...?   shouldn't really be a one-at-a-time interface, since we have all the tuples already?   TOOD: used for the new values stream   the list is needed to be able to get reduceragg and combineragg persistentaggregate   for grouped streams working efficiently
 0,0,0,0,0,0,0,//  in java classpath, '*' is expanded to all jar/JAR files in the directory 
 0,0,0,0,0,0,0,// verify that offset 4 was committed for the given TopicPartition, since processing should resume at 4. 
 0,0,0,0,0,0,0,//  could not lock, so try another file. 
@@ -715,7 +717,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Process has not terminated.  So check if it has completed  if not just destroy it. 
 0,0,0,0,0,0,0,//  don't update unless there are tuples   this helps out with things like global partition persist, where multiple tasks may still   exist for this processor. Only want the global one to do anything 
 0,0,0,0,0,0,0,// Compute the stats for the different input streams 
-0,0,0,0,0,0,0,// Because the simple topology was scheduled first we want to be sure that it didn't put anything on   the GPU nodes. 
+0,0,1,0,0,0,0,// Because the simple topology was scheduled first we want to be sure that it didn't put anything on   the GPU nodes. 
 0,0,0,0,0,0,0,//  wait for available queue 
 0,0,0,0,0,0,0,//  USER_NAME 
 0,0,0,0,0,0,0,// Make sure we can store the worker tokens even if no creds are provided. 
@@ -745,7 +747,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Congested we contract much more quickly 
 0,0,0,0,0,0,0,//  setup Broker 
 0,0,0,0,0,0,0,//  bolt aggregate 
-0,0,1,0,0,0,0,//  memory requirement is large enough so that two executors can not be fully assigned to one node 
+0,0,0,0,0,0,0,//  memory requirement is large enough so that two executors can not be fully assigned to one node 
 0,0,0,0,0,0,0,//  
 0,0,0,0,0,0,0,//  Now let's load w/o setting up gets and we should still get valid map back 
 0,0,0,0,0,0,0,// DISABLE_LOGIN_CACHE indicates whether or not to use the LoginCache.  So we exclude it from the keyString 
@@ -1009,6 +1011,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  interval at which to commit offsets to zk in milliseconds 
 0,0,0,0,0,0,0,//  remove the slot from the existing assignments 
 0,0,0,0,0,0,0,//  spout with 5 parallel instances 
+0,0,0,0,0,0,0,//  Is the topology ZooKeeper authentication configuration unset?
 0,0,0,0,0,0,0,// Just ignore these for now.  We are going to throw it away anyways 
 0,0,0,0,0,0,0,//  holds remaining streams 
 0,0,0,0,0,0,0,//  Class that has the logic to handle tuple failure.
@@ -1071,7 +1074,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  ERRORS 
 0,0,0,0,0,0,0,// metaStoreURI = "jdbc:derby:;databaseName="+System.getProperty("java.io.tmpdir") +"metastore_db;create=true"; 
 0,0,0,0,0,0,0,/*  Ack the tuple, and commit.         * Since the tuple is more than max poll records behind the most recent emitted tuple, the consumer won't catch up in this poll.          */
-0,0,0,0,0,0,0,/*          * Load DriverManager first to avoid any race condition between         * DriverManager static initialization block and specific driver class's         * static initialization block. e.g. PhoenixDriver         *         * We should take this workaround since prepare() method is synchronized         * but an worker can initialize multiple AbstractJdbcBolt instances and         * they would make race condition.         *         * We just need to ensure that DriverManager class is always initialized         * earlier than provider so below line should be called first         * than initializing provider.          */
+0,0,1,0,0,0,0,/*          * Load DriverManager first to avoid any race condition between         * DriverManager static initialization block and specific driver class's         * static initialization block. e.g. PhoenixDriver         *         * We should take this workaround since prepare() method is synchronized         * but an worker can initialize multiple AbstractJdbcBolt instances and         * they would make race condition.         *         * We just need to ensure that DriverManager class is always initialized         * earlier than provider so below line should be called first         * than initializing provider.          */
 0,0,0,0,0,0,0,//  class DirectInserter 
 0,0,0,0,0,0,0,//  Keys sorted in descending order 
 0,0,0,0,0,0,0,//  un-pin the last partition 
@@ -1337,9 +1340,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Stop emitting at a certain point, because log rolling breaks the tests. 
 0,0,0,0,0,0,0,//  shard iterator corresponding to position in shard for new messages 
 0,0,0,0,0,0,0,//  level 3 - longer idling with Thread.sleep() 
-0,0,0,0,0,0,0,//  This does not have to be atomic, worst case we update when one is not needed 
+0,0,1,0,0,0,0,//  This does not have to be atomic, worst case we update when one is not needed 
 0,0,0,0,0,0,0,//  if the windows should be persisted in state 
-0,0,1,1,1,1,1,//  TODO: de-duplicate this logic with the code in nimbus 
 0,0,0,0,0,0,0,//  Define our taskIds and loads 
 0,0,0,0,0,0,0,// Test for Supervisor Admin 
 0,0,0,0,0,0,0,//  3) read another line and see if another log entry was made 
@@ -1518,7 +1520,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  It's possible for target to have multiple tasks if it reads multiple sources 
 0,0,0,0,0,0,0,//  Tests for case when subject != null (security turned on) and 
 0,0,0,0,0,0,0,//  make sure samplingPct is within bounds. 
-0,0,0,0,0,0,0,// will fail since org.apache.storm.nimbus.NimbusInfo doesn't implement or extend org.apache.storm.networktopography   .DNSToSwitchMapping 
+0,0,1,0,0,0,0,// will fail since org.apache.storm.nimbus.NimbusInfo doesn't implement or extend org.apache.storm.networktopography   .DNSToSwitchMapping 
 0,0,0,0,0,0,0,// port range 
 0,0,0,0,0,0,0,//  2 try to grab another lock while dir is locked 
 0,0,0,0,0,0,0,// schedule tasks that are not part of components returned from topology.get_spout or 
@@ -1571,7 +1573,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  FIELDS 
 0,0,0,0,0,0,0,//  c.f. HADOOP-6559 
 0,0,0,0,0,0,0,//  boltMsgQueue should have at least one entry at the moment 
-0,0,0,0,0,0,0,//  intermediate bolt, subscribes to jms spout, anchors on tuples, and auto-acks 
+0,0,1,0,0,0,0,//  intermediate bolt, subscribes to jms spout, anchors on tuples, and auto-acks 
 0,0,0,0,0,0,0,//  map to track number of failures for each kinesis message that failed 
 0,0,0,0,0,0,0,/*                                                * Transform the stream of words to a stream of (word, 1) pairs                                                */
 0,0,0,0,0,0,0,// Yes this should be a topo name, but it makes this simpler... 
@@ -1622,7 +1624,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  checkpoint spout should 've been added 
 0,0,0,0,0,0,0,//  locate expired lock files (if any). Try to take ownership (oldest lock first) 
 0,0,0,0,0,0,0,// This may or may not be reported depending on when process exits 
-0,0,1,0,0,0,0,//  sort by available slots size: from large to small 
+0,0,0,0,0,0,0,//  sort by available slots size: from large to small 
 0,0,0,0,0,0,0,// case 1: plugin is a IContext class 
 0,0,0,0,0,0,0,//  able to delete the blob without checking meta's ACL   skip checking everything and continue deleting local files 
 0,0,0,0,0,0,0,// Ignored if cgroups is not setup don't do anything with it 
@@ -1715,7 +1717,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,//  if null then use zookeeper used   by Storm 
 0,0,0,0,0,0,0,// The other tuples are used to reset the first tuple's timeout, 
 0,0,0,0,0,0,0,//  Builds a JSON list 
-0,0,0,0,0,0,0,//  this store is used only for storing triggered aggregated results but not tuples as storeTuplesInStore is set   as false int he below call. 
+0,0,1,0,0,0,0,//  this store is used only for storing triggered aggregated results but not tuples as storeTuplesInStore is set   as false int he below call. 
 0,0,0,0,0,0,0,//  graph with 3 kinds of nodes:   operation, partition, or spout   all operations have finishBatch and can optionally be committers 
 0,0,0,0,0,0,0,// Emit all remaining messages. Failed tuples retry immediately with current configuration, so no need to wait. 
 0,0,0,0,0,0,0,// We are in the same process we cannot recover anything 
@@ -1799,7 +1801,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  to keep track of free slots 
 0,0,0,0,0,0,0,//  should pass 
 0,0,0,0,0,0,0,//  optional   optional   optional   optional   optional 
-0,0,1,0,0,0,0,//  if there are no more pending consumed messages   and storm delivered ack for all 
+0,0,0,0,0,0,0,//  if there are no more pending consumed messages   and storm delivered ack for all 
 0,0,0,0,0,0,0,//  timer == null only if the processing guarantee is at-most-once 
 0,0,0,0,0,0,0,//  Give a hook chance to alter the clock. 
 0,0,0,0,0,0,0,// populating request context 
@@ -2145,7 +2147,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  copy constructor 
 0,0,0,0,0,0,0,// Writes the offsets in the new format to the /user partitions paths 
 0,0,0,0,0,0,0,// specify a configuration object to be used 
-0,0,0,0,0,0,0,// The spout should emit at most one message per call to nextTuple  This is necessary for Storm to be able to throttle the spout according to maxSpoutPending 
+0,0,1,0,0,0,0,// The spout should emit at most one message per call to nextTuple  This is necessary for Storm to be able to throttle the spout according to maxSpoutPending 
 0,0,0,0,0,0,0,// reserved for future 
 0,0,0,0,0,0,0,//  same set of events part of three windows 
 0,0,0,0,0,0,0,//         bd.shuffleGrouping(SPOUT_ID); 
@@ -2213,7 +2215,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  there's not enough bytes in the buffer. 
 0,0,0,0,0,0,0,//         oneProducer1Consumer();          twoProducer1Consumer();          threeProducer1Consumer();          oneProducer2Consumers();          producerFwdConsumer(); 
 0,0,0,0,0,0,0,// Should be allowed to retry 3 times, in addition to original try 
-0,0,1,1,1,1,1,//  TODO: handle regular rich spout without batches (need lots of updates to support this throughout) 
 0,0,0,0,0,0,0,//  check allowedWorkers only if the scheduler is not the Resource Aware Scheduler 
 0,0,0,0,0,0,0,//  check that tryPublish() & tryOverflowPublish() work as expected 
 0,0,0,0,0,0,0,// Put in a tuple to cause the first tuple to be acked 
@@ -2300,7 +2301,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  EMITTED 
 0,0,0,0,0,0,0,// the body of the message is "message" + currentOffset, e.g. "message123" 
 0,0,0,0,0,0,0,//  object capturing all zk related information for storing committed sequence numbers 
-0,0,1,0,0,0,0,//  there's a race condition with a delete: either blobstore or blobstoremaxsequence   this should be thrown to the caller to indicate that the key is invalid now 
+0,0,0,0,0,0,0,//  there's a race condition with a delete: either blobstore or blobstoremaxsequence   this should be thrown to the caller to indicate that the key is invalid now 
 0,0,0,0,0,0,0,//  HOSTNAME 
 0,0,0,0,0,0,0,//  Stop services without killing the process instead. 
 0,0,0,0,0,0,0,//  $PATH should be defined on most systems 
@@ -2521,7 +2522,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*      * Asserts that commitSync has been called once,      * that there are only commits on one topic,     * and that the committed offset covers messageCount messages      */
 0,0,0,0,0,0,0,//  STORM_ASSIGNMENT 
 0,0,0,0,0,0,0,//  find homedir 
-0,0,0,0,0,0,0,/*              * Delete the current index file and rename the tmp file to atomically             * replace the index file. Orphan .tmp files are handled in getTxnRecord.              */
+0,0,1,0,0,0,0,/*              * Delete the current index file and rename the tmp file to atomically             * replace the index file. Orphan .tmp files are handled in getTxnRecord.              */
 0,0,0,0,0,0,0,//  validate search by host id 
 0,0,0,0,0,0,0,// Avoid case of different blob version   when blob is not downloaded (first time download) 
 0,0,0,0,0,0,0,//  iterate the tuples 
@@ -2714,7 +2715,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  should not throw 
 0,0,0,0,0,0,0,//  Log the connection error only once 
 0,0,0,0,0,0,0,//  try to get BlobMeta   This will check if the key exists and if the subject has authorization 
-0,0,1,1,1,1,1,// TODO batch updating 
+0,0,0,1,1,1,1,// TODO batch updating 
 0,0,0,0,0,0,0,//  Configured for achieving max throughput in single worker mode (empirically found).    For reference : numbers taken on MacBook Pro mid 2015      -- ACKer=0:  ~8 mill/sec (batchSz=2k & recvQsize=50k).  6.7 mill/sec (batchSz=1 & recvQsize=1k)      -- ACKer=1:  ~1 mill/sec,   lat= ~1 microsec  (batchSz=1 & bolt.wait.strategy=Park bolt.wait.park.micros=0)      -- ACKer=1:  ~1.3 mill/sec, lat= ~11 micros   (batchSz=1 & receive.buffer.size=1k, bolt.wait & bp.wait =   Progressive[defaults])      -- ACKer=1:  ~1.6 mill/sec, lat= ~300 micros  (batchSz=500 & bolt.wait.strategy=Park bolt.wait.park.micros=0) 
 0,0,0,0,0,0,0,// insure that if keytab is used only one login per process executed 
 0,0,0,0,0,0,0,//  0 means DEFAULT_EVENT_LOOP_THREADS 
@@ -2742,13 +2743,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  The jitter allows the clients to get the data at different times, and avoids thundering herd 
 0,0,0,0,0,0,0,// Ranked last since rack-2 has not cpu resources 
 0,0,0,0,0,0,0,//  read 1st line and ack 
+0,0,0,0,0,0,0,//  FileContext supports atomic rename, whereas FileSystem doesn't
 0,0,0,0,0,0,0,// 3 seconds in milliseconds 
 0,0,0,0,0,0,0,//  Use default, Storm-generated file names 
 0,0,0,0,0,0,0,//  nothing expired yet 
 0,0,0,0,0,0,0,//  should pass now 
 0,0,0,0,0,0,0,//  filtered out 
 0,0,0,0,0,0,0,//  sometimes Leader election indicates the current nimbus is leader, but the host was recently restarted,   and is currently not a leader. 
-0,0,0,0,0,0,0,//  show a progress bar so we know we're not stuck (especially on slow connections) 
+0,0,1,0,0,0,0,//  show a progress bar so we know we're not stuck (especially on slow connections) 
 0,0,0,0,0,0,0,//  end of Test2 
 0,0,1,1,1,1,1,//  TODO timestamps 
 0,0,0,0,0,0,0,// ignore 
@@ -2846,7 +2848,6 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Fail tuple 5 and 3, call nextTuple, then fail tuple 2 
 0,0,0,0,0,0,0,//  this bolt dosen't emit to downstream bolts 
 0,0,0,0,0,0,0,// Check that a reemit emits exactly the same tuples as the last batch, even if Kafka returns more messages 
-0,0,0,1,1,1,1,// TODO: add logging that not all tuples were received 
 0,0,0,0,0,0,0,//  EXECUTE_LATENCY_MS 
 0,0,0,0,0,0,0,// each context will have a single client channel worker event loop group 
 0,0,0,0,0,0,0,//  try to find a way to merge this code with what's already done in TridentBoltExecutor 
@@ -2895,7 +2896,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Nimbus itself 
 0,0,0,0,0,0,0,//  make the new assignments for topologies 
 0,0,0,0,0,0,0,//  late tuple emitted 
-0,0,0,0,0,0,0,// Was a try-cause but I looked at the code around this and key not found is not wrapped in runtime,   so it is not needed 
+0,0,1,0,0,0,0,// Was a try-cause but I looked at the code around this and key not found is not wrapped in runtime,   so it is not needed 
 0,0,0,0,0,0,0,// user jerry submits another topology 
 0,0,0,0,0,0,0,//  key1 shouldn't in iterator 
 0,0,0,0,0,0,0,//  blobstore directory is private! 
@@ -2934,7 +2935,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* Keeping it for backward compatibility */
 0,0,0,0,0,0,0,//  required   required   optional   optional   optional 
 0,0,0,0,0,0,0,//  use zk servers as backup if they exist 
-0,0,0,0,0,0,0,// It's more likely to be a file read exception here, so we don't differentiate 
+0,0,1,0,0,0,0,// It's more likely to be a file read exception here, so we don't differentiate 
 0,0,0,0,0,0,0,//  3) Select a new file if one is not open already 
 0,0,0,0,0,0,0,// In some cases we might be limiting memory in the supervisor and not in the cgroups 
 0,0,0,0,0,0,0,// It is possible that this component is already scheduled on this node or worker.  If so when we backtrack we cannot remove it 
@@ -3029,7 +3030,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  DATA_SIZE 
 0,0,0,0,0,0,0,//  intended to not guarding with try-with-resource since otherwise test will fail 
 0,0,0,0,0,0,0,// since using StringWriter, we do not need to close it. 
-0,0,0,0,0,0,0,// Waiting for spout tuples isn't strictly necessary since we also wait for bolt emits, but do it anyway 
+0,0,1,0,0,0,0,// Waiting for spout tuples isn't strictly necessary since we also wait for bolt emits, but do it anyway 
 0,0,0,0,0,0,0,// storm-core is needed here for backwards compatibility. 
 0,0,0,0,0,0,0,//  EVENTLOG_HOST 
 0,0,1,0,0,0,0,/*              Below regex uses negative lookahead to not split in the middle of json objects '{}'             or json arrays '[]'. This is needed to parse valid json object/arrays passed as options             via 'storm.cmd' in windows. This is not an issue while using 'storm.py' since it url-encodes             the options and the below regex just does a split on the commas that separates each option.             Note:- This regex handles only valid json strings and could produce invalid results             if the options contain un-encoded invalid json or strings with unmatched '[, ], { or }'. We can             replace below code with split(",") once 'storm.cmd' is fixed to send url-encoded options.               */
@@ -3123,7 +3124,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//        The contract of Rankable#copy() returns a Rankable value, not a RankableObjectWithFields. 
 0,0,0,0,0,0,0,//  unauthorized 
 0,0,0,0,0,0,0,// 1 create an already existing open file w/o override flag 
-0,0,1,0,0,0,0,//  we could also make this static, but not to do it due to mock 
+0,0,0,0,0,0,0,//  we could also make this static, but not to do it due to mock 
 0,0,0,0,0,0,0,//  blobstore state 
 0,0,0,0,0,0,0,//  key dir needs to be number 0 to number of buckets, choose one so we know where to look 
 0,0,0,0,0,0,0,//  compute window length adjustment (delta) to account for time drift 
@@ -3320,7 +3321,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  String metastoreDBLocation = "jdbc:derby:databaseName=/tmp/metastore_db;create=true";   conf.set("javax.jdo.option.ConnectionDriverName","org.apache.derby.jdbc.EmbeddedDriver");   conf.set("javax.jdo.option.ConnectionURL",metastoreDBLocation); 
 0,0,0,0,0,0,0,// This is here to avoid an overridable call in the constructor 
 0,0,0,0,0,0,0,// pending is empty, return the smallest in toResend 
-0,0,0,0,0,0,0,//  attempt scheduling both topologies.   this triggered negative resource event as the second topology incorrectly scheduled with the first in place 
+0,0,1,0,0,0,0,//  attempt scheduling both topologies.   this triggered negative resource event as the second topology incorrectly scheduled with the first in place 
 0,0,0,0,0,0,0,// Ignored the file system we are on does not support this, so don't do it. 
 0,0,0,0,0,0,0,//  kill process when timeout 
 0,0,0,0,0,0,0,// find login file configuration from Storm configuration 
@@ -3392,7 +3393,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  common 
 0,0,0,0,0,0,0,//  required for jackson serialization 
 0,0,0,0,0,0,0,//  timestamp in millisecond, 0 means   disabling filter 
-0,0,1,1,1,1,1,// TODO batch finding 
+0,0,0,1,1,1,1,// TODO batch finding 
 0,0,0,0,0,0,0,//  perf critical loop. dont use iterators 
 0,0,0,0,0,0,0,//  COMPONENT_ID 
 0,0,0,0,0,0,0,//  -- commit frequency - seconds 
@@ -3469,7 +3470,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// release earliest blacklist - but release all supervisors on a given blacklisted host. 
 0,0,0,0,0,0,0,// Stop counting when past current time 
 0,0,0,0,0,0,0,//  this can happen when multiple clients doing mkdir at same time 
-0,0,1,0,0,0,0,//  remove uploaded jars blobs, not artifacts since they're shared across the cluster 
+0,0,0,0,0,0,0,//  remove uploaded jars blobs, not artifacts since they're shared across the cluster 
 0,0,0,0,0,0,0,// creates brand new tuples with brand new fields 
 0,0,0,0,0,0,0,// Topology metrics distribution 
 0,0,0,0,0,0,0,//  it's a method with zero args 
@@ -3495,6 +3496,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  resolve references 
 0,0,0,0,0,0,0,//  for completeness 
 0,0,0,0,0,0,0,// The topology we are scheduling 
+0,0,0,0,0,0,0,//  if the node is already deleted, do nothing
 0,0,0,0,0,0,0,//  should still fail 
 0,0,0,0,0,0,0,//  ============  Factories  ============ 
 0,0,0,0,0,0,0,//  Test2: When a supervisor fails, RAS does not alter existing assignments 
@@ -3627,7 +3629,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Load PMML Model from Blob store 
 0,0,0,0,0,0,0,// add to nimbuses 
 0,0,0,0,0,0,0,// On heap memory is used to help calculate the heap of the java process for the worker   off heap memory is for things like JNI memory allocated off heap, or when using the   ShellBolt or ShellSpout.  In this case the 16 MB of off heap is just as an example   as we are not using it. 
-0,0,0,0,0,0,0,//  expectedOwner being null means that security is disabled (which why are we uploading credentials with security disabled??? 
+0,0,0,1,0,1,1,//  expectedOwner being null means that security is disabled (which why are we uploading credentials with security disabled??? 
 0,0,0,0,0,0,0,// AllowedId is null in the constructor, so it can assign what it needs/etc. 
 0,0,0,0,0,0,0,// Verify that no more tuples are emitted and all tuples are committed 
 0,0,0,0,0,0,0,/*                  * Emitted messages for partitions that are no longer assigned to this spout can't be acked and should not be retried, hence                 * remove them from emitted collection.                  */

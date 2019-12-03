@@ -346,6 +346,7 @@ SATD	 todo add alter database support hcat
 SATD	 todo add tests for partitions other catalogs 
 SATD	 todo suspect could skip much the stuff above this the function the case update and delete but dont understand all the side effects the above code and dont want skip over yet 
 SATD	 todo expireafteraccess locks cache segments put and expired get doesnt look too bad but find some perf issues might good idea remove this are probably not caching that many constructors note that weakkeys causes used for key compare this will only work for classes the same classloader should this case 
+SATD	 todo why the queue name set again has already been setup via setqueuename only one the two 
 SATD	 todo create and init session sets queue isdefault but does not initialize the configuration 
 SATD	 deprecated favour link string removed hive 
 SATD	 todo handle query hints currently ignore them 
@@ -560,6 +561,7 @@ SATD	 why isnt ppd working working but storage layer doesnt row level filtering 
 SATD	 note currently this implementation does not fall back regular copy distcp tried and fails depend upon that behaviour cases like replication wherein distcp fails there good reason not plod along with trivial implementation and fail instead 
 SATD	 todo this never used 
 SATD	 todo versions could also picked build time 
+SATD	 previous solution based tablealias and colalias which unsafe esp when cbo generates derived table names see hive for correctness purpose only trust colexpmap assume that cbo can the constantpropagation before this function called help improve the performance unionoperator limitoperator and filteroperator are special they should already columnposition aligned 
 SATD	 hack refactor once the metadata apis with types are ready 
 SATD	 todo this cannot evict enough will spin infinitely terminate some point 
 SATD	 but not convert the join 
@@ -1625,6 +1627,7 @@ WITHOUT_CLASSIFICATION	 exists primarily allow for easier unit tests
 WITHOUT_CLASSIFICATION	 register two tasks same query but different 
 WITHOUT_CLASSIFICATION	 for completed instances 
 WITHOUT_CLASSIFICATION	 print out the cbo info 
+WITHOUT_CLASSIFICATION	 interface design tablefunction provides interfaces execution batch and streaming batch mode the contract partition partition out streaming mode the contract stream processrow calls each which may return more rows partition not just batch rows enables more than single iteration the data multiple passes arbitrary access input rows relative navigation between rowsfor leadlag fns most ptfs will work batch mode the streaming mode gives the capabilities partitions for the benefit smaller footprint and faster processing window function processing this when there are only ranking functions each row needs accessed once the order provided hence there need hold all input rows partition the pattern any time you want only enhanceenrich input row streaming mode the right choice this the fundamental difference between ranking fns and udafs ranking functions keep the original data intact whereas udaf only return aggregate information finally have provided mixed mode where non streaming tablefunction can provide its output iterator far can tell this special case for windowing handling windowing the only last tablefunction chain makes sense collect the output rows into output partition justify the pollution the api the observation that windowing very common use case 
 WITHOUT_CLASSIFICATION	 its valid case partition 
 WITHOUT_CLASSIFICATION	 finally remove the expression from the tree 
 WITHOUT_CLASSIFICATION	 these delims passed serde params 
@@ -4485,6 +4488,7 @@ WITHOUT_CLASSIFICATION	 case test just close the log files not remove them
 WITHOUT_CLASSIFICATION	 our dbname equal but tablename blank were interested this dblevel event 
 WITHOUT_CLASSIFICATION	 doas not enabled pass the principalkeypad sparksubmit order support the possible delegation token renewal spark 
 WITHOUT_CLASSIFICATION	 max allow tez pick 
+WITHOUT_CLASSIFICATION	 setup our batch with the same column schema the output columns plus any scratch columns since the overflow batch will get forwarded children operators 
 WITHOUT_CLASSIFICATION	 mystringenummap 
 WITHOUT_CLASSIFICATION	 this handle synpos where pos headerend 
 WITHOUT_CLASSIFICATION	 cut prefix from hives map key 
@@ -8699,6 +8703,7 @@ WITHOUT_CLASSIFICATION	 allocate and initialize new conf since test can
 WITHOUT_CLASSIFICATION	 match there filter sqcountcheck right input join which left input another join 
 WITHOUT_CLASSIFICATION	 splits are equal number files worst case 
 WITHOUT_CLASSIFICATION	 unit test convenience method for putting the key into the hash table using the actual type 
+WITHOUT_CLASSIFICATION	 called reservememory know that theres memory waiting for somewhere however have class rare race conditions related the order lockingchecking different allocation areas simple case say have arenas available arena look arena someone deallocs from arena and allocs the same from arena look arena and find memory for single arena threads reserve each and single block available when the thread locks the freelist the one might have already examined the and lists finding nothing blocks placed into smaller lists after its split done will not found given that freelist locks dont overlap may even run completely between the time takes out the block and the time returns the remaining two solutions this are some form crossthread helping threads putting demand into some sort queues that deallocate and split will examine having and actor allocator thread threads per arena the one probably much simpler and will allow get rid lot sync code 
 WITHOUT_CLASSIFICATION	 files size for splits 
 WITHOUT_CLASSIFICATION	 accurate int value cannot obtained 
 WITHOUT_CLASSIFICATION	 save some positional state 
@@ -13826,6 +13831,7 @@ WITHOUT_CLASSIFICATION	 stores the tablescan operators processed avoid redoing t
 WITHOUT_CLASSIFICATION	 number registers 
 WITHOUT_CLASSIFICATION	 test submission concurrent job requests with the controlled number concurrent requests verify that get busy exception and appropriate message 
 WITHOUT_CLASSIFICATION	 the child has different schema create project operator between them both cannot prune the columns the groupby operator 
+WITHOUT_CLASSIFICATION	 through each element the map 
 WITHOUT_CLASSIFICATION	 one serialized key for more rows for the duplicate keys 
 WITHOUT_CLASSIFICATION	 for backwards compatibility since some threads used hard coded but only run frequency was 
 WITHOUT_CLASSIFICATION	 sum all nonnull double column values maintain isgroupresultnull 
@@ -27997,6 +28003,7 @@ WITHOUT_CLASSIFICATION	 schedule task invalidate cache entry and remove from loo
 WITHOUT_CLASSIFICATION	 need and check any the tasks running llap mode 
 WITHOUT_CLASSIFICATION	 contains results from last processed input record 
 WITHOUT_CLASSIFICATION	 remove the operators till certain depth 
+WITHOUT_CLASSIFICATION	 the user has set false the idea was the number reducers are few the number files anyway are small however with this optimization are increasing the number files possibly big margin merge aggresively 
 WITHOUT_CLASSIFICATION	 only worry about getting schema are dealing with avro 
 WITHOUT_CLASSIFICATION	 full precision 
 WITHOUT_CLASSIFICATION	 this assumes llap cluster owner always the user 

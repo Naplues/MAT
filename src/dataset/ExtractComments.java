@@ -95,7 +95,7 @@ public class ExtractComments {
         // 5. Manually check the labels
 
         // 6. Output the dataset
-        //exportDataset();
+        exportDataset();
 
     }
 

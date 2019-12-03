@@ -120,7 +120,7 @@ Label, Type, Content
 0, Line, //  this function will 'correctly' print first 30 permutations 
 0, Line, //  verify if passing -Xlint in compilerarg had its effect 
 0, Line, //  the original program used:   Hashtable ht = new Hashtable();   John Olsson points out that Hashtable is for synchronized access   and we should use instead: 
-0, Block, /*          * TODO: Remove after JDK9 is the minimum JDK supported         *         * JDK9+ correctly accounts for the synthetic parameter and when it becomes         * the minimum version this method should no longer be required.          */
+1, Block, /*          * TODO: Remove after JDK9 is the minimum JDK supported         *         * JDK9+ correctly accounts for the synthetic parameter and when it becomes         * the minimum version this method should no longer be required.          */
 0, Line, //  push this operation to master list and then process it. 
 0, Line, //  the number of arguments is correct, but if the last argument   is no array we have to wrap it in a array. If the last argument   is null, then we don't have to do anything 
 0, Line, // ---------------------------------------------------------------------------   LOOP SIMPLIFICATION FOR SourceUnit OPERATIONS 
@@ -150,7 +150,7 @@ Label, Type, Content
 0, Line, //  remove text and reselect the text 
 0, Line, //  provide setter for CLI Builder purposes unless final 
 0, Line, //  ------------------ double[] ------------------ 
-1, Block, /* dummy receiver: */
+0, Block, /* dummy receiver: */
 0, Line, //  ------------------ byte[] ------------------ 
 0, Line, //  ignore out-of-order write operations 
 0, Line, // TODO: one day we could try return the previously registered Closure listener for easy removal 
@@ -1430,7 +1430,7 @@ Label, Type, Content
 0, Line, //  Introspection failure...   May happen in Android 
 0, Line, //  You defined a method without body. Try adding a body, or declare it abstract   fails after parser 
 0, Line, //  check if the placeholder corresponds to the placeholder of the first parameter 
-1, Line, //  ... fits badly ? 
+0, Line, //  ... fits badly ?
 0, Block, /*  2: long    */
 0, Line, //  Object is superclass of arrays but no generics involved 
 0, Line, //  Check this class loader 

@@ -3,7 +3,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// EATM Call the deprecated method which does the same thing  // but might have an override in older code.
 1,0,0,0,0,0,0,// Unused?
 1,0,1,1,1,1,1,// TODO factor up into GenBaseImpl? //
-1,0,0,1,0,1,1,// call workaround
+1,0,1,1,0,1,1,// call workaround
 1,0,1,1,1,1,1,// TODO deprecate (since getPluginClass() is no longer called) //
 1,0,0,0,0,0,0,// Ensure that this race condition is thread safe; it doesn't matter who wins the race. //
 1,0,1,1,1,1,1,// TODO // This assumes we only get a SET notification, which isn't a good assumption. //
@@ -11,7 +11,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//FB TBD can we come up with a better algorithm for choosing the default label feature?
 1,0,0,0,0,0,0,//DMS should we let this exception out?
 1,0,0,0,0,0,0,//DMS What if Eclipse is running, but an invalid facade has been specified?  We still should format code, use encoding,...
-1,0,0,0,0,0,0,//DMS  Do a better job with specific exceptions? Just use chained RuntimeExceptions?
+1,0,0,1,0,1,1,//DMS  Do a better job with specific exceptions? Just use chained RuntimeExceptions?
 1,0,0,0,0,0,0,// If the delegate URI can be handled as a file,  // we'll hope that renaming it will be really efficient. //
 1,0,1,1,0,1,1,//DMS Why not this? //new SubProgressMonitor(progressMonitor, 1));
 1,0,0,0,0,0,0,// Assume that it's an attribute for now. // It will/could become a reference if the type resolves to an EClass. //
@@ -34,8 +34,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,1,0,0,0,0,0,// Motif kludge: we would get something random instead of null. //
 1,0,1,1,1,1,1,// TODO So what should be the eType be now? //
 1,0,0,0,0,0,0,// This runs the operation, and shows progress. // (It appears to be a bad thing to fork this onto another thread.) //
-1,1,1,0,1,1,1,// EATM Kind of hacky.
-1,1,1,0,0,0,0,// This is a kludge to deal with enumerators, which crash the doSwitch. //
+1,1,1,0,0,0,0,// EATM Kind of hacky.
+1,1,0,0,0,0,0,// This is a kludge to deal with enumerators, which crash the doSwitch. //
 1,0,0,0,0,0,0,// This is copied from ItemProviderAdapterFactory. //
 1,0,0,1,0,1,1,// EATM This might be better written as a single loop for the EObject case? //
 1,0,0,0,0,0,0,// Second alternative should be getModelProject()?
@@ -62,7 +62,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//FB TBD filter out volatile and other inappropriate links?
 1,0,0,0,0,0,0,// I don't know if this should be run this deferred // because we might have to give the editor a chance to process the viewer update events // and hence to update the views first. // //
 1,0,0,1,1,1,1,// TODO processing instructions are not sent to recordValues
-1,0,0,1,1,1,1,// TODO comments are not sent to recordValues
+1,0,1,1,1,1,1,// TODO comments are not sent to recordValues
 1,0,1,1,1,1,1,// TODO Ignore for now.
 1,0,0,1,1,1,1,// TODO handle situation when ASTJNode is removed (compilationUnit is null)
 1,0,0,0,0,0,0,//TBD return super classes of classes in this package that come from a delegate package.
@@ -143,7 +143,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Fill 3 of value (byte) -19
 0,0,0,0,0,0,0,// for enum constants use special range
 0,0,0,0,0,0,0,//ETypedElement
-0,0,1,0,0,0,0,// So if the resolved object is also present... //
+0,0,0,0,0,0,0,// So if the resolved object is also present... //
 0,0,0,0,0,0,0,//EcorePackage
 0,0,0,0,0,0,0,// Subclasses may override this method
 0,0,0,0,0,0,0,// Create resource
@@ -362,7 +362,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,1,0,0,0,0,//FB The following method is copied from com.ibm.etools.b2b.util.StringUtility //FB because the mapping framework cannot have a dependency on b2b. What we really //FB need to do is get methods like this moved to vabase so that everyone can //FB use them. // change all occurrences of oldPat to newPat
 0,0,0,0,0,0,0,// If it is changing... //
 0,0,0,0,0,0,0,// Test for a same document reference that would usually be handled as an IDREF. //
-0,0,1,0,0,0,0,// Check for scheme, which must be before '/', '?' or '#'. Also handle // names with DOS drive letters ('D:'), so 1-character schemes are not // allowed.
+0,0,0,0,0,0,0,// Check for scheme, which must be before '/', '?' or '#'. Also handle // names with DOS drive letters ('D:'), so 1-character schemes are not // allowed.
 0,0,0,0,0,0,0,// Need not to call setSource() because // a caller can not access this match instance.
 0,0,0,0,0,0,0,// Only creates the other pages if there is something that can be edited //
 0,0,0,0,0,0,0,// Create the listener on demand. //
@@ -486,7 +486,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Create a key set that supports add. //
 0,0,0,0,0,0,0,// Suppress default constructor for non-instantiability.
 0,0,0,0,0,0,0,// Get previous state in stack. //
-0,1,1,0,0,0,0,// VAJ kludge //
+0,1,0,0,0,0,0,// VAJ kludge //
 0,0,0,0,0,0,0,"/*                  result.addRange(0, RegularExpression.LINE_FEED-1);                  result.addRange(RegularExpression.LINE_FEED+1, RegularExpression.CARRIAGE_RETURN-1);                  result.addRange(RegularExpression.CARRIAGE_RETURN+1,                                  RegularExpression.LINE_SEPARATOR-1);                  result.addRange(RegularExpression.PARAGRAPH_SEPARATOR+1, UTF16_MAX);                  return 1;                  */"
 0,0,0,0,0,0,0,// Make sure we have something to pop. //
 0,0,0,0,0,0,0,// Map to EClass, EEnum or EInerface. // Note that we do not map structure and primitive type class. //
@@ -801,7 +801,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Continue to compute the offset.
 0,0,0,0,0,0,0,// Defer the handling of the opposite. //
 0,0,0,0,0,0,0,// this guard is for extra security, but should not be necessary
-0,0,1,1,0,1,1,// Do this first for better error message during setEParameterProperties. //
+0,0,0,1,0,1,1,// Do this first for better error message during setEParameterProperties. //
 0,0,0,0,0,0,0,// set properties
 0,0,0,0,0,0,0,// Index counters into indices1, indices2, and indices.  //
 0,0,1,0,0,0,0,// Just remember it; it's encoded later during execution, which is more efficient. //
@@ -947,7 +947,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// It's definitely a package if expected constants eNAME, eNS_PREFIX, or eNS_URI appear. //
 0,0,0,0,0,0,0,// bottom-label-case
 0,0,0,0,0,0,0,// This ensures that the CreateCopyCommand will be executed by StrictCompoundCommand.prepare(). //
-0,0,1,0,0,0,0,// Do not allow an existing build.properties to be overwritten, as the tests project is originally generated from scratch. //
+0,0,0,0,0,0,0,// Do not allow an existing build.properties to be overwritten, as the tests project is originally generated from scratch. //
 0,0,0,0,0,0,0,// Fill 16 of value (byte) -87 // Fill 3 of value (byte) 33 // Fill 4 of value (byte) -87 // Fill 3 of value (byte) 33 // Fill 10 of value (byte) -19 // Fill 2 of value (byte) -87 // Fill 2 of value (byte) 33 // Fill 10 of value (byte) -87 // Fill 17 of value (byte) 33 // Fill 3 of value (byte) -87
 0,0,0,0,0,0,0,// Handle eOpposite specially. //
 0,0,0,0,0,0,0,// If this owned object is equal to one from the collection... //
@@ -956,7 +956,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Filter out classes that aren't permitted. //
 0,0,0,0,0,0,0,//GenModelValidator
 0,0,0,0,0,0,0,// Read all the values into an array. //
-0,0,0,0,0,0,0,// This can't execute if there is no owner list  // or the owner list doesn't contain the value being replaced or  // there are not replacements. //
+0,0,1,0,0,0,0,// This can't execute if there is no owner list  // or the owner list doesn't contain the value being replaced or  // there are not replacements. //
 0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.eclipse.emf.mapping.ecore2ecore.Ecore2EcoreMapping#getOutputEPackage()   */"
 0,0,0,0,0,0,0,//GenModelSwitch
 0,0,0,0,0,0,0,// Now we'll do recursive MatchMapping. // (We need to iterate over a copy, since we modify the underlying list in the loop.)
@@ -1081,7 +1081,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// return the line number of the start of the node
 0,0,0,0,0,0,0,//MappingPackageImpl
 0,0,0,0,0,0,0,// revert all current edits for this node
-0,0,1,0,0,0,0,// this line has been commented out, return next line number
+0,0,0,0,0,0,0,// this line has been commented out, return next line number
 0,0,0,0,0,0,0,// Find the appropriate parent mapping, which at the very least, should be the mapping root itself. //
 0,0,0,0,0,0,0,// if there is anything after the node on the same line, insert line break
 0,0,0,0,0,0,0,// Separators for parsing a URI string.
@@ -1413,7 +1413,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// reset text edits; since this node is processed successfully, there is no need to revert these changes
 0,0,0,0,0,0,0,// EEnumImpl overrides this to do nothing. // The only case that is special is when a more specific instance of AbstractEnumerator is generated/reused. //
 0,0,0,0,0,0,0,// This forces the feature ids to be assigned. //
-0,0,1,0,0,0,0,// Interprets escaped characters within the string according to Java // literal rules, with two exceptions: an unescaped " does not terminate // the string, and a \ not followed by b, t, n, f, r, ", ', u, or an octal // digit is taken literally, not as an error
+0,0,0,0,0,0,0,// Interprets escaped characters within the string according to Java // literal rules, with two exceptions: an unescaped " does not terminate // the string, and a \ not followed by b, t, n, f, r, ", ', u, or an octal // digit is taken literally, not as an error
 0,0,0,0,0,0,0,// We can use == for EObjects and EnumLiterals. //
 0,0,0,0,0,0,0,// A standalone base is a valid URI according to spec
 0,0,0,0,0,0,0,// This is needed for internal bootstrapping of EGenericType's default value for eRawType. // It's simply not available before Ecore is constructed so we make it available and then patch what's missing. //
@@ -1692,7 +1692,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The methods were matched by a process that doesn't consider the // parameters
 0,0,0,0,0,0,0,/*02B0..02FF;*/
 0,0,0,0,0,0,0,// Look for the annotation with the matching source. //
-0,0,1,0,0,0,0,// We can't find the class, so we don't want this class loader, // but instead want the last result that was able to load the class. //
+0,0,0,0,0,0,0,// We can't find the class, so we don't want this class loader, // but instead want the last result that was able to load the class. //
 0,0,0,0,0,0,0,// Don't push method annotations into redirected methods. //
 0,0,0,0,0,0,0,// Create a resource for this file. //
 0,0,0,0,0,0,0,// This just notifies those things that are affected by the section. //
@@ -1943,7 +1943,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//order constants
 0,0,0,0,0,0,0,// class XMLChar
 0,0,0,0,0,0,0,// interface TypeValidator
-0,0,0,0,0,0,0,// If this looks like a feature getter, a kind property will allow it to be recognized properly. //
+0,0,0,1,0,1,1,// If this looks like a feature getter, a kind property will allow it to be recognized properly. //
 0,0,0,0,0,0,0,// indicate that initializer has been changed // (required to not overwrite initializer if variables are split later)
 0,0,0,0,0,0,0,// Remove from by position in reverse order. //
 0,0,0,0,0,0,0,// keep comments between nodes when removing or moving nodes
@@ -2090,7 +2090,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Create commands to create copies of the children. //
 0,0,0,0,0,0,0,// Prepare the right type of operation. //
 0,0,0,0,0,0,0,// The feedback is set based on which half we are in. // If the command isn't executable, these values won't be used. //
-0,0,0,0,0,0,0,// We'll always be wrong for these arguments, so don't bother re-checking. //
+0,0,1,0,0,0,0,// We'll always be wrong for these arguments, so don't bother re-checking. //
 0,0,0,0,0,0,0,// We are near the middle, so we'll start by trying to do a drop on. //
 0,0,0,0,0,0,0,// We can reset and try a drop insert instead. //
 0,0,0,0,0,0,0,// If we can do a drop on operation. //
@@ -2391,7 +2391,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The type can be augmented by specifying the it explicitly in the annotation. // This mostly makes sense only for many-valued typed elements, where the Java // type is a list and the item type needs to be specified. //
 0,0,0,0,0,0,0,// continue with default processing
 0,0,0,0,0,0,0,// Allow the value to be defined by an annotation or by the field's initializer //
-0,0,0,0,0,0,0,// We want to resolve to this. //
+0,0,1,0,0,0,0,// We want to resolve to this. //
 0,0,0,0,0,0,0,// Returns the lower half bitmask for all ASCII characters between the two // given characters, inclusive.
 0,0,0,0,0,0,0,// But, if name doesn't expand into field name, ignore it. //
 0,0,0,0,0,0,0,// Returns the upper half bitmask for all AsCII characters between the two // given characters, inclusive.
@@ -2551,7 +2551,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// If there are any arguments and they are not unbounded wildcards, casts can't be checked. //
 0,0,0,0,0,0,0,// We need to be conservative and diagnose a problem only if we are quite sure that type is built-in  // and hence that the lack of a default value really represents a problem with being unable to convert the literal to a value. //
 0,0,0,0,0,0,0,// Or we test their relationship via their instance classes, if they have them. //
-0,0,1,0,0,0,0,// Some XML types declare nebulous Object mappings. // They actually map to internal types that shouldn't be generated into code. //
+0,0,0,0,0,0,0,// Some XML types declare nebulous Object mappings. // They actually map to internal types that shouldn't be generated into code. //
 0,0,0,0,0,0,0,// This guards the switch. //
 0,0,0,0,0,0,0,// If there is a base XML or Ecore type, use one of the two corresponding built-in factories to create a value from the literal string. //
 0,0,0,0,0,0,0,// Clean up any old project information. //

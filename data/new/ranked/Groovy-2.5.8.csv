@@ -1,7 +1,7 @@
 1, Line, // TODO Jochen: move the findSpecial to a central place together with others to easy security configuration 
 1, Line, //  todo: inner class nodes don't have an objectInitializers field available 
+1, Block, /*          * TODO: Remove after JDK9 is the minimum JDK supported         *         * JDK9+ correctly accounts for the synthetic parameter and when it becomes         * the minimum version this method should no longer be required.          */
 1, Line, //         currently char isn't found due to a bug, so go with Object 
-1, Block, /* dummy receiver: */
 1, Line, //  TODO check specified type is assignable from declared param type?   ClassNode type = getMemberClassValue(namedParam, "type"); 
 1, Block, /*  todo these special cases should be special MetaClasses maybe  */
 1, Line, //  @todo - refactor pulling generic parser interface up 
@@ -60,7 +60,6 @@
 1, Line, //  it's better to cache class instances by the source code   GCL will load the unique class instance for the same source code   and avoid occupying Permanent Area/Metaspace repeatedly 
 1, Line, //  is method object correct type? 
 1, Line, //  A little bit of paranoid checking here? Most drivers will throw BatchUpdateException perhaps? 
-1, Line, //  ... fits badly ? 
 1, Line, // TODO After 1.1 we should introspect the meta property and set editable to false if the property is read only 
 1, Line, // TODO: replace with normal String, p not needed 
 1, Line, //  @todo should try with just a node as the child 
@@ -368,7 +367,6 @@
 0, Line, //  this function will 'correctly' print first 30 permutations 
 0, Line, //  verify if passing -Xlint in compilerarg had its effect 
 0, Line, //  the original program used:   Hashtable ht = new Hashtable();   John Olsson points out that Hashtable is for synchronized access   and we should use instead: 
-0, Block, /*          * TODO: Remove after JDK9 is the minimum JDK supported         *         * JDK9+ correctly accounts for the synthetic parameter and when it becomes         * the minimum version this method should no longer be required.          */
 0, Line, //  push this operation to master list and then process it. 
 0, Line, //  the number of arguments is correct, but if the last argument   is no array we have to wrap it in a array. If the last argument   is null, then we don't have to do anything 
 0, Line, // ---------------------------------------------------------------------------   LOOP SIMPLIFICATION FOR SourceUnit OPERATIONS 
@@ -397,6 +395,7 @@
 0, Line, //  remove text and reselect the text 
 0, Line, //  provide setter for CLI Builder purposes unless final 
 0, Line, //  ------------------ double[] ------------------ 
+0, Block, /* dummy receiver: */
 0, Line, //  ------------------ byte[] ------------------ 
 0, Line, //  ignore out-of-order write operations 
 0, Line, // TODO: one day we could try return the previously registered Closure listener for easy removal 
@@ -1618,6 +1617,7 @@
 0, Line, //  Introspection failure...   May happen in Android 
 0, Line, //  You defined a method without body. Try adding a body, or declare it abstract   fails after parser 
 0, Line, //  check if the placeholder corresponds to the placeholder of the first parameter 
+0, Line, //  ... fits badly ?
 0, Block, /*  2: long    */
 0, Line, //  Object is superclass of arrays but no generics involved 
 0, Line, //  Check this class loader 

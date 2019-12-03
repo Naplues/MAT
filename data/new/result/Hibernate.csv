@@ -1,6 +1,6 @@
 oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// use COUNT as the default.  This mimics the old behavior, although // NONE might be a better option moving forward in the case of callable
-1,0,1,1,0,1,1,//perhaps not really necessary...
+1,0,0,1,0,1,1,//perhaps not really necessary...
 1,0,1,1,1,1,1,// todo : what else to do here?
 1,0,1,1,1,1,1,//TODO: disable batch loading if lockMode > READ?
 1,0,1,1,1,1,1,//TODO: to handle concurrent writes correctly, the client should pass in a Lock
@@ -8,23 +8,23 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//note there is a wierd implementation in the client side
 1,0,1,1,1,1,1,// todo: this was added to support initializing an entity's EntityEntry snapshot during reattach; // this should be refactored to instead expose a method to assemble a EntityEntry based on this // state for return.
 1,0,0,0,0,0,0,// Do we need to drop constraints before dropping tables in this dialect?
-1,0,1,1,1,1,1,"/**     * FIXME Per the RegionFactory class Javadoc, this constructor version     * should not be necessary.     *      * @param props The configuration properties     */"
+1,0,0,1,1,1,1,"/**     * FIXME Per the RegionFactory class Javadoc, this constructor version     * should not be necessary.     *      * @param props The configuration properties     */"
 1,0,0,0,0,0,0,// Does this dialect support check constraints?
 1,0,0,0,0,0,0,// this is called by SessionFactory irregardless; we just disregard here; // could also add a check to SessionFactory to only conditionally call start
 1,0,0,0,0,0,0,// Does this dialect support the UNIQUE column syntax?
 1,1,1,1,1,1,1,// this is done here 'cos we might only know the type here (ugly!) // TODO: improve this a lot:
 1,0,0,0,0,0,0,// Does this dialect support the FOR UPDATE syntax?
-1,0,0,1,1,1,1,// todo : what is the implication of this?
+1,0,1,1,1,1,1,// todo : what is the implication of this?
 1,0,1,1,1,1,1,// todo : YUCK!!!
 1,0,1,1,1,1,1,// todo : again, how *should* this work for non-pojo entities?
 1,0,0,0,0,0,0,// Does this dialect support FOR UPDATE OF, allowing particular rows to be locked?
 1,1,1,1,1,1,1,//TODO: really bad, evil hack to fix!!!
 1,0,0,1,1,1,1,//aliasRefNode.resolve( false, false, aliasRefNode.getText() ); //TODO: is it kosher to do it here? //TODO: is it kosher to do it here?
 1,0,1,1,1,1,1,//TODO: better to degrade to lazy="false" if uninstrumented
-1,0,0,0,0,0,0,// Does this dialect support the Oracle-style FOR UPDATE NOWAIT syntax?
-1,0,1,1,0,1,1,//Icky workaround for MySQL bug:
+1,0,1,0,0,0,0,// Does this dialect support the Oracle-style FOR UPDATE NOWAIT syntax?
+1,0,0,1,0,1,1,//Icky workaround for MySQL bug:
 1,1,0,0,0,0,0,// we have to set up the table later!! yuck
-1,0,0,1,1,1,1,//TODO: Somehow add the newly created foreign keys to the internal collection
+1,0,1,1,1,1,1,//TODO: Somehow add the newly created foreign keys to the internal collection
 1,0,0,0,0,0,0,// This inner class implements a case statement....perhaps im being a bit over-clever here
 1,0,1,1,1,1,1,//TODO: merge into one method!
 1,0,1,1,1,1,1,// TODO: this is a bit of copy/paste from IndexedCollection.createPrimaryKey()
@@ -33,7 +33,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//FIXME: get the PersistentClass
 1,0,1,1,1,1,1,// todo : we can remove this once the deprecated ctor can be made private...
 1,0,1,0,1,1,1,//TODO: this is too conservative; if all preceding joins were  //      also inner joins, we could use an inner join here
-1,0,0,1,1,1,1,//TODO: redesign how PropertyAccessors are acquired...
+1,0,1,1,1,1,1,//TODO: redesign how PropertyAccessors are acquired...
 1,0,1,1,1,1,1,// TODO : not so sure this is needed...
 1,0,0,0,0,0,0,//create an index on the key columns??
 1,0,0,0,1,1,1,"/* TODO: joinKeyColumnName & foreignKeyColumnName should be called either here or at a			 * slightly higer level in the stack (to get all the information we need)			 * Right now HbmBinder does not support the			 */"
@@ -50,12 +50,12 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//TODO: is this right??
 1,1,0,0,0,0,0,//ie. the subquery! yuck!
 1,0,1,1,0,1,1,//use of a stringbuffer to workaround a JDK bug
-1,0,1,1,1,1,1,//TODO: copy/paste from recreate()
-1,0,0,0,0,0,0,//workaround, for backward compatibility of sets with no //not-null columns, assume all columns are used in the //row locator SQL
+1,0,0,1,1,1,1,//TODO: copy/paste from recreate()
+1,0,0,1,0,1,1,//workaround, for backward compatibility of sets with no //not-null columns, assume all columns are used in the //row locator SQL
 1,0,1,1,1,1,1,// todo : this eventually needs to be removed
 1,0,1,1,1,1,1,// todo : remove
 1,1,0,1,0,1,1,//just to help out during the load (ugly, i know)
-1,1,1,0,1,1,1,// hack/workaround as sqlquery impl depend on having a key.
+1,1,1,0,0,0,0,// hack/workaround as sqlquery impl depend on having a key.
 1,0,0,1,1,1,1,//TODO: handle the case of a foreign key to something other than the pk
 1,0,0,1,1,1,1,//TODO: assumes all collections disassemble to an array!
 1,0,0,1,1,1,1,// todo : would love to have this work on a notification basis //    where the successful binding of an entity/subclass would //    emit a notification which the extendsQueue entries could //    react to...
@@ -70,7 +70,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// TODO: should "record" how many properties we have reffered to - and if we  //       don't get'em'all we throw an exception! Way better than trial and error ;)
 1,0,1,1,1,1,1,//TODO: this dependency is kinda Bad
 1,0,1,1,1,1,1,//TODO: get SQL rendering out of this package!
-1,0,1,1,0,1,1,// why does this matter?
+1,0,0,1,0,1,1,// why does this matter?
 1,0,1,1,1,1,1,// important, to account for newly saved entities in query // todo : some kind of check for new status...
 1,0,1,0,1,1,1,//TODO: can we *always* use the "null property" approach for everything?
 1,0,0,0,0,0,0,// does this need holdlock also? : return tableName + " with (updlock, rowlock, holdlock)";
@@ -114,11 +114,11 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,/////////////////////////////////////////////////////////////////////// // HACK ALERT !!!!!!!!!!!!!!!!!!!!!!!!!!!! // Attempt to work around "ghost" ImpliedFromElements that occasionally // show up between the actual things being joined.  This consistently // occurs from index nodes (at least against many-to-many).  Not sure // if there are other conditions // // Essentially, look-ahead to the next FromElement that actually // writes something to the SQL
 1,0,0,0,0,0,0,// Not possible to simply re-use the versionPropertyNode here as it causes // OOM errors due to circularity :(
 1,0,1,0,1,1,1,// this function has a template -> restore output, apply the template and write the result out // TODO: Downcast to avoid using an interface?  Yuck.
-1,0,1,1,0,1,1,// at some point the generate phase needs to be moved out of here, // because a single object-level DML might spawn multiple SQL DML // command executions. // // Possible to just move the sql generation for dml stuff, but for // consistency-sake probably best to just move responsiblity for // the generation phase completely into the delegates // (QueryLoader/StatementExecutor) themselves.  Also, not sure why // QueryLoader currently even has a dependency on this at all; does // it need it?  Ideally like to see the walker itself given to the delegates directly...
-1,0,1,0,1,1,1,//TODO:this is only needed during compilation .. can we eliminate the instvar?
+1,0,1,0,0,0,0,// at some point the generate phase needs to be moved out of here, // because a single object-level DML might spawn multiple SQL DML // command executions. // // Possible to just move the sql generation for dml stuff, but for // consistency-sake probably best to just move responsiblity for // the generation phase completely into the delegates // (QueryLoader/StatementExecutor) themselves.  Also, not sure why // QueryLoader currently even has a dependency on this at all; does // it need it?  Ideally like to see the walker itself given to the delegates directly...
+1,0,1,0,0,0,0,//TODO:this is only needed during compilation .. can we eliminate the instvar?
 1,0,1,1,1,1,1,// TODO : absolutely no usages of this constructor form; can it go away?
 1,1,1,1,1,1,1,//TODO: is this a bit ugly?
-1,0,1,1,1,1,1,// even here, if only properties mapped to the "base table" are referenced // in the set and where clauses, this could be handled by the BasicDelegate. // TODO : decide if it is better performance-wise to perform that check, or to simply use the MultiTableUpdateDelegate
+1,0,0,1,1,1,1,// even here, if only properties mapped to the "base table" are referenced // in the set and where clauses, this could be handled by the BasicDelegate. // TODO : decide if it is better performance-wise to perform that check, or to simply use the MultiTableUpdateDelegate
 1,0,0,1,1,1,1,// TODO : remove these last two as batcher is no longer managing connections
 1,0,0,0,0,0,0,// VERY IMPORTANT!!!! - This class needs to be free of any static references // to any CGLIB or Javassist classes.  Otherwise, users will always need both // on their classpaths no matter which (if either) they use. // // Another option here would be to remove the Hibernate.isPropertyInitialized() // method and have the users go through the SessionFactory to get this information.
 1,0,1,1,1,1,1,// TODO : we really need to be able to deal with component paths here also; // this is difficult because the hql-sql grammar expects all those node types // to be FromReferenceNodes.  One potential fix here would be to convert the // IntoClause to just use a FromClause/FromElement combo (as a child of the // InsertStatement) and move all this logic into the InsertStatement.  That's // probably the easiest approach (read: least amount of changes to the grammar // and code), but just doesn't feel right as then an insert would contain // 2 from-clauses
@@ -130,7 +130,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// TODO : we may also want to check that the types here map to exactly one column/JDBC-type //      can't think of a situation where arithmetic expression between multi-column mappings //      makes any sense.
 1,0,0,0,0,0,0,// we do not know either type //BLIND GUESS!
 1,0,1,0,1,1,1,// TODO: get SQL rendering out of here, create an AST for the join expressions. // Use the SQL generator grammar to generate the SQL text for the index expression.
-1,0,0,1,0,1,1,// We would probably refactor to have LogicParser (builds a tree of simple // expressions connected by and, or, not), ExpressionParser (translates // from OO terms like foo, foo.Bar, foo.Bar.Baz to SQL terms like // FOOS.ID, FOOS.BAR_ID, etc) and PathExpressionParser (which does much // the same thing it does now)
+1,0,0,0,0,0,0,// We would probably refactor to have LogicParser (builds a tree of simple // expressions connected by and, or, not), ExpressionParser (translates // from OO terms like foo, foo.Bar, foo.Bar.Baz to SQL terms like // FOOS.ID, FOOS.BAR_ID, etc) and PathExpressionParser (which does much // the same thing it does now)
 1,0,0,0,0,0,0,// short-circuit for performance...
 1,0,0,0,0,0,0,// not absolutely necessary, but does help with aggressive release
 1,1,1,1,1,1,1,// try block is a hack around fact that currently tuplizers are not // given the opportunity to resolve a subclass entity name.  this // allows the (we assume custom) interceptor the ability to // influence this decision if we were not able to based on the // given entityName
@@ -156,7 +156,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//The class is now way to complex!
 1,0,1,1,1,1,1,// TODO : would be really nice to cache the spec on the query-def so as to not have to re-calc the hash; // currently not doable though because of the resultset-ref stuff...
 1,0,0,0,0,0,0,//name from a super query (a bit inelegant that it shows up here)
-1,1,0,0,1,1,1,//real hacky... // used to count the nesting of parentheses
+1,1,0,0,0,0,0,//real hacky... // used to count the nesting of parentheses
 1,0,0,0,0,0,0,//put() has nowait semantics, is this really appropriate? //note that it needs to be async replication, never local or sync
 1,1,1,1,1,1,1,// ugly hack for cases like "elements(foo.bar.collection)" // (multi-part path expression ending in elements or indices)
 1,0,1,1,1,1,1,// FIXME Hacky workaround to JBCACHE-1202
@@ -164,7 +164,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// todo : need to find a clean way to handle the "event source" role // a seperate classs responsible for generating/dispatching events just duplicates most of the Session methods... // passing around seperate reto interceptor, factory, actionQueue, and persistentContext is not manageable...
 1,1,1,0,0,0,0,//Must be done here because of side-effect! yuck...
 1,0,1,0,0,0,0,//We should actually rework this class to not implement Parser //and just process path expressions in the most convenient way.
-1,0,0,0,1,1,1,// TODO : should remove this exposure //  and have all references to the session's batcher use the ConnectionManager.
+1,0,1,0,1,1,1,// TODO : should remove this exposure //  and have all references to the session's batcher use the ConnectionManager.
 1,0,0,0,0,0,0,// we may be screwed here since the collection action is about to execute // and we do not know the final owner key value
 1,0,1,1,1,1,1,// Needed the "clazz_" check to work around union-subclasses // TODO : is there a way to tell whether a persister is truly discrim-column based inheritence?
 1,0,0,0,0,0,0,//work around a bug in all known connection pools....
@@ -182,7 +182,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//TODO: get SQL rendering out of here
 1,0,0,0,0,0,0,// meant to handle dynamic instantiation queries...(Copy from QueryLoader)
 1,0,1,0,1,1,1,// Make sure this is a defined parameter and check the incoming value type // TODO: what should be the actual exception type here?
-1,0,1,1,0,1,1,// worrying about proxies is perhaps a little bit of overkill here...
+1,0,0,1,0,1,1,// worrying about proxies is perhaps a little bit of overkill here...
 1,0,1,1,1,1,1,// todo : throw exception?  maybe warn if not the same?
 1,0,1,1,1,1,1,//TODO: make EntityPersister *not* depend on SessionFactoryImplementor //interface, if possible
 1,0,0,1,1,1,1,// TODO : what amount of significant digits need to be supported here? //      - from the DecimalFormat docs: //          [significant digits] = [minimum integer digits] + [maximum fraction digits]
@@ -232,10 +232,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//TODO: we use two visitors here, inefficient!
 1,0,1,1,1,1,1,//TODO: does this really need to be here? //      does the collection already have //      it's own up-to-date snapshot?
 1,0,0,0,0,0,0,// otherwise, a trim-specification and/or a trim-character // have been specified;  we need to decide which options // are present and "do the right thing" // should leading trim-characters be trimmed? // should trailing trim-characters be trimmed? // the trim-character // the trim-source
-1,0,1,1,1,1,1,//it is possible that the tree-walking in OuterJoinLoader can get to //an association defined by a subclass, in which case the property-ref //might refer to a property defined on a subclass of the current class //in this case, the table name is not known - this temporary solution  //assumes that the property-ref refers to a property of the subclass //table that the association belongs to (a reasonable guess) //TODO: fix this, add: OuterJoinLoadable.getSubclassPropertyTableName(String propertyName)
+1,0,0,1,1,1,1,//it is possible that the tree-walking in OuterJoinLoader can get to //an association defined by a subclass, in which case the property-ref //might refer to a property defined on a subclass of the current class //in this case, the table name is not known - this temporary solution  //assumes that the property-ref refers to a property of the subclass //table that the association belongs to (a reasonable guess) //TODO: fix this, add: OuterJoinLoadable.getSubclassPropertyTableName(String propertyName)
 1,0,0,1,1,1,1,// TODO: an alternative is to check if the owner has changed; if it hasn't then // return collection.getOwner()
 1,0,0,0,0,0,0,//I suppose?
-1,0,1,0,0,0,0,"// TBD should this be varbinary($1)? //		registerColumnType(Types.VARBINARY,     ""binary($1)"");"
+1,0,0,0,0,0,0,"// TBD should this be varbinary($1)? //		registerColumnType(Types.VARBINARY,     ""binary($1)"");"
 1,0,0,0,0,0,0,//shortcut
 1,0,1,1,1,1,1,//TODO: we should provide some way to get keys of collection of statistics to make it easier to retrieve from a GUI perspective
 1,0,1,1,1,1,1,// TODO : probably better to calculate these and pass them in, as it'll be more performant
@@ -268,8 +268,8 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// for DOM4J "collections" only // TODO: it would be better if this was done at the higher level by Printer
 1,0,1,1,1,1,1,//TODO: inefficient if that cache is just going to ignore the updated state!
 1,0,0,0,1,1,1,// TODO: an alternative is to check if the owner has changed; if it hasn't then // get the ID from collection.getOwner()
-1,0,1,0,1,1,1,//TODO:refactor + make this method private
-1,0,0,1,1,1,1,// TODO : keep seperate notions of QT[] here for shallow/non-shallow queries...
+1,0,1,0,0,0,0,//TODO:refactor + make this method private
+1,0,1,1,1,1,1,// TODO : keep seperate notions of QT[] here for shallow/non-shallow queries...
 1,0,1,0,1,1,1,// todo : temporary //      needed because currently persister is the one that //      creates and renders the join fragments for inheritence //      hierarchies...
 1,0,1,0,0,0,0,// this is called by SessionFactory irregardless; we just disregard here; // could also add a check to SessionFactory to only conditionally call stop
 1,0,0,0,0,0,0,//swaldman 2004-02-07: modify to allow null values to signify fall through to c3p0 PoolConfig defaults
@@ -285,7 +285,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,1,1,1,0,1,1,//This is really ugly, but necessary:
 1,0,0,1,1,1,1,// todo : modify the class definition if not already transformed...
 1,0,1,1,1,1,1,//TODO: should we use SELECT .. FOR UPDATE?
-1,0,0,0,1,1,1,"/** Create an action that will evict collection and entity regions based on queryspaces (table names).	 *  TODO: cache the autodetected information and pass it in instead.	 **/"
+1,0,1,0,1,1,1,"/** Create an action that will evict collection and entity regions based on queryspaces (table names).	 *  TODO: cache the autodetected information and pass it in instead.	 **/"
 1,0,1,1,1,1,1,//TODO: is this 100% correct?
 1,0,0,1,1,1,1,/////////////////////////////////////////////////////////////////////////// // USED ONLY FOR REGRESSION TESTING!!!! // // todo : obviously get rid of all this junk ;) ///////////////////////////////////////////////////////////////////////////
 1,0,0,0,0,0,0,// NOTE: this assumes something about how propertySelectFragment is implemented by the subclass! // was toUnqotedAliasStrings( getIdentiferColumnNames() ) before - now tried // to remove that unqoting and missing aliases..
@@ -332,7 +332,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//TODO: optimize away this lookup for entities w/o unsaved-value="undefined"
 1,0,1,1,1,1,1,// TODO: toLowerCase was not done before. Only used in Template.
 1,0,0,1,1,1,1,//TODO: arithmetic expressions, multiple new Foo(...)
-1,0,0,1,1,1,1,// TODO: not visible to the user!
+1,0,1,1,1,1,1,// TODO: not visible to the user!
 1,0,0,1,1,1,1,//TODO: proxies!
 1,0,1,1,1,1,1,//TODO: can we limit stored procedures ?!
 1,0,0,1,1,1,1,//TODO: formulas ?
@@ -342,7 +342,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//TODO: add referencedClass to disambiguate to FKs on the same //      columns, pointing to different tables
 1,0,0,1,1,1,1,//TODO: create uk loaders for component properties
 1,0,1,1,1,1,1,// TODO : still need to make CollectionPersisters EntityMode-aware
-1,0,0,1,1,1,1,//TODO: terrible implementation!
+1,0,1,1,1,1,1,//TODO: terrible implementation!
 1,0,1,1,1,1,1,//TODO: eventually put this back in, once we think all is fixed //Object otherAlias = columnsUnique.put(qualifiedColumn, columnAlias);
 1,0,1,1,1,1,1,// TODO: I don't really like this implementation; it would be better if // this was handled by searchForDirtyCollections()
 1,0,0,1,1,1,1,// TODO: check if key contains the owner ID
@@ -391,7 +391,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//use suffix for the entity columns
 0,0,0,0,0,0,0,// we got here because we assumed that an instance // with an assigned id was detached, when it was // really persistent
 0,0,0,0,0,0,0,// the class hierarchy structure
-0,0,0,0,0,0,0,// remove the current element from insertions. It will be added back later.
+0,0,1,0,0,0,0,// remove the current element from insertions. It will be added back later.
 0,0,0,0,0,0,0,//private final String rootTableName;
 0,0,0,0,0,0,0,// NOTE : this is being used from the process of shutting down a // SessionFactory. Specific things to consider: // (1) this clearing of the region should not propagate to // other nodes on the cluster (if any); this is the // cache-mode-local option bit... // (2) really just trying a best effort to cleanup after // ourselves; lock failures, etc are not critical here; // this is the fail-silently option bit...
 0,0,0,0,0,0,0,//INITIALIZATION:
@@ -506,7 +506,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//If the object is already loaded, return the loaded one
 0,0,0,0,0,0,0,// create new lock that times out immediately
 0,0,0,0,0,0,0,// convenience methods relating to operations across arrays of types...
-0,0,0,0,0,0,0,// we really could refresh the item if it // is not a lock, but it might be slower //return freshTimestamp < txTimestamp
+0,0,1,0,0,0,0,// we really could refresh the item if it // is not a lock, but it might be slower //return freshTimestamp < txTimestamp
 0,0,0,0,0,0,0,// Due to the complexity in initializing the SelectClause, do not generate one here. // If it is not found; simply return null... // // Also, do not cache since it gets generated well after we are created.
 0,0,0,0,0,0,0,// DISCRIMINATOR
 0,0,0,0,0,0,0,// VersionType impl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //      Note : simply returns null for seed() and next() as the only known //      application of binary types for versioning is for use with the //      TIMESTAMP datatype supported by Sybase and SQL Server, which //      are completely db-generated values...
@@ -574,7 +574,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// The syntax used to add a column to a table
 0,0,0,0,0,0,0,// simple, because we can't have a one-to-one or a collection  // (or even a property-ref) in a composite-element:
 0,0,0,0,0,0,0,// Completely optional cascading drop clause.
-0,0,1,0,0,0,0,// during deserialization, we need to reconnect all proxies and // collections to this session, as well as the EntityEntry and // CollectionEntry instances; these associations are transient // because serialization is used for different things.
+0,0,0,0,0,0,0,// during deserialization, we need to reconnect all proxies and // collections to this session, as well as the EntityEntry and // CollectionEntry instances; these associations are transient // because serialization is used for different things.
 0,0,0,0,0,0,0,// PROPERTIES
 0,0,0,0,0,0,0,//sqlResultTypes = ( Type[] ) sqlResultTypeList.toArray( new Type[sqlResultTypeList.size()] );
 0,0,0,0,0,0,0,// IDENTIFIER
@@ -642,7 +642,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Fetch embedded identifiers propertynames from the "virtual" identifier component
 0,0,0,0,0,0,0,// we need to grab the version value from the entity, otherwise // we have issues with generated-version entities that may have // multiple actions queued during the same flush
 0,0,0,0,0,0,0,// embedded composite ids ( alias.idname1, alias.idname2 )
-0,0,1,0,0,0,0,// NOTE: we need to do the wrap here even if its not "dirty", // because collections need wrapping but changes to _them_ // don't dirty the container. Also, for versioned data, we // need to wrap before calling searchForDirtyCollections
+0,0,0,0,0,0,0,// NOTE: we need to do the wrap here even if its not "dirty", // because collections need wrapping but changes to _them_ // don't dirty the container. Also, for versioned data, we // need to wrap before calling searchForDirtyCollections
 0,0,1,1,1,1,1,// TODO: skip formulas?
 0,0,0,0,0,0,0,// GUID support ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 0,0,0,0,0,0,0,// invokeinterface // invoke Enabled.getInterceptFieldCallback()
@@ -678,7 +678,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Informational metadata ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 0,0,0,0,0,0,0,// we are using "all" or "dirty" property-based optimistic locking
 0,0,0,0,0,0,0,// orphans should be deleted during save/update
-0,0,0,0,0,0,0,// maybe a concrete SQLpropertyresult type, but Map is exactly what is required at the moment
+0,0,0,1,0,1,1,// maybe a concrete SQLpropertyresult type, but Map is exactly what is required at the moment
 0,0,0,0,0,0,0,// for some reason the antlr.CommonAST initialization routines force // this method to get called twice.  The first time with an empty string
 0,0,0,0,0,0,0,// do a check
 0,0,0,0,0,0,0,"//			sqlAliasSuffixes[i] = element.getColumnAliasSuffix();"
@@ -770,7 +770,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// don't need to check laziness (dirty checking algorithm handles that)
 0,0,0,0,0,0,0,"/*rootTableName = persistentClass.getRootTable().getQualifiedName( 				factory.getDialect(), 				factory.getDefaultCatalog(), 				factory.getDefaultSchema() 		);*/"
 0,0,0,0,0,0,0,// For the case of dynamic-update="false", or no snapshot, we use the static SQL
-0,0,1,0,0,0,0,//abort the save (the object is already saved by a circular cascade)
+0,0,0,0,0,0,0,//abort the save (the object is already saved by a circular cascade)
 0,0,0,0,0,0,0,// if not "get", then try "is"
 0,0,0,0,0,0,0,// remove initial " and "
 0,0,0,0,0,0,0,// Default to sharing the entity cache if there is one
@@ -855,7 +855,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// check the id unsaved-value
 0,0,0,0,0,0,0,"// if we get here, it is possible that we have a proxy 'in the way' of the merge map resolution... // 		NOTE: decided to put this here rather than in the above loop as I was nervous about the performance //		of the loop-in-loop especially considering this is far more likely the 'edge case'"
 0,0,0,0,0,0,0,// check to see if it is in the second-level cache
-0,0,1,1,0,1,1,//Custom SQL (would be better if these were private)
+0,0,0,1,0,1,1,//Custom SQL (would be better if these were private)
 0,0,0,0,0,0,0,// our column span is the number of columns in the PK
 0,0,0,0,0,0,0,// For property references generate <tablealias>.<columnname> as <projectionalias>
 0,0,0,0,0,0,0,// KEY
@@ -990,7 +990,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// cascade the refresh prior to refreshing this entity
 0,0,0,0,0,0,0,//not sure if this would ever be null but wanted to be careful
 0,0,0,0,0,0,0,//even on inverse="true"
-0,0,0,0,0,0,0,// we need to dirty check many-to-ones with not-found="ignore" in order  // to update the cache (not the database), since in this case a null // entity reference can lose information
+0,0,1,0,0,0,0,// we need to dirty check many-to-ones with not-found="ignore" in order  // to update the cache (not the database), since in this case a null // entity reference can lose information
 0,0,0,0,0,0,0,// register hibernate types for default use in scalar sqlquery type auto detection
 0,0,0,0,0,0,0,// If true then execute db updates, otherwise just generate and display updates
 0,0,0,0,0,0,0,// SQLFunction implementation
@@ -1013,7 +1013,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// we found a collection element in the result set
 0,0,0,0,0,0,0,// this method is a noop if there is a Synchronization!
 0,0,0,0,0,0,0,// register the standard dialect resolver
-0,0,0,1,0,1,1,// why is all others non final ?
+0,0,1,1,0,1,1,// why is all others non final ?
 0,0,0,0,0,0,0,// even though we might find a pre-existing element by join path, we may not be able to reuse it...
 0,0,0,0,0,0,0,// HELLA IMPORTANT OPTIMIZATION!!!
 0,0,0,0,0,0,0,"/*return that.type.equals(type) && 			EqualsHelper.equals(that.value, value);*/"
@@ -1052,7 +1052,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// this is a virtual id property...
 0,0,0,0,0,0,0,// The current_timestamp is more accurate, but only known to be supported // in SQL Server 7.0 and later (i.e., Sybase not known to support it at all)
 0,0,0,0,0,0,0,//this one needed only for guessEntityMode()
-0,0,0,0,0,0,0,"/* will check current level if some of them are not null		 * or sublevels if they exist		 */"
+0,0,1,0,0,0,0,"/* will check current level if some of them are not null		 * or sublevels if they exist		 */"
 0,0,0,0,0,0,0,// Build the dynamic-map tuplizer...
 0,0,0,0,0,0,0,// Pointbase has no known variation of a "SELECT ... FOR UPDATE" syntax...
 0,0,0,0,0,0,0,// then dom4j tuplizer, if dom4j representation is available
@@ -1132,7 +1132,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// #3 - note that this is also true of "datetime - :param"...
 0,0,0,0,0,0,0,// we don't need to worry about existing version being uninitialized // because this block isn't called by a re-entrant load (re-entrant // loads _always_ have lock mode NONE)
 0,0,0,0,0,0,0,//note: this affects the return value!
-0,0,0,1,0,1,1,// isTransactionCallbackRegistered denotes whether any Hibernate // Transaction has registered as a callback against this // JDBCContext; only one such callback is allowed.  Directly // serializing this value causes problems with JDBCTransaction, // or really any Transaction impl where the callback is local // to the Transaction instance itself, since that Transaction // is not serialized along with the JDBCContext.  Thus we // handle that fact here explicitly...
+0,0,0,0,0,0,0,// isTransactionCallbackRegistered denotes whether any Hibernate // Transaction has registered as a callback against this // JDBCContext; only one such callback is allowed.  Directly // serializing this value causes problems with JDBCTransaction, // or really any Transaction impl where the callback is local // to the Transaction instance itself, since that Transaction // is not serialized along with the JDBCContext.  Thus we // handle that fact here explicitly...
 0,0,0,0,0,0,0,// NOTE : evict() operates locally only (i.e., does not propogate // to any other nodes in the potential cluster).  This is // exactly what is needed when we destroy() here; destroy() is used // as part of the process of shutting down a SessionFactory; thus // these removals should not be propogated
 0,0,0,0,0,0,0,// Generate the inner join -- The elements need to be joined to the collection they are in.
 0,0,0,0,0,0,0,// otherwise, perform a "deep equivalence" check...
@@ -1199,7 +1199,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//cache the hashcode
 0,0,0,0,0,0,0,"/*public PropertyProjection project() {		return Projections.property(getPropertyName());	}*/"
 0,0,0,0,0,0,0,//persistent collections may have components
-0,0,1,0,0,0,0,// We have the JBCWriteMutex, so no other *local* thread will  // be trying to write this key.  // It's possible here some remote thread has come in and // changed the values again, but since we are reading the // values to write to JBC right now, we know we are writing // the latest values; i.e. we don't assume that what we cached // in entry.update() above is what we should write to JBC *now*. // Our write could be redundant, i.e. we are writing what // some remote thread just came in an wrote.  There is a chance  // that yet another remote thread will update us, and we'll then // overwrite that later data in JBC.  But, all remote nodes will // ignore that change in their localCache; the only place it  // will live will be in JBC, where it can only effect the  // initial state transfer values on newly joined nodes  // (i.e. populateLocalCache()).
+0,0,0,0,0,0,0,// We have the JBCWriteMutex, so no other *local* thread will  // be trying to write this key.  // It's possible here some remote thread has come in and // changed the values again, but since we are reading the // values to write to JBC right now, we know we are writing // the latest values; i.e. we don't assume that what we cached // in entry.update() above is what we should write to JBC *now*. // Our write could be redundant, i.e. we are writing what // some remote thread just came in an wrote.  There is a chance  // that yet another remote thread will update us, and we'll then // overwrite that later data in JBC.  But, all remote nodes will // ignore that change in their localCache; the only place it  // will live will be in JBC, where it can only effect the  // initial state transfer values on newly joined nodes  // (i.e. populateLocalCache()).
 0,0,0,0,0,0,0,//test out the optimizer:
 0,0,0,0,0,0,0,"//		registerColumnType( Types.VARCHAR, 16777215, ""mediumtext"" );"
 0,0,0,0,0,0,0,// IDENT might be the name of a class.
@@ -1406,7 +1406,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// a "detached" collection that belonged to a different entity
 0,0,0,0,0,0,0,"//	void setComponentTuplizerFactory(ComponentTuplizerFactory componentTuplizerFactory) { //		this.componentTuplizerFactory = componentTuplizerFactory; //	}"
 0,0,0,0,0,0,0,//element //index -> id
-0,0,1,0,0,0,0,// note that it might be better to iterate the snapshot but this is safe, // assuming the user implements equals() properly, as required by the Set // contract!
+0,0,0,1,0,1,1,// note that it might be better to iterate the snapshot but this is safe, // assuming the user implements equals() properly, as required by the Set // contract!
 0,0,0,0,0,0,0,// collections detect changes made via their public interface and mark // themselves as dirty as a performance optimization
 0,0,0,0,0,0,0,//saveOrUpdateCopy() is deprecated!
 0,0,0,0,0,0,0,// Set it!
@@ -1454,7 +1454,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// detached collection wrappers that get found + reattached // during flush shouldn't be ignored
 0,0,0,0,0,0,0,// (NOT (IS_NOT_NULL a b) ) => (IS_NULL a b)
 0,0,1,0,0,0,0,// The unique property value represented here may or may not be // serializable, so we do an explicit check here in order to generate // a better error message
-0,0,1,0,0,0,0,// if the version of a newly instantiated object is not the same // as the version seed value, use that as the unsaved-value
+0,0,0,0,0,0,0,// if the version of a newly instantiated object is not the same // as the version seed value, use that as the unsaved-value
 0,0,0,0,0,0,0,// ie. we never have to null out a reference to // an uninitialized proxy
 0,0,1,0,0,0,0,// (NOT (NOT_LIKE a b) ) => (LIKE a b)
 0,0,0,0,0,0,0,//give the Interceptor a chance to modify property values
@@ -1551,7 +1551,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//initialize properties of the event:
 0,0,0,0,0,0,0,//return the id in the event object
 0,0,0,0,0,0,0,//TRANSIENT or DELETED
-0,0,1,0,0,0,0,// assume this is a newly instantiated transient object // which should be saved rather than updated
+0,0,0,0,0,0,0,// assume this is a newly instantiated transient object // which should be saved rather than updated
 0,0,0,0,0,0,0,// this is a transient object with existing persistent state not loaded by the session
 0,0,0,0,0,0,0,// check two "adjecent" nodes at the top of the from-clause tree
 0,0,0,0,0,0,0,//cachedState,
@@ -1585,7 +1585,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,"//explicit = true;	// This is an explict Select. //ArrayList sqlResultTypeList = new ArrayList();"
 0,0,0,0,0,0,0,//sqlResultTypeList.add( type ); // Generate the select expression.
 0,0,0,0,0,0,0,// If the expression list has exactly one expression, and the type of the expression is a collection // then this might be a collection function, such as index(c) or size(c).
-0,0,1,0,0,0,0,// The uber-rule here is that we need to include  subclass joins if // the FromElement is in any way dereferenced by a property from // the subclass table; otherwise we end up with column references // qualified by a non-existent table reference in the resulting SQL...
+0,0,0,0,0,0,0,// The uber-rule here is that we need to include  subclass joins if // the FromElement is in any way dereferenced by a property from // the subclass table; otherwise we end up with column references // qualified by a non-existent table reference in the resulting SQL...
 0,0,0,0,0,0,0,// cascade first, so that all unsaved objects get their  // copy created before we actually copy
 0,0,0,0,0,0,0,//copyValues works by reflection, so explicitly mark the entity instance dirty
 0,0,0,0,0,0,0,// The following variables are stacks that keep information about each subexpression // in the list of nested subexpressions we are currently processing.
@@ -1766,7 +1766,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// We represent a from-clause alias
 0,0,0,0,0,0,0,// we are the RHS of the DOT representing a naked comp-prop-ref
 0,0,0,0,0,0,0,// we represent a naked (simple) prop-ref
-0,0,1,0,0,0,0,// EARLY EXIT!!!  return so the resolve call explicitly coming from DotNode can // resolve this...
+0,0,0,0,0,0,0,// EARLY EXIT!!!  return so the resolve call explicitly coming from DotNode can // resolve this...
 0,0,0,0,0,0,0,// assume this ident's text does *not* refer to a property on the given persister
 0,0,0,0,0,0,0,// just ignore it for now, it'll get resolved later...
 0,0,0,0,0,0,0,// This is not actually a constant, but a reference to FROM element.
@@ -1960,7 +1960,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// SELECT p FROM p IN CLASS eg.Person GROUP BY p.Name, p.Address, p
 0,0,0,0,0,0,0,// return aliases not supported in classic translator!
 0,0,0,0,0,0,0,//register collection role
-0,0,0,0,0,0,0,// just do the regular thing if you can't find the ctor // Your AST must have default ctor to use this.
+0,0,1,0,0,0,0,// just do the regular thing if you can't find the ctor // Your AST must have default ctor to use this.
 0,0,0,0,0,0,0,// The keyword used to specify an identity column, if identity column key generation is supported.
 0,0,0,0,0,0,0,//following doesn't handle (null, not null) but unnecessary //since this would mean all rows
 0,0,0,0,0,0,0,//crossJoins.add(name);
@@ -2069,7 +2069,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// DYNAMIC UPDATE
 0,0,0,0,0,0,0,// IMPORT
 0,0,0,0,0,0,0,// BATCH SIZE
-0,0,1,0,0,0,0,// we need to dirty check collections, since they can cause an owner // version number increment
+0,0,0,0,0,0,0,// we need to dirty check collections, since they can cause an owner // version number increment
 0,0,0,0,0,0,0,// SELECT BEFORE UPDATE
 0,0,0,0,0,0,0,// OPTIMISTIC LOCK MODE
 0,0,0,0,0,0,0,//first element of array is reserved for the actual instance we are loading!
@@ -2374,7 +2374,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// -- Loader implementation --
 0,0,0,0,0,0,0,// -- Loader overrides --
 0,0,0,0,0,0,0,// (NOT (IS_NULL a b) ) => (IS_NOT_NULL a b)
-0,0,0,0,0,0,0,// here assume SQLServer2005 using snapshot isolation, which does not have this problem
+0,0,1,0,0,0,0,// here assume SQLServer2005 using snapshot isolation, which does not have this problem
 0,0,0,0,0,0,0,// --- Query translator methods ---
 0,0,0,0,0,0,0,// Oracle8 and previous define only a "DATE" type which //      is used to represent all aspects of date/time
 0,0,0,0,0,0,0,//" cascade";

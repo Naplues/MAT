@@ -105,7 +105,7 @@ SATD	 brand new collection todo array cant lock objects with arrays now
 SATD	 todo iteratively get transient entities and retry merge until one the following conditions not decreasing and copycachesize not increasing todo find out retrying can add entities copycache dont think can for now just retry once throw there are still any transient entities 
 SATD	 null brand new collection this will also inefficiently handle arrays which have snapshot cant any better 
 SATD	 todo perhaps should additionally require that the incoming entity version equivalent the defined unsavedvalue 
-SATD	 provides query splitting main.methods which were originally querytranslator todo this will need refactored some point author josh
+SATD	 provides query splitting methods which were originally querytranslator todo this will need refactored some point author josh 
 SATD	 todo most below was taken verbatim from dotnode should either delegate this logic supertype 
 SATD	 todo currently expects that the individual with expressions apply the same sql table join this may not the case for joinedsubclass where the property values might coming from different tables the joined hierarchy some point should expand this support that capability however that has some difficulties the biggest how handle ors when the individual comparisons are linked different sql joins here would need track each comparison individually along with the join alias which applies and then pass that information back the fromelement can pass along the joinsequence 
 SATD	 explicit select expression render the and properties projection lists for every persister the from clause into single token node todo the only reason need this stuff now collection filters should get rid derived select clause completely 
@@ -160,7 +160,7 @@ SATD	 put has nowait semantics this really appropriate note that needs async rep
 SATD	 ugly hack for cases like multipart path expression ending elements indices 
 SATD	 fixme hacky workaround jbcache 
 SATD	 todo copypaste from sessionimpl pull 
-SATD	 todo need find clean way handle the event source role seperate classs responsible for events just duplicates most the session main.methods passing around seperate reto interceptor factory actionqueue and persistentcontext not manageable
+SATD	 todo need find clean way handle the event source role seperate classs responsible for events just duplicates most the session methods passing around seperate reto interceptor factory actionqueue and persistentcontext not manageable 
 SATD	 must done here because sideeffect yuck 
 SATD	 should actually rework this class not implement parser and just process path expressions the most convenient way 
 SATD	 todo should remove this exposure and have all references the sessions batcher use the connectionmanager 
@@ -336,7 +336,7 @@ SATD	 todo proxies
 SATD	 todo can limit stored procedures 
 SATD	 todo formulas 
 SATD	 todo better error message since actually support composites names are explicitly listed 
-SATD	 todo use these main.methods above
+SATD	 todo use these methods above 
 SATD	 todo cache the persister this shows yourkit 
 SATD	 todo add referencedclass disambiguate fks the same columns pointing different tables 
 SATD	 todo create loaders for component properties 
@@ -504,7 +504,7 @@ WITHOUT_CLASSIFICATION	 the column doesnt exist all
 WITHOUT_CLASSIFICATION	 note that string deprecated 
 WITHOUT_CLASSIFICATION	 the object already loaded return the loaded one 
 WITHOUT_CLASSIFICATION	 create new lock that times out immediately 
-WITHOUT_CLASSIFICATION	 convenience main.methods relating operations across arrays types
+WITHOUT_CLASSIFICATION	 convenience methods relating operations across arrays types 
 WITHOUT_CLASSIFICATION	 really could refresh the item not lock but might slower return freshtimestamp txtimestamp 
 WITHOUT_CLASSIFICATION	 due the complexity initializing the selectclause not generate one here not found simply return null also not cache since gets generated well after are created 
 WITHOUT_CLASSIFICATION	 discriminator 
@@ -577,7 +577,7 @@ WITHOUT_CLASSIFICATION	 during deserialization need reconnect all proxies and co
 WITHOUT_CLASSIFICATION	 properties 
 WITHOUT_CLASSIFICATION	 sqlresulttypes type new 
 WITHOUT_CLASSIFICATION	 identifier 
-WITHOUT_CLASSIFICATION	 call getkeyfromresultset here that can know the key value upon which perform the breaking logic however also then called from getrowfromresultset which certainly not the most efficient but the call here needed and there currently other way without refactoring the main.methods
+WITHOUT_CLASSIFICATION	 call getkeyfromresultset here that can know the key value upon which perform the breaking logic however also then called from getrowfromresultset which certainly not the most efficient but the call here needed and there currently other way without refactoring the methods 
 WITHOUT_CLASSIFICATION	 version 
 WITHOUT_CLASSIFICATION	 operations which cascade far the collection also cascade collection elements 
 WITHOUT_CLASSIFICATION	 where string 
@@ -711,7 +711,7 @@ WITHOUT_CLASSIFICATION	 more specifically datetime the operator minus the param 
 WITHOUT_CLASSIFICATION	 dont even bother trying read any further 
 WITHOUT_CLASSIFICATION	 prepend value and type list with null for any positions before the wanted position 
 WITHOUT_CLASSIFICATION	 not used for backward compatibility 
-WITHOUT_CLASSIFICATION	 static helper main.methods
+WITHOUT_CLASSIFICATION	 static helper methods 
 WITHOUT_CLASSIFICATION	 base expectation impls 
 WITHOUT_CLASSIFICATION	 this property belongs the table and inserted 
 WITHOUT_CLASSIFICATION	 need extract the component values and check for subtype replacements 
@@ -919,7 +919,7 @@ WITHOUT_CLASSIFICATION	 property embedded component invoke the identifier
 WITHOUT_CLASSIFICATION	 otherwise 
 WITHOUT_CLASSIFICATION	 starts with the name mapped class new style 
 WITHOUT_CLASSIFICATION	 treat just like new collection 
-WITHOUT_CLASSIFICATION	 skip finalize main.methods
+WITHOUT_CLASSIFICATION	 skip finalize methods 
 WITHOUT_CLASSIFICATION	 return the fully resolved identifier value but not resolve the actual referenced entity instance note the owner the association not really the owner the 
 WITHOUT_CLASSIFICATION	 this work only the very highest level the load dont let this method called recursively 
 WITHOUT_CLASSIFICATION	 public static jdbcexception string sqlexception root string sql string string sql logerrorstring root logexceptionsroot return new jdbcexceptionstring root sql public static jdbcexception string sqlexception root logerrorstring root logexceptionsroot return new jdbcexceptionstring root 
@@ -967,7 +967,7 @@ WITHOUT_CLASSIFICATION	 you may still have other resultsets update counts left p
 WITHOUT_CLASSIFICATION	 null not considered the same type integer nonnls nonnls 
 WITHOUT_CLASSIFICATION	 properly handle propertyrefbased associations 
 WITHOUT_CLASSIFICATION	 the needs come before where clause properly handle dynamic filters 
-WITHOUT_CLASSIFICATION	 determine the getter and setter main.methods from the proxy interface any determine all interfaces needed the resulting proxy
+WITHOUT_CLASSIFICATION	 determine the getter and setter methods from the proxy interface any determine all interfaces needed the resulting proxy 
 WITHOUT_CLASSIFICATION	 add another inner nested select add the main query close off the inner nested select 
 WITHOUT_CLASSIFICATION	 destination this was the cause hhh originsettype fromfragment set the parent node type that the ast properly formed the destination node will have all the from text the parent node collection join too voodoo see joinprocessor 
 WITHOUT_CLASSIFICATION	 then handle any userdefined entity modes 
@@ -1287,7 +1287,7 @@ WITHOUT_CLASSIFICATION	 already know current not null
 WITHOUT_CLASSIFICATION	 the owner the association not the owner the 
 WITHOUT_CLASSIFICATION	 constructors 
 WITHOUT_CLASSIFICATION	 instance variables 
-WITHOUT_CLASSIFICATION	 public main.methods
+WITHOUT_CLASSIFICATION	 public methods 
 WITHOUT_CLASSIFICATION	 compare the two maps for equality 
 WITHOUT_CLASSIFICATION	 simple tests that require synchronization 
 WITHOUT_CLASSIFICATION	 sybase fail dont that sigh 
@@ -1302,7 +1302,7 @@ WITHOUT_CLASSIFICATION	 want able just use the defaults jndi environment propert
 WITHOUT_CLASSIFICATION	 clone 
 WITHOUT_CLASSIFICATION	 serialize 
 WITHOUT_CLASSIFICATION	 warning can cause recursive calls proxy initialization 
-WITHOUT_CLASSIFICATION	 static main.methods only hide constructor
+WITHOUT_CLASSIFICATION	 static methods only hide constructor 
 WITHOUT_CLASSIFICATION	 character 
 WITHOUT_CLASSIFICATION	 returnign null 
 WITHOUT_CLASSIFICATION	 includes last 
@@ -1345,7 +1345,7 @@ WITHOUT_CLASSIFICATION	 entirely optional
 WITHOUT_CLASSIFICATION	 its the listener instance better 
 WITHOUT_CLASSIFICATION	 readresolveobject 
 WITHOUT_CLASSIFICATION	 true 
-WITHOUT_CLASSIFICATION	 defensive convenience main.methods
+WITHOUT_CLASSIFICATION	 defensive convenience methods 
 WITHOUT_CLASSIFICATION	 make sure you log the exception might swallowed 
 WITHOUT_CLASSIFICATION	 begin unit work 
 WITHOUT_CLASSIFICATION	 write html header 
@@ -1513,7 +1513,7 @@ WITHOUT_CLASSIFICATION	 note max because first zerobased while max not
 WITHOUT_CLASSIFICATION	 shallow query although technically there should fetching here 
 WITHOUT_CLASSIFICATION	 delegate the queryloader 
 WITHOUT_CLASSIFICATION	 remember the parameters for the compilation 
-WITHOUT_CLASSIFICATION	 package local main.methods for the queryloader delegate
+WITHOUT_CLASSIFICATION	 package local methods for the queryloader delegate 
 WITHOUT_CLASSIFICATION	 double 
 WITHOUT_CLASSIFICATION	 now done entity sourcegetentitymode 
 WITHOUT_CLASSIFICATION	 use the token identifier 
@@ -1921,7 +1921,7 @@ WITHOUT_CLASSIFICATION	 register exception table
 WITHOUT_CLASSIFICATION	 private constructor stops checkstyle from complaining 
 WITHOUT_CLASSIFICATION	 reset the dotcount but not the path after reset 
 WITHOUT_CLASSIFICATION	 after reset 
-WITHOUT_CLASSIFICATION	 following main.methods dont delegate since they have little logic its clearer just implement them here
+WITHOUT_CLASSIFICATION	 following methods dont delegate since they have little logic its clearer just implement them here 
 WITHOUT_CLASSIFICATION	 dotcount 
 WITHOUT_CLASSIFICATION	 local variables target obj each oldvalue 
 WITHOUT_CLASSIFICATION	 astore store exception 
@@ -2165,7 +2165,7 @@ WITHOUT_CLASSIFICATION	 need writeobject this since interceptor user defined
 WITHOUT_CLASSIFICATION	 the oldtime standby 
 WITHOUT_CLASSIFICATION	 parameter bind values 
 WITHOUT_CLASSIFICATION	 parameter handling code 
-WITHOUT_CLASSIFICATION	 execution main.methods
+WITHOUT_CLASSIFICATION	 execution methods 
 WITHOUT_CLASSIFICATION	 note special case onetoone constrainedfalse cannot proxied default join and nonlazy 
 WITHOUT_CLASSIFICATION	 use old defaults outerjoin specified 
 WITHOUT_CLASSIFICATION	 have cglib enhanced entity 
@@ -2251,7 +2251,7 @@ WITHOUT_CLASSIFICATION	 first need suspend any current jta transaction and obtai
 WITHOUT_CLASSIFICATION	 only returned one entity query key more efficient 
 WITHOUT_CLASSIFICATION	 the element has been removed from the set 
 WITHOUT_CLASSIFICATION	 the element has changed 
-WITHOUT_CLASSIFICATION	 careful these main.methods not initialize the collection
+WITHOUT_CLASSIFICATION	 careful these methods not initialize the collection 
 WITHOUT_CLASSIFICATION	 needed that remove this collection from the secondlevel cache 
 WITHOUT_CLASSIFICATION	 override some subclasses 
 WITHOUT_CLASSIFICATION	 override some subclasses 
@@ -2326,8 +2326,8 @@ WITHOUT_CLASSIFICATION	 debug level enabled then log the password otherwise mask
 WITHOUT_CLASSIFICATION	 register cleanup synch 
 WITHOUT_CLASSIFICATION	 wrap the session the proxy 
 WITHOUT_CLASSIFICATION	 then bind 
-WITHOUT_CLASSIFICATION	 limit the main.methods available transaction active
-WITHOUT_CLASSIFICATION	 allow these deprecated main.methods pass through
+WITHOUT_CLASSIFICATION	 limit the methods available transaction active 
+WITHOUT_CLASSIFICATION	 allow these deprecated methods pass through 
 WITHOUT_CLASSIFICATION	 serialization 
 WITHOUT_CLASSIFICATION	 add temp entry that the next step circularreference safe only needed because some types dont take proper advantage twophaseload esp components 
 WITHOUT_CLASSIFICATION	 this the second pass through merge here limit the replacement associations types value types were already replaced during the first pass 
@@ -2356,7 +2356,7 @@ WITHOUT_CLASSIFICATION	 build the map standard ansi sql aggregation functions
 WITHOUT_CLASSIFICATION	 pre behavior 
 WITHOUT_CLASSIFICATION	 finally use the sqltype hibernate types did not find match 
 WITHOUT_CLASSIFICATION	 because numeric can anything 
-WITHOUT_CLASSIFICATION	 constructors and factory main.methods
+WITHOUT_CLASSIFICATION	 constructors and factory methods 
 WITHOUT_CLASSIFICATION	 standard sql functions can overridden subclasses 
 WITHOUT_CLASSIFICATION	 map ansi extract override subclasses 
 WITHOUT_CLASSIFICATION	 database type mapping support 
@@ -2374,10 +2374,10 @@ WITHOUT_CLASSIFICATION	 loader implementation
 WITHOUT_CLASSIFICATION	 loader overrides 
 WITHOUT_CLASSIFICATION	 not isnull isnotnull 
 WITHOUT_CLASSIFICATION	 here assume sqlserver using snapshot isolation which does not have this problem 
-WITHOUT_CLASSIFICATION	 query translator main.methods
+WITHOUT_CLASSIFICATION	 query translator methods 
 WITHOUT_CLASSIFICATION	 oracle and previous define only date type which used represent all aspects datetime 
 WITHOUT_CLASSIFICATION	 cascade 
-WITHOUT_CLASSIFICATION	 implementation private main.methods
+WITHOUT_CLASSIFICATION	 implementation private methods 
 WITHOUT_CLASSIFICATION	 trim off the 
 WITHOUT_CLASSIFICATION	 check violation 
 WITHOUT_CLASSIFICATION	 unique violation 
@@ -2416,11 +2416,11 @@ WITHOUT_CLASSIFICATION	 needed satisfy keyvalue
 WITHOUT_CLASSIFICATION	 verify the state this new method hibernate dialectjava 
 WITHOUT_CLASSIFICATION	 origial dialectjava returns true 
 WITHOUT_CLASSIFICATION	 index should last column listed 
-WITHOUT_CLASSIFICATION	 sequence main.methods start the rdms dialect needs these
-WITHOUT_CLASSIFICATION	 main.methods make possible use the native generator
+WITHOUT_CLASSIFICATION	 sequence methods start the rdms dialect needs these 
+WITHOUT_CLASSIFICATION	 methods make possible use the native generator 
 WITHOUT_CLASSIFICATION	 formula index use the element columns the 
 WITHOUT_CLASSIFICATION	 dont create unique key cos some databases dont like nullable columns 
-WITHOUT_CLASSIFICATION	 sequence main.methods end
+WITHOUT_CLASSIFICATION	 sequence methods end 
 WITHOUT_CLASSIFICATION	 used with drop table delete all records the table 
 WITHOUT_CLASSIFICATION	 foreign key element for onetomany 
 WITHOUT_CLASSIFICATION	 todo could just return all false 
@@ -2434,7 +2434,7 @@ WITHOUT_CLASSIFICATION	 this assumes schema support which present and later
 WITHOUT_CLASSIFICATION	 hsqldb only supports readuncommitted transaction isolation 
 WITHOUT_CLASSIFICATION	 the entity associated with the session check its status 
 WITHOUT_CLASSIFICATION	 timesten has blobclob support but these types may suitable for some applications the length limited million bytes 
-WITHOUT_CLASSIFICATION	 new main.methods dialect
+WITHOUT_CLASSIFICATION	 new methods dialect 
 WITHOUT_CLASSIFICATION	 public boolean return false 
 WITHOUT_CLASSIFICATION	 timesten has known variation select for update syntax 
 WITHOUT_CLASSIFICATION	 iterate entries ordered capacity find first fit 

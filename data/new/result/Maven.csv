@@ -3,7 +3,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,/*      * TODO this needs to accept a {@link OverConstrainedVersionException} as returned by     *       {@link #getVersionRangeViolation(int)} but it's not used like that in     *       DefaultLegacyArtifactCollector      */
 1,0,1,0,0,0,0,//  it's the building of the grandchild project, having already cached the child project   (but not the parent project), which causes the problem. 
 1,0,1,1,1,1,1,//  TODO I would like to get rid of this. jvz. 
-1,0,0,0,0,0,0,/*          * NOTE: This should be considered a quirk to support interop with Maven's legacy ArtifactDeployer which         * processes one artifact at a time and hence cannot associate the artifacts from the same project to use the         * same timestamp+buildno for the snapshot versions. Allowing the caller to pass in metadata from a previous         * deployment allows to re-establish the association between the artifacts of the same project.          */
+1,0,1,0,0,0,0,/*          * NOTE: This should be considered a quirk to support interop with Maven's legacy ArtifactDeployer which         * processes one artifact at a time and hence cannot associate the artifacts from the same project to use the         * same timestamp+buildno for the snapshot versions. Allowing the caller to pass in metadata from a previous         * deployment allows to re-establish the association between the artifacts of the same project.          */
 1,0,1,1,1,1,1,//  TODO I'm really wondering where this method belongs; smells like it should be on MavenProject, but for some   reason it isn't ? This localization is kind-of a code smell. 
 1,1,1,1,1,1,1,//  TODO: hack because metadata isn't generated in m2e correctly and i want to run the maven i have in the 
 1,0,1,1,1,1,1,//  TODO this does not belong here. 
@@ -18,7 +18,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO what about wildcards? Just specifying groups? versions? 
 1,0,1,1,1,1,1,//  TODO Use StringUtils here 
 1,0,1,1,1,1,1,//  TODO From a concurrency perspective, this class is not good. The combination of mutable/immutable state is not nice 
-1,0,1,1,1,1,1,//  TODO we probably want to warn the user that he is building an artifact with   different values than in dependencyManagement 
+1,0,0,1,1,1,1,//  TODO we probably want to warn the user that he is building an artifact with   different values than in dependencyManagement 
 1,0,0,0,0,0,0,//  ---------------------------------------------------------------------------------   I'm not sure if this last regexp was really intended to disallow the usage of   network paths as user.home directory. Unfortunately it did. I removed it and   have not detected any problems yet.   ---------------------------------------------------------------------------------   path = path.replaceAll( "//", "/" ); 
 1,0,1,1,1,1,1,//  TODO better way than static? this might hide messages in a reactor 
 1,0,1,1,1,1,1,/*  * This exception is thrown if an application attempts to attach * two of the same artifacts to a single project. * * @author pgier * @author jdcasey * TODO Make this a checked exception, and modify the API of MavenProjectHelper. * Currently, this modification would create compatibility problems for existing plugins.  */
@@ -35,7 +35,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//    This is not ideal but there are events specifically for configuration from the CLI which I don't   believe are really valid but there are ITs which assert the right events are published so this   needs to be supported so the EventSpyDispatcher needs to be put in the CliRequest so that   it can be accessed by configuration processors. 
 1,0,0,1,1,1,1,//  TODO could we use a map? Maybe if the parent did that for components too, as this is too vulnerable to 
 1,0,1,1,1,1,1,//  TODO current policy is to retain the original version - is this correct, do we need strategies or is that handled elsewhere? 
-1,0,1,1,1,1,1,//  TODO The configuration for the lifecycle needs to be externalized so that I can use the annotations properly for the   wiring and reference and external source for the lifecycle configuration. 
+1,0,0,1,1,1,1,//  TODO The configuration for the lifecycle needs to be externalized so that I can use the annotations properly for the   wiring and reference and external source for the lifecycle configuration. 
 1,0,0,1,1,1,1,//  TODO a similar test should be created to test the dependency management (basically all usages   of DefaultModelBuilder.getCache() are affected by MNG-6530 
 1,0,1,1,1,1,1,//  TODO shouldn't the versions be merged across relocations? 
 1,0,1,1,1,1,1,//  TODO this should not need to be handed off... 
@@ -43,7 +43,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO push all common bits back to plexus cli and prepare for transition to Guice. We don't need 50 ways to make CLIs 
 1,0,0,0,0,0,0,//  ------------------------------------------------------------------------   Metadata Resolution Exceptions: ArtifactResolutionExceptions   ------------------------------------------------------------------------ 
 1,0,1,1,1,1,1,// TODO why is this using the context 
-1,0,1,0,1,1,1,//  TODO !![jc; 28-jul-2005] check this; if we're using '-r' and there are aggregator tasks, this will result in weirdness. 
+1,0,0,0,1,1,1,//  TODO !![jc; 28-jul-2005] check this; if we're using '-r' and there are aggregator tasks, this will result in weirdness. 
 1,0,0,0,0,0,0,//  Validate versions aren't inherited when using parent ranges the same way as when read externally. 
 1,0,1,1,1,1,1,//  TODO need to externalize CliRequest 
 1,0,0,0,0,0,0,//    We should get a whole slew of dependencies resolving this artifact transitively 
@@ -62,10 +62,10 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  TODO don't catch exception 
 1,0,0,1,1,1,1,//  TODO use settings? 
 1,0,1,1,1,1,1,/*      * TODO: Whether duplicates should be removed looks like an option for the generated merger.      */
-1,0,1,1,1,1,1,// TODO These two tests display a lack of symmetry with respect to the input which is a free form string and the        mojo descriptor which comes back. All the free form parsing needs to be done somewhere else, this is        really the function of the CLI, and then the pre-processing of that output still needs to be fed into        a hinting process which helps flesh out the full specification of the plugin. The plugin manager should        only deal in concrete terms -- all version finding mumbo jumbo is a customization to base functionality        the plugin manager provides. 
+1,0,1,0,1,1,1,// TODO These two tests display a lack of symmetry with respect to the input which is a free form string and the        mojo descriptor which comes back. All the free form parsing needs to be done somewhere else, this is        really the function of the CLI, and then the pre-processing of that output still needs to be fed into        a hinting process which helps flesh out the full specification of the plugin. The plugin manager should        only deal in concrete terms -- all version finding mumbo jumbo is a customization to base functionality        the plugin manager provides. 
 1,0,0,1,1,1,1,// TODO this will be the basis of the customizable lifecycle execution so need to figure this out quickly. 
 1,0,0,1,1,1,1,//  TODO Use the following two instead of manageArtifact   TODO Remove ResolutionListenerDM interface 
-1,0,1,0,0,0,0,//  We have collected all the problems so let's mimic the way the old code worked and just blow up right here.   That's right lets just let it rip right here and send a big incomprehensible blob of text at unsuspecting   users. Bad dog!
+1,0,0,0,0,0,0,//  We have collected all the problems so let's mimic the way the old code worked and just blow up right here.   That's right lets just let it rip right here and send a big incomprehensible blob of text at unsuspecting   users. Bad dog!
 1,0,1,0,0,0,0,//  note: see MNG-3454. This causes a problem, but fixing it may break more.
 1,1,1,1,1,1,1,//  FIXME: This is hacky. What if module directory doesn't match artifactid, and parent   is coming from the repository?? 
 1,0,0,0,0,0,0,//  NOTE: DuplicateArtifactAttachmentException is currently unchecked, so be careful removing this try/catch!   This is necessary to avoid creating compatibility problems for existing plugins that use   MavenProjectHelper.attachArtifact(..). 
@@ -114,7 +114,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  FIXME: somehow report to the user   that there are too many '..' elements.   For now, ignore the extra '..'. 
 1,0,1,1,1,1,1,/*              * MNG-4900: Hack to workaround deficiency of legacy API which makes it impossible for plugins to access the             * global profile manager which is required to build a POM like a CLI invocation does. Failure to consider             * the activated profiles can cause repo declarations to be lost which in turn will result in artifact             * resolution failures, in particular when using the enhanced local repo which guards access to local files             * based on the configured remote repos.              */
 1,0,1,1,1,1,1,//  TODO without #, this could just be an evaluate call... 
-1,0,1,0,0,0,0,//    Builder, concurrency and parallelism     We preserve the existing main.methods for builder selection which is to look for various inputs in the threading   configuration. We don't have an easy way to allow a pluggable builder to provide its own configuration   parameters but this is sufficient for now. Ultimately we want components like Builders to provide a way to   extend the command line to accept its own configuration parameters.
+1,0,0,0,0,0,0,//    Builder, concurrency and parallelism     We preserve the existing main.methods for builder selection which is to look for various inputs in the threading   configuration. We don't have an easy way to allow a pluggable builder to provide its own configuration   parameters but this is sufficient for now. Ultimately we want components like Builders to provide a way to   extend the command line to accept its own configuration parameters.
 1,0,1,0,1,1,1,//  TODO ick. this forces the OCE that should have come from the previous call. It is still 
 1,0,0,1,0,1,1,// Maybe it's better to move some of those main.methods to separate class (SoC).
 1,0,1,1,1,1,1,//  TODO Not sure how best to set these for this implementation... 
@@ -441,7 +441,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  do nothing 
 0,0,0,0,0,0,0,//               TreeSet<MetadataGraphEdge> deps = new TreeSet<MetadataGraphEdge>(                          new Comparator<MetadataGraphEdge>()                          {                              public int compare( MetadataGraphEdge e1                                                , MetadataGraphEdge e2                                                )                              { 
 0,0,0,0,0,0,0,//  <groupId>:<artifactId>:<goal> 
-0,0,0,0,1,1,1,// TODO maven-site-plugin -- not used by the plugin directly, but used by Doxia Integration Tool & MPIR 
+0,0,0,1,1,1,1,// TODO maven-site-plugin -- not used by the plugin directly, but used by Doxia Integration Tool & MPIR 
 0,0,0,0,0,0,0,//  This is the case where someone has executed a single goal from the command line   of the form:     mvn remote-resources:process     From the metadata stored on the server which has been created as part of a standard   Maven plugin deployment we will find the right PluginDescriptor from the remote   repository. 
 0,0,0,0,0,0,0,//  This is used by the SITE plugin. 
 0,0,0,0,0,0,0,//  inverse order 
@@ -527,7 +527,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  use key as is 
 0,0,0,0,0,0,0,//  ensure resulting url ends with slash if initial url was 
 0,0,0,0,0,0,0,//  DefaultProjectBuilder 
-0,0,1,0,0,0,0,//  Adding this back in for compatibility with the verifier that hard codes this option. 
+0,0,0,0,0,0,0,//  Adding this back in for compatibility with the verifier that hard codes this option. 
 0,0,0,0,0,0,0,//  LOG STREAMS 
 0,0,0,0,0,0,0,//  Children 
 0,0,0,0,0,0,0,//  Message 
@@ -660,7 +660,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  drive-relative Windows path, don't align with base dir but with drive root 
 0,0,0,0,0,0,0,//  used by maven-dependency-tree and maven-dependency-plugin 
 0,0,0,0,0,0,0,//  -TC2.2 
-0,0,0,1,0,1,1,//  Needs to go away   These are really overrides now, projects defining dependencies for a plugin that override what is
+0,0,0,0,0,0,0,//  Needs to go away   These are really overrides now, projects defining dependencies for a plugin that override what is
 0,0,0,0,0,0,0,//  Plugins are aggregated if Plugin.inherit != false 
 0,0,0,0,0,0,0,//  profile injection 
 0,0,0,0,0,0,0,//  this block prevents MNG-1703 
@@ -815,7 +815,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  same instance from spec cache 
 0,0,0,0,0,0,0,//    Deployer 
 0,0,0,0,0,0,0,//  -T2.2C 
-0,0,0,1,1,1,1,// TODO remove the update check manager  TODO separate into retriever and publisher  TODO remove hardcoding of checksum logic
+0,0,1,1,1,1,1,// TODO remove the update check manager  TODO separate into retriever and publisher  TODO remove hardcoding of checksum logic
 0,0,0,0,0,0,0,//  1.any < 1-1 
 0,0,0,0,0,0,0,//  forked goal 
 0,0,0,0,0,0,0,//  read .mvn/maven.config 
@@ -887,7 +887,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Get local midnight boundary 
 0,0,0,0,0,0,0,//  If people are going to make their own lifecycles then we need to tell people how to namespace them correctly   so that they don't interfere with internally defined lifecycles. 
 0,0,0,0,0,0,0,//  finally add the CLI system properties 
-0,0,1,0,0,0,0,//  layer the creation of a project builder configuration with a request, but this will need to be   a Maven subclass because we don't want to couple maven to the project builder which we need to   separate. 
+0,0,0,0,0,0,0,//  layer the creation of a project builder configuration with a request, but this will need to be   a Maven subclass because we don't want to couple maven to the project builder which we need to   separate. 
 0,0,0,0,0,0,0,/*  MNG-3937 */
 0,0,0,0,0,0,0,//  If there is no version to be found then we need to look in the repository metadata for   this plugin and see what's specified as the latest release. 
 0,0,0,0,0,0,0,/*  farthest = system  */
@@ -938,7 +938,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  enable no-arg constructor 
 0,0,0,0,0,0,0,//  ----------------------------------------------------------------------------   Request   ---------------------------------------------------------------------------- 
 0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Accessors   ---------------------------------------------------------------------- 
-0,0,1,1,1,1,1,//  TODO use newest conflict resolver 
+0,0,0,1,1,1,1,//  TODO use newest conflict resolver 
 0,0,0,0,0,0,0,//  These are cases where the artifact just isn't present in any of the remote repositories   because it wasn't deployed, or it was deployed in the wrong place.
 0,0,0,0,0,0,0,//    Ignore   
 0,0,0,0,0,0,0,//  this is expected 
@@ -1040,7 +1040,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  ----------------------------------------------------------------------   Properties containing info about the currently running version of Maven   These override any corresponding properties set on the command line   ---------------------------------------------------------------------- 
 0,0,0,0,0,0,0,//  We need to eat any quotes surrounding arguments... 
 0,0,0,0,0,0,0,//  relative path, e.g. "sub", "../sub" or "." 
-0,0,1,0,0,0,0,//  direct dependency retains its scope 
+0,0,0,0,0,0,0,//  direct dependency retains its scope 
 0,0,0,0,0,0,0,//  prepare 
 0,0,0,0,0,0,0,//  correct 
 0,0,0,0,0,0,0,//  no op 

@@ -1,6 +1,5 @@
 1, Line, //  TODO: need to consolidate the #createSaslToken() implementation between ZooKeeperSaslClient#createSaslToken(). 
 1, Line, //  BUG: Grizzly needs a doc root if you are going to register multiple adapters 
-1, Line, //  we don't need to retry this operation in the case of failure   as ZK will remove ephemeral files and we don't wanna hang   this process when closing if we cannot reconnect to ZK 
 1, Line, //  This is likely a problem, it means that file reloading is broken, probably because the   directory we are watching was deleted or otherwise became inaccessible (unmounted, permissions   changed, ???).   For now, we log an error and exit the watcher thread. 
 1, Line, //  FIXME this was originally 5 seconds, but realistically, on random/slow/virt hosts, there is no way to guarantee this 
 1, Line, //  This is a bit weird but we need to return the address and the number of   bytes (to distinguish between IPv4 and IPv6 
@@ -14,7 +13,6 @@
 1, Line, //  This might not be 100% right, but it's only used for printing   connection info in the netty implementation so it's probably ok. 
 1, Line, //  Problem 2: Before fix, after session close the ephemeral node   was not getting deleted. But now after the fix after session close 
 1, Block, /*          * Observer should write to disk, so that the it won't request         * too old txn from the leader which may lead to getting an entire         * snapshot.         *         * However, this may degrade performance as it has to write to disk         * and do periodic snapshot which may double the memory requirements          */
-1, Block, /*          * Occasionally seen false negatives with a 5s timeout.          */
 1, Line, //  TODO - investigate why reconfig makes qps null. 
 1, Line, //  TODO: if zks.processPacket() is changed to take a ByteBuffer[],   we could implement zero-copy queueing. 
 1, Line, //  Note that this performance assumption might not hold true for architectures other than x86_64. 
@@ -44,12 +42,12 @@
 1, Line, //  TODO: maybe we should flush in the loop above every N packets/bytes?   But, how do we determine the right value for N ... 
 1, Line, //  Uh oh.  We need to upgrade before we can proceed. 
 1, Line, //  TODO: exit server at this point(?) 
-1, Line, //  only make a copy if this thread isn't already holding a lock 
 1, Line, //  Multiple bad arguments 
 1, Line, //  XXX this doesn't need to be volatile! (Should probably be final) 
 1, Line, //  test will still fail even though we just log/ignore 
 1, Line, //  FIXME ignore for now 
 1, Line, //  XXX We really should NOT need this!!!! 
+1, Line, //  TODO: should depend on zoo.cfg specified mechs, but if
 1, Line, //  XXX hack 
 1, Line, //  not sure about 3rd arg..what is it? 
 1, Line, // FIXME: need way to more cleanly serialize/deserialize exceptions 
@@ -116,6 +114,7 @@
 0, Line, //  generate new config string 
 0, Line, //  do nothing special - stay with the current server 
 0, Line, //  Session has been re-validated 
+0, Line, //  we don't need to retry this operation in the case of failure   as ZK will remove ephemeral files and we don't wanna hang   this process when closing if we cannot reconnect to ZK
 0, Line, //  exactly as it is now, except for role change 
 0, Line, //  make sure the watch is removed when the connection closed 
 0, Line, //  1. start up server and wait for leader election to finish 
@@ -546,6 +545,7 @@
 0, Line, //  we are going to have to extrapolate the epoch information 
 0, Line, //  best effort to print the path assoc with this request 
 0, Line, //  and close the connection to the leader 
+0, Block, /*          * Occasionally seen false negatives with a 5s timeout.          */
 0, Line, // if neither option -n or -b is specified, we delete   the quota node for thsi node. 
 0, Line, //  shutdown() has to be explicitly called for every thread to   make sure that resources are freed properly and all fixed network ports   are available for other test cases 
 0, Line, //  we are now going to start getting transactions to apply followed by an UPTODATE 
@@ -1616,6 +1616,7 @@
 0, Line, // invalid acl's 
 0, Line, //  this code requires a key in PKCS8 format which is not the default openssl format   to convert to the PKCS8 format you use : openssl pkcs8 -topk8 ... 
 0, Line, //  ignore as this is expected 
+0, Line, //  only make a copy if this thread isn't already holding a lock
 0, Line, //  encoding 
 0, Line, //  There is no log record for the initial config, thus after syncing   with leader   /zookeeper/config is empty! it is also possible that last committed   config is propagated during leader election   without the propagation the corresponding log records.   so we should explicitly do this (this is not necessary when we're   already a Follower/Observer, only 
 0, Line, //  Local session from the leader 
@@ -1825,7 +1826,6 @@
 0, Line, //  wait to connect to one of these 
 0, Line, //  any arbitrary constant will do  
 0, Line, //  Observer asks for epoch (mocking LearnerHandler behavior) 
-0, Line, //  TODO: should depend on zoo.cfg specified mechs, but if
 0, Line, //  Global session 
 0, Line, //  Wait until we can't connect 
 0, Line, //  Otherwise, wait for a fixed amount of time 
