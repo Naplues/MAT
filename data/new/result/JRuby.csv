@@ -65,7 +65,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// FIXME: There's some code duplication here with RubyObject#inspect
 1,0,1,1,1,1,1,// for visibility checking without requiring frame self // TODO: don't bother passing when fcall or vcall, and adjust callsite appropriately
 1,0,1,1,1,1,1,// FIXME: figure out why we get null sometimes
-1,0,1,0,0,0,0,// Hacky: Advance position to eat newline here....
+1,0,1,0,1,1,1,// Hacky: Advance position to eat newline here....
 1,0,0,0,0,0,0,// need to reexamine this
 1,0,1,1,1,1,1,// FIXME: This is currently only here because of some problems with IOOutputStream writing to a "bare" runtime without a proper scope
 1,0,1,1,0,1,1,// Workaround for JRUBY-4149
@@ -341,7 +341,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// SSS: FIXME: Somewhere here, we need to record information the type of this operand as String
 1,0,1,0,1,1,1,// XXX: Check if it's appropriate type?
 1,0,0,1,1,1,1,// FIXME: Translate this call below! // s.unwrapPassedBlock();
-1,0,0,0,0,0,0,//subList.clear(); // Sublist is supposed to share same backing store as list...TODO in RubyArray. //assertTrue(list.size() == 1);
+1,0,0,0,1,1,1,//subList.clear(); // Sublist is supposed to share same backing store as list...TODO in RubyArray. //assertTrue(list.size() == 1);
 1,0,0,1,1,1,1,// SSS FIXME: We need to build debug information tracking into the IR in some fashion // So, these methods below would have to have equivalents in IR_Scope implementations.
 1,0,0,0,0,0,0,// FIX replace type() == ... with isInstanceOf(...)
 1,0,1,1,1,1,1,// SSS FIXME: Incomplete!

@@ -2,6 +2,7 @@ package others;
 
 import main.Settings;
 
+import java.io.File;
 import java.util.*;
 
 /**
@@ -23,6 +24,14 @@ public class Sampling {
         for (String project : Settings.projectNames) {
             //"data/pattern/comment--"
             //samplingForStudy(commentPath + "/data--", project, 0.1); //采样
+        }
+
+        File[] lines = new File("C:\\Users\\GZQ\\OneDrive\\缺陷定位\\").listFiles();
+        for (File line : lines) {
+            if (line.getName().startsWith("[")) {
+                String[] t = line.getName().split("--");
+                System.out.println(t[0] + " " + t[1] + " " + t[2]);
+            }
         }
 
     }

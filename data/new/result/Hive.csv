@@ -163,7 +163,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  The following 2 lines are exactly what MySQL does TODO: why do we do this? 
 1,0,1,0,0,0,0,//  temporary variable for testing. This is added just to turn off this feature in case of a bug in   deployment. It has not been documented in hive-default.xml intentionally, this should be removed 
 1,0,1,1,1,1,1,//  TODO need session handle 
-1,1,1,0,0,0,0,//  This is kind of hacky - the read entity contains the old table, whereas   the write entity   contains the new table. This is needed for rename - both the old and the   new table names are   passed 
+1,1,1,0,1,1,1,//  This is kind of hacky - the read entity contains the old table, whereas   the write entity   contains the new table. This is needed for rename - both the old and the   new table names are   passed 
 1,0,0,0,0,0,0,//  UNDONE: For now, don't add more small keys... 
 1,0,1,1,1,1,1,//  TODO: can this ever happen? 
 1,0,1,1,1,1,1,//  TODO: there's a potential problem here if some table uses external schema like Avro,         with a very large type name. It seems like the view does not derive the SerDe from         the table, so it won't be able to just get the type from the deserializer like the         table does; we won't be able to properly store the type in the RDBMS metastore. 
@@ -206,7 +206,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  todo: strictly speaking you can commit an empty txn, thus 2nd conjunct is wrong but   only   possible for for multi-stmt txns 
 1,0,1,0,0,0,0,//  View DDL   "alter view add partition" does not work because of the nature of implementation   of the DDL in hive. Hive will internally invoke another Driver on the select statement,   and HCat does not let "select" statement through. I cannot find a way to get around it   without modifying hive code. So just leave it unsupported. 
 1,0,1,1,1,1,1,// todo: to test these need to link against 3.x libs - maven profiles?  runStatementOnDriver("create table TFlat (a int, b int) stored as orc tblproperties('transactional'='false')");  runStatementOnDriver("create table TFlatText (a int, b int) stored as textfile tblproperties('transactional'='false')"); 
-1,1,1,1,0,1,1,//  NOTE : This is hacky, and this section of code is fragile depending on DN code varnames   so it's likely to stop working at some time in the future, especially if we upgrade DN   versions, so we actively need to find a better way to make sure the leak doesn't happen   instead of just clearing out the cache after every call. 
+1,1,1,1,1,1,1,//  NOTE : This is hacky, and this section of code is fragile depending on DN code varnames   so it's likely to stop working at some time in the future, especially if we upgrade DN   versions, so we actively need to find a better way to make sure the leak doesn't happen   instead of just clearing out the cache after every call. 
 1,0,1,1,1,1,1,//  TODO: should never happen? 
 1,0,0,1,0,1,1,//  UNDONE: Don't know why HIVE-12894 causes this to return 0?   assertEquals(0.33, reader.getProgress(), 0.01); 
 1,0,0,0,0,0,0,//  @deprecated in favour of {@link HCatTable.#getLocation()}. To be removed in Hive 0.16. 
@@ -232,7 +232,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  TODO : verify if any quoting is needed for keys 
 1,0,1,0,1,1,1,// todo: this should check that the job actually completed and likely use completion time 
 1,0,1,1,1,1,1,//  TODO: move this to logicalEquals 
-1,0,1,1,0,1,1,/*  * TODO:<br> * 1. Could we use combined RR instead of list of RR ?<br> * 2. Use Column Processing from TypeCheckProcFactory<br> * 3. Why not use GB expr ?  */
+1,0,1,1,1,1,1,/*  * TODO:<br> * 1. Could we use combined RR instead of list of RR ?<br> * 2. Use Column Processing from TypeCheckProcFactory<br> * 3. Why not use GB expr ?  */
 1,0,1,1,1,1,1,//  TODO: Temporary for debugging. Doesn't interfere with MTT failures (unlike LOG.debug). 
 1,0,1,1,1,1,1,//  TODO Deprecation reason does not seem to reflect in the config ?   The ordering is important in case of keys which are also deprecated.   Unset will unset the deprecated keys and all its variants. 
 1,0,1,0,1,1,1,//  GrpSet Col already part of input RS   TODO: Can't we just copy the ExprNodeDEsc from input (Do we need to   explicitly set table alias to null & VC to false 
@@ -477,7 +477,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  todo this should be configured in serde 
 1,0,1,1,1,1,1,//  TODO: Have to put in the support for AS clause 
 1,0,1,1,1,1,1,//  Ideally we should use HiveRelNode convention. However, since Volcano planner   throws in that case because DruidQuery does not implement the interface,   we set it as Bindable. Currently, we do not use convention in Hive, hence that   should be fine.   TODO: If we want to make use of convention (e.g., while directly generating operator   tree instead of AST), this should be changed. 
-1,0,1,0,0,0,0,// Call getSplit on the InputFormat, create an HCatSplit for each  underlying split. When the desired number of input splits is missing,  use a default number (denoted by zero).  TODO(malewicz): Currently each partition is split independently into  a desired number. However, we want the union of all partitions to be  split into a desired number while maintaining balanced sizes of input 
+1,0,1,0,1,1,1,// Call getSplit on the InputFormat, create an HCatSplit for each  underlying split. When the desired number of input splits is missing,  use a default number (denoted by zero).  TODO(malewicz): Currently each partition is split independently into  a desired number. However, we want the union of all partitions to be  split into a desired number while maintaining balanced sizes of input 
 1,0,1,1,1,1,1,//  TODO: do we need to handle the "this is what MySQL does" here? 
 1,0,0,0,0,0,0,//  @deprecated in favour of {@link HCatTable.#bucketCols(List<FieldSchema>) and HCatTable.#numBuckets(int)}.   To be removed in Hive 0.16. 
 1,0,0,1,1,1,1,//  TODO Watches on the output dirs need to be cancelled at some point. For now - via the expiry. 
@@ -515,7 +515,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: should we check isAssignableFrom? 
 1,0,0,1,1,1,1,//  For replication add-ptns, we need to follow a insert-if-not-exist, alter-if-exists scenario.   TODO : ideally, we should push this mechanism to the metastore, because, otherwise, we have   no choice but to iterate over the partitions here. 
 1,0,1,1,1,1,1,//  TODO: should we create the batch from vrbctx, and reuse the vectors, like below? Future work. 
-1,1,1,1,0,1,1,//  this is a hacky way of doing the quotes since it will match any 2 of   these, so   "[ hello this is something to split [" would be considered to be quoted. 
+1,1,1,1,1,1,1,//  this is a hacky way of doing the quotes since it will match any 2 of   these, so   "[ hello this is something to split [" would be considered to be quoted. 
 1,0,1,1,1,1,1,//  TODO: Do the type checking of the expressions 
 1,1,1,1,1,1,1,//  Make a tree out of the filter.   TODO: this is all pretty ugly. The only reason we need all these transformations         is to maintain support for simple filters for HCat users that query metastore.         If forcing everyone to use thick client is out of the question, maybe we could         parse the filter into standard hive expressions and not all this separate tree 
 1,0,0,0,0,0,0,//  Not safe to continue for RS-GBY-GBY-LIM kind of pipelines. See HIVE-10607 for more. 
@@ -546,7 +546,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,//  TODO: use faster non-sync inputstream 
 1,0,1,1,1,1,1,//  TODO: should this rather use a threadlocal for NUMA affinity? 
 1,0,1,1,1,1,1,// TODO: this object is created once to call one method and then immediately destroyed.  So it's basically just a roundabout way to pass arguments to a static method. Simplify? 
-1,0,0,0,0,0,0,//  TODO:pc implement max 
+1,0,0,0,1,1,1,//  TODO:pc implement max 
 1,0,0,1,1,1,1,//  TODO Make sure this method is eventually used to find the prep / batch scripts. 
 1,0,1,0,1,1,1,/*      * This doesn't throw any exceptions because we don't want the Compaction to appear as failed     * if stats gathering fails since this prevents Cleaner from doing it's job and if there are     * multiple failures, auto initiated compactions will stop which leads to problems that are     * much worse than stale stats.     *     * todo: longer term we should write something COMPACTION_QUEUE.CQ_META_INFO.  This is a binary     * field so need to figure out the msg format and how to surface it in SHOW COMPACTIONS, etc      */
 1,0,0,1,1,1,1,//  TODO: transitive dependencies warning? 
@@ -569,14 +569,14 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: ideally we should have a test for session itself. 
 1,0,1,1,1,1,1,//  TODO : if needed, verify that recordschema entry for fieldname matches appropriate type. 
 1,0,1,1,1,1,1,//  FIXME: null value is treated differently on the other end..when those filter will be 
-1,0,1,0,0,0,0,/*  * TODO:<br> * 1. Change the output col/ExprNodeColumn names to external names.<br> * 2. Verify if we need to use the "KEY."/"VALUE." in RS cols; switch to * external names if possible.<br> * 3. In ExprNode & in ColumnInfo the tableAlias/VirtualColumn is specified * differently for different GB/RS in pipeline. Remove the different treatments. * 4. VirtualColMap needs to be maintained *  */
+1,0,1,0,1,1,1,/*  * TODO:<br> * 1. Change the output col/ExprNodeColumn names to external names.<br> * 2. Verify if we need to use the "KEY."/"VALUE." in RS cols; switch to * external names if possible.<br> * 3. In ExprNode & in ColumnInfo the tableAlias/VirtualColumn is specified * differently for different GB/RS in pipeline. Remove the different treatments. * 4. VirtualColMap needs to be maintained *  */
 1,0,1,0,1,1,1,//  Replace the entire current DiskRange with new cached range.   In case of an inexact match in either of the below it may throw. We do not currently   support the case where the caller requests a single cache buffer via multiple smaller   sub-ranges; if that happens, this may throw. Noone does it now, though.   TODO: should we actively assert here for cache buffers larger than range? 
 1,0,1,1,1,1,1,//  TODO: Fill in when PARTITION_DONE_EVENT is supported. 
 1,0,0,1,1,1,1,//  TODO For now, this affects non broadcast unsorted cases as well. Make use of the edge   property when it's available. 
 1,0,1,1,1,1,1,//  TODO: most other options are probably unrecoverable... throw? 
 1,1,1,1,1,1,1,//  this is a temporary hack to fix things that are not fixed in the compiler 
 1,0,1,0,0,0,0,//  Should be fixed in Accumulo 1.5.2 and 1.6.1 
-1,1,1,0,0,0,0,//  This is hackery, but having hive-common depend on standalone-metastore is really bad   because it will pull all of the metastore code into every module.  We need to check that   we aren't using the standalone metastore.  If we are, we should treat it the same as a 
+1,1,1,0,1,1,1,//  This is hackery, but having hive-common depend on standalone-metastore is really bad   because it will pull all of the metastore code into every module.  We need to check that   we aren't using the standalone metastore.  If we are, we should treat it the same as a 
 1,0,1,1,1,1,1,// todo: fix this - it has to run in 3.0 since tables may be unbucketed 
 1,0,1,0,0,0,0,//  Not sure why this method doesn't throw any exceptions,   but since the interface doesn't allow it we'll just swallow them and   move on.  This OK-ish since releaseLocks() is only called for RO/AC queries; it  would be really bad to eat exceptions here for write operations 
 1,0,1,1,1,1,1,//  TODO: Implement this when tez is upgraded. TEZ-3550 
@@ -612,7 +612,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: can we blindly copy sort trait? What if inputs changed and we   are now sorting by different cols 
 1,0,0,1,1,1,1,//  TODO: This works different in remote and embedded mode.   In embedded mode, no exception happens. 
 1,0,0,0,0,0,0,//  UNDONE: Need to copy the object. 
-1,1,1,0,0,0,0,//  did remove those and gave CBO the proper AST. That is kinda hacky. 
+1,1,1,0,1,1,1,//  did remove those and gave CBO the proper AST. That is kinda hacky. 
 1,0,1,1,1,1,1,//  FIXME: consider other operator info as well..not just conf? 
 1,0,0,1,1,1,1,//  check # of dp   TODO: add an option to skip this if number of partitions checks is done by Triggers via   CREATED_DYNAMIC_PARTITION counter 
 1,0,0,0,0,0,0,/*  vertex is started, but not complete  */
@@ -677,7 +677,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  ### FIXME: this is broken for multi-line SQL 
 1,0,1,0,0,0,0,// Not implemented 
 1,0,0,0,0,0,0,//  Slice boundaries may not match split boundaries due to torn rows in either direction,   so this counter may not be consistent with splits. This is also why we increment   requested bytes here, instead of based on the split - we don't want the metrics to be   inconsistent with each other. No matter what we determine here, at least we'll account   for both in the same manner. 
-1,1,1,0,0,0,0,//  This is kinda hacky - we "know" these are LlaSerDeDataBuffer-s. 
+1,1,1,0,1,1,1,//  This is kinda hacky - we "know" these are LlaSerDeDataBuffer-s. 
 1,0,1,1,1,1,1,//  TODO: perhaps can be made more efficient by creating a byte[] directly 
 1,0,1,0,0,0,0,// this is not strictly accurate, but 'type' cannot be null. 
 1,0,1,1,1,1,1,//  TODO: for non columnar we don't need to do this... might as well update all stats. 
@@ -765,7 +765,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: this seems wrong (following what Hive Regular does) 
 1,0,1,1,1,1,1,//  TODO: we're asking the metastore what its configuration for this var is - we may   want to revisit to pull from client side instead. The reason I have it this way   is because the metastore is more likely to have a reasonable config for this than   an arbitrary client. 
 1,0,1,1,1,1,1,//  TODO: can this result in cross-thread reuse of session state? 
-1,0,0,0,0,0,0,//  This condition-check could have been avoided, but to honour the old   default of not calling if it wasn't set, we retain that behaviour.   TODO:cleanup after verification that the outer if isn't really needed here 
+1,0,0,0,1,1,1,//  This condition-check could have been avoided, but to honour the old   default of not calling if it wasn't set, we retain that behaviour.   TODO:cleanup after verification that the outer if isn't really needed here 
 1,0,1,1,1,1,1,//  TODO support only non nested case 
 1,0,0,0,0,0,0,//  @deprecated in favour of {@link HCatTable.#mapKeysTerminatedBy()}. To be removed in Hive 0.16. 
 1,0,1,1,1,1,1,//  TODO: get rid of this 
@@ -797,7 +797,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,0,1,1,//  UNDONE: Why don't these methods take decimalPlaces? 
 1,0,0,0,0,0,0,/*     * Serializes decimal64 up to the maximum 64-bit precision (18 decimal digits).    *    * NOTE: Major assumption: the fast decimal has already been bounds checked and a least    * has a precision <= DECIMAL64_DECIMAL_DIGITS.  We do not bounds check here for better    * performance.     */
 1,0,1,1,1,1,1,//  TODO: Refactor this and do in a more object oriented manner 
-1,1,0,1,0,1,1,//  Some data is missing from the stream for PPD uncompressed read (because index offset is   relative to the entire stream and we only read part of stream if RGs are filtered; unlike   with compressed data where PPD only filters CBs, so we always get full CB, and index offset   is relative to CB). To take care of the case when UncompressedStream goes seeking around by   its incorrect (relative to partial stream) index offset, we will increase the length by our   offset-relative-to-the-stream, and also account for it in buffers (see createDiskRangeInfo).   So, index offset now works; as long as noone seeks into this data before the RG (why would   they), everything works. This is hacky... Stream shouldn't depend on having all the data. 
+1,1,0,1,1,1,1,//  Some data is missing from the stream for PPD uncompressed read (because index offset is   relative to the entire stream and we only read part of stream if RGs are filtered; unlike   with compressed data where PPD only filters CBs, so we always get full CB, and index offset   is relative to CB). To take care of the case when UncompressedStream goes seeking around by   its incorrect (relative to partial stream) index offset, we will increase the length by our   offset-relative-to-the-stream, and also account for it in buffers (see createDiskRangeInfo).   So, index offset now works; as long as noone seeks into this data before the RG (why would   they), everything works. This is hacky... Stream shouldn't depend on having all the data. 
 1,0,1,1,1,1,1,//  TODO HIVE-15865 Ideally sort these by completion time, once that is available. 
 1,0,0,1,1,1,1,/*    * Generate a temporary path for dynamic partition pruning in Spark branch   * TODO: no longer need this if we use accumulator!   * @param basePath   * @param id   * @return    */
 1,0,1,1,1,1,1,//  TODO: probably temporary before HIVE-13698; after that we may create one per session. 
@@ -855,7 +855,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  there are 2 or more distincts, or distinct is not on count   TODO: may be the same count(distinct key), count(distinct key)   TODO: deal with duplicate count distinct key 
 1,0,1,1,1,1,1,//  id - TODO: use a non-zero index to check for offset errors. 
 1,0,0,0,0,0,0,//  @deprecated in favour of {@link HCatTable.#comment(String)}. To be removed in Hive 0.16. 
-1,0,1,0,0,0,0,//  TODO:pc need to enhance this with complex fields and getType_all function 
+1,0,1,0,1,1,1,//  TODO:pc need to enhance this with complex fields and getType_all function 
 1,0,0,0,0,0,0,//  Hive adds the same mapping twice... I wish we could fix stuff like that. 
 1,0,1,1,1,1,1,// todo: this should be moved to be an inner class of ReaderWrite as that is the only place it    is used 
 1,0,1,0,0,0,0,//  HarFileSystem has a bug where this method does not work properly   if the underlying FS is HDFS. See MAPREDUCE-1877 for more   information. This method is from FileSystem. 
@@ -1006,7 +1006,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: we might as well kill the AM at this point. How do we do that from here? 
 1,0,0,0,0,0,0,//  bitsets can't be correctly serialized by Kryo's default serializer 
 1,0,1,1,1,1,1,//  TODO Ideally move some of the other cleanup code from resetCurrentDag over here 
-1,0,0,0,0,0,0,/*  * TODO:pc remove application logic to a separate interface.  */
+1,0,0,0,1,1,1,/*  * TODO:pc remove application logic to a separate interface.  */
 1,0,1,1,1,1,1,// todo: should this be OK for MM table? 
 1,0,1,0,1,1,1,//  TODO: this is a limitation of the AST rewriting approach that we will   not be able to overcome till proper integration of full multi-insert   queries with Calcite is implemented.   The current rewriting gather references from insert clauses and then   updates them with the new subquery references. However, if insert   clauses use * or tab.*, we cannot resolve the columns that we are   referring to. Thus, we just bail out and those queries will not be   currently optimized by Calcite.   An example of such query is:   FROM T_A a LEFT JOIN T_B b ON a.id = b.id   INSERT OVERWRITE TABLE join_result_1   SELECT a.*, b.*   INSERT OVERWRITE TABLE join_result_3   SELECT a.*, b.*; 
 1,0,1,1,1,1,1,//  TODO: delete tables/databases? 
@@ -10573,7 +10573,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// set arguments 
 0,0,0,0,0,0,0,//  don't want cache hits from llap io for testing filesystem bytes read counters 
 0,0,0,0,0,0,0,//  source: LlapDaemonProtocol.proto 
-0,0,0,0,0,0,0,//  Since TxnUtils.getTxnStore calls TxnHandler.setConf -> checkQFileTestHack -> TxnDbUtil.setConfValues,   which may change the values of below two entries, we need to avoid polluting the original values 
+0,0,0,0,1,1,1,//  Since TxnUtils.getTxnStore calls TxnHandler.setConf -> checkQFileTestHack -> TxnDbUtil.setConfValues,   which may change the values of below two entries, we need to avoid polluting the original values 
 0,0,0,0,0,0,0,//  Empty constructor for writable etc. 
 0,0,0,0,0,0,0,//  Throw away lower digits. 
 0,0,0,0,0,0,0,//  mask UDFs 
@@ -16033,7 +16033,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  unset   distribution of keys is fixed   can change reducer count (ORDER BY can concat adjacent buckets)   can redistribute into buckets uniformly (GROUP BY can)   do not wait for downstream tasks 
 0,0,0,0,0,0,0,//  Set our current entry to null (since it's done) and try again. 
 0,0,0,0,0,0,0,//  RESOURCE_PLAN_NAME 
-0,1,1,1,0,1,1,//  Add hacks for well-known collections and maps to avoid estimating them. 
+0,1,1,1,1,1,1,//  Add hacks for well-known collections and maps to avoid estimating them. 
 0,0,0,0,0,0,0,//  Read dpp outputs 
 0,0,0,0,0,0,0,//  MIN_OPEN_WRITE_ID 
 0,0,0,0,0,0,0,//  in case of "DESCRIBE FORMATTED tablename column_name" statement, colPath   will contain tablename.column_name. If column_name is not specified   colPath will be equal to tableName. This is how we can differentiate   if we are describing a table or column 
@@ -20311,7 +20311,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Success! 
 0,0,0,0,0,0,0,//  remove all TOK tokens 
 0,0,0,0,0,0,0,/*      *  if there was a pre-existing work generated for the big-table mapjoin side,     *  we need to hook the work generated for the RS (associated with the RS-MJ pattern)     *  with the pre-existing work.     *     *  Otherwise, we need to associate that the mapjoin op     *  to be linked to the RS work (associated with the RS-MJ pattern).     *      */
-0,0,1,1,0,1,1,/*  * TODO:<br> * 1. Could we use combined RR instead of list of RR ?<br> * 2. Why not use GB expr ?  */
+0,0,1,1,1,1,1,/*  * TODO:<br> * 1. Could we use combined RR instead of list of RR ?<br> * 2. Why not use GB expr ?  */
 0,0,0,0,0,0,0,//  Error; default value 
 0,0,0,0,0,0,0,//  if the size is unavailable, we need to assume a size 1 greater than   localTableTotalSizeLimit this implies that merge cannot happen   so we will return false. 
 0,0,0,0,0,0,0,//  The only case where duplicate elements matter... the others are handled by the below. 
@@ -22476,7 +22476,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Handle COUNT/SUM/AVG function for the case of COUNT(*) and COUNT(DISTINCT) 
 0,0,0,0,0,0,0,/*  Calculate the function result for row i of the batch and   * set the output column vector entry i to the result.    */
 0,0,0,0,0,0,0,//  but that Set is immutable 
-0,1,0,1,0,1,1,//  Note: as per our current constraints, the behavior of two parallel activates is         undefined; although only one will succeed and the other will receive exception.         We need proper (semi-)transactional modifications to support this without hacks. 
+0,1,0,1,1,1,1,//  Note: as per our current constraints, the behavior of two parallel activates is         undefined; although only one will succeed and the other will receive exception.         We need proper (semi-)transactional modifications to support this without hacks. 
 0,0,0,0,0,0,0,//  If we are asked to start from begining, clear the current fetched resultset 
 0,0,0,0,0,0,0,//  Remove op from all its parents' child list. 
 0,0,0,0,0,0,0,//  Break out and try executing. 
@@ -26427,7 +26427,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  no child, no need for pruning 
 0,0,0,0,0,0,0,/*  Validate location string.  */
 0,0,0,0,0,0,0,//  Ignore this exception, if there is a problem it'll fail when trying to read or write. 
-0,1,1,0,0,0,0,//  If the drop has to fail on non-existent partitions, we cannot batch expressions.   That is because we actually have to check each separate expression for existence.   We could do a small optimization for the case where expr has all columns and all   operators are equality, if we assume those would always match one partition (which   may not be true with legacy, non-normalized column values). This is probably a   popular case but that's kinda hacky. Let's not do it for now. 
+0,1,1,0,1,1,1,//  If the drop has to fail on non-existent partitions, we cannot batch expressions.   That is because we actually have to check each separate expression for existence.   We could do a small optimization for the case where expr has all columns and all   operators are equality, if we assume those would always match one partition (which   may not be true with legacy, non-normalized column values). This is probably a   popular case but that's kinda hacky. Let's not do it for now. 
 0,0,0,0,0,0,0,//  tokenSig could be null 
 0,0,0,0,0,0,0,//  Return true if this data type is handled in the output vector as an integer. 
 0,0,0,1,0,1,1,//  otherwise, we don't know what to do so make it a maybe 
@@ -27438,7 +27438,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Write back the final NULL byte before the last fields. 
 0,0,1,0,0,0,0,//  Need to close the dummyOps as well. The operator pipeline   is not considered "closed/done" unless all operators are   done. For broadcast joins that includes the dummy parents. 
 0,0,0,0,0,0,0,// this simulates that cleaning thread will error out while cleaning the notifications 
-0,0,1,0,0,0,0,//  TODO:pc validate that there are no types that refer to this 
+0,0,1,0,1,1,1,//  TODO:pc validate that there are no types that refer to this 
 0,0,0,0,0,0,0,//  test after recovery 
 0,0,0,0,0,0,0,//  Sign, zero, dot, 2 * digits (to support toFormatString which can add a lot of trailing zeroes). 
 0,0,0,0,0,0,0,// if no sort keys are specified, use an edge that does not sort 

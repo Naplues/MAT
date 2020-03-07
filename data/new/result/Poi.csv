@@ -312,7 +312,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO Refactor this to fetch dir then do the rest 
 1,0,1,1,1,1,1,//  TODO - use a stronger typed exception for this condition   expected during successful test 
 1,0,1,1,1,1,1,//  TODO: check for SVG copying 
-1,1,0,0,0,0,0,// this is pure hackery for specifying the font  this happens to work on this test file, but you need to 
+1,1,0,0,1,1,1,// this is pure hackery for specifying the font  this happens to work on this test file, but you need to 
 1,1,1,1,0,1,1,//  why?  Why ask why?  But don't drink bud dry as its a really   crappy beer, try the czech "Budvar" beer (which is the real   budweiser though its ironically good...its sold in the USs   as czechvar  --- odd that they had the name first but can't   use it)... 
 1,0,1,1,1,1,1,//  FIXME: replace with org.apache.commons.collections.map.CaseInsensitiveMap 
 1,0,1,1,1,1,1,//  TODO Fix this, we are randomly adding a 0 at the end that shouldn't be there  assertEquals("     -   ", dfUS.formatRawCellContents(0.0, -1, "_-* #,##0.00_-;-* #,##0.00_-;_-* \"-\"??_-;_-@_-")); 
@@ -330,7 +330,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  Trigger the onDocumentRead for all the child parts   Otherwise we'll hit issues on Styles, Settings etc on save   TODO: Refactor this to not need to access protected method   from other package! Remove the static helper method once fixed!!! 
 1,0,1,1,1,1,1,//  TODO - probably shouldn't initialize area ref when text is really a cell ref   Need to fix some named range stuff to get rid of this 
 1,0,1,1,1,1,1,//  TODO: find out, how to set this value 
-1,0,1,1,0,1,1,//  @Ignore("TODO Work out why the Thu 21st vs Monday 25th problem is occurring and fix") 
+1,0,1,1,1,1,1,//  @Ignore("TODO Work out why the Thu 21st vs Monday 25th problem is occurring and fix") 
 1,0,1,1,1,1,1,/*  * Collection of convenience chunks for standard parts of the MSG file. *  * Not all of these will be present in any given file. *  * A partial list is available at: * http://msdn.microsoft.com/en-us/library/ms526356%28v=exchg.10%29.aspx *  * TODO Deprecate the public Chunks in favour of Property Lookups  */
 1,0,1,1,1,1,1,//  TODO Streaming write support   TODO  then convert fixed sized write to use streaming internally   TODO Append write support (probably streaming) 
 1,0,1,1,1,1,1,//  TODO - what about values between (10<sup>14</sup>-0.5) and (10<sup>14</sup>-0.05) ? 
@@ -394,7 +394,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  ignore... not implemented 
 1,0,1,1,1,1,1,//  TODO - check the formula once tables and 
 1,0,1,1,1,1,1,/*      * TODO: fix and enable      */
-1,0,1,1,0,1,1,//  @Ignore("TODO Work out why the Fri 22nd vs Monday 25th problem is occurring and fix") 
+1,0,1,1,1,1,1,//  @Ignore("TODO Work out why the Fri 22nd vs Monday 25th problem is occurring and fix") 
 1,0,1,1,1,1,1,//  XXX: It should be possible to derive this without concatenating the array, too. 
 1,0,1,1,1,1,1,/*      * This is the default Watermark paragraph; the only variable is the text message     * TODO: manage all the other variables      */
 1,0,0,1,1,1,1,// TODO defaults are different in HSSF and XSSF  assertTrue(sheet.getRowSumsBelow());  assertTrue(sheet.getRowSumsRight()); 
@@ -609,7 +609,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  draw borders (three 3x3 grids) 
 1,0,1,1,1,1,1,// TODO: move to LittleEndian? 
 1,0,0,0,0,0,0,//  there is a special case of this record that has only 14 bytes...undocumented! 
-1,0,0,0,0,0,0,/*  * Supports reading and writing of variant data.<p> * * <strong>FIXME (3):</strong> Reading and writing should be made more * uniform than it is now. The following items should be resolved: * * <ul> * * <li>Reading requires a length parameter that is 4 byte greater than the * actual data, because the variant type field is included. * * <li>Reading reads from a byte array while writing writes to an byte array * output stream. * * </ul>  */
+1,0,0,0,1,1,1,/*  * Supports reading and writing of variant data.<p> * * <strong>FIXME (3):</strong> Reading and writing should be made more * uniform than it is now. The following items should be resolved: * * <ul> * * <li>Reading requires a length parameter that is 4 byte greater than the * actual data, because the variant type field is included. * * <li>Reading reads from a byte array while writing writes to an byte array * output stream. * * </ul>  */
 1,0,1,1,1,1,1,//  0x17 - 0x24 reserved for international and undocumented   TODO - one junit relies on these values which seems incorrect 
 1,0,0,0,0,0,0,/*  something is wrong, ignoring this mark along with start mark  */
 1,0,1,1,1,1,1,//  TODO Correct this! 

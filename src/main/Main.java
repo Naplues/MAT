@@ -19,7 +19,7 @@ public class Main {
 
         // 为各种方法准备数据
         //new Pattern().prepareData();
-        new TM().prepareData();
+        //new TM().prepareData();
         //new NLP().prepareData();
 
         // 使用各种方法进行预测
@@ -92,9 +92,9 @@ public class Main {
             text.append(commentLines.get(i)).append("\n");  // 注释
         }
         FileHandle.writeStringToFile(resultPath, text.toString());
-        Method.evaluate(labelLines, PAT_Lines);
-        Method.evaluate(labelLines, NLP_Lines);
-        Method.evaluate(labelLines, T_M_Lines);
+        //Method.evaluate(labelLines, PAT_Lines);
+        //Method.evaluate(labelLines, NLP_Lines);
+        //Method.evaluate(labelLines, T_M_Lines);
         Method.evaluate(labelLines, MAT_Lines);
         //Method.evaluate(labelLines, matTMLines);
         //Method.evaluate(labelLines, matNLPLines);
@@ -110,14 +110,14 @@ public class Main {
      */
     public static void misClassification(String projectName) {
         System.out.println(projectName);
-        String resultPath = "data/result/" + projectName + ".csv";
+        String resultPath = rootPath+"/result/" + projectName + ".csv";
         List<String> lines = FileHandle.readFileToLines(resultPath);
         int count = 0;
         for (int i = 1; i < lines.size(); i++) {
             String[] splits = lines.get(i).split(",");
             String oracle = splits[0];
-            String mat = splits[3];
-            String comment = splits[6];
+            String mat = splits[4];
+            String comment = splits[7];
             //FN
             if (oracle.equals("1") && mat.equals("0")) {
                 System.out.printf("%s, %s, %s\n", oracle, mat, comment);
@@ -130,18 +130,18 @@ public class Main {
     }
 
     public static void statistics(String projectName) {
-        String resultPath = "data/result/" + projectName + ".csv";
+        String resultPath = rootPath + "/result/" + projectName + ".csv";
         List<String> lines = FileHandle.readFileToLines(resultPath);
         int count = 0;
         for (int i = 1; i < lines.size(); i++) {
             String[] splits = lines.get(i).split(",");
-            String oracle = splits[0];
-            String pattern = splits[1];
-            String nlp = splits[2];
-            String tm = splits[3];
-            String mat = splits[4];
+            String oracle = splits[0];  // oracle
+            String pattern = splits[1]; // pattern
+            String nlp = splits[2];     // nlp
+            String tm = splits[3];      //tm
+            String mat = splits[4];     //mat
             if (oracle.equals("1")) // tm.equals(mat) && tm.equals("1")
-                if (nlp.equals("1") && mat.equals("0")) count++;
+                if (tm.equals("1") && mat.equals("0")) count++;
         }
         System.out.println(count);
         //System.out.println(lines.size());

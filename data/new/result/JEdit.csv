@@ -59,7 +59,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// clear name resolvers... don't know if this is necessary.
 1,1,0,0,0,0,0,"/* this is stupid and misleading.					 * but 'path' is not used anywhere except					 * the above line, and if this is done					 * after the 'continue', then we will					 * either hang, or be forced to duplicate					 * it inside the buffer == null, or add					 * a 'finally' clause. you decide which one's					 * worse. */"
 1,0,1,1,0,1,1,// I'm too tired to think of a better way // to handle this right now.
-1,1,0,1,0,1,1,// hacked BufferIORequest to send VFSUpdates in case // two stage save is off now...
+1,1,0,1,1,1,1,// hacked BufferIORequest to send VFSUpdates in case // two stage save is off now...
 1,0,0,0,0,0,0,// some other primitive // should avoid calling methods on primitive, as we do // in Name (can't treat primitive like an object message) // but the hole is useful right now.
 1,0,0,0,0,0,0,// Change the parent (which was the class static) to the class instance // We really need to check if we're a static inner class here first... // but for some reason Java won't show the static modifier on our // fake inner classes...  could generate a flag field.
 1,0,0,0,0,0,0,// this is where checked exceptions piss me off. this method only uses // a StringReader which can never throw an exception...
@@ -184,7 +184,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// Split the methods into constructors and regular method lists
 1,0,0,0,0,0,0,// need to add static block here
 1,0,0,1,1,1,1,"/** * An output stream that compresses into the BZip2 format (without the file * header chars) into another stream. TODO: Update to BZip2 1.0.1 * * @author <a href=""mailto:keiron@aftexsw.com"">Keiron Liddle</a> */"
-1,0,0,0,0,0,0,"/**    * Parse the XML declaration.    * <pre>    * [25] XMLDecl ::= '&lt;?xml' VersionInfo EncodingDecl? SDDecl? S? '?&gt;'    * [26] VersionInfo ::= S 'version' Eq ('""1.0""' | ""'1.0'"")    * [33] SDDecl ::= S 'standalone' Eq ""'"" ('yes' | 'no') ""'""    *               | S 'standalone' Eq '""' (""yes"" | ""no"") '""'    * [78] EncodingDecl ::= S 'encoding' Eq QEncoding    * </pre>    * <p>([80] to [82] are also significant.)    * <p>(The <code>&lt;?xml</code> and whitespace have already been read.)    * <p>TODO: validate value of standalone.    * @see #parseTextDecl    * @see #checkEncoding    */"
+1,0,0,0,1,1,1,"/**    * Parse the XML declaration.    * <pre>    * [25] XMLDecl ::= '&lt;?xml' VersionInfo EncodingDecl? SDDecl? S? '?&gt;'    * [26] VersionInfo ::= S 'version' Eq ('""1.0""' | ""'1.0'"")    * [33] SDDecl ::= S 'standalone' Eq ""'"" ('yes' | 'no') ""'""    *               | S 'standalone' Eq '""' (""yes"" | ""no"") '""'    * [78] EncodingDecl ::= S 'encoding' Eq QEncoding    * </pre>    * <p>([80] to [82] are also significant.)    * <p>(The <code>&lt;?xml</code> and whitespace have already been read.)    * <p>TODO: validate value of standalone.    * @see #parseTextDecl    * @see #checkEncoding    */"
 1,0,0,0,0,0,0,// implement the recursion for getClassImpl()
 1,0,1,0,0,0,0,// Need some format checking here
 1,0,0,0,0,0,0,// Need to calculate this... just fudging here for now.

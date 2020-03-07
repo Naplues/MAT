@@ -116,7 +116,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,//  TODO: have to think about how to optimize this! 
 1,0,1,1,1,1,1,//  TODO cache these?? 
 1,0,1,1,1,1,1,//  TODO find a way to inject any GroovyLexer/GroovyRecognizer 
-1,0,0,0,0,0,0,/*      * TODO(jwagenleitner): remove or fix in future release     *     * According to the spec getContentEncoding() returns the Content-Encoding     * HTTP Header which typically carries values such as 'gzip' or 'deflate'     * and is not the character set encoding. For compatibility in 2.4.x,     * this behavior is retained but should be removed or fixed (parse     * charset from Content-Type header) in future releases.     *     * see GROOVY-8056 and https://github.com/apache/groovy/pull/500      */
+1,0,0,0,1,1,1,/*      * TODO(jwagenleitner): remove or fix in future release     *     * According to the spec getContentEncoding() returns the Content-Encoding     * HTTP Header which typically carries values such as 'gzip' or 'deflate'     * and is not the character set encoding. For compatibility in 2.4.x,     * this behavior is retained but should be removed or fixed (parse     * charset from Content-Type header) in future releases.     *     * see GROOVY-8056 and https://github.com/apache/groovy/pull/500      */
 1,0,1,0,1,1,1,//             //TODO: test if this is OK with new MOP, should be changed!              // we don't want the exception being unwrapped if it is a IllegalArgumentException              // but in the case it is for example a IllegalThreadStateException, we want the unwrapping              // from the runtime              //Note: the reason we want unwrapping sometimes and sometimes not is that the method              // invocation tries to invoke the method with and then reacts with type transformation              // if the invocation failed here. This is OK for IllegalArgumentException, but it is              // possible that a Reflector will be used to execute the call and then an Exception from inside              // the method is not wrapped in a InvocationTargetException and we will end here.              boolean setReason = e.getClass() != IllegalArgumentException.class || this instanceof org.codehaus.groovy.reflection.GeneratedMetaMethod;              return MetaClassHelper.createExceptionText("failed to invoke method: ", this, object, argumentArray, e, setReason);          } 
 1,0,1,1,1,1,1,//  TODO @Deprecated 
 1,0,0,0,0,0,0,//  should we throw invalid binding exception?  or fail quietly? 
@@ -352,7 +352,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  now, inner class node access to outer class fields 
 0,0,0,0,0,0,0,/* * The Computer Language Benchmarks Game* http://shootout.alioth.debian.org/** Based on contribution of Eckehard Berns* Based on code by Heiner Marxen* and the ATS version by Hongwei Xi* convert to Java by The Anh Tran */
 0,0,0,0,0,0,0,//  bind is idempotent, so no state checking 
-0,0,0,0,0,0,0,//     public GroovyTag[] tags(String arg0) {/*todo*/return null;} 
+0,0,0,0,1,1,1,//     public GroovyTag[] tags(String arg0) {/*todo*/return null;} 
 0,0,0,0,0,0,0,//  this will overwrite a possible field property 
 0,0,0,0,0,0,0,//  calculate whole list in this case   recommend avoiding -ve's as this is obviously not as efficient 
 0,0,0,0,0,0,0,//  make the constructor call 
@@ -1066,7 +1066,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*          * Never forget super.init()!          */
 0,0,0,0,0,0,0,//  first extension will be the one set explicitly on <groovyc> 
 0,0,0,0,0,0,0,//  we did for example find T=String and now check against   T=Object, which fails the first compatibleConnection check   but since T=Object works for both, the second one will pass   and we need to change the type for T to the more general one 
-0,0,0,0,0,0,0,//     public GroovySourcePosition position() {/*todo*/return null;}      public GroovySeeTag[] seeTags() {/*todo*/return null;} 
+0,0,0,0,1,1,1,//     public GroovySourcePosition position() {/*todo*/return null;}      public GroovySeeTag[] seeTags() {/*todo*/return null;} 
 0,0,0,0,0,0,0,//  currently just for empty literals, not for e.g. Collections.emptyList() at present 
 0,0,1,1,1,1,1,//  TODO move logic here into resolve 
 0,0,0,0,0,0,0,/*       Find the entry, then         1. Set value field to null, to force get() to retry        2. Rebuild the list without this entry.           All entries following removed node can stay in list, but           all preceding ones need to be cloned.  Traversals rely           on this strategy to ensure that elements will not be          repeated during iteration.     */
@@ -1152,7 +1152,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  let us save that value for the return 
 0,0,0,0,0,0,0,//  In order to divide tasks 'equally' for many threads, permut generation   strategy is different than that of original single thread. 
 0,0,0,0,0,0,0,//  no MOP methods if not a child of GroovyObject 
-0,0,1,0,0,0,0,//     public GroovyTypeVariable[] typeParameters() {/*todo*/return null;} // not supported in groovy      public GroovyParamTag[] typeParamTags() {/*todo*/return null;} // not supported in groovy 
+0,0,1,0,1,1,1,//     public GroovyTypeVariable[] typeParameters() {/*todo*/return null;} // not supported in groovy      public GroovyParamTag[] typeParamTags() {/*todo*/return null;} // not supported in groovy 
 0,0,0,0,0,0,0,//       * final GroovyCastException 
 0,0,0,0,0,0,0,//  group 1: tag name, group 2: tag body 
 0,0,0,0,0,0,0,//  cannot infer, return list type 
@@ -1245,7 +1245,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  true == replace 
 0,0,0,0,0,0,0,//  we do not do our name mangling to find an inner class   if the type is a ConstructedClassWithPackage, because in this case we   are resolving the name at a different place already 
 0,0,0,0,0,0,0,//  this shouldn't happen, since we are Cloneable 
-0,1,0,0,0,0,0,//  little bit of hackery to avoid Groovy dependency in this file 
+0,1,0,0,1,1,1,//  little bit of hackery to avoid Groovy dependency in this file 
 0,0,0,0,0,0,0,//  this   constructor arg n is the closure map 
 0,0,0,0,0,0,0,//  constructor calls with this() and super() 
 0,0,0,0,0,0,0,//  generic meta method invocation path 
@@ -1375,7 +1375,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,1,1,1,1,//  todo - allow locale to be passed in 
 0,0,0,0,0,0,0,//  do nothing, but clear the value recorder 
 0,0,0,0,0,0,0,//  a similar method exists, we need a super bridge   trait$super$foo(Class currentTrait, ...) 
-0,0,0,0,0,0,0,//     public GroovyThrowsTag[] throwsTags() {/*todo*/return null;}      public GroovyTypeVariable[] typeParameters() {/*todo*/return null;}      public GroovyParamTag[] typeParamTags() {/*todo*/return null;} 
+0,0,0,0,1,1,1,//     public GroovyThrowsTag[] throwsTags() {/*todo*/return null;}      public GroovyTypeVariable[] typeParameters() {/*todo*/return null;}      public GroovyParamTag[] typeParamTags() {/*todo*/return null;} 
 0,0,0,0,0,0,0,//  Output the attribute name, 
 0,0,0,0,0,0,0,//  given that we might have a grandParent... 
 0,0,0,0,0,0,0,//  warning - do...while... ignored 
@@ -1472,7 +1472,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  GROOVY-8233 skip static properties for traits since they don't make the interface 
 0,0,1,0,0,0,0,/*          * we have a name foo.bar and an import foo.foo. This means foo.bar is possibly         * foo.foo.bar rather than foo.bar. This means to cut at the dot in foo.bar and         * foo for import          */
 0,0,0,0,0,0,0,//  import checks that stack is not empty  
-0,0,0,0,1,1,1,/*      * Guess the encoding of the provided buffer.     * If Byte Order Markers are encountered at the beginning of the buffer, we immediately     * return the charset implied by this BOM. Otherwise, the file would not be a human     * readable text file.     * <p>     * If there is no BOM, this method tries to discern whether the file is UTF-8 or not.     * If it is not UTF-8, we assume the encoding is the default system encoding     * (of course, it might be any 8-bit charset, but usually, an 8-bit charset is the default one).     * <p>     * It is possible to discern UTF-8 thanks to the pattern of characters with a multi-byte sequence.     * <pre>     * UCS-4 range (hex.)        UTF-8 octet sequence (binary)     * 0000 0000-0000 007F       0xxxxxxx     * 0000 0080-0000 07FF       110xxxxx 10xxxxxx     * 0000 0800-0000 FFFF       1110xxxx 10xxxxxx 10xxxxxx     * 0001 0000-001F FFFF       11110xxx 10xxxxxx 10xxxxxx 10xxxxxx     * 0020 0000-03FF FFFF       111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx     * 0400 0000-7FFF FFFF       1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx     * </pre>     * With UTF-8, 0xFE and 0xFF never appear.     *     * @return the Charset recognized.      */
+0,0,0,0,0,0,0,/*      * Guess the encoding of the provided buffer.     * If Byte Order Markers are encountered at the beginning of the buffer, we immediately     * return the charset implied by this BOM. Otherwise, the file would not be a human     * readable text file.     * <p>     * If there is no BOM, this method tries to discern whether the file is UTF-8 or not.     * If it is not UTF-8, we assume the encoding is the default system encoding     * (of course, it might be any 8-bit charset, but usually, an 8-bit charset is the default one).     * <p>     * It is possible to discern UTF-8 thanks to the pattern of characters with a multi-byte sequence.     * <pre>     * UCS-4 range (hex.)        UTF-8 octet sequence (binary)     * 0000 0000-0000 007F       0xxxxxxx     * 0000 0080-0000 07FF       110xxxxx 10xxxxxx     * 0000 0800-0000 FFFF       1110xxxx 10xxxxxx 10xxxxxx     * 0001 0000-001F FFFF       11110xxx 10xxxxxx 10xxxxxx 10xxxxxx     * 0020 0000-03FF FFFF       111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx     * 0400 0000-7FFF FFFF       1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx     * </pre>     * With UTF-8, 0xFE and 0xFF never appear.     *     * @return the Charset recognized.      */
 0,0,0,0,0,0,0,//  stack size = 2   array index, stack size = 3   primitive types must be boxed 
 0,0,0,0,0,0,0,//  Arrays.copyOfRange only since JDK 1.6 
 0,0,0,0,0,0,0,//  return value of assignment 
@@ -2104,7 +2104,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//    Ensure the path is ready for the file 
 0,0,0,0,0,0,0,/*  Don't eat EOL chars in sections - as they are valid instruction separators.                 * See https://issues.apache.org/jira/browse/GROOVY-980                  */
 0,0,0,0,0,0,0,//  local is kept as hard reference to avoid garbage collection 
-0,0,1,0,0,0,0,//  From Hacker's Delight, Chapter 3, Harry S. Warren Jr. 
+0,0,1,0,1,1,1,//  From Hacker's Delight, Chapter 3, Harry S. Warren Jr. 
 0,0,0,0,0,0,0,//  insert at beginning so we have the classloader set up before the class is called 
 0,0,0,0,0,0,0,//  first check normal number of parameters 
 0,0,0,0,0,0,0,//  a proxy is supposed to be a concrete class, so it cannot extend an interface.   If the provided superclass is an interface, then we replace the superclass with Object 
@@ -2199,7 +2199,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Since we use the data: scheme for StringReaderSources (which are fairly common) 
 0,0,0,0,0,0,0,//  template declaring its expected types from model directly   modelTypes = {    List<String> items    ...   } 
 0,0,0,0,0,0,0,//  not java, try groovy instead :-) 
-0,0,0,0,0,0,0,//     public GroovySerialFieldTag[] serialFieldTags() {/*todo*/return null;} 
+0,0,0,0,1,1,1,//     public GroovySerialFieldTag[] serialFieldTags() {/*todo*/return null;} 
 0,0,0,0,0,0,0,//  built in namespace   pseudo namespace for markup keywords 
 0,0,0,1,0,1,1,//  we maybe can't fix a synthetic field 
 0,0,0,0,0,0,0,//  prepare fields 
@@ -2511,7 +2511,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/* Short[5] */
 0,0,0,0,0,0,0,//  end of file   the unknown token 
 0,0,0,0,0,0,0,//  no jump, so -1, need to pop off surplus II 
-0,0,0,0,0,0,0,//     public GroovyParamTag[] paramTags() {/*todo*/return null;} 
+0,0,0,0,1,1,1,//     public GroovyParamTag[] paramTags() {/*todo*/return null;} 
 0,0,0,0,0,0,0,//  <<=   >>=   >>>= 
 0,0,0,0,0,0,0,//  extract the generics from the return type 
 0,0,0,0,0,0,0,/*      further operations to be handled here maybe:    a / b a.div(b) (if one is double, return double, otherwise BD)    a[b]    a.getAt(b)    a[b] = c    a.putAt(b, c)     */
@@ -2962,7 +2962,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*  * The Great Computer Language Shootout  * http://shootout.alioth.debian.org/ *  * modified by Mehmet D. AKIN *  */
 0,0,0,0,0,0,0,/*  The Computer Language Shootout   http://shootout.alioth.debian.org/   contributed by Tony Seebregts   modified by  */
 0,0,0,0,0,0,0,//  return new Foo(new ShellContext(args)).run() 
-0,0,0,0,0,0,0,//     public GroovyTag[] firstSentenceTags() {/*todo*/return null;}      public GroovyTag[] inlineTags() {/*todo*/return null;} 
+0,0,0,0,1,1,1,//     public GroovyTag[] firstSentenceTags() {/*todo*/return null;}      public GroovyTag[] inlineTags() {/*todo*/return null;} 
 0,0,0,0,0,0,0,//  Map interface 
 0,0,0,0,0,0,0,//  can't remember the exact Josh Bloch algorithm and I've not got the book handy   but its something like this IIRC 
 0,0,0,0,0,0,0,//  DO NOT USE isStatic variable here! 

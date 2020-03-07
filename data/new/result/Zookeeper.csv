@@ -5,7 +5,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//  This is a bit weird but we need to return the address and the number of   bytes (to distinguish between IPv4 and IPv6 
 1,1,1,1,1,1,1,//  a bit of a hack, but delete(/) will never succeed and ensures   that the same semantics are maintained 
 1,0,0,0,0,0,0,//  Everything is a go, simply start counting the ticks   WARNING: I couldn't find any wait statement on a synchronized   block that would be notified by this notifyAll() call, so   I commented it out  synchronized (this) {      notifyAll();  }   We ping twice a tick, so we only update the tick every other 
-1,0,0,0,0,0,0,//  TODO(ivmaykov): Not sure if cnxn can be null here. It becomes null if channelInactive()   or exceptionCaught() trigger, but it's unclear to me if userEventTriggered() can run   after either of those. Check for null just to be safe ... 
+1,0,0,0,1,1,1,//  TODO(ivmaykov): Not sure if cnxn can be null here. It becomes null if channelInactive()   or exceptionCaught() trigger, but it's unclear to me if userEventTriggered() can run   after either of those. Check for null just to be safe ... 
 1,0,0,0,0,0,0,//  could not create tmp directory to hold JAAS conf file : test will   fail now. 
 1,0,0,1,1,1,1,//  FIXME this test is Assert.failing due to client close race condition fixing in separate patch for ZOOKEEPER-63      /**       * this test checks to see if the sessionid that was created for the       * first zookeeper client can be reused for the second one immidiately       * after the first client closes and the new client resues them.       * @throws IOException       * @throws InterruptedException       * @throws KeeperException       */ 
 1,0,1,1,1,1,1,//  TODO: need to tune the default value of thread size 
@@ -53,7 +53,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// FIXME: need way to more cleanly serialize/deserialize exceptions 
 1,0,0,0,0,0,0,//  small chance that an unexpected message was delivered    after this check, but we would catch that next time 
 1,0,0,0,0,0,0,//  Warning: this will reset the x509Util 
-1,1,1,1,0,1,1,//  a little hacky way to detect key type, but it works 
+1,1,1,1,1,1,1,//  a little hacky way to detect key type, but it works 
 1,1,1,1,0,1,1,/*              * The following sequence of code is stupid! You would think that             * only sock.close() is needed, but alas, it doesn't work that way.             * If you just do sock.close() there are cases where the socket             * doesn't actually close...              */
 1,0,1,1,1,1,1,//  todo not every tmp directory needs this file 
 1,0,1,0,1,1,1,//  XXX This shouldn't be needed, but just in case 
@@ -289,7 +289,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,/*         * Lists what threads haven't joined. A thread doesn't join if        * it hasn't decided upon a leader yet. It can happen that a        * peer is slow or disconnected, and it can take longer to        * nominate and connect to the current leader.         */
 0,0,0,0,0,0,0,/*      * For ZOOKEEPER-1732 verify that it is possible to join an ensemble with     * inconsistent election round information.      */
 0,0,0,0,0,0,0,/*          * if local session is not enabled or it used to be our local session         * throw sessions expires          */
-0,0,0,0,0,0,0,//  things needed for waitForEpochAck to run (usually in leader.lead(), but we're not running leader here) 
+0,0,0,0,1,1,1,//  things needed for waitForEpochAck to run (usually in leader.lead(), but we're not running leader here) 
 0,0,0,0,0,0,0,//  same configs, and they should be equal to the config we get from QuorumPeer. 
 0,0,0,0,0,0,0,//  Start sending packets 
 0,0,0,0,0,0,0,//  before create otw race 
@@ -980,7 +980,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  Port changes after bind() if the original port was 0, update   localAddress to get the real port. 
 0,0,0,0,0,0,0,//  Member variables for mocking Leader 
 0,0,0,0,0,0,0,//  case-1) 'quorum.auth.enableSasl' is off. Tries to enable server sasl. 
-0,0,1,0,0,0,0,//  second add to electingFollowers, verifier.containsQuorum=true, waitForEpochAck returns without exceptions 
+0,0,1,0,1,1,1,//  second add to electingFollowers, verifier.containsQuorum=true, waitForEpochAck returns without exceptions 
 0,0,0,0,0,0,0,//  should cause "/foo/bar" and "/foo" to get deleted when checkContainers() is called 
 0,0,0,0,0,0,0,//  Remove "server.x=" prefix which quorum peer does not include. 
 0,0,0,0,0,0,0,//  Extract keyword arguments to command from request parameters 
@@ -1432,7 +1432,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// make that testData exists otherwise it fails on windows 
 0,0,0,0,0,0,0,//  Receive new message 
 0,0,0,0,0,0,0,// 1000(1 second) is to prevent race condition missing to send the second ping  also make sure not to send too many pings when readTimeout is small  
-0,0,0,0,0,0,0,//  normally because the leader didn't execute waitForEpochAck 
+0,0,0,0,1,1,1,//  normally because the leader didn't execute waitForEpochAck 
 0,0,0,0,0,0,0,/*              * A snapshot might be in progress while we are modifying the data             * tree. If we set lastProcessedZxid prior to making corresponding             * change to the tree, then the zxid associated with the snapshot             * file will be ahead of its contents. Thus, while restoring from             * the snapshot, the restore method will not apply the transaction             * for zxid associated with the snapshot file, since the restore             * method assumes that transaction to be present in the snapshot.             *             * To avoid this, we first apply the transaction and then modify             * lastProcessedZxid.  During restore, we correctly handle the             * case where the snapshot contains data ahead of the zxid associated             * with the file.              */
 0,0,0,0,0,0,0,//  succeed. We explicitly disable it at the top of X509Util.java. 
 0,0,0,0,0,0,0,//  make sure the updates indeed committed. If it is not 
@@ -1943,7 +1943,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// invalid dataversion no 
 0,0,0,0,0,0,0,//  Notification probe = recvqueue.peek(); 
 0,0,0,0,0,0,0,//  Need to process local session requests 
-0,0,0,0,0,0,0,//  the version of this quorumVerifier will be set by leader.lead() in case   the leader is just being established. waitForEpochAck makes sure that readyToStart is true if 
+0,0,0,0,1,1,1,//  the version of this quorumVerifier will be set by leader.lead() in case   the leader is just being established. waitForEpochAck makes sure that readyToStart is true if 
 0,0,0,0,0,0,0,//  Now the resulting ensemble shouldn't be quorate          
 0,0,0,0,0,0,0,//  id but different role / port 
 0,0,0,0,0,0,0,//  old client session can expire, restart it 
@@ -1961,7 +1961,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,// Snapshot was never taken during very simple sync 
 0,0,0,0,0,0,0,/*  PASS  */
 0,0,0,0,0,0,0,//  now check if its the limit node 
-0,0,1,0,0,0,0,//  It is important that this is done before the leader executes waitForEpochAck,   so before LearnerHandlers return from their waitForEpochAck   hence before they construct the NEWLEADER message containing   the last-seen-quorumverifier of the leader, which we change below 
+0,0,1,0,1,1,1,//  It is important that this is done before the leader executes waitForEpochAck,   so before LearnerHandlers return from their waitForEpochAck   hence before they construct the NEWLEADER message containing   the last-seen-quorumverifier of the leader, which we change below 
 0,0,0,0,0,0,0,//  Read the length, now get the buffer 
 0,0,0,0,0,0,0,//  Arrange 
 0,0,0,0,0,0,0,//  As above, but don't do the throttled read. Make the request bytes wait in the socket 
@@ -2039,7 +2039,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  -4 is the xid for AuthPacket                
 0,0,0,0,0,0,0,/*          * Message type: 0 notification, 1 acknowledgement          */
 0,0,0,0,0,0,0,//  start 3 servers 
-0,0,0,0,0,0,0,//  wait until followers time out in waitForEpochAck - they shouldn't return 
+0,0,0,0,1,1,1,//  wait until followers time out in waitForEpochAck - they shouldn't return 
 0,0,0,0,0,0,0,/*      * (non-Javadoc)     *      * @seeorg.apache.zookeeper.inspector.manager.ZooInspectorReadOnlyManager#     * getNumChildren(java.lang.String)      */
 0,0,0,0,0,0,0,//  set the snap count to something low so that we force log rollover   and verify that is working as part of the epoch rollover. 
 0,0,0,0,0,0,0,//  close wasn't successful, try to delete the tmp file 
@@ -2063,7 +2063,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  canonicalize authorization id according to system properties:   zookeeper.kerberos.removeRealmFromPrincipal(={true,false})   zookeeper.kerberos.removeHostFromPrincipal(={true,false}) 
 0,0,0,0,0,0,0,//  OK, expected that 
 0,0,0,0,0,0,0,//  we failed on the most recent snapshot   must be incomplete   try reading the next one   after corrupting 
-0,0,0,0,0,0,0,//  leader calls waitForEpochAck, first add to electingFollowers 
+0,0,0,0,1,1,1,//  leader calls waitForEpochAck, first add to electingFollowers 
 0,0,0,0,0,0,0,//  Get a three server quorum. 
 0,0,0,0,0,0,0,//  cleanup 
 0,0,0,0,0,0,0,/*      * (non-Javadoc)     *      * @see     * java.awt.datatransfer.Transferable#getTransferData(java.awt.datatransfer     * .DataFlavor)      */
@@ -2269,7 +2269,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  lastProcessedZxid 
 0,0,0,0,0,0,0,//  nothing interesting to do if out == null 
 0,0,0,0,0,0,0,//  transaction log and snapshot files in the same dir 
-0,0,0,0,0,0,0,//  observer calls waitForEpochAck, should fail verifier.containsQuorum 
+0,0,0,0,1,1,1,//  observer calls waitForEpochAck, should fail verifier.containsQuorum 
 0,0,0,0,0,0,0,//  Trying to get a second txn on second txnlog give us the 
 0,0,0,0,0,0,0,/*  some useful information - log the number of fds used before         * and after a test is run. Helps to verify we are freeing resources         * correctly. Unfortunately this only works on unix systems (the         * only place sun has implemented as part of the mgmt bean api.          */
 0,0,0,0,0,0,0,/*      * (non-Javadoc)     *      * @see     * org.apache.zookeeper.inspector.encryption.DataEncryptionManager#encryptData     * (java.lang.String)      */

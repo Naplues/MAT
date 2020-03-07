@@ -59,7 +59,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,// XXX     should we silently catch possible exceptions and try to //         load a different implementation?
 1,0,0,1,0,1,1,// since Java 1.4 //return normalizedPath.split("/"); // workaround for Java 1.2-1.3
 1,0,0,0,0,0,0,// HAMMER // end inline mainGTU
-1,0,1,1,0,1,1,"/**     * This array really shouldn't be here.     * Again, for historical purposes it is.     *     * <p>FIXME: This array should be in a private or package private     * location, since it could be modified by malicious code.</p>     */"
+1,0,1,1,1,1,1,"/**     * This array really shouldn't be here.     * Again, for historical purposes it is.     *     * <p>FIXME: This array should be in a private or package private     * location, since it could be modified by malicious code.</p>     */"
 1,0,0,0,0,0,0,// Should move to a separate public class - and have API to add // listeners, etc.
 1,0,0,0,0,0,0,// "" should become a single empty argument, same for '' // PR 5906
 1,0,1,0,0,0,0,// not very nice but will do the job
@@ -79,7 +79,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,0,1,1,1,//TODO: Parameterise ?? //Call compiler as class... dont want to fork again //Use classic compiler -- can be parameterised?
 1,1,1,1,1,1,1,//XXX // All this to get package according to weblogic standards // Can be written better... this is too hacky! // Careful.. similar code in scanDir , but slightly different!!
 1,0,0,0,0,0,0,//stolen from writeManifest
-1,1,1,1,0,1,1,"/* If the jarfile already exists then whack it and recreate it.             * Should probably think of a more elegant way to handle this             * so that in case of errors we don't leave people worse off             * than when we started =)             */"
+1,1,1,1,1,1,1,"/* If the jarfile already exists then whack it and recreate it.             * Should probably think of a more elegant way to handle this             * so that in case of errors we don't leave people worse off             * than when we started =)             */"
 1,0,1,1,1,1,1,// XXX is the following really necessary? it is in the same thread group...
 1,0,0,0,0,0,0,// we have to find a cleaner way to put this output
 1,0,0,1,0,1,1,// This is the old way and is deprecated - classespath is // the right way to do this and is above

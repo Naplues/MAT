@@ -55,7 +55,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// todo : this eventually needs to be removed
 1,0,1,1,1,1,1,// todo : remove
 1,1,0,1,0,1,1,//just to help out during the load (ugly, i know)
-1,1,1,0,0,0,0,// hack/workaround as sqlquery impl depend on having a key.
+1,1,1,0,1,1,1,// hack/workaround as sqlquery impl depend on having a key.
 1,0,0,1,1,1,1,//TODO: handle the case of a foreign key to something other than the pk
 1,0,0,1,1,1,1,//TODO: assumes all collections disassemble to an array!
 1,0,0,1,1,1,1,// todo : would love to have this work on a notification basis //    where the successful binding of an entity/subclass would //    emit a notification which the extendsQueue entries could //    react to...
@@ -115,7 +115,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,// Not possible to simply re-use the versionPropertyNode here as it causes // OOM errors due to circularity :(
 1,0,1,0,1,1,1,// this function has a template -> restore output, apply the template and write the result out // TODO: Downcast to avoid using an interface?  Yuck.
 1,0,1,0,0,0,0,// at some point the generate phase needs to be moved out of here, // because a single object-level DML might spawn multiple SQL DML // command executions. // // Possible to just move the sql generation for dml stuff, but for // consistency-sake probably best to just move responsiblity for // the generation phase completely into the delegates // (QueryLoader/StatementExecutor) themselves.  Also, not sure why // QueryLoader currently even has a dependency on this at all; does // it need it?  Ideally like to see the walker itself given to the delegates directly...
-1,0,1,0,0,0,0,//TODO:this is only needed during compilation .. can we eliminate the instvar?
+1,0,1,0,1,1,1,//TODO:this is only needed during compilation .. can we eliminate the instvar?
 1,0,1,1,1,1,1,// TODO : absolutely no usages of this constructor form; can it go away?
 1,1,1,1,1,1,1,//TODO: is this a bit ugly?
 1,0,0,1,1,1,1,// even here, if only properties mapped to the "base table" are referenced // in the set and where clauses, this could be handled by the BasicDelegate. // TODO : decide if it is better performance-wise to perform that check, or to simply use the MultiTableUpdateDelegate
@@ -156,7 +156,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,0,0,0,0,//The class is now way to complex!
 1,0,1,1,1,1,1,// TODO : would be really nice to cache the spec on the query-def so as to not have to re-calc the hash; // currently not doable though because of the resultset-ref stuff...
 1,0,0,0,0,0,0,//name from a super query (a bit inelegant that it shows up here)
-1,1,0,0,0,0,0,//real hacky... // used to count the nesting of parentheses
+1,1,0,0,1,1,1,//real hacky... // used to count the nesting of parentheses
 1,0,0,0,0,0,0,//put() has nowait semantics, is this really appropriate? //note that it needs to be async replication, never local or sync
 1,1,1,1,1,1,1,// ugly hack for cases like "elements(foo.bar.collection)" // (multi-part path expression ending in elements or indices)
 1,0,1,1,1,1,1,// FIXME Hacky workaround to JBCACHE-1202
@@ -268,7 +268,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,1,1,1,1,1,// for DOM4J "collections" only // TODO: it would be better if this was done at the higher level by Printer
 1,0,1,1,1,1,1,//TODO: inefficient if that cache is just going to ignore the updated state!
 1,0,0,0,1,1,1,// TODO: an alternative is to check if the owner has changed; if it hasn't then // get the ID from collection.getOwner()
-1,0,1,0,0,0,0,//TODO:refactor + make this method private
+1,0,1,0,1,1,1,//TODO:refactor + make this method private
 1,0,1,1,1,1,1,// TODO : keep seperate notions of QT[] here for shallow/non-shallow queries...
 1,0,1,0,1,1,1,// todo : temporary //      needed because currently persister is the one that //      creates and renders the join fragments for inheritence //      hierarchies...
 1,0,1,0,0,0,0,// this is called by SessionFactory irregardless; we just disregard here; // could also add a check to SessionFactory to only conditionally call stop

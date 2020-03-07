@@ -136,7 +136,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 1,0,0,1,1,1,1,// FIXME check url or host/parameter 
 1,0,1,1,1,1,1,//  TODO: Can this limitation be removed? 
 1,0,1,1,1,1,1,//  FIXME better is to grap this sessions again ! 
-1,1,0,0,0,0,0,/*          * The test below deliberately uses != to compare two Strings. This is         * because the code is looking to see if the default character encoding         * has been returned because no explicit character encoding has been         * defined. There is no clean way of doing this via the Servlet API. It         * would be possible to add a Tomcat specific API but that would require         * quite a bit of code to get to the Tomcat specific request object that         * may have been wrapped. The != test is a (slightly hacky) quick way of         * doing this.          */
+1,1,0,0,1,1,1,/*          * The test below deliberately uses != to compare two Strings. This is         * because the code is looking to see if the default character encoding         * has been returned because no explicit character encoding has been         * defined. There is no clean way of doing this via the Servlet API. It         * would be possible to add a Tomcat specific API but that would require         * quite a bit of code to get to the Tomcat specific request object that         * may have been wrapped. The != test is a (slightly hacky) quick way of         * doing this.          */
 1,0,1,0,1,1,1,//  XXX - Actually there is no need to declare those   "_jspx_" + varName + "_" + nestingLevel variables when we are   inside a JspFragment. 
 1,0,1,1,1,1,1,//  XXX - Fixed a bug here - width and height can be set   dynamically. Double-check if this generation is correct. 
 1,0,1,1,0,1,1,//  Ugly but the easiest way to test of the session is valid or not 
@@ -7777,7 +7777,7 @@ oracle, Pattern, NLP, TM, MAT, MAT_TM, MAT_NLP,Comments
 0,0,0,0,0,0,0,//  No need for overflow protection here. Decrement can never be larger   the Integer.MAX_VALUE and once windowSize goes negative no further   decrements are permitted 
 0,0,0,0,0,0,0,//  local-encoding-mapping-list was added in 2.4 so should be excluded in 
 0,0,0,0,0,0,0,//  note, that we can avoid (long -> Long) conversion 
-0,1,1,0,0,0,0,//  POOL-324 org.apache.commons.pool2.impl.GenericObjectPool.getFactoryType() throws   java.lang.ClassCastException     A bit hackish, but we must handle cases when getGenericType() does not return a concrete types. 
+0,1,1,0,1,1,1,//  POOL-324 org.apache.commons.pool2.impl.GenericObjectPool.getFactoryType() throws   java.lang.ClassCastException     A bit hackish, but we must handle cases when getGenericType() does not return a concrete types. 
 0,0,0,0,0,0,0,//  Check for success 
 0,0,0,0,0,0,0,//  Cipher 36 
 0,0,0,0,0,0,0,//  Object[] 
