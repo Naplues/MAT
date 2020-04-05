@@ -19,7 +19,7 @@ public class Main {
 
         // 为各种方法准备数据
         //new Pattern().prepareData();
-        //new TM().prepareData();
+        new TM().prepareData();
         //new NLP().prepareData();
 
         // 使用各种方法进行预测

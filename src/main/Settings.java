@@ -1,5 +1,6 @@
 package main;
 
+import others.FileHandle;
 import others.tm.process.DataReader;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils;
@@ -9,6 +10,7 @@ import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.StringToWordVector;
 
 import java.io.File;
+import java.util.List;
 
 public class Settings {
 
@@ -43,14 +45,15 @@ public class Settings {
 
     public static void main(String[] args) throws Exception {
         //生成tm和mat的数据
-        generateData();
+        //generateData();
+        generateForJitterbug();
     }
 
     public static void generateData() throws Exception {
         DataReader.readComments(rootPath + "/origin/");  //读取注释数据，每个元素代表一条注释
         // 将（训练集和测试集）中的字符串转换为词向量
         WordsFromFile stopWords = new WordsFromFile();
-        stopWords.setStopwords(new File(rootPath+"/dic/stopwords.txt")); // 停用词列表
+        stopWords.setStopwords(new File(rootPath + "/dic/stopwords.txt")); // 停用词列表
 
         StringToWordVector stw = new StringToWordVector(100000);
         stw.setOutputWordCounts(true); //设置记录单词在文档中出现的次数（词频变量）若使用TFIDF公式，该选项必须设置为true
@@ -68,6 +71,22 @@ public class Settings {
 
             filePath = "data/others/data--" + projectNames[i] + ".txt";
             //DataReader.outputArffData(DataReader.selectProject(projectNames[i]), filePath);
+        }
+    }
+
+
+    public static void generateForJitterbug() {
+        List<String> projects = FileHandle.readFileToLines(rootPath + "/origin/projects");
+        List<String> labels = FileHandle.readFileToLines(rootPath + "/origin/labels");
+        List<String> comments = FileHandle.readFileToLines(rootPath + "/origin/comments");
+        for (String curProject : projectNames) {
+            StringBuilder text = new StringBuilder("projectname,classification,commenttext\r\n");
+            for (int i = 0; i < projects.size(); i++) {
+                if (!projects.get(i).equals(curProject)) continue;
+                text.append(projects.get(i)).append(",").append(labels.get(i)).append(",");
+                text.append(comments.get(i).replace(",", "")).append("\r\n");
+            }
+            FileHandle.writeStringToFile("data/new/jitterbug/" + curProject + ".csv", text.toString());
         }
     }
 }
