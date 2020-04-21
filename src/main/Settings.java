@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Settings {
 
-    public static String rootPath = "data/new/";
+    public static String rootPath = "data/";
 
 
     public static String[] projectNames = {
@@ -46,7 +46,7 @@ public class Settings {
     public static void main(String[] args) throws Exception {
         //生成tm和mat的数据
         //generateData();
-        generateForJitterbug();
+        getNum();
     }
 
     public static void generateData() throws Exception {
@@ -75,18 +75,44 @@ public class Settings {
     }
 
 
-    public static void generateForJitterbug() {
-        List<String> projects = FileHandle.readFileToLines(rootPath + "/origin/projects");
-        List<String> labels = FileHandle.readFileToLines(rootPath + "/origin/labels");
-        List<String> comments = FileHandle.readFileToLines(rootPath + "/origin/comments");
-        for (String curProject : projectNames) {
-            StringBuilder text = new StringBuilder("projectname,classification,commenttext\r\n");
-            for (int i = 0; i < projects.size(); i++) {
-                if (!projects.get(i).equals(curProject)) continue;
-                text.append(projects.get(i)).append(",").append(labels.get(i)).append(",");
-                text.append(comments.get(i).replace(",", "")).append("\r\n");
-            }
-            FileHandle.writeStringToFile("data/new/jitterbug/" + curProject + ".csv", text.toString());
+    public static void getJitterbugResult() {
+
+        for (String project : projectNames) {
+            List<String> easyLines = FileHandle.readFileToLines("data/new/easy/result--" + project + ".txt");
+            List<String> hardLines = FileHandle.readFileToLines("data/new/hard/" + project + ".csv");
+
+            for (int i = 1; i < hardLines.size(); i++) {
+                String[] split = hardLines.get(i).split(",");
+                if (!split[6].trim().equals(project)) continue;
+                String id = split[1].trim();
+                String prediction = split[3].trim();
+                easyLines.set(Integer.parseInt(id), prediction.equals("yes") ? "1" : "0");
+            }//*/
+
+            StringBuilder text = new StringBuilder();
+            for (int i = 0; i < easyLines.size(); i++) text.append(easyLines.get(i)).append("\n");
+            FileHandle.writeStringToFile("data/new/jitterbug/result--" + project + ".txt", text.toString());
+        }
+    }
+
+    public static void getNum() {
+        System.out.println("Total,Recommend,SATD in Recommend,SATD in Easy,Project\n");
+        for (String project : projectNames) {
+            List<String> easyLines = FileHandle.readFileToLines("data/new/easy/result--" + project + ".txt");
+            List<String> hardLines = FileHandle.readFileToLines("data/new/hard/" + project + ".csv");
+            int count = 0;
+            int yes = 0;
+            int hard = 0;
+            for (int i = 1; i < hardLines.size(); i++) {
+                String[] split = hardLines.get(i).split(",");
+                if (!split[6].trim().equals(project)) continue;
+                String id = split[1].trim();
+                String prediction = split[3].trim();
+                count += prediction.equals("undetermined") ? 0 : 1;
+                yes += prediction.equals("yes") ? 1 : 0;
+                hard++;
+            }//*/
+            System.out.println(easyLines.size() + "," + count + "," + yes + "," + (easyLines.size() - hard) + "," + project);
         }
     }
 }

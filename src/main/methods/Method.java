@@ -47,7 +47,7 @@ public class Method implements IMethod {
         double recall = (double) TP / (TP + FN);
         double f1 = 2 * precision * recall / (precision + recall);
 
-        System.out.printf("%.3f, %.3f, %.3f, || ", precision, recall, f1);
+        System.out.printf("%.3f, %.3f, %.3f, || \n", precision, recall, f1);
         return new double[]{precision, recall, f1};
     }
 }

@@ -1,6 +1,7 @@
 package main.methods;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import main.Settings;
@@ -77,6 +78,7 @@ public class TM extends Method {
         stw.setStemmer(new SnowballStemmer());
         stw.setStopwordsHandler(stopWords);
 
+        StringBuilder text = new StringBuilder("Training project, P, R, F1\n");
         // 训练测试数据
         String trainDataPath, testDataPath;
         double ratio = 0.1;
@@ -84,6 +86,22 @@ public class TM extends Method {
         for (int target = 0; target < Settings.projectNames.length; target++) {
             System.out.print("Target: " + Settings.projectNames[target] + ", ");
             testDataPath = methodPath + "data--" + Settings.projectNames[target] + ".arff";
+
+
+            // 测试集包含19个项目
+            StringBuilder testText = new StringBuilder("@relation 'technicalDebt'\n\n" +
+                    "@attribute Text string\n" +
+                    "@attribute class-att {negative,positive}\n\n" +
+                    "@data\n");
+            for (int source = 0; source < Settings.projectNames.length; source++) {
+                if (source == target) continue;
+                List<String> lines = FileHandle.readFileToLines(methodPath + "data--" + Settings.projectNames[source] + ".arff");
+                for (int i = 7; i < lines.size(); i++) testText.append(lines.get(i)).append("\n");
+            }
+            FileHandle.writeStringToFile(methodPath + "data--tmp.arff", testText.toString());
+            testDataPath = methodPath + "data--tmp.arff";
+
+
             // 集成学习器
             EnsembleLearner eLearner = new EnsembleLearner();
             // 每个训练项目
@@ -131,7 +149,13 @@ public class TM extends Method {
             double[] predictionLabels = eLearner.evaluate();
             String resultPath = methodPath + "result--" + Settings.projectNames[target] + ".txt";
             FileHandle.writeDoubleArrayToFile(resultPath, predictionLabels);
+
+            text.append(Settings.projectNames[target]).append(", ")
+                    .append(eLearner.getPrecision()).append(", ")
+                    .append(eLearner.getRecall()).append(", ")
+                    .append(eLearner.getFmeasure()).append("\n");
         }// end for 测试集*/
+        FileHandle.writeStringToFile("result/oto/tm/Self.csv", text.toString());
     }
 
 
@@ -158,16 +182,14 @@ public class TM extends Method {
         double ratio = 0.1;
         // 每个测试项目
         for (int target = 0; target < Settings.projectNames.length; target++) {
-            //System.out.println("Target: " + Settings.projectNames[target] + ", ");
+            System.out.println("Target: " + Settings.projectNames[target] + ", ");
             testDataPath = methodPath + "data--" + Settings.projectNames[target] + ".arff";
 
+            StringBuilder text = new StringBuilder("Training project, P, R, F1\n");
             double precision = .0, recall = .0, f1 = .0;
             // 每个训练项目
             for (int source = 0; source < Settings.projectNames.length; source++) {
-                if (source == target) {
-                    //System.out.println(Settings.projectNames[source] + ", ");
-                    continue;
-                }
+                //if (source == target) continue;
                 trainDataPath = methodPath + "data--" + Settings.projectNames[source] + ".arff";
                 // 集成学习器
                 Instances tmp = DataSource.read(testDataPath);
@@ -210,10 +232,16 @@ public class TM extends Method {
                 precision += eLearner.getPrecision();
                 recall += eLearner.getRecall();
                 f1 += eLearner.getFmeasure();
+
+                text.append(Settings.projectNames[source]).append(", ")
+                        .append(eLearner.getPrecision()).append(", ")
+                        .append(eLearner.getRecall()).append(", ")
+                        .append(eLearner.getFmeasure()).append("\n");
             } //end for 训练集
             int len = projects.length - 1;
             System.out.printf(projects[target] + " Avg. %.3f, %.3f, %.3f\n", precision / len, recall / len, f1 / len);
             //System.out.println("\n================================");
+            FileHandle.writeStringToFile("result/oto/tm/" + Settings.projectNames[target] + ".csv", text.toString());
         } // end for 测试集*/
     }
 }

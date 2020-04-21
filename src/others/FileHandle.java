@@ -69,8 +69,14 @@ public class FileHandle {
         try {
             // true = append file
             File file = new File(filePath);
-            if (!file.exists())
+            // 文件不存在
+            if (!file.exists()) {
+                String[] temp = filePath.split("/");
+                String dir = filePath.replace(temp[temp.length - 1], "");
+                File mkdir = new File(dir);
+                mkdir.mkdirs();
                 file.createNewFile();
+            }
             boolean append = false;
             if (a.length == 1) {
                 append = a[0];
