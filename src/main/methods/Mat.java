@@ -31,7 +31,7 @@ public class Mat extends Method {
             int[] predicts = new int[instances.size() - 7];
 
             for (int i = 7, index = 0; i < instances.size(); i++, index++) {
-                predicts[index] = classify(instances.get(i).split(",")[0], keyWords, true);
+                predicts[index] = classify(instances.get(i).split(",")[0], keyWords, false);
                 //if (originComments.get(index).trim().endsWith("?")) predicts[index] = 1;
             }
 
@@ -49,6 +49,7 @@ public class Mat extends Method {
     public static int classify(String instance, String[] keyWords, boolean isFuzzy) {
         String[] words = instance.replace("'", "").split(" ");
         if (isFuzzy) {
+            System.out.println("Fuzzy");
             for (String word : words) {
                 for (String key : keyWords) {
                     if (word.startsWith(key) || word.endsWith(key)) {
@@ -58,6 +59,7 @@ public class Mat extends Method {
                 }
             }
         } else {
+            System.out.println("Strict");
             for (String word : words) {
                 for (String key : keyWords)
                     if (word.equals(key)) return 1;

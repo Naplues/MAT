@@ -72,6 +72,7 @@ public class NLP extends Method {
      *
      * @throws Exception
      */
+    /*
     public void predict() throws Exception {
 
         for (String project : projects) {
@@ -93,7 +94,9 @@ public class NLP extends Method {
             FileHandle.writeStringToFile(resultFile, text.toString());
         }
     }
-    /*
+
+     //*/
+
     public void predict() throws Exception {
 
         for (String project : projects) {

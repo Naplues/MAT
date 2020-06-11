@@ -1,199 +1,199 @@
 oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
-1,0,0,0,0,0,0,0,"/*			Implement String += value;			According to the JLS, value may be anything.			In BeanShell, we'll disallow VOID (undefined) values.			(or should we map them to the empty string?)		*/"
-1,0,0,0,0,0,0,0,/* this should be before dockables are initialized */
-1,0,0,0,0,0,0,0,// is this right?
+1,0,0,1,0,0,0,1,"/*			Implement String += value;			According to the JLS, value may be anything.			In BeanShell, we'll disallow VOID (undefined) values.			(or should we map them to the empty string?)		*/"
+1,0,0,1,0,0,0,1,/* this should be before dockables are initialized */
+1,0,0,1,0,0,0,1,// is this right?
 1,0,0,0,0,0,0,0,// should we do this for both cases above?
 1,0,0,0,0,0,0,0,// need to loosen this to any throwable... do we need to handle // that in interpreter somewhere?  check first...
 1,0,0,0,0,0,0,0,// fucking GTK look and feel
 1,0,1,1,0,0,1,1,"/*		Note: this implementation is temporary. We currently keep a flat		namespace of the base name of classes.  i.e. BeanShell cannot be in the		process of defining two classes in different packages with the same		base name.  To remove this limitation requires that we work through		namespace imports in an analogous (or using the same path) as regular		class import resolution.  This workaround should handle most cases 		so we'll try it for now.	*/"
 1,0,0,0,0,0,0,0,// copy and paste from bsh/classpath/ClassManagerImpl.java...
 1,0,0,0,0,0,0,0,// I wish I could make this "friendly" to only NameSpace
-1,1,1,1,1,1,1,1,// undocumented hack to allow browser actions to work. // XXX - clean up in 4.3
+1,1,1,0,1,1,1,1,// undocumented hack to allow browser actions to work. // XXX - clean up in 4.3
 1,0,0,0,0,0,0,0,// Look for a default invoke() handler method in the namespace // Note: this code duplicates that in NameSpace getCommand() // is that ok?
-1,0,0,0,0,0,0,0,// This should be per instance
-1,0,0,0,0,0,0,0,// Can we use the proxy mechanism to cast a bsh.This to  // the correct interface?
+1,0,1,0,0,0,1,0,// This should be per instance
+1,0,1,1,0,0,1,1,// Can we use the proxy mechanism to cast a bsh.This to  // the correct interface?
 1,0,0,0,0,0,0,0,// redundant with constructor
 1,0,0,0,0,0,0,0,"/*		Issues to resolve here...		1) In which classloader should we define the class?		if there is a BshClassLoader should we define it there?		2) should we use reflection to set it in a non-bsh classloader		if there is one or should we always create a bsh classloader		(and expose its defineClass)?	*/"
-1,0,0,1,0,0,0,1,// could refactor these a bit
+1,0,0,0,0,0,0,0,// could refactor these a bit
 1,0,1,0,0,0,1,0,"/*	Note: This class essentially just delegates most of its methods to its	parent.  The setVariable() indirection is very small.  We could probably	fold this functionality back into the base NameSpace as a special case.	But this has changed a few times so I'd like to leave this abstraction for	now.*/"
 1,0,0,0,0,0,0,0,// simplified these settings a little...
 1,0,0,0,0,0,0,0,"/*		Should check for strict java here and use isJavaAssignable() instead	*/"
-1,0,0,1,0,0,0,1,// workaround for Swing rendering labels starting // with <html> using the HTML engine
-1,0,0,0,0,0,0,0,// Look for a default invoke() handler method in the namespace // Note: this code duplicates that in This.java... should it? // Call on 'This' can never be a command
-1,0,0,0,0,0,0,0,// this method is a nightmare
+1,0,1,1,0,0,1,1,// workaround for Swing rendering labels starting // with <html> using the HTML engine
+1,0,0,1,0,0,0,1,// Look for a default invoke() handler method in the namespace // Note: this code duplicates that in This.java... should it? // Call on 'This' can never be a command
+1,0,0,1,0,0,0,1,// this method is a nightmare
 1,0,0,0,0,0,0,0,// ConsoleInterface // The interpreter reflexively implements the console interface that it  // uses.  Should clean this up by using an inner class to implement the // console for us.
 1,0,1,1,0,0,1,1,// Case-insensitive fs workaround
-1,0,0,0,0,0,0,0,"/*			Wrap nulls.			This is a bit of a cludge to address a deficiency in the class			generator whereby it does not wrap nulls on method delegate.  See			Class Generator.java.  If we fix that then we can remove this.			(just have to generate the code there.)		*/"
+1,0,1,1,0,0,1,1,"/*			Wrap nulls.			This is a bit of a cludge to address a deficiency in the class			generator whereby it does not wrap nulls on method delegate.  See			Class Generator.java.  If we fix that then we can remove this.			(just have to generate the code there.)		*/"
 1,0,0,0,0,0,0,0,// switch eats a multi-level break here? // not empty statement
-1,0,0,0,0,0,0,0,// Check for field on object  // Note: could eliminate throwing the exception somehow
+1,0,1,0,0,0,1,0,// Check for field on object  // Note: could eliminate throwing the exception somehow
 1,0,1,0,0,0,1,0,// XXXX re-evaluate this // can getSuper work by itself now? // If we're a class instance and the parent is also a class instance // then super means our parent.
-1,0,0,0,0,0,0,0,"/*		I wish protected access were limited to children and not also 		package scope... I want this to be a singleton implemented by various		children.  	*/"
-1,0,0,0,0,0,0,0,// Imported full name wasn't found as an absolute class // If it is compound, try to resolve to an inner class.   // (maybe this should happen in the BshClassManager?)
+1,0,0,1,0,0,0,1,"/*		I wish protected access were limited to children and not also 		package scope... I want this to be a singleton implemented by various		children.  	*/"
+1,0,0,1,0,0,0,1,// Imported full name wasn't found as an absolute class // If it is compound, try to resolve to an inner class.   // (maybe this should happen in the BshClassManager?)
 1,0,0,0,0,0,0,0,"/*	Can't this be combined with run() ?	run seems to have stuff in it for interactive vs. non-interactive...	compare them side by side and see what they do differently, aside from the	exception handling.	*/"
 1,0,0,0,0,0,0,0,// Null value is just a declaration // Note: we might want to keep any existing value here instead of reset
-1,0,0,0,0,0,0,0,// Can this be factored out...?   // Should be be adding the L...; here instead?
+1,0,0,1,0,0,0,1,// Can this be factored out...?   // Should be be adding the L...; here instead?
 1,0,0,0,0,0,0,0,"/* 							Catch the mismatch and continue to try the next							Note: this is innefficient, should have an 							isAssignableFrom() that doesn't throw 						*/"
-1,0,0,0,0,0,0,0,// should use try/finally here to pop ns
+1,0,0,1,0,0,0,1,// should use try/finally here to pop ns
 1,0,0,0,0,0,0,0,"/*			Note: this could be made clearer by adding an inner class for the			cases and an object context for the child traversal.		*/"
-1,1,1,1,1,1,1,1,// hack... sticking to first interpreter that resolves this // see comments on type instance variable
+1,1,0,0,1,1,1,1,// hack... sticking to first interpreter that resolves this // see comments on type instance variable
 1,1,1,1,1,1,1,1,// Note: incorrect here - we are using the hack in bsh class // manager that allows lookup by base name.  We need to eliminate // this limitation by working through imports.  See notes in class // manager.
-1,0,0,0,0,0,0,0,"/* 		This is the namespace in which the method is set.		It is a back-reference for the node, which needs to execute under this 		namespace.  It is not necessary to declare this transient, because 		we can only be saved as part of our namespace anyway... (currently).	*/"
-1,0,0,0,0,0,0,0,// Replace this is Cocoa API calls later
-1,0,0,0,0,0,0,0,// Scripting classes currently requires accessibility // This can be eliminated with a bit more work.
+1,0,1,1,0,0,1,1,"/* 		This is the namespace in which the method is set.		It is a back-reference for the node, which needs to execute under this 		namespace.  It is not necessary to declare this transient, because 		we can only be saved as part of our namespace anyway... (currently).	*/"
+1,0,0,1,0,0,0,1,// Replace this is Cocoa API calls later
+1,0,0,1,0,0,0,1,// Scripting classes currently requires accessibility // This can be eliminated with a bit more work.
 1,0,0,0,0,0,0,0,// This could be static
-1,0,0,0,0,0,0,0,"/*	Thanks to Slava Pestov (of jEdit fame) for import caching enhancements.	Note: This class has gotten too big.  It should be broken down a bit.*/"
-1,0,0,0,1,1,1,1,"/**    * Register an attribute declaration for later retrieval.    * Format:    * - String type    * - String default value    * - int value type    * *TODO: do something with attribute types.    */"
-1,0,0,0,1,1,1,1,"/*				TODO:					to get cast and boxing working e.g.					e.g. Byte [] ia = { 1, 2 }					If the baseType is a wrapper type then we need to get the 					primitive TYPE class for the base type here in order for 					the cast to allow it... Then boxing will happen naturally in					the Array.set().					e.g. Integer [] ia = { 1, 2 }				*/"
-1,0,0,0,0,0,0,0,"/*		Note: We will ll move this behavior out to a subclass of 		NameSpace, but we'll start here.	*/"
-1,0,0,0,0,0,0,0,// This is a particularly nasty bit // of code, that checks for a parameter // entity reference but peeks ahead to // catch the '%' in parameter entity // declarations.
-1,0,1,0,0,0,1,0,// Should cache this subject to classloader change message // Evaluation of the formal parameter simply resolves its // type via the specified namespace.. it doesn't modify the // namespace.
-1,0,0,0,0,0,0,0,"/*	Notes:	It would not be hard to eliminate the use of org.objectweb.asm.Type from	this class, making the distribution a tiny bit smaller.*/"
+1,0,0,1,0,0,0,1,"/*	Thanks to Slava Pestov (of jEdit fame) for import caching enhancements.	Note: This class has gotten too big.  It should be broken down a bit.*/"
+1,0,0,1,1,1,1,1,"/**    * Register an attribute declaration for later retrieval.    * Format:    * - String type    * - String default value    * - int value type    * *TODO: do something with attribute types.    */"
+1,0,1,1,1,1,1,1,"/*				TODO:					to get cast and boxing working e.g.					e.g. Byte [] ia = { 1, 2 }					If the baseType is a wrapper type then we need to get the 					primitive TYPE class for the base type here in order for 					the cast to allow it... Then boxing will happen naturally in					the Array.set().					e.g. Integer [] ia = { 1, 2 }				*/"
+1,0,0,1,0,0,0,1,"/*		Note: We will ll move this behavior out to a subclass of 		NameSpace, but we'll start here.	*/"
+1,0,0,1,0,0,0,1,// This is a particularly nasty bit // of code, that checks for a parameter // entity reference but peeks ahead to // catch the '%' in parameter entity // declarations.
+1,0,0,0,0,0,0,0,// Should cache this subject to classloader change message // Evaluation of the formal parameter simply resolves its // type via the specified namespace.. it doesn't modify the // namespace.
+1,0,1,1,0,0,1,1,"/*	Notes:	It would not be hard to eliminate the use of org.objectweb.asm.Type from	this class, making the distribution a tiny bit smaller.*/"
 1,1,0,0,0,0,0,0,// stupid: caret will automatically be incremented
 1,0,0,1,0,0,0,1,/* Spacing workaround */
-1,0,0,0,0,0,0,0,// I don't know of any other way to fix this, since invoking this // command from a menu results in the focus owner being the menu // until the menu goes away.
-1,1,1,1,1,1,1,1,// a little hack for reverse replace and find
+1,0,1,0,0,0,1,0,// I don't know of any other way to fix this, since invoking this // command from a menu results in the focus owner being the menu // until the menu goes away.
+1,1,1,0,1,1,1,1,// a little hack for reverse replace and find
 1,0,0,0,0,0,0,0,// Static methods that operate on compound ('.' separated) names // I guess we could move these to StringUtil someday
 1,0,0,0,0,0,0,0,"/*	Note: which of these things should be checked at parse time vs. run time?*/"
-1,0,0,0,0,0,0,0,// this part sucks
-1,0,1,1,0,0,1,1,// Windows bug workaround in case a YES/NO confirm // was shown
+1,0,0,1,0,0,0,1,// this part sucks
+1,0,1,0,0,0,1,0,// Windows bug workaround in case a YES/NO confirm // was shown
 1,0,0,0,0,0,0,0,// clear name resolvers... don't know if this is necessary.
-1,1,0,0,0,0,0,0,"/* this is stupid and misleading.					 * but 'path' is not used anywhere except					 * the above line, and if this is done					 * after the 'continue', then we will					 * either hang, or be forced to duplicate					 * it inside the buffer == null, or add					 * a 'finally' clause. you decide which one's					 * worse. */"
-1,0,1,1,0,0,1,1,// I'm too tired to think of a better way // to handle this right now.
-1,1,0,1,0,1,1,1,// hacked BufferIORequest to send VFSUpdates in case // two stage save is off now...
+1,1,0,1,0,0,0,1,"/* this is stupid and misleading.					 * but 'path' is not used anywhere except					 * the above line, and if this is done					 * after the 'continue', then we will					 * either hang, or be forced to duplicate					 * it inside the buffer == null, or add					 * a 'finally' clause. you decide which one's					 * worse. */"
+1,0,1,0,0,0,1,0,// I'm too tired to think of a better way // to handle this right now.
+1,1,0,1,0,0,0,1,// hacked BufferIORequest to send VFSUpdates in case // two stage save is off now...
 1,0,0,0,0,0,0,0,// some other primitive // should avoid calling methods on primitive, as we do // in Name (can't treat primitive like an object message) // but the hole is useful right now.
 1,0,0,0,0,0,0,0,// Change the parent (which was the class static) to the class instance // We really need to check if we're a static inner class here first... // but for some reason Java won't show the static modifier on our // fake inner classes...  could generate a flag field.
 1,0,0,0,0,0,0,0,// this is where checked exceptions piss me off. this method only uses // a StringReader which can never throw an exception...
 1,0,1,0,1,1,1,1,// If any subexpressions didn't terminate, they don't count // TODO check if this code ever gets hit
 1,0,0,0,0,0,0,0,// Parse pattern into tokens.  Does anyone know if it's more efficient // to use char[] than a String.charAt()?  I'm assuming so.
-1,0,1,0,0,0,1,0,"/*		Note: object is only used here for precondition... get rid of it?	*/"
-1,0,0,1,0,0,0,1,// Why both of these?
+1,0,0,0,0,0,0,0,"/*		Note: object is only used here for precondition... get rid of it?	*/"
+1,0,0,0,0,0,0,0,// Why both of these?
 1,0,0,0,0,0,0,0,// Cut off from parent, we must have our own class manager. // Can't do this in the run() command (needs to resolve stuff) // Should we do it by default when we create a namespace will no // parent of class manager?
-1,0,0,0,0,0,0,0,"/*		Note: the bsh command code should probably not be here...  we need to		scope it by the namespace that imported the command... so it probably		needs to be integrated into NameSpace.	*/"
+1,0,1,0,0,0,1,0,"/*		Note: the bsh command code should probably not be here...  we need to		scope it by the namespace that imported the command... so it probably		needs to be integrated into NameSpace.	*/"
 1,0,1,0,0,0,1,0,// This could be smarter...
 1,0,1,0,0,0,1,0,// It was explicitly imported, but we don't know what it is. // should we throw an error here??
-1,0,0,0,0,0,0,0,"/*		Note: we need a form of eval that passes the callstack through...	*/"
-1,0,0,0,0,0,0,0,"/* 		Primary interpreter set and get variable methods		Note: These are squeltching errors... should they?	*/"
-1,0,1,1,0,0,1,1,// Workaround for JDK bug 4071281, where system.in.available()  // returns too large a value. This bug has been fixed in JDK 1.2.
+1,0,0,1,0,0,0,1,"/*		Note: we need a form of eval that passes the callstack through...	*/"
+1,0,0,1,0,0,0,1,"/* 		Primary interpreter set and get variable methods		Note: These are squeltching errors... should they?	*/"
+1,0,1,0,0,0,1,0,// Workaround for JDK bug 4071281, where system.in.available()  // returns too large a value. This bug has been fixed in JDK 1.2.
 1,1,0,1,1,1,1,1,"/*				Somewhat of a hack.  If the special fields are visible (we're				operating relative to a 'this' type already) dissallow further				.this references to prevent user from skipping to things like				super.this.caller			*/"
-1,0,0,0,0,0,0,0,// Should clean this up to a single return statement
+1,0,0,1,0,0,0,1,// Should clean this up to a single return statement
 1,0,1,0,0,0,1,0,"/*	Implementation notes:	Note: we may need some synchronization in here	Note on version dependency:  This base class is JDK 1.1 compatible,	however we are forced to use weak references in the full featured	implementation (the optional bsh.classpath package) to accomodate all of	the fleeting namespace listeners as they fall out of scope.  (NameSpaces	must be informed if the class space changes so that they can un-cache	names).  	<p>	Perhaps a simpler idea would be to have entities that reference cached	types always perform a light weight check with a counter / reference	value and use that to detect changes in the namespace.  This puts the 	burden on the consumer to check at appropriate times, but could eliminate	the need for the listener system in many places and the necessity of weak 	references in this package.	<p>*/"
-1,0,0,0,0,0,0,0,"/*		Note: this impor pattern is becoming common... could factor it out into		an importedObject Vector class.	*/"
+1,0,1,1,0,0,1,1,"/*		Note: this impor pattern is becoming common... could factor it out into		an importedObject Vector class.	*/"
 1,0,1,0,0,0,1,0,// not sure if we should really recurse here for explicitly imported // class in parent...
-1,0,0,0,0,0,0,0,// The following two boolean checks were tacked on. // This could probably be smoothed out.
-1,0,1,0,0,0,1,0,"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		findMostSpecficMethod() needs to be rewritten to eliminate 		findAccessibleMethod.  We should implement the findMostSpecificMethod 		that uses the publicOnly flag.  FindMostSpecificMethod should also		operate in two passes to give standard Java assignable matches priority		over extended bsh type matches.	*/"
-1,0,0,0,0,0,0,0,//{{{ UnixWorkaround constructor
-1,0,0,0,0,0,0,0,// drag and drop support // I'd just move the code to // JEditTextArea but it // depends on JDK 1.4 APIs
-1,0,0,0,0,0,0,0,// next version: remove this
-1,1,1,0,0,0,1,0,// compatibility kludge for jEdit 3.1 and earlier
-1,1,1,1,0,0,1,1,// stupid scrollbar policy is an attempt to work around // bugs people have been seeing with IBM's JDK -- 7 Sep 2000
-1,1,1,1,1,1,1,1,// this is a weird hack. // we don't want C+e a to insert 'a' in the // search bar if the search bar has focus...
-1,0,0,1,0,0,0,1,// AHA! // this is probably the only way to fix this
-1,1,0,1,1,1,1,1,// this is a dirty hack and it relies on the fact // that updates for parents are sent before updates // for the changed nodes themselves (if this was not // the case, the browser wouldn't be updated properly // on delete, etc). // // to avoid causing '> 1 request' errors, don't reload // directory if request already active
-1,0,0,0,0,0,0,0,// we consume this to work around the bug // where A+TAB window switching activates // the menu bar on Windows.
+1,0,0,1,0,0,0,1,// The following two boolean checks were tacked on. // This could probably be smoothed out.
+1,0,0,1,0,0,0,1,"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		findMostSpecficMethod() needs to be rewritten to eliminate 		findAccessibleMethod.  We should implement the findMostSpecificMethod 		that uses the publicOnly flag.  FindMostSpecificMethod should also		operate in two passes to give standard Java assignable matches priority		over extended bsh type matches.	*/"
+1,0,1,0,0,0,1,0,//{{{ UnixWorkaround constructor
+1,0,1,1,0,0,1,1,// drag and drop support // I'd just move the code to // JEditTextArea but it // depends on JDK 1.4 APIs
+1,0,0,1,0,0,0,1,// next version: remove this
+1,1,0,0,0,0,0,0,// compatibility kludge for jEdit 3.1 and earlier
+1,1,1,0,0,0,1,0,// stupid scrollbar policy is an attempt to work around // bugs people have been seeing with IBM's JDK -- 7 Sep 2000
+1,1,1,0,1,1,1,1,// this is a weird hack. // we don't want C+e a to insert 'a' in the // search bar if the search bar has focus...
+1,0,1,1,0,0,1,1,// AHA! // this is probably the only way to fix this
+1,1,0,0,1,1,1,1,// this is a dirty hack and it relies on the fact // that updates for parents are sent before updates // for the changed nodes themselves (if this was not // the case, the browser wouldn't be updated properly // on delete, etc). // // to avoid causing '> 1 request' errors, don't reload // directory if request already active
+1,0,0,1,0,0,0,1,// we consume this to work around the bug // where A+TAB window switching activates // the menu bar on Windows.
 1,0,0,0,0,0,0,0,"/* I guess translated events do not have the 'evt' field set		so consuming won't work. I don't think this is a problem as		nothing uses translation anyway */"
 1,1,1,1,1,1,1,1,// this is a hack, and really needs to be done better.
 1,0,0,0,0,0,0,0,// copy and paste from RESyntaxMatcher to make syntax package // independent of jEdit itself
 1,1,0,0,0,0,0,0,// stupidity
-1,0,0,0,0,0,0,0,// This doesn't seem very correct, but it fixes a problem // when setting the initial caret position for a buffer // (eg, from the recent file list)
+1,0,0,1,0,0,0,1,// This doesn't seem very correct, but it fixes a problem // when setting the initial caret position for a buffer // (eg, from the recent file list)
 1,0,0,0,0,0,0,0,// don't try this at home
-1,1,0,0,0,0,0,0,"/* silly that we reference the vertical				   scroll bar here directly. we do this so				   that the horizontal scroll bar is flush				   with the vertical scroll bar */"
-1,0,0,0,0,1,1,1,// XXX clean up this conditional
+1,1,0,1,0,0,0,1,"/* silly that we reference the vertical				   scroll bar here directly. we do this so				   that the horizontal scroll bar is flush				   with the vertical scroll bar */"
+1,0,1,0,0,1,1,1,// XXX clean up this conditional
 1,1,1,1,1,1,1,1,// Temporary hack to support inner classes  // If the obj is a non-static inner class then import the context... // This is not a sufficient emulation of inner classes. // Replace this later...
 1,0,0,1,0,0,0,1,// workaround for Swing's annoying processing of // labels starting with <html>, which often breaks
 1,0,0,0,0,0,0,0,// fucking GTK look and feel!
-1,1,0,1,1,1,1,1,// hack so that 'select all' does not change current buffer
-1,1,1,1,1,1,1,1,"/* if an occurence occurs at the		beginning of the selection, the		selection start will get moved.		this sucks, so we hack to avoid it. */"
-1,0,0,1,0,0,0,1,"/* Silly bug workaround #8694. If you look at the above code,		 * note that we restore the saved caret position first, then		 * scroll to the saved location. However, the caret changing		 * can itself result in scrolling to a different location than		 * what was saved; and since moveCaretPosition() calls		 * updateBracketHighlight(), the bracket highlight's out of		 * bounds calculation will rely on a different set of physical		 * first/last lines than what we will end up with eventually.		 * Instead of confusing the user with status messages that		 * appear at random when switching buffers, we simply hide the		 * message altogether. */"
-1,1,0,1,1,1,1,1,"/* this is a sloppy hack to fix bug				   ""[ 677902 ] hitting return after collapsed				   fold""				   the idea is that if we extend the range then				   the problem described in the bug happends, so				   if the insert is at the very end of the range				   we don't extend it, instead we push the				   insert into the next range, however for this				   to work properly we also have to mess with				   screen line counts. */"
-1,1,1,1,1,1,1,1,// need this bullshit scroll bar policy for the preferred size // hack to work
-1,0,1,0,0,1,1,1,// XXX if we keep the createClassManager in getClassManager then we can axe // this?
-1,0,1,0,0,0,1,0,"/*	Note: This class is messy.  The method and field resolution need to be	rewritten.  Various methods in here catch NoSuchMethod or NoSuchField	exceptions during their searches.  These should be rewritten to avoid	having to catch the exceptions.  Method lookups are now cached at a high 	level so they are less important, however the logic is messy.*/"
+1,1,1,0,1,1,1,1,// hack so that 'select all' does not change current buffer
+1,1,1,0,1,1,1,1,"/* if an occurence occurs at the		beginning of the selection, the		selection start will get moved.		this sucks, so we hack to avoid it. */"
+1,0,0,0,0,0,0,0,"/* Silly bug workaround #8694. If you look at the above code,		 * note that we restore the saved caret position first, then		 * scroll to the saved location. However, the caret changing		 * can itself result in scrolling to a different location than		 * what was saved; and since moveCaretPosition() calls		 * updateBracketHighlight(), the bracket highlight's out of		 * bounds calculation will rely on a different set of physical		 * first/last lines than what we will end up with eventually.		 * Instead of confusing the user with status messages that		 * appear at random when switching buffers, we simply hide the		 * message altogether. */"
+1,1,1,0,1,1,1,1,"/* this is a sloppy hack to fix bug				   ""[ 677902 ] hitting return after collapsed				   fold""				   the idea is that if we extend the range then				   the problem described in the bug happends, so				   if the insert is at the very end of the range				   we don't extend it, instead we push the				   insert into the next range, however for this				   to work properly we also have to mess with				   screen line counts. */"
+1,1,1,0,1,1,1,1,// need this bullshit scroll bar policy for the preferred size // hack to work
+1,0,0,0,0,1,1,1,// XXX if we keep the createClassManager in getClassManager then we can axe // this?
+1,0,0,0,0,0,0,0,"/*	Note: This class is messy.  The method and field resolution need to be	rewritten.  Various methods in here catch NoSuchMethod or NoSuchField	exceptions during their searches.  These should be rewritten to avoid	having to catch the exceptions.  Method lookups are now cached at a high 	level so they are less important, however the logic is messy.*/"
 1,1,0,0,0,0,0,0,// the sooner ppl move to the new api, the less we'll need // crap like this
 1,0,0,0,0,0,0,0,// Nasty hardcoded values
-1,0,1,0,0,1,1,1,/* XXX magic number */
-1,0,1,1,0,0,1,1,/* Workaround for uncooperative Windows L&F */
-1,1,0,1,1,1,1,1,// have to do this hack until VFSPath class is written
+1,0,0,0,0,1,1,1,/* XXX magic number */
+1,0,1,0,0,0,1,0,/* Workaround for uncooperative Windows L&F */
+1,1,0,0,1,1,1,1,// have to do this hack until VFSPath class is written
 1,1,0,0,0,0,0,0,// stupid Swing
-1,1,1,0,0,0,1,0,// none of the others are ever meant to be // removed. retarded, eh? this needs to be // fixed eventually, for plugins might // want to do weird stuff to jEdit's UI
+1,1,0,0,0,0,0,0,// none of the others are ever meant to be // removed. retarded, eh? this needs to be // fixed eventually, for plugins might // want to do weird stuff to jEdit's UI
 1,1,1,0,0,0,1,0,// this is retarded. excuse me while I drool // and make stupid noises
 1,1,0,0,0,0,0,0,// retarded GTK look and feel!
 1,0,0,0,0,0,0,0,// should probably error
-1,0,1,0,0,0,1,0,// there must be a better way of fixing this... // the problem is that this method can sometimes // be called as a result of a text area scroll // event, in which case the caret position has // not been updated yet.
-1,0,0,1,0,0,0,1,// Perhaps here we would want to guard with // a property for parallel backups or not.
+1,0,0,0,0,0,0,0,// there must be a better way of fixing this... // the problem is that this method can sometimes // be called as a result of a text area scroll // event, in which case the caret position has // not been updated yet.
+1,0,1,0,0,0,1,0,// Perhaps here we would want to guard with // a property for parallel backups or not.
 1,0,0,0,0,0,0,0,// this is such a bad way of doing it, but oh well...
 1,0,1,0,0,0,1,0,// while this might be questionable, some // menus depend on properties
 1,0,0,0,0,0,0,0,// Get available screens // O(n^3), this is nasty, but since we aren't dealling with // many items it should be fine
 1,0,0,0,0,0,0,0,//{{{ Methods that really shouldn't be public...
-1,0,0,0,0,0,0,0,//{{{ UnixWorkaround class
-1,0,0,1,0,0,0,1,// Perhaps if Xerces wasn't slightly brain-damaged, we would // not need this
+1,0,0,1,0,0,0,1,//{{{ UnixWorkaround class
+1,0,1,0,0,0,1,0,// Perhaps if Xerces wasn't slightly brain-damaged, we would // not need this
 1,0,0,0,0,0,0,0,// moved to GUIUtilities as it makes no sense being here.
-1,0,1,1,1,1,1,1,// Hack... need a more direct way of obtaining a view? // JEditTextArea.getView() method?
+1,0,1,0,1,1,1,1,// Hack... need a more direct way of obtaining a view? // JEditTextArea.getView() method?
 1,0,0,0,0,0,0,0,// REVIEW How do we resolve this discrepancy?!
-1,1,1,1,0,0,1,1,// ugly workaround
+1,1,1,0,0,0,1,0,// ugly workaround
 1,0,0,0,0,0,0,0,//{{{ Windows work around
-1,1,1,1,1,1,1,1,// hack since HelpViewer needs a URL...
-1,0,1,1,0,0,1,1,// Why is object in the args?
+1,1,1,0,1,1,1,1,// hack since HelpViewer needs a URL...
+1,0,0,0,0,0,0,0,// Why is object in the args?
 1,0,0,0,0,0,0,0,// should implement getMinimumLength() -- any ideas?
 1,0,0,0,0,0,0,0,// Move me to classpath/ClassManagerImpl???
 1,0,0,0,0,0,0,0,// they never taught you this in undergrad computer science
 1,0,0,0,0,0,0,0,// (should we cache info in not a class case too?)
 1,0,0,0,0,0,0,0,// wtf?
 1,0,1,0,0,1,1,1,"/*	 *  XXX: hairy code that is basically just a functional(?) port of some	 *  other code i barely understood	 */"
-1,0,0,0,0,0,0,0,"/*			First try for an accessible version of the exact match.			This first lookup seems redundant with below, but is apparently			needed.  This whole thing is messy.		*/"
+1,0,1,0,0,0,1,0,"/*			First try for an accessible version of the exact match.			This first lookup seems redundant with below, but is apparently			needed.  This whole thing is messy.		*/"
 1,0,0,0,0,0,0,0,// work around for broken FTP plugin!
-1,1,1,1,1,1,1,1,// hack to move the spaces to the front
+1,1,1,0,1,1,1,1,// hack to move the spaces to the front
 1,0,0,0,0,0,0,0,// This feels sloppy, especially for non-U.S. locales.
-1,1,1,1,1,1,1,1,// hack to get fixed length 'length' field
-1,0,1,1,0,0,1,1,// // We have to deal with assembly!!! // The programmer can be writing little 32 byte chunks for all // we know, and we must assemble complete records for writing. // REVIEW Maybe this should be in TarBuffer? Could that help to //        eliminate some of the buffer copying. //
-1,0,1,1,1,1,1,1,// Hack done to fix bringing the window to the front. // At least on windows, Frame.toFront() doesn't cut it. // Remove the isWindows check if it's broken under other // OSes too.
-1,0,1,0,0,0,1,0,"/*		This method should be rewritten to use getFields() and avoid catching		exceptions during the search.	*/"
-1,1,1,1,1,1,1,1,// hack...
+1,1,1,0,1,1,1,1,// hack to get fixed length 'length' field
+1,0,1,0,0,0,1,0,// // We have to deal with assembly!!! // The programmer can be writing little 32 byte chunks for all // we know, and we must assemble complete records for writing. // REVIEW Maybe this should be in TarBuffer? Could that help to //        eliminate some of the buffer copying. //
+1,0,1,0,1,1,1,1,// Hack done to fix bringing the window to the front. // At least on windows, Frame.toFront() doesn't cut it. // Remove the isWindows check if it's broken under other // OSes too.
+1,0,0,0,0,0,0,0,"/*		This method should be rewritten to use getFields() and avoid catching		exceptions during the search.	*/"
+1,1,1,0,1,1,1,1,// hack...
 1,0,0,0,0,0,0,0,// This should probably be in Reflect.java
 1,0,0,0,0,0,0,0,"/*		Notes: See notes on findMostSpecificMethod.		This method should be rolled into findMostSpecificMethod.	*/"
-1,0,1,1,0,0,1,1,"/*		Note: is using SignatureKey in this way dangerous?  In the pathological		case a user could eat up memory caching every possible combination of		argument types to an untyped method.  Maybe we could be smarter about		it by ignoring the types of untyped parameter positions?  The method		resolver could return a set of ""hints"" for the signature key caching?		There is also the overhead of creating one of these for every method		dispatched.  What is the alternative?	*/"
-1,0,1,1,0,0,1,1,// crusty workaround
-1,0,0,1,0,0,0,1,"/* workaround for A+keys producing				 * garbage on Windows */"
-1,1,1,1,1,1,1,1,"/* addToFavorites(), which is a static method		 * (for convinience) needs an instance of the		 * VFS to pass to VFSManager.sendVFSUpdate(),		 * hence this hack. */"
+1,0,0,0,0,0,0,0,"/*		Note: is using SignatureKey in this way dangerous?  In the pathological		case a user could eat up memory caching every possible combination of		argument types to an untyped method.  Maybe we could be smarter about		it by ignoring the types of untyped parameter positions?  The method		resolver could return a set of ""hints"" for the signature key caching?		There is also the overhead of creating one of these for every method		dispatched.  What is the alternative?	*/"
+1,0,1,0,0,0,1,0,// crusty workaround
+1,0,0,0,0,0,0,0,"/* workaround for A+keys producing				 * garbage on Windows */"
+1,1,1,0,1,1,1,1,"/* addToFavorites(), which is a static method		 * (for convinience) needs an instance of the		 * VFS to pass to VFSManager.sendVFSUpdate(),		 * hence this hack. */"
 1,0,0,0,0,1,1,1,// Allow getThis() to work through BlockNameSpace to the method // namespace // XXX re-eval this... do we need it?
-1,0,0,0,0,0,0,0,// these are used to eliminate code duplication. i don't normally use // the visitor or "template method" pattern, but this code was contributed // by Peter Cox and i don't feel like changing it around too much.
+1,0,1,0,0,0,1,0,// these are used to eliminate code duplication. i don't normally use // the visitor or "template method" pattern, but this code was contributed // by Peter Cox and i don't feel like changing it around too much.
 1,0,0,0,0,0,0,0,// fuck me dead
-1,1,1,1,1,1,1,1,// stupid hack to handle referencing // a rule set that is defined later!
-1,0,0,1,0,0,0,1,// JDK 1.4 workaround
-1,0,0,1,0,0,0,1,// should the next two be public, maybe?
+1,1,1,0,1,1,1,1,// stupid hack to handle referencing // a rule set that is defined later!
+1,0,1,0,0,0,1,0,// JDK 1.4 workaround
+1,0,1,0,0,0,1,0,// should the next two be public, maybe?
 1,0,0,0,0,0,0,0,"/*		Note: this method and resolveExpectedJavaField should be rewritten		to invert this logic so that no exceptions need to be caught		unecessarily.  This is just a temporary impl.		@return the field or null if not found	*/"
-1,0,1,0,0,0,1,0,"/*		Note: we need a singleton here so that things like 'this == this' work		(and probably a good idea for speed).		Caching a single instance here seems technically incorrect,		considering the declaringInterpreter could be different under some		circumstances.  (Case: a child interpreter running a source() / eval() 		command ).  However the effect is just that the main interpreter that		executes your script should be the one involved in call-backs from Java.		I do not know if there are corner cases where a child interpreter would		be the first to use a This reference in a namespace or if that would		even cause any problems if it did...  We could do some experiments		to find out... and if necessary we could cache on a per interpreter		basis if we had weak references...  We might also look at skipping 		over child interpreters and going to the parent for the declaring 		interpreter, so we'd be sure to get the top interpreter.	*/"
+1,0,0,0,0,0,0,0,"/*		Note: we need a singleton here so that things like 'this == this' work		(and probably a good idea for speed).		Caching a single instance here seems technically incorrect,		considering the declaringInterpreter could be different under some		circumstances.  (Case: a child interpreter running a source() / eval() 		command ).  However the effect is just that the main interpreter that		executes your script should be the one involved in call-backs from Java.		I do not know if there are corner cases where a child interpreter would		be the first to use a This reference in a namespace or if that would		even cause any problems if it did...  We could do some experiments		to find out... and if necessary we could cache on a per interpreter		basis if we had weak references...  We might also look at skipping 		over child interpreters and going to the parent for the declaring 		interpreter, so we'd be sure to get the top interpreter.	*/"
 1,0,0,0,0,0,0,0,"/* 			Resolve relative to a class type			static field, inner class, ?		*/"
-1,1,1,1,1,1,1,1,// some regexps (eg ^ by itself) have a length == 0, so we // implement this hack. if you don't understand what's going on // here, then go back to watching MTV
+1,1,0,0,1,1,1,1,// some regexps (eg ^ by itself) have a length == 0, so we // implement this hack. if you don't understand what's going on // here, then go back to watching MTV
 1,0,0,0,0,0,0,0,// Optimization - If classOfStaticMethod is set then we have already  // been here and determined that this is a static method invocation. // Note: maybe factor this out with path below... clean up.
 1,0,0,0,0,0,0,0,// this will probably not get used // Object type
-1,0,0,1,0,0,0,1,// Windows JDK workaround
-1,1,1,1,1,1,1,1,// this listener priority thing is a bad hack...
-1,0,0,0,0,0,0,0,"/* This doesn't look pretty and mode line should			 * probably be split up into seperate			 * components/strings			 */"
+1,0,1,0,0,0,1,0,// Windows JDK workaround
+1,1,1,0,1,1,1,1,// this listener priority thing is a bad hack...
+1,0,1,0,0,0,1,0,"/* This doesn't look pretty and mode line should			 * probably be split up into seperate			 * components/strings			 */"
 1,1,0,0,0,0,0,0,"/* this is stupid and misleading.				 * but 'path' is not used anywhere except				 * the above line, and if this is done				 * after the 'continue', then we will				 * either hang, or be forced to duplicate				 * it inside the buffer == null, or add				 * a 'finally' clause. you decide which one's				 * worse. */"
-1,0,1,1,0,0,1,1,"/* workaround for hang if match was					 * zero-width. not sure if there is					 * a better way to handle this */"
+1,0,1,0,0,0,1,0,"/* workaround for hang if match was					 * zero-width. not sure if there is					 * a better way to handle this */"
 1,0,0,0,0,0,0,0,"/* On Windows, paths of the form X: list the last *working		 * directory* on that drive. To list the root of the drive,		 * you must use X:\.		 *		 * However, the VFS browser and friends strip off trailing		 * path separators, for various reasons. So to work around		 * that, we add a '\' to drive letter paths on Windows.		 */"
-1,0,1,1,0,0,1,1,// On Unix, set permissions of port file to rw-------, // so that on broken Unices which give everyone read // access to user home dirs, people can't see your // port file (and hence send arbitriary BeanShell code // your way. Nasty.)
+1,0,1,0,0,0,1,0,// On Unix, set permissions of port file to rw-------, // so that on broken Unices which give everyone read // access to user home dirs, people can't see your // port file (and hence send arbitriary BeanShell code // your way. Nasty.)
 1,0,0,0,0,0,0,0,// ??? this should only be called with // fully loaded action set
-1,0,1,1,0,0,1,1,// broken Eclipse workaround! // 24 Febuary 2004
-1,0,1,0,0,0,1,0,"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		This method needs to be rewritten to eliminate findAccessibleMethod.		We should implement the findMostSpecificMethod that uses the publicOnly		flag.  FindMostSpecificMethod should also operate in two passes to give		standard Java assignable matches priority over extended bsh type		matches.	*/"
-1,0,1,1,0,1,1,1,// XXX: This should not be hardcoded
-1,0,1,0,0,0,1,0,// INTERVAL OPERATOR: //  {x} | {x,} | {x,y}  (RE_INTERVALS && RE_NO_BK_BRACES) //  \{x\} | \{x,\} | \{x,y\} (RE_INTERVALS && !RE_NO_BK_BRACES) // // OPEN QUESTION:  //  what is proper interpretation of '{' at start of string?
-1,0,0,1,0,1,1,1,// XXX: does this really belong here?
+1,0,1,0,0,0,1,0,// broken Eclipse workaround! // 24 Febuary 2004
+1,0,0,0,0,0,0,0,"/*		Notes:		This is broken.  It finds public but less specific methods over		non-public but more specific ones.		This method needs to be rewritten to eliminate findAccessibleMethod.		We should implement the findMostSpecificMethod that uses the publicOnly		flag.  FindMostSpecificMethod should also operate in two passes to give		standard Java assignable matches priority over extended bsh type		matches.	*/"
+1,0,1,0,0,1,1,1,// XXX: This should not be hardcoded
+1,0,0,0,0,0,0,0,// INTERVAL OPERATOR: //  {x} | {x,} | {x,y}  (RE_INTERVALS && RE_NO_BK_BRACES) //  \{x\} | \{x,\} | \{x,y\} (RE_INTERVALS && !RE_NO_BK_BRACES) // // OPEN QUESTION:  //  what is proper interpretation of '{' at start of string?
+1,0,1,0,0,1,1,1,// XXX: does this really belong here?
 1,0,0,0,0,0,0,0,// We do need to save every possible point, but the number of clone() // invocations here is really a killer for performance on non-stingy // repeat operators.  I'm open to suggestions...
 1,0,0,0,0,0,0,0,"/*		Note: this should really just throw NoSuchFieldException... need		to change related signatures and code.	*/"
 1,0,0,0,0,0,0,0,// Split the methods into constructors and regular method lists
 1,0,0,0,0,0,0,0,// need to add static block here
-1,0,0,1,1,1,1,1,"/** * An output stream that compresses into the BZip2 format (without the file * header chars) into another stream. TODO: Update to BZip2 1.0.1 * * @author <a href=""mailto:keiron@aftexsw.com"">Keiron Liddle</a> */"
-1,0,0,0,1,1,1,1,"/**    * Parse the XML declaration.    * <pre>    * [25] XMLDecl ::= '&lt;?xml' VersionInfo EncodingDecl? SDDecl? S? '?&gt;'    * [26] VersionInfo ::= S 'version' Eq ('""1.0""' | ""'1.0'"")    * [33] SDDecl ::= S 'standalone' Eq ""'"" ('yes' | 'no') ""'""    *               | S 'standalone' Eq '""' (""yes"" | ""no"") '""'    * [78] EncodingDecl ::= S 'encoding' Eq QEncoding    * </pre>    * <p>([80] to [82] are also significant.)    * <p>(The <code>&lt;?xml</code> and whitespace have already been read.)    * <p>TODO: validate value of standalone.    * @see #parseTextDecl    * @see #checkEncoding    */"
+1,0,1,0,1,1,1,1,"/** * An output stream that compresses into the BZip2 format (without the file * header chars) into another stream. TODO: Update to BZip2 1.0.1 * * @author <a href=""mailto:keiron@aftexsw.com"">Keiron Liddle</a> */"
+1,0,0,0,1,0,0,0,"/**    * Parse the XML declaration.    * <pre>    * [25] XMLDecl ::= '&lt;?xml' VersionInfo EncodingDecl? SDDecl? S? '?&gt;'    * [26] VersionInfo ::= S 'version' Eq ('""1.0""' | ""'1.0'"")    * [33] SDDecl ::= S 'standalone' Eq ""'"" ('yes' | 'no') ""'""    *               | S 'standalone' Eq '""' (""yes"" | ""no"") '""'    * [78] EncodingDecl ::= S 'encoding' Eq QEncoding    * </pre>    * <p>([80] to [82] are also significant.)    * <p>(The <code>&lt;?xml</code> and whitespace have already been read.)    * <p>TODO: validate value of standalone.    * @see #parseTextDecl    * @see #checkEncoding    */"
 1,0,0,0,0,0,0,0,// implement the recursion for getClassImpl()
 1,0,1,0,0,0,1,0,// Need some format checking here
 1,0,0,0,0,0,0,0,// Need to calculate this... just fudging here for now.
-1,0,1,1,1,1,1,1,// TODO: Also check REG_ANCHORINDEX vs. anchor
+1,0,1,0,1,1,1,1,// TODO: Also check REG_ANCHORINDEX vs. anchor
 1,0,0,0,0,0,0,0,// skip header bytes // maybe should check if they're valid or not?
 1,0,0,0,0,0,0,0,"/*		Debug utils are static so that they are reachable by code that doesn't		necessarily have an interpreter reference (e.g. tracing in utils).		In the future we may want to allow debug/trace to be turned on on		a per interpreter basis, in which case we'll need to use the parent 		reference in some way to determine the scope of the command that 		turns it on or off.	*/"
-1,0,1,1,1,1,1,1,"/**    * Parse an element-content model.    * [42] elements ::= (choice | seq) ('?' | '*' | '+')?    * [44] cps ::= S? %cp S?    * [45] choice ::= '(' S? %ctokplus (S? '|' S? %ctoks)* S? ')'    * [46] ctokplus ::= cps ('|' cps)+    * [47] ctoks ::= cps ('|' cps)*    * [48] seq ::= '(' S? %stoks (S? ',' S? %stoks)* S? ')'    * [49] stoks ::= cps (',' cps)*    * *NOTE: the opening '(' and S have already been read.    * *TODO: go over parameter entity boundaries more carefully.    */"
+1,0,0,0,1,1,1,1,"/**    * Parse an element-content model.    * [42] elements ::= (choice | seq) ('?' | '*' | '+')?    * [44] cps ::= S? %cp S?    * [45] choice ::= '(' S? %ctokplus (S? '|' S? %ctoks)* S? ')'    * [46] ctokplus ::= cps ('|' cps)+    * [47] ctoks ::= cps ('|' cps)*    * [48] seq ::= '(' S? %stoks (S? ',' S? %stoks)* S? ')'    * [49] stoks ::= cps (',' cps)*    * *NOTE: the opening '(' and S have already been read.    * *TODO: go over parameter entity boundaries more carefully.    */"
 1,0,0,0,0,0,0,0,// this convention may change...
-1,0,0,1,1,1,1,1,"/**    * Parse the attribute type.    * [54] AttType ::= StringType | TokenizedType | EnumeratedType    * [55] StringType ::= 'CDATA'    * [56] TokenizedType ::= 'ID' | 'IDREF' | 'IDREFS' | 'ENTITY' | 'ENTITIES' |    *                        'NMTOKEN' | 'NMTOKENS'    * [57] EnumeratedType ::= NotationType | Enumeration    * *TODO: validate the type!!    */"
+1,0,0,0,1,1,1,1,"/**    * Parse the attribute type.    * [54] AttType ::= StringType | TokenizedType | EnumeratedType    * [55] StringType ::= 'CDATA'    * [56] TokenizedType ::= 'ID' | 'IDREF' | 'IDREFS' | 'ENTITY' | 'ENTITIES' |    *                        'NMTOKEN' | 'NMTOKENS'    * [57] EnumeratedType ::= NotationType | Enumeration    * *TODO: validate the type!!    */"
 0,0,0,0,0,0,0,0,//{{{ PluginManagerProgress constructor
 0,0,0,0,0,0,0,0,//{{{ getRate() method
 0,0,0,0,0,0,0,0,//{{{ writeMarkers() method
@@ -410,7 +410,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// jump offset // GOTO_W // newOffset now computed from start of GOTO_W
 0,0,0,0,0,0,0,0,// bsh.help
 0,0,0,0,0,0,0,0,//{{{ FontSelectorDialog constructor
-0,0,0,0,0,0,0,0,// on a reload, the fold handler doesn't change, but // we still need to re-collapse folds. // don't do this on initial fold handler creation
+0,0,0,1,0,0,0,1,// on a reload, the fold handler doesn't change, but // we still need to re-collapse folds. // don't do this on initial fold handler creation
 0,0,0,0,0,0,0,0,//{{{ getDockable() method
 0,0,0,0,0,0,0,0,//{{{ loadSystemProps() method
 0,0,0,0,0,0,0,0,// show tip of the day
@@ -479,7 +479,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,"/* construct a BeanShell snippet instead of				 * invoking directly so that user can record				 * property changes in macros. */"
 0,0,0,0,0,0,0,0,// setting the message to 'null' causes the status bar to check // if a recording is in progress
 0,0,0,0,0,0,0,0,// opcode of current instruction // bytes to be added after this instruction
-0,0,1,0,0,0,1,0,// Check for surrogates: 00000000 0000xxxx yyyyyyyy zzzzzzzz //  (1101|10xx|xxyy|yyyy + 1101|11yy|zzzz|zzzz:
+0,0,0,0,0,0,0,0,// Check for surrogates: 00000000 0000xxxx yyyyyyyy zzzzzzzz //  (1101|10xx|xxyy|yyyy + 1101|11yy|zzzz|zzzz:
 0,0,0,0,0,0,0,0,// collapse all nodes, as suggested on user mailing list...
 0,0,0,0,0,0,0,0,// attempting to expand non-word char
 0,0,0,0,0,0,0,0,// If there aren't enough repeats, then fail
@@ -575,7 +575,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// case of a backward jump with an offset >= -32768, or of a forward jump // with, of course, an unknown offset. In these cases we store the offset // in 2 bytes (which will be increased in resizeInstructions, if needed).
 0,0,0,0,0,0,0,0,//{{{ ToolTipLabel class
 0,0,0,0,0,0,0,0,// 2-byte sequence: 00000yyyyyxxxxxx = 110yyyyy 10xxxxxx
-0,0,0,0,0,0,0,0,// NULL return null as type... we currently use null type to indicate  // loose typing throughout bsh.
+0,0,1,0,0,0,1,0,// NULL return null as type... we currently use null type to indicate  // loose typing throughout bsh.
 0,0,0,0,0,0,0,0,//{{{ MouseHandler class
 0,0,0,0,0,0,0,0,// visitInsn // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // visitIntInsn // - // visitLdcInsn //int LDC_W = 19;           // - //int LDC2_W = 20;          // - // visitVarInsn // - // - // - // - //int ILOAD_0 = 26;         // - //int ILOAD_1 = 27;         // - //int ILOAD_2 = 28;         // - //int ILOAD_3 = 29;         // - //int LLOAD_0 = 30;         // - //int LLOAD_1 = 31;         // - //int LLOAD_2 = 32;         // - //int LLOAD_3 = 33;         // - //int FLOAD_0 = 34;         // - //int FLOAD_1 = 35;         // - //int FLOAD_2 = 36;         // - //int FLOAD_3 = 37;         // - //int DLOAD_0 = 38;         // - //int DLOAD_1 = 39;         // - //int DLOAD_2 = 40;         // - //int DLOAD_3 = 41;         // - //int ALOAD_0 = 42;         // - //int ALOAD_1 = 43;         // - //int ALOAD_2 = 44;         // - //int ALOAD_3 = 45;         // - // visitInsn // - // - // - // - // - // - // - // visitVarInsn // - // - // - // - //int ISTORE_0 = 59;        // - //int ISTORE_1 = 60;        // - //int ISTORE_2 = 61;        // - //int ISTORE_3 = 62;        // - //int LSTORE_0 = 63;        // - //int LSTORE_1 = 64;        // - //int LSTORE_2 = 65;        // - //int LSTORE_3 = 66;        // - //int FSTORE_0 = 67;        // - //int FSTORE_1 = 68;        // - //int FSTORE_2 = 69;        // - //int FSTORE_3 = 70;        // - //int DSTORE_0 = 71;        // - //int DSTORE_1 = 72;        // - //int DSTORE_2 = 73;        // - //int DSTORE_3 = 74;        // - //int ASTORE_0 = 75;        // - //int ASTORE_1 = 76;        // - //int ASTORE_2 = 77;        // - //int ASTORE_3 = 78;        // - // visitInsn // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // visitIincInsn // visitInsn // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // visitJumpInsn // - // - // - // - // - // - // - // - // - // - // - // - // - // - // - // visitVarInsn // visiTableSwitchInsn // visitLookupSwitch // visitInsn // - // - // - // - // - // visitFieldInsn // - // - // - // visitMethodInsn // - // - // - //int UNUSED = 186;         // NOT VISITED // visitTypeInsn // visitIntInsn // visitTypeInsn // visitInsn // - // visitTypeInsn // - // visitInsn // - //int WIDE = 196;           // NOT VISITED // visitMultiANewArrayInsn // visitJumpInsn // - //int GOTO_W = 200;         // - //int JSR_W = 201;          // -
 0,0,0,0,0,0,0,0,//{{{ quicksort() method
@@ -615,7 +615,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ Clock class
 0,0,0,0,0,0,0,0,// don't show menu items to dock into a plain view
 0,0,0,0,0,0,0,0,// returns Object covering both Double and Boolean return types
-0,0,1,0,0,0,1,0,// this is package-private so that the painter can use it without // having to call getSelection() (which involves an array copy)
+0,0,0,0,0,0,0,0,// this is package-private so that the painter can use it without // having to call getSelection() (which involves an array copy)
 0,0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Constructor // --------------------------------------------------------------------------
 0,0,0,0,0,0,0,0,// do operating system specific stuff (creating startup // scripts, installing man pages, etc.)
 0,0,0,0,0,0,0,0,//{{{ HistoryTextField constructor
@@ -710,7 +710,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Read the first four bytes for // autodetection.
 0,0,1,0,0,0,1,0,"/* Magic: UNTITLED is only set if newFile param to		 * constructor is set, NEW_FILE is also set if file		 * doesn't exist on disk.		 *		 * This is so that we can tell apart files created		 * with jEdit.newFile(), and those that just don't		 * exist on disk.		 *		 * Why do we need to tell the difference between the		 * two? jEdit.addBufferToList() checks if the only		 * opened buffer is an untitled buffer, and if so,		 * replaces it with the buffer to add. We don't want		 * this behavior to occur with files that don't		 * exist on disk; only untitled ones.		 */"
 0,0,0,0,0,0,0,0,//{{{ mouseDragged() method
-0,0,0,1,0,0,0,1,// in the future we will want something better, // eg. having an 'evt' object passed to // EditAction.invoke().
+0,0,0,0,0,0,0,0,// in the future we will want something better, // eg. having an 'evt' object passed to // EditAction.invoke().
 0,0,0,0,0,0,0,0,// Read the XML/Encoding declaration.
 0,0,0,0,0,0,0,0,/* new JEditLauncherOSTask(installer) */
 0,0,0,0,0,0,0,0,//{{{ getSelectedColor() method
@@ -729,7 +729,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ historyNext() method
 0,0,0,0,0,0,0,0,// use the low-level property setting code // so that if we have a buffer-local // property with the same value as a default, // later changes in the default don't affect // the buffer-local property
 0,0,0,0,0,0,0,0,// null callstack, one will be created for us
-0,0,0,1,0,0,0,1,// according to krisk this looks better on OS X...
+0,0,0,0,0,0,0,0,// according to krisk this looks better on OS X...
 0,0,0,0,0,0,0,0,// replaces the temporary jump opcodes introduced by Label.resolve.
 0,0,0,0,0,0,0,0,// Read an XML or text declaration.
 0,0,0,0,0,0,0,0,// Search for a matching tuple, and // return the string if we find one.
@@ -756,7 +756,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ maybeReloadDirectory() method
 0,0,0,0,0,0,0,0,// // Entities //
 0,0,0,0,0,0,0,0,//{{{ ColorWell class
-0,0,0,0,0,0,0,0,//{{{ showClipText() method
+0,0,0,1,0,0,0,1,//{{{ showClipText() method
 0,0,0,0,0,0,0,0,// map loose return type to Object
 0,0,0,0,0,0,0,0,//{{{ initTextArea() method
 0,0,0,0,0,0,0,0,//{{{ handleMessage() method
@@ -766,7 +766,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ StatusBar constructor
 0,0,0,0,0,0,0,0,// need to let \b through so that backspace will work // in HistoryTextFields
 0,0,0,0,0,0,0,0,//{{{ PasteFromListDialog constructor
-0,0,0,0,0,0,0,0,// People have reported hangs with JDK 1.4; might be // caused by modal dialogs being displayed from // windowActivated()
+0,0,1,0,0,0,1,0,// People have reported hangs with JDK 1.4; might be // caused by modal dialogs being displayed from // windowActivated()
 0,0,0,0,0,0,0,0,//{{{ getSelectedClipText()
 0,0,0,0,0,0,0,0,// for the parent directory right-click; on the click we select // the clicked item, but when the popup goes away we select the // currently showing directory.
 0,0,0,0,0,0,0,0,//{{{ numericKeypadKey() method
@@ -781,14 +781,14 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// like TABL_INSN
 0,0,0,0,0,0,0,0,//{{{ getBufferHistory() method
 0,0,0,0,0,0,0,0,// eg, trying to bind C+n C+p if C+n already bound
-0,0,1,0,0,0,1,0,// --------------------------------------------------------- // The following instance variables mutate during evaluation and should // be reset by the reset() method where necessary
-0,0,0,0,0,0,0,0,// Find the bsh method
+0,0,0,0,0,0,0,0,// --------------------------------------------------------- // The following instance variables mutate during evaluation and should // be reset by the reset() method where necessary
+0,0,0,1,0,0,0,1,// Find the bsh method
 0,0,0,0,0,0,0,0,//Log.log(Log.WARNING,this,"VFS update: request already in progress");
 0,0,0,0,0,0,0,0,// Call script "invoke( String methodName, Object [] args );
 0,0,0,0,0,0,0,0,// a default equals() testing for equality with the This reference
 0,0,0,0,0,0,0,0,// Check if a plugin with the same name // is already loaded
 0,0,0,0,0,0,0,0,// see VFSBrowser.browseDirectory()
-0,0,0,0,0,0,0,0,// Start the entity.
+0,0,0,1,0,0,0,1,// Start the entity.
 0,0,0,0,0,0,0,0,// As long as there's nothing in the // read buffer, try reading more data // (for an external entity) or popping // the entity stack (for either).
 0,0,0,0,0,0,0,0,// save a file -> sends vfs update. if a VFS file dialog box // is shown from the same event frame as the save, the // VFSUpdate will be delivered before the directory is loaded, // and before the path is set.
 0,0,0,0,0,0,0,0,//{{{ expandAbbrev() method
@@ -796,20 +796,20 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ InputHandler constructor
 0,0,0,0,0,0,0,0,//{{{ FileRootsVFS constructor
 0,0,0,0,0,0,0,0,"/* We do this stuff because the browser is not able to handle	 * more than one request yet */"
-0,0,0,0,0,0,0,0,//{{{ FilesChangedDialog constructor
+0,0,0,1,0,0,0,1,//{{{ FilesChangedDialog constructor
 0,0,0,0,0,0,0,0,"/*				If we have type info and the child is an array initializer				pass it along...  Else use the default eval style.				(This allows array initializer to handle the problem... 				allowing for future enhancements in loosening types there).				*/"
 0,0,0,0,0,0,0,0,//{{{ Renderer class
 0,0,0,0,0,0,0,0,// There's an explicit character stream.
 0,0,0,0,0,0,0,0,// record \n and \t on lines specially so that auto indent // can take place
 0,0,0,0,0,0,0,0,"/* case MouseEvent.MOUSE_ENTERED:				toolTipInitialDelay = ttm.getInitialDelay();				toolTipReshowDelay = ttm.getReshowDelay();				ttm.setInitialDelay(200);				ttm.setReshowDelay(0);				super.processMouseEvent(evt);				break;			case MouseEvent.MOUSE_EXITED:				ttm.setInitialDelay(toolTipInitialDelay);				ttm.setReshowDelay(toolTipReshowDelay);				super.processMouseEvent(evt);				break; */"
-0,0,0,0,0,0,0,0,// I guess ideally all browsers // should have views, but since they // don't, we just use the active view // in that case, since some actions // depend on a view being there and // I don't want to add checks to // them all
+0,0,1,0,0,0,1,0,// I guess ideally all browsers // should have views, but since they // don't, we just use the active view // in that case, since some actions // depend on a view being there and // I don't want to add checks to // them all
 0,0,0,0,0,0,0,0,// Push the boolean constant 'true' (for declaredOnly)
 0,1,1,0,0,0,1,0,// REMIND: calling isDirectory() on a floppy drive // displays stupid I/O error dialog box on Windows
 0,0,0,0,0,0,0,0,//{{{ valueChanged() method
 0,0,0,0,0,0,0,0,//{{{ FavoritesMenuButton constructor
 0,0,0,0,0,0,0,0,/* Line seperator */
 0,0,0,0,0,0,0,0,// Normal condition.
-0,0,0,0,0,0,0,0,//{{{ selectAll() method
+0,0,0,1,0,0,0,1,//{{{ selectAll() method
 0,0,0,0,0,0,0,0,// if the user pressed eg C+e n n in the // search bar we want focus to go back there // after the prefix is done
 0,0,0,0,0,0,0,0,//{{{ showSplashScreen() method
 0,0,0,0,0,0,0,0,//{{{ isPrefixActive() method
@@ -928,7 +928,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,"/* if user drops into a selection,				replace selection */"
 0,0,0,0,0,0,0,0,//{{{ getSelectedValue() method
 0,0,0,0,0,0,0,0,// now done in NameSpace automatically when root // The classes which are imported by default //globalNameSpace.loadDefaultImports();
-0,0,1,0,0,0,1,0,// Instead of passing these around to each method, we just store them // as instance variables. Note that this is not thread-safe.
+0,0,0,0,0,0,0,0,// Instead of passing these around to each method, we just store them // as instance variables. Note that this is not thread-safe.
 0,0,0,0,0,0,0,0,// Also cache it in the static namespace... //classStaticNameSpace.cacheClass( name, genClass );
 0,0,0,0,0,0,0,0,//{{{ AboutDialog constructor
 0,0,0,0,0,0,0,0,//{{{ if there are no requests, execute AWT requests immediately
@@ -1003,7 +1003,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// See if the application wants to // redirect the system ID and/or // supply its own character stream.
 0,0,0,0,0,0,0,0,// make default be true for the next // action
 0,0,0,0,0,0,0,0,// non-interactive, return control now
-0,0,0,0,0,0,0,0,// See if we should place this toolbar before any others
+0,0,1,0,0,0,1,0,// See if we should place this toolbar before any others
 0,0,0,0,0,0,0,0,//{{{ getView() method
 0,0,1,0,0,0,1,0,// Method body can only use 'return' statment type return control.
 0,0,0,0,0,0,0,0,//|| ( getParent()!=null && getParent().classStatic != null )
@@ -1032,7 +1032,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ LineContext class
 0,0,0,0,0,0,0,0,// Make a tmp namespace to hold the original constructor args for // use in eval of the parameters node
 0,0,0,0,0,0,0,0,// Get the instance initializer block from the static This
-0,1,1,1,0,0,1,1,"/* This protects against stupid people (like me)		 * doing stuff like buffer.setMode(jEdit.getMode(...)); */"
+0,1,0,0,0,0,0,0,"/* This protects against stupid people (like me)		 * doing stuff like buffer.setMode(jEdit.getMode(...)); */"
 0,0,0,0,0,0,0,0,//{{{ addEntry() method
 0,0,0,0,0,0,0,0,// Set the instance This reference on the instance
 0,0,0,0,0,0,0,0,//{{{ markTokens() method
@@ -1044,9 +1044,9 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ shiftIndentLeft() method
 0,0,0,0,0,0,0,0,//{{{ setIconPath() method
 0,0,0,0,0,0,0,0,//{{{ shiftIndentRight() method
-0,0,1,1,1,1,1,1,"/**    * Parse a conditional section.    * [63] conditionalSect ::= includeSect || ignoreSect    * [64] includeSect ::= '<![' %'INCLUDE' '[' (%markupdecl*)* ']]>'    * [65] ignoreSect ::= '<![' %'IGNORE' '[' ignoreSectContents* ']]>'    * [66] ignoreSectContents ::= ((SkipLit | Comment | PI) -(Char* ']]>'))    *                           | ('<![' ignoreSectContents* ']]>')    *                           | (Char - (']' | [<'""]))    *                           | ('<!' (Char - ('-' | '[')))    * *NOTE: the '<![' has already been read.    * *TODO: verify that I am handling ignoreSectContents right.    */"
+0,0,0,0,1,1,1,1,"/**    * Parse a conditional section.    * [63] conditionalSect ::= includeSect || ignoreSect    * [64] includeSect ::= '<![' %'INCLUDE' '[' (%markupdecl*)* ']]>'    * [65] ignoreSect ::= '<![' %'IGNORE' '[' ignoreSectContents* ']]>'    * [66] ignoreSectContents ::= ((SkipLit | Comment | PI) -(Char* ']]>'))    *                           | ('<![' ignoreSectContents* ']]>')    *                           | (Char - (']' | [<'""]))    *                           | ('<!' (Char - ('-' | '[')))    * *NOTE: the '<![' has already been read.    * *TODO: verify that I am handling ignoreSectContents right.    */"
 0,0,0,0,0,0,0,0,//{{{ getDockableTitle() method
-0,0,0,0,0,0,0,0,// Begin BeanShell Modification - super constructor args // null node, null callstack, ParseException knows where the error is.
+0,0,1,0,0,0,1,0,// Begin BeanShell Modification - super constructor args // null node, null callstack, ParseException knows where the error is.
 0,0,0,0,0,0,0,0,//{{{ removeLayoutComponent() method
 0,0,0,0,0,0,0,0,//{{{ _getDirectoryEntry() method
 0,0,0,0,0,0,0,0,//{{{ _listDirectory() method
@@ -1064,13 +1064,13 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ _canonPath() method
 0,0,0,0,0,0,0,0,// No matter what happends... stops us from leaving buffer // in a bad state
 0,0,0,0,0,0,0,0,//{{{ getDockableWindow() method
-0,0,0,1,0,0,0,1,"/*    * Ordinals for various reasons why an Error of this type can be thrown.    */"
+0,0,0,0,0,0,0,0,"/*    * Ordinals for various reasons why an Error of this type can be thrown.    */"
 0,0,0,0,0,0,0,0,//{{{ getViews() method
 0,0,0,0,0,0,0,0,//{{{ DirectoryEntryCompare class
 0,0,0,0,0,0,0,0,"// last possible start position of a match with this pattern; // this is negative if the pattern is longer than the text // causing the search loop below to immediately fail //int last_anchor = reverseSearch //	? offset + pattern.length - 1 //	: length - pattern.length;"
 0,0,0,0,0,0,0,0,// position variable for pattern test position
 0,0,0,0,0,0,0,0,//{{{ isDockableWindowDocked() method
-0,0,1,0,0,0,1,0,//{{{ getDefaultColorFor() method
+0,0,0,0,0,0,0,0,//{{{ getDefaultColorFor() method
 0,0,0,0,0,0,0,0,// true number of bytes to be added (or removed) from this // instruction = (future number of padding bytes - current number // of padding byte) - previously over estimated variation = // = ((3 - newOffset%4) - (3 - u%4)) - u%4 // = (-newOffset%4 + u%4) - u%4 // = -(newOffset & 3)
 0,0,0,0,0,0,0,0,// access flags
 0,0,0,0,0,0,0,0,//    szptr = zptr;
@@ -1091,7 +1091,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ finishResizing() method
 0,0,0,0,0,0,0,0,//{{{ SettingsActionHandler class
 0,0,0,0,0,0,0,0,//{{{ setResizePos() method
-0,0,1,0,0,0,1,0,// I'm not sure when this can happen, // but it does sometimes, witness the // jEdit bug tracker.
+0,0,0,0,0,0,0,0,// I'm not sure when this can happen, // but it does sometimes, witness the // jEdit bug tracker.
 0,0,0,0,0,0,0,0,//{{{ getColumnOnOtherLine() method
 0,0,0,0,0,0,0,0,/* otherwise just insert the text */
 0,0,0,0,0,0,0,0,"/** * A constant pool item. Constant pool items can be created with the 'newXXX' * methods in the {@link ClassWriter} class. */"
@@ -1166,7 +1166,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// send full range of events to avoid breaking plugins
 0,0,0,0,0,0,0,0,"/*     * always: in the range 0 .. 9.     * The current block size is 100000 * this number.     */"
 0,0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Utility methods: instruction resizing (used to handle GOTO_W and JSR_W) // --------------------------------------------------------------------------
-0,0,0,0,0,0,0,0,"/*			If we've fallen through here we are no longer resolving to			a class type.		*/"
+0,0,0,1,0,0,0,1,"/*			If we've fallen through here we are no longer resolving to			a class type.		*/"
 0,0,0,0,0,0,0,0,//{{{ Position center (edit pane, or split pane)
 0,0,0,0,0,0,0,0,// the +1's ensure that 99 gets 3 digits, 103 gets 4 digits, // and so on.
 0,0,0,0,0,0,0,0,//{{{ getDefaultProperty() method
@@ -1227,7 +1227,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// adds the previous Edge to the list of Edges used by this CodeWriter
 0,0,0,0,0,0,0,0,// returns the positions of the resized instructions
 0,0,0,0,0,0,0,0,// later on we need to know if certain code is called from // the main thread
-0,0,0,0,0,0,0,0,//{{{ saveGeometry() method
+0,0,0,1,0,0,0,1,//{{{ saveGeometry() method
 0,0,0,0,0,0,0,0,//}}} //{{{ Insert the expansion
 0,0,0,0,0,0,0,0,// JDK 1.4 adds methods to obtain a drive letter label and // list the desktop on Windows
 0,0,0,0,0,0,0,0,//{{{ GZipped setting
@@ -1238,7 +1238,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,"/* call sendBreak after fixed number of			 * lines of stdout are read			 */"
 0,0,0,0,0,0,0,0,//{{{ DockableLayout class
 0,0,0,0,0,0,0,0,// get the title here, not in the factory constructor, // since the factory might be created before a plugin's // props are loaded
-0,0,1,0,0,0,1,0,// Note: it's ok to cache class resolution here because when the class // space changes the namespace will discard cached names.
+0,0,0,0,0,0,0,0,// Note: it's ok to cache class resolution here because when the class // space changes the namespace will discard cached names.
 0,0,0,0,0,0,0,0,"/*                 * Increment the symbol frequencies for the selected table.                 */"
 0,0,0,0,0,0,0,0,//{{{ getCheckedValues() method
 0,0,0,0,0,0,0,0,//{{{ DummyRenderer class
@@ -1271,9 +1271,9 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// updates current stack size (max stack size unchanged because stack // size variation always negative or null)
 0,0,0,0,0,0,0,0,// Method invocation // (LHS or non LHS evaluation can both encounter method calls)
 0,0,0,0,0,0,0,0,//{{{ getNextRequest() method
-0,0,0,0,0,0,0,0,// on by default
+0,0,0,1,0,0,0,1,// on by default
 0,0,0,0,0,0,0,0,"/*         * And finally, the block data proper         */"
-0,0,1,0,0,0,1,0,// fix for "[ 865589 ] 0-byte files should open using // the default line seperator"
+0,0,0,0,0,0,0,0,// fix for "[ 865589 ] 0-byte files should open using // the default line seperator"
 0,0,0,0,0,0,0,0,//{{{ doAWTRequest() method
 0,0,0,0,0,0,0,0,// if the file size is not known, start with a resonable // default buffer size
 0,0,0,0,0,0,0,0,"/*                 * Process big buckets, starting with the least full.                 */"
@@ -1282,7 +1282,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// fill in defaults for these from system properties if the // corresponding buffer.XXX properties not set
 0,0,0,0,0,0,0,0,// check to see if the instance has already been initialized // (the case if using a this() alternate constuctor)
 0,0,1,0,0,0,1,0,// the start and end flags will be wrong with reverse search enabled, // but they are only used by the regexp matcher, which doesn't // support reverse search yet. // // REMIND: fix flags when adding reverse regexp search.
-0,0,0,0,0,0,0,0,// Java does not support this encoding so // we have to handle it manually.
+0,0,1,0,0,0,1,0,// Java does not support this encoding so // we have to handle it manually.
 0,0,0,0,0,0,0,0,// just as if Enter was pressed in another // text field
 0,0,0,0,0,0,0,0,// we didn't have a component previously, so // create a border
 0,0,0,0,0,0,0,0,"/*	Gather modifiers for a class, method, or field.	I lookahead is true then we are being called as part of a lookahead and we	should not enforce any rules.  Otherwise we validate based on context	(field, method, class)*/"
@@ -1334,7 +1334,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ getKeyBinding() method
 0,0,0,0,0,0,0,0,// over estimation of the number of bytes to be added to this // instruction = 3 - current number of padding bytes = 3 - (3 - // u%4) = u%4 = u & 3
 0,0,0,0,0,0,0,0,// // Attribute methods //
-0,0,1,0,0,0,1,0,"/*     * If you are ever unlucky/improbable enough     * to get a stack overflow whilst sorting,     * increase the following constant and try     * again.  In practice I have never seen the     * stack go above 27 elems, so the following     * limit seems very generous.     */"
+0,0,0,0,0,0,0,0,"/*     * If you are ever unlucky/improbable enough     * to get a stack overflow whilst sorting,     * increase the following constant and try     * again.  In practice I have never seen the     * stack go above 27 elems, so the following     * limit seems very generous.     */"
 0,0,0,0,0,0,0,0,// helper method to get Font from plugin properties
 0,0,0,0,0,0,0,0,// throw new IOException("Invalid block size");
 0,0,0,0,0,0,0,0,// on insert, start search from beginning of // current match. This will continue to highlight // the current match until another match is found
@@ -1371,7 +1371,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ getStructureHighlightColor() method
 0,0,0,0,0,0,0,0,// impl note: since multiple searches now allowed, // extra level in hierarchy
 0,0,0,0,0,0,0,0,// Check for backup.directory, and create that // directory if it doesn't exist
-0,0,0,0,0,0,0,0,"/*				If this was a literal ""super"" reference then we allow recursion				in setting the variable to get the normal effect of finding the				nearest definition starting at the super scope.  On any other				resolution qualified by a 'this' type reference we want to set				the variable directly in that scope. e.g. this.x=5;  or 				someThisType.x=5;								In the old scoping rules super didn't do this.			*/"
+0,0,1,0,0,0,1,0,"/*				If this was a literal ""super"" reference then we allow recursion				in setting the variable to get the normal effect of finding the				nearest definition starting at the super scope.  On any other				resolution qualified by a 'this' type reference we want to set				the variable directly in that scope. e.g. this.x=5;  or 				someThisType.x=5;								In the old scoping rules super didn't do this.			*/"
 0,0,0,0,0,0,0,0,//{{{ setSortType() method
 0,0,0,0,0,0,0,0,// the entire save operation can be aborted...
 0,0,0,0,0,0,0,0,//{{{ loadMenuItem() method
@@ -1394,13 +1394,13 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// check escape rule of parent
 0,0,0,0,0,0,0,0,// index+1 works for [^abc] lists, not for generic lookahead (--> index)
 0,0,0,0,0,0,0,0,// still have to call this even if it equals the // old one so that the offset manager sets the // validity flag!
-0,0,0,0,0,0,0,0,// The object instance has already been initialzed by another // constructor.  Fall through to invoke the constructor body below.
+0,0,0,1,0,0,0,1,// The object instance has already been initialzed by another // constructor.  Fall through to invoke the constructor body below.
 0,0,0,0,0,0,0,0,"/* if the VFS supports renaming files, we first			 * save to #<filename>#save#, then rename that			 * to <filename>, so that if the save fails,			 * data will not be lost.			 *			 * as of 4.1pre7 we now call vfs.getTwoStageSaveName()			 * instead of constructing the path directly			 * since some VFS's might not allow # in filenames.			 */"
 0,0,0,0,0,0,0,0,"//item.setImage(NSWorkspace.sharedWorkspace().iconForFile( //	buffs[i].getPath()));"
 0,0,0,0,0,0,0,0,// Figure out if this is a start tag // or an empty element, and dispatch an // event accordingly.
 0,0,0,0,0,0,0,0,// loop until the subset ends
 0,0,0,0,0,0,0,0,"/* read() and write() must be kept perfectly in sync...		 * its a very simple file format. doing it this way is		 * faster than serializing since serialization calls		 * reflection, etc. */"
-0,0,1,0,0,0,1,0,// If it had a different type throw error. // This allows declaring the same var again, but not with // a different (even if assignable) type.
+0,0,0,0,0,0,0,0,// If it had a different type throw error. // This allows declaring the same var again, but not with // a different (even if assignable) type.
 0,0,0,0,0,0,0,0,// add the JARs before checking deps since dep check might // require all JARs to be present
 0,0,0,0,0,0,0,0,//{{{ InputPane class
 0,0,0,0,0,0,0,0,// we don't need two identical shortcuts
@@ -1417,7 +1417,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// auto-detect encoding within the gzip stream.
 0,0,0,0,0,0,0,0,//{{{ run() method
 0,0,0,0,0,0,0,0,//{{{ _setScreenLineCount() method
-0,0,0,0,0,0,0,0,//{{{ this ensures that the text area's look is slightly // more consistent with the rest of the metal l&f. // while it depends on not-so-well-documented portions // of Swing, it only affects appearance, so future // breakage shouldn't matter
+0,0,1,0,0,0,1,0,//{{{ this ensures that the text area's look is slightly // more consistent with the rest of the metal l&f. // while it depends on not-so-well-documented portions // of Swing, it only affects appearance, so future // breakage shouldn't matter
 0,0,0,0,0,0,0,0,"/* 				Try toObject() which knows how to work through inner classes				and see what we end up with 			*/"
 0,0,0,0,0,0,0,0,// Interpreter.debug("Simple var LHS...");
 0,0,0,0,0,0,0,0,// empty line. inherit previous line's fold level
@@ -1463,7 +1463,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ unloadPluginJAR() method
 0,0,0,0,0,0,0,0,//{{{ If nothing entered, show search and replace dialog box
 0,0,0,0,0,0,0,0,//{{{ preContentRemoved() method
-0,0,1,0,0,0,1,0,// cwd not implemented in this version
+0,0,0,0,0,0,0,0,// cwd not implemented in this version
 0,0,0,0,0,0,0,0,//super(); //}}}
 0,0,0,0,0,0,0,0,/*@bgen(jjtree) CastExpression */
 0,0,0,0,0,0,0,0,"/*			Evaluate our prefix if it needs evaluating first.			If this is the first evaluation our prefix mayb be a Node 			(directly from the PrimaryPrefix) - eval() it to an object.  			If it's an LHS, resolve to a value.			Note: The ambiguous name construct is now necessary where the node 			may be an ambiguous name.  If this becomes common we might want to 			make a static method nodeToObject() or something.  The point is 			that we can't just eval() - we need to direct the evaluation to 			the context sensitive type of result; namely object, class, etc.		*/"
@@ -1477,7 +1477,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ menuDeselected() method
 0,0,0,0,0,0,0,0,//{{{ ShowFileAction class
 0,0,0,0,0,0,0,0,// // Buffer for undecoded raw byte input. //
-0,0,0,0,0,0,0,0,// cache the fact that this is a static method invocation on this class
+0,0,0,1,0,0,0,1,// cache the fact that this is a static method invocation on this class
 0,0,0,0,0,0,0,0,//{{{ performOperationsInAWTThread() method
 0,0,0,0,0,0,0,0,//{{{ RemoveAllTreeNodesAction class
 0,0,0,0,0,0,0,0,// Invoke the method This.invokeMethod( name, Class [] sig, boolean )
@@ -1519,7 +1519,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ isAntiAliasEnabled() method
 0,0,0,0,0,0,0,0,// Stop when we hit a null index.
 0,0,0,0,0,0,0,0,// If they're the same length, // check for a match. // If the loop finishes, 'index' will // contain the current bucket // position.
-0,0,1,1,0,0,1,1,/* M+ discarded by key event workaround! */
+0,0,1,0,0,0,1,0,/* M+ discarded by key event workaround! */
 0,0,0,0,0,0,0,0,//{{{ updateText() method
 0,0,0,0,0,0,0,0,//{{{ getZipFile() method
 0,0,0,0,0,0,0,0,//{{{ createTextFieldAndListPanel() method
@@ -1568,11 +1568,11 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,/* Try straightforward class name first */
 0,0,0,0,0,0,0,0,//{{{ paintHorizBorder() method
 0,0,0,0,0,0,0,0,//{{{ isBorderOpaque() method
-0,0,0,0,0,0,0,0,// "var" means untyped, return null class
+0,0,0,1,0,0,0,1,// "var" means untyped, return null class
 0,0,0,0,0,0,0,0,//{{{ DockBorder constructor
 0,0,0,0,0,0,0,0,//{{{ getWindowContainer() method
 0,0,0,0,0,0,0,0,//{{{ getResourceAsStream() method
-0,0,0,0,0,0,0,0,//{{{ updateColors() method
+0,0,0,1,0,0,0,1,//{{{ updateColors() method
 0,0,0,0,0,0,0,0,// Null interpreter and callstack references. // class only resolution should not require them.
 0,0,0,0,0,0,0,0,// Simple (non-compound) variable assignment e.g. x=5;
 0,0,0,0,0,0,0,0,// couldn't resolve it
@@ -1733,13 +1733,13 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,"/*        NULL means ""no value"".        This ia a placeholder for primitive null value.    */"
 0,0,0,0,0,0,0,0,////////////////////////////////////////////////////////////////////// // High-level reading and scanning methods. //////////////////////////////////////////////////////////////////////
 0,0,0,0,0,0,0,0,//{{{ CustomClassManager class
-0,0,0,0,0,0,0,0,//{{{ cut() method
+0,0,0,1,0,0,0,1,//{{{ cut() method
 0,0,0,0,0,0,0,0,//{{{ TOCHandler constructor
 0,0,0,0,0,0,0,0,//{{{ TOCCellRenderer class
 0,0,0,0,0,0,0,0,//ToolTipManager ttm = ToolTipManager.sharedInstance();
 0,0,0,0,0,0,0,0,//{{{ cellRectIsVisible() method
 0,0,0,0,0,0,0,0,//{{{ Path name methods
-0,0,0,0,0,0,0,0,//{{{ TOCTree constructor
+0,0,0,1,0,0,0,1,//{{{ TOCTree constructor
 0,0,0,0,0,0,0,0,//{{{ SendVFSUpdatesSafely class
 0,0,0,0,0,0,0,0,//{{{ TOCTree class
 0,0,0,0,0,0,0,0,//{{{ constructPath() method
@@ -1891,7 +1891,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,/*@bgen(jjtree) MethodInvocation */
 0,0,0,0,0,0,0,0,// Check for {} tomfoolery
 0,0,0,0,0,0,0,0,//{{{ parsePermissions() method
-0,0,1,0,0,0,1,0,// we have to deal with a huge range of possible border cases here.
+0,0,0,0,0,0,0,0,// we have to deal with a huge range of possible border cases here.
 0,0,0,0,0,0,0,0,// Should never come here
 0,0,0,0,0,0,0,0,// for filtering out backups
 0,0,0,0,0,0,0,0,//{{{ MarkersMenuItem class
@@ -1952,7 +1952,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// protected members
 0,0,0,0,0,0,0,0,//{{{ setSelectedRow() method
 0,0,0,0,0,0,0,0,// Read the remaining tokens.
-0,0,0,0,0,0,0,0,//{{{ _init() method
+0,0,0,1,0,0,0,1,//{{{ _init() method
 0,0,0,0,0,0,0,0,// Read the external IDs
 0,0,0,0,0,0,0,0,//{{{ isExiting() method
 0,0,0,0,0,0,0,0,//{{{ Message types
@@ -2133,7 +2133,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,"/*		For serialization.		Don't serialize non-serializable objects.	*/"
 0,0,0,0,0,0,0,0,//{{{ Remove class
 0,0,0,0,0,0,0,0,/*squeltch*/
-0,0,0,0,0,0,0,0,"/*         * Setting up the unzftab entries here is not strictly         * necessary, but it does save having to do it later         * in a separate pass, and so saves a block's worth of         * cache misses.         */"
+0,0,1,0,0,0,1,0,"/*         * Setting up the unzftab entries here is not strictly         * necessary, but it does save having to do it later         * in a separate pass, and so saves a block's worth of         * cache misses.         */"
 0,0,0,0,0,0,0,0,//{{{ getMode() method
 0,0,0,0,0,0,0,0,//{{{ getAutosaveFile() method
 0,0,0,0,0,0,0,0,// Cache unqualified names to prevent import check again
@@ -2150,7 +2150,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// obtain the leading indent for later use
 0,0,0,0,0,0,0,0,// Normalise whitespace if necessary.
 0,0,0,0,0,0,0,0,/*forcclass*/
-0,0,1,1,0,0,1,1,"/*		Note: technically I think we could get by passing in only the		current namespace or perhaps BshClassManager here instead of 		CallStack and Interpreter.  However let's just play it safe in case		of future changes - anywhere you eval a node you need these.	*/"
+0,0,1,0,0,0,1,0,"/*		Note: technically I think we could get by passing in only the		current namespace or perhaps BshClassManager here instead of 		CallStack and Interpreter.  However let's just play it safe in case		of future changes - anywhere you eval a node you need these.	*/"
 0,0,0,0,0,0,0,0,// try parent
 0,0,0,0,0,0,0,0,//{{{ newFile() method
 0,0,0,0,0,0,0,0,"/*         * Undo the MTF values for the selectors.         */"
@@ -2455,7 +2455,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// push super class name // use superClassName var?
 0,0,0,0,0,0,0,0,//{{{ toggleLineSeparator() method
 0,0,0,0,0,0,0,0,// push class static This object
-0,1,1,1,1,1,1,1,//{{{ Instance variables // this is a bad hack
+0,1,1,0,1,1,1,1,//{{{ Instance variables // this is a bad hack
 0,0,0,0,0,0,0,0,//{{{ paintHeader() method
 0,0,0,0,0,0,0,0,// not supported for arbitriary filesets
 0,0,0,0,0,0,0,0,// generate switch body
@@ -2468,7 +2468,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// invoke the iterator method on the ConstructorArgs // push the ConstructorArgs
 0,0,0,0,0,0,0,0,// Unload the arguments from the ConstructorArgs object
 0,0,0,0,0,0,0,0,// done with switch
-0,0,0,1,0,0,0,1,// Maybe combine this with generateMethod()
+0,0,0,0,0,0,0,0,// Maybe combine this with generateMethod()
 0,0,0,0,0,0,0,0,// default branch always invokes no args super // push 'this'
 0,0,0,0,0,0,0,0,// invoke the constructor for this branch
 0,0,0,0,0,0,0,0,// if it's an object type we must do a check cast
@@ -2656,7 +2656,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,/* fall through */
 0,0,0,0,0,0,0,0,//{{{ closeOrKeepDialog() method
 0,0,0,0,0,0,0,0,/*shouldn't happen*/
-0,0,0,1,0,0,0,1,// why so cute?
+0,0,0,0,0,0,0,0,// why so cute?
 0,0,0,0,0,0,0,0,/*@bgen(jjtree)*/
 0,0,0,0,0,0,0,0,// end stuff that was tacked on for boolean short-circuiting.
 0,0,0,0,0,0,0,0,// Unsafe caching of type here. // null (none), Void.TYPE, or a Class
@@ -2759,7 +2759,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ TokenMarker constructor
 0,0,0,0,0,0,0,0,//{{{ regionMatches() method
 0,0,0,0,0,0,0,0,//{{{ getRuleSet() method
-0,0,0,0,0,0,0,0,//{{{ startPluginLater() method
+0,0,0,1,0,0,0,1,//{{{ startPluginLater() method
 0,0,0,0,0,0,0,0,//{{{ Keyword class
 0,0,0,0,0,0,0,0,//{{{ getSegmentMapKey() method
 0,0,0,0,0,0,0,0,//{{{ getStringMapKey() method
@@ -2839,7 +2839,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Possible positions for the next repeat to match at
 0,0,0,0,0,0,0,0,// Declare variables used in loop
 0,0,0,0,0,0,0,0,// try next repeat at all possible positions
-0,0,0,0,0,0,0,0,// if none of the possibilities worked out, break out of do/while
+0,0,0,1,0,0,0,1,// if none of the possibilities worked out, break out of do/while
 0,0,0,0,0,0,0,0,// reassign where the next repeat can match
 0,0,0,0,0,0,0,0,// increment how many repeats we've successfully found
 0,0,0,0,0,0,0,0,// We're greedy, but ease off until a true match is found
@@ -2887,7 +2887,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// move read position [index] clicks from 'charAt(0)'
 0,0,0,0,0,0,0,0,// script to run
 0,0,0,0,0,0,0,0,// If we have buffered replace data, use it.
-0,0,0,0,0,0,0,0,// This is prone to infinite loops if replace string turns out empty.
+0,0,1,0,0,0,1,0,// This is prone to infinite loops if replace string turns out empty.
 0,0,0,0,0,0,0,0,//{{{ We need these initializations very early on
 0,0,0,0,0,0,0,0,//{{{ getModeName() method
 0,0,0,0,0,0,0,0,//{{{ Try connecting to another running jEdit instance
@@ -2956,7 +2956,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ getFont() method
 0,0,0,0,0,0,0,0,// Buffer a token so we can create a TokenRepeated, etc.
 0,0,0,0,0,0,0,0,// read the next character unit (including backslash escapes)
-0,0,0,0,0,0,0,0,// make everything up to here be a branch. create vector if nec.
+0,0,1,0,0,0,1,0,// make everything up to here be a branch. create vector if nec.
 0,0,0,0,0,0,0,0,// LIST OPERATOR: //  [...] | [^...]
 0,0,0,0,0,0,0,0,/* before first visible line */
 0,0,0,0,0,0,0,0,//  ---- BeanShell specific stuff hereafter ----  //
@@ -2972,7 +2972,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,/* first in expanded range */
 0,0,0,0,0,0,0,0,// 4.2 plugin
 0,0,0,0,0,0,0,0,/* prev in expanded range */
-0,0,0,0,0,0,0,0,// this line is the start of a fold
+0,0,0,1,0,0,0,1,// this line is the start of a fold
 0,0,0,0,0,0,0,0,//{{{ Find fold start and end...
 0,0,0,0,0,0,0,0,// Get the class body BSHBlock
 0,0,0,0,0,0,0,0,//{{{ getScrollLineCount() method
@@ -3051,552 +3051,552 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// If no other constructors, generate a default constructor
 0,0,0,0,0,0,0,0,//{{{ setStructureHighlightColor() method
 0,0,0,0,0,0,0,0,//{{{ isCurrentLineHighlightEnabled() method
-0,0,0,0,0,0,0,0,//{{{ getHighlightInterval() method
+0,0,0,1,0,0,0,1,//{{{ getHighlightInterval() method
 0,0,0,0,0,0,0,0,//{{{ setCurrentLineHighlightEnabled() method
-0,0,0,0,0,0,0,0,//{{{ setStructureHighlightEnabled() method
+0,0,0,1,0,0,0,1,//{{{ setStructureHighlightEnabled() method
 0,0,0,0,0,0,0,0,//{{{ setExpanded() method
-0,0,0,0,0,0,0,0,// Read string of digits
-0,0,0,0,0,0,0,0,//{{{ mouseExited() method
-0,0,0,0,0,0,0,0,// Special case for EQ on two wrapper objects
-0,0,0,0,0,0,0,0,//{{{ isBlockCaretEnabled() method
-0,0,0,0,0,0,0,0,//{{{ setStyles() method
-0,0,0,0,0,0,0,0,//{{{ Paint fold triangles
+0,0,0,1,0,0,0,1,// Read string of digits
+0,0,0,1,0,0,0,1,//{{{ mouseExited() method
+0,0,0,1,0,0,0,1,// Special case for EQ on two wrapper objects
+0,0,0,1,0,0,0,1,//{{{ isBlockCaretEnabled() method
+0,0,0,1,0,0,0,1,//{{{ setStyles() method
+0,0,0,1,0,0,0,1,//{{{ Paint fold triangles
 0,0,0,0,0,0,0,0,// draw |^
-0,0,0,0,0,0,0,0,/*value*/
-0,0,0,0,0,0,0,0,//{{{ setCaretColor() method
-0,0,0,0,0,0,0,0,//{{{ isStructureHighlightEnabled() method
-0,0,0,0,0,0,0,0,//{{{ getMultipleSelectionColor() method
-0,0,0,0,0,0,0,0,//{{{ setFoldLineStyle() method
-0,0,0,0,0,0,0,0,// assumed this is called after a font render context is set up. // changing font render context settings without a setStyles() // call will not reset cached monospaced font info.
-0,0,0,0,0,0,0,0,"/*			Are both the lhs and rhs either wrappers or primitive values?			do binary op		*/"
-0,0,0,0,0,0,0,0,//{{{ isLineHighlightEnabled() method
-0,0,0,0,0,0,0,0,//{{{ getLineHighlightColor() method
-0,0,0,0,0,0,0,0,//{{{ isFractionalFontMetricsEnabled() method
+0,0,0,1,0,0,0,1,/*value*/
+0,0,0,1,0,0,0,1,//{{{ setCaretColor() method
+0,0,0,1,0,0,0,1,//{{{ isStructureHighlightEnabled() method
+0,0,0,1,0,0,0,1,//{{{ getMultipleSelectionColor() method
+0,0,0,1,0,0,0,1,//{{{ setFoldLineStyle() method
+0,0,0,1,0,0,0,1,// assumed this is called after a font render context is set up. // changing font render context settings without a setStyles() // call will not reset cached monospaced font info.
+0,0,0,1,0,0,0,1,"/*			Are both the lhs and rhs either wrappers or primitive values?			do binary op		*/"
+0,0,0,1,0,0,0,1,//{{{ isLineHighlightEnabled() method
+0,0,0,1,0,0,0,1,//{{{ getLineHighlightColor() method
+0,0,0,1,0,0,0,1,//{{{ isFractionalFontMetricsEnabled() method
 0,0,0,0,0,0,0,0,// START OF STRING OPERATOR //  \A if RE_STRING_ANCHORS is set
-0,0,0,0,0,0,0,0,//{{{ isWrapGuidePainted() method
-0,0,0,0,0,0,0,0,//{{{ Load the global catalog
-0,0,0,0,0,0,0,0,//{{{ unloadPluginJARWithDialog() method
-0,0,0,0,0,0,0,0,// dubious? //setFirstLine(0);
-0,0,0,0,0,0,0,0,//{{{ getDependentPlugins() method
-0,0,0,0,0,0,0,0,//{{{ getFontRenderContext() method
-0,0,0,0,0,0,0,0,// create dummy catalog
+0,0,0,1,0,0,0,1,//{{{ isWrapGuidePainted() method
+0,0,0,1,0,0,0,1,//{{{ Load the global catalog
+0,0,0,1,0,0,0,1,//{{{ unloadPluginJARWithDialog() method
+0,0,0,1,0,0,0,1,// dubious? //setFirstLine(0);
+0,0,0,1,0,0,0,1,//{{{ getDependentPlugins() method
+0,0,0,1,0,0,0,1,//{{{ getFontRenderContext() method
+0,0,0,1,0,0,0,1,// create dummy catalog
 0,0,0,0,0,0,0,0,//{{{ setFont() method
-0,0,0,0,0,0,0,0,//{{{ getExtensions() method
-0,0,0,0,0,0,0,0,//{{{ updateRenderingHints() method
-0,0,0,0,0,0,0,0,//{{{ getPlugin() method
-0,0,0,0,0,0,0,0,"/* Try to guess the eventual size to avoid unnecessary		 * copying */"
-0,0,1,0,0,0,1,0,// should try to use this as little as possible.
-0,0,0,0,0,0,0,0,//{{{ Paint line highlight and collapsed fold highlight
-0,0,0,0,0,0,0,0,//{{{ PaintLineBackground class
-0,0,0,0,0,0,0,0,// minimise access$ methods
-0,0,0,0,0,0,0,0,//{{{ setCaretBlinkEnabled() method
-0,0,0,0,0,0,0,0,//{{{ getDisplayManager() method
-0,0,0,0,0,0,0,0,//{{{ getClassLoader() method
-0,0,0,0,0,0,0,0,//{{{ checkDependencies() method
-0,0,0,0,0,0,0,0,//{{{ PaintSelection class
-0,0,0,0,0,0,0,0,//{{{ Add some event listeners
+0,0,0,1,0,0,0,1,//{{{ getExtensions() method
+0,0,0,1,0,0,0,1,//{{{ updateRenderingHints() method
+0,0,0,1,0,0,0,1,//{{{ getPlugin() method
+0,0,0,1,0,0,0,1,"/* Try to guess the eventual size to avoid unnecessary		 * copying */"
+0,0,0,1,0,0,0,1,// should try to use this as little as possible.
+0,0,0,1,0,0,0,1,//{{{ Paint line highlight and collapsed fold highlight
+0,0,0,1,0,0,0,1,//{{{ PaintLineBackground class
+0,0,0,1,0,0,0,1,// minimise access$ methods
+0,0,0,1,0,0,0,1,//{{{ setCaretBlinkEnabled() method
+0,0,0,1,0,0,0,1,//{{{ getDisplayManager() method
+0,0,0,1,0,0,0,1,//{{{ getClassLoader() method
+0,0,0,1,0,0,0,1,//{{{ checkDependencies() method
+0,0,0,1,0,0,0,1,//{{{ PaintSelection class
+0,0,0,1,0,0,0,1,//{{{ Add some event listeners
 0,0,0,0,0,0,0,0,//{{{ PaintText class
-0,0,0,0,0,0,0,0,//{{{ Initialize the GUI
+0,0,0,1,0,0,0,1,//{{{ Initialize the GUI
 0,0,0,0,0,0,0,0,//{{{ PaintCaret class
-0,0,0,0,0,0,0,0,//{{{ getBrowserActionSet() method
-0,0,0,0,0,0,0,0,// NON-DIGIT OPERATOR //  \D
-0,0,0,0,0,0,0,0,// NEWLINE ESCAPE //  \n
+0,0,0,1,0,0,0,1,//{{{ getBrowserActionSet() method
+0,0,0,1,0,0,0,1,// NON-DIGIT OPERATOR //  \D
+0,0,0,1,0,0,0,1,// NEWLINE ESCAPE //  \n
 0,0,0,0,0,0,0,0,//{{{ getActions() method
-0,0,0,0,0,0,0,0,//{{{ getPainter() method
-0,0,0,0,0,0,0,0,//{{{ setQuickCopyEnabled() method
-0,0,0,0,0,0,0,0,// some plugins add stuff in a "right-hand" gutter
-0,0,0,0,0,0,0,0,//{{{ getActionSet() method
-0,0,0,0,0,0,0,0,//{{{ getGutter() method
+0,0,0,1,0,0,0,1,//{{{ getPainter() method
+0,0,0,1,0,0,0,1,//{{{ setQuickCopyEnabled() method
+0,0,0,1,0,0,0,1,// some plugins add stuff in a "right-hand" gutter
+0,0,0,1,0,0,0,1,//{{{ getActionSet() method
+0,0,0,1,0,0,0,1,//{{{ getGutter() method
 0,0,0,0,0,0,0,0,//{{{ getElectricScroll() method
-0,0,0,0,0,0,0,0,//{{{ isQuickCopyEnabled() method
-0,0,0,0,0,0,0,0,//{{{ getDragAndDropCallback() method
-0,0,0,0,0,0,0,0,// make all buttons the same size
-0,0,0,0,0,0,0,0,// prev and next buttons are on the right
-0,0,0,0,0,0,0,0,//{{{ Get ready
-0,0,0,0,0,0,0,0,//{{{ getScreenLineStartOffset() method
+0,0,0,1,0,0,0,1,//{{{ isQuickCopyEnabled() method
+0,0,0,1,0,0,0,1,//{{{ getDragAndDropCallback() method
+0,0,0,1,0,0,0,1,// make all buttons the same size
+0,0,0,1,0,0,0,1,// prev and next buttons are on the right
+0,0,0,1,0,0,0,1,//{{{ Get ready
+0,0,0,1,0,0,0,1,//{{{ getScreenLineStartOffset() method
 0,0,0,0,0,0,0,0,//{{{ setDragInProgress() method
 0,0,0,0,0,0,0,0,//{{{ getPath() method
-0,0,0,0,0,0,0,0,//{{{ getFirstLine() method
+0,0,0,1,0,0,0,1,//{{{ getFirstLine() method
 0,0,0,0,0,0,0,0,//{{{ setHorizontalOffset() method
 0,0,0,0,0,0,0,0,// cancel button goes on far left
-0,0,0,0,0,0,0,0,// unsafe caching of types
-0,0,0,0,0,0,0,0,//{{{ scrollDownLine() method
-0,0,0,0,0,0,0,0,//{{{ getBuiltInActionSet() method
-0,0,0,0,0,0,0,0,//{{{ scrollUpLine() method
+0,0,0,1,0,0,0,1,// unsafe caching of types
+0,0,0,1,0,0,0,1,//{{{ scrollDownLine() method
+0,0,0,1,0,0,0,1,//{{{ getBuiltInActionSet() method
+0,0,0,1,0,0,0,1,//{{{ scrollUpLine() method
 0,0,0,0,0,0,0,0,// END OF STRING OPERATOR //  \Z
 0,0,0,0,0,0,0,0,// not a special character
-0,0,0,0,0,0,0,0,// end while
-0,0,0,0,0,0,0,0,//{{{ removeScrollListener() method
-0,0,0,0,0,0,0,0,// Trivial case
+0,0,0,1,0,0,0,1,// end while
+0,0,0,1,0,0,0,1,//{{{ removeScrollListener() method
+0,0,0,1,0,0,0,1,// Trivial case
 0,0,0,0,0,0,0,0,// Overrides REToken.setUncle
-0,0,0,0,0,0,0,0,// to deal with empty subexpressions
-0,0,0,0,0,0,0,0,//{{{ getLineLength() method
-0,0,0,0,0,0,0,0,//{{{ Scroll vertically
-0,0,0,0,0,0,0,0,//{{{ Convenience methods
-0,0,0,0,0,0,0,0,//{{{ invalidateScreenLineRange() method
-0,0,0,0,0,0,0,0,//{{{ Initialize server
-0,0,0,0,0,0,0,0,//{{{ getScreenLineOfOffset() method
-0,0,0,0,0,0,0,0,// Buffer sort
-0,0,0,0,0,0,0,0,//{{{ Initialize Java 1.4-specific code
-0,0,0,0,0,0,0,0,// Give the static space its class static import // important to do this after all classes are defined
-0,0,0,0,0,0,0,0,//{{{ offsetToXY() method
-0,0,0,0,0,0,0,0,//{{{ invalidateLine() method
-0,0,0,0,0,0,0,0,// to hide line highlight if selections are being added later on
+0,0,0,1,0,0,0,1,// to deal with empty subexpressions
+0,0,0,1,0,0,0,1,//{{{ getLineLength() method
+0,0,0,1,0,0,0,1,//{{{ Scroll vertically
+0,0,0,1,0,0,0,1,//{{{ Convenience methods
+0,0,0,1,0,0,0,1,//{{{ invalidateScreenLineRange() method
+0,0,0,1,0,0,0,1,//{{{ Initialize server
+0,0,0,1,0,0,0,1,//{{{ getScreenLineOfOffset() method
+0,0,0,1,0,0,0,1,// Buffer sort
+0,0,0,1,0,0,0,1,//{{{ Initialize Java 1.4-specific code
+0,0,0,1,0,0,0,1,// Give the static space its class static import // important to do this after all classes are defined
+0,0,0,1,0,0,0,1,//{{{ offsetToXY() method
+0,0,0,1,0,0,0,1,//{{{ invalidateLine() method
+0,0,0,1,0,0,0,1,// to hide line highlight if selections are being added later on
 0,0,0,0,0,0,0,0,//{{{ getLineStartOffset() method
-0,0,0,0,0,0,0,0,// handle pathological case of zero-length match
-0,0,0,0,0,0,0,0,// Note the start of this subexpression
-0,0,0,0,0,0,0,0,//{{{ addLeftOfScrollBar() method
-0,0,0,0,0,0,0,0,/*declaringNameSpace*/
-0,0,0,0,0,0,0,0,//{{{ selectToMatchingBracket() method
-0,0,0,0,0,0,0,0,// Stop all plugins
-0,0,0,0,0,0,0,0,// Test for a match, and push the character // back if the match fails.
-0,0,0,0,0,0,0,0,//Object r = checkOnly ? VALID_CAST :
+0,0,0,1,0,0,0,1,// handle pathological case of zero-length match
+0,0,0,1,0,0,0,1,// Note the start of this subexpression
+0,0,0,1,0,0,0,1,//{{{ addLeftOfScrollBar() method
+0,0,0,1,0,0,0,1,/*declaringNameSpace*/
+0,0,0,1,0,0,0,1,//{{{ selectToMatchingBracket() method
+0,0,0,1,0,0,0,1,// Stop all plugins
+0,0,0,1,0,0,0,1,// Test for a match, and push the character // back if the match fails.
+0,0,0,1,0,0,0,1,//Object r = checkOnly ? VALID_CAST :
 0,0,0,0,0,0,0,0,// Interpreter has no input stream, use eval() only // Interpreter has no input stream, use eval() only // Interpreter has a user, print prompts, etc.
-0,0,0,0,0,0,0,0,// Delegate to the static method
-0,0,0,0,0,0,0,0,// Try absolute
-0,0,0,0,0,0,0,0,//{{{ extendSelection() method
-0,0,0,0,0,0,0,0,//{{{ _loadClass() method
-0,0,0,0,0,0,0,0,// Scan forward, matching that bracket
-0,0,0,0,0,0,0,0,//{{{ resizeSelection() method
-0,0,0,0,0,0,0,0,// always add markers on selected lines
-0,0,0,0,0,0,0,0,// Append character to buffer if needed
-0,0,0,0,0,0,0,0,/* Helper function for constructor */
-0,0,0,0,0,0,0,0,//{{{ setSelectedText() method
-0,0,0,0,0,0,0,0,//{{{ getSelectionAtOffset() method
-0,0,0,0,0,0,0,0,// didn't match up
-0,0,0,0,0,0,0,0,//{{{ setCaretPosition() method
-0,0,0,0,0,0,0,0,// Precondition: input[index-1] == '{', minMax != null
+0,0,0,1,0,0,0,1,// Delegate to the static method
+0,0,0,1,0,0,0,1,// Try absolute
+0,0,0,1,0,0,0,1,//{{{ extendSelection() method
+0,0,0,1,0,0,0,1,//{{{ _loadClass() method
+0,0,0,1,0,0,0,1,// Scan forward, matching that bracket
+0,0,0,1,0,0,0,1,//{{{ resizeSelection() method
+0,0,0,1,0,0,0,1,// always add markers on selected lines
+0,0,0,1,0,0,0,1,// Append character to buffer if needed
+0,0,0,1,0,0,0,1,/* Helper function for constructor */
+0,0,0,1,0,0,0,1,//{{{ setSelectedText() method
+0,0,0,1,0,0,0,1,//{{{ getSelectionAtOffset() method
+0,0,0,1,0,0,0,1,// didn't match up
+0,0,0,1,0,0,0,1,//{{{ setCaretPosition() method
+0,0,0,1,0,0,0,1,// Precondition: input[index-1] == '{', minMax != null
 0,0,0,0,0,0,0,0,//{{{ isMultipleSelectionEnabled() method
-0,0,0,0,0,0,0,0,//{{{ goToNextParagraph() method
-0,0,0,0,0,0,0,0,//{{{ moveCaretPosition() method
+0,0,0,1,0,0,0,1,//{{{ goToNextParagraph() method
+0,0,0,1,0,0,0,1,//{{{ moveCaretPosition() method
 0,0,0,0,0,0,0,0,//{{{ getCaretPosition() method
-0,0,0,0,0,0,0,0,//{{{ goToFirstVisibleLine() method
+0,0,0,1,0,0,0,1,//{{{ goToFirstVisibleLine() method
 0,0,0,0,0,0,0,0,//{{{ goToNextBracket() method
-0,0,0,0,0,0,0,0,// UCS-2 with a byte-order marker. // 0xff 0xfe: UCS-2, little-endian (21)
-0,0,0,0,0,0,0,0,// Even if reallyExit is false, we still exit properly // if background mode is off
+0,0,0,1,0,0,0,1,// UCS-2 with a byte-order marker. // 0xff 0xfe: UCS-2, little-endian (21)
+0,0,0,1,0,0,0,1,// Even if reallyExit is false, we still exit properly // if background mode is off
 0,0,0,0,0,0,0,0,// Can't call it getClass()
-0,0,0,0,0,0,0,0,//{{{ removeCaretListener() method
-0,0,0,0,0,0,0,0,//{{{ goToStartOfWhiteSpace() method
-0,0,0,0,0,0,0,0,//{{{ goToNextPage() method
+0,0,0,1,0,0,0,1,//{{{ removeCaretListener() method
+0,0,0,1,0,0,0,1,//{{{ goToStartOfWhiteSpace() method
+0,0,0,1,0,0,0,1,//{{{ goToNextPage() method
 0,0,0,0,0,0,0,0,// We know min and max now, and they are valid.
-0,0,0,0,0,0,0,0,//{{{ goToEndOfLine() method
-0,0,0,0,0,0,0,0,//{{{ goToPrevParagraph() method
+0,0,0,1,0,0,0,1,//{{{ goToEndOfLine() method
+0,0,0,1,0,0,0,1,//{{{ goToPrevParagraph() method
 0,0,0,0,0,0,0,0,//{{{ goToPrevWord() method
 0,0,0,0,0,0,0,0,//{{{ Markers
-0,0,0,0,0,0,0,0,//{{{ showGoToLineDialog() method
+0,0,0,1,0,0,0,1,//{{{ showGoToLineDialog() method
 0,0,0,0,0,0,0,0,// return the index following the '}'
-0,0,0,0,0,0,0,0,//classStaticNameSpace.importClass( fqClassName.replace('$','.') );
-0,0,0,0,0,0,0,0,//{{{ deleteToStartOfLine() method
-0,0,0,0,0,0,0,0,// do we lose index info?
-0,0,0,0,0,0,0,0,// value error shouldn't happen
+0,0,0,1,0,0,0,1,//classStaticNameSpace.importClass( fqClassName.replace('$','.') );
+0,0,0,1,0,0,0,1,//{{{ deleteToStartOfLine() method
+0,0,0,1,0,0,0,1,// do we lose index info?
+0,0,0,1,0,0,0,1,// value error shouldn't happen
 0,0,0,0,0,0,0,0,// match was successful
-0,0,0,0,0,0,0,0,"/*		If we want to support multiple commands in the command path we need to		change this to not throw the exception.	*/"
+0,0,0,1,0,0,0,1,"/*		If we want to support multiple commands in the command path we need to		change this to not throw the exception.	*/"
 0,0,0,0,0,0,0,0,//{{{ setMultipleSelectionEnabled() method
-0,0,0,0,0,0,0,0,/*strictJava*/
+0,0,0,1,0,0,0,1,/*strictJava*/
 0,0,0,0,0,0,0,0,// check if the user entered a bracket
-0,0,0,0,0,0,0,0,//{{{ deleteLine() method
-0,0,0,0,0,0,0,0,// Set the static bsh This callback
-0,0,0,0,0,0,0,0,//{{{ deleteToEndOfLine() method
+0,0,0,1,0,0,0,1,//{{{ deleteLine() method
+0,0,0,1,0,0,0,1,// Set the static bsh This callback
+0,0,0,1,0,0,0,1,//{{{ deleteToEndOfLine() method
 0,0,0,0,0,0,0,0,//{{{ toggleMultipleSelectionEnabled() method
-0,0,0,0,0,0,0,0,//{{{ deleteWord() method
-0,0,0,0,0,0,0,0,//{{{ toUpperCase() method
-0,0,0,0,0,0,0,0,//{{{ goToMarker() method
-0,0,0,0,0,0,0,0,//{{{ getCachePath() method
-0,0,0,0,0,0,0,0,//{{{ BrowserColorsOptionPane constructor
-0,0,0,0,0,0,0,0,// The new length is <= the old one.
-0,0,0,0,0,0,0,0,// try each one that matched
-0,0,0,0,0,0,0,0,// toggle marker on caret line
-0,0,0,0,0,0,0,0,// import the unq name into parent
-0,0,0,0,0,0,0,0,//{{{ goToParentFold() method
-0,0,0,0,0,0,0,0,////////////////////////////////////////////////////////////////////// // Utility routines. //////////////////////////////////////////////////////////////////////
-0,0,0,0,0,0,0,0,// Generate the type for our class
-0,0,0,0,0,0,0,0,//{{{ toLowerCase() method
-0,0,0,0,0,0,0,0,//{{{ selectFold() method
-0,0,0,0,0,0,0,0,//bcm.doneDefiningClass( fqClassName );
-0,0,0,0,0,0,0,0,//{{{ showWordCountDialog() method
+0,0,0,1,0,0,0,1,//{{{ deleteWord() method
+0,0,0,1,0,0,0,1,//{{{ toUpperCase() method
+0,0,0,1,0,0,0,1,//{{{ goToMarker() method
+0,0,0,1,0,0,0,1,//{{{ getCachePath() method
+0,0,0,1,0,0,0,1,//{{{ BrowserColorsOptionPane constructor
+0,0,0,1,0,0,0,1,// The new length is <= the old one.
+0,0,0,1,0,0,0,1,// try each one that matched
+0,0,0,1,0,0,0,1,// toggle marker on caret line
+0,0,0,1,0,0,0,1,// import the unq name into parent
+0,0,0,1,0,0,0,1,//{{{ goToParentFold() method
+0,0,0,1,0,0,0,1,////////////////////////////////////////////////////////////////////// // Utility routines. //////////////////////////////////////////////////////////////////////
+0,0,0,1,0,0,0,1,// Generate the type for our class
+0,0,0,1,0,0,0,1,//{{{ toLowerCase() method
+0,0,0,1,0,0,0,1,//{{{ selectFold() method
+0,0,0,1,0,0,0,1,//bcm.doneDefiningClass( fqClassName );
+0,0,0,1,0,0,0,1,//{{{ showWordCountDialog() method
 0,0,0,0,0,0,0,0,// if debug, write out the class file to debugClasses directory
-0,0,0,0,0,0,0,0,//{{{ setRightClickPopupEnabled() method
-0,0,0,0,0,0,0,0,//{{{ insertTabAndIndent() method
-0,0,0,0,0,0,0,0,//{{{ Right click popup
-0,0,0,0,0,0,0,0,//{{{ setSelectionStart() method
-0,0,0,0,0,0,0,0,//{{{ View constructor
-0,0,0,0,0,0,0,0,//{{{ removeLeftOfScrollBar() method
-0,0,0,0,0,0,0,0,"/*				Try to squeltch the native code stack trace if the exception				was caused by a reflective call back into the bsh interpreter				(e.g. eval() or source()			*/"
-0,0,0,0,0,0,0,0,//{{{ removeEntry() method
-0,0,0,0,0,0,0,0,/*bubble up if allowed*/
-0,0,0,0,0,0,0,0,// Start with a little cheat.  Most of // the time, the white space will fall // within the current read buffer; if // not, then fall through.
-0,0,0,0,0,0,0,0,// Evaluate any inner class class definitions in the block  // effectively recursively call this method for contained classes first
-0,0,0,0,0,0,0,0,// this does the "trick" to eliminate blank space at the end
+0,0,0,1,0,0,0,1,//{{{ setRightClickPopupEnabled() method
+0,0,0,1,0,0,0,1,//{{{ insertTabAndIndent() method
+0,0,0,1,0,0,0,1,//{{{ Right click popup
+0,0,0,1,0,0,0,1,//{{{ setSelectionStart() method
+0,0,0,1,0,0,0,1,//{{{ View constructor
+0,0,0,1,0,0,0,1,//{{{ removeLeftOfScrollBar() method
+0,0,0,1,0,0,0,1,"/*				Try to squeltch the native code stack trace if the exception				was caused by a reflective call back into the bsh interpreter				(e.g. eval() or source()			*/"
+0,0,0,1,0,0,0,1,//{{{ removeEntry() method
+0,0,0,1,0,0,0,1,/*bubble up if allowed*/
+0,0,0,1,0,0,0,1,// Start with a little cheat.  Most of // the time, the white space will fall // within the current read buffer; if // not, then fall through.
+0,0,0,1,0,0,0,1,// Evaluate any inner class class definitions in the block  // effectively recursively call this method for contained classes first
+0,0,0,1,0,0,0,1,// this does the "trick" to eliminate blank space at the end
 0,0,0,0,0,0,0,0,//{{{ getFocusCycleRoot() method
 0,0,0,0,0,0,0,0,"/*		Generate a branch of the constructor switch.  This method is called by		generateConstructorSwitch.		The code generated by this method assumes that the argument array is 		on the stack.	*/"
-0,0,0,0,0,0,0,0,// OK, the cheat didn't work; start over // and do it by the book.
-0,0,0,0,0,0,0,0,//{{{ getColorProperty() method
-0,0,0,0,0,0,0,0,// left == default case
-0,0,0,0,0,1,1,1,// XXX //e.printStackTrace();
+0,0,0,1,0,0,0,1,// OK, the cheat didn't work; start over // and do it by the book.
+0,0,0,1,0,0,0,1,//{{{ getColorProperty() method
+0,0,0,1,0,0,0,1,// left == default case
+0,0,0,1,0,1,1,1,// XXX //e.printStackTrace();
 0,0,0,0,0,0,0,0,//{{{ isOverwriteEnabled() method
 0,0,0,0,0,0,0,0,// handled by RE
 0,0,0,0,0,0,0,0,// true for the constant defined syntaxes
-0,0,0,0,0,0,0,0,// If backups > 1, move old ~n~ files, create ~1~ file
+0,0,0,1,0,0,0,1,// If backups > 1, move old ~n~ files, create ~1~ file
 0,0,0,0,0,0,0,0,// impl.
-0,0,0,0,0,0,0,0,// Define syntaxes
-0,0,0,0,0,0,0,0,/* delete a backup created using above method */
+0,0,0,1,0,0,0,1,// Define syntaxes
+0,0,0,1,0,0,0,1,/* delete a backup created using above method */
 0,0,0,0,0,0,0,0,"/* Differs from RE_SYNTAX_POSIX_EXTENDED in that RE_CONTEXT_INVALID_OPS	 replaces RE_CONTEXT_INDEP_OPS and RE_NO_BK_REFS is added. */"
-0,0,0,0,0,0,0,0,/* There is no official Perl spec, but here's a "best guess" */
-0,0,0,0,0,0,0,0,// except for '{', apparently
+0,0,0,1,0,0,0,1,/* There is no official Perl spec, but here's a "best guess" */
+0,0,1,1,0,0,1,1,// except for '{', apparently
 0,0,0,0,0,0,0,0,// while more labels or blocks and haven't hit return control
-0,0,0,0,0,0,0,0,//{{{ getSelectionStart() method
-0,0,0,0,0,0,0,0,//{{{ activatePlugin() method
+0,0,0,1,0,0,0,1,//{{{ getSelectionStart() method
+0,0,0,1,0,0,0,1,//{{{ activatePlugin() method
 0,0,0,0,0,0,0,0,//{{{ swapMarkerAndCaret() method
-0,0,0,0,0,0,0,0,/* private */
-0,0,0,0,0,0,0,0,// if label is default or equals switchVal
+0,0,0,1,0,0,0,1,/* private */
+0,0,0,1,0,0,0,1,// if label is default or equals switchVal
 0,0,0,0,0,0,0,0,// skip nodes until next label
-0,0,0,0,0,0,0,0,//{{{ Property methods
-0,0,0,0,0,0,0,0,// generate the default branch of switch
-0,0,0,0,0,0,0,0,// eval it
-0,0,0,0,0,0,0,0,// get the first label
-0,0,0,0,0,0,0,0,// first label
-0,0,0,0,0,0,0,0,// Evaluate the defined dimensions of the array
+0,0,0,1,0,0,0,1,//{{{ Property methods
+0,0,0,1,0,0,0,1,// generate the default branch of switch
+0,0,0,1,0,0,0,1,// eval it
+0,0,0,1,0,0,0,1,// get the first label
+0,0,0,1,0,0,0,1,// first label
+0,0,0,1,0,0,0,1,// Evaluate the defined dimensions of the array
 0,0,0,0,0,0,0,0,//{{{ addTopComponent() method
-0,0,0,0,0,0,0,0,//}}} //{{{ Handle $
-0,0,0,0,0,0,0,0,//{{{ getBufferSwitcher() method
-0,0,0,0,0,0,0,0,// \d,\D,\w,\W,\s,\S
+0,0,0,1,0,0,0,1,//}}} //{{{ Handle $
+0,0,0,1,0,0,0,1,//{{{ getBufferSwitcher() method
+0,0,0,1,0,0,0,1,// \d,\D,\w,\W,\s,\S
 0,0,0,0,0,0,0,0,// Get the string of enumerated values // if necessary.
 0,0,0,0,0,0,0,0,/*leave null*/
 0,0,0,0,0,0,0,0,// Make a hash of the interface hashcodes in order to cache them
 0,0,0,0,0,0,0,0,// fill in definedDimensions [] lengths
-0,0,0,0,0,0,0,0,// classExists caches the tests for us
-0,0,0,0,0,0,0,0,"/*					Note: do *not* change this to 					BshClassManager plainClassForName() or equivalent.					This class must not touch any other bsh classes.				*/"
-0,0,0,0,0,0,0,0,// retControl.returnPoint is the Node of the return statement
-0,0,0,0,0,0,0,0,////////////////////////////////////////////////////////////////////// // Error reporting. //////////////////////////////////////////////////////////////////////
-0,0,0,0,0,0,0,0,// These are necessary to let us test synchronization from scripts
-0,0,0,0,0,0,0,0,/*@bgen(jjtree) ArrayInitializer */
-0,0,0,0,0,0,0,0,// Optimization: check if anchor + minimumLength > length
-0,0,0,0,0,0,0,0,// a default hashCode()
-0,0,0,0,0,0,0,0,// can't cast void to anything
-0,0,0,0,0,0,0,0,// Create a new REMatch to hold results
-0,0,0,0,0,0,0,0,// // Flags for reading literals. //
-0,0,0,0,0,0,0,0,// The canonical file name is also absolute. // No need for getAbsolutePath() here...
+0,0,0,1,0,0,0,1,// classExists caches the tests for us
+0,0,0,1,0,0,0,1,"/*					Note: do *not* change this to 					BshClassManager plainClassForName() or equivalent.					This class must not touch any other bsh classes.				*/"
+0,0,0,1,0,0,0,1,// retControl.returnPoint is the Node of the return statement
+0,0,0,1,0,0,0,1,////////////////////////////////////////////////////////////////////// // Error reporting. //////////////////////////////////////////////////////////////////////
+0,0,0,1,0,0,0,1,// These are necessary to let us test synchronization from scripts
+0,0,0,1,0,0,0,1,/*@bgen(jjtree) ArrayInitializer */
+0,0,0,1,0,0,0,1,// Optimization: check if anchor + minimumLength > length
+0,0,0,1,0,0,0,1,// a default hashCode()
+0,0,0,1,0,0,0,1,// can't cast void to anything
+0,0,0,1,0,0,0,1,// Create a new REMatch to hold results
+0,0,0,1,0,0,0,1,// // Flags for reading literals. //
+0,0,0,1,0,0,0,1,// The canonical file name is also absolute. // No need for getAbsolutePath() here...
 0,0,0,0,0,0,0,0,//{{{ Activate plugins that must be activated at startup
 0,0,0,0,0,0,0,0,//{{{ Run script specified with -run= parameter
-0,0,0,0,0,0,0,0,// Open files, create the view and hide the splash screen.
-0,0,0,0,0,0,0,0,"/*                If idealMatch fits targetMatch and this is the first match 				or targetMatch is more specific than the best match, make it 				the new best match.            */"
-0,0,0,0,0,0,0,0,// TAB ESCAPE //  \t
-0,0,1,0,0,0,1,0,// not sure if this is correct for OpenVMS.
-0,0,0,0,0,0,0,0,//{{{ fileToClass() method
-0,0,0,0,0,1,1,1,// XXX
-0,0,0,0,0,0,0,0,"/*	End methods for interacting with Parser */"
-0,0,0,0,0,0,0,0,// If not found and there are arguments to match - // Look for an overloaded assignable match // (First find the method, then find accessible version of it)
-0,0,0,0,0,0,0,0,//{{{ removeTopComponent() method
+0,0,0,1,0,0,0,1,// Open files, create the view and hide the splash screen.
+0,0,0,1,0,0,0,1,"/*                If idealMatch fits targetMatch and this is the first match 				or targetMatch is more specific than the best match, make it 				the new best match.            */"
+0,0,0,1,0,0,0,1,// TAB ESCAPE //  \t
+0,0,0,1,0,0,0,1,// not sure if this is correct for OpenVMS.
+0,0,0,1,0,0,0,1,//{{{ fileToClass() method
+0,0,0,1,0,1,1,1,// XXX
+0,0,0,1,0,0,0,1,"/*	End methods for interacting with Parser */"
+0,0,0,1,0,0,0,1,// If not found and there are arguments to match - // Look for an overloaded assignable match // (First find the method, then find accessible version of it)
+0,0,0,1,0,0,0,1,//{{{ removeTopComponent() method
 0,0,0,0,0,0,0,0,//{{{ isRectangularSelectionEnabled() method
-0,0,0,0,0,0,0,0,//dockMenu.addItem(new NSMenuItem().separatorItem()); //dockMenu.addItem(miMac);
+0,0,0,1,0,0,0,1,//dockMenu.addItem(new NSMenuItem().separatorItem()); //dockMenu.addItem(miMac);
 0,0,0,0,0,0,0,0,// // Buffer for parsed character data. //
-0,0,0,0,0,0,0,0,// // Buffer for parsed names. //
-0,0,0,0,0,0,0,0,"/*					We get stuck in infinite loops here when unicode escapes					fail.  Must re-init the char stream reader 					(ASCII_UCodeESC_CharStream.java)				*/"
-0,0,0,0,0,0,0,0,// find the java method
-0,0,0,0,0,0,0,0,// buffers retain a reference to the fold handler in // question... and the easiest way to handle fold // handler unloading is this...
-0,0,0,0,0,0,0,0,// while in list // Out of list, index is one past ']'
+0,0,0,1,0,0,0,1,// // Buffer for parsed names. //
+0,0,0,1,0,0,0,1,"/*					We get stuck in infinite loops here when unicode escapes					fail.  Must re-init the char stream reader 					(ASCII_UCodeESC_CharStream.java)				*/"
+0,0,0,1,0,0,0,1,// find the java method
+0,0,0,1,0,0,0,1,// buffers retain a reference to the fold handler in // question... and the easiest way to handle fold // handler unloading is this...
+0,0,0,1,0,0,0,1,// while in list // Out of list, index is one past ']'
 0,0,0,0,0,0,0,0,// default for plugins that don't specify this property (ie, // 4.1-style plugins) is to load them on startup
-0,0,0,0,0,0,0,0,// number of child nodes
-0,0,0,0,0,0,0,0,// wrap the exception in a TargetException to propogate it up
-0,0,0,0,0,0,0,0,// each JAR file listed in the plugin's jars property // needs to know that we need them
-0,0,0,0,0,0,0,0,// // Maintain a count of errors. //
+0,0,0,1,0,0,0,1,// number of child nodes
+0,0,0,1,0,0,0,1,// wrap the exception in a TargetException to propogate it up
+0,0,0,1,0,0,0,1,// each JAR file listed in the plugin's jars property // needs to know that we need them
+0,0,0,1,0,0,0,1,// // Maintain a count of errors. //
 0,0,0,0,0,0,0,0,// this will be the current parse character (pattern[index])
-0,0,0,0,0,0,0,0,// fixes the hang that can occur if we 'save as' to a // new filename which requires re-sorting
-0,0,0,0,0,0,0,0,// notify clients with -wait
-0,0,0,0,0,0,0,0,// Buffers
-0,0,0,0,0,0,0,0,// Recent Buffers
-0,0,0,0,0,0,0,0,// Recent Directories
-0,0,0,0,0,0,0,0,//{{{ BufferMenu class
-0,0,0,0,0,0,0,0,//{{{ ShowRecentDirMenuItem class
-0,0,0,0,0,0,0,0,/*WIDE*/
-0,0,0,0,0,0,0,0,// Arguments
-0,0,0,0,0,0,0,0,/*paramNames*/
-0,0,0,0,0,0,0,0,// Get back to caller namespace
-0,1,0,0,0,0,0,0,// Need to scrape a value from the last line?
+0,0,0,1,0,0,0,1,// fixes the hang that can occur if we 'save as' to a // new filename which requires re-sorting
+0,0,0,1,0,0,0,1,// notify clients with -wait
+0,0,0,1,0,0,0,1,// Buffers
+0,0,0,1,0,0,0,1,// Recent Buffers
+0,0,0,1,0,0,0,1,// Recent Directories
+0,0,0,1,0,0,0,1,//{{{ BufferMenu class
+0,0,0,1,0,0,0,1,//{{{ ShowRecentDirMenuItem class
+0,0,0,1,0,0,0,1,/*WIDE*/
+0,0,0,1,0,0,0,1,// Arguments
+0,0,0,1,0,0,0,1,/*paramNames*/
+0,0,0,1,0,0,0,1,// Get back to caller namespace
+0,1,0,1,0,0,0,1,// Need to scrape a value from the last line?
 0,0,0,0,0,0,0,0,// this must be in reverse order so that modes from the user // catalog get checked first!
-0,0,0,0,0,0,0,0,// XThis.this refers to the enclosing class instance
-0,0,0,0,0,0,0,0,// finaly block
-0,0,0,0,0,0,0,0,// unwrap the target error
-0,0,0,0,0,0,0,0,// Found match, execute catch block
-0,0,0,0,0,0,0,0,// Begin constructors
-0,0,0,0,0,0,0,0,/*interp*/
-0,0,0,0,0,0,0,0,//Interpreter.debug("No class manager namespace:" +this);
-0,0,0,0,0,0,0,0,// we reuse the 'pp' vector to save time
-0,0,0,0,0,0,0,0,// does the variable already exist?
+0,0,0,1,0,0,0,1,// XThis.this refers to the enclosing class instance
+0,0,0,1,0,0,0,1,// finaly block
+0,0,0,1,0,0,0,1,// unwrap the target error
+0,0,0,1,0,0,0,1,// Found match, execute catch block
+0,0,0,1,0,0,0,1,// Begin constructors
+0,0,0,1,0,0,0,1,/*interp*/
+0,0,0,1,0,0,0,1,//Interpreter.debug("No class manager namespace:" +this);
+0,0,0,1,0,0,0,1,// we reuse the 'pp' vector to save time
+0,0,0,1,0,0,0,1,// does the variable already exist?
 0,0,0,0,0,0,0,0,// unwrap
 0,0,0,0,0,0,0,0,// Apply most specific signature matching
-0,0,0,0,0,0,0,0,/*object*/
-0,0,0,0,0,0,0,0,// Check the cache
-0,0,0,0,0,0,0,0,// These do not change during evaluation
-0,0,0,0,0,0,0,0,// On Windows and MacOS, path names are case insensitive
-0,0,0,0,0,0,0,0,// number of times eval hit 'this.caller'
-0,0,0,0,0,0,0,0,// End Cached result structures
-0,0,0,0,0,0,0,0,"/* 			Some kind of field access?		*/"
-0,0,0,0,0,0,0,0,// Allow getSuper() to through BlockNameSpace to the method's super
-0,0,0,0,0,0,0,0,// Find target object or class identifier
+0,0,0,1,0,0,0,1,/*object*/
+0,0,0,1,0,0,0,1,// Check the cache
+0,0,0,1,0,0,0,1,// These do not change during evaluation
+0,0,0,1,0,0,0,1,// On Windows and MacOS, path names are case insensitive
+0,0,0,1,0,0,0,1,// number of times eval hit 'this.caller'
+0,0,0,1,0,0,0,1,// End Cached result structures
+0,0,0,1,0,0,0,1,"/* 			Some kind of field access?		*/"
+0,0,0,1,0,0,0,1,// Allow getSuper() to through BlockNameSpace to the method's super
+0,0,0,1,0,0,0,1,// Find target object or class identifier
 0,0,0,0,0,0,0,0,// It's a class
-0,0,0,0,0,0,0,0,// return null; ???
-0,0,0,0,0,0,0,0,//{{{ isSupportedEncoding() method
+0,0,0,1,0,0,0,1,// return null; ???
+0,0,0,1,0,0,0,1,//{{{ isSupportedEncoding() method
 0,0,0,0,0,0,0,0,//{{{ getSelectionEndLine() method
-0,0,0,0,0,0,0,0,//{{{ getComponent() method
-0,0,0,0,0,0,0,0,// // Begin methods which simply delegate to our parent (enclosing scope)  //
-0,0,0,0,0,0,0,0,/* Pushes a node on to the stack. */
+0,0,0,1,0,0,0,1,//{{{ getComponent() method
+0,0,0,1,0,0,0,1,// // Begin methods which simply delegate to our parent (enclosing scope)  //
+0,0,0,1,0,0,0,1,/* Pushes a node on to the stack. */
 0,0,0,0,0,0,0,0,// Unwrap primitives
 0,0,0,0,0,0,0,0,//{{{ select() method
-0,0,0,0,0,0,0,0,/*|| returnType == null*/
-0,0,0,0,0,0,0,0,// should check to disallow continue here?
-0,0,0,0,0,0,0,0,//{{{ isMacOS() method
-0,0,0,0,0,0,0,0,// we don't want duplicate entries // in the kill ring
+0,0,0,1,0,0,0,1,/*|| returnType == null*/
+0,0,0,1,0,0,0,1,// should check to disallow continue here?
+0,0,0,1,0,0,0,1,//{{{ isMacOS() method
+0,0,0,1,0,0,0,1,// we don't want duplicate entries // in the kill ring
 0,0,0,0,0,0,0,0,/* can't happen? */
-0,0,0,0,0,0,0,0,//{{{ BrowserCommandsMenu constructor
-0,0,0,0,0,0,0,0,//{{{ BrowserHandler class
-0,0,0,0,0,0,0,0,//String filename = filenameField.getText();
+0,0,0,1,0,0,0,1,//{{{ BrowserCommandsMenu constructor
+0,0,0,1,0,0,0,1,//{{{ BrowserHandler class
+0,0,0,1,0,0,0,1,//String filename = filenameField.getText();
 0,0,0,0,0,0,0,0,//{{{ VFSBrowser constructor
 0,0,0,0,0,0,0,0,// unknown value??!!!
-0,0,0,0,0,0,0,0,//{{{ delete() method
-0,0,0,0,0,0,0,0,//{{{ BufferIORequest constructor
-0,0,0,0,0,0,0,0,// only true if the file size is known
-0,0,0,0,0,0,0,0,// Otherwise, we found a \n // that follows some other // character, hence we have // a Unix file
+0,0,0,1,0,0,0,1,//{{{ delete() method
+0,0,0,1,0,0,0,1,//{{{ BufferIORequest constructor
+0,0,0,1,0,0,0,1,// only true if the file size is known
+0,0,0,1,0,0,0,1,// Otherwise, we found a \n // that follows some other // character, hence we have // a Unix file
 0,0,0,0,0,0,0,0,// This is i+1 to take the // trailing \n into account
 0,0,0,0,0,0,0,0,//{{{ endCompoundEdit() method
-0,0,0,0,0,0,0,0,// Chop trailing newline and/or ^Z (if any)
-0,0,0,0,0,0,0,0,//{{{ readMarkers() method
-0,0,0,0,0,0,0,0,// used in insert()
-0,0,0,0,0,0,0,0,// buffer has been saved while we // were waiting.
+0,0,0,1,0,0,0,1,// Chop trailing newline and/or ^Z (if any)
+0,0,0,1,0,0,0,1,//{{{ readMarkers() method
+0,0,0,1,0,0,0,1,// used in insert()
+0,0,0,1,0,0,0,1,// buffer has been saved while we // were waiting.
 0,0,0,0,0,0,0,0,//{{{ setLimit() method
 0,0,0,0,0,0,0,0,/* nothing done between begin/end calls */
 0,0,0,0,0,0,0,0,//{{{ getMergeEdit() method
-0,0,0,0,0,0,0,0,// limitations...
+0,0,0,1,0,0,0,1,// limitations...
 0,0,0,0,0,0,0,0,//{{{ getFoldHandler() method
-0,0,0,0,0,0,0,0,//{{{ moveGap() method
+0,0,0,1,0,0,0,1,//{{{ moveGap() method
 0,0,0,0,0,0,0,0,//{{{ CompletionList class
-0,0,0,0,0,0,0,0,// Recursively adds our key listener to sub-components
-0,0,0,0,0,0,0,0,// do nothing //}}}
+0,0,0,1,0,0,0,1,// Recursively adds our key listener to sub-components
+0,0,0,1,0,0,0,1,// do nothing //}}}
 0,0,0,0,0,0,0,0,// figure out what constitutes a word character and what // doesn't
 0,0,0,0,0,0,0,0,//{{{ setText() method
-0,0,0,0,0,0,0,0,//{{{ fireActionPerformed() method
-0,0,0,0,0,0,0,0,//{{{ setSelectedColor() method
-0,0,0,0,0,0,0,0,// remove empty category branches
+0,0,0,1,0,0,0,1,//{{{ fireActionPerformed() method
+0,0,0,1,0,0,0,1,//{{{ setSelectedColor() method
+0,0,0,1,0,0,0,1,// remove empty category branches
 0,0,0,0,0,0,0,0,// this might be a bit slow if __char__ occurs a lot
-0,0,0,0,0,0,0,0,/* hasFocus */
+0,0,0,1,0,0,0,1,/* hasFocus */
 0,0,0,0,0,0,0,0,//{{{ loadDockableWindows() method
-0,0,0,0,0,0,0,0,//{{{ getCachedDockableActionFlags() method
-0,0,0,0,0,0,0,0,//{{{ OpenAction class
-0,0,0,0,0,0,0,0,/* nothing to do */
-0,0,0,0,0,0,0,0,//{{{ GrabKeyDialog constructor
-0,0,0,0,0,0,0,0,// eg, trying to bind C+e if C+e is a prefix
-0,0,0,0,0,0,0,0,// Save settings to disk
-0,0,1,0,0,0,1,0,// get rid of this dialog if necessary
-0,0,0,0,0,0,0,0,//{{{ PaneNameRenderer class
-0,0,0,0,0,0,0,0,//{{{ Encoding
+0,0,0,1,0,0,0,1,//{{{ getCachedDockableActionFlags() method
+0,0,0,1,0,0,0,1,//{{{ OpenAction class
+0,0,0,1,0,0,0,1,/* nothing to do */
+0,0,0,1,0,0,0,1,//{{{ GrabKeyDialog constructor
+0,0,0,1,0,0,0,1,// eg, trying to bind C+e if C+e is a prefix
+0,0,0,1,0,0,0,1,// Save settings to disk
+0,0,0,1,0,0,0,1,// get rid of this dialog if necessary
+0,0,0,1,0,0,0,1,//{{{ PaneNameRenderer class
+0,0,0,1,0,0,0,1,//{{{ Encoding
 0,0,0,0,0,0,0,0,//{{{ Tab size
-0,0,0,0,0,0,0,0,/* on MacOS, A+ can be user input */
-0,0,0,0,0,0,0,0,/* Log.log(Log.ERROR,this,"Using deprecated Toolkit.getFontList()"); */
+0,0,0,1,0,0,0,1,/* on MacOS, A+ can be user input */
+0,0,0,1,0,0,0,1,/* Log.log(Log.ERROR,this,"Using deprecated Toolkit.getFontList()"); */
 0,0,0,0,0,0,0,0,//{{{ RotatedTextIcon constructor
-0,0,0,0,0,0,0,0,//{{{ showDockable() method
+0,0,0,1,0,0,0,1,//{{{ showDockable() method
 0,0,0,0,0,0,0,0,//{{{ HistoryModel constructor
 0,0,0,0,0,0,0,0,//{{{ BeanShellAction constructor
 0,0,0,0,0,0,0,0,"/* don't show loading msg because we won't				   receive a propertyChanged */"
-0,0,0,0,0,0,0,0,//{{{ Result class
-0,0,0,0,0,0,0,0,// user asks to remove non-existent
-0,0,0,0,0,0,0,0,//{{{ EnhancedCheckBoxMenuItem constructor
+0,0,0,1,0,0,0,1,//{{{ Result class
+0,0,0,1,0,0,0,1,// user asks to remove non-existent
+0,0,0,1,0,0,0,1,//{{{ EnhancedCheckBoxMenuItem constructor
 0,0,0,0,0,0,0,0,/* Fractional font metrics */
-0,0,0,0,0,0,0,0,/* Caret color, caret blink, block caret */
-0,0,0,0,0,0,0,0,/* Electric borders */
+0,0,0,1,0,0,0,1,/* Caret color, caret blink, block caret */
+0,0,0,1,0,0,0,1,/* Electric borders */
 0,0,0,0,0,0,0,0,// Old API
-0,0,0,0,0,0,0,0,//{{{ IconCellRenderer class
+0,0,0,1,0,0,0,1,//{{{ IconCellRenderer class
 0,0,0,0,0,0,0,0,//{{{ StyleOptionPane constructor
-0,0,0,0,0,0,0,0,//{{{ StyleEditor class
+0,0,0,1,0,0,0,1,//{{{ StyleEditor class
 0,0,0,0,0,0,0,0,/* Text color */
 0,0,0,0,0,0,0,0,/* Text font */
 0,0,0,0,0,0,0,0,/* Marker highlight */
 0,0,0,0,0,0,0,0,/* Current line highlight */
 0,0,0,0,0,0,0,0,/* Edit mode */
 0,0,0,0,0,0,0,0,/* Wrap */
-0,0,0,0,0,0,0,0,/* Rect select */
+0,0,0,1,0,0,0,1,/* Rect select */
 0,0,0,0,0,0,0,0,/* Memory foreground color */
-0,0,0,0,0,0,0,0,/* Middle mouse button click pastes % register */
+0,0,0,1,0,0,0,1,/* Middle mouse button click pastes % register */
 0,0,0,0,0,0,0,0,/* Gutter mouse actions */
 0,0,0,0,0,0,0,0,// checkbox
-0,0,0,0,0,0,0,0,// proxy username
-0,0,0,0,0,0,0,0,//{{{ createWindowTableScroller() method
-0,0,0,0,0,0,0,0,//{{{ createWindowModel() method
+0,0,0,1,0,0,0,1,// proxy username
+0,0,0,1,0,0,0,1,//{{{ createWindowTableScroller() method
+0,0,0,1,0,0,0,1,//{{{ createWindowModel() method
 0,0,0,0,0,0,0,0,//{{{ WindowCompare class
-0,0,0,0,0,0,0,0,// initialize the jEdit branch of the options tree
-0,0,0,0,0,0,0,0,/* Download mirror */
+0,0,0,1,0,0,0,1,// initialize the jEdit branch of the options tree
+0,0,0,1,0,0,0,1,/* Download mirror */
 0,0,0,0,0,0,0,0,//{{{ DownloadMirrorsThread class
-0,0,0,0,0,0,0,0,/* Update mirror list */
-0,0,0,0,0,0,0,0,//{{{ AbbrevsOptionPane constructor
-0,0,0,0,0,0,0,0,//{{{ SingleSelectionModel class
+0,0,0,1,0,0,0,1,/* Update mirror list */
+0,0,0,1,0,0,0,1,//{{{ AbbrevsOptionPane constructor
+0,0,0,1,0,0,0,1,//{{{ SingleSelectionModel class
 0,0,0,0,0,0,0,0,/* Ignore case when sorting */
-0,0,0,0,0,0,0,0,/* Default directory */
-0,0,0,0,0,0,0,0,/* Double-click close */
-0,0,0,0,0,0,0,0,/* Look and feel */
-0,0,0,0,0,0,0,0,/* Use jEdit colors in all text components */
-0,0,0,0,0,0,0,0,/* Decorate dialogs with look and feel (JDK 1.4 only) */
-0,0,0,0,0,0,0,0,//{{{ setFileFilter() method
-0,0,0,0,0,0,0,0,/* Line separator */
+0,0,0,1,0,0,0,1,/* Default directory */
+0,0,0,1,0,0,0,1,/* Double-click close */
+0,0,0,1,0,0,0,1,/* Look and feel */
+0,0,0,1,0,0,0,1,/* Use jEdit colors in all text components */
+0,0,0,1,0,0,0,1,/* Decorate dialogs with look and feel (JDK 1.4 only) */
+0,0,0,1,0,0,0,1,//{{{ setFileFilter() method
+0,0,0,1,0,0,0,1,/* Line separator */
 0,0,0,0,0,0,0,0,//{{{ updateMultiStatus() method
-0,0,0,0,0,0,0,0,// do nothing if clicked "foo (showing n occurrences in m files)"
-0,0,0,0,0,0,0,0,//{{{ RemoveTreeNodeAction class
-0,0,0,0,0,0,0,0,//{{{ ResultCellRenderer constructor
-0,0,0,0,0,0,0,0,//{{{ ResultCellRenderer class
-0,0,0,0,0,0,0,0,//{{{ setRegexp() method
-0,0,0,0,0,0,0,0,//{{{ setAutoWrap() method
-0,0,0,0,0,0,0,0,//{{{ setBeanShellReplace() method
-0,0,0,0,0,0,0,0,//{{{ getSearchMatcher() method
-0,0,0,0,0,0,0,0,/* Don't do this when playing a macro, cos it's annoying */
-0,0,0,0,0,0,0,0,//{{{ updateMaxHorizontalScrollWidth() method
-0,0,0,0,0,0,0,0,//{{{ _replace() method
-0,0,0,0,0,0,0,0,// in case one of the above fails, we still want to // clear these flags.
-0,0,0,0,0,0,0,0,//{{{ SearchDialog constructor
+0,0,0,1,0,0,0,1,// do nothing if clicked "foo (showing n occurrences in m files)"
+0,0,0,1,0,0,0,1,//{{{ RemoveTreeNodeAction class
+0,0,0,1,0,0,0,1,//{{{ ResultCellRenderer constructor
+0,0,0,1,0,0,0,1,//{{{ ResultCellRenderer class
+0,0,0,1,0,0,0,1,//{{{ setRegexp() method
+0,0,0,1,0,0,0,1,//{{{ setAutoWrap() method
+0,0,0,1,0,0,0,1,//{{{ setBeanShellReplace() method
+0,0,0,1,0,0,0,1,//{{{ getSearchMatcher() method
+0,0,0,1,0,0,0,1,/* Don't do this when playing a macro, cos it's annoying */
+0,0,0,1,0,0,0,1,//{{{ updateMaxHorizontalScrollWidth() method
+0,0,0,1,0,0,0,1,//{{{ _replace() method
+0,0,0,1,0,0,0,1,// in case one of the above fails, we still want to // clear these flags.
+0,0,0,1,0,0,0,1,//{{{ SearchDialog constructor
 0,0,0,0,0,0,0,0,// buttons
 0,0,0,0,0,0,0,0,//{{{ getElement() method
-0,0,0,0,0,0,0,0,//{{{ BoyerMooreSearchMatcher constructor
+0,0,0,1,0,0,0,1,//{{{ BoyerMooreSearchMatcher constructor
 0,0,0,0,0,0,0,0,//{{{ generateSuffixArray() method
-0,0,0,0,0,0,0,0,//{{{ stringToToken() method
-0,0,0,0,0,0,0,0,// ALL
-0,0,0,0,0,0,0,0,//}}} //{{{ SPAN, EOL_SPAN
+0,0,0,1,0,0,0,1,//{{{ stringToToken() method
+0,0,0,1,0,0,0,1,// ALL
+0,0,0,1,0,0,0,1,//}}} //{{{ SPAN, EOL_SPAN
 0,0,0,0,0,0,0,0,// Reset the timeout
 0,0,0,0,0,0,0,0,//}}} //{{{ RULES
-0,0,0,0,0,0,0,0,//{{{ PROPERTY
-0,0,0,0,0,0,0,0,// only paint visible chunks
-0,0,0,0,0,0,0,0,//{{{ Paint token background color if necessary
+0,0,0,1,0,0,0,1,//{{{ PROPERTY
+0,0,0,1,0,0,0,1,// only paint visible chunks
+0,0,0,1,0,0,0,1,//{{{ Paint token background color if necessary
 0,0,0,0,0,0,0,0,//{{{ offsetToX() method
-0,0,0,0,0,0,0,0,//{{{ getPositions() method
+0,0,0,1,0,0,0,1,//{{{ getPositions() method
 0,0,0,0,0,0,0,0,//{{{ Position match hints
-0,0,0,0,0,0,0,0,// FALL THROUGH TO DEFAULT CASE!!!
-0,0,0,0,0,0,0,0,"/*		object is a non-null and non-void Primitive type	*/"
+0,0,0,1,0,0,0,1,// FALL THROUGH TO DEFAULT CASE!!!
+0,0,0,1,0,0,0,1,"/*		object is a non-null and non-void Primitive type	*/"
 0,0,0,0,0,0,0,0,//{{{ getSetName() method
-0,0,0,0,0,0,0,0,//{{{ getHighlightDigits() method
-0,0,0,0,0,0,0,0,//{{{ getNoWordSep() method
-0,0,0,0,0,0,0,0,//{{{ setCharWidth() method
-0,0,0,0,0,0,0,0,//{{{ canMerge() method
-0,0,0,0,0,0,0,0,//{{{ createChunk() method
+0,0,0,1,0,0,0,1,//{{{ getHighlightDigits() method
+0,0,0,1,0,0,0,1,//{{{ getNoWordSep() method
+0,0,0,1,0,0,0,1,//{{{ setCharWidth() method
+0,0,0,1,0,0,0,1,//{{{ canMerge() method
+0,0,0,1,0,0,0,1,//{{{ createChunk() method
 0,0,0,0,0,0,0,0,//{{{ merge() method
-0,0,0,0,0,0,0,0,//{{{ _notifyScreenLineChanges() method
+0,0,0,1,0,0,0,1,//{{{ _notifyScreenLineChanges() method
 0,0,0,0,0,0,0,0,//{{{ getCharWidth() method
 0,0,0,0,0,0,0,0,//{{{ isStructureHighlightVisible() method
 0,0,0,0,0,0,0,0,/* beyond last visible line */
-0,0,0,0,0,0,0,0,/* equal to last visible line */
+0,0,0,1,0,0,0,1,/* equal to last visible line */
 0,0,0,0,0,0,0,0,/* next in expanded range */
-0,0,0,0,0,0,0,0,// scan backwards looking for the start
-0,0,0,0,0,0,0,0,// Collapse the fold...
-0,0,0,0,0,0,0,0,//{{{ fvmreset() method
+0,0,0,1,0,0,0,1,// scan backwards looking for the start
+0,0,0,1,0,0,0,1,// Collapse the fold...
+0,0,0,1,0,0,0,1,//{{{ fvmreset() method
 0,0,0,0,0,0,0,0,// important: not lineMgr.getScreenLineCount()
-0,0,0,0,0,0,0,0,//{{{ Debug code
-0,0,0,0,0,0,0,0,//{{{ resize selections if necessary
-0,0,0,0,0,0,0,0,"/* both have same visibility; just remove			 * anything in between. */"
-0,0,0,0,0,0,0,0,/* shift */
-0,0,0,0,0,0,0,0,/* update */
-0,0,0,0,0,0,0,0,//{{{ updateBorder() method
-0,0,0,0,0,0,0,0,//{{{ selectMatch() method
+0,0,0,1,0,0,0,1,//{{{ Debug code
+0,0,0,1,0,0,0,1,//{{{ resize selections if necessary
+0,0,0,1,0,0,0,1,"/* both have same visibility; just remove			 * anything in between. */"
+0,0,0,1,0,0,0,1,/* shift */
+0,0,0,1,0,0,0,1,/* update */
+0,0,0,1,0,0,0,1,//{{{ updateBorder() method
+0,0,0,1,0,0,0,1,//{{{ selectMatch() method
 0,0,0,0,0,0,0,0,//{{{ getActionForEvent() method
-0,0,0,0,0,0,0,0,// if buffer is loading, don't paint anything
+0,0,0,1,0,0,0,1,// if buffer is loading, don't paint anything
 0,0,0,0,0,0,0,0,//{{{ Highlight class
-0,0,0,0,0,0,0,0,//{{{ setHighlightInterval() method
-0,0,0,0,0,0,0,0,"/*	 * JComponent.setFont(Font) is overridden here to cache the baseline for	 * the font. This avoids having to get the font metrics during every	 * repaint.	 */"
-0,0,0,0,0,0,0,0,//{{{ isMarkerHighlightEnabled() method
-0,0,0,0,0,0,0,0,//{{{ Handle actions
-0,0,0,0,0,0,0,0,//{{{ Paint line numbers
+0,0,0,1,0,0,0,1,//{{{ setHighlightInterval() method
+0,0,0,1,0,0,0,1,"/*	 * JComponent.setFont(Font) is overridden here to cache the baseline for	 * the font. This avoids having to get the font metrics during every	 * repaint.	 */"
+0,0,0,1,0,0,0,1,//{{{ isMarkerHighlightEnabled() method
+0,0,0,1,0,0,0,1,//{{{ Handle actions
+0,0,0,1,0,0,0,1,//{{{ Paint line numbers
 0,0,0,0,0,0,0,0,//{{{ Determine action
 0,0,0,0,0,0,0,0,/* && e.getX() >= getWidth() - borderWidth * 2 */
 0,0,0,0,0,0,0,0,//{{{ getStyles() method
-0,0,0,0,0,0,0,0,//{{{ getCaretColor() method
-0,0,0,0,0,0,0,0,// draw |_
-0,0,0,0,0,0,0,0,//{{{ getWrapGuideColor() method
+0,0,0,1,0,0,0,1,//{{{ getCaretColor() method
+0,0,0,1,0,0,0,1,// draw |_
+0,0,0,1,0,0,0,1,//{{{ getWrapGuideColor() method
 0,0,0,0,0,0,0,0,//{{{ setMultipleSelectionColor() method
-0,0,0,0,0,0,0,0,//{{{ setLineHighlightEnabled() method
-0,0,0,0,0,0,0,0,//{{{ setFractionalFontMetricsEnabled() method
-0,0,0,0,0,0,0,0,//{{{ setEOLMarkersPainted() method
+0,0,0,1,0,0,0,1,//{{{ setLineHighlightEnabled() method
+0,0,0,1,0,0,0,1,//{{{ setFractionalFontMetricsEnabled() method
+0,0,0,1,0,0,0,1,//{{{ setEOLMarkersPainted() method
 0,0,0,0,0,0,0,0,//{{{ getFontMetrics() method
-0,0,0,0,0,0,0,0,//{{{ paintSelection() method
-0,0,0,0,0,0,0,0,//{{{ PaintWrapGuide class
-0,0,0,0,0,0,0,0,//{{{ setElectricScroll() method
-0,0,0,0,0,0,0,0,// Skip lines beyond EOF
-0,0,0,0,0,0,0,0,//{{{ setDragEnabled() method
-0,0,0,0,0,0,0,0,//{{{ scrollUpPage() method
-0,0,0,0,0,0,0,0,//{{{ setDragAndDropCallback() method
-0,0,0,0,0,0,0,0,//{{{ Debugging code
-0,0,0,0,0,0,0,0,//{{{ getVisibleLines() method
+0,0,0,1,0,0,0,1,//{{{ paintSelection() method
+0,0,0,1,0,0,0,1,//{{{ PaintWrapGuide class
+0,0,0,1,0,0,0,1,//{{{ setElectricScroll() method
+0,0,0,1,0,0,0,1,// Skip lines beyond EOF
+0,0,0,1,0,0,0,1,//{{{ setDragEnabled() method
+0,0,0,1,0,0,0,1,//{{{ scrollUpPage() method
+0,0,0,1,0,0,0,1,//{{{ setDragAndDropCallback() method
+0,0,0,1,0,0,0,1,//{{{ Debugging code
+0,0,0,1,0,0,0,1,//{{{ getVisibleLines() method
 0,0,0,0,0,0,0,0,//{{{ setFirstLine() method
 0,0,0,0,0,0,0,0,//{{{ addScrollListener() method
-0,0,0,0,0,0,0,0,//{{{ scrollToCaret() method
+0,0,0,1,0,0,0,1,//{{{ scrollToCaret() method
 0,0,0,0,0,0,0,0,//{{{ scrollTo() method
-0,0,0,0,0,0,0,0,//{{{ xyToOffset() method
-0,0,0,0,0,0,0,0,//{{{ invalidateLineRange() method
-0,0,0,0,0,0,0,0,//{{{ isEditable() method
+0,0,0,1,0,0,0,1,//{{{ xyToOffset() method
+0,0,0,1,0,0,0,1,//{{{ invalidateLineRange() method
+0,0,0,1,0,0,0,1,//{{{ isEditable() method
 0,0,0,0,0,0,0,0,//{{{ selectNone() method
-0,0,0,0,0,0,0,0,// Scan backwards, trying to find a bracket
-0,0,0,0,0,0,0,0,//{{{ selectWord() method
-0,0,0,0,0,0,0,0,//{{{ selectBlock() method
-0,0,0,0,0,0,0,0,//{{{ invertSelection() method
-0,0,0,0,0,0,0,0,//{{{ removeFromSelection() method
-0,0,0,0,0,0,0,0,// no no no!!!! //selectNone(); //}}}
-0,0,0,0,0,0,0,0,//{{{ blinkCaret() method
-0,0,0,0,0,0,0,0,//{{{ getMagicCaretPosition() method
+0,0,0,1,0,0,0,1,// Scan backwards, trying to find a bracket
+0,0,0,1,0,0,0,1,//{{{ selectWord() method
+0,0,0,1,0,0,0,1,//{{{ selectBlock() method
+0,0,0,1,0,0,0,1,//{{{ invertSelection() method
+0,0,0,1,0,0,0,1,//{{{ removeFromSelection() method
+0,0,0,1,0,0,0,1,// no no no!!!! //selectNone(); //}}}
+0,0,0,1,0,0,0,1,//{{{ blinkCaret() method
+0,0,0,1,0,0,0,1,//{{{ getMagicCaretPosition() method
 0,0,0,0,0,0,0,0,//{{{ setMagicCaretPosition() method
 0,0,0,0,0,0,0,0,//{{{ addCaretListener() method
-0,0,0,0,0,0,0,0,//{{{ goToNextLine() method
-0,0,0,0,0,0,0,0,//{{{ goToPrevLine() method
-0,0,0,0,0,0,0,0,//{{{ goToPrevPage() method
-0,0,0,0,0,0,0,0,//{{{ goToBufferEnd() method
-0,0,0,0,0,0,0,0,//{{{ deleteParagraph() method
-0,0,0,0,0,0,0,0,// remove this when 4.1 plugin API is deprecated
-0,0,0,0,0,0,0,0,//{{{ backspace() method
-0,0,0,0,0,0,0,0,//{{{ setOverwriteEnabled() method
-0,0,0,0,0,0,0,0,// otherwise a bunch of consecutive C+d's would be merged // into one edit
-0,0,0,0,0,0,0,0,//{{{ setRectangularSelectionEnabled() method
-0,0,0,0,0,0,0,0,//{{{ formatParagraph() method
+0,0,0,1,0,0,0,1,//{{{ goToNextLine() method
+0,0,0,1,0,0,0,1,//{{{ goToPrevLine() method
+0,0,0,1,0,0,0,1,//{{{ goToPrevPage() method
+0,0,0,1,0,0,0,1,//{{{ goToBufferEnd() method
+0,0,0,1,0,0,0,1,//{{{ deleteParagraph() method
+0,0,0,1,0,0,0,1,// remove this when 4.1 plugin API is deprecated
+0,0,0,1,0,0,0,1,//{{{ backspace() method
+0,0,0,1,0,0,0,1,//{{{ setOverwriteEnabled() method
+0,0,0,1,0,0,0,1,// otherwise a bunch of consecutive C+d's would be merged // into one edit
+0,0,0,1,0,0,0,1,//{{{ setRectangularSelectionEnabled() method
+0,0,0,1,0,0,0,1,//{{{ formatParagraph() method
 0,0,0,0,0,0,0,0,//{{{ stopServer() method
-0,0,0,0,0,0,0,0,//{{{ lineComment() method
-0,0,0,0,0,0,0,0,//{{{ rangeComment() method
-0,0,0,0,0,0,0,0,//{{{ indentSelectedLines() method
-0,0,0,0,0,0,0,0,//{{{ AWT stuff
-0,0,0,0,0,0,0,0,//{{{ getSelectedLines() method
-0,0,0,0,0,0,0,0,//{{{ getSelectionStartLine() method
-0,0,0,0,0,0,0,0,//{{{ setSelectionEnd() method
-0,0,0,0,0,0,0,0,//{{{ getMarkPosition() method
+0,0,0,1,0,0,0,1,//{{{ lineComment() method
+0,0,0,1,0,0,0,1,//{{{ rangeComment() method
+0,0,0,1,0,0,0,1,//{{{ indentSelectedLines() method
+0,0,0,1,0,0,0,1,//{{{ AWT stuff
+0,0,0,1,0,0,0,1,//{{{ getSelectedLines() method
+0,0,0,1,0,0,0,1,//{{{ getSelectionStartLine() method
+0,0,0,1,0,0,0,1,//{{{ setSelectionEnd() method
+0,0,0,1,0,0,0,1,//{{{ getMarkPosition() method
 0,0,0,0,0,0,0,0,//{{{ foldStructureChanged() method
-0,0,0,0,0,0,0,0,//{{{ getMarkLine() method
-0,0,0,0,0,0,0,0,//{{{ doWordWrap() method
-0,0,0,0,0,0,0,0,// Fix bug #922951 Off-by-one error in Word Count
-0,0,0,0,0,0,0,0,//{{{ fireCaretEvent() method
+0,0,0,1,0,0,0,1,//{{{ getMarkLine() method
+0,0,0,1,0,0,0,1,//{{{ doWordWrap() method
+0,0,0,1,0,0,0,1,// Fix bug #922951 Off-by-one error in Word Count
+0,0,0,1,0,0,0,1,//{{{ fireCaretEvent() method
 0,0,0,0,0,0,0,0,//{{{ showStructureStatusMessage() method
-0,0,0,0,0,0,0,0,//{{{ Selection constructor
+0,0,0,1,0,0,0,1,//{{{ Selection constructor
 0,0,0,0,0,0,0,0,//{{{ doDoubleDrag() method
-0,0,0,0,0,0,0,0,//{{{ getEnd() method
-0,0,0,0,0,0,0,0,//{{{ Range constructor
-0,0,0,0,0,0,0,0,//{{{ Rect class
-0,0,0,0,0,0,0,0,// progress bar value change
-0,0,0,0,0,0,0,0,//{{{ CharIndexedSegment constructor
-0,0,0,0,0,0,0,0,//{{{ createPrintStream() method
+0,0,0,1,0,0,0,1,//{{{ getEnd() method
+0,0,0,1,0,0,0,1,//{{{ Range constructor
+0,0,0,1,0,0,0,1,//{{{ Rect class
+0,0,0,1,0,0,0,1,// progress bar value change
+0,0,0,1,0,0,0,1,//{{{ CharIndexedSegment constructor
+0,0,0,1,0,0,0,1,//{{{ createPrintStream() method
 0,0,0,0,0,0,0,0,//{{{ charAt() method
-0,0,0,0,0,0,0,0,//{{{ _logException() method
-0,0,0,0,0,0,0,0,//{{{ isValid() method
+0,0,0,1,0,0,0,1,//{{{ _logException() method
+0,0,0,1,0,0,0,1,//{{{ isValid() method
 0,0,0,0,0,0,0,0,// do any queued AWT runnables
-0,0,0,0,0,0,0,0,//{{{ fireStatusChanged() method
-0,0,0,0,0,0,0,0,//{{{ removeProgressListener() method
-0,0,0,0,0,0,0,0,//{{{ writeLock() method
-0,0,0,0,0,0,0,0,//{{{ requestDone() method
-0,0,0,0,0,0,0,0,//{{{ getPlugin(String, boolean) method
-0,0,0,0,0,0,0,0,// Only show class decs in CLASSES
-0,0,0,0,0,0,0,0,//{{{ removePluginJAR() method
-0,0,0,0,0,0,0,0,//{{{ Action methods
-0,0,0,0,0,0,0,0,//{{{ getActionSetForAction() method
-0,0,0,0,0,0,0,0,//Selection[] selection = (Selection[])buffer.getProperty(Buffer.SELECTION);
-0,0,0,0,0,0,0,0,// lazy instantiation
-0,0,0,0,0,0,0,0,//{{{ removeActionSet() method
-0,0,0,0,0,0,0,0,//{{{ addActionSet() method
-0,0,0,0,0,0,0,0,//{{{ getModes() method
-0,0,0,0,0,0,0,0,//{{{ Rect constructor
+0,0,0,1,0,0,0,1,//{{{ fireStatusChanged() method
+0,0,0,1,0,0,0,1,//{{{ removeProgressListener() method
+0,0,0,1,0,0,0,1,//{{{ writeLock() method
+0,0,0,1,0,0,0,1,//{{{ requestDone() method
+0,0,0,1,0,0,0,1,//{{{ getPlugin(String, boolean) method
+0,0,0,1,0,0,0,1,// Only show class decs in CLASSES
+0,0,0,1,0,0,0,1,//{{{ removePluginJAR() method
+0,0,0,1,0,0,0,1,//{{{ Action methods
+0,0,0,1,0,0,0,1,//{{{ getActionSetForAction() method
+0,0,0,1,0,0,0,1,//Selection[] selection = (Selection[])buffer.getProperty(Buffer.SELECTION);
+0,0,0,1,0,0,0,1,// lazy instantiation
+0,0,0,1,0,0,0,1,//{{{ removeActionSet() method
+0,0,0,1,0,0,0,1,//{{{ addActionSet() method
+0,0,0,1,0,0,0,1,//{{{ getModes() method
+0,0,0,1,0,0,0,1,//{{{ Rect constructor
 0,0,0,0,0,0,0,0,//{{{ AbstractOptionPane constructor
-0,0,0,0,0,0,0,0,//{{{ getAction() method
-0,0,0,0,0,0,0,0,//{{{ getActionSets() method
+0,0,0,1,0,0,0,1,//{{{ getAction() method
+0,0,0,1,0,0,0,1,//{{{ getActionSets() method
 0,0,0,0,0,0,0,0,// binaryOperation can return Primitive or wrapper type
 0,0,0,0,0,0,0,0,//{{{ Load user catalog
-0,0,0,0,0,0,0,0,//{{{ Load macros and run startup scripts, after plugins and settings are loaded
-0,0,0,0,0,0,0,0,//{{{ Edit mode methods
+0,0,0,1,0,0,0,1,//{{{ Load macros and run startup scripts, after plugins and settings are loaded
+0,0,0,1,0,0,0,1,//{{{ Edit mode methods
 0,0,0,0,0,0,0,0,//{{{ reloadModes() method
 0,0,0,0,0,0,0,0,//{{{ getPort method
 0,0,0,0,0,0,0,0,// 4.1 plugin
@@ -3605,8 +3605,8 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ _finishCaretUpdate() method
 0,0,0,0,0,0,0,0,//{{{ addPluginJARsFromDirectory() method
 0,0,0,0,0,0,0,0,//{{{ finishCaretUpdate() method
-0,0,0,0,0,0,0,0,//{{{ openTemporary() method
-0,0,0,0,0,0,0,0,//{{{ commitTemporary() method
+0,0,0,1,0,0,0,1,//{{{ openTemporary() method
+0,0,0,1,0,0,0,1,//{{{ commitTemporary() method
 0,0,0,0,0,0,0,0,//{{{ advanceSplashProgress() method
 0,0,0,0,0,0,0,0,//{{{ recalculateVisibleLines() method
 0,0,0,0,0,0,0,0,//{{{ getParentDialog() method
@@ -3616,415 +3616,415 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ Buffer constructor
 0,0,0,0,0,0,0,0,//{{{ isAncestorOf() method
 0,0,0,0,0,0,0,0,//{{{ isPopupTrigger() method
-0,0,0,0,0,0,0,0,//{{{ isMiddleButton() method
+0,0,0,1,0,0,0,1,//{{{ isMiddleButton() method
 0,0,0,0,0,0,0,0,//{{{ updateStructureHighlightWithDelay() method
 0,0,0,0,0,0,0,0,// see finishCaretUpdate() & _finishCaretUpdate()
 0,0,0,0,0,0,0,0,/* called by DisplayManager.BufferChangeHandler.transactionComplete() */
 0,0,0,0,0,0,0,0,/* otherwise DisplayManager.BufferChangeHandler calls */
-0,0,0,0,0,0,0,0,// JDiff, error list add stuff here
-0,0,0,0,0,0,0,0,//{{{ doWordCount() method
-0,0,0,0,0,0,0,0,// do nothing, user clicked 'Stop'
+0,0,0,1,0,0,0,1,// JDiff, error list add stuff here
+0,0,0,1,0,0,0,1,//{{{ doWordCount() method
+0,0,0,1,0,0,0,1,// do nothing, user clicked 'Stop'
 0,0,0,0,0,0,0,0,//{{{ insertTab() method
 0,0,0,0,0,0,0,0,//{{{ createMultilineLabel() method
 0,0,0,0,0,0,0,0,//{{{ requestFocus() method
-0,0,0,0,0,0,0,0,//{{{ menuCanceled() method
-0,0,0,0,0,0,0,0,//{{{ updateStructureHighlight() method
-0,0,0,0,0,0,0,0,//{{{ getRectParams() method
+0,0,0,1,0,0,0,1,//{{{ menuCanceled() method
+0,0,0,1,0,0,0,1,//{{{ updateStructureHighlight() method
+0,0,0,1,0,0,0,1,//{{{ getRectParams() method
 0,0,0,0,0,0,0,0,// last character before wrap // length with tabs expanded
-0,0,0,0,0,0,0,0,//{{{ TextAreaBorder class
-0,0,0,0,0,0,0,0,//{{{ updateChunksUpTo() method
+0,0,0,1,0,0,0,1,//{{{ TextAreaBorder class
+0,0,0,1,0,0,0,1,//{{{ updateChunksUpTo() method
 0,0,0,0,0,0,0,0,//{{{ getActionContext() method
-0,0,0,0,0,0,0,0,//{{{ RingListModel class
-0,0,0,0,0,0,0,0,//{{{ addWorkRequest() method
-0,0,0,0,0,0,0,0,// get rid of embedded tabs not removed by trim()
-0,0,0,0,0,0,0,0,// caretLine would have been incremented // since insertNewLineAt <= caretPos
-0,0,0,0,0,0,0,0,//{{{ ScrollLayout class
-0,0,0,0,0,0,0,0,// Parse '='
-0,0,0,0,0,0,0,0,//{{{ recalculateLastPhysicalLine() method
-0,0,0,0,0,0,0,0,//{{{ focusGained() method
+0,0,0,1,0,0,0,1,//{{{ RingListModel class
+0,0,0,1,0,0,0,1,//{{{ addWorkRequest() method
+0,0,0,1,0,0,0,1,// get rid of embedded tabs not removed by trim()
+0,0,0,1,0,0,0,1,// caretLine would have been incremented // since insertNewLineAt <= caretPos
+0,0,0,1,0,0,0,1,//{{{ ScrollLayout class
+0,0,0,1,0,0,0,1,// Parse '='
+0,0,0,1,0,0,0,1,//{{{ recalculateLastPhysicalLine() method
+0,0,0,1,0,0,0,1,//{{{ focusGained() method
 0,0,0,0,0,0,0,0,//{{{ tallCaretDelete() method
-0,0,0,0,0,0,0,0,// Note that the attribute has been // specified.
-0,0,0,0,0,0,0,0,// > 16 bits, surrogate needed
-0,0,0,0,0,0,0,0,// Internal entity.
-0,0,0,0,0,0,0,0,//{{{ MutableCaretEvent class
-0,0,0,0,0,1,1,1,// XXX: getMarkPosition() deprecated!
+0,0,0,1,0,0,0,1,// Note that the attribute has been // specified.
+0,0,0,1,0,0,0,1,// > 16 bits, surrogate needed
+0,0,0,1,0,0,0,1,// Internal entity.
+0,0,0,1,0,0,0,1,//{{{ MutableCaretEvent class
+0,0,0,1,0,1,1,1,// XXX: getMarkPosition() deprecated!
 0,0,0,0,0,0,0,0,//{{{ hideSplashScreen() method
-0,0,0,0,0,0,0,0,//{{{ getNotLoadedPluginJARs() method
-0,0,0,0,0,0,0,0,//{{{ CaretBlinker class
-0,0,0,0,0,0,0,0,//{{{ setExtendedState() method
+0,0,0,1,0,0,0,1,//{{{ getNotLoadedPluginJARs() method
+0,0,0,1,0,0,0,1,//{{{ CaretBlinker class
+0,0,0,1,0,0,0,1,//{{{ setExtendedState() method
 0,0,0,0,0,0,0,0,//{{{ centerOnScreen() method
-0,0,0,0,0,0,0,0,//{{{ adjustmentValueChanged() method
-0,0,0,0,0,0,0,0,//{{{ getDot() method
-0,0,0,0,0,0,0,0,//{{{ focusLost() method
-0,0,0,0,0,0,0,0,// just scroll to the dragged location
-0,0,0,0,0,0,0,0,// so that Home <mouse click> Home is not the same // as pressing Home twice in a row
-0,0,0,0,0,0,0,0,//{{{ loadStyles() method
+0,0,0,1,0,0,0,1,//{{{ adjustmentValueChanged() method
+0,0,0,1,0,0,0,1,//{{{ getDot() method
+0,0,0,1,0,0,0,1,//{{{ focusLost() method
+0,0,0,1,0,0,0,1,// just scroll to the dragged location
+0,0,1,1,0,0,1,1,// so that Home <mouse click> Home is not the same // as pressing Home twice in a row
+0,0,0,1,0,0,0,1,//{{{ loadStyles() method
 0,0,0,0,0,0,0,0,//{{{ getBelowPosition() method
-0,0,0,0,0,0,0,0,//{{{ getCachedServices() method
-0,0,0,0,0,0,0,0,// Ignore empty lines
-0,0,0,0,0,0,0,0,//{{{ paste() method
-0,0,0,0,0,0,0,0,// Find the highest Untitled-n file
-0,0,0,0,0,0,0,0,//{{{ doDoubleClick() method
-0,0,0,0,0,0,0,0,// so that shift-click-drag works
-0,0,0,0,0,0,0,0,//{{{ doSingleDrag() method
+0,0,0,1,0,0,0,1,//{{{ getCachedServices() method
+0,0,0,1,0,0,0,1,// Ignore empty lines
+0,0,0,1,0,0,0,1,//{{{ paste() method
+0,0,0,1,0,0,0,1,// Find the highest Untitled-n file
+0,0,0,1,0,0,0,1,//{{{ doDoubleClick() method
+0,0,0,1,0,0,0,1,// so that shift-click-drag works
+0,0,0,1,0,0,0,1,//{{{ doSingleDrag() method
 0,0,0,0,0,0,0,0,//{{{ doTripleDrag() method
-0,0,0,0,0,0,0,0,// If we get to here, there must be // an InputStream available.
-0,0,0,0,0,0,0,0,//{{{ getLineSubregionCount() method
-0,0,0,0,0,0,0,0,// so that quick copy works
-0,0,0,0,0,0,0,0,//{{{ xToSubregionOffset() method
+0,0,0,1,0,0,0,1,// If we get to here, there must be // an InputStream available.
+0,0,0,1,0,0,0,1,//{{{ getLineSubregionCount() method
+0,0,0,1,0,0,0,1,// so that quick copy works
+0,0,0,1,0,0,0,1,//{{{ xToSubregionOffset() method
 0,0,0,0,0,0,0,0,//{{{ ChunkCache constructor
-0,0,0,0,0,0,0,0,"/*			Treat lhs and rhs as arbitrary objects and do the operation.			(including NULL and VOID represented by their Primitive types)		*/"
-0,0,0,0,0,0,0,0,//{{{ subregionOffsetToX() method
+0,0,0,1,0,0,0,1,"/*			Treat lhs and rhs as arbitrary objects and do the operation.			(including NULL and VOID represented by their Primitive types)		*/"
+0,0,0,1,0,0,0,1,//{{{ subregionOffsetToX() method
 0,0,0,0,0,0,0,0,//{{{ windowOpened() method
-0,0,0,0,0,0,0,0,//{{{ invalidateChunksFrom() method
-0,0,0,0,0,0,0,0,//return -1;
-0,0,0,0,0,0,0,0,//{{{ ComponentHandler class
-0,0,0,0,0,0,0,0,//{{{ getPluginJARs() method
-0,0,0,0,0,0,0,0,//{{{ Loading, saving window geometry
-0,0,0,0,0,0,0,0,// we do this here instead of adding buffers to the bus.
-0,0,0,0,0,0,0,0,//{{{ componentMoved() method
-0,0,0,0,0,0,0,0,//{{{ invalidateChunksFromPhys() method
-0,0,0,0,0,0,0,0,"//EditBus.send(new BufferUpdate(Buffer.this, //	view,BufferUpdate.MARKERS_CHANGED));"
-0,0,0,0,0,0,0,0,// Make sure the window is displayed in visible region
+0,0,0,1,0,0,0,1,//{{{ invalidateChunksFrom() method
+0,0,0,1,0,0,0,1,//return -1;
+0,0,0,1,0,0,0,1,//{{{ ComponentHandler class
+0,0,0,1,0,0,0,1,//{{{ getPluginJARs() method
+0,0,0,1,0,0,0,1,//{{{ Loading, saving window geometry
+0,0,0,1,0,0,0,1,// we do this here instead of adding buffers to the bus.
+0,0,0,1,0,0,0,1,//{{{ componentMoved() method
+0,0,0,1,0,0,0,1,//{{{ invalidateChunksFromPhys() method
+0,0,0,1,0,0,0,1,"//EditBus.send(new BufferUpdate(Buffer.this, //	view,BufferUpdate.MARKERS_CHANGED));"
+0,0,0,1,0,0,0,1,// Make sure the window is displayed in visible region
 0,0,0,0,0,0,0,0,//{{{ getMaxHorizontalScrollWidth() method
-0,0,0,0,0,0,0,0,//{{{ loadGeometry() method
+0,0,0,1,0,0,0,1,//{{{ loadGeometry() method
 0,0,0,0,0,0,0,0,//{{{ invalidateAll() method
-0,0,0,0,0,0,0,0,// Find the screen line containing this offset
-0,0,0,0,0,0,0,0,//{{{ adjustForScreenBounds() method
-0,0,0,0,0,0,0,0,// line is invisible?
-0,0,0,0,0,0,0,0,//{{{ scrollDown() method
-0,0,0,0,0,0,0,0,//{{{ keyTyped() method
-0,0,0,0,0,0,0,0,//{{{ parseStyle() method
-0,0,0,0,0,0,0,0,//{{{ createWhiteSpace() method
-0,0,0,0,0,0,0,0,//{{{ getSubregionStartOffset() method
-0,0,0,0,0,0,0,0,//{{{ LogListModel class
-0,0,0,0,0,0,0,0,//{{{ getLineInfosForPhysicalLine() method
-0,0,0,0,0,0,0,0,//{{{ getSubregionEndOffset() method
-0,0,0,0,0,0,0,0,//{{{ getAbovePosition() method
-0,0,0,0,0,0,0,0,// if -1, the empty space at the end of the text area // when the buffer has less lines than are visible
-0,0,0,0,0,0,0,0,// for the first line displayed, take its physical line to be // the text area's first physical line
-0,0,0,0,0,0,0,0,// control-click in virtual space inserts // whitespace and moves caret
-0,0,0,0,0,0,0,0,// otherwise, determine the next visible line
-0,0,0,0,0,0,0,0,// find a valid line closest to the last screen line
+0,0,0,1,0,0,0,1,// Find the screen line containing this offset
+0,0,0,1,0,0,0,1,//{{{ adjustForScreenBounds() method
+0,0,0,1,0,0,0,1,// line is invisible?
+0,0,0,1,0,0,0,1,//{{{ scrollDown() method
+0,0,0,1,0,0,0,1,//{{{ keyTyped() method
+0,0,0,1,0,0,0,1,//{{{ parseStyle() method
+0,0,0,1,0,0,0,1,//{{{ createWhiteSpace() method
+0,0,0,1,0,0,0,1,//{{{ getSubregionStartOffset() method
+0,0,0,1,0,0,0,1,//{{{ LogListModel class
+0,0,0,1,0,0,0,1,//{{{ getLineInfosForPhysicalLine() method
+0,0,0,1,0,0,0,1,//{{{ getSubregionEndOffset() method
+0,0,0,1,0,0,0,1,//{{{ getAbovePosition() method
+0,0,0,1,0,0,0,1,// if -1, the empty space at the end of the text area // when the buffer has less lines than are visible
+0,0,0,1,0,0,0,1,// for the first line displayed, take its physical line to be // the text area's first physical line
+0,0,0,1,0,0,0,1,// control-click in virtual space inserts // whitespace and moves caret
+0,0,0,1,0,0,0,1,// otherwise, determine the next visible line
+0,0,0,1,0,0,0,1,// find a valid line closest to the last screen line
 0,0,0,0,0,0,0,0,"/* if the user changes the syntax token at the				 * end of a line, need to do a full repaint. */"
 0,0,0,0,0,0,0,0,//{{{ scrollUp() method
 0,0,0,0,0,0,0,0,// unless this is the first time, increment // the line number
-0,0,0,0,0,0,0,0,"/* We only cache entire physical lines at once;				 * don't want to split a physical line into				 * screen lines and only have some valid. */"
-0,0,0,0,0,0,0,0,// empty space
+0,0,0,1,0,0,0,1,"/* We only cache entire physical lines at once;				 * don't want to split a physical line into				 * screen lines and only have some valid. */"
+0,0,0,1,0,0,0,1,// empty space
 0,0,0,0,0,0,0,0,// if the line has no text, out.size() == 0
-0,0,0,0,0,0,0,0,// get another line of chunks
-0,0,0,0,0,0,0,0,// chunk the line.
+0,0,0,1,0,0,0,1,// get another line of chunks
+0,0,0,1,0,0,0,1,// chunk the line.
 0,0,0,0,0,0,0,0,//{{{ globToRE() method
-0,0,0,0,0,0,0,0,//{{{ escapesToChars() method
-0,0,0,0,0,0,0,0,//{{{ charsToEscapes() method
-0,0,0,0,0,0,0,0,//{{{ insertFile() method
-0,0,0,0,0,0,0,0,// this returns false if initial sanity // checks (if the file is a directory, etc) // fail
+0,0,0,1,0,0,0,1,//{{{ escapesToChars() method
+0,0,0,1,0,0,0,1,//{{{ charsToEscapes() method
+0,0,0,1,0,0,0,1,//{{{ insertFile() method
+0,0,0,1,0,0,0,1,// this returns false if initial sanity // checks (if the file is a directory, etc) // fail
 0,0,0,0,0,0,0,0,//{{{ checkFileStatus() method
-0,0,0,0,0,0,0,0,// null object ref is not instance of any type
-0,0,0,0,0,0,0,0,// otherwise, the number of subregions
-0,0,0,0,0,0,0,0,//{{{ LineInfo class
-0,0,0,0,0,0,0,0,//{{{ lineToChunkList() method
-0,0,0,0,0,0,0,0,//{{{ getStartLine() method
-0,0,0,0,0,0,0,0,//{{{ getStart() method
-0,0,0,0,0,0,0,0,//{{{ Range class
-0,0,0,0,0,0,0,0,//{{{ Insert the lines into the buffer
+0,0,0,1,0,0,0,1,// null object ref is not instance of any type
+0,0,0,1,0,0,0,1,// otherwise, the number of subregions
+0,0,0,1,0,0,0,1,//{{{ LineInfo class
+0,0,0,1,0,0,0,1,//{{{ lineToChunkList() method
+0,0,0,1,0,0,0,1,//{{{ getStartLine() method
+0,0,0,1,0,0,0,1,//{{{ getStart() method
+0,0,0,1,0,0,0,1,//{{{ Range class
+0,0,0,1,0,0,0,1,//{{{ Insert the lines into the buffer
 0,0,0,0,0,0,0,0,//{{{ parseColor() method
-0,0,0,0,0,0,0,0,//{{{ loadPopupMenu() method
-0,0,0,0,0,0,0,0,//{{{ Canned dialog boxes
-0,0,0,0,0,0,0,0,//{{{ Move the caret down a line
-0,0,0,0,0,0,0,0,//{{{ Colors and styles
-0,0,0,0,0,0,0,0,//{{{ getStartColumn() method
+0,0,0,1,0,0,0,1,//{{{ loadPopupMenu() method
+0,0,0,1,0,0,0,1,//{{{ Canned dialog boxes
+0,0,0,1,0,0,0,1,//{{{ Move the caret down a line
+0,0,0,1,0,0,0,1,//{{{ Colors and styles
+0,0,0,1,0,0,0,1,//{{{ getStartColumn() method
 0,0,0,0,0,0,0,0,//{{{ showVFSFileDialog() method
 0,0,0,0,0,0,0,0,//{{{ getEndColumn() method
-0,0,0,0,0,0,0,0,//{{{ autosave() method
-0,0,0,0,0,0,0,0,//{{{ saveAs() method
-0,0,0,0,0,0,0,0,//{{{ prettifyMenuLabel() method
+0,0,0,1,0,0,0,1,//{{{ autosave() method
+0,0,0,1,0,0,0,1,//{{{ saveAs() method
+0,0,0,1,0,0,0,1,//{{{ prettifyMenuLabel() method
 0,0,0,0,0,0,0,0,"/* Runtime runtime = Runtime.getRuntime();		int freeMemory = (int)(runtime.freeMemory() / 1024);		int totalMemory = (int)(runtime.totalMemory() / 1024);		int usedMemory = (totalMemory - freeMemory);		Log.log(Log.DEBUG,this,""Java heap: "" + usedMemory + ""Kb / ""			+ totalMemory + ""Kb, "" + (usedMemory * 100 / totalMemory)			+ ""%""); */"
-0,0,0,0,0,0,0,0,//{{{ inputProperty() method
+0,0,0,1,0,0,0,1,//{{{ inputProperty() method
 0,0,0,0,0,0,0,0,// wait for more requests
 0,0,0,0,0,0,0,0,//{{{ loadToolBar() method
-0,0,0,0,0,0,0,0,//{{{ paintScreenLineRange() method
-0,0,0,0,0,0,0,0,// notify a running waitForRequests() method
-0,0,0,0,0,0,0,0,// files[] should have length 1, since the dialog type is // SAVE_DIALOG
-0,0,0,0,0,0,0,0,// Once save is complete, do a few other things
-0,0,0,0,0,0,0,0,//{{{ Some predefined icons
-0,0,0,0,0,0,0,0,//{{{ message() method
-0,0,0,0,0,0,0,0,//{{{ confirm() method
-0,0,0,0,0,0,0,0,//{{{ input() method
-0,0,0,0,0,0,0,0,// Log some stuff
-0,0,0,0,0,0,0,0,//{{{ getLogListModel() method
-0,0,0,0,0,0,0,0,//{{{ setLogWriter() method
-0,0,0,0,0,0,0,0,//{{{ closeStream() method
-0,0,0,0,0,0,0,0,//{{{ flushStream() method
-0,0,0,0,0,0,0,0,//{{{ Icon methods
+0,0,0,1,0,0,0,1,//{{{ paintScreenLineRange() method
+0,0,0,1,0,0,0,1,// notify a running waitForRequests() method
+0,0,0,1,0,0,0,1,// files[] should have length 1, since the dialog type is // SAVE_DIALOG
+0,0,0,1,0,0,0,1,// Once save is complete, do a few other things
+0,0,0,1,0,0,0,1,//{{{ Some predefined icons
+0,0,0,1,0,0,0,1,//{{{ message() method
+0,0,0,1,0,0,0,1,//{{{ confirm() method
+0,0,0,1,0,0,0,1,//{{{ input() method
+0,0,0,1,0,0,0,1,// Log some stuff
+0,0,0,1,0,0,0,1,//{{{ getLogListModel() method
+0,0,0,1,0,0,0,1,//{{{ setLogWriter() method
+0,0,0,1,0,0,0,1,//{{{ closeStream() method
+0,0,0,1,0,0,0,1,//{{{ flushStream() method
+0,0,0,1,0,0,0,1,//{{{ Icon methods
 0,0,0,0,0,0,0,0,//{{{ _log() method
-0,0,0,0,0,0,0,0,/* not really needed since threads don't start until after */
-0,0,0,0,0,0,0,0,//{{{ handleEditPaneUpdate() method
-0,0,0,0,0,0,0,0,// so that jEdit doesn't exit with no views open automatically //setDaemon(true);
-0,0,0,0,0,0,0,0,//{{{ loadIcon() method
-0,0,0,0,0,0,0,0,//{{{ loadMenuBar() method
-0,0,0,0,0,0,0,0,//{{{ Menus, tool bars
+0,0,0,1,0,0,0,1,/* not really needed since threads don't start until after */
+0,0,0,1,0,0,0,1,//{{{ handleEditPaneUpdate() method
+0,0,0,1,0,0,0,1,// so that jEdit doesn't exit with no views open automatically //setDaemon(true);
+0,0,0,1,0,0,0,1,//{{{ loadIcon() method
+0,0,0,1,0,0,0,1,//{{{ loadMenuBar() method
+0,0,0,1,0,0,0,1,//{{{ Menus, tool bars
 0,0,0,0,0,0,0,0,// status message changed, operation started, operation ends, ...
-0,0,0,0,0,0,0,0,//{{{ getEditorIcon() method
-0,0,0,0,0,0,0,0,// check if there is a cached version first
-0,0,0,0,0,0,0,0,//{{{ log() method
-0,0,0,0,0,0,0,0,// get the icon
-0,0,0,0,0,0,0,0,//{{{ try to merge with an existing menu first
-0,0,0,0,0,0,0,0,// Same thread.
+0,0,0,1,0,0,0,1,//{{{ getEditorIcon() method
+0,0,0,1,0,0,0,1,// check if there is a cached version first
+0,0,0,1,0,0,0,1,//{{{ log() method
+0,0,0,1,0,0,0,1,// get the icon
+0,0,0,1,0,0,0,1,//{{{ try to merge with an existing menu first
+0,0,0,1,0,0,0,1,// Same thread.
 0,0,0,0,0,0,0,0,//{{{ getThread() method
-0,0,0,0,0,0,0,0,//{{{ move() method
-0,0,0,0,0,0,0,0,//{{{ Add to AWT queue...
-0,0,0,0,0,0,0,0,//{{{ getThreadCount() method
-0,0,0,0,0,0,0,0,// no background mode, and reusing existing view
-0,0,0,0,0,0,0,0,//{{{ allowWrite() method
-0,0,0,0,0,0,0,0,// Roll back state.
-0,0,0,0,0,0,0,0,//{{{ fireProgressChanged() method
-0,0,0,0,0,0,0,0,//{{{ readLock() method
-0,0,0,0,0,0,0,0,//{{{ queueAWTRunner() method
+0,0,0,1,0,0,0,1,//{{{ move() method
+0,0,0,1,0,0,0,1,//{{{ Add to AWT queue...
+0,0,0,1,0,0,0,1,//{{{ getThreadCount() method
+0,0,0,1,0,0,0,1,// no background mode, and reusing existing view
+0,0,0,1,0,0,0,1,//{{{ allowWrite() method
+0,0,0,1,0,0,0,1,// Roll back state.
+0,0,0,1,0,0,0,1,//{{{ fireProgressChanged() method
+0,0,0,1,0,0,0,1,//{{{ readLock() method
+0,0,0,1,0,0,0,1,//{{{ queueAWTRunner() method
 0,0,0,0,0,0,0,0,//{{{ writeUnlock() method
-0,0,0,0,0,0,0,0,//}}} //{{{ Add to work thread queue...
+0,0,0,1,0,0,0,1,//}}} //{{{ Add to work thread queue...
 0,0,0,0,0,0,0,0,// AWT thread magic
-0,0,0,0,0,0,0,0,// Request queue
-0,0,0,0,0,0,0,0,//{{{ RunRequestsInAWTThread class
-0,0,0,0,0,0,0,0,"//			Log.log(Log.DEBUG,this,""AWT runner queued"");"
-0,0,0,0,0,0,0,0,//{{{ getNextAWTRequest() method
+0,0,0,1,0,0,0,1,// Request queue
+0,0,0,1,0,0,0,1,//{{{ RunRequestsInAWTThread class
+0,0,0,1,0,0,0,1,"//			Log.log(Log.DEBUG,this,""AWT runner queued"");"
+0,0,0,1,0,0,0,1,//{{{ getNextAWTRequest() method
 0,0,0,0,0,0,0,0,//{{{ SegmentBuffer constructor
-0,0,0,0,0,0,0,0,//{{{ setFontProperty() method
-0,0,0,0,0,0,0,0,// changes IFNULL and IFNONNULL to opcodes 218 and 219 (inclusive)
-0,0,0,0,0,0,0,0,"/* Some characters that we like to use in action names		 * ('.', '-') are not allowed in BeanShell identifiers. */"
-0,0,0,0,0,0,0,0,//{{{ setDoubleProperty() method
-0,0,0,0,0,0,0,0,// Write in progress.
-0,0,0,0,0,0,0,0,//{{{ isWriteLocked() method
-0,0,0,0,0,0,0,0,//{{{ claimWriteLock() method
-0,0,0,0,0,0,0,0,// file does not begin with UTF-8-Y // signature. reset stream, read as // UTF-8.
-0,0,0,0,0,0,0,0,// changes IFEQ ... JSR to opcodes 202 to 217 (inclusive)
+0,0,0,1,0,0,0,1,//{{{ setFontProperty() method
+0,0,0,1,0,0,0,1,// changes IFNULL and IFNONNULL to opcodes 218 and 219 (inclusive)
+0,0,1,1,0,0,1,1,"/* Some characters that we like to use in action names		 * ('.', '-') are not allowed in BeanShell identifiers. */"
+0,0,0,1,0,0,0,1,//{{{ setDoubleProperty() method
+0,0,0,1,0,0,0,1,// Write in progress.
+0,0,0,1,0,0,0,1,//{{{ isWriteLocked() method
+0,0,0,1,0,0,0,1,//{{{ claimWriteLock() method
+0,0,0,1,0,0,0,1,// file does not begin with UTF-8-Y // signature. reset stream, read as // UTF-8.
+0,0,0,1,0,0,0,1,// changes IFEQ ... JSR to opcodes 202 to 217 (inclusive)
 0,0,0,0,0,0,0,0,//{{{ IntegerArray constructor
-0,0,0,0,0,0,0,0,//{{{ getArray() method
+0,0,0,1,0,0,0,1,//{{{ getArray() method
 0,0,0,0,0,0,0,0,// BIPUSH or NEWARRAY
 0,0,0,0,0,0,0,0,// ------------------------------------------------------------------------- // Special instructions // -------------------------------------------------------------------------
 0,0,0,0,0,0,0,0,// ------------------------------------------------------------------------- // Debug information // -------------------------------------------------------------------------
-0,0,0,0,0,0,0,0,//{{{ get() method
-0,0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Constructors // --------------------------------------------------------------------------
-0,0,0,0,0,0,0,0,// updates maxLocals
-0,0,0,0,0,0,0,0,//{{{ getLeadingWhiteSpace() method
-0,0,0,0,0,0,0,0,//case ARRAY: //case OBJECT:
-0,0,0,0,0,0,0,0,//case 'L':
-0,0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Accessors // --------------------------------------------------------------------------
-0,0,0,0,0,0,0,0,// updates current and max stack sizes
-0,0,0,0,0,0,0,0,// -------------------------------------------------------------------------- // Corresponding size and opcodes // --------------------------------------------------------------------------
-0,0,0,0,0,0,0,0,//{{{ updateGutterBorders() method
+0,0,0,1,0,0,0,1,//{{{ get() method
+0,0,0,1,0,0,0,1,// -------------------------------------------------------------------------- // Constructors // --------------------------------------------------------------------------
+0,0,0,1,0,0,0,1,// updates maxLocals
+0,0,0,1,0,0,0,1,//{{{ getLeadingWhiteSpace() method
+0,0,0,1,0,0,0,1,//case ARRAY: //case OBJECT:
+0,0,0,1,0,0,0,1,//case 'L':
+0,0,0,1,0,0,0,1,// -------------------------------------------------------------------------- // Accessors // --------------------------------------------------------------------------
+0,0,0,1,0,0,0,1,// updates current and max stack sizes
+0,0,0,1,0,0,0,1,// -------------------------------------------------------------------------- // Corresponding size and opcodes // --------------------------------------------------------------------------
+0,0,0,1,0,0,0,1,//{{{ updateGutterBorders() method
 0,0,0,0,0,0,0,0,// \t handled above
-0,0,0,0,0,0,0,0,/* eg, foo<C+b>, will insert foobar, */
-0,0,0,0,0,0,0,0,//{{{ compareVersions() method
-0,0,0,0,0,0,0,0,// updates max locals
-0,0,0,0,0,0,0,0,//{{{ compareStrings() method
-0,0,0,0,0,0,0,0,// xLOAD or xSTORE
-0,0,0,0,0,0,0,0,// no stack change, but end of current block (no successor)
-0,0,0,0,0,0,0,0,/*ISTORE_0*/
-0,0,0,0,0,0,0,0,// if opcode == ATHROW or xRETURN, ends current block (no successor)
-0,0,0,0,0,0,0,0,/*ILOAD_0*/
-0,0,0,0,0,0,0,0,//{{{ runMacro() method
+0,0,0,1,0,0,0,1,/* eg, foo<C+b>, will insert foobar, */
+0,0,0,1,0,0,0,1,//{{{ compareVersions() method
+0,0,0,1,0,0,0,1,// updates max locals
+0,0,0,1,0,0,0,1,//{{{ compareStrings() method
+0,0,0,1,0,0,0,1,// xLOAD or xSTORE
+0,0,0,1,0,0,0,1,// no stack change, but end of current block (no successor)
+0,0,0,1,0,0,0,1,/*ISTORE_0*/
+0,0,0,1,0,0,0,1,// if opcode == ATHROW or xRETURN, ends current block (no successor)
+0,0,0,1,0,0,0,1,/*ILOAD_0*/
+0,0,0,1,0,0,0,1,//{{{ runMacro() method
 0,0,0,0,0,0,0,0,// Remove '.bsh'
-0,0,0,0,0,0,0,0,//{{{ BeanShellHandler class
-0,0,0,0,0,0,0,0,//{{{ BeanShellHandler constructor
+0,0,0,1,0,0,0,1,//{{{ BeanShellHandler class
+0,0,0,1,0,0,0,1,//{{{ BeanShellHandler constructor
 0,0,0,0,0,0,0,0,//{{{ createMacro() method
-0,0,0,0,0,0,0,0,// updates current and max stack sizes only if opcode == NEWARRAY // (stack size variation = 0 for BIPUSH or SIPUSH)
-0,0,0,0,0,0,0,0,//{{{ setColorProperty() method
-0,0,0,0,0,0,0,0,// pushes the first block onto the stack of blocks to be visited
-0,0,0,0,0,0,0,0,//{{{ addMacro() method
-0,0,0,0,0,0,0,0,//{{{ readUnlock() method
+0,0,0,1,0,0,0,1,// updates current and max stack sizes only if opcode == NEWARRAY // (stack size variation = 0 for BIPUSH or SIPUSH)
+0,0,0,1,0,0,0,1,//{{{ setColorProperty() method
+0,0,0,1,0,0,0,1,// pushes the first block onto the stack of blocks to be visited
+0,0,0,1,0,0,0,1,//{{{ addMacro() method
+0,0,0,1,0,0,0,1,//{{{ readUnlock() method
 0,0,0,0,0,0,0,0,//{{{ Handler constructor
-0,0,0,0,0,0,0,0,//{{{ _preprocessKeyEvent() method
-0,0,0,0,0,0,0,0,//{{{ isFocusTraversable() method
+0,0,0,1,0,0,0,1,//{{{ _preprocessKeyEvent() method
+0,0,0,1,0,0,0,1,//{{{ isFocusTraversable() method
 0,0,0,0,0,0,0,0,//{{{ handleClient() method
-0,0,0,0,0,0,0,0,//{{{ flushInput() method
-0,0,0,0,0,0,0,0,//{{{ getLabel() method
-0,0,0,0,0,0,0,0,//{{{ Handler class
+0,0,0,1,0,0,0,1,//{{{ flushInput() method
+0,0,0,1,0,0,0,1,//{{{ getLabel() method
+0,0,0,1,0,0,0,1,//{{{ Handler class
 0,0,0,0,0,0,0,0,// setting the message to 'null' causes the status bar to // check if a recording is in progress
-0,0,0,0,0,0,0,0,//{{{ getPlugins() method
-0,0,0,0,0,0,0,0,//{{{ getSource() method
-0,0,0,0,0,0,0,0,//{{{ Getters/setter methods for various buffer meta-data
-0,0,0,0,0,0,0,0,//{{{ getLastModified() method
-0,0,0,0,0,0,0,0,//{{{ getVFS() method
-0,0,0,0,0,0,0,0,//{{{ addProgressListener() method
-0,0,0,0,0,0,0,0,"//				Log.log(Log.DEBUG,this,""AWT immediate: "" + run);"
-0,0,0,0,0,0,0,0,//{{{ WorkThreadPool constructor
-0,0,0,0,0,0,0,0,//{{{ getRules() method
-0,0,0,0,0,0,0,0,//{{{ getRuleCount() method
-0,0,0,0,0,0,0,0,//{{{ addSeparator() method
-0,0,0,0,0,0,0,0,//{{{ setTerminateChar() method
+0,0,0,1,0,0,0,1,//{{{ getPlugins() method
+0,0,0,1,0,0,0,1,//{{{ getSource() method
+0,0,0,1,0,0,0,1,//{{{ Getters/setter methods for various buffer meta-data
+0,0,0,1,0,0,0,1,//{{{ getLastModified() method
+0,0,0,1,0,0,0,1,//{{{ getVFS() method
+0,0,0,1,0,0,0,1,//{{{ addProgressListener() method
+0,0,0,1,0,0,0,1,"//				Log.log(Log.DEBUG,this,""AWT immediate: "" + run);"
+0,0,0,1,0,0,0,1,//{{{ WorkThreadPool constructor
+0,0,0,1,0,0,0,1,//{{{ getRules() method
+0,0,0,1,0,0,0,1,//{{{ getRuleCount() method
+0,0,0,1,0,0,0,1,//{{{ addSeparator() method
+0,0,0,1,0,0,0,1,//{{{ setTerminateChar() method
 0,0,0,0,0,0,0,0,//{{{ Recorder class
-0,0,0,0,0,0,0,0,//{{{ Recorder constructor
+0,0,0,1,0,0,0,1,//{{{ Recorder constructor
 0,0,0,0,0,0,0,0,//{{{ setFirstInvalidLineContext() method
-0,0,0,0,0,0,0,0,//{{{ CaretHandler class
-0,0,0,0,0,0,0,0,//{{{ getSelectionEnd() method
-0,0,0,0,0,0,0,0,//{{{ isLeaf() method
-0,0,0,0,0,0,0,0,"/*				Found the full name in imported classes.			*/"
-0,0,0,0,0,0,0,0,//{{{ getAbbrev() method
-0,0,0,0,0,0,0,0,// UCS-2 without a BOM must begin with "<?XML" // 0x00 0x3c 0x00 0x3f: UCS-2, big-endian, no byte-order mark
-0,0,0,0,0,0,0,0,//{{{ isBuiltIn() method
-0,0,0,0,0,0,0,0,//{{{ _closeBuffer() method
+0,0,0,1,0,0,0,1,//{{{ CaretHandler class
+0,0,0,1,0,0,0,1,//{{{ getSelectionEnd() method
+0,0,0,1,0,0,0,1,//{{{ isLeaf() method
+0,0,0,1,0,0,0,1,"/*				Found the full name in imported classes.			*/"
+0,0,0,1,0,0,0,1,//{{{ getAbbrev() method
+0,0,0,1,0,0,0,1,// UCS-2 without a BOM must begin with "<?XML" // 0x00 0x3c 0x00 0x3f: UCS-2, big-endian, no byte-order mark
+0,0,0,1,0,0,0,1,//{{{ isBuiltIn() method
+0,0,0,1,0,0,0,1,//{{{ _closeBuffer() method
 0,0,0,0,0,0,0,0,"/* I already wrote a comment expaining this in			 * Macro.invoke(). */"
-0,0,0,0,0,0,0,0,//{{{ stopRecording() method
-0,0,0,0,0,0,0,0,//{{{ loadMacros() method
-0,0,0,0,0,0,0,0,//{{{ clearRegister() method
-0,0,0,0,0,0,0,0,//{{{ recordTemporaryMacro() method
+0,0,0,1,0,0,0,1,//{{{ stopRecording() method
+0,0,0,1,0,0,0,1,//{{{ loadMacros() method
+0,0,0,1,0,0,0,1,//{{{ clearRegister() method
+0,0,0,1,0,0,0,1,//{{{ recordTemporaryMacro() method
 0,0,0,0,0,0,0,0,//{{{ getRegisters() method
-0,0,0,0,0,0,0,0,//{{{ getEndLine() method
-0,0,0,0,0,0,0,0,//{{{ saveRegisters() method
+0,0,0,1,0,0,0,1,//{{{ getEndLine() method
+0,0,0,1,0,0,0,1,//{{{ saveRegisters() method
 0,0,0,0,0,0,0,0,//{{{ loadRegisters() method
 0,0,0,0,0,0,0,0,//{{{ Register interface
-0,0,0,0,0,0,0,0,//{{{ ClipboardRegister class
+0,0,0,1,0,0,0,1,//{{{ ClipboardRegister class
 0,0,0,0,0,0,0,0,//{{{ doSingleClick() method
-0,0,0,0,0,0,0,0,//{{{ Text methods
+0,0,0,1,0,0,0,1,//{{{ Text methods
 0,0,0,0,0,0,0,0,//{{{ macroNameToLabel() method
-0,0,0,0,0,0,0,0,//{{{ getHandler() method
-0,0,0,0,0,0,0,0,//{{{ AdjustHandler class
+0,0,0,1,0,0,0,1,//{{{ getHandler() method
+0,0,0,1,0,0,0,1,//{{{ AdjustHandler class
 0,0,0,0,0,0,0,0,//{{{ getMark() method
-0,0,0,0,0,0,0,0,//{{{ KillRingHandler class
-0,0,0,0,0,0,0,0,//{{{ stringsEqual() method
+0,0,0,1,0,0,0,1,//{{{ KillRingHandler class
+0,0,0,1,0,0,0,1,//{{{ stringsEqual() method
 0,0,0,0,0,0,0,0,//{{{ setSize() method
-0,0,0,0,0,0,0,0,//{{{ objectsEqual() method
-0,0,0,0,0,0,0,0,//{{{ startDragAndDrop() method // calls dndCallback via reflection
-0,0,0,0,0,0,0,0,// This is the new, canonical path
-0,0,0,0,0,0,0,0,//{{{ insideSelection() method
-0,0,0,0,0,0,0,0,// remove trailing \n
+0,0,0,1,0,0,0,1,//{{{ objectsEqual() method
+0,0,0,1,0,0,0,1,//{{{ startDragAndDrop() method // calls dndCallback via reflection
+0,0,0,1,0,0,0,1,// This is the new, canonical path
+0,0,0,1,0,0,0,1,//{{{ insideSelection() method
+0,0,0,1,0,0,0,1,// remove trailing \n
 0,0,0,0,0,0,0,0,//{{{ updateScrollBars() method
-0,0,0,0,0,0,0,0,//{{{ StringRegister class
-0,0,0,0,0,0,0,0,//{{{ RegistersHandler class
-0,0,0,0,0,0,0,0,//{{{ isCaretVisible() method
-0,0,0,0,0,0,0,0,//{{{ Text editing
-0,0,0,0,0,0,0,0,//{{{ getAttributes() method
-0,0,0,0,0,0,0,0,// If we read a \r and // lastWasCR is also true, // it is probably a Mac file // (\r\r in stream)
-0,0,0,0,0,0,0,0,//{{{ Macro constructor
-0,0,0,0,0,0,0,0,//{{{ getRightClickPopup() method
-0,0,0,0,0,0,0,0,//{{{ getSymlinkPath() method
-0,0,0,0,0,0,0,0,//{{{ setRightClickPopup() method
-0,0,0,0,0,0,0,0,//{{{ joinLines() method
+0,0,0,1,0,0,0,1,//{{{ StringRegister class
+0,0,0,1,0,0,0,1,//{{{ RegistersHandler class
+0,0,0,1,0,0,0,1,//{{{ isCaretVisible() method
+0,0,0,1,0,0,0,1,//{{{ Text editing
+0,0,0,1,0,0,0,1,//{{{ getAttributes() method
+0,0,0,1,0,0,0,1,// If we read a \r and // lastWasCR is also true, // it is probably a Mac file // (\r\r in stream)
+0,0,0,1,0,0,0,1,//{{{ Macro constructor
+0,0,0,1,0,0,0,1,//{{{ getRightClickPopup() method
+0,0,0,1,0,0,0,1,//{{{ getSymlinkPath() method
+0,0,0,1,0,0,0,1,//{{{ setRightClickPopup() method
+0,0,0,1,0,0,0,1,//{{{ joinLines() method
 0,0,0,0,0,0,0,0,//{{{ registerHandler() method
-0,0,0,0,0,0,0,0,// Was the previous read character a \r? // If we read a \n and this is true, we assume // we have a DOS/Windows file
-0,0,0,0,0,0,0,0,//{{{ getMacroHierarchy() method
-0,0,0,0,0,0,0,0,//{{{ isRightClickPopupEnabled() method
-0,0,0,0,0,0,0,0,//{{{ getMacroActionSet() method
-0,0,0,0,0,0,0,0,//{{{ Macro class
-0,0,0,0,0,0,0,0,//{{{ getMacro() method
+0,0,0,1,0,0,0,1,// Was the previous read character a \r? // If we read a \n and this is true, we assume // we have a DOS/Windows file
+0,0,0,1,0,0,0,1,//{{{ getMacroHierarchy() method
+0,0,0,1,0,0,0,1,//{{{ isRightClickPopupEnabled() method
+0,0,0,1,0,0,0,1,//{{{ getMacroActionSet() method
+0,0,0,1,0,0,0,1,//{{{ Macro class
+0,0,0,1,0,0,0,1,//{{{ getMacro() method
 0,0,0,0,0,0,0,0,//{{{ getHandlers() method
-0,0,0,0,0,0,0,0,//{{{ allowRead() method
+0,0,0,1,0,0,0,1,//{{{ allowRead() method
 0,0,0,0,0,0,0,0,//{{{ Request class
 0,0,0,0,0,0,0,0,//{{{ isVMS() method
-0,0,0,0,0,0,0,0,//{{{ isMacOSLF() method
-0,0,0,0,0,0,0,0,// Determine whether we are dealing // with a one-, two-, three-, or four- // byte sequence.
-0,0,0,0,0,0,0,0,//{{{ User input
+0,0,0,1,0,0,0,1,//{{{ isMacOSLF() method
+0,0,0,1,0,0,0,1,// Determine whether we are dealing // with a one-, two-, three-, or four- // byte sequence.
+0,0,0,1,0,0,0,1,//{{{ User input
 0,0,0,0,0,0,0,0,/* we guess an initial size for the array */
-0,0,0,0,0,0,0,0,// A \r was read, hence a MacOS file
-0,0,0,0,0,0,0,0,//{{{ narrowToSelection() method
-0,0,0,0,0,0,0,0,//{{{ setEntry() method
+0,0,0,1,0,0,0,1,// A \r was read, hence a MacOS file
+0,0,0,1,0,0,0,1,//{{{ narrowToSelection() method
+0,0,0,1,0,0,0,1,//{{{ setEntry() method
 0,0,0,0,0,0,0,0,//{{{ isLoaded() method
-0,0,0,0,0,0,0,0,//{{{ isPerformingIO() method
-0,0,0,0,0,0,0,0,//{{{ isNewFile() method
-0,0,0,0,0,0,0,0,//{{{ setNewFile() method
-0,0,0,0,0,0,0,0,//{{{ classToFile() method
-0,0,0,0,0,0,0,0,//{{{ isUntitled() method
-0,0,0,0,0,0,0,0,//{{{ Folding
-0,0,0,0,0,0,0,0,// only executed if above loop falls // through, ie there is no handler for // this file
-0,0,0,0,0,0,0,0,//{{{ goToMatchingBracket() method
+0,0,0,1,0,0,0,1,//{{{ isPerformingIO() method
+0,0,0,1,0,0,0,1,//{{{ isNewFile() method
+0,0,0,1,0,0,0,1,//{{{ setNewFile() method
+0,0,0,1,0,0,0,1,//{{{ classToFile() method
+0,0,0,1,0,0,0,1,//{{{ isUntitled() method
+0,0,0,1,0,0,0,1,//{{{ Folding
+0,0,0,1,0,0,0,1,// only executed if above loop falls // through, ie there is no handler for // this file
+0,0,0,1,0,0,0,1,//{{{ goToMatchingBracket() method
 0,0,0,0,0,0,0,0,//{{{ unref() method
 0,0,0,0,0,0,0,0,//{{{ PosTopHalf constructor
-0,0,0,0,0,0,0,0,//{{{ PosBottomHalf class
-0,0,0,0,0,0,0,0,//{{{ goToBufferStart() method
-0,0,0,0,0,0,0,0,// create a temporary (synthetic) prefix // KeyBinding, that won't be saved
+0,0,0,1,0,0,0,1,//{{{ PosBottomHalf class
+0,0,0,1,0,0,0,1,//{{{ goToBufferStart() method
+0,0,0,1,0,0,0,1,// create a temporary (synthetic) prefix // KeyBinding, that won't be saved
 0,0,0,0,0,0,0,0,//cons.insets = new Insets(1,0,1,0);
-0,0,0,0,0,0,0,0,//{{{ goToEndOfWhiteSpace() method
-0,0,0,0,0,0,0,0,// save dockable window geometry, and close 'em
+0,0,0,1,0,0,0,1,//{{{ goToEndOfWhiteSpace() method
+0,0,0,1,0,0,0,1,// save dockable window geometry, and close 'em
 0,0,0,0,0,0,0,0,//{{{ revalidate() method
 0,0,0,0,0,0,0,0,//{{{ goToLastVisibleLine() method
 0,0,0,0,0,0,0,0,//{{{ showRunScriptDialog() method
-0,0,0,0,0,0,0,0,//{{{ PerspectiveHandler class
-0,0,0,0,0,0,0,0,//{{{ goToNextMarker() method
-0,0,0,0,0,0,0,0,//{{{ getElementIndex() method
-0,0,0,0,0,0,0,0,// if caret is inside leading whitespace, indent.
-0,0,0,0,0,0,0,0,// backgrounded
-0,0,0,0,0,0,0,0,// copy text after gap
+0,0,0,1,0,0,0,1,//{{{ PerspectiveHandler class
+0,0,0,1,0,0,0,1,//{{{ goToNextMarker() method
+0,0,0,1,0,0,0,1,//{{{ getElementIndex() method
+0,0,0,1,0,0,0,1,// if caret is inside leading whitespace, indent.
+0,0,0,1,0,0,0,1,// backgrounded
+0,0,0,1,0,0,0,1,// copy text after gap
 0,0,0,0,0,0,0,0,//{{{ PosTopHalf class
-0,0,0,0,0,0,0,0,//{{{ setPerspectiveDirty() method
-0,0,0,0,0,0,0,0,//{{{ loadPerspective() method
+0,0,0,1,0,0,0,1,//{{{ setPerspectiveDirty() method
+0,0,0,1,0,0,0,1,//{{{ loadPerspective() method
 0,0,0,0,0,0,0,0,//{{{ isPerspectiveDirty() method
 0,0,0,0,0,0,0,0,//{{{ setPosition() method
-0,0,0,0,0,0,0,0,//{{{ Some constants
+0,0,0,1,0,0,0,1,//{{{ Some constants
 0,0,0,0,0,0,0,0,//{{{ smartHome() method
 0,0,0,0,0,0,0,0,//{{{ hasScreenMenuBar
-0,0,0,0,0,0,0,0,//{{{ updateBufferStatus() method
-0,0,0,0,0,0,0,0,// see above
+0,0,0,1,0,0,0,1,//{{{ updateBufferStatus() method
+0,0,0,1,0,0,0,1,// see above
 0,0,0,0,0,0,0,0,// remove it so editor can continue // functioning
-0,0,0,0,0,0,0,0,//{{{ ThreadProgress class
+0,0,0,1,0,0,0,1,//{{{ ThreadProgress class
 0,0,0,0,0,0,0,0,//{{{ updateCaption() method
-0,0,0,0,0,0,0,0,//{{{ getWordToComplete() method
-0,0,0,0,0,0,0,0,//{{{ getHistory() method
-0,0,0,0,0,0,0,0,/* not a class */
+0,0,0,1,0,0,0,1,//{{{ getWordToComplete() method
+0,0,0,1,0,0,0,1,//{{{ getHistory() method
+0,0,0,1,0,0,0,1,/* not a class */
 0,0,0,0,0,0,0,0,//{{{ getSubregionOfOffset() method
 0,0,0,0,0,0,0,0,// Reset count
 0,0,0,0,0,0,0,0,// Number of lines read. Every 100 lines, we update the // progress bar
-0,0,0,0,0,0,0,0,// end JcmdProcess.java
-0,0,0,0,0,0,0,0,//{{{ addStructureMatcher() method
+0,0,0,1,0,0,0,1,// end JcmdProcess.java
+0,0,0,1,0,0,0,1,//{{{ addStructureMatcher() method
 0,0,0,0,0,0,0,0,// Look for line endings.
-0,0,0,0,0,0,0,0,/* Get full command line */
-0,0,0,0,0,0,0,0,//{{{ Split the text into lines
-0,0,0,0,0,0,0,0,// do nothing, who cares
-0,0,0,0,0,0,0,0,//{{{ setFirstInvalidFoldLevel() method
-0,0,0,0,0,0,0,0,//{{{ needFullRepaint() method
-0,0,0,0,0,0,0,0,//{{{ overlaps() method
-0,0,0,0,0,0,0,0,//{{{ isJava14() method
-0,0,0,0,0,0,0,0,//{{{ isJava15() method
-0,0,0,0,0,0,0,0,// fix the bug where the horiz. // scroll bar was not updated // after creating a new file.
-0,0,1,0,0,0,1,0,// Note that we rely on the fact that when a physical line is // invalidated, all screen lines/subregions of that line are // invalidated as well. See below comment for code that tries // to uphold this assumption.
-0,0,0,0,0,0,0,0,"/* If this line has become longer or shorter				 * (in which case the new physical line number				 * is different from the cached one) we need to:				 * - continue updating past the last line				 * - advise the text area to repaint				 * On the other hand, if the line wraps beyond				 * lastScreenLine, we need to keep updating the				 * chunk list to ensure proper alignment of				 * invalidation flags (see start of method) */"
-0,0,0,0,0,0,0,0,//{{{ getLineInfo() method
-0,0,0,0,0,0,0,0,//{{{ loadClass() method
+0,0,0,1,0,0,0,1,/* Get full command line */
+0,0,0,1,0,0,0,1,//{{{ Split the text into lines
+0,0,0,1,0,0,0,1,// do nothing, who cares
+0,0,0,1,0,0,0,1,//{{{ setFirstInvalidFoldLevel() method
+0,0,0,1,0,0,0,1,//{{{ needFullRepaint() method
+0,0,0,1,0,0,0,1,//{{{ overlaps() method
+0,0,0,1,0,0,0,1,//{{{ isJava14() method
+0,0,0,1,0,0,0,1,//{{{ isJava15() method
+0,0,1,1,0,0,1,1,// fix the bug where the horiz. // scroll bar was not updated // after creating a new file.
+0,0,0,0,0,0,0,0,// Note that we rely on the fact that when a physical line is // invalidated, all screen lines/subregions of that line are // invalidated as well. See below comment for code that tries // to uphold this assumption.
+0,0,0,1,0,0,0,1,"/* If this line has become longer or shorter				 * (in which case the new physical line number				 * is different from the cached one) we need to:				 * - continue updating past the last line				 * - advise the text area to repaint				 * On the other hand, if the line wraps beyond				 * lastScreenLine, we need to keep updating the				 * chunk list to ensure proper alignment of				 * invalidation flags (see start of method) */"
+0,0,0,1,0,0,0,1,//{{{ getLineInfo() method
+0,0,0,1,0,0,0,1,//{{{ loadClass() method
 0,0,0,0,0,0,0,0,// zero it here so that BufferTabs doesn't have any problems
-0,0,0,0,0,0,0,0,// middle mouse button drag inserts selection // at caret position
+0,0,0,1,0,0,0,1,// middle mouse button drag inserts selection // at caret position
 0,0,0,0,0,0,0,0,// only wrap if we're at the end of a line, or the rest of the // line text is whitespace
-0,0,0,0,0,0,0,0,//{{{ doTripleClick() method
-0,0,0,0,0,0,0,0,//{{{ MutableCaretEvent constructor
-0,0,0,0,0,0,0,0,//{{{ shiftTallCaretLeft() method
-0,0,0,0,0,0,0,0,"/* with drag and drop on, a mouse down in a selection does not		immediately deselect */"
-0,0,0,0,0,0,0,0,// When the user is typing, etc, we don't want the caret // to blink
-0,0,0,0,0,0,0,0,//{{{ _addToSelection() method
-0,0,0,0,0,0,0,0,"/* only ever return true if space was pressed		 * with logicalLength == maxLineLen */"
-0,0,0,0,0,0,0,0,// for debugging, make jEdit think its using a different // version of Java than it really is.
-0,0,0,0,0,0,0,0,//{{{ isSelectionRectangular() method
-0,0,0,0,0,0,0,0,//{{{ getSelectionStartEndOnLine() method
-0,0,0,0,0,0,0,0,"/* on JDK 1.4, this is set to a method by Java14. The method must take	* these parameters:	* - a JEditTextArea	* - an InputEvent	* - a boolean (copy text or move, depending on modifier user held down)	*/"
+0,0,0,1,0,0,0,1,//{{{ doTripleClick() method
+0,0,0,1,0,0,0,1,//{{{ MutableCaretEvent constructor
+0,0,0,1,0,0,0,1,//{{{ shiftTallCaretLeft() method
+0,0,1,1,0,0,1,1,"/* with drag and drop on, a mouse down in a selection does not		immediately deselect */"
+0,0,0,1,0,0,0,1,// When the user is typing, etc, we don't want the caret // to blink
+0,0,0,1,0,0,0,1,//{{{ _addToSelection() method
+0,0,0,1,0,0,0,1,"/* only ever return true if space was pressed		 * with logicalLength == maxLineLen */"
+0,0,0,1,0,0,0,1,// for debugging, make jEdit think its using a different // version of Java than it really is.
+0,0,0,1,0,0,0,1,//{{{ isSelectionRectangular() method
+0,0,0,1,0,0,0,1,//{{{ getSelectionStartEndOnLine() method
+0,0,0,1,0,0,0,1,"/* on JDK 1.4, this is set to a method by Java14. The method must take	* these parameters:	* - a JEditTextArea	* - an InputEvent	* - a boolean (copy text or move, depending on modifier user held down)	*/"
 0,0,0,0,0,0,0,0,//{{{ getLastEdit() method
-0,0,0,0,0,0,0,0,//{{{ reloadAllBuffers() method
-0,0,0,0,0,0,0,0,// save caret info. Buffer.load() will load it.
-0,0,0,0,0,0,0,0,//{{{ _getBuffer() method
-0,0,0,0,0,0,0,0,//{{{ handlePopupTrigger() method
-0,0,0,0,0,0,0,0,//{{{ lineInStructureScope() method
-0,0,0,0,0,0,0,0,// add a line marker at the end for proper offset manager // operation
-0,0,0,0,0,0,0,0,//{{{ selectLine() method
-0,0,0,0,0,0,0,0,//        currBlockNo++;
-0,0,0,0,0,0,0,0,//{{{ goToPrevFold() method
-0,0,0,0,0,0,0,0,//{{{ PosBottomHalf constructor
+0,0,0,1,0,0,0,1,//{{{ reloadAllBuffers() method
+0,0,0,1,0,0,0,1,// save caret info. Buffer.load() will load it.
+0,0,0,1,0,0,0,1,//{{{ _getBuffer() method
+0,0,0,1,0,0,0,1,//{{{ handlePopupTrigger() method
+0,0,0,1,0,0,0,1,//{{{ lineInStructureScope() method
+0,0,0,1,0,0,0,1,// add a line marker at the end for proper offset manager // operation
+0,0,0,1,0,0,0,1,//{{{ selectLine() method
+0,0,0,1,0,0,0,1,//        currBlockNo++;
+0,0,0,1,0,0,0,1,//{{{ goToPrevFold() method
+0,0,0,1,0,0,0,1,//{{{ PosBottomHalf constructor
 0,0,0,0,0,0,0,0,//{{{ Edit class
-0,0,0,0,0,0,0,0,//{{{ insertEnterAndIndent() method
-0,0,0,0,0,0,0,0,//{{{ selectParagraph() method
-0,0,0,0,0,0,0,0,//{{{ tabsToSpaces() method
-0,0,0,0,0,0,0,0,//{{{ setLastModified() method
-0,0,0,0,0,0,0,0,//{{{ Offset conversion
-0,0,0,0,0,0,0,0,//{{{ charsToEntities() method
-0,0,0,0,0,0,0,0,//{{{ formatFileSize() method
+0,0,0,1,0,0,0,1,//{{{ insertEnterAndIndent() method
+0,0,0,1,0,0,0,1,//{{{ selectParagraph() method
+0,0,0,1,0,0,0,1,//{{{ tabsToSpaces() method
+0,0,0,1,0,0,0,1,//{{{ setLastModified() method
+0,0,0,1,0,0,0,1,//{{{ Offset conversion
+0,0,0,1,0,0,0,1,//{{{ charsToEntities() method
+0,0,0,1,0,0,0,1,//{{{ formatFileSize() method
 0,0,0,0,0,0,0,0,//{{{ getLongestPrefix() method
-0,0,0,0,0,0,0,0,// Offset of previous line, relative to // the start of the I/O buffer (NOT // relative to the start of the document)
-0,0,0,0,0,0,0,0,//{{{ Painting
-0,0,0,0,0,0,0,0,//{{{ Scroll horizontally
-0,0,0,0,0,0,0,0,"/*         * Now the coding tables         */"
-0,0,0,0,0,0,0,0,//{{{ getLineCount() method
+0,0,0,1,0,0,0,1,// Offset of previous line, relative to // the start of the I/O buffer (NOT // relative to the start of the document)
+0,0,0,1,0,0,0,1,//{{{ Painting
+0,0,0,1,0,0,0,1,//{{{ Scroll horizontally
+0,0,0,1,0,0,0,1,"/*         * Now the coding tables         */"
+0,0,0,1,0,0,0,1,//{{{ getLineCount() method
 0,0,0,1,0,0,0,1,"/*     * Knuth's increments seem to work better     * than Incerpi-Sedgewick here.  Possibly     * because the number of elems to sort is     * usually small, typically <= 20.     */"
 0,0,0,0,0,0,0,0,//{{{ isDragInProgress() method
 0,0,0,0,0,0,0,0,//{{{ getFirstPhysicalLine() method
 0,0,0,0,0,0,0,0,//{{{ getHorizontalOffset() method
 0,0,0,0,0,0,0,0,//{{{ OptionGroup constructor
-0,0,0,0,0,0,0,0,// fix for the bug where key events in JTextComponents // inside views are also handled by the input handler
+0,0,1,0,0,0,1,0,// fix for the bug where key events in JTextComponents // inside views are also handled by the input handler
 0,0,0,0,0,0,0,0,"/*         * Create the Huffman decoding tables         */"
 0,0,0,0,0,0,0,0,"/*         * Receive the mapping table         */"
 0,0,0,0,0,0,0,0,"/*         * A bad CRC is considered a fatal error.         */"
@@ -4051,9 +4051,9 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ getEOLMarkersPainted() method
 0,0,0,0,0,0,0,0,// Compare the input, character- // by character.
 0,0,0,0,0,0,0,0,//{{{ Descriptor class
-0,0,0,0,0,0,0,0,// Otherwise set a flag, // so that \n knows that last // was a \r
+0,0,0,1,0,0,0,1,// Otherwise set a flag, // so that \n knows that last // was a \r
 0,0,0,0,0,0,0,0,// Read the character
-0,0,0,0,0,0,0,0,//{{{ getEOLMarkerColor() method
+0,0,0,1,0,0,0,1,//{{{ getEOLMarkerColor() method
 0,0,0,0,0,0,0,0,//{{{ setWrapGuideColor() method
 0,0,0,0,0,0,0,0,//{{{ initKeyBindings() method
 0,0,0,0,0,0,0,0,// unknown service - <clazz,name> not in table
@@ -4064,7 +4064,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Now, on with the hunt...
 0,0,0,0,0,0,0,0,// avoid re-running script if it gives // us null
 0,0,0,0,0,0,0,0,// Quick check catches public fields include those in interfaces
-0,0,0,0,0,0,0,0,//{{{ getSelectionColor() method
+0,0,0,1,0,0,0,1,//{{{ getSelectionColor() method
 0,0,0,0,0,0,0,0,// Per Patrick Beard:
 0,0,0,0,0,0,0,0,//{{{ getLastBuffer() method
 0,0,0,0,0,0,0,0,//{{{ checkBufferStatus() method
@@ -4081,7 +4081,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// draw |
 0,0,0,0,0,0,0,0,//{{{ toTitleCase() method
 0,0,0,0,0,0,0,0,//{{{ setMarkerHighlightColor() method
-0,0,0,0,0,0,0,0,//{{{ setFoldColor() method
+0,0,0,1,0,0,0,1,//{{{ setFoldColor() method
 0,0,0,0,0,0,0,0,//{{{ getDoubleProperty() method
 0,0,0,0,0,0,0,0,//{{{ getMarkerHighlightColor() method
 0,0,0,0,0,0,0,0,//{{{ getLineNumberAlignment() method
@@ -4094,11 +4094,11 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ getMarkers() method
 0,0,0,0,0,0,0,0,// See if we have any overflow.
 0,0,0,0,0,0,0,0,//shadow size
-0,0,0,0,0,0,0,0,//{{{ delayedUpdate() method
+0,0,0,1,0,0,0,1,//{{{ delayedUpdate() method
 0,0,0,0,0,0,0,0,// Special situation -- we're taking // input from a character stream.
 0,0,0,0,0,0,0,0,//{{{ isX11() method
 0,0,0,0,0,0,0,0,//{{{ ScrollHandler class
-0,0,0,0,0,0,0,0,//{{{ getMembers() method
+0,0,0,1,0,0,0,1,//{{{ getMembers() method
 0,0,0,0,0,0,0,0,//{{{ getMember() method
 0,0,0,0,0,0,0,0,//{{{ getMemberCount() method
 0,0,0,0,0,0,0,0,//{{{ setSort() method
@@ -4106,7 +4106,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Filter out all carriage returns // if we've seen any.
 0,0,0,0,0,0,0,0,// Reset the position.
 0,0,0,0,0,0,0,0,//{{{ Anchor class
-0,0,0,0,0,0,0,0,//{{{ DisplayManager constructor
+0,0,0,1,0,0,0,1,//{{{ DisplayManager constructor
 0,0,0,0,0,0,0,0,//{{{ fvmdump() method
 0,0,0,0,0,0,0,0,/* Install location */
 0,0,0,0,0,0,0,0,/* Backup filename prefix */
@@ -4115,7 +4115,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ fvmput2() method
 0,0,0,0,0,0,0,0,//{{{ MirrorModel class
 0,0,0,0,0,0,0,0,//{{{ Find fold start and fold end...
-0,0,0,0,0,0,0,0,//{{{ RootElement constructor
+0,0,0,1,0,0,0,1,//{{{ RootElement constructor
 0,0,0,0,0,0,0,0,// 3-byte sequence: zzzzyyyyyyxxxxxx = 1110zzzz 10yyyyyy 10xxxxxx
 0,0,0,0,0,0,0,0,//{{{ setDirty() method
 0,0,0,0,0,0,0,0,// Bump lastLine so // that the next line // doesn't erronously // pick up the \r
@@ -4124,7 +4124,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,/* start of next expanded range */
 0,0,0,0,0,0,0,0,// How many characters have we read?
 0,0,0,0,0,0,0,0,// Otherwise, the 8th bit may not be set in UTF-8
-0,0,1,0,0,0,1,0,// fixes dirty flag not being reset on // save/insert/undo/redo/undo
+0,0,0,1,0,0,0,1,// fixes dirty flag not being reset on // save/insert/undo/redo/undo
 0,0,0,0,0,0,0,0,// Check for the correct bits at the // start.
 0,0,0,0,0,0,0,0,// Set up the variables for the current // element context.
 0,0,0,0,0,0,0,0,// Take a character from the buffer // or from the actual input stream.
@@ -4152,11 +4152,11 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ Line offset methods
 0,0,0,0,0,0,0,0,//{{{ setDefault() method
 0,0,0,0,0,0,0,0,//{{{ getTerminateChar() method
-0,0,0,0,0,0,0,0,// no need to lock since this just returns a value and that's it
+0,0,0,1,0,0,0,1,// no need to lock since this just returns a value and that's it
 0,0,0,0,0,0,0,0,//{{{ resolveImports() method
 0,0,0,0,0,0,0,0,//{{{ setKeywords() method
 0,0,0,0,0,0,0,0,//{{{ createEscapeRule() method
-0,0,0,0,0,0,0,0,//{{{ getFirstView() method
+0,0,0,1,0,0,0,1,//{{{ getFirstView() method
 0,0,0,0,0,0,0,0,//{{{ createMarkPreviousRule() method
 0,0,0,0,0,0,0,0,//{{{ createMarkFollowingRule() method
 0,0,0,0,0,0,0,0,//{{{ createRegexpSequenceRule() method
@@ -4179,7 +4179,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ osok() method
 0,0,0,0,0,0,0,0,//{{{ showInFinder() method
 0,0,0,0,0,0,0,0,//{{{ DefaultInputHandler constructor
-0,0,0,1,0,0,0,1,// According to Slava this is better
+0,0,0,0,0,0,0,0,// According to Slava this is better
 0,0,0,0,0,0,0,0,//{{{ Text getters and setters
 0,0,0,0,0,0,0,0,//{{{ openSelection() method
 0,0,0,0,0,0,0,0,//{{{ ScriptRunner class
@@ -4227,7 +4227,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ insideCompoundEdit() method
 0,0,0,0,0,0,0,0,//{{{ Buffer events
 0,0,0,0,0,0,0,0,//{{{ searchStarted() method
-0,0,1,0,0,0,1,0,// Finally the bug fix release
+0,0,0,0,0,0,0,0,// Finally the bug fix release
 0,0,0,0,0,0,0,0,//{{{ getBufferChangeListeners() method
 0,0,0,0,0,0,0,0,//{{{ DirectoryListSet constructor
 0,0,0,0,0,0,0,0,// Can't use buffer.getName() here because // it is not changed until the save is // complete
@@ -4240,11 +4240,11 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ 1. Check whether tools.jar is in the system classpath:
 0,0,0,0,0,0,0,0,// Try to make the full imported name
 0,0,0,0,0,0,0,0,//{{{ applicationOpenFiles() method
-0,0,0,0,0,0,0,0,//{{{ NewViewAction class
-0,0,0,0,0,0,0,0,//{{{ Services
-0,0,0,0,0,0,0,0,//{{{ applicationShouldTerminate() method
+0,0,0,1,0,0,0,1,//{{{ NewViewAction class
+0,0,0,1,0,0,0,1,//{{{ Services
+0,0,0,1,0,0,0,1,//{{{ applicationShouldTerminate() method
 0,0,0,0,0,0,0,0,//{{{ insertSelection() method
-0,0,0,0,0,0,0,0,//{{{ MacroAction class
+0,0,0,1,0,0,0,1,//{{{ MacroAction class
 0,0,0,0,0,0,0,0,/* Delete downloaded files */
 0,0,0,0,0,0,0,0,//{{{ RecentMenu class
 0,0,0,0,0,0,0,0,//{{{ Dock Menu
@@ -4252,11 +4252,11 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ MacrosMenu class
 0,0,0,0,0,0,0,0,// eg user just closed a view and didn't focus another
 0,0,0,0,0,0,0,0,//{{{ isMainThread() method
-0,0,0,0,0,0,0,0,//{{{ isBackgroundMode() method
+0,0,0,1,0,0,0,1,//{{{ isBackgroundMode() method
 0,0,0,0,0,0,0,0,//{{{ showMemoryStatusDialog() method
 0,0,0,0,0,0,0,0,//{{{ getJEditHome() method
 0,0,0,0,0,0,0,0,//{{{ AutosaveBackupOptionPane constructor
-0,0,0,0,0,0,0,0,//{{{ getSettingsDirectory() method
+0,0,0,1,0,0,0,1,//{{{ getSettingsDirectory() method
 0,0,0,0,0,0,0,0,//{{{ getJARCacheDirectory() method
 0,0,0,0,0,0,0,0,//{{{ backupSettingsFile() method
 0,0,0,0,0,0,0,0,//{{{ new API
@@ -4279,7 +4279,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// If we are running in background mode and // reallyExit was not specified, then return here.
 0,0,0,0,0,0,0,0,//{{{ MouseOptionPane constructor
 0,0,0,0,0,0,0,0,/* Encoding */
-0,0,0,0,0,0,0,0,// do *not* invoke special override for block... (see above)
+0,0,0,1,0,0,0,1,// do *not* invoke special override for block... (see above)
 0,0,0,0,0,0,0,0,// Do the for init
 0,0,0,0,0,0,0,0,// End BeanShell Modification - serializable
 0,0,0,0,0,0,0,0,// Save view properties here
@@ -4308,7 +4308,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// avoid a race condition // see bug #834338
 0,0,0,0,0,0,0,0,//{{{ prevBuffer() method
 0,0,0,0,0,0,0,0,//{{{ nextBuffer() method
-0,0,0,0,0,0,0,0,//{{{ recentBuffer() method
+0,0,0,1,0,0,0,1,//{{{ recentBuffer() method
 0,0,0,0,0,0,0,0,//{{{ StyleChoice class
 0,0,0,0,0,0,0,0,//{{{ focusOnTextArea() method
 0,0,0,0,0,0,0,0,//{{{ addMode() method
@@ -4326,13 +4326,13 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ usage() method
 0,0,0,0,0,0,0,0,//{{{ version() method
 0,0,0,0,0,0,0,0,//{{{ initMisc() method
-0,0,0,0,0,0,0,0,// Push the new namespace on the call stack
+0,0,0,1,0,0,0,1,// Push the new namespace on the call stack
 0,0,0,0,0,0,0,0,// save the callstack including the called method, just for error mess
 0,0,0,0,0,0,0,0,//{{{ DirectoryEntry class
 0,0,0,0,0,0,0,0,//{{{ Wrapper class
 0,0,0,0,0,0,0,0,// Push the existing status
 0,0,0,0,0,0,0,0,// Add our protocols to java.net.URL's list
-0,0,0,0,0,0,0,0,/* Anti-aliasing */
+0,0,0,1,0,0,0,1,/* Anti-aliasing */
 0,0,0,0,0,0,0,0,//{{{ setInterval() method
 0,0,0,0,0,0,0,0,// No super method, try to invoke regular method // could be a superfluous "super." which is legal.
 0,0,0,0,0,0,0,0,//{{{ getOffset() method
@@ -4364,11 +4364,11 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// check for easy mistake
 0,0,0,0,0,0,0,0,//{{{ getScreenBounds() method
 0,0,0,0,0,0,0,0,// Set up the right-click popup menu
-0,0,0,0,0,0,0,0,// Don't add duplicates
+0,0,0,1,0,0,0,1,// Don't add duplicates
 0,0,0,0,0,0,0,0,// use old property name for backwards compatibility
 0,0,0,0,0,0,0,0,//{{{ loadBufferSwitcher() method
-0,0,0,0,0,0,0,0,//{{{ isOS2() method
-0,0,0,0,0,0,0,0,//{{{ indentLines() method
+0,0,0,1,0,0,0,1,//{{{ isOS2() method
+0,0,0,1,0,0,0,1,//{{{ indentLines() method
 0,0,0,0,0,0,0,0,//{{{ isWindowsNT() method
 0,0,0,0,0,0,0,0,//{{{ initPLAF() method
 0,0,0,0,0,0,0,0,// Make adjustments for some OS's
@@ -4408,7 +4408,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ Position methods
 0,0,0,0,0,0,0,0,//{{{ getMarkerStatusPrompt() method
 0,0,0,0,0,0,0,0,// don't sort markers while buffer is being loaded
-0,0,0,0,0,0,0,0,//{{{ Folding methods
+0,0,0,1,0,0,0,1,//{{{ Folding methods
 0,0,0,0,0,0,0,0,//{{{ getCurrentIdentForLine() method
 0,0,0,0,0,0,0,0,//{{{ getFoldAtLine() method
 0,0,0,0,0,0,0,0,//{{{ Marker methods
@@ -4425,8 +4425,8 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// return cached type if available
 0,0,0,0,0,0,0,0,//{{{ getMarkerInRange() method
 0,0,0,0,0,0,0,0,// to avoid slowdown with large files; only scan 10000 lines either way
-0,0,0,0,0,0,0,0,//{{{ getFlag() method
-0,0,0,0,0,0,0,0,//{{{ resetCachedProperties() method
+0,0,0,1,0,0,0,1,//{{{ getFlag() method
+0,0,0,1,0,0,0,1,//{{{ resetCachedProperties() method
 0,0,0,0,0,0,0,0,// We only save markers to VFS's that support deletion. // Otherwise, we will accumilate stale marks files.
 0,0,0,0,0,0,0,0,//{{{ removeAllMarkers() method
 0,0,0,0,0,0,0,0,//{{{ setPath() method
@@ -4489,7 +4489,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Nothing found
 0,0,0,0,0,0,0,0,//}}} //{{{ Backward search
 0,0,0,0,0,0,0,0,// corresponding character // false - backwards, true - forwards
-0,0,0,0,0,0,0,0,//{{{ Go on to next line
+0,0,0,1,0,0,0,1,//{{{ Go on to next line
 0,0,0,0,0,0,0,0,//{{{ Go on to previous line
 0,0,0,0,0,0,0,0,//{{{ the character under the cursor changes how we behave.
 0,0,0,0,0,0,0,0,//{{{ Whitespace...
@@ -4504,7 +4504,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// whitespace; include in word if eating
 0,0,0,0,0,0,0,0,"/*		Get variables declared in this namespace.	*/"
 0,0,0,0,0,0,0,0,//checkVariableModifiers( name, modifiers );
-0,0,0,0,0,0,0,0,// Change import precedence if we are a class body/instance // Get imported first.
+0,0,0,1,0,0,0,1,// Change import precedence if we are a class body/instance // Get imported first.
 0,0,0,0,0,0,0,0,//{{{ setAbbrev() method
 0,0,0,0,0,0,0,0,/* DOS ^Z */
 0,0,0,0,0,0,0,0,// turn the rankings into relative rankings, from 1 to 4
@@ -4513,10 +4513,10 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// if we see whitespace, set flag.
 0,0,0,0,0,0,0,0,/* all good */
 0,0,0,0,0,0,0,0,//{{{ createEncodingMenu() method
-0,0,0,0,0,0,0,0,//{{{ getStringCase() method
+0,0,0,1,0,0,0,1,//{{{ getStringCase() method
 0,0,0,0,0,0,0,0,//{{{ format() method
 0,0,0,0,0,0,0,0,//{{{ FavoritesMenuButton class
-0,0,0,0,0,0,0,0,// Is it typed?
+0,0,0,1,0,0,0,1,// Is it typed?
 0,0,0,0,0,0,0,0,// this will disable most operations if // files of multiple types are selected
 0,0,0,0,0,0,0,0,//{{{ FileCellRenderer constructor
 0,0,0,0,0,0,0,0,//{{{ createMenuItem() method
@@ -4554,7 +4554,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ collapse() method
 0,0,0,0,0,0,0,0,//{{{ VFSDirectoryEntryTableModel constructor
 0,0,0,0,0,0,0,0,//{{{ setRoot() method
-0,0,0,0,0,0,0,0,//{{{ ExtendedAttribute class
+0,0,0,1,0,0,0,1,//{{{ ExtendedAttribute class
 0,0,0,0,0,0,0,0,// we no longer have any // dirs using this extended // attribute
 0,0,0,0,0,0,0,0,// this vfs has an extended attribute which is not // in the list ???
 0,0,0,0,0,0,0,0,//{{{ showFilePopup() method
@@ -4567,11 +4567,11 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ saveExpansionState() method
 0,0,0,0,0,0,0,0,//{{{ updateFileView() method
 0,0,0,0,0,0,0,0,//{{{ addToBus() method
-0,0,0,0,0,0,0,0,//{{{ loadDirectory() method
+0,0,0,1,0,0,0,1,//{{{ loadDirectory() method
 0,0,0,0,0,0,0,0,//{{{ getBrowser() method
 0,0,0,0,0,0,0,0,//{{{ getTable() method
 0,0,0,0,0,0,0,0,//{{{ getParentDirectoryList() method
-0,0,1,0,0,0,1,0,// we use SwingUtilities.invokeLater() // so that the action is executed before // the popup is hidden.
+0,0,0,0,0,0,0,0,// we use SwingUtilities.invokeLater() // so that the action is executed before // the popup is hidden.
 0,0,0,0,0,0,0,0,//{{{ WorkThreadListener class
 0,0,0,0,0,0,0,0,// Only backup once per session
 0,0,0,0,0,0,0,0,//{{{ Sort buffer list
@@ -4600,7 +4600,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// there was an error
 0,0,0,0,0,0,0,0,//{{{ browseDirectoryInNewWindow() method
 0,0,0,0,0,0,0,0,//{{{ Browser types
-0,0,0,0,0,0,0,0,//{{{ getFilenameFilter() method
+0,0,0,1,0,0,0,1,//{{{ getFilenameFilter() method
 0,0,0,0,0,0,0,0,//{{{ setShowHiddenFiles() method
 0,0,0,0,0,0,0,0,//{{{ locateFile() method
 0,0,0,0,0,0,0,0,// used by FTP plugin to clear directory cache
@@ -4639,7 +4639,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//{{{ CommandsMenuButton class
 0,0,0,0,0,0,0,0,//{{{ createToolBar() method
 0,0,0,0,0,0,0,0,// if found as imported also cache it
-0,0,0,0,0,0,0,0,//{{{ PluginsMenuButton class
+0,0,0,1,0,0,0,1,//{{{ PluginsMenuButton class
 0,0,0,0,0,0,0,0,//{{{ updateFilterEnabled() method
 0,0,0,0,0,0,0,0,//{{{ CommandsMenuButton constructor
 0,0,0,0,0,0,0,0,/* we're in a modal dialog */

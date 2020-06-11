@@ -1,5 +1,6 @@
 package main;
 
+import main.methods.Mat;
 import main.methods.NLP;
 import main.methods.TM;
 
@@ -17,23 +18,20 @@ public class Main {
         // 使用各种方法进行预测
         //new Pattern().predict();
         //new TM().predict();
-        //new NLP().predict();
+        new NLP().predict();
         //new Mat().predict();
         //new TM().predictWithLimitedTrainingSet();
 
-        //misClassification();
 
-        /*
-        Statistics.showResult("Pattern");
+        //Statistics.showResult("Pattern");
+        Statistics.combineResult();
         Statistics.showResult("NLP");
-        Statistics.showResult("TM");
-        Statistics.showResult("Easy");
-        Statistics.showResult("MAT"); //*/
+        //Statistics.showResult("TM");
+        //Statistics.showResult("Easy");
+        //Statistics.showResult("MAT"); //*/
 
         /*
         Statistics.getVennDiagram("1", "1"); // TP
         Statistics.getVennDiagram("0", "0"); // TN*/
-
-
     }
 }

@@ -3,18 +3,25 @@ package main;
 import main.methods.Method;
 import others.FileHandle;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Statistics {
 
     public static void getVennDiagram(String label, String prediction) {
-        int NLP = 0, TM = 0, Easy = 0, MAT = 0;
-        int NLP_TM = 0, NLP_Easy = 0, NLP_MAT = 0, TM_Easy = 0, TM_MAT = 0, Easy_MAT = 0;
-        int NLP_TM_Easy = 0, NLP_TM_MAT = 0, NLP_Easy_MAT = 0, TM_Easy_MAT = 0;
-        int NLP_TM_Easy_MAT = 0;
+
+        int all_NLP = 0;
 
         for (String project : Settings.projectNames) {
-            System.out.println("======================================================" + project);
+            int NLP = 0, TM = 0, Easy = 0, MAT = 0;
+            int NLP_TM = 0, NLP_Easy = 0, NLP_MAT = 0, TM_Easy = 0, TM_MAT = 0, Easy_MAT = 0;
+            int NLP_TM_Easy = 0, NLP_TM_MAT = 0, NLP_Easy_MAT = 0, TM_Easy_MAT = 0;
+            int NLP_TM_Easy_MAT = 0;
+            int all_TP_TN = 0;
+
+
+            //System.out.println("======================================================" + project);
             List<String> result = FileHandle.readFileToLines("result/predictions/" + project + ".csv");
 
             StringBuilder sNLP = new StringBuilder();
@@ -30,6 +37,11 @@ public class Statistics {
                 String vMAT = temp[5].trim();
                 // P N
                 if (vLabel.equals(label)) {
+                    //NLP预测成功的
+                    if (vEasy.equals(prediction)) all_NLP++;
+
+
+                    all_TP_TN++;
                     if (vNLP.equals(prediction)) sNLP.append(i).append("\n");
                     if (vTM.equals(prediction)) sTM.append(i).append("\n");
                     if (vEasy.equals(prediction)) sEasy.append(i).append("\n");
@@ -75,7 +87,7 @@ public class Statistics {
                         NLP_TM_Easy_MAT++;
                 }
             }
-
+            /*
             FileHandle.writeStringToFile("result/venn/" + project + "/" + label + "/NLP.csv", sNLP.toString());
             FileHandle.writeStringToFile("result/venn/" + project + "/" + label + "/TM.csv", sTM.toString());
             FileHandle.writeStringToFile("result/venn/" + project + "/" + label + "/Easy.csv", sEasy.toString());
@@ -103,8 +115,21 @@ public class Statistics {
             System.out.printf("all: %d\n\n", NLP + TM + Easy + MAT
                     + NLP_TM + NLP_Easy + NLP_MAT + +TM_Easy + TM_MAT + Easy_MAT
                     + NLP_TM_Easy + NLP_TM_MAT + NLP_Easy_MAT + TM_Easy_MAT
-                    + NLP_TM_Easy_MAT);
+                    + NLP_TM_Easy_MAT);//*/
+            double all = NLP + TM + Easy + MAT
+                    + NLP_TM + NLP_Easy + NLP_MAT + +TM_Easy + TM_MAT + Easy_MAT
+                    + NLP_TM_Easy + NLP_TM_MAT + NLP_Easy_MAT + TM_Easy_MAT
+                    + NLP_TM_Easy_MAT;
+            /*
+            System.out.println(project + ", " + all + ", "
+                    + NLP_TM_Easy_MAT + ", " + (NLP_TM_Easy_MAT / all) + ", "
+                    + NLP + ", " + (NLP / all) + ", "
+                    + TM + ", " + (TM / all) + ", "
+                    + Easy + ", " + (Easy / all) + ", "
+                    + MAT + ", " + (MAT / all));*/
+
         }
+        System.out.println(all_NLP);
     }
 
     /**
@@ -124,6 +149,7 @@ public class Statistics {
         String[] names = {"Oracle", "Pattern", "NLP", "TM", "Easy", "MAT", "MAT_TM", "MAT_NLP", "Comments"};
         System.out.println("Method: " + methodName);
         StringBuilder text = new StringBuilder("TP, FN, FP, TN, P    , R    , F1   , ER   , RI\n");
+        // 处理每个项目的结果
         for (String projectName : Settings.projectNames) {
             double tp = .0, fp = .0, tn = .0, fn = .0;
             List<String> result = FileHandle.readFileToLines("result/predictions/" + projectName + ".csv");
@@ -225,6 +251,46 @@ public class Statistics {
         }
     }
 
+
+    /**
+     * 计算MAT与每个baseline方法在每个项目上的列联矩阵
+     *
+     * @param methodName
+     */
+    public static void contingencyMatrix(String methodName, String labelString) {
+        String[] names = {"Oracle", "Pattern", "NLP", "TM", "Easy", "MAT", "MAT_TM", "MAT_NLP", "Comments"};
+        System.out.println("Method: " + methodName);
+        StringBuilder text = new StringBuilder("library(exact2x2)\nvalue <- \"\"\n");
+        // 处理每个项目的结果
+        for (String projectName : Settings.projectNames) {
+
+            int Ncc = 0, Ncw = 0, Nwc = 0, Nww = 0;
+            List<String> result = FileHandle.readFileToLines("result/predictions/" + projectName + ".csv");
+            for (int i = 1; i < result.size(); i++) {
+                String[] temp = result.get(i).split(",");
+                String label = temp[0].trim();
+                String predictionOfMAT = temp[getIndex(names, "MAT")].trim();
+                String predictionOfBaseline = temp[getIndex(names, methodName)].trim();
+                if (!label.equals(labelString)) continue;
+                if (predictionOfMAT.equals(label) && predictionOfBaseline.equals(label)) Ncc++;
+                if (predictionOfMAT.equals(label) && !predictionOfBaseline.equals(label)) Ncw++;
+                if (!predictionOfMAT.equals(label) && predictionOfBaseline.equals(label)) Nwc++;
+                if (!predictionOfMAT.equals(label) && !predictionOfBaseline.equals(label)) Nww++;
+            }
+            text.append("d <- matrix( c(")
+                    .append(Ncc).append(",")
+                    .append(Nwc).append(",")
+                    .append(Ncw).append(",")
+                    .append(Nww).append("), 2, 2, dimnames=list(c(\"MAT\",\"")
+                    .append(methodName).append("\"),c(\"True\",\"False\")))\n")
+                    .append("r <- mcnemar.exact(d)\n")
+                    .append("value <- paste(value, r[\"p.value\"], sep=\", \")\n");
+            System.out.println(Ncw + "," + Nwc + "," + (double) Ncw / Nwc);
+            //System.out.println(projectName);
+        }
+        text.append("value\n");
+        FileHandle.writeStringToFile("result/mcnemar/" + methodName + "_" + labelString + ".r", text.toString());
+    }
 
     /**
      *
@@ -352,13 +418,110 @@ public class Statistics {
         for (int i = 0; i < res.length; i++) System.out.print(res[i] + ", ");
     }
 
+
+    public static void f1(int base) {
+        List<String> lines = FileHandle.readFileToLines("data/cd.p.csv");
+
+        List<Double> l1 = new ArrayList<>();
+        for (int i = base; i < base + 20; i++) {
+            String[] temp = lines.get(i).split(",");
+            for (String t : temp) l1.add(Double.parseDouble(t));
+        }
+
+        int c_003 = 0;
+        int c_05 = 0;
+        int c_1 = 0;
+        for (int i = 0; i < l1.size(); i++) {
+            if (l1.get(i) < 0.003) c_003++;
+            else if (l1.get(i) < 0.05) c_05++;
+            else c_1++;
+        }
+        System.out.println(c_003 + ", " + c_05 + ", " + c_1);
+    }
+
+
+    public static void ratioOfMAT(String labelString) {
+        String[] names = {"Oracle", "Pattern", "NLP", "TM", "Easy", "MAT", "MAT_TM", "MAT_NLP", "Comments"};
+        StringBuilder text = new StringBuilder("Project, MAT v.s. NLP, , , MAT v.s. TM, , , MAT v.s. Easy, , ,\n");
+        text.append(",V, A, O, V, A, O, V, A, O \n");
+        // 处理每个项目的结果
+        for (String projectName : Settings.projectNames) {
+
+            int NLP = 0, numOfNLP = 0, moreOfNLP = 0, TM = 0, numOfTM = 0, moreOfTM = 0, Easy = 0, numOfEasy = 0, moreOfEasy = 0;
+            List<String> result = FileHandle.readFileToLines("result/predictions/" + projectName + ".csv");
+            for (int i = 1; i < result.size(); i++) {
+                String[] temp = result.get(i).split(",");
+                String label = temp[0].trim();
+                String predictionOfMAT = temp[getIndex(names, "MAT")].trim();
+                String predictionOfNLP = temp[getIndex(names, "NLP")].trim();
+                String predictionOfTM = temp[getIndex(names, "TM")].trim();
+                String predictionOfEasy = temp[getIndex(names, "Easy")].trim();
+                if (!label.equals(labelString)) continue;
+
+
+                // MAT 与 baseline 的交集
+                if (predictionOfMAT.equals(label) && predictionOfNLP.equals(label)) numOfNLP++;
+                if (predictionOfMAT.equals(label) && predictionOfTM.equals(label)) numOfTM++;
+                if (predictionOfMAT.equals(label) && predictionOfEasy.equals(label)) numOfEasy++;
+                // baseline 的结果
+                if (predictionOfNLP.equals(label)) NLP++;
+                if (predictionOfTM.equals(label)) TM++;
+                if (predictionOfEasy.equals(label)) Easy++;
+                // MAT 超过Baseline的部分
+                if (predictionOfMAT.equals(label) && !predictionOfNLP.equals(label)) moreOfNLP++;
+                if (predictionOfMAT.equals(label) && !predictionOfTM.equals(label)) moreOfTM++;
+                if (predictionOfMAT.equals(label) && !predictionOfEasy.equals(label)) moreOfEasy++;
+            }
+            text/*
+                    .append(projectName).append(", ")
+                    .append(NLP).append(", ")
+                    .append(String.format("%.3f", numOfNLP / (double) NLP)).append(", ")
+                    .append(String.format("%.3f", moreOfNLP / (double) NLP)).append(", ")
+                    .append(TM).append(", ")
+                    .append(String.format("%.3f", numOfTM / (double) TM)).append(", ")
+                    .append(String.format("%.3f", moreOfTM / (double) TM)).append(", ")
+                    .append(Easy).append(", ")
+                    .append(String.format("%.3f", numOfEasy / (double) Easy)).append(", ")
+                    .append(String.format("%.3f", moreOfEasy / (double) Easy)).append(", ")//*/
+
+
+                    .append(NLP).append(", ")
+                    .append(numOfNLP).append(", ")
+                    .append(moreOfNLP).append(", ")
+                    .append(TM).append(", ")
+                    .append(numOfTM).append(", ")
+                    .append(moreOfTM).append(", ")
+                    .append(Easy).append(", ")
+                    .append(numOfEasy).append(", ")
+                    .append(moreOfEasy).append(", ")//*/
+                    .append("\n");
+        }
+        System.out.println(text);
+    }
+
     public static void main(String[] args) {
         /*
         conceptDrift_OTO("NLP");
         conceptDrift_OTO("TM");
         conceptDrift_OTO("Easy");*/
+        //conceptDrift_MTO("NLP");
 
-        conceptDrift_MTO("NLP");
 
+        /*
+        contingencyMatrix("NLP", "1");
+        contingencyMatrix("TM", "1");
+        contingencyMatrix("Easy", "1");
+        contingencyMatrix("NLP", "0");
+        contingencyMatrix("TM", "0");
+        contingencyMatrix("Easy", "0");*/
+
+        /*
+        f1(20 * 0);
+        f1(20 * 1);
+        f1(20 * 2);*/
+
+        //ratioOfMAT("0");
+        combineResult();
+        showResult("NLP");
     }
 }

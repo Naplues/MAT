@@ -1,132 +1,132 @@
 oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 1,0,1,1,1,1,1,1,// TODO (@author fdietz): should be removed if we only use // Streams!
-1,0,0,1,1,1,1,1,// FIXME (@author karlpeder): Is 3.2 the proper version of html to refer to?
+1,0,1,1,1,1,1,1,// FIXME (@author karlpeder): Is 3.2 the proper version of html to refer to?
 1,1,1,1,1,1,1,1,// this is a hack for the multiline column
-1,0,1,1,1,1,1,1,//TODO (@author tstich): do something
-1,0,0,1,1,1,1,1,// TODO (@author fdietz): i18n
-1,0,1,1,1,1,1,1,// FIXME remove method // toolbarPane.add(c);
-1,0,0,1,1,1,1,1,//TODO (@author fdietz): i18n
-1,0,1,1,1,1,1,1,// TODO @author hubms: copied from frederiks search builder
+1,0,1,0,1,1,1,1,//TODO (@author tstich): do something
+1,0,1,0,1,1,1,1,// TODO (@author fdietz): i18n
+1,0,1,0,1,1,1,1,// FIXME remove method // toolbarPane.add(c);
+1,0,1,1,1,1,1,1,//TODO (@author fdietz): i18n
+1,0,1,0,1,1,1,1,// TODO @author hubms: copied from frederiks search builder
 1,1,0,0,0,0,0,0,// real stupid recreation of whole list model // -> replace with id-based listmodel update
-1,0,1,1,1,1,1,1,// TODO (@author karlpeder): Extend handling of special entities as in restoreSpecialCharacters
-1,0,0,1,1,1,1,1,"/**     * Transforms email-addresses into HTML just as     * substituteEmailAddress(String), but tries to ignore email-addresses,     * which are already links, if the ignore links flag is set.     * <br>     * This extended functionality is necessary when parsing a text which     * is already (partly) html.     * <br>     * FIXME: Can this be done smarter, i.e. directly with reg. expr. without manual parsing??     *     * @param         s                                input text     * @param        ignoreLinks                if true link tags are ignored. This gives a     *                                                         wrong result if some e-mail adresses are     *                                                         already links (but uses reg. expr. directly,     *                                                         and is therefore faster)     * @return        text with email-adresses transformed to links     */"
-1,0,1,1,1,1,1,1,//TODO: Return content encoding according to the mime part in the mail
+1,0,1,0,1,1,1,1,// TODO (@author karlpeder): Extend handling of special entities as in restoreSpecialCharacters
+1,0,0,0,1,1,1,1,"/**     * Transforms email-addresses into HTML just as     * substituteEmailAddress(String), but tries to ignore email-addresses,     * which are already links, if the ignore links flag is set.     * <br>     * This extended functionality is necessary when parsing a text which     * is already (partly) html.     * <br>     * FIXME: Can this be done smarter, i.e. directly with reg. expr. without manual parsing??     *     * @param         s                                input text     * @param        ignoreLinks                if true link tags are ignored. This gives a     *                                                         wrong result if some e-mail adresses are     *                                                         already links (but uses reg. expr. directly,     *                                                         and is therefore faster)     * @return        text with email-adresses transformed to links     */"
+1,0,1,0,1,1,1,1,//TODO: Return content encoding according to the mime part in the mail
 1,0,1,1,1,1,1,1,//TODO: Return content type according to the mime part in the mail
-1,1,1,1,1,1,1,1,// hack to support dockable view title update // TODO replace with listener pattern
-1,0,1,1,1,1,1,1,/*TODO stop polling thread?! */
-1,0,1,1,1,1,1,1,// TODO @author hubms: bad: if there is a icon it is tagged or // not
-1,0,1,1,1,1,1,1,// TODO categoryEnumeration
-1,1,0,1,1,1,1,1,// hack: if start and end time is at 00:00:00:000 it is // an all day event
-1,0,1,1,1,1,1,1,// register interest on store changes // TODO the dependency should be the other way around
+1,1,1,0,1,1,1,1,// hack to support dockable view title update // TODO replace with listener pattern
+1,0,0,0,1,1,1,1,/*TODO stop polling thread?! */
+1,0,1,0,1,1,1,1,// TODO @author hubms: bad: if there is a icon it is tagged or // not
+1,0,1,0,1,1,1,1,// TODO categoryEnumeration
+1,1,1,0,1,1,1,1,// hack: if start and end time is at 00:00:00:000 it is // an all day event
+1,0,1,0,1,1,1,1,// register interest on store changes // TODO the dependency should be the other way around
 1,0,1,1,1,1,1,1,// TODO: fix layout to look good, even if there's not enough information provided
 1,1,1,1,1,1,1,1,// FIXME: ugly cast to ContactModel
 1,0,1,1,1,1,1,1,// @TODO dont use deprecated method
-1,0,0,0,1,1,1,1,/* TODO must get polling interval from config file */
+1,0,1,0,1,1,1,1,/* TODO must get polling interval from config file */
 1,0,1,1,1,1,1,1,//      TODO: reactivate when feature is supported
 1,0,1,1,1,1,1,1,// If this folder has children add them // TODO: In the future we should try to fetch additional children on demand // when the tree of the dialog is opened
-1,0,1,1,1,1,1,1,// TODO (@author fdietz): Add more special entities - e.g. accenture chars such as ?
+1,0,0,0,1,1,1,1,// TODO (@author fdietz): Add more special entities - e.g. accenture chars such as ?
 1,0,1,0,1,1,1,1,// TODO (@author waffel): encrypt AND sign dosN#t work. The message is // always only // encrypted. We need a function that knows, here // is an encrypted AND signed Message. Thus first encyrpt and then // verifySign the message // if this message is signed/encrypted we have to use // GnuPG to extract the decrypted bodypart // - multipart/encrypted // - multipart/signed
-1,0,0,1,1,1,1,1,"/**     * Transforms urls into HTML just as substituteURL(String),     * but tries to ignore urls, which are already links, if the ignore     * links flag is set.     * <br>     * This extended functionality is necessary when parsing a text which     * is already (partly) html.     * <br>     * FIXME: Can this be done smarter, i.e. directly with reg. expr. without manual parsing??     *     * @param         s                                input text     * @param        ignoreLinks                if true link tags are ignored. This gives a     *                                                         wrong result if some urls are already links     *                                                         (but uses reg. expr. directly, and is     *                                                         therefore faster)     * @return        text with urls     */"
+1,0,0,0,1,1,1,1,"/**     * Transforms urls into HTML just as substituteURL(String),     * but tries to ignore urls, which are already links, if the ignore     * links flag is set.     * <br>     * This extended functionality is necessary when parsing a text which     * is already (partly) html.     * <br>     * FIXME: Can this be done smarter, i.e. directly with reg. expr. without manual parsing??     *     * @param         s                                input text     * @param        ignoreLinks                if true link tags are ignored. This gives a     *                                                         wrong result if some urls are already links     *                                                         (but uses reg. expr. directly, and is     *                                                         therefore faster)     * @return        text with urls     */"
 1,0,0,1,1,1,1,1,// TODO @author fdietz: ensure that we don't fetch individual // headers // to reduce client/server roundtrips
-1,0,1,0,0,0,1,0,// ??? bad to have release hardocoded here. Fix later...right.
-1,0,0,1,1,1,1,1,//TODO: Open stream from the mime part specified by contentID of the  //currently viewed mail
+1,0,1,1,0,0,1,1,// ??? bad to have release hardocoded here. Fix later...right.
+1,0,1,0,1,1,1,1,//TODO: Open stream from the mime part specified by contentID of the  //currently viewed mail
 1,0,1,0,0,0,1,0,// something is very wrong here
-1,0,0,1,0,0,0,1,// its maybe better to leave this option out of the dialog // -> make it configurable in the xml file anyway
-1,1,1,1,1,1,1,1,// TODO: Make this hack more i18n compatible
+1,0,1,1,0,0,1,1,// its maybe better to leave this option out of the dialog // -> make it configurable in the xml file anyway
+1,1,1,0,1,1,1,1,// TODO: Make this hack more i18n compatible
 1,0,1,1,1,1,1,1,/*TODO move resources to a resource file */
-1,0,1,1,1,1,1,1,// TODO: use UndoableEditEvent to make this really work
-1,0,1,1,1,1,1,1,// TODO: Should we take some action to ensure signature is valid // html?
-1,0,1,0,0,1,1,1,/* XXX should this be fired by a different thread? */
-1,0,1,0,1,1,1,1,//TODO:add a configuration of the cache size
-1,0,0,1,1,1,1,1,"/**	 * Command executes the search.	 * <p>	 * In case new result results arrive, it ensures that all interested	 * listeners are notified from inside the EDT.	 * <p>	 * FIXME: fdietz: No locking of folders currently implemented! TODO: fdietz:	 * create new Command for every provider to introduce real ""parallel"" search	 * 	 * @author fdietz	 */"
-1,0,1,0,0,1,1,1,/*XXX this is not thread-safe, though luck. It isn't supposed to be. */
-1,0,1,1,1,1,1,1,// TODO (@author fdietz): move this to AbstractMessageFolder constructor
+1,0,1,0,1,1,1,1,// TODO: use UndoableEditEvent to make this really work
+1,0,0,0,1,1,1,1,// TODO: Should we take some action to ensure signature is valid // html?
+1,0,1,1,0,1,1,1,/* XXX should this be fired by a different thread? */
+1,0,0,1,1,0,0,1,//TODO:add a configuration of the cache size
+1,0,1,1,1,1,1,1,"/**	 * Command executes the search.	 * <p>	 * In case new result results arrive, it ensures that all interested	 * listeners are notified from inside the EDT.	 * <p>	 * FIXME: fdietz: No locking of folders currently implemented! TODO: fdietz:	 * create new Command for every provider to introduce real ""parallel"" search	 * 	 * @author fdietz	 */"
+1,0,1,1,0,1,1,1,/*XXX this is not thread-safe, though luck. It isn't supposed to be. */
+1,0,1,0,1,1,1,1,// TODO (@author fdietz): move this to AbstractMessageFolder constructor
 1,0,1,1,1,1,1,1,//TODO: Should this be renamed to cLoc or something more appropriate than clock?
 1,0,1,1,1,1,1,1,"/*         * TODO (@author karlpeder): Guess that right thing to do is to get height as getDrawingSize().getHeight(),         * since this should take top- and bottom margin of this print         * object into account. But the height seems not to be set         * correctly in computePositionAndSize() (*20030604, karlpeder*)         */"
-1,0,0,0,0,0,0,0,// we can't use SystemClassLoader here, because that // wouldn't work with java webstart, // ResourceBundle uses its own internal classloader // if no classloader is given //  -> set classloader = null
+1,0,0,1,0,0,0,1,// we can't use SystemClassLoader here, because that // wouldn't work with java webstart, // ResourceBundle uses its own internal classloader // if no classloader is given //  -> set classloader = null
 1,0,1,1,1,1,1,1,//  // Note: We intentionally don't remember internal plugins, because // we don't want them to appear in the plugin manager currently. //  // TODO: improve plugin manager dialog to support internal plugins // which can't be removed, etc.
-1,0,1,1,1,1,1,1,// FIXME calendar?
-1,0,1,1,1,1,1,1,// TODO @author hubms have this flags, until the speed of the entitymanager // is improved
-1,0,0,0,0,0,0,0,// cleanup: remove port number file
-1,1,1,1,1,1,1,1,// TODO: There's probably a better way to do this hack...
-1,0,1,0,1,1,1,1,"/*TODO before inserting, find out if there's already a menu item     * with the same action command. if so, replace it, otherwise insert new     */"
-1,0,1,1,1,1,1,1,// TODO (@author fdietz): add import feature
-1,0,1,1,1,1,1,1,// TODO (@author hubms): implement custom menuitem renderer
-1,0,0,1,1,1,1,1,// TODO @author fdietz: no paging used currently // show only first 5 results
-1,1,1,0,0,0,1,0,// real stupid recreation of whole menu model
+1,0,0,1,1,1,1,1,// FIXME calendar?
+1,0,1,0,1,1,1,1,// TODO @author hubms have this flags, until the speed of the entitymanager // is improved
+1,0,0,1,0,0,0,1,// cleanup: remove port number file
+1,1,1,0,1,1,1,1,// TODO: There's probably a better way to do this hack...
+1,0,1,1,1,1,1,1,"/*TODO before inserting, find out if there's already a menu item     * with the same action command. if so, replace it, otherwise insert new     */"
+1,0,1,0,1,1,1,1,// TODO (@author fdietz): add import feature
+1,0,1,0,1,1,1,1,// TODO (@author hubms): implement custom menuitem renderer
+1,0,1,0,1,1,1,1,// TODO @author fdietz: no paging used currently // show only first 5 results
+1,1,0,0,0,0,0,0,// real stupid recreation of whole menu model
 1,0,0,1,1,1,1,1,// TODO: throw IllegalArgumentException in case a variable == null
-1,0,0,1,1,1,1,1,//TODO (@author fdietz): associate help with button and root pane
-1,0,1,1,1,1,1,1,// FIXME -- This will most likely not work. //          You want the element removed if the contents are the same //          Not just if the element reference is the same.
-1,0,1,0,0,0,1,0,// // @author: fdietz // using shutdown-manager is wrong here, because this // automatically also calls the FrameManager, which  // also starts a second shutdown thread // -> This leads into two parallel shutdown thread which // -> is why sometimes config-files, etc. get messed up //
-1,1,1,1,0,1,1,1,// @author fdietz: hackish way of creating a search toolbar //JToolBar searchToolBar = new ExtendableToolBar();
-1,0,0,1,1,1,1,1,"/** * A Command uses the information provided from {@link DefaultCommandReference} * to execute itself. * <p> * TODO: remove IFrameMediator dependency *  * @author Timo Stich <tstich@users.sourceforge.net> */"
+1,0,1,0,1,1,1,1,//TODO (@author fdietz): associate help with button and root pane
+1,0,1,0,1,1,1,1,// FIXME -- This will most likely not work. //          You want the element removed if the contents are the same //          Not just if the element reference is the same.
+1,0,0,1,0,0,0,1,// // @author: fdietz // using shutdown-manager is wrong here, because this // automatically also calls the FrameManager, which  // also starts a second shutdown thread // -> This leads into two parallel shutdown thread which // -> is why sometimes config-files, etc. get messed up //
+1,1,1,0,0,0,1,0,// @author fdietz: hackish way of creating a search toolbar //JToolBar searchToolBar = new ExtendableToolBar();
+1,0,1,1,1,1,1,1,"/** * A Command uses the information provided from {@link DefaultCommandReference} * to execute itself. * <p> * TODO: remove IFrameMediator dependency *  * @author Timo Stich <tstich@users.sourceforge.net> */"
 1,0,0,0,0,0,0,0,// manually rewrite the connection url, because // if there is no rewrite the database files are created // in the starting directory, we don't want that!
-1,0,1,1,1,1,1,1,// TODO: fix updateActions //enableActions(getCurrentOwner());
-1,0,1,1,1,1,1,1,// TODO: @author hubms check what is neccessary // remove old filters // searchFolder.getFilter().getFilterRule().removeAll(); // add filter criteria // searchFolder.getFilter().getFilterRule().add(c);
-1,0,0,1,1,1,1,1,//TODO Let the AttachmentViewer get the focus so that this works
-1,0,1,1,1,1,1,1,//TODO: Open in message frame //TODO: Handle also message attachments from OpenInComposer action
-1,0,0,1,1,1,1,1,// TODO (@author fdietz): add central place, which keeps a list of all possible //       colors, and provides a custom color configuration possibility
-1,0,1,1,1,1,1,1,// TODO (@author fdietz): implement custom menuitem renderer
-1,0,1,1,1,1,1,1,// FIXME (@author fdietz): Do we need this implementation in a TempFolder? // If not, just put an empty method here, just like in VirtualFolder.
-1,0,1,1,1,1,1,1,// TODO Ristretto should handle the logging of streams in another // way.
-1,0,1,1,1,1,1,1,// TODO (@author fdietz): All this code for creating a new // IMAPRootFolder should // be moved to a FolderFactory // -> this way "path" would be handled in the factory, too // parent directory for mail folders // for example: ".columba/mail/" // String path = // MailConfig.getInstance().getConfigDirectory().getPath();
-1,0,1,1,0,0,1,1,// turn of focus stealing (workaround should be removed in the // future!)
+1,0,1,0,1,1,1,1,// TODO: fix updateActions //enableActions(getCurrentOwner());
+1,0,1,0,1,1,1,1,// TODO: @author hubms check what is neccessary // remove old filters // searchFolder.getFilter().getFilterRule().removeAll(); // add filter criteria // searchFolder.getFilter().getFilterRule().add(c);
+1,0,0,0,1,1,1,1,//TODO Let the AttachmentViewer get the focus so that this works
+1,0,1,0,1,1,1,1,//TODO: Open in message frame //TODO: Handle also message attachments from OpenInComposer action
+1,0,1,0,1,1,1,1,// TODO (@author fdietz): add central place, which keeps a list of all possible //       colors, and provides a custom color configuration possibility
+1,0,1,0,1,1,1,1,// TODO (@author fdietz): implement custom menuitem renderer
+1,0,1,0,1,1,1,1,// FIXME (@author fdietz): Do we need this implementation in a TempFolder? // If not, just put an empty method here, just like in VirtualFolder.
+1,0,1,0,1,1,1,1,// TODO Ristretto should handle the logging of streams in another // way.
+1,0,1,0,1,1,1,1,// TODO (@author fdietz): All this code for creating a new // IMAPRootFolder should // be moved to a FolderFactory // -> this way "path" would be handled in the factory, too // parent directory for mail folders // for example: ".columba/mail/" // String path = // MailConfig.getInstance().getConfigDirectory().getPath();
+1,0,1,0,0,0,1,0,// turn of focus stealing (workaround should be removed in the // future!)
 1,0,1,1,1,1,1,1,// wait, if there is an active transaction // TODO @author hubms retrycount!
-1,0,1,1,1,1,1,1,"/**	 * this regular expression should cover anything from a@a.pt or a@a.com to	 * a@a.info. Permits usage of invalid top domains though.	 * <p>	 * [bug] fdietz: added ""."" and ""-"" as regular characters	 * (example:mail@toplevel.mail.de)	 * <p>	 * TODO: see if we can replace the matching code with Ristretto stuff	 *	 */"
-1,0,1,1,0,0,1,1,// @author: fdietz // This is a workaround. Generally, the contact dialog editor // should ensure that all necessary fields are available //
-1,0,0,1,1,1,1,1,// TODO: replace view with more detailed info view
+1,0,0,1,1,1,1,1,"/**	 * this regular expression should cover anything from a@a.pt or a@a.com to	 * a@a.info. Permits usage of invalid top domains though.	 * <p>	 * [bug] fdietz: added ""."" and ""-"" as regular characters	 * (example:mail@toplevel.mail.de)	 * <p>	 * TODO: see if we can replace the matching code with Ristretto stuff	 *	 */"
+1,0,1,0,0,0,1,0,// @author: fdietz // This is a workaround. Generally, the contact dialog editor // should ensure that all necessary fields are available //
+1,0,1,1,1,1,1,1,// TODO: replace view with more detailed info view
 1,0,1,1,1,1,1,1,// TODO we should check if we need an vector or better another list // implementation; checking also, if the list // must be syncronized or not (performance)
-1,0,1,1,1,1,1,1,// FIXME is this correct for
+1,0,1,0,1,1,1,1,// FIXME is this correct for
 1,0,0,1,1,1,1,1,//TODO externalize string //$NON-NLS-1$
-1,0,0,1,1,1,1,1,// TODO: multiplicity checks
-1,0,0,0,1,1,1,1,// TODO (@author fdietz): until we can get all the settings update // immediately // we just open a message box, telling the user to restart
+1,0,1,0,1,1,1,1,// TODO: multiplicity checks
+1,0,0,1,1,1,1,1,// TODO (@author fdietz): until we can get all the settings update // immediately // we just open a message box, telling the user to restart
 1,0,1,1,1,1,1,1,// TODO: real IM status here
-1,0,1,1,1,1,1,1,// FIXME: should we align the menu to the left instead? // menu.show(b, b.getWidth() - menu.getWidth(), b.getHeight());
-1,0,0,0,0,0,0,0,// @author: tstich // Its better to call the Shutdownmanager // since the above is called automatically from it. // ShutdownManager is modified to allow one shutdown // call only, so we never should have multi-shutdown // problems again.
+1,0,0,0,1,1,1,1,// FIXME: should we align the menu to the left instead? // menu.show(b, b.getWidth() - menu.getWidth(), b.getHeight());
+1,0,0,1,0,0,0,1,// @author: tstich // Its better to call the Shutdownmanager // since the above is called automatically from it. // ShutdownManager is modified to allow one shutdown // call only, so we never should have multi-shutdown // problems again.
 1,0,1,1,1,1,1,1,/* TODO should come up with a better name for the menu item */
-1,0,1,1,1,1,1,1,// TODO (@author fdietz): add export feature
+1,0,1,0,1,1,1,1,// TODO (@author fdietz): add export feature
 1,0,0,0,0,0,0,0,// Since Columba is doing its own logging handlers, we should not // use handlers in the parent logger.
 1,0,0,0,0,0,0,0,// The JavaHelp can't be added to a BorderLayout because it // isnt' a component. For this demo we'll use the embeded method // since we don't want a Frame to be created.
-1,0,0,0,0,0,0,0,// @author: fdietz // // PROBLEM: Extensions don't run using Java Webstart (JWS) //  // Even though we assign "all-permission" in our columba.jnlp file, this // only applies // to the initial Java Webstart classloader. But, we create our own // classloaders for // loading extensions. These classloaders don't have the same permission // settings anymore.
+1,0,0,1,0,0,0,1,// @author: fdietz // // PROBLEM: Extensions don't run using Java Webstart (JWS) //  // Even though we assign "all-permission" in our columba.jnlp file, this // only applies // to the initial Java Webstart classloader. But, we create our own // classloaders for // loading extensions. These classloaders don't have the same permission // settings anymore.
 1,0,0,0,0,0,0,0,// what to do here? we could start a new server...
-1,0,0,1,0,0,0,1,// WORKAROUND: //  // System.setSecurityManager(null); // // This call effectly disables the sandbox mode and seems to work fine. // // Below I use another way. The policy for all classloaders is set to // "all-permissions". // Don't really know the difference though.
+1,0,1,1,0,0,1,1,// WORKAROUND: //  // System.setSecurityManager(null); // // This call effectly disables the sandbox mode and seems to work fine. // // Below I use another way. The policy for all classloaders is set to // "all-permissions". // Don't really know the difference though.
 1,0,0,0,0,0,0,0,// For the Mac ScreenBarMenus to work, this must be declared before // *ANY* AWT / Swing gets initialised. Do *NOT* move it to plugin init // location because that is too late...
-1,0,0,0,0,0,0,0,// kids - don't do this at home
-1,0,1,1,0,0,1,1,// @author: fdietz // // The following line is not working - just don't know why // Main.mainClassLoader.addURLs((URL[]) urlList.toArray(new URL[0])); // // WORKAROUND: // // Modify the system class loader instead - horrible! But it works!
-1,0,1,1,0,0,1,1,// // @author: fdietz // WORKAROUND: // we simply append URLs to the existing global class loader // and use the same as parent //  // Note, that we create a new URL classloader for every class // we instanciate. We might want to support hot-swapping // of changed classes later.
-1,0,0,0,0,0,0,0,// we can't use SystemClassLoader here, because that doesn't work // with java webstart // -> instead we use this.getClass().getClassLoader() // -> which seems to work perfectly
-1,0,1,1,1,1,1,1,// TODO (@author karlpeder): If existing meta tags are to be kept, code changes are // necessary
+1,0,0,1,0,0,0,1,// kids - don't do this at home
+1,0,1,0,0,0,1,0,// @author: fdietz // // The following line is not working - just don't know why // Main.mainClassLoader.addURLs((URL[]) urlList.toArray(new URL[0])); // // WORKAROUND: // // Modify the system class loader instead - horrible! But it works!
+1,0,1,0,0,0,1,0,// // @author: fdietz // WORKAROUND: // we simply append URLs to the existing global class loader // and use the same as parent //  // Note, that we create a new URL classloader for every class // we instanciate. We might want to support hot-swapping // of changed classes later.
+1,0,0,1,0,0,0,1,// we can't use SystemClassLoader here, because that doesn't work // with java webstart // -> instead we use this.getClass().getClassLoader() // -> which seems to work perfectly
+1,0,1,0,1,1,1,1,// TODO (@author karlpeder): If existing meta tags are to be kept, code changes are // necessary
 1,0,1,1,1,1,1,1,/* TODO create exception for this */
-1,0,1,1,1,1,1,1,// TODO (@author javaprog): better exception handling
-1,0,0,1,1,1,1,1,// TODO (@author fdietz): fix account info panel check
+1,0,1,0,1,1,1,1,// TODO (@author javaprog): better exception handling
+1,0,1,1,1,1,1,1,// TODO (@author fdietz): fix account info panel check
 1,0,1,1,1,1,1,1,// TODO (@author fdietz): move this to AbstractMessageFolder constructor // create filterlist datastructure
-1,0,1,1,1,1,1,1,// TODO: @author fdietz replace with regular expression
-1,0,1,1,1,1,1,1,// TODO implement me!
-1,0,1,1,1,1,1,1,//TODO (@author fdietz): implement
-1,0,1,1,1,1,1,1,// TODO implement validation
-1,0,1,1,1,1,1,1,"/**	 * 	 * create Subject headerfield in using the senders message subject and	 * prepending ""Fwd:"" if not already there	 * 	 * @param header	 *            A <code>ColumbaHeader</code> which contains the headerfields	 *            of the message we want reply/forward.	 * 	 * FIXME (@author fdietz): we need to i18n this!	 * 	 */"
-1,0,1,1,1,1,1,1,// TODO finish marshalling of all available properties
-1,0,1,1,1,1,1,1,// TODO finish unmarshalling of all available properties
-1,0,1,1,1,1,1,1,// TODO implement
-1,0,1,1,1,1,1,1,// TODO: implement this
-1,0,1,1,1,1,1,1,"/**	 * 	 * create subject headerfield in using the senders message subject and	 * prepending ""Re:"" if not already there	 * 	 * @param header	 *            A <code>ColumbaHeader</code> which contains the headerfields	 *            of the message we want reply/forward.	 * 	 * FIXME (@author fdietz): we need to i18n this!	 */"
-1,0,1,1,1,1,1,1,// TODO (@author karlpeder): Implementation of undo/redo missing
-1,0,1,1,1,1,1,1,// html - quoting is done by inserting a div around the // message formattet with a blue line at left edge // TODO (@author fdietz): Implement quoting (font color, stylesheet, // blockquote???)
-1,0,1,1,1,1,1,1,// TODO (@author fdietz): show error dialoghere
-1,0,1,1,1,1,1,1,// TODO (@author fdietz): add error dialog
-1,0,0,1,1,1,1,1,// TODO: Show dialog
-1,0,1,1,1,1,1,1,// TODO (@author fdietz): make i18n!
-1,0,1,1,1,1,1,1,// TODO (@author javaprog):sizeComboBox can be enabled as // paragraphComboBox when implemented
-1,0,0,1,1,1,1,1,//TODO: Add dialog to inform user that the smtp server // does not support authentication
-1,0,0,1,1,1,1,1,// TODO @author hubms show if there is already a virtual folder for // this tag
-1,0,0,1,1,1,1,1,// update status message // TODO (@author fdietz): i18n
-1,0,1,1,1,1,1,1,//TODO (@author fdietz): keep track of progress here
-1,0,0,1,1,1,1,1,// TODO localize filter action names
-1,0,0,1,1,1,1,1,//TODO (@author fdietz):  i18n
-1,0,1,1,1,1,1,1,// TODO implement clear()
+1,0,1,0,1,1,1,1,// TODO: @author fdietz replace with regular expression
+1,0,1,0,1,1,1,1,// TODO implement me!
+1,0,1,0,1,1,1,1,//TODO (@author fdietz): implement
+1,0,1,0,1,1,1,1,// TODO implement validation
+1,0,1,0,1,1,1,1,"/**	 * 	 * create Subject headerfield in using the senders message subject and	 * prepending ""Fwd:"" if not already there	 * 	 * @param header	 *            A <code>ColumbaHeader</code> which contains the headerfields	 *            of the message we want reply/forward.	 * 	 * FIXME (@author fdietz): we need to i18n this!	 * 	 */"
+1,0,1,0,1,1,1,1,// TODO finish marshalling of all available properties
+1,0,1,0,1,1,1,1,// TODO finish unmarshalling of all available properties
+1,0,1,0,1,1,1,1,// TODO implement
+1,0,1,0,1,1,1,1,// TODO: implement this
+1,0,1,0,1,1,1,1,"/**	 * 	 * create subject headerfield in using the senders message subject and	 * prepending ""Re:"" if not already there	 * 	 * @param header	 *            A <code>ColumbaHeader</code> which contains the headerfields	 *            of the message we want reply/forward.	 * 	 * FIXME (@author fdietz): we need to i18n this!	 */"
+1,0,1,0,1,1,1,1,// TODO (@author karlpeder): Implementation of undo/redo missing
+1,0,1,0,1,1,1,1,// html - quoting is done by inserting a div around the // message formattet with a blue line at left edge // TODO (@author fdietz): Implement quoting (font color, stylesheet, // blockquote???)
+1,0,1,0,1,1,1,1,// TODO (@author fdietz): show error dialoghere
+1,0,1,0,1,1,1,1,// TODO (@author fdietz): add error dialog
+1,0,0,0,1,1,1,1,// TODO: Show dialog
+1,0,1,0,1,1,1,1,// TODO (@author fdietz): make i18n!
+1,0,1,0,1,1,1,1,// TODO (@author javaprog):sizeComboBox can be enabled as // paragraphComboBox when implemented
+1,0,1,0,1,1,1,1,//TODO: Add dialog to inform user that the smtp server // does not support authentication
+1,0,0,0,1,1,1,1,// TODO @author hubms show if there is already a virtual folder for // this tag
+1,0,0,0,1,1,1,1,// update status message // TODO (@author fdietz): i18n
+1,0,1,0,1,1,1,1,//TODO (@author fdietz): keep track of progress here
+1,0,0,0,1,1,1,1,// TODO localize filter action names
+1,0,1,0,1,1,1,1,//TODO (@author fdietz):  i18n
+1,0,1,0,1,1,1,1,// TODO implement clear()
 1,0,1,1,1,1,1,1,// TODO (@author fdietz):: implement action for font size combo box!
-1,0,0,1,1,1,1,1,// TODO (@author fdietz):  i18n
-1,0,0,1,1,1,1,1,// FIXME threaded-view auto collapse
+1,0,1,0,1,1,1,1,// TODO (@author fdietz):  i18n
+1,0,0,0,1,1,1,1,// FIXME threaded-view auto collapse
 0,0,0,0,0,0,0,0,// get selected folder
 0,0,0,0,0,0,0,0,// Create a FormLayout instance.
 0,0,0,0,0,0,0,0,// g2.setColor(fillColor); // g2.fillRect(0,0,w,h);
@@ -170,7 +170,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// ensure tzid matches date-time timezone.. // Parameter tzId = dtEnd1.getParameters().getParameter( // Parameter.TZID);
 0,0,0,0,0,0,0,0,// create a form builder
 0,0,0,0,0,0,0,0,// get root folder
-0,0,1,0,0,0,1,0,// wrong xml-format
+0,0,0,0,0,0,0,0,// wrong xml-format
 0,0,0,0,0,0,0,0,// create mandatory IMAP Inbox folder
 0,0,0,0,0,0,0,0,"/*TitledBorder etched = javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "" Login "");centerPanel.setBorder( etched );*/"
 0,0,0,0,0,0,0,0,//private JLabel enableTextIndexingLabel;
@@ -238,7 +238,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// AShape textShape = new TextAShape("text", "$" + GridRow.NAME + "$", // textRect, TextAShape.TYPE_SINGE_LINE, font, fgColor, // AtFraction.CENTER, AtStart.START0, Boolean.FALSE);
 0,0,0,0,0,0,0,0,// only local folders have an full-text indexing capability
 0,0,0,0,0,0,0,0,"/*		 * mainConstraints.fill = GridBagConstraints.BOTH;		 * mainConstraints.insets = new Insets(0, 0, 0, 0);		 * mainConstraints.gridwidth = GridBagConstraints.REMAINDER;		 * mainConstraints.weightx = 1.0; mainConstraints.weighty = 1.0;		 */"
-0,0,0,1,1,1,1,1,// TODO i18n "Close" button
+0,0,0,0,1,1,1,1,// TODO i18n "Close" button
 0,0,0,0,0,0,0,0,// get unique boundary (not checked against att. // list part - but guess its ok)
 0,0,0,0,0,0,0,0,// get column of list
 0,0,0,0,0,0,0,0,// if user cancelled task exit immediately
@@ -306,7 +306,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// view -> model
 0,0,0,0,0,0,0,0,// modify card properties in folder
 0,0,0,0,0,0,0,0,// JPanel mainPanel = new JPanel(mainLayout); // mainPanel.setBorder(Borders.DIALOG_BORDER);
-0,0,1,0,0,0,1,0,// implement your own search-engine here
+0,0,0,0,0,0,0,0,// implement your own search-engine here
 0,0,0,0,0,0,0,0,// if this is the last token, check if the last element // is the same than in the array
 0,0,0,0,0,0,0,0,// model -> view
 0,0,0,0,0,0,0,0,"/*	 * Test method for	 * 'org.columba.mail.parser.ListBuilder.createStringListFromItemList(List<IHeaderItem>)'	 */"
@@ -326,7 +326,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// create stream from string
 0,0,0,0,0,0,0,0,// topPanel.setLayout( );
 0,0,0,0,0,0,0,0,//  execute command -> use mock object class as worker which does // nothing
-0,0,1,0,0,0,1,0,// if something goes wrong here, fall back to "mark as read"
+0,0,0,0,0,0,0,0,// if something goes wrong here, fall back to "mark as read"
 0,0,0,0,0,0,0,0,// check number of cached MessageNodes //assertEquals(1, model.getMap().size());
 0,0,0,0,0,0,0,0,// Must go backwards or else the list will remove the wrong filters.
 0,0,0,0,0,0,0,0,// 3 columns // rows are added dynamically (no need to define them here)
@@ -410,7 +410,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Synchronize the complete folder
 0,0,0,0,0,0,0,0,// add search to history
 0,0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 * 	 * @see org.columba.mail.gui.table.model.TableModelModifier#remove(java.lang.Object[])	 */"
-0,0,0,0,0,0,0,0,// get search folder
+0,0,0,1,0,0,0,1,// get search folder
 0,0,0,0,0,0,0,0,// tree selection event
 0,0,0,0,0,0,0,0,// Choice btw. text and html will be based on stored option
 0,0,0,0,0,0,0,0,// create selection handlers
@@ -430,7 +430,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// set flags
 0,0,0,0,0,0,0,0,// folder-based configuration
 0,0,0,0,0,0,0,0,// light gray line every day
-0,0,0,0,0,0,0,0,// simply demonstration of how to change the docking title
+0,0,1,0,0,0,1,0,// simply demonstration of how to change the docking title
 0,0,0,0,0,0,0,0,// update message list view title
 0,0,0,0,0,0,0,0,"/*	 * private JTextField textField; private JPanel leftPanel; private	 * JTabbedPane rightPanel; private JButton addButton; private JButton	 * removeButton; private JButton editButton; private JButton upButton;	 * private JButton downButton;	 * 	 * private JFrame frame;	 */"
 0,0,0,0,0,0,0,0,// show message content
@@ -651,10 +651,10 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,"// icon //		putValue(SMALL_ICON, ImageLoader //				.getSmallImageIcon(""apply-filters-16.png""));"
 0,0,0,0,0,0,0,0,// Some error in the client/server communication //  --> fall back to default login process
 0,0,0,0,0,0,0,0,// if have already a suitable folder skip the search
-0,0,0,0,0,0,0,0,// shortcut key // no shortcut here, because F10 conflicts with system accelerator key // putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F10, // 0));
+0,0,1,0,0,0,1,0,// shortcut key // no shortcut here, because F10 conflicts with system accelerator key // putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F10, // 0));
 0,0,0,0,0,0,0,0,// return default-account SpamItem instead
 0,0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 *	 * @see org.columba.mail.folder.IMailbox#getMimePartSourceStream(java.lang.Object,	 *      java.lang.Integer[])	 */"
-0,0,1,1,1,1,1,1,// TODO (@author fdietz): this should be changed into a "real" window
+0,0,1,0,1,1,1,1,// TODO (@author fdietz): this should be changed into a "real" window
 0,0,0,0,0,0,0,0,// super.getTableCellRendererComponent( table, value, isSelected, // hasFocus, row, column );
 0,0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 *	 * @see org.columba.mail.folder.event.IFolderListener#messageRemoved(org.columba.mail.folder.event.IFolderEvent)	 */"
 0,0,0,0,0,0,0,0,// ======== this ========
@@ -683,7 +683,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//  Set id on from address
 0,0,0,0,0,0,0,0,// update folder selection
 0,0,0,0,0,0,0,0,// wait 10 seconds and check for pending commands again // this is useful if a command causes a deadlock
-0,0,0,1,1,1,1,1,// TODO i18n "Help" button
+0,0,0,0,1,1,1,1,// TODO i18n "Help" button
 0,0,0,0,0,0,0,0,// leave dialog empty if no source contact model specified
 0,0,0,0,0,0,0,0,// can no longer assume that sendMessageDialog has been displayed
 0,0,0,0,0,0,0,0,// getting current uid
@@ -736,7 +736,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// headerfield is empty
 0,0,0,0,0,0,0,0,// --> correct token data
 0,0,0,0,0,0,0,0,// date
-0,0,0,0,0,0,0,0,// server message numbers start with 1 // whereas List numbers start with 0 // -> always increase fetch number
+0,0,0,1,0,0,0,1,// server message numbers start with 1 // whereas List numbers start with 0 // -> always increase fetch number
 0,0,0,0,0,0,0,0,// Init Mime-Header with Default-Values (text/html)
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.columba.core.filter.IFilterCriteria#setCriteria(int)   */"
 0,0,0,0,0,0,0,0,// compose text part
@@ -756,7 +756,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Get all MimeParts
 0,0,0,0,0,0,0,0,// an url - check whether its already a link
 0,0,0,0,0,0,0,0,// Return if not clicked on any column header
-0,0,0,0,0,0,0,0,// If the same message is still shown // Mark it as read
+0,0,0,1,0,0,0,1,// If the same message is still shown // Mark it as read
 0,0,0,0,0,0,0,0,// search for closing bracket separately to account for attributes in tag
 0,0,0,0,0,0,0,0,// If tooltip is null, removes any tooltip text.
 0,0,0,0,0,0,0,0,// button.addMouseListener(new LabelMouseListener());
@@ -779,24 +779,24 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// RFC822 - Header
 0,0,0,0,0,0,0,0,// AND or OR ? -> AND is implicit, OR must be specified
 0,0,0,0,0,0,0,0,/* remove from script list */
-0,0,0,0,0,0,0,0,// move
+0,0,1,0,0,0,1,0,// move
 0,0,0,0,0,0,0,0,// contains not
 0,0,0,0,0,0,0,0,// Quote according model type (text/html)
-0,0,0,0,0,0,0,0,"/*             \\b  Start at word boundary         ((\\w*(:\\S*)?@)?  [user:[pass]]@ - Constructprot + ""://  protocol and ://       [""+any+""]  match literaly anything...         ) (?=\\s|$)  ...until we find whitespace or end of String*/"
+0,0,0,1,0,0,0,1,"/*             \\b  Start at word boundary         ((\\w*(:\\S*)?@)?  [user:[pass]]@ - Constructprot + ""://  protocol and ://       [""+any+""]  match literaly anything...         ) (?=\\s|$)  ...until we find whitespace or end of String*/"
 0,0,0,0,0,0,0,0,// get list of plugins
 0,0,0,0,0,0,0,0,// just look if the first character alrady an < // so can use this mailaddress as the correct address
 0,0,0,0,0,0,0,0,// plain text
 0,0,0,0,0,0,0,0,"/*        * it's the script responsability to define the ""metadata"" by invoking        * .setName(), .setAuthor() and .setDescription()        */"
 0,0,0,0,0,0,0,0,// UnsupportedFlavorException, IOException
-0,0,0,0,0,0,0,0,"/* (non-Javadoc) * @see org.columba.core.gui.frame.focus.FocusOwner#selectAll() */"
+0,0,0,1,0,0,0,1,"/* (non-Javadoc) * @see org.columba.core.gui.frame.focus.FocusOwner#selectAll() */"
 0,0,0,0,0,0,0,0,// load plugin handler used for the columns
 0,0,0,0,0,0,0,0,"/*		 * AbstractMessageFolder destFolder = (AbstractMessageFolder) treeView		 * .getDropTargetFolder();		 */"
 0,0,0,0,0,0,0,0,// example: X-BeenThere: columba-devel@lists.sourceforge.net
 0,0,0,0,0,0,0,0,// create html element, if it doesn't exist
 0,0,0,0,0,0,0,0,// at the moment we are only supporting gpg. So let us code hard // here the gpg driver
-0,0,0,0,0,0,0,0,//    shortcut key
+0,0,1,0,0,0,1,0,//    shortcut key
 0,0,0,0,0,0,0,0,"/* * *20030623, karlpeder* "" and space handled also */"
-0,0,0,0,0,0,0,0,// select all rows
+0,0,0,1,0,0,0,1,// select all rows
 0,0,0,0,0,0,0,0,//int getRow(MessageNode node);
 0,0,0,0,0,0,0,0,// We save only the first item in the cc-list
 0,0,0,0,0,0,0,0,// expand all rows
@@ -809,7 +809,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// tests, if the listPart substracted
 0,0,0,0,0,0,0,0,"//			 @author: fdietz never request focus //requestFocus();"
 0,0,0,0,0,0,0,0,// getting the node
-0,0,0,0,0,0,0,0,// update status message
+0,0,0,1,0,0,0,1,// update status message
 0,0,0,0,0,0,0,0,// if subject doesn't start already with "Fwd:" prepend it
 0,0,0,0,0,0,0,0,// folder in which the update occurs
 0,0,0,0,0,0,0,0,// enable, if more than zero treenodes selected
@@ -887,7 +887,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.columba.core.filter.IFilterList#addAll(org.columba.core.filter.FilterList)   */"
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.columba.core.filter.IFilterList#add(org.columba.core.filter.Filter)   */"
 0,0,0,0,0,0,0,0,// clear messagenode cache
-0,0,0,0,0,0,0,0,// let us hard coding the gpg for each connection. Later we should // support also other variants (like smime)
+0,0,1,0,0,0,1,0,// let us hard coding the gpg for each connection. Later we should // support also other variants (like smime)
 0,0,0,0,0,0,0,0,// repaint table header
 0,0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 * 	 * @see javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event.ListSelectionEvent)	 */"
 0,0,0,0,0,0,0,0,// notify the model to sort the table // sorter.sort(column);
@@ -970,7 +970,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// message contains list of attachments
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.columba.mail.imap.IImapServer#checkSupportedAuthenticationMethods()	 */"
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.columba.mail.imap.IImapServer#copy(org.columba.mail.folder.imap.IMAPFolder, java.lang.Object[], org.columba.mail.folder.imap.IMAPFolder)	 */"
-0,0,0,0,0,0,0,0,//      shortcut key
+0,0,1,0,0,0,1,0,//      shortcut key
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.columba.mail.imap.IImapServer#subscribeFolder(java.lang.String)	 */"
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.columba.mail.imap.IImapServer#append(java.io.InputStream, org.columba.ristretto.imap.IMAPFlags, org.columba.mail.folder.imap.IMAPFolder)	 */"
 0,0,0,0,0,0,0,0,// message body
@@ -984,7 +984,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// add result panel as listener for new search results
 0,0,0,0,0,0,0,0,// MULTIPLICITY.ZERO_TO_ONE is default
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.columba.mail.imap.IImapServer#getMessageFolderInfo(org.columba.mail.folder.imap.IMAPFolder)	 */"
-0,0,0,0,0,0,0,0,// shortcut key
+0,0,1,0,0,0,1,0,// shortcut key
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.columba.core.gui.themes.plugin.AbstractThemePlugin#setLookAndFeel()	 */"
 0,0,0,0,0,0,0,0,// get a list of MessageNode objects of the first // hierachy level
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.columba.mail.imap.IImapServer#setObservable(org.columba.api.command.IStatusObservable)	 */"
@@ -1019,11 +1019,11 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// *20030614, karlpeder* only enabled when message(s) selected
 0,0,0,0,0,0,0,0,"/*		 * ( ( AbstractMailFrameController) frameMediator)		 * .registerTableSelectionListener( this);		 */"
 0,0,0,0,0,0,0,0,// Default signature
-0,0,0,0,0,0,0,0,// shortcut key //putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F, 0));
+0,0,1,0,0,0,1,0,// shortcut key //putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F, 0));
 0,0,0,0,0,0,0,0,// uncomment to enable action
 0,0,0,0,0,0,0,0,//        putValue(LARGE_ICON, ImageLoader.getImageIcon("drafts-16.png"));
 0,0,0,0,0,0,0,0,// look for default view settings (if not found, null is returned)
-0,0,0,0,0,0,0,0,// shortcut key //putValue(ACCELERATOR_KEY, // KeyStroke.getKeyStroke(KeyEvent.VK_BRACELEFT, 0));
+0,0,1,0,0,0,1,0,// shortcut key //putValue(ACCELERATOR_KEY, // KeyStroke.getKeyStroke(KeyEvent.VK_BRACELEFT, 0));
 0,0,0,0,0,0,0,0,// create a panel with all 4 buttons of the window // columns  // rows
 0,0,0,0,0,0,0,0,// -> move messages to trash
 0,0,0,0,0,0,0,0,// register as Observer
@@ -1048,7 +1048,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// for some weird reason the table loses its inter-cell spacing // property, when changing the underlying column model // -> setting this to (0,0) again
 0,0,0,0,0,0,0,0,// trash folder is selected // -> delete message
 0,0,0,0,0,0,0,0,// listener updates selection status, when ever a message selection changes
-0,0,1,0,0,0,1,0,// if this is a message-viewer frame viewing a message only // the window should be closed, too
+0,0,0,0,0,0,0,0,// if this is a message-viewer frame viewing a message only // the window should be closed, too
 0,0,0,0,0,0,0,0,// init table model
 0,0,0,0,0,0,0,0,// turn off SSL for the future
 0,0,0,0,0,0,0,0,// no specific renderer found // -> use default renderer
@@ -1065,11 +1065,11 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// open composer
 0,0,0,0,0,0,0,0,"/*this.rootNode = root;parse();createMissingElements();*/"
 0,0,0,0,0,0,0,0,// ---- otherPOBoxLabel ----
-0,0,0,0,0,0,0,0,// Shortcut key //putValue(ACCELERATOR_KEY, // KeyStroke.getKeyStroke(KeyEvent.VK_BRACELEFT,0));
+0,0,1,0,0,0,1,0,// Shortcut key //putValue(ACCELERATOR_KEY, // KeyStroke.getKeyStroke(KeyEvent.VK_BRACELEFT,0));
 0,0,0,0,0,0,0,0,// // create a view more button, responsible for // // opening the attachment viewer popup // JButton moreButton = createAttachmentMoreButton();
 0,0,0,0,0,0,0,0,// only update table if, this folder is the same // as the currently selected
 0,0,0,0,0,0,0,0,//$NON-NLS-1$ //nameLabel.setFont(boldFont);
-0,0,1,1,1,1,1,1,// FIXME r.setPos();
+0,0,1,0,1,1,1,1,// FIXME r.setPos();
 0,0,0,0,0,0,0,0,// // Writer interface //
 0,0,0,0,0,0,0,0,// fetch the headerlist
 0,0,0,0,0,0,0,0,// *20030621, karlpeder*
@@ -1088,7 +1088,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Important!! // -> replacing this character must happen first
 0,0,0,0,0,0,0,0,// update treemodel
 0,0,0,0,0,0,0,0,//      notify tree //getRealModel().getTreeModel().nodeStructureChanged(getRootNode()); //}
-0,0,0,0,0,1,1,1,// only import VEVENT and VTODO for now
+0,0,1,0,0,0,1,0,// only import VEVENT and VTODO for now
 0,0,0,0,0,0,0,0,// save every MessageNode in hashmap for later reference
 0,0,0,0,0,0,0,0,// add this node to cache
 0,0,0,0,0,0,0,0,// init bottom panel with OK, Cancel buttons
@@ -1166,7 +1166,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// print all collected profile data
 0,0,0,0,0,0,0,0,// should be a MutableTreeNode
 0,0,0,0,0,0,0,0,// current time
-0,0,0,0,0,0,0,0,// this profiling point is parent of the next one
+0,0,0,1,0,0,0,1,// this profiling point is parent of the next one
 0,0,0,0,0,0,0,0,// create a virtual folder
 0,0,0,0,0,0,0,0,// plugin wasn't correctly loaded
 0,0,0,0,0,0,0,0,// if there is nothing selected return
@@ -1174,7 +1174,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// update message list
 0,0,0,0,0,0,0,0,"/*// enable/disable pluginString id = currentNode.getId();MainInterface.pluginManager.setEnabled(id, b.booleanValue());*/"
 0,0,0,0,0,0,0,0,// ensure that we are currently in the mail component
-0,0,0,1,1,1,1,1,// TODO: re-enable feature, the following code violates our // design, accessing folders is only allowed in Command.execute()
+0,0,0,0,1,1,1,1,// TODO: re-enable feature, the following code violates our // design, accessing folders is only allowed in Command.execute()
 0,0,0,0,0,0,0,0,// attachment controller doesn't support redo operation
 0,0,0,0,0,0,0,0,// create new menu
 0,0,0,0,0,0,0,0,"/*		 * // copy CopyMessageCommand command = new CopyMessageCommand(result);		 * CommandProcessor.getInstance().addOp(command);		 */"
@@ -1206,7 +1206,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// re-add all top components like recipient editor/subject editor
 0,0,0,0,0,0,0,0,// no sorting
 0,0,0,0,0,0,0,0,// If rootFolder is not cached traverse the tree
-0,0,1,0,0,0,1,0,// if window is maximized -> ignore the window size properties // otherwise, use window size property // but ensure that the window is completly visible on the // desktop
+0,0,0,0,0,0,0,0,// if window is maximized -> ignore the window size properties // otherwise, use window size property // but ensure that the window is completly visible on the // desktop
 0,0,0,0,0,0,0,0,// create temporary folder in "<your-config-folder>/mail/"
 0,0,0,0,0,0,0,0,// Check for default Ports
 0,0,0,0,0,0,0,0,// check if it contains comma character
@@ -1227,7 +1227,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//centerPanel.add( Box.createRigidArea( new java.awt.Dimension(0,5) ) ); //centerPanel.add( Box.createRigidArea( new java.awt.Dimension(0,5) ) );
 0,0,0,0,0,0,0,0,// only use the first selected folder
 0,0,0,0,0,0,0,0,// // Tell frame model that frame is closing. If this frame hasn't been // opened using FrameManager methods, FrameManager.close does nothing. //
-0,0,0,0,0,0,0,0,// Test if there is a trailing html tag
+0,0,0,1,0,0,0,1,// Test if there is a trailing html tag
 0,0,0,0,0,0,0,0,// ---- homepageButton ----
 0,0,0,0,0,0,0,0,"/*        ((MailFrameController) frameMediator).registerTreeSelectionListener(                this);        */"
 0,0,0,0,0,0,0,0,// it is safe here to cast to AbstractMailFrameControlller
@@ -1243,7 +1243,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// show error message
 0,0,0,0,0,0,0,0,// implement this
 0,0,0,0,0,0,0,0,// get global sorting state
-0,0,0,1,0,0,0,1,// BUGFIX but don't know why that bug occurs
+0,0,0,0,0,0,0,0,// BUGFIX but don't know why that bug occurs
 0,0,0,0,0,0,0,0,// sorting is enabled
 0,0,0,0,0,0,0,0,// Drag, resize interactions
 0,0,0,0,0,0,0,0,// layout center panel
@@ -1271,7 +1271,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// name of folder
 0,0,0,0,0,0,0,0,// retrieve contact model from folder
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.columba.mail.imap.IImapServer#getDelimiter()	 */"
-0,0,0,0,0,0,0,0,// Register as listener to the SelectionManger // to check for selection changes
+0,0,0,1,0,0,0,1,// Register as listener to the SelectionManger // to check for selection changes
 0,0,0,0,0,0,0,0,// create message
 0,0,0,0,0,0,0,0,//lastreplaceposition = lastfoundposition; //+ replaceWith.length();
 0,0,0,0,0,0,0,0,// add selection listener
@@ -1394,7 +1394,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// AND : simply create a list of arguments
 0,0,0,0,0,0,0,0,// search for mnemonic
 0,0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 * 	 * @see com.miginfocom.ashape.interaction.InteractionListener#interactionOccured(com.miginfocom.ashape.interaction.InteractionEvent)	 */"
-0,0,0,0,0,0,0,0,// Also set the delimiter
+0,0,0,1,0,0,0,1,// Also set the delimiter
 0,0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 * 	 * @see org.columba.calendar.ui.calendar.api.ICalendarView#getSelectedActivity()	 */"
 0,0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 * 	 * @see org.columba.calendar.ui.calendar.api.ICalendarView#setViewMode(int)	 */"
 0,0,0,0,0,0,0,0,// OR : the arguments must be glued by a OR SearchKey
@@ -1477,7 +1477,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Create a emtpy header an back off
 0,0,0,0,0,0,0,0,"/* (non-Javadoc) * @see org.columba.core.gui.frame.focus.FocusOwner#isDeleteActionEnabled() */"
 0,0,0,0,0,0,0,0,// no more matches - append rest of string
-0,0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.columba.mail.imap.IImapServer#alertMessage(java.lang.String)	 */"
+0,0,0,1,0,0,0,1,"/* (non-Javadoc)	 * @see org.columba.mail.imap.IImapServer#alertMessage(java.lang.String)	 */"
 0,0,0,0,0,0,0,0,// the first token is irrelevant
 0,0,0,0,0,0,0,0,"/*		((AbstractFolder)MailInterface.treeModel.getRoot()).add(cyrusRoot);		((AbstractFolder) MailInterface.treeModel.getRoot())        .getConfiguration().getRoot().addElement(        		cyrusRoot.getConfiguration().getRoot());		MailInterface.treeModel.nodeStructureChanged(cyrusRoot.getParent());		*/"
 0,0,0,0,0,0,0,0,// The Stream finished before the header was completely // read!
@@ -1491,7 +1491,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// initialisation
 0,0,0,0,0,0,0,0,// Convert to MessageOptions
 0,0,0,0,0,0,0,0,// replace </p> with double newline
-0,0,1,0,0,0,1,0,// something really got wrong here -> show error dialog // JOptionPane.showMessageDialog(null, e.getMessage());
+0,0,0,0,0,0,0,0,// something really got wrong here -> show error dialog // JOptionPane.showMessageDialog(null, e.getMessage());
 0,0,0,0,0,0,0,0,// replace <br> and </br> with newline
 0,0,0,0,0,0,0,0,// save last message, because while loop aborted before being able to // save message
 0,0,0,0,0,0,0,0,// due to bug CA-174 changed: return EMAIL_PATTERN.matcher(s).replaceAll("<A HREF=\"mailto:$1\">$1</A>");
@@ -1568,11 +1568,11 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// save passphrase in hash map
 0,0,0,0,0,0,0,0,// Add pgp-specific content-parameters
 0,0,0,0,0,0,0,0,// getting the path to gpg
-0,0,0,0,0,0,0,0,"/*		 * notifyListeners(new ModelChangedEvent(ModelChangedEvent.ADDED,		 * server));		 */"
+0,0,0,1,0,0,0,1,"/*		 * notifyListeners(new ModelChangedEvent(ModelChangedEvent.ADDED,		 * server));		 */"
 0,0,0,0,0,0,0,0,// Add the encrypted MimePart
 0,0,0,0,0,0,0,0,//con.getProperties().put("USERID", pgpItem.get("id"));
 0,0,0,0,0,0,0,0,// add status information observable
-0,0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 * 	 * @see org.columba.core.profiles.IProfileManager#getCurrentProfile()	 */"
+0,0,0,1,0,0,0,1,"/*	 * (non-Javadoc)	 * 	 * @see org.columba.core.profiles.IProfileManager#getCurrentProfile()	 */"
 0,0,0,0,0,0,0,0,"/*		 * notifyListeners(new ModelChangedEvent(ModelChangedEvent.REMOVED));		 */"
 0,0,0,0,0,0,0,0,// query using all criteria
 0,0,0,0,0,0,0,0,// set headercache dirty flag
@@ -1739,7 +1739,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// ((DefaultDateArea) localDateAreaBean.getDateArea()) // .addActivityMoveListener(this);
 0,0,0,0,0,0,0,0,// enable selection
 0,0,0,0,0,0,0,0,// open connection
-0,0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 * 	 * @see org.columba.core.gui.selection.ISelectionListener#selectionChanged(org.columba.core.gui.selection.SelectionChangedEvent)	 */"
+0,0,0,1,0,0,0,1,"/*	 * (non-Javadoc)	 * 	 * @see org.columba.core.gui.selection.ISelectionListener#selectionChanged(org.columba.core.gui.selection.SelectionChangedEvent)	 */"
 0,0,0,0,0,0,0,0,//Find out if we already loaded the needed ResourceBundle //object in the hashtable.
 0,0,0,0,0,0,0,0,// Collect the uids for one folder
 0,0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 * 	 * @see org.columba.core.gui.selection.SelectionHandler#setSelection(org.columba.api.command.DefaultCommandReference[])	 */"
@@ -1755,7 +1755,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// mark as read
 0,0,0,0,0,0,0,0,// this internally used headerfields can be of every basic // type, including String, Integer, Boolean, Date, etc.
 0,0,0,0,0,0,0,0,/* nothing to dispose, yet... */
-0,0,1,0,0,0,1,0,// this is needed to update the titlebar
+0,0,0,0,0,0,0,0,// this is needed to update the titlebar
 0,0,0,0,0,0,0,0,// check current file list for changes
 0,0,0,0,0,0,0,0,/*in case of a stop-start */
 0,0,0,0,0,0,0,0,/* start pooling thread */
@@ -1932,7 +1932,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// ---- notesTextArea ----
 0,0,0,0,0,0,0,0,// 2 columns // rows are added dynamically (no need to define them here)
 0,0,0,0,0,0,0,0,// ---- privateCityLabel ----
-0,0,0,0,0,0,0,0,// shortcut key //putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("B"));
+0,0,1,0,0,0,1,0,// shortcut key //putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("B"));
 0,0,0,0,0,0,0,0,// ---- workAddressLabel ----
 0,0,0,0,0,0,0,0,"/*			 * It is HTML, try to find out which charset from meta tag: NB: The			 * seach for charset below is very simple. It assumes that the meta			 * tag to find is on ITS OWN LINE, i.e. "" <meta"" can be found at the			 * beginning of the line, and all the content of the tag is found on			 * the same line! Could be better, but this is first shot...			 */"
 0,0,0,0,0,0,0,0,// no childs - we have a leaf view (i.e. with contents)
@@ -1952,7 +1952,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// scrollPane.setPreferredSize( new Dimension(200,200) );
 0,0,0,0,0,0,0,0,// get header of message
 0,0,0,0,0,0,0,0,// true if action is enabled, false otherwiese
-0,0,0,0,0,0,0,0,// skip this message, if it doesn't exist in source folder
+0,0,0,1,0,0,0,1,// skip this message, if it doesn't exist in source folder
 0,0,0,0,0,0,0,0,// get message source stream
 0,0,0,0,0,0,0,0,// calculate scaling and return it
 0,0,0,0,0,0,0,0,//current = lost;
@@ -1996,7 +1996,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// fall-back to formatted name
 0,0,0,0,0,0,0,0,// height of content // + top margin // + bottom margin // height corrected for scaling
 0,0,0,0,0,0,0,0,// get flags of message
-0,0,1,0,0,0,1,0,// <email> // <work>value</work> // <home>value</home> // </email>
+0,0,0,0,0,0,0,0,// <email> // <work>value</work> // <home>value</home> // </email>
 0,0,0,0,0,0,0,0,// close streams
 0,0,0,0,0,0,0,0,// this property is ignored under java 1.5.
 0,0,0,0,0,0,0,0,// width unchanged
@@ -2025,7 +2025,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// An individual 3 digit number
 0,0,0,0,0,0,0,0,// child views exist - operate recursively on these
 0,0,0,0,0,0,0,0,// do not start a second time!
-0,0,1,1,1,1,1,1,// if folder is message folder // ->TODO (@author fdietz):  there should be an interface, instead of the AbstractMessageFolder // class
+0,0,1,0,1,1,1,1,// if folder is message folder // ->TODO (@author fdietz):  there should be an interface, instead of the AbstractMessageFolder // class
 0,0,0,0,0,0,0,0,// following java guidelines I'm setting this to low priority // -> this should make the gui more responsive, because the // -> background worker has low priority whereas the gui worker // -> has normal priority
 0,0,0,0,0,0,0,0,// delete folders
 0,0,0,0,0,0,0,0,// this is no integer value
@@ -2047,7 +2047,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// ---- label3 ----
 0,0,0,0,0,0,0,0,// ---- otherAddressLabel ----
 0,0,0,0,0,0,0,0,// private JButton b_lyear, b_ryear, b_lmonth, b_rmonth;
-0,1,1,1,1,1,1,1,"/*	 * Determine what day of week the first day of the month falls on. It's too	 * bad we have to resort to this hack; the Java API provides no means of	 * doing this any other way.	 */"
+0,1,1,0,1,1,1,1,"/*	 * Determine what day of week the first day of the month falls on. It's too	 * bad we have to resort to this hack; the Java API provides no means of	 * doing this any other way.	 */"
 0,0,0,0,0,0,0,0,// save message stream to file
 0,0,0,0,0,0,0,0,// draw horizontal lines
 0,0,0,0,0,0,0,0,// mark as spam /as not spam // for each message
@@ -2095,7 +2095,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.columba.core.filter.IFilterList#move(int, int)   */"
 0,0,0,0,0,0,0,0,// transform string to Date representation
 0,0,0,0,0,0,0,0,// 3 columns table
-0,0,1,0,0,0,1,0,// We need to sort the uids in order // to have the correct association // between the new and old uid
+0,0,0,0,0,0,0,0,// We need to sort the uids in order // to have the correct association // between the new and old uid
 0,0,0,0,0,0,0,0,//putValue(SMALL_ICON, ImageLoader.getSmallImageIcon("mail-new.png"));
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)   */"
 0,0,0,0,0,0,0,0,// ======== scrollPane3 ========
@@ -2418,7 +2418,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)     * @see javax.swing.event.CaretListener#caretUpdate(javax.swing.event.CaretEvent)     */"
 0,0,0,0,0,0,0,0,// namespaceAware = false
 0,0,0,0,0,0,0,0,// force object finalization
-0,0,0,0,0,0,0,0,// remember parent path // (this is necessary for IMAPRootFolder sync operations)
+0,0,1,0,0,0,1,0,// remember parent path // (this is necessary for IMAPRootFolder sync operations)
 0,0,0,0,0,0,0,0,// set global class loader to null
 0,0,0,0,0,0,0,0,// This Method delivers the next line
 0,0,0,0,0,0,0,0,// 6. Line with Buttons
@@ -2534,7 +2534,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// append "_tooltip"
 0,0,0,0,0,0,0,0,// private Border unselectedBorder = null; // // private Border selectedBorder = null; // // private Color background; // // private Color foreground;
 0,0,0,0,0,0,0,0,// could not find it!
-0,0,0,1,0,0,0,1,// maybe based on HS?
+0,0,1,0,0,0,1,0,// maybe based on HS?
 0,0,0,0,0,0,0,0,// set whether the model should handle html or plain text
 0,0,0,0,0,0,0,0,// enable timer
 0,0,0,0,0,0,0,0,// if user is currently changing selection, don't do anything // -> wait until the final selection is available
@@ -2759,7 +2759,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// AShapeUtil.addMouseFireEvent(outlineAShape, trigger, // DefaultDateArea.AE_CATEGORY_DRAG_PRESSED, false, false, button);
 0,0,0,0,0,0,0,0,// States
 0,0,0,0,0,0,0,0,// FillAShape filledShadow = new FillAShape("shadowShape", new // RoundRectangle(0, 0, 1, 1, 5, 5), bgAbsRect, new Color(0, 0, 0, 100), // GfxUtil.AA_HINT_ON);
-0,0,0,0,0,0,0,0,// SliceSpec shwSI = new SliceSpec(new Insets(10, 10, 10, 10), // SliceSpec.TYPE_TILE_CUT, SliceSpec.OPT_BORDER);
+0,0,0,1,0,0,0,1,// SliceSpec shwSI = new SliceSpec(new Insets(10, 10, 10, 10), // SliceSpec.TYPE_TILE_CUT, SliceSpec.OPT_BORDER);
 0,0,0,0,0,0,0,0,// AbsRect textRect = new AbsRect(new AtStart(4), AtStart.START0, new // AtEnd(-4), AtEnd.END0);
 0,0,0,0,0,0,0,0,// check value after :
 0,0,0,0,0,0,0,0,// root.setAttribute(AShape.A_REPORT_HIT_SHAPE, Boolean.TRUE);
@@ -2810,7 +2810,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// get messgae UIDs
 0,0,0,0,0,0,0,0,// mark all messages as expunged
 0,0,0,0,0,0,0,0,// to enable button again after search is finished
-0,0,0,0,0,0,0,0,// it will not be done correctly, if the first statement is // omitted
+0,0,0,1,0,0,0,1,// it will not be done correctly, if the first statement is // omitted
 0,0,0,0,0,0,0,0,// get filter
 0,0,0,0,0,0,0,0,// new folder, fire to the old folder
 0,0,0,0,0,0,0,0,// TimeSpan span = activityList.get(i);
@@ -2839,7 +2839,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// disable date picker
 0,0,0,0,0,0,0,0,// enable until
 0,0,0,0,0,0,0,0,// calendar list
-0,0,0,0,0,0,0,0,// check if this folder is overwriting global options
+0,0,0,1,0,0,0,1,// check if this folder is overwriting global options
 0,0,0,0,0,0,0,0,// description
 0,0,0,0,0,0,0,0,// location
 0,0,0,0,0,0,0,0,// date range
@@ -2908,7 +2908,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,"/*	 * 	 * encapsulate bodytext in HTML code	 * 	 */"
 0,0,0,0,0,0,0,0,// append
 0,0,0,0,0,0,0,0,// transform headers if necessary
-0,0,1,1,1,1,1,1,// TODO i18n "attachments" label
+0,0,0,0,1,1,1,1,// TODO i18n "attachments" label
 0,0,0,0,0,0,0,0,// search individual provider and individual criteria
 0,0,0,0,0,0,0,0,// disable subject column renderer, use tree-cellrenderer instead
 0,0,0,0,0,0,0,0,// set name of column
@@ -2972,7 +2972,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// remove comments
 0,0,0,0,0,0,0,0,// Get the uids from the headercache
 0,0,0,0,0,0,0,0,// Init PGP
-0,0,0,0,0,0,0,0,// register interest on status bar information
+0,0,0,1,0,0,0,1,// register interest on status bar information
 0,0,0,0,0,0,0,0,// Delete old message from server if the feature is enabled
 0,0,0,0,0,0,0,0,"//			g.setColor(borderColor2); //			g.drawLine(x, y + height - 1, x + width, y + height - 1);"
 0,0,0,0,0,0,0,0,// check if we are online
@@ -3051,552 +3051,552 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// ---- categoriesButton ----
 0,0,0,0,0,0,0,0,// set the clip rect to exclude the border & insets
 0,0,0,0,0,0,0,0,// find out how many days there are in the current month
-0,0,0,0,0,0,0,0,// set the pen color depending on weekday or weekend, and paint // the // day number in the cell
+0,0,0,1,0,0,0,1,// set the pen color depending on weekday or weekend, and paint // the // day number in the cell
 0,0,0,0,0,0,0,0,//protected JButton defaultButton;
-0,0,0,0,0,0,0,0,//mainPanel.add( topBorderPanel, BorderLayout.NORTH );
+0,0,0,1,0,0,0,1,//mainPanel.add( topBorderPanel, BorderLayout.NORTH );
 0,0,0,0,0,0,0,0,"//		 top panel"
-0,0,0,0,0,0,0,0,// set display text
-0,0,0,0,0,0,0,0,//topPanel.setLayout( );
-0,0,0,0,0,0,0,0,// no mnemonic found - just set the text on the menu item
-0,0,0,0,0,0,0,0,//draw the gray squares overlapping the white background squares
-0,0,0,0,0,0,0,0,// Add the default colors items.
-0,0,0,0,0,0,0,0,// Accessing Properties **************************************************
+0,0,0,1,0,0,0,1,// set display text
+0,0,0,1,0,0,0,1,//topPanel.setLayout( );
+0,0,0,1,0,0,0,1,// no mnemonic found - just set the text on the menu item
+0,0,0,1,0,0,0,1,//draw the gray squares overlapping the white background squares
+0,0,0,1,0,0,0,1,// Add the default colors items.
+0,0,0,1,0,0,0,1,// Accessing Properties **************************************************
 0,0,0,0,0,0,0,0,"// Constructor...	"
-0,0,0,0,0,0,0,0,// get plugin directory
-0,0,0,0,0,0,0,0,// extract plugin
-0,0,0,0,0,0,0,0,//insets.top    += spacing; //insets.bottom += spacing;
-0,0,0,0,0,0,0,0,//add the component's border insets to our minimum dimension
-0,0,0,0,0,0,0,0,// if plugin has config extension point
-0,0,0,0,0,0,0,0,//put them into the array
-0,0,0,0,0,0,0,0,// the plugin directory is "<config-folder>/plugins/<plugin-id>"
-0,0,0,0,0,0,0,0,// toolbar
-0,0,0,0,0,0,0,0,// language
-0,0,0,0,0,0,0,0,// this is just a folder // ->disable all actions
-0,0,0,0,0,0,0,0,// get theme plugin-handler
-0,0,0,0,0,0,0,0,// set language config based on selected item
-0,0,0,0,0,0,0,0,// 3 columns
-0,0,0,0,0,0,0,0,// the path to the plugin.xml descriptor file is: // "<config-folder>/plugins/<plugin-id>/plugin.xml
-0,0,0,0,0,0,0,0,// use the collapse/expand icons from the JTree UI
-0,0,0,0,0,0,0,0,// Third Line with Lists
-0,0,0,0,0,0,0,0,// unknown category found // -> just add this plugin to "Uncategorized"
-0,0,0,0,0,0,0,0,// try name first
+0,0,0,1,0,0,0,1,// get plugin directory
+0,0,0,1,0,0,0,1,// extract plugin
+0,0,0,1,0,0,0,1,//insets.top    += spacing; //insets.bottom += spacing;
+0,0,0,1,0,0,0,1,//add the component's border insets to our minimum dimension
+0,0,0,1,0,0,0,1,// if plugin has config extension point
+0,0,0,1,0,0,0,1,//put them into the array
+0,0,0,1,0,0,0,1,// the plugin directory is "<config-folder>/plugins/<plugin-id>"
+0,0,0,1,0,0,0,1,// toolbar
+0,0,0,1,0,0,0,1,// language
+0,0,0,1,0,0,0,1,// this is just a folder // ->disable all actions
+0,0,0,1,0,0,0,1,// get theme plugin-handler
+0,0,0,1,0,0,0,1,// set language config based on selected item
+0,0,0,1,0,0,0,1,// 3 columns
+0,0,0,1,0,0,0,1,// the path to the plugin.xml descriptor file is: // "<config-folder>/plugins/<plugin-id>/plugin.xml
+0,0,0,1,0,0,0,1,// use the collapse/expand icons from the JTree UI
+0,0,0,1,0,0,0,1,// Third Line with Lists
+0,0,0,1,0,0,0,1,// unknown category found // -> just add this plugin to "Uncategorized"
+0,0,0,1,0,0,0,1,// try name first
 0,0,0,0,0,0,0,0,// jpanel1.add(addCriteriaButton, cc.xy(1, 1));
-0,0,0,0,0,0,0,0,// JPanel p = new JPanel(); // p.setLayout(new FlowLayout());
-0,0,0,0,0,0,0,0,// start search
-0,0,0,0,0,0,0,0,// tree must be editable, otherwise you can't collapse/expand tree nodes
-0,0,0,0,0,0,0,0,// ---- emailTextField3 ----
-0,0,0,0,0,0,0,0,// modal JDialog
-0,0,0,0,0,0,0,0,// notify tree model
-0,0,0,0,0,0,0,0,// make new node visible
-0,0,0,0,0,0,0,0,// this plugin doesn't define a category to which it belongs
-0,0,0,0,0,0,0,0,// make "version" column fixed size
-0,0,0,0,0,0,0,0,// This method is called when editing is completed. // It must return the new value to be stored in the cell.
-0,0,0,0,0,0,0,0,// make "enabled" column fixed size
-0,0,0,0,0,0,0,0,// ((DefaultTreeModel) // model.getTree().getModel()).setAsksAllowsChildren(true);
-0,0,0,0,0,0,0,0,// message
-0,0,0,0,0,0,0,0,//int iconOffset = getHorizontalAlignment() + getIcon().getIconWidth() + 1;
+0,0,0,1,0,0,0,1,// JPanel p = new JPanel(); // p.setLayout(new FlowLayout());
+0,0,0,1,0,0,0,1,// start search
+0,0,0,1,0,0,0,1,// tree must be editable, otherwise you can't collapse/expand tree nodes
+0,0,0,1,0,0,0,1,// ---- emailTextField3 ----
+0,0,0,1,0,0,0,1,// modal JDialog
+0,0,0,1,0,0,0,1,// notify tree model
+0,0,0,1,0,0,0,1,// make new node visible
+0,0,0,1,0,0,0,1,// this plugin doesn't define a category to which it belongs
+0,0,0,1,0,0,0,1,// make "version" column fixed size
+0,0,0,1,0,0,0,1,// This method is called when editing is completed. // It must return the new value to be stored in the cell.
+0,0,0,1,0,0,0,1,// make "enabled" column fixed size
+0,0,0,1,0,0,0,1,// ((DefaultTreeModel) // model.getTree().getModel()).setAsksAllowsChildren(true);
+0,0,0,1,0,0,0,1,// message
+0,0,0,1,0,0,0,1,//int iconOffset = getHorizontalAlignment() + getIcon().getIconWidth() + 1;
 0,0,0,0,0,0,0,0,// model->view
-0,0,0,0,0,0,0,0,// modal dialog
+0,0,0,1,0,0,0,1,// modal dialog
 0,0,0,0,0,0,0,0,// ---- emailTextField4 ----
-0,0,0,0,0,0,0,0,// get plugin handler for handling frames
-0,0,0,0,0,0,0,0,// close every open frame
-0,0,0,0,0,0,0,0,// enable/disable tree node
+0,0,0,1,0,0,0,1,// get plugin handler for handling frames
+0,0,0,1,0,0,0,1,// close every open frame
+0,0,0,1,0,0,0,1,// enable/disable tree node
 0,0,0,0,0,0,0,0,// fall back to default image
-0,0,0,0,0,0,0,0,// Return the configured component
-0,0,0,0,0,0,0,0,// search through defaultViews to get settings for given id
-0,0,0,0,0,0,0,0,// removed previous default values
-0,0,0,0,0,0,0,0,// save in cache
-0,0,0,0,0,0,0,0,// this is the last frame so store its data in the viewList
+0,0,0,1,0,0,0,1,// Return the configured component
+0,0,0,1,0,0,0,1,// search through defaultViews to get settings for given id
+0,0,0,1,0,0,0,1,// removed previous default values
+0,0,0,1,0,0,0,1,// save in cache
+0,0,0,1,0,0,0,1,// this is the last frame so store its data in the viewList
 0,0,0,0,0,0,0,0,//Can we use the Java way to maximize the window
-0,0,0,0,0,0,0,0,"//	This method is called when a cell value is edited by the user."
-0,0,0,0,0,0,0,0,// register statusbar at global taskmanager
-0,0,0,0,0,0,0,0,// update content-pane
-0,0,0,0,0,0,0,0,// add to new mediator's listener list
-0,0,0,0,0,0,0,0,// default toolbar
-0,0,0,0,0,0,0,0,// *20030831, karlpeder* Now also location is stored
+0,0,0,1,0,0,0,1,"//	This method is called when a cell value is edited by the user."
+0,0,0,1,0,0,0,1,// register statusbar at global taskmanager
+0,0,0,1,0,0,0,1,// update content-pane
+0,0,0,1,0,0,0,1,// add to new mediator's listener list
+0,0,0,1,0,0,0,1,// default toolbar
+0,0,0,1,0,0,0,1,// *20030831, karlpeder* Now also location is stored
 0,0,0,0,0,0,0,0,// remove old content pane
 0,0,0,0,0,0,0,0,// // add new componnet
-0,0,0,0,0,0,0,0,// hide window
+0,0,0,1,0,0,0,1,// hide window
 0,0,0,0,0,0,0,0,// ---- preferHtmlCheckBox ----
 0,0,0,0,0,0,0,0,// add action to menu
-0,0,0,0,0,0,0,0,// scroll window to the beginning
-0,0,0,0,0,0,0,0,// make window visible // LOG.finest("setVisible()");
-0,0,0,0,0,0,0,0,// public ColumbaMenu getMenuBar() { // return menu; // }
-0,0,0,0,0,0,0,0,// remove old toolbar
+0,0,0,1,0,0,0,1,// scroll window to the beginning
+0,0,0,1,0,0,0,1,// make window visible // LOG.finest("setVisible()");
+0,0,0,1,0,0,0,1,// public ColumbaMenu getMenuBar() { // return menu; // }
+0,0,0,1,0,0,0,1,// remove old toolbar
 0,0,0,0,0,0,0,0,// first column is a tree
 0,0,0,0,0,0,0,0,// register for change of the frame mediator
-0,0,0,0,0,0,0,0,// ---- telephoneTextField1 ----
-0,0,0,0,0,0,0,0,"/*	 * Opens a new mail window using the FrameManager instance in MainInterface.	 */"
-0,0,0,0,0,0,0,0,// small icon for JMenuItem
-0,0,0,0,0,0,0,0,// set JavaHelp topic ID // setTopicID("cancel");
-0,0,0,0,0,0,0,0,// ---- telephoneTextField3 ----
-0,0,0,0,0,0,0,0,// ---- telephoneTextField4 ----
-0,0,0,0,0,0,0,0,// ---- imTextField3 ----
-0,0,0,0,0,0,0,0,// ======== personalInfoPanel ========
-0,0,0,0,0,0,0,0,// create menuitems for all registered new items
-0,0,0,0,0,0,0,0,// create menuitems for all registered frame extensions
-0,0,0,0,0,0,0,0,// border
-0,0,0,0,0,0,0,0,// ---- weblogLabel ----
-0,0,0,0,0,0,0,0,// ---- homepageTextField ----
-0,0,0,0,0,0,0,0,// ======== panel5 ========
-0,0,0,0,0,0,0,0,// textPane.setMargin(new Insets(5, 5, 5, 5));
-0,0,0,0,0,0,0,0,// setup base url in order to be able to display images // in html-component
-0,0,0,0,0,0,0,0,// ---- weblogButton ----
+0,0,0,1,0,0,0,1,// ---- telephoneTextField1 ----
+0,0,0,1,0,0,0,1,"/*	 * Opens a new mail window using the FrameManager instance in MainInterface.	 */"
+0,0,0,1,0,0,0,1,// small icon for JMenuItem
+0,0,0,1,0,0,0,1,// set JavaHelp topic ID // setTopicID("cancel");
+0,0,0,1,0,0,0,1,// ---- telephoneTextField3 ----
+0,0,0,1,0,0,0,1,// ---- telephoneTextField4 ----
+0,0,0,1,0,0,0,1,// ---- imTextField3 ----
+0,0,0,1,0,0,0,1,// ======== personalInfoPanel ========
+0,0,0,1,0,0,0,1,// create menuitems for all registered new items
+0,0,0,1,0,0,0,1,// create menuitems for all registered frame extensions
+0,0,0,1,0,0,0,1,// border
+0,0,0,1,0,0,0,1,// ---- weblogLabel ----
+0,0,0,1,0,0,0,1,// ---- homepageTextField ----
+0,0,0,1,0,0,0,1,// ======== panel5 ========
+0,0,0,1,0,0,0,1,// textPane.setMargin(new Insets(5, 5, 5, 5));
+0,0,0,1,0,0,0,1,// setup base url in order to be able to display images // in html-component
+0,0,0,1,0,0,0,1,// ---- weblogButton ----
 0,0,0,0,0,0,0,0,// ---- weblogTextField ----
-0,0,0,0,0,0,0,0,// we insert new menus between the "Edit" and the "Utilities, Help" menu
-0,0,0,0,0,0,0,0,// make sure that we don't end up with two separators
-0,0,0,0,0,0,0,0,// Configure the component with the specified value
-0,0,0,0,0,0,0,0,// ---- freebusyTextField ----
-0,0,0,0,0,0,0,0,// ---- freebusyButton ----
-0,0,0,0,0,0,0,0,// ======== panel6 ========
-0,0,0,0,0,0,0,0,// ---- professionTextField ----
-0,0,0,0,0,0,0,0,// add node
+0,0,0,1,0,0,0,1,// we insert new menus between the "Edit" and the "Utilities, Help" menu
+0,0,0,1,0,0,0,1,// make sure that we don't end up with two separators
+0,0,0,1,0,0,0,1,// Configure the component with the specified value
+0,0,0,1,0,0,0,1,// ---- freebusyTextField ----
+0,0,0,1,0,0,0,1,// ---- freebusyButton ----
+0,0,0,1,0,0,0,1,// ======== panel6 ========
+0,0,0,1,0,0,0,1,// ---- professionTextField ----
+0,0,0,1,0,0,0,1,// add node
 0,0,0,0,0,0,0,0,// ---- freebusyLabel ----
-0,0,0,0,0,0,0,0,// ---- cancelButton ----
-0,0,0,0,0,0,0,0,// ---- calendarButton ----
-0,0,0,0,0,0,0,0,// ---- titleLabel ----
-0,0,0,0,0,0,0,0,// ---- companyLabel ----
-0,0,0,0,0,0,0,0,// delete plugin from disk
-0,0,0,0,0,0,0,0,// ---- calendarTextField ----
-0,0,0,0,0,0,0,0,"/*     * Close all open frames, which leads to exiting Columba     */"
-0,0,0,0,0,0,0,0,// protected JButton defaultButton;
-0,0,0,0,0,0,0,0,// delete directory recursivly
-0,0,0,0,0,0,0,0,// check if this is a management frame instance // -> if so create submenu to switch perspectives // -> otherwise, don't create submenu
-0,0,0,0,0,0,0,0,// show profile choosing dialog
-0,0,0,0,0,0,0,0,// remove profile xml-element
-0,0,0,0,0,0,0,0,// topPanel.add(iconLabel, BorderLayout.WEST);
-0,0,0,0,0,0,0,0,// GeneralPath path = generatePath(h, w); // g2.setColor(fillColor); // g2.fill(path); // // path = generateTopPath(w); // GradientPaint painter = new GradientPaint(0, 0, startColor, 0, 5, // midColor); // g2.setPaint(painter); // g2.fill(path); // // path = generatePath(h, w); // g2.setColor(UIManager.getColor("controlDkShadow")); // g2.draw(path);
+0,0,0,1,0,0,0,1,// ---- cancelButton ----
+0,0,0,1,0,0,0,1,// ---- calendarButton ----
+0,0,0,1,0,0,0,1,// ---- titleLabel ----
+0,0,0,1,0,0,0,1,// ---- companyLabel ----
+0,0,0,1,0,0,0,1,// delete plugin from disk
+0,0,0,1,0,0,0,1,// ---- calendarTextField ----
+0,0,0,1,0,0,0,1,"/*     * Close all open frames, which leads to exiting Columba     */"
+0,0,0,1,0,0,0,1,// protected JButton defaultButton;
+0,0,0,1,0,0,0,1,// delete directory recursivly
+0,0,0,1,0,0,0,1,// check if this is a management frame instance // -> if so create submenu to switch perspectives // -> otherwise, don't create submenu
+0,0,0,1,0,0,0,1,// show profile choosing dialog
+0,0,0,1,0,0,0,1,// remove profile xml-element
+0,0,0,1,0,0,0,1,// topPanel.add(iconLabel, BorderLayout.WEST);
+0,0,0,1,0,0,0,1,// GeneralPath path = generatePath(h, w); // g2.setColor(fillColor); // g2.fill(path); // // path = generateTopPath(w); // GradientPaint painter = new GradientPaint(0, 0, startColor, 0, 5, // midColor); // g2.setPaint(painter); // g2.fill(path); // // path = generatePath(h, w); // g2.setColor(UIManager.getColor("controlDkShadow")); // g2.draw(path);
 0,0,0,0,0,0,0,0,//defaultBox.removeAll();
-0,0,0,0,0,0,0,0,// create new stacked box
-0,0,0,0,0,0,0,0,// add window listener
+0,0,0,1,0,0,0,1,// create new stacked box
+0,0,0,1,0,0,0,1,// add window listener
 0,0,0,0,0,0,0,0,// paint the text and icon
-0,0,0,0,0,0,0,0,// enable/disable search bar during search
+0,0,0,1,0,0,0,1,// enable/disable search bar during search
 0,0,0,0,0,0,0,0,// big icon for JToolBar
-0,0,0,0,0,0,0,0,// if only one task left
-0,0,0,0,0,0,0,0,// stop update timer
+0,0,0,1,0,0,0,1,// if only one task left
+0,0,0,1,0,0,0,1,// stop update timer
 0,0,0,0,0,0,0,0,// set text
-0,0,0,0,0,0,0,0,// clear text with delay
-0,0,0,0,0,0,0,0,// clear label
-0,0,0,0,0,0,0,0,// stop clear timer
-0,0,0,0,0,0,0,0,// disabled Kill button, because feature is not supported
-0,0,0,0,0,0,0,0,// fall-back
-0,0,0,0,0,0,0,0,// force repaint
+0,0,0,1,0,0,0,1,// clear text with delay
+0,0,0,1,0,0,0,1,// clear label
+0,0,0,1,0,0,0,1,// stop clear timer
+0,0,0,1,0,0,0,1,// disabled Kill button, because feature is not supported
+0,0,0,1,0,0,0,1,// fall-back
+0,0,0,1,0,0,0,1,// force repaint
 0,0,0,0,0,0,0,0,// update menu if tags are changed
 0,0,0,0,0,0,0,0,// don't want to have two separators
-0,0,0,0,0,0,0,0,// mark tag, if the current selection is tagged with it
+0,0,0,1,0,0,0,1,// mark tag, if the current selection is tagged with it
 0,0,0,0,0,0,0,0,// if no theme available -> set "Plastic" as default
-0,0,0,0,0,0,0,0,// apply theme
-0,0,0,0,0,0,0,0,// set the Quaqua Look and Feel in the UIManager
-0,0,0,0,0,0,0,0,// no text!
-0,0,0,0,0,0,0,0,"/* (non-Javadoc)		 * @see java.lang.Thread#run()		 */"
+0,0,0,1,0,0,0,1,// apply theme
+0,0,0,1,0,0,0,1,// set the Quaqua Look and Feel in the UIManager
+0,0,0,1,0,0,0,1,// no text!
+0,0,0,1,0,0,0,1,"/* (non-Javadoc)		 * @see java.lang.Thread#run()		 */"
 0,0,0,0,0,0,0,0,// JavaHelp support
-0,0,0,0,0,0,0,0,// apply transparent icon //button.setDisabledIcon(ImageUtil.createTransparentIcon(icon));
+0,0,0,1,0,0,0,1,// apply transparent icon //button.setDisabledIcon(ImageUtil.createTransparentIcon(icon));
 0,0,0,0,0,0,0,0,// deprecated config-file support // -> skip creation of "Cancel" button
-0,0,0,0,0,0,0,0,// tray icon not supported on Mac
+0,0,0,1,0,0,0,1,// tray icon not supported on Mac
 0,0,0,0,0,0,0,0,// columns  // rows
-0,0,0,0,0,0,0,0,// if some action was performed
-0,0,0,0,0,0,0,0,// setup the finder
-0,0,0,0,0,0,0,0,// mark found pattern
+0,0,0,1,0,0,0,1,// if some action was performed
+0,0,0,1,0,0,0,1,// setup the finder
+0,0,0,1,0,0,0,1,// mark found pattern
 0,0,0,0,0,0,0,0,// grant "all-permissions"
-0,0,0,0,0,0,0,0,// load window position // loadPositions(getViewItem());
-0,0,0,0,0,0,0,0,// get text where to find pattern
-0,0,0,0,0,0,0,0,// find pattern
-0,0,0,0,0,0,0,0,// add search bar to main toolbar, in case its a managed frame mediator
-0,0,0,0,0,0,0,0,// saveStringInFile
-0,0,0,0,0,0,0,0,// shutdown Columba
-0,0,0,0,0,0,0,0,// deleteDirectory
-0,0,0,0,0,0,0,0,// emptyDirectory
-0,0,0,0,0,0,0,0,// throws // java.io.IOException
-0,0,0,0,0,0,0,0,// getResourceURL
-0,0,0,0,0,0,0,0,// copyFile
-0,0,0,0,0,0,0,0,// copyResource
-0,0,0,0,0,0,0,0,// try to restore from previous session
-0,0,0,0,0,0,0,0,// Try again after shutdown
-0,0,0,0,0,0,0,0,// do nothing here
-0,0,0,0,0,0,0,0,// add a new inputstream to read from
+0,0,0,1,0,0,0,1,// load window position // loadPositions(getViewItem());
+0,0,0,1,0,0,0,1,// get text where to find pattern
+0,0,0,1,0,0,0,1,// find pattern
+0,0,0,1,0,0,0,1,// add search bar to main toolbar, in case its a managed frame mediator
+0,0,0,1,0,0,0,1,// saveStringInFile
+0,0,0,1,0,0,0,1,// shutdown Columba
+0,0,0,1,0,0,0,1,// deleteDirectory
+0,0,0,1,0,0,0,1,// emptyDirectory
+0,0,0,1,0,0,0,1,// throws // java.io.IOException
+0,0,0,1,0,0,0,1,// getResourceURL
+0,0,0,1,0,0,0,1,// copyFile
+0,0,0,1,0,0,0,1,// copyResource
+0,0,0,1,0,0,0,1,// try to restore from previous session
+0,0,0,1,0,0,0,1,// Try again after shutdown
+0,0,0,1,0,0,0,1,// do nothing here
+0,0,0,1,0,0,0,1,// add a new inputstream to read from
 0,0,0,0,0,0,0,0,// Delete the tempfile immedietly
-0,0,0,0,0,0,0,0,// create logging file in "<users config-folder>/log"
-0,0,0,0,0,0,0,0,// don't use // standard // XML // formatting
-0,0,0,0,0,0,0,0,"//		JScrollPane scrollPane = new JScrollPane(tree); //		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); //		 //		add(scrollPane, BorderLayout.CENTER);"
-0,0,0,0,0,0,0,0,// enable flexdock ghost preview
-0,0,0,0,0,0,0,0,// register shutdown manager
+0,0,0,1,0,0,0,1,// create logging file in "<users config-folder>/log"
+0,0,0,1,0,0,0,1,// don't use // standard // XML // formatting
+0,0,0,1,0,0,0,1,"//		JScrollPane scrollPane = new JScrollPane(tree); //		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); //		 //		add(scrollPane, BorderLayout.CENTER);"
+0,0,0,1,0,0,0,1,// enable flexdock ghost preview
+0,0,0,1,0,0,0,1,// register shutdown manager
 0,0,0,0,0,0,0,0,// register for cleanup
-0,0,0,0,0,0,0,0,//$NON-NLS-2$
+0,0,0,1,0,0,0,1,//$NON-NLS-2$
 0,0,0,0,0,0,0,0,// // first load all extension handlers //
-0,0,0,0,0,0,0,0,// load core extension handlers
-0,0,0,0,0,0,0,0,// load addressbook extension handler
-0,0,0,0,0,0,0,0,// load mail extension handler
-0,0,0,0,0,0,0,0,// load all internal mail plugins
+0,0,0,1,0,0,0,1,// load core extension handlers
+0,0,0,1,0,0,0,1,// load addressbook extension handler
+0,0,0,1,0,0,0,1,// load mail extension handler
+0,0,0,1,0,0,0,1,// load all internal mail plugins
 0,0,0,0,0,0,0,0,// // now load all external plugins residing in /plugins directory //
 0,0,0,0,0,0,0,0,// Find all native jars
-0,0,0,0,0,0,0,0,// add the old classpath
-0,0,0,0,0,0,0,0,// Initialise system dependent stuff
-0,0,0,0,0,0,0,0,// remove directories which don't contain a plugin
-0,0,0,0,0,0,0,0,"/*	 * protected static ClassLoader loader = ClassLoader.getSystemClassLoader();	 */"
+0,0,0,1,0,0,0,1,// add the old classpath
+0,0,0,1,0,0,0,1,// Initialise system dependent stuff
+0,0,0,1,0,0,0,1,// remove directories which don't contain a plugin
+0,0,0,1,0,0,0,1,"/*	 * protected static ClassLoader loader = ClassLoader.getSystemClassLoader();	 */"
 0,0,0,0,0,0,0,0,// we have a plugin-handler for this kind of extension
 0,0,0,0,0,0,0,0,// try to load all plugins
 0,0,0,0,0,0,0,0,// try all possible version of readme files...
-0,0,0,0,0,0,0,0,// retrieve inputstream from resource
+0,0,0,1,0,0,0,1,// retrieve inputstream from resource
 0,0,0,0,0,0,0,0,// remember plugin metadata // pluginMap.put(id, pluginMetadata);
-0,0,0,0,0,0,0,0,// try to load extensin handlers of all plugins
-0,0,0,0,0,0,0,0,// this constructor has the correct number // of arguments
+0,0,0,1,0,0,0,1,// try to load extensin handlers of all plugins
+0,0,0,1,0,0,0,1,// this constructor has the correct number // of arguments
 0,0,0,0,0,0,0,0,// skip if no <extensionlist> element found
-0,0,0,0,0,0,0,0,// retrieve JDom Document from inputstream
-0,0,0,0,0,0,0,0,// if available, load cached instance
+0,0,0,1,0,0,0,1,// retrieve JDom Document from inputstream
+0,0,0,1,0,0,0,1,// if available, load cached instance
 0,0,0,0,0,0,0,0,// ok, we found a matching constructor // -> create correct list of arguments
-0,0,0,0,0,0,0,0,"// // external plugin //				"
-0,0,0,0,0,0,0,0,// use external Java URL classloader
+0,0,0,1,0,0,0,1,"// // external plugin //				"
+0,0,0,1,0,0,0,1,// use external Java URL classloader
 0,0,0,0,0,0,0,0,// remember instance
-0,0,0,0,0,0,0,0,// append URLs to global classloader
-0,0,0,0,0,0,0,0,// plugin-directory
+0,0,0,1,0,0,0,1,// append URLs to global classloader
+0,0,0,1,0,0,0,1,// plugin-directory
 0,0,0,0,0,0,0,0,// save window position
-0,0,0,0,0,0,0,0,// show/hide new toolbar
-0,0,0,0,0,0,0,0,// add animated icon to right-hand side corner of menubar
-0,0,0,0,0,0,0,0,// retrieve metadata
-0,0,0,0,0,0,0,0,// example configuration (tree.xml): // // <filter description="gnome" enabled="true"> // <rules condition="matchany"> // <criteria criteria="contains" headerfield="To or Cc" pattern="gnome" type="To // or Cc"></criteria> // </rules> // <actionlist> // <action uid="120" type="Move Message"></action> // </actionlist> // </filter> //
-0,0,0,0,0,0,0,0,// default core menu
-0,0,0,0,0,0,0,0,// it isn't possible to undo whatever the script did
+0,0,0,1,0,0,0,1,// show/hide new toolbar
+0,0,0,1,0,0,0,1,// add animated icon to right-hand side corner of menubar
+0,0,0,1,0,0,0,1,// retrieve metadata
+0,0,0,1,0,0,0,1,// example configuration (tree.xml): // // <filter description="gnome" enabled="true"> // <rules condition="matchany"> // <criteria criteria="contains" headerfield="To or Cc" pattern="gnome" type="To // or Cc"></criteria> // </rules> // <actionlist> // <action uid="120" type="Move Message"></action> // </actionlist> // </filter> //
+0,0,0,1,0,0,0,1,// default core menu
+0,0,0,1,0,0,0,1,// it isn't possible to undo whatever the script did
 0,0,0,0,0,0,0,0,// the indent-number attribute causes an IllegalArgumentException under 1.4
-0,0,0,0,0,0,0,0,// scripts should reside in <config-folder>/scripts/ directory
-0,0,0,0,0,0,0,0,/* if so, remove it */
-0,0,0,0,0,0,0,0,// retrieving the instance for the first time // creates an instance in ExtensionHandler subclass //  // instance reference is kept in hashmap automatically
+0,0,0,1,0,0,0,1,// scripts should reside in <config-folder>/scripts/ directory
+0,0,0,1,0,0,0,1,/* if so, remove it */
+0,0,0,1,0,0,0,1,// retrieving the instance for the first time // creates an instance in ExtensionHandler subclass //  // instance reference is kept in hashmap automatically
 0,0,0,0,0,0,0,0,// create toolbar
 0,0,0,0,0,0,0,0,// memorize location URI
 0,0,0,0,0,0,0,0,// used to temporarily store the values while the original // viewList gets modified by the close method
 0,0,0,0,0,0,0,0,// ensure this is called in the EDT
-0,0,0,0,0,0,0,0,// notify that search is finished
-0,0,0,0,0,0,0,0,// retrieve total result count
-0,0,0,0,0,0,0,0,// add statusbar
-0,0,0,0,0,0,0,0,// Set the icon and the title
-0,0,0,0,0,0,0,0,// create uuid
-0,0,0,0,0,0,0,0,// we support up to 4 im entries
-0,0,0,0,0,0,0,0,// don't wait, just continue shutdown procedure, // commands will be killed
-0,0,0,0,0,0,0,0,// load xml configuration // -> will be automatically saved every couple of minutes and on // shutdown
-0,0,0,0,0,0,0,0,// this will overwrite the "old" tag with same id
-0,0,0,0,0,0,0,0,//private Hashtable properties = new Hashtable();
-0,0,0,0,0,0,0,0,// createMenuBar();
-0,0,0,0,0,0,0,0,// constructor for the class
+0,0,0,1,0,0,0,1,// notify that search is finished
+0,0,0,1,0,0,0,1,// retrieve total result count
+0,0,0,1,0,0,0,1,// add statusbar
+0,0,0,1,0,0,0,1,// Set the icon and the title
+0,0,0,1,0,0,0,1,// create uuid
+0,0,0,1,0,0,0,1,// we support up to 4 im entries
+0,0,0,1,0,0,0,1,// don't wait, just continue shutdown procedure, // commands will be killed
+0,0,0,1,0,0,0,1,// load xml configuration // -> will be automatically saved every couple of minutes and on // shutdown
+0,0,0,1,0,0,0,1,// this will overwrite the "old" tag with same id
+0,0,0,1,0,0,0,1,//private Hashtable properties = new Hashtable();
+0,0,0,1,0,0,0,1,// createMenuBar();
+0,0,0,1,0,0,0,1,// constructor for the class
 0,0,0,0,0,0,0,0,// create pattern
 0,0,0,0,0,0,0,0,// create new default frame controller
-0,0,0,0,0,0,0,0,"// the implementation of the search next function. It returns always the  position of the NEXT found word.	"
-0,0,0,0,0,0,0,0,"//	the implementation of the replace all function."
-0,0,0,0,0,0,0,0,// JPanel panel = (JPanel) this.getContentPane();
-0,0,0,0,0,0,0,0,// convert region enum to flexdock string
-0,0,0,0,0,0,0,0,"//	private static final String[] SALUTATIONS = { ""Mr."", ""Mrs."", ""Ms."", ""Dr."", ""Congressman"", ""Congresswoman"", ""Senator"", ""President"", //		""Chancellor"", ""Minister"", ""Prime Minister"" };"
-0,0,0,0,0,0,0,0,"//	private static final String[] TITLES = { ""PhD"", ""Ph.D."", ""PhD."", ""Esq."", ""Esquire"" };"
-0,0,0,0,0,0,0,0,// Initialize salutation strings
-0,0,0,0,0,0,0,0,// we cannot use an iterator here because the close method // manipulates the list
-0,0,0,0,0,0,0,0,// Treat a null name input string the same as an empty input string
+0,0,0,1,0,0,0,1,"// the implementation of the search next function. It returns always the  position of the NEXT found word.	"
+0,0,0,1,0,0,0,1,"//	the implementation of the replace all function."
+0,0,0,1,0,0,0,1,// JPanel panel = (JPanel) this.getContentPane();
+0,0,0,1,0,0,0,1,// convert region enum to flexdock string
+0,0,0,1,0,0,0,1,"//	private static final String[] SALUTATIONS = { ""Mr."", ""Mrs."", ""Ms."", ""Dr."", ""Congressman"", ""Congresswoman"", ""Senator"", ""President"", //		""Chancellor"", ""Minister"", ""Prime Minister"" };"
+0,0,0,1,0,0,0,1,"//	private static final String[] TITLES = { ""PhD"", ""Ph.D."", ""PhD."", ""Esq."", ""Esquire"" };"
+0,0,0,1,0,0,0,1,// Initialize salutation strings
+0,0,0,1,0,0,0,1,// we cannot use an iterator here because the close method // manipulates the list
+0,0,0,1,0,0,0,1,// Treat a null name input string the same as an empty input string
 0,0,0,0,0,0,0,0,// Assume last name only
-0,0,0,0,0,0,0,0,// store profiling point data
+0,0,0,1,0,0,0,1,// store profiling point data
 0,0,0,0,0,0,0,0,// For writing out the data // Indent for each level
 0,0,0,0,0,0,0,0,// this.file = F;
-0,0,0,0,0,0,0,0,//We can use the Java way to maximize the window
+0,0,0,1,0,0,0,1,//We can use the Java way to maximize the window
 0,0,0,0,0,0,0,0,// Attr name
-0,0,0,0,0,0,0,0,// accumulate the contents into a buffer.
-0,0,0,0,0,0,0,0,//store.shutdown();
+0,0,0,1,0,0,0,1,// accumulate the contents into a buffer.
+0,0,0,1,0,0,0,1,//store.shutdown();
 0,0,0,0,0,0,0,0,// Menuitems use this to display a string in the statusbar
-0,0,0,0,0,0,0,0,// init selection handler
-0,0,0,0,0,0,0,0,// shutdown Columba if no frame exists anymore
-0,0,0,0,0,0,0,0,// store current view settings
-0,0,0,0,0,0,0,0,// turn on floating support
+0,0,0,1,0,0,0,1,// init selection handler
+0,0,0,1,0,0,0,1,// shutdown Columba if no frame exists anymore
+0,0,0,1,0,0,0,1,// store current view settings
+0,0,0,1,0,0,0,1,// turn on floating support
 0,0,0,0,0,0,0,0,// create test userlist data
-0,0,0,0,0,0,0,0,// create a rounded clip LARGER than the comp
-0,0,0,0,0,0,0,0,"/*	 * Test method for 'org.columba.core.tagging.TagManager.getTag(String)'	 */"
-0,0,0,0,0,0,0,0,// If defaultViews doesn't exist, create it (backward compatibility)
-0,0,0,0,0,0,0,0,// nothing to save
-0,0,0,0,0,0,0,0,// Create a frame controller for this view // view = null => defaults specified by frame controller is used
-0,0,0,0,0,0,0,0,//MessageNode getMessageNodeAtRow(int index);
-0,0,0,0,0,0,0,0,// for example: "[columba-users]Re: this is a subject"
-0,0,0,0,0,0,0,0,// found cached instance // -> re-use this instance and remove it from cache
-0,0,0,0,0,0,0,0,// cancel, if we show already correct frame mediator
-0,0,0,0,0,0,0,0,// Create a frame controller for this view
-0,0,0,0,0,0,0,0,// create new instance // -> get frame controller using the plugin handler found above
-0,0,0,0,0,0,0,0,// if Reply-To headerfield isn't specified, try to use from
+0,0,0,1,0,0,0,1,// create a rounded clip LARGER than the comp
+0,0,0,1,0,0,0,1,"/*	 * Test method for 'org.columba.core.tagging.TagManager.getTag(String)'	 */"
+0,0,0,1,0,0,0,1,// If defaultViews doesn't exist, create it (backward compatibility)
+0,0,0,1,0,0,0,1,// nothing to save
+0,0,0,1,0,0,0,1,// Create a frame controller for this view // view = null => defaults specified by frame controller is used
+0,0,0,1,0,0,0,1,//MessageNode getMessageNodeAtRow(int index);
+0,0,0,1,0,0,0,1,// for example: "[columba-users]Re: this is a subject"
+0,0,0,1,0,0,0,1,// found cached instance // -> re-use this instance and remove it from cache
+0,0,0,1,0,0,0,1,// cancel, if we show already correct frame mediator
+0,0,0,1,0,0,0,1,// Create a frame controller for this view
+0,0,0,1,0,0,0,1,// create new instance // -> get frame controller using the plugin handler found above
+0,0,0,1,0,0,0,1,// if Reply-To headerfield isn't specified, try to use from
 0,0,0,0,0,0,0,0,// get enable attribute
-0,0,0,0,0,0,0,0,// get element from view list
-0,0,0,0,0,0,0,0,"/* If this is windows, check the default installation location for the * gpg.exe binary. */"
-0,0,0,0,0,0,0,0,// get location of executable
-0,0,0,0,0,0,0,0,// reply-to
-0,0,0,0,0,0,0,0,// merge mimeparts and return
-0,0,0,0,0,0,0,0,// should not occur
-0,0,0,0,0,0,0,0,// add encoding if necessary
-0,0,0,0,0,0,0,0,// init component before querying for sourceFile
-0,0,0,0,0,0,0,0,//List mimeParts = model.getAttachments();
+0,0,0,1,0,0,0,1,// get element from view list
+0,0,0,1,0,0,0,1,"/* If this is windows, check the default installation location for the * gpg.exe binary. */"
+0,0,0,1,0,0,0,1,// get location of executable
+0,0,0,1,0,0,0,1,// reply-to
+0,0,0,1,0,0,0,1,// merge mimeparts and return
+0,0,0,1,0,0,0,1,// should not occur
+0,0,0,1,0,0,0,1,// add encoding if necessary
+0,0,0,1,0,0,0,1,// init component before querying for sourceFile
+0,0,0,1,0,0,0,1,//List mimeParts = model.getAttachments();
 0,0,0,0,0,0,0,0,// compose message body as multipart/alternative
 0,0,0,0,0,0,0,0,// send as multipart/alternative
-0,0,0,0,0,0,0,0,// load all frames from configuration file
-0,0,0,0,0,0,0,0,// if the id not currently set (for example in the security panel in // the account-config
-0,0,0,0,0,0,0,0,// if not we haven't actually closed a frame, leave viewList as is
-0,0,0,0,0,0,0,0,// size
-0,0,0,0,0,0,0,0,"/*  	 * Add supported account formats here  	 * */"
-0,0,0,0,0,0,0,0,// create if not available
-0,0,0,0,0,0,0,0,// return default-account identityItem instead
-0,0,0,0,0,0,0,0,"/*         * The fields on this object is in fact represented in the xml         * structure found as getRoot(). Therefore super.hashCode()         * should do the job.         */"
-0,0,0,0,0,0,0,0,// store every open frame in our temporary list
+0,0,0,1,0,0,0,1,// load all frames from configuration file
+0,0,0,1,0,0,0,1,// if the id not currently set (for example in the security panel in // the account-config
+0,0,0,1,0,0,0,1,// if not we haven't actually closed a frame, leave viewList as is
+0,0,0,1,0,0,0,1,// size
+0,0,0,1,0,0,0,1,"/*  	 * Add supported account formats here  	 * */"
+0,0,0,1,0,0,0,1,// create if not available
+0,0,0,1,0,0,0,1,// return default-account identityItem instead
+0,0,0,1,0,0,0,1,"/*         * The fields on this object is in fact represented in the xml         * structure found as getRoot(). Therefore super.hashCode()         * should do the job.         */"
+0,0,0,1,0,0,0,1,// store every open frame in our temporary list
 0,0,0,0,0,0,0,0,"/*     * search for SecurityItem based on To headerfield     *     */"
-0,0,0,0,0,0,0,0,// path to account templates for POP3/IMAP
-0,0,0,0,0,0,0,0,// found mail component frame
+0,0,0,1,0,0,0,1,// path to account templates for POP3/IMAP
+0,0,0,1,0,0,0,1,// found mail component frame
 0,0,0,0,0,0,0,0,// get plugin ID
-0,0,0,0,0,0,0,0,"/* If this is a unix-based system, check the 2 best-known areas for the * gpg binary. */"
-0,0,0,0,0,0,0,0,//apply initial version information
-0,0,0,0,0,0,0,0,// dismiss char
+0,0,0,1,0,0,0,1,"/* If this is a unix-based system, check the 2 best-known areas for the * gpg binary. */"
+0,0,0,1,0,0,0,1,//apply initial version information
+0,0,0,1,0,0,0,1,// dismiss char
 0,0,0,0,0,0,0,0,// exit for-loop
 0,0,0,0,0,0,0,0,// set configuration of this plugin
-0,0,1,0,0,0,1,0,// show error dialog, with exception message and stack-trace // -> dialog also provides a button for the user to easily // -> report a bug
-0,0,0,0,0,0,0,0,// get date
-0,0,0,0,0,0,0,0,// check configuration
-0,0,0,0,0,0,0,0,// create reference
+0,0,0,1,0,0,0,1,// show error dialog, with exception message and stack-trace // -> dialog also provides a button for the user to easily // -> report a bug
+0,0,0,1,0,0,0,1,// get date
+0,0,0,1,0,0,0,1,// check configuration
+0,0,0,1,0,0,0,1,// create reference
 0,0,0,0,0,0,0,0,// create xml node
-0,0,0,0,0,0,0,0,"/*                    case '\'':                        sb.append(""&apos;"");                        i++;                        break;*/"
-0,0,0,0,0,0,0,0,// Check if the MessageFolderInfo is sane
-0,0,0,0,0,0,0,0,// if message with uid doesn't exist -> skip
+0,0,0,1,0,0,0,1,"/*                    case '\'':                        sb.append(""&apos;"");                        i++;                        break;*/"
+0,0,0,1,0,0,0,1,// Check if the MessageFolderInfo is sane
+0,0,0,1,0,0,0,1,// if message with uid doesn't exist -> skip
 0,0,0,0,0,0,0,0,// remove message
 0,0,0,0,0,0,0,0,// start the configuration wizard
-0,0,0,0,0,0,0,0,// Sanity checks
-0,0,0,0,0,0,0,0,// Get the handler
-0,0,0,0,0,0,0,0,"/* Couldn't find anything, so return null and let the wizard ask the * user. */"
-0,0,0,0,0,0,0,0,// folderitem wraps xml configuration from tree.xml
+0,0,0,1,0,0,0,1,// Sanity checks
+0,0,0,1,0,0,0,1,// Get the handler
+0,0,0,1,0,0,0,1,"/* Couldn't find anything, so return null and let the wizard ask the * user. */"
+0,0,0,1,0,0,0,1,// folderitem wraps xml configuration from tree.xml
 0,0,0,0,0,0,0,0,// Root folder cache
 0,0,0,0,0,0,0,0,"/*	public MailFolderCommandReference getCommandReference(MailFolderCommandReference r) {		return r;	}	*/"
-0,0,0,0,0,0,0,0,// do the same for the XmlElement of child
-0,0,0,0,0,0,0,0,"/* If this is windows, check the default installation location for the * aspell.exe binary. */"
-0,0,0,0,0,0,0,0,// delete folder from your harddrive
-0,0,0,0,0,0,0,0,// Get the mimepart
+0,0,0,1,0,0,0,1,// do the same for the XmlElement of child
+0,0,0,1,0,0,0,1,"/* If this is windows, check the default installation location for the * aspell.exe binary. */"
+0,0,0,1,0,0,0,1,// delete folder from your harddrive
+0,0,0,1,0,0,0,1,// Get the mimepart
 0,0,0,0,0,0,0,0,"/*			 * ((AbstractLocalFolder) destFolder).setFlags(destuid, (Flags)			 * getFlags( uids[i]).clone());			 */"
 0,0,0,0,0,0,0,0,// menu.setVisible(true);
 0,0,0,0,0,0,0,0,// process exception -> show error dialog to user
-0,0,0,0,0,0,0,0,// Print the stacktrace to our log file.
+0,0,0,1,0,0,0,1,// Print the stacktrace to our log file.
 0,0,0,0,0,0,0,0,//setMargin(new Insets(0,0,0,0));
-0,0,0,0,0,0,0,0,// notify tree
+0,0,0,1,0,0,0,1,// notify tree
 0,0,0,0,0,0,0,0,// checkbox pressed
-0,0,0,0,0,0,0,0,"/* If this is a unix-based system, check the 2 best-known areas for the * aspell binary. */"
-0,0,0,0,0,0,0,0,// ButtonBarBuilder builder = new ButtonBarBuilder(buttonEastPanel); // // builder.addGlue();
+0,0,0,1,0,0,0,1,"/* If this is a unix-based system, check the 2 best-known areas for the * aspell binary. */"
+0,0,0,1,0,0,0,1,// ButtonBarBuilder builder = new ButtonBarBuilder(buttonEastPanel); // // builder.addGlue();
 0,0,0,0,0,0,0,0,//cache the old color //set the white color //draw the square //reset the old color
 0,0,0,0,0,0,0,0,// First Line with Labels
-0,0,0,0,0,0,0,0,// ButtonBarBuilder builder2 = new ButtonBarBuilder(buttonWestPanel);
-0,0,0,0,0,0,0,0,// builder2.addGlue();
-0,0,0,0,0,0,0,0,// this.contentPane = comp;
+0,0,0,1,0,0,0,1,// ButtonBarBuilder builder2 = new ButtonBarBuilder(buttonWestPanel);
+0,0,0,1,0,0,0,1,// builder2.addGlue();
+0,0,0,1,0,0,0,1,// this.contentPane = comp;
 0,0,0,0,0,0,0,0,// Second Line with Names
-0,0,0,0,0,0,0,0,//String envfonts[] = gEnv.getAvailableFontFamilyNames();
+0,0,0,1,0,0,0,1,//String envfonts[] = gEnv.getAvailableFontFamilyNames();
 0,0,0,0,0,0,0,0,// we support up to 3 address entries (work/private/other)
-0,0,0,0,0,0,0,0,// 5. Line with Preview
-0,0,0,0,0,0,0,0,// 4. Line with PreviewLabel
-0,0,0,0,0,0,0,0,// Spacings
-0,0,0,0,0,0,0,0,"/*		 * FormLayout layout = new FormLayout(""default"", ""default, default"");		 * IContainer c = getContentPane(); c.setLayout(layout);		 * 		 * CellConstraints cc = new CellConstraints();		 * c.add(createCenterPanel(detailsButton.isSelected()), cc.xy(1, 1));		 * c.add(bottomPanel, cc.xy(1, 2));		 */"
-0,0,0,0,0,0,0,0,// centerPanel.add(label, cc.xywh(3, 1, 1, 1));
-0,0,0,0,0,0,0,0,// switch to new theme
-0,0,0,0,0,0,0,0,// set fonts
-0,0,0,0,0,0,0,0,// notify frame to update
-0,0,0,0,0,0,0,0,// select Locale in ComboBox
+0,0,0,1,0,0,0,1,// 5. Line with Preview
+0,0,0,1,0,0,0,1,// 4. Line with PreviewLabel
+0,0,0,1,0,0,0,1,// Spacings
+0,0,0,1,0,0,0,1,"/*		 * FormLayout layout = new FormLayout(""default"", ""default, default"");		 * IContainer c = getContentPane(); c.setLayout(layout);		 * 		 * CellConstraints cc = new CellConstraints();		 * c.add(createCenterPanel(detailsButton.isSelected()), cc.xy(1, 1));		 * c.add(bottomPanel, cc.xy(1, 2));		 */"
+0,0,0,1,0,0,0,1,// centerPanel.add(label, cc.xywh(3, 1, 1, 1));
+0,0,0,1,0,0,0,1,// switch to new theme
+0,0,0,1,0,0,0,1,// set fonts
+0,0,0,1,0,0,0,1,// notify frame to update
+0,0,0,1,0,0,0,1,// select Locale in ComboBox
 0,0,0,0,0,0,0,0,// get config plugin-handler
-0,0,0,0,0,0,0,0,// ID of configuration plugin of this theme plugin
-0,0,0,0,0,0,0,0,//draw line
+0,0,0,1,0,0,0,1,// ID of configuration plugin of this theme plugin
+0,0,0,1,0,0,0,1,//draw line
 0,0,0,0,0,0,0,0,//check for line breaks
-0,0,0,0,0,0,0,0,// don't override update(), get the default clear
+0,0,0,1,0,0,0,1,// don't override update(), get the default clear
 0,0,0,0,0,0,0,0,// The length is 1 if no item is selected
 0,0,0,0,0,0,0,0,// Instance Creation *****************************************************
 0,0,0,0,0,0,0,0,//RGB values discovered using ZoomIn
-0,0,0,0,0,0,0,0,// draw vertical lines
-0,0,0,0,0,0,0,0,// Enable JavaHelp support if topic id is defined
-0,0,0,0,0,0,0,0,//Dimensions
+0,0,0,1,0,0,0,1,// draw vertical lines
+0,0,0,1,0,0,0,1,// Enable JavaHelp support if topic id is defined
+0,0,0,1,0,0,0,1,//Dimensions
 0,0,0,0,0,0,0,0,//Draw the white squares first, so the gray squares will overlap
-0,0,0,0,0,0,0,0,// set mnemonic
-0,0,0,0,0,0,0,0,//setBackground(new Color(236, 233, 216));
+0,0,0,1,0,0,0,1,// set mnemonic
+0,0,0,1,0,0,0,1,//setBackground(new Color(236, 233, 216));
 0,0,0,0,0,0,0,0,/* Get the minimum size of the component. */
-0,0,0,0,0,0,0,0,// Set text, possibly with a mnemonic if defined using &
-0,0,0,0,0,0,0,0,// setText(treeNode.getName()); // setIcon(getFolderIcon(treeNode, expanded));
-0,0,0,0,0,0,0,0,/* Figure out which day the mouse click is on. */
+0,0,0,1,0,0,0,1,// Set text, possibly with a mnemonic if defined using &
+0,0,0,1,0,0,0,1,// setText(treeNode.getName()); // setIcon(getFolderIcon(treeNode, expanded));
+0,0,0,1,0,0,0,1,/* Figure out which day the mouse click is on. */
 0,0,0,0,0,0,0,0,/* mouse listener */
 0,0,0,0,0,0,0,0,/* Get the preferred size of the component. */
 0,0,0,0,0,0,0,0,// draw all the day cells
 0,0,0,0,0,0,0,0,// advance to the next cell position
 0,0,0,0,0,0,0,0,// paint the border
 0,0,0,0,0,0,0,0,// draw the weekday headings
-0,0,0,0,0,0,0,0,/* Copy the relevant portions of a date. */
+0,0,0,1,0,0,0,1,/* Copy the relevant portions of a date. */
 0,0,0,0,0,0,0,0,// b_lyear.setEnabled(y > y0);
-0,0,0,0,0,0,0,0,// Disable anything that would cause the date to go out of range. This // logic is extremely sensitive so be very careful when making changes. // Every condition test in here is necessary, so don't remove anything.
+0,0,0,1,0,0,0,1,// Disable anything that would cause the date to go out of range. This // logic is extremely sensitive so be very careful when making changes. // Every condition test in here is necessary, so don't remove anything.
 0,0,0,0,0,0,0,0,// fill the clipped area // g2d.setPaint(LIGHT_GRADIENT);
 0,0,0,0,0,0,0,0,"/*		 * asupport.fireActionEvent(((o == b_lmonth) || (o == b_rmonth)) ?		 * MONTH_CHANGE_CMD : YEAR_CHANGE_CMD);		 */"
-0,0,0,0,0,0,0,0,// paint inner border // g2d.setPaint(INNER);
-0,0,0,0,0,0,0,0,// set display text - possibly with a mnemonic defined using &
-0,0,0,0,0,0,0,0,// Let's at least make a half-assed attempt at conforming to the Metal // PLAF colors.
+0,0,0,1,0,0,0,1,// paint inner border // g2d.setPaint(INNER);
+0,0,0,1,0,0,0,1,// set display text - possibly with a mnemonic defined using &
+0,0,0,1,0,0,0,1,// Let's at least make a half-assed attempt at conforming to the Metal // PLAF colors.
 0,0,0,0,0,0,0,0,// p1.add(l_month);
-0,0,0,0,0,0,0,0,// top.setBorder( BorderFactory.createEtchedBorder() );
-0,0,0,0,0,0,0,0,// right
+0,0,0,1,0,0,0,1,// top.setBorder( BorderFactory.createEtchedBorder() );
+0,0,0,1,0,0,0,1,// right
 0,0,0,0,0,0,0,0,/* CEDRIC: not used right now. */
-0,0,0,0,0,0,0,0,// private ActionSupport asupport;
-0,0,0,0,0,0,0,0,// top
-0,0,0,0,0,0,0,0,// augment y.
+0,0,0,1,0,0,0,1,// private ActionSupport asupport;
+0,0,0,1,0,0,0,1,// top
+0,0,0,1,0,0,0,1,// augment y.
 0,0,0,0,0,0,0,0,// paint original first
-0,0,0,0,0,0,0,0,// augment x.
-0,0,0,0,0,0,0,0,// bottom
-0,0,0,0,0,0,0,0,// left
-0,0,0,0,0,0,0,0,// g.drawRect(0, 0, w - 3, h - 3);
-0,0,0,0,0,0,0,0,//repaint(x, y, width, height);
-0,0,0,0,0,0,0,0,//setFont( UIManager.getFont("TextField.font") );
-0,0,0,0,0,0,0,0,"/*         * wait for stream threads to die         *          */"
+0,0,0,1,0,0,0,1,// augment x.
+0,0,0,1,0,0,0,1,// bottom
+0,0,0,1,0,0,0,1,// left
+0,0,0,1,0,0,0,1,// g.drawRect(0, 0, w - 3, h - 3);
+0,0,0,1,0,0,0,1,//repaint(x, y, width, height);
+0,0,0,1,0,0,0,1,//setFont( UIManager.getFont("TextField.font") );
+0,0,0,1,0,0,0,1,"/*         * wait for stream threads to die         *          */"
 0,0,0,0,0,0,0,0,// load profiles.xml
-0,0,0,0,0,0,0,0,// check if there's already an instanciation available // we can reuse here
-0,0,0,0,0,0,0,0,// // following internal components plugin registration //
-0,0,0,0,0,0,0,0,// we need this for the focus manager
-0,0,0,0,0,0,0,0,// folder uid doesn't exist //  -> create default value
-0,0,0,0,0,0,0,0,// example configuration (tree.xml) // // <actionlist> //  <action uid="122" type="Move Message"></action> // </actionlist>
-0,0,0,0,0,0,0,0,"/*	 * public FilterCriteria getCriteria(int index) { return (FilterCriteria)	 * list.get(index); }	 */"
-0,0,0,0,0,0,0,0,// check if service is registered
-0,0,0,0,0,0,0,0,// Condition
-0,0,0,0,0,0,0,0,// retrieve service instance
-0,0,0,0,0,0,0,0,// load instance of service
-0,0,0,0,0,0,0,0,// Wait for external editor to quit
-0,0,0,0,0,0,0,0,// list of additional names (middle names)
-0,0,0,0,0,0,0,0,// replace "%1" parameter with file argument ...
+0,0,0,1,0,0,0,1,// check if there's already an instanciation available // we can reuse here
+0,0,0,1,0,0,0,1,// // following internal components plugin registration //
+0,0,0,1,0,0,0,1,// we need this for the focus manager
+0,0,0,1,0,0,0,1,// folder uid doesn't exist //  -> create default value
+0,0,0,1,0,0,0,1,// example configuration (tree.xml) // // <actionlist> //  <action uid="122" type="Move Message"></action> // </actionlist>
+0,0,0,1,0,0,0,1,"/*	 * public FilterCriteria getCriteria(int index) { return (FilterCriteria)	 * list.get(index); }	 */"
+0,0,0,1,0,0,0,1,// check if service is registered
+0,0,0,1,0,0,0,1,// Condition
+0,0,0,1,0,0,0,1,// retrieve service instance
+0,0,0,1,0,0,0,1,// load instance of service
+0,0,0,1,0,0,0,1,// Wait for external editor to quit
+0,0,0,1,0,0,0,1,// list of additional names (middle names)
+0,0,0,1,0,0,0,1,// replace "%1" parameter with file argument ...
 0,0,0,0,0,0,0,0,"//		titleBar.addButton(new PinIcon(), //				new PinAction(this.getPersistentId()), BorderLayout.EAST); //		titleBar.addButton(new MaximizeIcon(), new MaximizeAction(this //				.getPersistentId()), BorderLayout.EAST);"
 0,0,0,0,0,0,0,0,// set title
-0,0,0,0,0,0,0,0,// list of attachments
+0,0,0,1,0,0,0,1,// list of attachments
 0,0,0,0,0,0,0,0,// notify all listeners that have a new search result // ensure this is called in the EDT
-0,0,0,0,0,0,0,0,// icons // putValue(SMALL_ICON, ImageLoader.getSmallImageIcon("mail-read.png")); // putValue(LARGE_ICON, ImageLoader.getImageIcon("mail-read.png"));
+0,0,0,1,0,0,0,1,// icons // putValue(SMALL_ICON, ImageLoader.getSmallImageIcon("mail-read.png")); // putValue(LARGE_ICON, ImageLoader.getImageIcon("mail-read.png"));
 0,0,0,0,0,0,0,0,// notify all listeners
-0,0,0,0,0,0,0,0,// load xml configuration from file
+0,0,0,1,0,0,0,1,// load xml configuration from file
 0,0,0,0,0,0,0,0,// initialize context
 0,0,0,0,0,0,0,0,// notify all listeners that search is finished
-0,0,0,0,0,0,0,0,// create empty list
-0,0,0,0,0,0,0,0,// create empty structure value
-0,0,0,0,0,0,0,0,// check if default value exists
+0,0,0,1,0,0,0,1,// create empty list
+0,0,0,1,0,0,0,1,// create empty structure value
+0,0,0,1,0,0,0,1,// check if default value exists
 0,0,0,0,0,0,0,0,// remove old
-0,0,0,0,0,0,0,0,// contains already a single element
+0,0,0,1,0,0,0,1,// contains already a single element
 0,0,0,0,0,0,0,0,// create initial version from default configuration file
-0,0,0,0,0,0,0,0,// return plain document
-0,0,0,0,0,0,0,0,// callback
+0,0,0,1,0,0,0,1,// return plain document
+0,0,0,1,0,0,0,1,// callback
 0,0,0,0,0,0,0,0,//  // options.xml: // //<gui> // <theme name="Plastic" theme="Experience Blue"></theme> // <fonts overwrite="false"> //  <text name="Default" size="12"></text> //  <main name="Default" size="12"></main> // </fonts> // <toolbar text_position="false" enable_icon="true" enable_text="true"></toolbar> //</gui>
-0,0,0,0,0,0,0,0,// set display text stored here to an empty string (~ cleared) //$NON-NLS-1$
-0,0,0,0,0,0,0,0,// retrieve plugin manager instance
-0,0,0,0,0,0,0,0,// fall back to default path
-0,0,0,0,0,0,0,0,"/*		 * XmlElement child = getRoot().getElement(pathToElement);		 * 		 * return child;		 */"
-0,0,0,0,0,0,0,0,// make a deep copy
+0,0,0,1,0,0,0,1,// set display text stored here to an empty string (~ cleared) //$NON-NLS-1$
+0,0,0,1,0,0,0,1,// retrieve plugin manager instance
+0,0,0,1,0,0,0,1,// fall back to default path
+0,0,0,1,0,0,0,1,"/*		 * XmlElement child = getRoot().getElement(pathToElement);		 * 		 * return child;		 */"
+0,0,0,1,0,0,0,1,// make a deep copy
 0,0,0,0,0,0,0,0,// ---- imTextField1 ----
-0,0,0,0,0,0,0,0,// Remove bogus Operation
+0,0,0,1,0,0,0,1,// Remove bogus Operation
 0,0,0,0,0,0,0,0,// Create the workers
 0,0,0,0,0,0,0,0,// no attachments // -> only show bodytext editor
 0,0,0,0,0,0,0,0,// Return a String representation of the cipher text //$NON-NLS-1$
-0,0,0,0,0,0,0,0,// this is the final folder // subFolder = addIMAPChildFolder(parent, info, subchild);
+0,0,0,1,0,0,0,1,// this is the final folder // subFolder = addIMAPChildFolder(parent, info, subchild);
 0,0,0,0,0,0,0,0,// Our cleartext as bytes //$NON-NLS-1$
-0,0,0,0,0,0,0,0,"//	public static JButton createAnimatedIconButton() { //		ImageSequenceTimer button = new ImageSequenceTimer(); // //		return button; //	}"
-0,0,0,0,0,0,0,0,// fire event
-0,0,0,0,0,0,0,0,// this is executed on shutdown: store all open frames so that they // can be restored on the next start
+0,0,0,1,0,0,0,1,"//	public static JButton createAnimatedIconButton() { //		ImageSequenceTimer button = new ImageSequenceTimer(); // //		return button; //	}"
+0,0,0,1,0,0,0,1,// fire event
+0,0,0,1,0,0,0,1,// this is executed on shutdown: store all open frames so that they // can be restored on the next start
 0,0,0,0,0,0,0,0,// else keep waiting
-0,0,0,0,0,0,0,0,// init event
-0,0,0,0,0,0,0,0,// Initialize the cipher for encryption
-0,0,0,0,0,0,0,0,// Our cleartext as bytes
-0,0,0,0,0,0,0,0,// delete source message
-0,0,0,0,0,0,0,0,"/*         * (non-Javadoc)         *          * @see org.columba.core.taskmanager.ITaskManager#register(org.columba.core.command.Worker)         */"
-0,0,0,0,0,0,0,0,// startIdx and idxOld delimit various chunks of aInput; these // chunks always end where aOldPattern begins
-0,0,0,0,0,0,0,0,// threadVar;
+0,0,0,1,0,0,0,1,// init event
+0,0,0,1,0,0,0,1,// Initialize the cipher for encryption
+0,0,0,1,0,0,0,1,// Our cleartext as bytes
+0,0,0,1,0,0,0,1,// delete source message
+0,0,0,1,0,0,0,1,"/*         * (non-Javadoc)         *          * @see org.columba.core.taskmanager.ITaskManager#register(org.columba.core.command.Worker)         */"
+0,0,0,1,0,0,0,1,// startIdx and idxOld delimit various chunks of aInput; these // chunks always end where aOldPattern begins
+0,0,0,1,0,0,0,1,// threadVar;
 0,0,0,0,0,0,0,0,// register interested on changes in the running worker list
-0,0,0,0,0,0,0,0,// list of suffices
+0,0,0,1,0,0,0,1,// list of suffices
 0,0,0,0,0,0,0,0,// formatted name
-0,0,0,0,0,0,0,0,// birthday
-0,0,0,0,0,0,0,0,// get tree-like structure of mimeparts
-0,0,0,0,0,0,0,0,// the final chunk will go to the end of aInput
-0,0,0,0,0,0,0,0,// Platform identifiers: Windows, Linux, Mac OS, ...
-0,0,0,0,0,0,0,0,// Check for no property
+0,0,0,1,0,0,0,1,// birthday
+0,0,0,1,0,0,0,1,// get tree-like structure of mimeparts
+0,0,0,1,0,0,0,1,// the final chunk will go to the end of aInput
+0,0,0,1,0,0,0,1,// Platform identifiers: Windows, Linux, Mac OS, ...
+0,0,0,1,0,0,0,1,// Check for no property
 0,0,0,0,0,0,0,0,// return true for new files
 0,0,0,0,0,0,0,0,// more than one item, very strange! duplicate entries! remove // all
 0,0,0,0,0,0,0,0,// grab a part of aInput which does not include aOldPattern
-0,0,0,0,0,0,0,0,"/*         * (non-Javadoc)         *          * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)         */"
+0,0,0,1,0,0,0,1,"/*         * (non-Javadoc)         *          * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)         */"
 0,0,0,0,0,0,0,0,// refers to the // entry in // persistence.xml
-0,0,0,0,0,0,0,0,// one second (=1000 ms)
+0,0,0,1,0,0,0,1,// one second (=1000 ms)
 0,0,0,0,0,0,0,0,// shutdown entity manager
 0,0,0,1,1,1,1,1,// no item exists in table // -> nothing todo
-0,0,0,0,0,0,0,0,// creates a shallow // copy of this // object
-0,0,0,0,0,0,0,0,// if path startsWith "/" -> skip
+0,0,0,1,0,0,0,1,// creates a shallow // copy of this // object
+0,0,0,1,0,0,0,1,// if path startsWith "/" -> skip
 0,0,0,0,0,0,0,0,// should we really overwrite the Look and Feel font settings
-0,0,0,0,0,0,0,0,// restore log level
-0,0,0,0,0,0,0,0,// start HSQLDB
-0,0,0,0,0,0,0,0,// set console handler to OFF
-0,0,0,0,0,0,0,0,// print attributes
-0,0,0,0,0,0,0,0,// add all suffixes
-0,0,0,0,0,0,0,0,// needed for hibernate!
-0,0,0,0,0,0,0,0,"//		 create config-folder"
-0,0,0,0,0,0,0,0,"//	String getProperty(String name); //	void setProperty(String name, String value); //	 //	Hashtable getProperties();"
-0,0,0,0,0,0,0,0,// ---- imTextField2 ----
+0,0,0,1,0,0,0,1,// restore log level
+0,0,0,1,0,0,0,1,// start HSQLDB
+0,0,0,1,0,0,0,1,// set console handler to OFF
+0,0,0,1,0,0,0,1,// print attributes
+0,0,0,1,0,0,0,1,// add all suffixes
+0,0,0,1,0,0,0,1,// needed for hibernate!
+0,0,0,1,0,0,0,1,"//		 create config-folder"
+0,0,0,1,0,0,0,1,"//	String getProperty(String name); //	void setProperty(String name, String value); //	 //	Hashtable getProperties();"
+0,0,0,1,0,0,0,1,// ---- imTextField2 ----
 0,0,0,0,0,0,0,0,//Make the renderer reappear.
 0,0,0,0,0,0,0,0,// now load all available plugins
-0,0,0,0,0,0,0,0,// delete all mails in folder
+0,0,0,1,0,0,0,1,// delete all mails in folder
 0,0,0,0,0,0,0,0,//new Config(file);
-0,0,0,0,0,0,0,0,// iterate over all type elements
-0,0,0,0,0,0,0,0,"/*	 * Class under test for HeaderItemList getHeaderItemList()	 */"
-0,0,0,0,0,0,0,0,"/*	 * Class under test for Object add(Contact)	 */"
+0,0,0,1,0,0,0,1,// iterate over all type elements
+0,0,0,1,0,0,0,1,"/*	 * Class under test for HeaderItemList getHeaderItemList()	 */"
+0,0,0,1,0,0,0,1,"/*	 * Class under test for Object add(Contact)	 */"
 0,0,0,0,0,0,0,0,// remember search result
-0,0,0,0,0,0,0,0,// doesn't support search inside yet
-0,0,0,0,0,0,0,0,// delete folder
-0,0,0,0,0,0,0,0,"// mark found pattern (select) //text.grabFocus();				"
-0,0,0,0,0,0,0,0,// valid inputs
-0,0,0,0,0,0,0,0,// create default root nodes <Local> and <Web>
-0,0,0,0,0,0,0,0,// search in specific criteria
-0,0,0,0,0,0,0,0,// close DB
-0,0,0,0,0,0,0,0,// // now change all global categories //
+0,0,0,1,0,0,0,1,// doesn't support search inside yet
+0,0,0,1,0,0,0,1,// delete folder
+0,0,0,1,0,0,0,1,"// mark found pattern (select) //text.grabFocus();				"
+0,0,0,1,0,0,0,1,// valid inputs
+0,0,0,1,0,0,0,1,// create default root nodes <Local> and <Web>
+0,0,0,1,0,0,0,1,// search in specific criteria
+0,0,0,1,0,0,0,1,// close DB
+0,0,0,1,0,0,0,1,// // now change all global categories //
 0,0,0,0,0,0,0,0,// get source reference
 0,0,0,0,0,0,0,0,// score message
-0,0,0,0,0,0,0,0,// if message is spam
-0,0,0,0,0,0,0,0,// // mark all activities with the tag //
-0,0,0,0,0,0,0,0,// url to website/homepage
-0,0,0,0,0,0,0,0,// address list
-0,0,0,0,0,0,0,0,// not that the editor ui only supports max of 3 addresses to edit
-0,0,0,0,0,0,0,0,// create new one
-0,0,0,0,0,0,0,0,// this is the expected cases
-0,0,0,0,0,0,0,0,// mark it as selected
-0,0,0,0,0,0,0,0,// Event: Normal Event
-0,0,0,0,0,0,0,0,// Event: All Day Event
-0,0,0,0,0,0,0,0,// Event: Anniversary
+0,0,0,1,0,0,0,1,// if message is spam
+0,0,0,1,0,0,0,1,// // mark all activities with the tag //
+0,0,0,1,0,0,0,1,// url to website/homepage
+0,0,0,1,0,0,0,1,// address list
+0,0,0,1,0,0,0,1,// not that the editor ui only supports max of 3 addresses to edit
+0,0,0,1,0,0,0,1,// create new one
+0,0,0,1,0,0,0,1,// this is the expected cases
+0,0,0,1,0,0,0,1,// mark it as selected
+0,0,0,1,0,0,0,1,// Event: Normal Event
+0,0,0,1,0,0,0,1,// Event: All Day Event
+0,0,0,1,0,0,0,1,// Event: Anniversary
 0,0,0,0,0,0,0,0,// check if calendar item is tagged
-0,0,0,0,0,0,0,0,// calendar is selected as default
-0,0,0,0,0,0,0,0,// get calendar ui component depository
-0,0,0,0,0,0,0,0,// check if its a calendar component
-0,0,0,0,0,0,0,0,// showing the month number
-0,0,0,0,0,0,0,0,// no grid lines
-0,0,0,0,0,0,0,0,// setIntercellSpacing(new Dimension(2, 2));
-0,0,0,0,0,0,0,0,// do not show header
-0,0,0,0,0,0,0,0,// scrolling to the selected row
+0,0,0,1,0,0,0,1,// calendar is selected as default
+0,0,0,1,0,0,0,1,// get calendar ui component depository
+0,0,0,1,0,0,0,1,// check if its a calendar component
+0,0,0,1,0,0,0,1,// showing the month number
+0,0,0,1,0,0,0,1,// no grid lines
+0,0,0,1,0,0,0,1,// setIntercellSpacing(new Dimension(2, 2));
+0,0,0,1,0,0,0,1,// do not show header
+0,0,0,1,0,0,0,1,// scrolling to the selected row
 0,0,0,0,0,0,0,0,// startup Columba
-0,0,0,0,0,0,0,0,// stop server when shutting down
-0,0,0,0,0,0,0,0,// we add every jar-file in /lib, too // plugin-directory
-0,0,0,0,0,0,0,0,// name of organisation
-0,0,0,0,0,0,0,0,// dummy address
+0,0,0,1,0,0,0,1,// stop server when shutting down
+0,0,0,1,0,0,0,1,// we add every jar-file in /lib, too // plugin-directory
+0,0,0,1,0,0,0,1,// name of organisation
+0,0,0,1,0,0,0,1,// dummy address
 0,0,0,0,0,0,0,0,// summary
-0,0,0,0,0,0,0,0,// frequency
+0,0,0,1,0,0,0,1,// frequency
 0,0,0,0,0,0,0,0,// disable other
-0,0,0,0,0,0,0,0,// disable all
-0,0,0,0,0,0,0,0,// maximum occurrences
-0,0,0,0,0,0,0,0,// enable all radio buttons
-0,0,0,0,0,0,0,0,// client isn't from local machine
-0,0,0,0,0,0,0,0,// end date
-0,0,0,0,0,0,0,0,// enable button
+0,0,0,1,0,0,0,1,// disable all
+0,0,0,1,0,0,0,1,// maximum occurrences
+0,0,0,1,0,0,0,1,// enable all radio buttons
+0,0,0,1,0,0,0,1,// client isn't from local machine
+0,0,0,1,0,0,0,1,// end date
+0,0,0,1,0,0,0,1,// enable button
 0,0,0,0,0,0,0,0,// "store" html in jTextPane container // reset starting position in y-direction
-0,0,0,0,0,0,0,0,// ======== panel1 ========
-0,0,0,0,0,0,0,0,// in case we have to add another "0"
+0,0,0,1,0,0,0,1,// ======== panel1 ========
+0,0,0,1,0,0,0,1,// in case we have to add another "0"
 0,0,0,0,0,0,0,0,// create list of contact folders
-0,0,0,0,0,0,0,0,// decode using default charset
-0,0,0,0,0,0,0,0,// click on this button will open the recurrence dialog
-0,0,0,0,0,0,0,0,// create jpim contact instance
-0,0,0,0,0,0,0,0,// both values are okay, so create a correct time
-0,0,0,0,0,0,0,0,// no correct value!
-0,0,0,0,0,0,0,0,// there is no :
-0,0,0,0,0,0,0,0,// custom renderer to convert from calendar id to calendar name
-0,0,0,0,0,0,0,0,// correct value!
+0,0,0,1,0,0,0,1,// decode using default charset
+0,0,0,1,0,0,0,1,// click on this button will open the recurrence dialog
+0,0,0,1,0,0,0,1,// create jpim contact instance
+0,0,0,1,0,0,0,1,// both values are okay, so create a correct time
+0,0,0,1,0,0,0,1,// no correct value!
+0,0,0,1,0,0,0,1,// there is no :
+0,0,0,1,0,0,0,1,// custom renderer to convert from calendar id to calendar name
+0,0,0,1,0,0,0,1,// correct value!
 0,0,0,0,0,0,0,0,// check value before :
-0,0,0,0,0,0,0,0,// set Look & Feel
-0,0,0,0,0,0,0,0,// regexp for correct timestamp
-0,0,0,0,0,0,0,0,// double-click on empty calendar // mediator.fireCreateActivity(null);
-0,0,0,0,0,0,0,0,// clicked on calendar - not activity
-0,0,0,0,0,0,0,0,// ---- homepageLabel ----
-0,0,0,0,0,0,0,0,"//		 handle commandline parameters"
+0,0,0,1,0,0,0,1,// set Look & Feel
+0,0,0,1,0,0,0,1,// regexp for correct timestamp
+0,0,0,1,0,0,0,1,// double-click on empty calendar // mediator.fireCreateActivity(null);
+0,0,0,1,0,0,0,1,// clicked on calendar - not activity
+0,0,0,1,0,0,0,1,// ---- homepageLabel ----
+0,0,0,1,0,0,0,1,"//		 handle commandline parameters"
 0,0,0,0,0,0,0,0,// update modification timestamp
-0,0,0,0,0,0,0,0,// Add the tray icon to the System tray // ColumbaTrayIcon.getInstance().addToSystemTray( // FrameManager.getInstance().getActiveFrameMediator() // .getFrameMediator());
-0,0,1,1,0,0,1,1,// the java methods return a nice week of year, we need hard facts
+0,0,0,1,0,0,0,1,// Add the tray icon to the System tray // ColumbaTrayIcon.getInstance().addToSystemTray( // FrameManager.getInstance().getActiveFrameMediator() // .getFrameMediator());
+0,0,0,1,0,0,0,1,// the java methods return a nice week of year, we need hard facts
 0,0,0,0,0,0,0,0,// mouse hovers over activity
 0,0,0,0,0,0,0,0,// check if happens on the selected activity
-0,0,0,0,0,0,0,0,// remember selected activity
-0,0,0,0,0,0,0,0,// SizeConstraint sConstr4 = new SizeConstraint(new AtFixed(0), new // AtFraction(1), 0.0f);
+0,0,0,1,0,0,0,1,// remember selected activity
+0,0,0,1,0,0,0,1,// SizeConstraint sConstr4 = new SizeConstraint(new AtFixed(0), new // AtFraction(1), 0.0f);
 0,0,0,0,0,0,0,0,// ShapeGradientPaint titlePaint = new ShapeGradientPaint(new Color(255, // 150, 150), new Color(255, 200, 200), 0, 0.7f, 0.7f, false);
 0,0,0,0,0,0,0,0,// call the postStartups of the modules // e.g. check for default mailclient
 0,0,0,0,0,0,0,0,// SizeConstraint sConstr3 = new SizeConstraint(new AtFixed(0), new // AtFraction(1), 0.0f);
@@ -3605,421 +3605,421 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// skip if account information is not available
 0,0,0,0,0,0,0,0,// Check if the message is already cached
 0,0,0,0,0,0,0,0,// remove mail-checking stuff
-0,0,0,0,0,0,0,0,//retry copy
-0,0,0,0,0,0,0,0,// this message is already cached
-0,0,0,0,0,0,0,0,// Parse Message from DataStorage
+0,0,0,1,0,0,0,1,//retry copy
+0,0,0,1,0,0,0,1,// this message is already cached
+0,0,0,1,0,0,0,1,// Parse Message from DataStorage
 0,0,0,0,0,0,0,0,// get header from cache
 0,0,0,0,0,0,0,0,// create output stream
 0,0,0,0,0,0,0,0,// get references
-0,0,0,0,0,0,0,0,// message doesn't exist (this shouldn't happen here)
+0,0,0,1,0,0,0,1,// message doesn't exist (this shouldn't happen here)
 0,0,0,0,0,0,0,0,// message isn't cached // -> just return header from cache
 0,0,0,0,0,0,0,0,// update MessageFolderInfo
 0,0,0,0,0,0,0,0,// remove message from disk
-0,0,0,0,0,0,0,0,// fireMessageRemoved(uid, getFlags(uid));
-0,0,0,0,0,0,0,0,// Must be out of sync!
-0,0,0,0,0,0,0,0,// cached headerfield list
+0,0,0,1,0,0,0,1,// fireMessageRemoved(uid, getFlags(uid));
+0,0,0,1,0,0,0,1,// Must be out of sync!
+0,0,0,1,0,0,0,1,// cached headerfield list
 0,0,0,0,0,0,0,0,// Check if still consistent
 0,0,0,0,0,0,0,0,// oops, something went wrong
 0,0,0,0,0,0,0,0,// header cache is stored in "headerlist" subfolder
-0,0,0,0,0,0,0,0,// write message source to file
-0,0,0,0,0,0,0,0,// for each message in folder i
-0,0,0,0,0,0,0,0,// get message source from folder
+0,0,0,1,0,0,0,1,// write message source to file
+0,0,0,1,0,0,0,1,// for each message in folder i
+0,0,0,1,0,0,0,1,// get message source from folder
 0,0,0,0,0,0,0,0,// add check box for incl. of headers
 0,0,0,0,0,0,0,0,// close output stream
 0,0,0,0,0,0,0,0,// append newline
-0,0,0,0,0,0,0,0,// for each message
-0,0,0,0,0,0,0,0,// increase progressbar value
-0,0,0,0,0,0,0,0,// mark messages
+0,0,0,1,0,0,0,1,// for each message
+0,0,0,1,0,0,0,1,// increase progressbar value
+0,0,0,1,0,0,0,1,// mark messages
 0,0,0,0,0,0,0,0,// un-mark messages
-0,0,0,0,0,0,0,0,// no configuration available, create default config
-0,0,0,0,0,0,0,0,// train bayesian filter
+0,0,0,1,0,0,0,1,// no configuration available, create default config
+0,0,0,1,0,0,0,1,// train bayesian filter
 0,0,0,0,0,0,0,0,//vfolder.showFilterDialog((AbstractMailFrameController) getFrameMediator());
-0,0,0,0,0,0,0,0,// cancel here if user requests
-0,0,0,0,0,0,0,0,// skip if user didn't enable this option
-0,0,0,0,0,0,0,0,// execute command
-0,0,0,0,0,0,0,0,// set columba.color flag
-0,0,0,0,0,0,0,0,// move message to user-configured folder (generally "Junk" // folder)
-0,0,0,0,0,0,0,0,// create new locale xml treenode
-0,0,0,0,0,0,0,0,// which kind of color?
-0,0,0,0,0,0,0,0,// add source to destination folder
+0,0,0,1,0,0,0,1,// cancel here if user requests
+0,0,0,1,0,0,0,1,// skip if user didn't enable this option
+0,0,0,1,0,0,0,1,// execute command
+0,0,0,1,0,0,0,1,// set columba.color flag
+0,0,0,1,0,0,0,1,// move message to user-configured folder (generally "Junk" // folder)
+0,0,0,1,0,0,0,1,// create new locale xml treenode
+0,0,0,1,0,0,0,1,// which kind of color?
+0,0,0,1,0,0,0,1,// add source to destination folder
 0,0,0,0,0,0,0,0,// get references to selected folder and message
-0,0,0,0,0,0,0,0,// define criteria
-0,0,0,0,0,0,0,0,// no message selected.
-0,0,0,0,0,0,0,0,// uid for messages to save
-0,0,0,0,0,0,0,0,"/*			 * classLoader = ClassLoader.getSystemClassLoader();			 */"
-0,0,0,0,0,0,0,0,// set properties for virtual folder // default is inbox if parent is null
+0,0,0,1,0,0,0,1,// define criteria
+0,0,0,1,0,0,0,1,// no message selected.
+0,0,0,1,0,0,0,1,// uid for messages to save
+0,0,0,1,0,0,0,1,"/*			 * classLoader = ClassLoader.getSystemClassLoader();			 */"
+0,0,0,1,0,0,0,1,// set properties for virtual folder // default is inbox if parent is null
 0,0,0,0,0,0,0,0,// get sender
-0,0,0,0,0,0,0,0,// get folder that is going to be moved
-0,0,0,0,0,0,0,0,"//	register for status events"
-0,0,0,0,0,0,0,0,// get destination folder
+0,0,0,1,0,0,0,1,// get folder that is going to be moved
+0,0,0,1,0,0,0,1,"//	register for status events"
+0,0,0,1,0,0,0,1,// get destination folder
 0,0,0,0,0,0,0,0,// save headercache
-0,0,0,0,0,0,0,0,// add sender to addressbook
-0,0,0,0,0,0,0,0,// skip if no reference available
-0,0,0,0,0,0,0,0,// end of loop over selected messages
-0,0,0,0,0,0,0,0,// show dialog
-0,0,0,0,0,0,0,0,//setup save dialog
-0,0,0,0,0,0,0,0,// save message source under selected filename
+0,0,0,1,0,0,0,1,// add sender to addressbook
+0,0,0,1,0,0,0,1,// skip if no reference available
+0,0,0,1,0,0,0,1,// end of loop over selected messages
+0,0,0,1,0,0,0,1,// show dialog
+0,0,0,1,0,0,0,1,//setup save dialog
+0,0,0,1,0,0,0,1,// save message source under selected filename
 0,0,0,0,0,0,0,0,// file exists, user needs to confirm overwrite
-0,0,0,0,0,0,0,0,// remove source folder
-0,0,0,0,0,0,0,0,// get charset from message
-0,0,0,0,0,0,0,0,// get name of folder
-0,0,0,0,0,0,0,0,// setup filters and filename for file chooser dialog
-0,0,0,0,0,0,0,0,// mark message
-0,0,0,0,0,0,0,0,// saving last selected message to the folder
-0,0,0,0,0,0,0,0,// rename folder
+0,0,0,1,0,0,0,1,// remove source folder
+0,0,0,1,0,0,0,1,// get charset from message
+0,0,0,1,0,0,0,1,// get name of folder
+0,0,0,1,0,0,0,1,// setup filters and filename for file chooser dialog
+0,0,0,1,0,0,0,1,// mark message
+0,0,0,1,0,0,0,1,// saving last selected message to the folder
+0,0,0,1,0,0,0,1,// rename folder
 0,0,0,0,0,0,0,0,// determine type of body part
-0,0,0,0,0,0,0,0,// get source references
-0,0,0,0,0,0,0,0,// expunge folder
-0,0,0,0,0,0,0,0,// store whether all headers should be incl.
-0,0,0,0,0,0,0,0,// Add default extension if no extension is given by the user
-0,0,0,0,0,0,0,0,// use body as is
-0,0,0,0,0,0,0,0,// list of prefixes
-0,0,0,0,0,0,0,0,// default value
+0,0,0,1,0,0,0,1,// get source references
+0,0,0,1,0,0,0,1,// expunge folder
+0,0,0,1,0,0,0,1,// store whether all headers should be incl.
+0,0,0,1,0,0,0,1,// Add default extension if no extension is given by the user
+0,0,0,1,0,0,0,1,// use body as is
+0,0,0,1,0,0,0,1,// list of prefixes
+0,0,0,1,0,0,0,1,// default value
 0,0,0,0,0,0,0,0,// First determine which charset to use
-0,0,0,0,0,0,0,0,// mark quotings with special font
-0,0,0,0,0,0,0,0,// test on extension
-0,0,0,0,0,0,0,0,// read configuration from options.xml file
-0,0,0,0,0,0,0,0,// create header table
-0,0,0,0,0,0,0,0,// create css-stylesheet string
-0,0,0,0,0,0,0,0,// create array and return
-0,0,0,0,0,0,0,0,// loop over all headers
-0,0,0,0,0,0,0,0,// process header value
-0,0,0,0,0,0,0,0,// add toolbar button between last button and cancel button
-0,0,0,0,0,0,0,0,// Print each message
+0,0,0,1,0,0,0,1,// mark quotings with special font
+0,0,0,1,0,0,0,1,// test on extension
+0,0,0,1,0,0,0,1,// read configuration from options.xml file
+0,0,0,1,0,0,0,1,// create header table
+0,0,0,1,0,0,0,1,// create css-stylesheet string
+0,0,0,1,0,0,0,1,// create array and return
+0,0,0,1,0,0,0,1,// loop over all headers
+0,0,0,1,0,0,0,1,// process header value
+0,0,0,1,0,0,0,1,// add toolbar button between last button and cancel button
+0,0,0,1,0,0,0,1,// Print each message
 0,0,0,0,0,0,0,0,// decode message body with respect to charset
-0,0,0,0,0,0,0,0,// check if virtual folder, if yes, do not use these uids, use the // real uids instead
+0,0,0,1,0,0,0,1,// check if virtual folder, if yes, do not use these uids, use the // real uids instead
 0,0,0,0,0,0,0,0,// uid for messages to print
-0,0,0,0,0,0,0,0,// for every message
-0,0,0,0,0,0,0,0,// selected folder
-0,0,0,0,0,0,0,0,// selected messages
-0,0,0,0,0,0,0,0,// Header
-0,0,0,0,0,0,0,0,// the header key for date field
-0,0,0,0,0,0,0,0,// Footer
-0,0,0,0,0,0,0,0,// Setup print document for message
-0,0,0,0,0,0,0,0,// ignore leading weekday name (e.g. "Mon,"), since this // seems to give problems during parsing
-0,0,0,0,0,0,0,0,// special handling for dates
-0,0,0,0,0,0,0,0,// *20030531, karlpeder* setting headerKeys to lowercase for // lookup!
-0,0,0,0,0,0,0,0,// Add header information to print
-0,0,0,0,0,0,0,0,// create a print object and return it
-0,0,0,0,0,0,0,0,// Add body of message to print
-0,0,0,0,0,0,0,0,// end of for loop over uids to print
-0,0,0,0,0,0,0,0,// fall back to use the Date header contents directly
-0,0,0,0,0,0,0,0,// print the print document (i.e. the message)
-0,0,0,0,0,0,0,0,// create new local xml treenode
+0,0,0,1,0,0,0,1,// for every message
+0,0,0,1,0,0,0,1,// selected folder
+0,0,0,1,0,0,0,1,// selected messages
+0,0,0,1,0,0,0,1,// Header
+0,0,0,1,0,0,0,1,// the header key for date field
+0,0,0,1,0,0,0,1,// Footer
+0,0,0,1,0,0,0,1,// Setup print document for message
+0,0,1,1,0,0,1,1,// ignore leading weekday name (e.g. "Mon,"), since this // seems to give problems during parsing
+0,0,0,1,0,0,0,1,// special handling for dates
+0,0,0,1,0,0,0,1,// *20030531, karlpeder* setting headerKeys to lowercase for // lookup!
+0,0,0,1,0,0,0,1,// Add header information to print
+0,0,0,1,0,0,0,1,// create a print object and return it
+0,0,0,1,0,0,0,1,// Add body of message to print
+0,0,0,1,0,0,0,1,// end of for loop over uids to print
+0,0,0,1,0,0,0,1,// fall back to use the Date header contents directly
+0,0,0,1,0,0,0,1,// print the print document (i.e. the message)
+0,0,0,1,0,0,0,1,// create new local xml treenode
 0,0,0,0,0,0,0,0,// try to fix broken html-strings
 0,0,0,0,0,0,0,0,// create temporary file and save validated body
 0,0,0,0,0,0,0,0,// if we have a result
-0,0,0,0,0,0,0,0,// true ~ scaling allowed
-0,0,0,0,0,0,0,0,"/*	 * Class under test for void remove(Object)	 */"
+0,0,0,1,0,0,0,1,// true ~ scaling allowed
+0,0,0,1,0,0,0,1,"/*	 * Class under test for void remove(Object)	 */"
 0,0,0,0,0,0,0,0,// search all messages which match this filter
-0,0,0,0,0,0,0,0,// stop background-manager so it doesn't interfere with // shutdown manager
-0,0,0,0,0,0,0,0,// If a msg has been read, import it into Columba
+0,0,0,1,0,0,0,1,// stop background-manager so it doesn't interfere with // shutdown manager
+0,0,0,1,0,0,0,1,// If a msg has been read, import it into Columba
 0,0,0,0,0,0,0,0,// setting lastSelection to null
-0,0,0,0,0,0,0,0,// for each filter
-0,0,0,0,0,0,0,0,// We are done - clear the status message after a delay
-0,0,0,0,0,0,0,0,// clear
-0,0,0,0,0,0,0,0,// initialize progressbar
+0,0,0,1,0,0,0,1,// for each filter
+0,0,0,1,0,0,0,1,// We are done - clear the status message after a delay
+0,0,0,1,0,0,0,1,// clear
+0,0,0,1,0,0,0,1,// initialize progressbar
 0,0,0,0,0,0,0,0,// get filter list from folder
-0,0,0,0,0,0,0,0,// Fetch the headers of the new messages ...
-0,0,0,0,0,0,0,0,// If there is still a parent -> remove it
-0,0,0,0,0,0,0,0,// Can't happen
-0,0,0,0,0,0,0,0,// if "automatically apply filter" is selected & there // are // new // messages
-0,0,0,0,0,0,0,0,// perform other environment configurations
-0,0,0,0,0,0,0,0,//Update is unnecessary
-0,0,0,0,0,0,0,0,// add command to scheduler //MainInterface.processor.addOp(command);
-0,0,0,0,0,0,0,0,// parse all message files to recreate the header cache
+0,0,0,1,0,0,0,1,// Fetch the headers of the new messages ...
+0,0,0,1,0,0,0,1,// If there is still a parent -> remove it
+0,0,0,1,0,0,0,1,// Can't happen
+0,0,0,1,0,0,0,1,// if "automatically apply filter" is selected & there // are // new // messages
+0,0,0,1,0,0,0,1,// perform other environment configurations
+0,0,0,1,0,0,0,1,//Update is unnecessary
+0,0,0,1,0,0,0,1,// add command to scheduler //MainInterface.processor.addOp(command);
+0,0,0,1,0,0,0,1,// parse all message files to recreate the header cache
 0,0,0,0,0,0,0,0,// size of message
-0,0,0,0,0,0,0,0,// we are done
-0,0,0,0,0,0,0,0,"//	true/false"
-0,0,0,0,0,0,0,0,// headerList.clear();
-0,0,0,0,0,0,0,0,// priority as integer value
-0,0,0,0,0,0,0,0,// was this message already fetched from the server?
+0,0,0,1,0,0,0,1,// we are done
+0,0,0,1,0,0,0,1,"//	true/false"
+0,0,0,1,0,0,0,1,// headerList.clear();
+0,0,0,1,0,0,0,1,// priority as integer value
+0,0,0,1,0,0,0,1,// was this message already fetched from the server?
 0,0,0,0,0,0,0,0,// message flags
 0,0,0,0,0,0,0,0,// host from which this message was downloaded
-0,0,0,0,0,0,0,0,// properly decoded subject
-0,0,0,0,0,0,0,0,// short from, containing only name of person
-0,0,0,0,0,0,0,0,// message color
+0,0,0,1,0,0,0,1,// properly decoded subject
+0,0,0,1,0,0,0,1,// short from, containing only name of person
+0,0,0,1,0,0,0,1,// message color
 0,0,0,0,0,0,0,0,// POP3 message UID
-0,0,0,0,0,0,0,0,// these are cached by default
+0,0,0,1,0,0,0,1,// these are cached by default
 0,0,0,0,0,0,0,0,//return h;
 0,0,0,0,0,0,0,0,// Update the list of new and local uids
-0,0,0,0,0,0,0,0,// save default headerfields, as defined in RFC822
-0,0,0,0,0,0,0,0,// save other internal headerfields, of non-boolean type
-0,0,0,0,0,0,0,0,// internally used headerfields // these are all boolean values, which are saved using // a single int value
-0,0,0,0,0,0,0,0,// load boolean headerfields, which are compressed in one int value
+0,0,0,1,0,0,0,1,// save default headerfields, as defined in RFC822
+0,0,0,1,0,0,0,1,// save other internal headerfields, of non-boolean type
+0,0,0,1,0,0,0,1,// internally used headerfields // these are all boolean values, which are saved using // a single int value
+0,0,0,1,0,0,0,1,// load boolean headerfields, which are compressed in one int value
 0,0,0,0,0,0,0,0,// if value doesn't exist, use false as default
-0,0,0,0,0,0,0,0,// load other internal headerfields, non-boolean type
+0,0,0,1,0,0,0,1,// load other internal headerfields, non-boolean type
 0,0,0,0,0,0,0,0,// Compute the number of new messages
-0,0,0,0,0,0,0,0,// Trigger Synchronization
-0,0,0,0,0,0,0,0,// only called by FolderFactory
+0,0,0,1,0,0,0,1,// Trigger Synchronization
+0,0,0,1,0,0,0,1,// only called by FolderFactory
 0,0,0,0,0,0,0,0,// next position in the local uid list
-0,0,0,0,0,0,0,0,// if creating new folder
-0,0,0,0,0,0,0,0,// Ensure sizes are correct
-0,0,0,0,0,0,0,0,// Check if the mailbox has changed
-0,0,0,0,0,0,0,0,// Seems to be no change!
+0,0,0,1,0,0,0,1,// if creating new folder
+0,0,0,1,0,0,0,1,// Ensure sizes are correct
+0,0,0,1,0,0,0,1,// Check if the mailbox has changed
+0,0,0,1,0,0,0,1,// Seems to be no change!
 0,0,0,0,0,0,0,0,// Compare inner loop
-0,0,0,0,0,0,0,0,// Still not found -> do a binary search
-0,0,0,0,0,0,0,0,// Check if all local uids have been deleted
-0,0,0,0,0,0,0,0,// removedLocalUids = localUids.size() - 1 - position;
-0,0,0,0,0,0,0,0,// all messages are new
-0,0,0,0,0,0,0,0,// Fetch Pack outer loop
-0,0,0,0,0,0,0,0,// Number of deleted messages is computed from exists on imap and local // newMessages
+0,0,0,1,0,0,0,1,// Still not found -> do a binary search
+0,0,0,1,0,0,0,1,// Check if all local uids have been deleted
+0,0,0,1,0,0,0,1,// removedLocalUids = localUids.size() - 1 - position;
+0,0,0,1,0,0,0,1,// all messages are new
+0,0,0,1,0,0,0,1,// Fetch Pack outer loop
+0,0,0,1,0,0,0,1,// Number of deleted messages is computed from exists on imap and local // newMessages
 0,0,0,0,0,0,0,0,// Copy the header
-0,0,0,0,0,0,0,0,// .. and set the flags
-0,0,0,0,0,0,0,0,// First deleted all local uids that // are larger than the largest remote uid
-0,0,0,0,0,0,0,0,// fire message added updates
-0,0,0,0,0,0,0,0,// Number of deleted messages is computed from exists on imap and // local // newMessages
-0,0,0,0,0,0,0,0,// Pack size is min 10, max 200 else mailboxsize / 10
-0,0,0,0,0,0,0,0,// Build a list of the new uids
+0,0,0,1,0,0,0,1,// .. and set the flags
+0,0,0,1,0,0,0,1,// First deleted all local uids that // are larger than the largest remote uid
+0,0,0,1,0,0,0,1,// fire message added updates
+0,0,0,1,0,0,0,1,// Number of deleted messages is computed from exists on imap and // local // newMessages
+0,0,0,1,0,0,0,1,// Pack size is min 10, max 200 else mailboxsize / 10
+0,0,0,1,0,0,0,1,// Build a list of the new uids
 0,0,0,0,0,0,0,0,"/*	 * (non-Javadoc)	 *	 * @see org.columba.mail.folder.Folder#getObservable()	 */"
-0,0,0,0,0,0,0,0,// IMAP Folders have no own lock ,but share the lock from the Root // to ensure that only one operation can be processed simultanous
-0,0,0,0,0,0,0,0,// get IMAP rootfolder
-0,0,0,0,0,0,0,0,// We found the uid of a deleted message // -> remove it from the headerlist
-0,0,0,0,0,0,0,0,// Check if maybe no message at all got copied // In this case we are finished here
-0,0,0,0,0,0,0,0,// the implementation of the search function. It returns always the position of the FIRST found word.
-0,0,0,0,0,0,0,0,// update the local flags and ensure that the MailboxInfo is correct
-0,0,0,0,0,0,0,0,// get header with UID
-0,0,0,0,0,0,0,0,// update the HeaderList
-0,0,0,0,0,0,0,0,// Parser the header
+0,0,0,1,0,0,0,1,// IMAP Folders have no own lock ,but share the lock from the Root // to ensure that only one operation can be processed simultanous
+0,0,0,1,0,0,0,1,// get IMAP rootfolder
+0,0,0,1,0,0,0,1,// We found the uid of a deleted message // -> remove it from the headerlist
+0,0,1,1,0,0,1,1,// Check if maybe no message at all got copied // In this case we are finished here
+0,0,0,1,0,0,0,1,// the implementation of the search function. It returns always the position of the FIRST found word.
+0,0,0,1,0,0,0,1,// update the local flags and ensure that the MailboxInfo is correct
+0,0,0,1,0,0,0,1,// get header with UID
+0,0,0,1,0,0,0,1,// update the HeaderList
+0,0,0,1,0,0,0,1,// Parser the header
 0,0,0,0,0,0,0,0,// Reenable Updating the mailbox
-0,0,0,0,0,0,0,0,// locking mechanism
+0,0,0,1,0,0,0,1,// locking mechanism
 0,0,0,0,0,0,0,0,// MATCH ANY
-0,0,0,0,0,0,0,0,// find colum
-0,0,0,0,0,0,0,0,// if folder doesn't exist already
-0,0,1,0,0,0,1,0,// Remove of lock didn't work -> delete by hand
-0,0,0,0,0,0,0,0,// no delimiter found // -> this is already the final folder // if folder doesn't exist already
+0,0,0,1,0,0,0,1,// find colum
+0,0,0,1,0,0,0,1,// if folder doesn't exist already
+0,0,0,1,0,0,0,1,// Remove of lock didn't work -> delete by hand
+0,0,0,1,0,0,0,1,// no delimiter found // -> this is already the final folder // if folder doesn't exist already
 0,0,0,0,0,0,0,0,// recursively go on
-0,0,0,0,0,0,0,0,// create and tag all subfolders on server
-0,0,0,0,0,0,0,0,// maybe remove this folder
-0,0,0,0,0,0,0,0,// private Filter filter; // private JDialog dialog;
-0,0,0,0,0,0,0,0,// Check the Noinferior flag
-0,0,0,0,0,0,0,0,// Buffer for collecting data from // the "characters" SAX event.
-0,0,0,0,0,0,0,0,// Find special
-0,0,0,0,0,0,0,0,// first clear all flags
-0,0,0,0,0,0,0,0,// search for a folder thats on the IMAP account // first try to find the local translation of special
-0,0,0,0,0,0,0,0,// This fixes the strange behaviour of the courier imapserver // which sets the \Noselect flag on INBOX
-0,0,0,0,0,0,0,0,// Trigger synchronization of the IMAPFolder
-0,0,0,0,0,0,0,0,// Trigger any pending Flag syncs
+0,0,0,1,0,0,0,1,// create and tag all subfolders on server
+0,0,0,1,0,0,0,1,// maybe remove this folder
+0,0,0,1,0,0,0,1,// private Filter filter; // private JDialog dialog;
+0,0,0,1,0,0,0,1,// Check the Noinferior flag
+0,0,0,1,0,0,0,1,// Buffer for collecting data from // the "characters" SAX event.
+0,0,0,1,0,0,0,1,// Find special
+0,0,0,1,0,0,0,1,// first clear all flags
+0,0,0,1,0,0,0,1,// search for a folder thats on the IMAP account // first try to find the local translation of special
+0,0,0,1,0,0,0,1,// This fixes the strange behaviour of the courier imapserver // which sets the \Noselect flag on INBOX
+0,0,0,1,0,0,0,1,// Trigger synchronization of the IMAPFolder
+0,0,0,1,0,0,0,1,// Trigger any pending Flag syncs
 0,0,0,0,0,0,0,0,// Reenable the action
 0,0,0,0,0,0,0,0,// has the imap account no trash folder using the default trash folder
 0,0,0,0,0,0,0,0,// Find old numbers
-0,0,0,0,0,0,0,0,// create reference of newly arrived messages
-0,0,0,0,0,0,0,0,// Get the new numbers
-0,0,0,0,0,0,0,0,// this is necessary to do!
-0,0,0,0,0,0,0,0,// line contains "@" (evolution mbox style) or //  -> import message in Columba
-0,0,0,0,0,0,0,0,// Check if index is consitent with mailbox
-0,0,0,0,0,0,0,0,// MATCH_ALL
-0,0,0,0,0,0,0,0,// line contains "-" (mozilla mbox style) //  -> import message in Columba
-0,0,0,0,0,0,0,0,// we support 3 address types (work/home/other)
-0,0,0,0,0,0,0,0,// enable lucene search index by default
-0,0,0,0,0,0,0,0,// update message starts of following messages
+0,0,0,1,0,0,0,1,// create reference of newly arrived messages
+0,0,0,1,0,0,0,1,// Get the new numbers
+0,0,1,1,0,0,1,1,// this is necessary to do!
+0,0,0,1,0,0,0,1,// line contains "@" (evolution mbox style) or //  -> import message in Columba
+0,0,0,1,0,0,0,1,// Check if index is consitent with mailbox
+0,0,0,1,0,0,0,1,// MATCH_ALL
+0,0,0,1,0,0,0,1,// line contains "-" (mozilla mbox style) //  -> import message in Columba
+0,0,0,1,0,0,0,1,// we support 3 address types (work/home/other)
+0,0,0,1,0,0,0,1,// enable lucene search index by default
+0,0,0,1,0,0,0,1,// update message starts of following messages
 0,0,0,0,0,0,0,0,// Could not delete the file - possibly someone has a lock on it
-0,0,0,0,0,0,0,0,//delete the file containing the message in the file system
-0,0,0,0,0,0,0,0,// Add all found virtual uids to the result
-0,0,0,0,0,0,0,0,// selecting the message
-0,0,0,0,0,0,0,0,// pass the work to IMAPStore
-0,0,0,0,0,0,0,0,// filter is disabled
-0,0,0,0,0,0,0,0,// ... delete it when Columba exists instead
-0,0,0,0,0,0,0,0,// A list of all files that seem to be messages (only numbers in the name) //new Object[list.length];
-0,0,0,0,0,0,0,0,"/*		 * worker.setDisplayText( ""Search Result: "" +		 * notDefaultEngineResult.size() + "" messages found in "" +		 * (System.currentTimeMillis() - startTime) + "" ms"");		 */"
-0,0,0,0,0,0,0,0,// check for new headers
-0,0,0,0,0,0,0,0,// result = mergeFilterResult(v, uids, match); // only for debugging purpose // printList( result );
+0,0,0,1,0,0,0,1,//delete the file containing the message in the file system
+0,0,0,1,0,0,0,1,// Add all found virtual uids to the result
+0,0,0,1,0,0,0,1,// selecting the message
+0,0,0,1,0,0,0,1,// pass the work to IMAPStore
+0,0,0,1,0,0,0,1,// filter is disabled
+0,0,0,1,0,0,0,1,// ... delete it when Columba exists instead
+0,0,0,1,0,0,0,1,// A list of all files that seem to be messages (only numbers in the name) //new Object[list.length];
+0,0,0,1,0,0,0,1,"/*		 * worker.setDisplayText( ""Search Result: "" +		 * notDefaultEngineResult.size() + "" messages found in "" +		 * (System.currentTimeMillis() - startTime) + "" ms"");		 */"
+0,0,0,1,0,0,0,1,// check for new headers
+0,0,0,1,0,0,0,1,// result = mergeFilterResult(v, uids, match); // only for debugging purpose // printList( result );
 0,0,0,0,0,0,0,0,// we found a suitable folder -> set it
-0,0,0,0,0,0,0,0,// MATCH_ANY
-0,0,0,0,0,0,0,0,// clear status bar message now we are done (with a delay)
+0,0,0,1,0,0,0,1,// MATCH_ANY
+0,0,0,1,0,0,0,1,// clear status bar message now we are done (with a delay)
 0,0,0,0,0,0,0,0,// return searchMessages(filter, null);
-0,0,0,0,0,0,0,0,//  This list is reduced, because most search requests can be  // answered anyway, using locally cached headerfields
-0,0,0,0,0,0,0,0,// Find all VirtualFolders and rewrite the FolderReference
-0,0,0,0,0,0,0,0,//super.removeFolder(); // do nothing
-0,0,0,0,0,0,0,0,// Search again
-0,0,0,0,0,0,0,0,// generally we can just use the same login for both servers
+0,0,0,1,0,0,0,1,//  This list is reduced, because most search requests can be  // answered anyway, using locally cached headerfields
+0,0,0,1,0,0,0,1,// Find all VirtualFolders and rewrite the FolderReference
+0,0,0,1,0,0,0,1,//super.removeFolder(); // do nothing
+0,0,0,1,0,0,0,1,// Search again
+0,0,0,1,0,0,0,1,// generally we can just use the same login for both servers
 0,0,0,0,0,0,0,0,// set sort-string/displayname
-0,0,1,0,0,0,1,0,// show neat error dialog here
-0,0,0,0,0,0,0,0,// Find the body text part
+0,0,0,1,0,0,0,1,// show neat error dialog here
+0,0,0,1,0,0,0,1,// Find the body text part
 0,0,0,0,0,0,0,0,// Convert the src uids back to virtual uids
-0,0,0,0,0,0,0,0,// If no flags filter the seach is still valid
-0,0,0,0,0,0,0,0,// only called by FolderTreeModel.createDirectories() and FolderTreeModel.add()
-0,0,0,0,0,0,0,0,// copy all properties to the subfolder
+0,0,0,1,0,0,0,1,// If no flags filter the seach is still valid
+0,0,0,1,0,0,0,1,// only called by FolderTreeModel.createDirectories() and FolderTreeModel.add()
+0,0,0,1,0,0,0,1,// copy all properties to the subfolder
 0,0,0,0,0,0,0,0,// create default configuration
-0,0,0,0,0,0,0,0,// redo the seach for the flags criteria
-0,0,0,0,0,0,0,0,// if creation failed
-0,0,0,0,0,0,0,0,// lets find a good name for our new vfolder
-0,0,0,0,0,0,0,0,// create new subfolder
-0,0,0,0,0,0,0,0,// update tree-view
-0,0,0,0,0,0,0,0,// Create a src uid array
-0,0,0,0,0,0,0,0,// Check if all uids are still exisiting
-0,0,0,0,0,0,0,0,// change to new folder
-0,0,0,0,0,0,0,0,// fire updates
-0,0,0,0,0,0,0,0,// remove from virtual folder
-0,0,0,0,0,0,0,0,// remove from source folder
-0,0,0,0,0,0,0,0,// not supported
+0,0,0,1,0,0,0,1,// redo the seach for the flags criteria
+0,0,0,1,0,0,0,1,// if creation failed
+0,0,0,1,0,0,0,1,// lets find a good name for our new vfolder
+0,0,0,1,0,0,0,1,// create new subfolder
+0,0,0,1,0,0,0,1,// update tree-view
+0,0,0,1,0,0,0,1,// Create a src uid array
+0,0,0,1,0,0,0,1,// Check if all uids are still exisiting
+0,0,0,1,0,0,0,1,// change to new folder
+0,0,0,1,0,0,0,1,// fire updates
+0,0,0,1,0,0,0,1,// remove from virtual folder
+0,0,0,1,0,0,0,1,// remove from source folder
+0,0,0,1,0,0,0,1,// not supported
 0,0,0,0,0,0,0,0,// We need to get the locks of all folders
-0,0,0,0,0,0,0,0,"// GradientPaint painter = new GradientPaint(0, 0, midColor.brighter(), // 0, 5, midColor); // g2.setPaint(painter); //		 // g2.fillRect(0,0,w,5); //		 // new GradientPaint(0, h-1, midColor, 0, h-1-5, Color.red); // g2.setPaint(painter); //		 // g2.fillRect(0,h-5,w,5);"
+0,0,0,1,0,0,0,1,"// GradientPaint painter = new GradientPaint(0, 0, midColor.brighter(), // 0, 5, midColor); // g2.setPaint(painter); //		 // g2.fillRect(0,0,w,5); //		 // new GradientPaint(0, h-1, midColor, 0, h-1-5, Color.red); // g2.setPaint(painter); //		 // g2.fillRect(0,h-5,w,5);"
 0,0,0,0,0,0,0,0,// First try to get the lock of the virtual folder
-0,0,0,0,0,0,0,0,"/*		 * ColumbaHeader header = (ColumbaHeader) headerList.get(uid);		 * header.getAttributes().put(key, value);		 */"
-0,0,0,0,0,0,0,0,// deactivate the folder
+0,0,0,1,0,0,0,1,"/*		 * ColumbaHeader header = (ColumbaHeader) headerList.get(uid);		 * header.getAttributes().put(key, value);		 */"
+0,0,0,1,0,0,0,1,// deactivate the folder
 0,0,0,0,0,0,0,0,// Copy the rest
-0,0,0,0,0,0,0,0,// Update the Virtual Header
-0,0,0,0,0,0,0,0,// if no folder was passed as argument, use global options
-0,0,0,0,0,0,0,0,// global option
-0,0,0,0,0,0,0,0,// not supported by virtual folder
-0,0,0,0,0,0,0,0,"/*     * validates a hostname, i.e.:     * mail.myhost.com     * mail.us.myhost.com     * 127.0.0.1     * */"
+0,0,0,1,0,0,0,1,// Update the Virtual Header
+0,0,0,1,0,0,0,1,// if no folder was passed as argument, use global options
+0,0,0,1,0,0,0,1,// global option
+0,0,0,1,0,0,0,1,// not supported by virtual folder
+0,0,0,1,0,0,0,1,"/*     * validates a hostname, i.e.:     * mail.myhost.com     * mail.us.myhost.com     * 127.0.0.1     * */"
 0,0,0,0,0,0,0,0,// add column to JTable column model
-0,0,0,0,0,0,0,0,// create element if not available
-0,0,0,0,0,0,0,0,// use folder specific options
-0,0,0,0,0,0,0,0,// add columns
-0,0,0,0,0,0,0,0,// only local options have overwrite attribute
+0,0,0,1,0,0,0,1,// create element if not available
+0,0,0,1,0,0,0,1,// use folder specific options
+0,0,0,1,0,0,0,1,// add columns
+0,0,0,1,0,0,0,1,// only local options have overwrite attribute
 0,0,0,0,0,0,0,0,// use global options
-0,0,0,0,0,0,0,0,// use folder-based options
-0,0,0,0,0,0,0,0,// save width
+0,0,0,1,0,0,0,1,// use folder-based options
+0,0,0,1,0,0,0,1,// save width
 0,0,0,0,0,0,0,0,// remove all child nodes
 0,0,0,0,0,0,0,0,// should we re-use the last remembered selection?
-0,0,0,0,0,0,0,0,// these are the items, enabled as default
+0,0,0,1,0,0,0,1,// these are the items, enabled as default
 0,0,0,0,0,0,0,0,// resize column width
-0,0,0,0,0,0,0,0,// no messages in this folder
+0,0,0,1,0,0,0,1,// no messages in this folder
 0,0,0,0,0,0,0,0,// changing the selection to the first/last row based on ascending // state
-0,0,0,0,0,0,0,0,// sorting order
-0,0,0,0,0,0,0,0,// row count == 0 --> empty table
+0,0,0,1,0,0,0,1,// sorting order
+0,0,0,1,0,0,0,1,// row count == 0 --> empty table
 0,0,0,0,0,0,0,0,// if a lastSelection for this folder is set // getting the last selected uid
-0,0,0,0,0,0,0,0,// enable max occurrences
-0,0,0,0,0,0,0,0,// if we search in The MessageConroller
+0,0,0,1,0,0,0,1,// enable max occurrences
+0,0,0,1,0,0,0,1,// if we search in The MessageConroller
 0,0,0,0,0,0,0,0,// ViewItem viewItem = getViewItem();
-0,0,0,0,0,0,0,0,// use global settings
-0,0,0,0,0,0,0,0,// listen to changes in the Subject to update the title bar // of the message composer window
-0,0,0,0,0,0,0,0,// remove disabled column
-0,0,0,0,0,0,0,0,// check for new messages
-0,0,0,0,0,0,0,0,// get the message controller
+0,0,0,1,0,0,0,1,// use global settings
+0,0,0,1,0,0,0,1,// listen to changes in the Subject to update the title bar // of the message composer window
+0,0,0,1,0,0,0,1,// remove disabled column
+0,0,0,1,0,0,0,1,// check for new messages
+0,0,0,1,0,0,0,1,// get the message controller
 0,0,0,0,0,0,0,0,// check if we should use the folder-based configuration // or the global table configuration
-0,0,0,0,0,0,0,0,// init model (defaults to empty plain text message)
-0,0,0,0,0,0,0,0,// Global # 1
-0,0,0,0,0,0,0,0,// if no account exists, return
-0,0,0,0,0,0,0,0,// @author Erich Schaer, Dmytro Podalyuk
-0,0,0,0,0,0,0,0,// East Europe # 10
-0,0,0,0,0,0,0,0,// West Europe # 4
-0,0,0,0,0,0,0,0,// Automatic Generation of Groups
-0,0,0,0,0,0,0,0,// composer can either edit in html or plain text mode // listen for configuration changes
-0,0,0,0,0,0,0,0,// if message contains attachments
-0,0,0,0,0,0,0,0,// East Asian # 17
+0,0,0,1,0,0,0,1,// init model (defaults to empty plain text message)
+0,0,0,1,0,0,0,1,// Global # 1
+0,0,0,1,0,0,0,1,// if no account exists, return
+0,0,0,1,0,0,0,1,// @author Erich Schaer, Dmytro Podalyuk
+0,0,0,1,0,0,0,1,// East Europe # 10
+0,0,0,1,0,0,0,1,// West Europe # 4
+0,0,0,1,0,0,0,1,// Automatic Generation of Groups
+0,0,0,1,0,0,0,1,// composer can either edit in html or plain text mode // listen for configuration changes
+0,0,0,1,0,0,0,1,// if message contains attachments
+0,0,0,1,0,0,0,1,// East Asian # 17
 0,0,1,1,1,1,1,1,// Hack to ensure charset is set correctly at start-up
 0,0,0,0,0,0,0,0,// add splitpane to the center
-0,0,0,0,0,0,0,0,// init controller for the editor depending on message type
-0,0,0,0,0,0,0,0,// set model based on configuration
-0,0,0,0,0,0,0,0,// create default element if not available
-0,0,0,0,0,0,0,0,// ignore this
-0,0,0,0,0,0,0,0,// remove all components from container
-0,0,0,0,0,0,0,0,// West Asian # 30
+0,0,0,1,0,0,0,1,// init controller for the editor depending on message type
+0,0,0,1,0,0,0,1,// set model based on configuration
+0,0,0,1,0,0,0,1,// create default element if not available
+0,0,0,1,0,0,0,1,// ignore this
+0,0,0,1,0,0,0,1,// remove all components from container
+0,0,0,1,0,0,0,1,// West Asian # 30
 0,0,0,0,0,0,0,0,// show signature viewer
-0,0,0,0,0,0,0,0,// email addresses and phone numbers
+0,0,0,1,0,0,0,1,// email addresses and phone numbers
 0,0,0,0,0,0,0,0,// create splitpane containing the bodytext editor and the // attachment panel
 0,0,0,0,0,0,0,0,// set first name
-0,0,0,0,0,0,0,0,// show attachment panel if necessary
-0,0,0,0,0,0,0,0,// update panel
-0,0,0,0,0,0,0,0,// re-paint composer-view
+0,0,0,1,0,0,0,1,// show attachment panel if necessary
+0,0,0,1,0,0,0,1,// update panel
+0,0,0,1,0,0,0,1,// re-paint composer-view
 0,0,0,0,0,0,0,0,// enable/disable html toolbar
-0,0,0,0,0,0,0,0,// update ComposerModel based on user-changes in ComposerView
-0,0,0,0,0,0,0,0,"/*		 * return isToolbarEnabled(ACCOUNTINFOPANEL);		 */"
-0,0,0,0,0,0,0,0,// default ~ plain text
+0,0,0,1,0,0,0,1,// update ComposerModel based on user-changes in ComposerView
+0,0,0,1,0,0,0,1,"/*		 * return isToolbarEnabled(ACCOUNTINFOPANEL);		 */"
+0,0,0,1,0,0,0,1,// default ~ plain text
 0,0,0,0,0,0,0,0,// Setup DnD for the text and attachment list control.
-0,0,0,0,0,0,0,0,// convert body text to comply with new editor format
-0,0,0,0,0,0,0,0,// sync model with the current (old) view
-0,0,0,0,0,0,0,0,// retrieve Command of filter action
-0,0,0,0,0,0,0,0,// switch editor and resync view with model
-0,0,0,0,0,0,0,0,// change ui container
-0,0,0,0,0,0,0,0,// sync view with new update to date model
-0,0,0,0,0,0,0,0,// save charset
-0,0,0,0,0,0,0,0,// close composer
+0,0,0,1,0,0,0,1,// convert body text to comply with new editor format
+0,0,0,1,0,0,0,1,// sync model with the current (old) view
+0,0,0,1,0,0,0,1,// retrieve Command of filter action
+0,0,0,1,0,0,0,1,// switch editor and resync view with model
+0,0,0,1,0,0,0,1,// change ui container
+0,0,0,1,0,0,0,1,// sync view with new update to date model
+0,0,0,1,0,0,0,1,// save charset
+0,0,0,1,0,0,0,1,// close composer
 0,0,0,0,0,0,0,0,// hide signature viewer
 0,0,0,0,0,0,0,0,// save html state
-0,0,0,0,0,0,0,0,// Display error ? // As it is inmutable
-0,0,0,0,0,0,0,0,// original: "^[a-zA-Z0-9]+@[a-zA-Z0-9\\.\\-]+\\.[a-zA-Z]{2,4}+$";
-0,0,0,0,0,0,0,0,"/* (non-Javadoc)	 * @see org.frapuccino.addresscombobox.PatternSeparatedAutoCompleter#acceptedListItem(java.lang.Object)	 */"
+0,0,0,1,0,0,0,1,// Display error ? // As it is inmutable
+0,0,0,1,0,0,0,1,// original: "^[a-zA-Z0-9]+@[a-zA-Z0-9\\.\\-]+\\.[a-zA-Z]{2,4}+$";
+0,0,0,1,0,0,0,1,"/* (non-Javadoc)	 * @see org.frapuccino.addresscombobox.PatternSeparatedAutoCompleter#acceptedListItem(java.lang.Object)	 */"
 0,0,0,0,0,0,0,0,// Remove leading space after the separator character so that it is not removed from the text component's document, below.
-0,0,0,0,0,0,0,0,// more initialization
-0,0,0,0,0,0,0,0,// set message
+0,0,0,1,0,0,0,1,// more initialization
+0,0,0,1,0,0,0,1,// set message
 0,0,0,0,0,0,0,0,// clear view
 0,0,0,0,0,0,0,0,// notifyListeners();
 0,0,0,0,0,0,0,0,// if this is no URI
-0,0,0,0,0,0,0,0,// fill hashmap with all available contacts and groups
-0,0,0,0,0,0,0,0,// Surround the selected element with double-quotes, if necessary
-0,0,0,0,0,0,0,0,//model.setHeaderField("X-Priority",(String) view.getSelectedItem());
-0,0,0,0,0,0,0,0,// remove from view
-0,0,0,0,0,0,0,0,//      Get Tooltip for Icon
-0,0,0,0,0,0,0,0,//setCellRenderer(new ListRenderer());
+0,0,0,1,0,0,0,1,// fill hashmap with all available contacts and groups
+0,0,0,1,0,0,0,1,// Surround the selected element with double-quotes, if necessary
+0,0,0,1,0,0,0,1,//model.setHeaderField("X-Priority",(String) view.getSelectedItem());
+0,0,0,1,0,0,0,1,// remove from view
+0,0,0,1,0,0,0,1,//      Get Tooltip for Icon
+0,0,0,1,0,0,0,1,//setCellRenderer(new ListRenderer());
 0,0,0,0,0,0,0,0,// remove from model
-0,0,0,0,0,0,0,0,//setModel(listModel);
-0,0,0,0,0,0,0,0,// font configuration
+0,0,0,1,0,0,0,1,//setModel(listModel);
+0,0,0,1,0,0,0,1,// font configuration
 0,0,0,0,0,0,0,0,// add attachments (mimeparts) from view to the model
 0,0,0,0,0,0,0,0,// transfer attachments from model to view
-0,0,0,0,0,0,0,0,// set formatted name
+0,0,0,1,0,0,0,1,// set formatted name
 0,0,0,0,0,0,0,0,// transfer attachments from view to model // clear existing attachments from the model
 0,0,0,0,0,0,0,0,// add attachments (mimeparts) from model to the view
-0,0,0,0,0,0,0,0,// attachment controller doesn't support copy actions
-0,0,0,0,0,0,0,0,// currently used font
+0,0,0,1,0,0,0,1,// attachment controller doesn't support copy actions
+0,0,0,1,0,0,0,1,// currently used font
 0,0,0,0,0,0,0,0,// attachment controller doesn't support copy-operation
-0,0,0,0,0,0,0,0,// size of font
+0,0,0,1,0,0,0,1,// size of font
 0,0,0,0,0,0,0,0,// view.setSelectionInterval(0, view.count() - 1);
-0,0,0,0,0,0,0,0,"//	name of font"
-0,0,0,0,0,0,0,0,// add listener to changes
-0,0,0,0,0,0,0,0,// hide/show attachment panel
+0,0,0,1,0,0,0,1,"//	name of font"
+0,0,0,1,0,0,0,1,// add listener to changes
+0,0,0,1,0,0,0,1,// hide/show attachment panel
 0,0,0,0,0,0,0,0,// ********** Methods necessary to hide view from clients ********
 0,0,0,0,0,0,0,0,// if account selection changes, reload signature file
 0,0,0,0,0,0,0,0,// register interest on configuration changes
 0,0,0,0,0,0,0,0,// use default font settings
-0,0,0,0,0,0,0,0,//SubjectDialog dialog = new SubjectDialog(composerInterface.composerFrame);
+0,0,0,1,0,0,0,1,//SubjectDialog dialog = new SubjectDialog(composerInterface.composerFrame);
 0,0,0,0,0,0,0,0,// check if we are currently editing a draft message
-0,0,0,0,0,0,0,0,// remove listener from old account selection
-0,0,0,0,0,0,0,0,// get "Drafts" folder of account
-0,0,0,0,0,0,0,0,// view data ->model
-0,0,0,0,0,0,0,0,// get selected account
-0,0,0,0,0,0,0,0,// -> we need to replace old message
-0,0,0,0,0,0,0,0,// message is already cached // try to compare the headerfield count of // the actually parsed message with the cached // headerfield count
-0,0,1,1,0,0,1,1,// I need revalidate if node is root. but why?
-0,0,0,0,0,0,0,0,// get mimeparts
-0,0,0,0,0,0,0,0,// get list of all selected folders
-0,0,0,0,0,0,0,0,//shortcut key
-0,0,0,0,0,0,0,0,// We need to parse // get message with UID
-0,0,0,0,0,0,0,0,// mark as read, mark as draft
-0,0,0,0,0,0,0,0,// update view accordingly
+0,0,0,1,0,0,0,1,// remove listener from old account selection
+0,0,0,1,0,0,0,1,// get "Drafts" folder of account
+0,0,0,1,0,0,0,1,// view data ->model
+0,0,0,1,0,0,0,1,// get selected account
+0,0,0,1,0,0,0,1,// -> we need to replace old message
+0,0,0,1,0,0,0,1,// message is already cached // try to compare the headerfield count of // the actually parsed message with the cached // headerfield count
+0,0,0,1,0,0,0,1,// I need revalidate if node is root. but why?
+0,0,0,1,0,0,0,1,// get mimeparts
+0,0,0,1,0,0,0,1,// get list of all selected folders
+0,0,1,0,0,0,1,0,//shortcut key
+0,0,0,1,0,0,0,1,// We need to parse // get message with UID
+0,0,0,1,0,0,0,1,// mark as read, mark as draft
+0,0,0,1,0,0,0,1,// update view accordingly
 0,0,0,0,0,0,0,0,// small icon for menu //putValue(SMALL_ICON, ImageLoader.getSmallImageIcon("send-later-16.png"));
-0,0,0,0,0,0,0,0,// private MainInterface mainInterface;
+0,0,0,1,0,0,0,1,// private MainInterface mainInterface;
 0,0,0,0,0,0,0,0,// required for SwingWorker 3
-0,0,0,0,0,0,0,0,// initialize MimeHeader as RFC822-compliant-message
-0,0,0,0,0,0,0,0,//ComposerModel model = (ComposerModel) // ((ComposerController)getFrameController()).getModel();
-0,0,0,0,0,0,0,0,//  add all attachments
-0,0,0,0,0,0,0,0,// add all attachments
-0,0,0,0,0,0,0,0,// build "quoted" message
-0,0,0,0,0,0,0,0,// skip if bodypart (already added as quoted text)
-0,0,0,0,0,0,0,0,// store header after processing
-0,0,0,0,0,0,0,0,// Text: Addition of > before each line
-0,0,0,0,0,0,0,0,// Add addresses to the addressbook
-0,0,0,0,0,0,0,0,// get answer from template
-0,0,0,0,0,0,0,0,// choose template
+0,0,0,1,0,0,0,1,// initialize MimeHeader as RFC822-compliant-message
+0,0,0,1,0,0,0,1,//ComposerModel model = (ComposerModel) // ((ComposerController)getFrameController()).getModel();
+0,0,0,1,0,0,0,1,//  add all attachments
+0,0,0,1,0,0,0,1,// add all attachments
+0,0,0,1,0,0,0,1,// build "quoted" message
+0,0,0,1,0,0,0,1,// skip if bodypart (already added as quoted text)
+0,0,0,1,0,0,0,1,// store header after processing
+0,0,0,1,0,0,0,1,// Text: Addition of > before each line
+0,0,0,1,0,0,0,1,// Add addresses to the addressbook
+0,0,0,1,0,0,0,1,// get answer from template
+0,0,0,1,0,0,0,1,// choose template
 0,0,0,0,0,0,0,0,// retrieve headerlist of tempate folder
-0,0,0,0,0,0,0,0,// template folder has uid=107
-0,0,0,0,0,0,0,0,// Add all recipients to the collected addresses
-0,0,0,0,0,0,0,0,// user pressed OK
-0,0,0,0,0,0,0,0,// get bodytext of template message
-0,0,0,0,0,0,0,0,// remove duplicates
-0,0,0,0,0,0,0,0,// From which account is this mail?
-0,0,0,0,0,0,0,0,// set subject ; mod:20040629 SWITT
-0,0,0,0,0,0,0,0,"//$NON-NLS-1$			"
-0,0,0,0,0,0,0,0,// ======== dialogPane ========
-0,0,0,0,0,0,0,0,// html
+0,0,0,1,0,0,0,1,// template folder has uid=107
+0,0,0,1,0,0,0,1,// Add all recipients to the collected addresses
+0,0,0,1,0,0,0,1,// user pressed OK
+0,0,0,1,0,0,0,1,// get bodytext of template message
+0,0,0,1,0,0,0,1,// remove duplicates
+0,0,0,1,0,0,0,1,// From which account is this mail?
+0,0,0,1,0,0,0,1,// set subject ; mod:20040629 SWITT
+0,0,0,1,0,0,0,1,"//$NON-NLS-1$			"
+0,0,0,1,0,0,0,1,// ======== dialogPane ========
+0,0,0,1,0,0,0,1,// html
 0,0,0,0,0,0,0,0,// we only need the first message
-0,0,0,0,0,0,0,0,// setRowMargin(5);
-0,0,0,0,0,0,0,0,// get message flags
-0,0,0,0,0,0,0,0,// get selected messages
-0,0,0,0,0,0,0,0,// set From for redirecting; new: 20040629 SWITT
-0,0,0,0,0,0,0,0,// Text: take org. message; mod:20040629 SWITT
-0,0,0,0,0,0,0,0,// Html: Insertion of text before and after original message
-0,0,0,0,0,0,0,0,// action buttons for moving contacts
+0,0,0,1,0,0,0,1,// setRowMargin(5);
+0,0,0,1,0,0,0,1,// get message flags
+0,0,0,1,0,0,0,1,// get selected messages
+0,0,0,1,0,0,0,1,// set From for redirecting; new: 20040629 SWITT
+0,0,0,1,0,0,0,1,// Text: take org. message; mod:20040629 SWITT
+0,0,0,1,0,0,0,1,// Html: Insertion of text before and after original message
+0,0,0,1,0,0,0,1,// action buttons for moving contacts
 0,0,0,0,0,0,0,0,// skip if message is *not* marked as spam
-0,0,0,0,0,0,0,0,"// 	Stick with the default charset"
-0,0,0,0,0,0,0,0,// addressbook list
-0,0,0,0,0,0,0,0,// recipient lists
-0,0,0,0,0,0,0,0,// models for addressbook/recipients lists
-0,0,0,0,0,0,0,0,// labels
-0,0,0,0,0,0,0,0,// b2.nextLine();
+0,0,0,1,0,0,0,1,"// 	Stick with the default charset"
+0,0,0,1,0,0,0,1,// addressbook list
+0,0,0,1,0,0,0,1,// recipient lists
+0,0,0,1,0,0,0,1,// models for addressbook/recipients lists
+0,0,0,1,0,0,0,1,// labels
+0,0,0,1,0,0,0,1,// b2.nextLine();
 0,0,0,0,0,0,0,0,"/*	 * public IHeaderItemList[] getHeaderItemLists() { return headerItemList; }	 */"
 0,0,0,0,0,0,0,0,"//			toListModel.clear(); //			ccListModel.clear(); //			bccListModel.clear();"
 0,0,0,0,0,0,0,0,// get color from factory // ->factory shares color objects to save memory
@@ -4051,9 +4051,9 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//dialog.getContentPane().setLayout( new BoxLayout( dialog.getContentPane(), BoxLayout.Y_AXIS ) );
 0,0,0,0,0,0,0,0,// END public ExternalEditor()
 0,0,0,0,0,0,0,0,// ensure that we are currently in the contact component
-0,0,0,0,0,0,0,0,// remember old font properties
+0,0,0,1,0,0,0,1,// remember old font properties
 0,0,0,0,0,0,0,0,// set last name
-0,0,0,0,0,0,0,0,// add all additional names (middle names)
+0,0,0,1,0,0,0,1,// add all additional names (middle names)
 0,0,0,0,0,0,0,0,// END public class ExternalEditor
 0,0,0,0,0,0,0,0,// set new text
 0,0,0,0,0,0,0,0,// execute application, enabling blocking
@@ -4064,7 +4064,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Do we have to insert a quoteprefix?
 0,0,0,0,0,0,0,0,// here)
 0,0,0,0,0,0,0,0,// 2 columns // rows are added dynamically (no need to define them
-0,0,0,0,0,0,0,0,// @author: fdietz
+0,0,0,1,0,0,0,1,// @author: fdietz
 0,0,0,0,0,0,0,0,// update tree label
 0,0,0,0,0,0,0,0,// update configuration
 0,0,0,0,0,0,0,0,// two different root folders // -> get inputstream from source-folder and add it to // -> destination-folder as inputstream // -----> moving of raw message source // (works also for copying from local to IMAP folders, etc.
@@ -4081,7 +4081,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// disable the actionlistener for this period // to avoid an unwanted port check
 0,0,0,0,0,0,0,0,// Update the Port
 0,0,0,0,0,0,0,0,// Default Port
-0,0,0,0,0,0,0,0,// insert into message right after <body...>
+0,0,0,1,0,0,0,1,// insert into message right after <body...>
 0,0,0,0,0,0,0,0,//this.frame = frame;
 0,0,0,0,0,0,0,0,//private ConfigFrame frame;
 0,0,0,0,0,0,0,0,// POP3s / IMAPs
