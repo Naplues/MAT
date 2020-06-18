@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.Settings;
+import main.Statistics;
 import others.FileHandle;
 import others.tm.process.DataReader;
 import weka.attributeSelection.InfoGainAttributeEval;
@@ -87,7 +88,7 @@ public class TM extends Method {
             System.out.print("Target: " + Settings.projectNames[target] + ", ");
             testDataPath = methodPath + "data--" + Settings.projectNames[target] + ".arff";
 
-
+/*
             // 测试集包含19个项目
             StringBuilder testText = new StringBuilder("@relation 'technicalDebt'\n\n" +
                     "@attribute Text string\n" +
@@ -100,7 +101,7 @@ public class TM extends Method {
             }
             FileHandle.writeStringToFile(methodPath + "data--tmp.arff", testText.toString());
             testDataPath = methodPath + "data--tmp.arff";
-
+*/
 
             // 集成学习器
             EnsembleLearner eLearner = new EnsembleLearner();
@@ -155,7 +156,9 @@ public class TM extends Method {
                     .append(eLearner.getRecall()).append(", ")
                     .append(eLearner.getFmeasure()).append("\n");
         }// end for 测试集*/
-        FileHandle.writeStringToFile("result/oto/tm/Self.csv", text.toString());
+        Statistics.combineResult();
+        //FileHandle.writeStringToFile("result/oto/tm/Self.csv", text.toString());
+
     }
 
 

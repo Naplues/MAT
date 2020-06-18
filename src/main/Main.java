@@ -13,19 +13,19 @@ public class Main {
         // 为各种方法准备数据
         //new Pattern().prepareData();
         //new TM().prepareData();
-        new NLP().prepareData();
+        //new NLP().prepareData();
 
         // 使用各种方法进行预测
         //new Pattern().predict();
         //new TM().predict();
-        new NLP().predict();
-        //new Mat().predict();
+        //new NLP().predict();
+        new Mat().predict();
         //new TM().predictWithLimitedTrainingSet();
 
 
         //Statistics.showResult("Pattern");
-        Statistics.combineResult();
-        Statistics.showResult("NLP");
+
+        Statistics.showResult("MAT");
         //Statistics.showResult("TM");
         //Statistics.showResult("Easy");
         //Statistics.showResult("MAT"); //*/

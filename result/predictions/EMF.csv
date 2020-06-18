@@ -1,112 +1,112 @@
 oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 1,0,1,1,1,1,1,1,// TODO factor up into GenBaseImpl //
-1,0,0,1,0,0,0,1,// EATM Call the deprecated method which does the same thing  // but might have an override in older code.
-1,0,1,1,0,0,1,1,// Unused?
-1,0,1,0,1,1,1,1,// TODO factor up into GenBaseImpl? //
+1,0,1,0,0,0,1,0,// EATM Call the deprecated method which does the same thing  // but might have an override in older code.
+1,0,1,0,0,0,1,0,// Unused?
+1,0,1,1,1,1,1,1,// TODO factor up into GenBaseImpl? //
 1,0,1,1,0,0,1,1,// call workaround
-1,0,1,0,1,1,1,1,// TODO deprecate (since getPluginClass() is no longer called) //
-1,0,0,1,0,0,0,1,// Ensure that this race condition is thread safe; it doesn't matter who wins the race. //
-1,0,1,0,1,1,1,1,// TODO // This assumes we only get a SET notification, which isn't a good assumption. //
-1,0,0,0,0,0,0,0,//DMS handle this well.
-1,0,0,0,0,0,0,0,//FB TBD can we come up with a better algorithm for choosing the default label feature?
-1,0,0,0,0,0,0,0,//DMS should we let this exception out?
-1,0,0,0,0,0,0,0,//DMS What if Eclipse is running, but an invalid facade has been specified?  We still should format code, use encoding,...
-1,0,0,1,0,0,0,1,//DMS  Do a better job with specific exceptions? Just use chained RuntimeExceptions?
+1,0,1,1,1,1,1,1,// TODO deprecate (since getPluginClass() is no longer called) //
+1,0,1,0,0,0,1,0,// Ensure that this race condition is thread safe; it doesn't matter who wins the race. //
+1,0,1,1,1,1,1,1,// TODO // This assumes we only get a SET notification, which isn't a good assumption. //
+1,0,1,0,0,0,1,0,//DMS handle this well.
+1,0,1,0,0,0,1,0,//FB TBD can we come up with a better algorithm for choosing the default label feature?
+1,0,1,0,0,0,1,0,//DMS should we let this exception out?
+1,0,1,0,0,0,1,0,//DMS What if Eclipse is running, but an invalid facade has been specified?  We still should format code, use encoding,...
+1,0,1,1,0,0,1,1,//DMS  Do a better job with specific exceptions? Just use chained RuntimeExceptions?
 1,0,1,0,0,0,1,0,// If the delegate URI can be handled as a file,  // we'll hope that renaming it will be really efficient. //
-1,0,1,0,0,0,1,0,//DMS Why not this? //new SubProgressMonitor(progressMonitor, 1));
+1,0,1,1,0,0,1,1,//DMS Why not this? //new SubProgressMonitor(progressMonitor, 1));
 1,0,1,0,0,0,1,0,// Assume that it's an attribute for now. // It will/could become a reference if the type resolves to an EClass. //
-1,0,0,0,0,0,0,0,// Do nothing for now, and avoid propagating the exception.   // How should builders handle cancel?
-1,0,0,0,0,0,0,0,// this is a fall-back, however, this should never be called
+1,0,1,0,0,0,1,0,// Do nothing for now, and avoid propagating the exception.   // How should builders handle cancel?
+1,0,1,0,0,0,1,0,// this is a fall-back, however, this should never be called
 1,0,1,1,1,1,1,1,// TODO fix the space above
 1,0,1,1,1,1,1,1,// TODO REMOVE THIS BOGUS EMPTY LINE
 1,0,1,1,1,1,1,1,// TODO handle class cast exception better.
-1,0,0,1,0,0,0,1,// I don't know if we should be run this deferred  // because we might have to give the editor a chance to process the viewer update events  // and hence to update the views first. //  //
-1,1,0,1,1,1,1,1,// This is a big festering hack to make the images the right size from the start. //
-1,0,0,1,0,0,0,1,// EATM Demand create metadata; needs to depend on processing mode...
+1,0,1,0,0,0,1,0,// I don't know if we should be run this deferred  // because we might have to give the editor a chance to process the viewer update events  // and hence to update the views first. //  //
+1,1,1,1,1,1,1,1,// This is a big festering hack to make the images the right size from the start. //
+1,0,1,0,0,0,1,0,// EATM Demand create metadata; needs to depend on processing mode...
 1,0,1,1,1,1,1,1,// TODO This is really quite attrocious since there is code that will assume an iterator that returns strings!
-1,0,0,0,0,0,0,0,//TBD return (user selected subset?) of referenced packages that contain super classes of classes in this package.
-1,0,1,0,0,0,1,0,// call the workaround
-1,0,0,0,0,0,0,0,// //TBD rethink where exactly some of the following methods belong (GenModel or GenPackage) //
-1,0,0,1,0,0,0,1,// if there are multiple variables in declaration,  // separate this variable fragment into a separate declaration
-1,0,0,1,0,0,0,1,// EATM this would be wrong.
-1,0,0,0,0,0,0,0,// REVISIT: Remove this code.
-1,0,0,0,0,0,0,0,// The label is not used. //
-1,1,0,0,0,0,0,0,// Motif kludge: we would get something random instead of null. //
-1,0,1,0,1,1,1,1,// TODO So what should be the eType be now? //
-1,0,0,1,0,0,0,1,// This runs the operation, and shows progress. // (It appears to be a bad thing to fork this onto another thread.) //
-1,1,1,0,0,0,1,0,// EATM Kind of hacky.
+1,0,1,0,0,0,1,0,//TBD return (user selected subset?) of referenced packages that contain super classes of classes in this package.
+1,0,1,1,0,0,1,1,// call the workaround
+1,0,1,0,0,0,1,0,// //TBD rethink where exactly some of the following methods belong (GenModel or GenPackage) //
+1,0,1,0,0,0,1,0,// if there are multiple variables in declaration,  // separate this variable fragment into a separate declaration
+1,0,1,0,0,0,1,0,// EATM this would be wrong.
+1,0,1,0,0,0,1,0,// REVISIT: Remove this code.
+1,0,1,0,0,0,1,0,// The label is not used. //
+1,1,1,0,0,0,1,0,// Motif kludge: we would get something random instead of null. //
+1,0,1,1,1,1,1,1,// TODO So what should be the eType be now? //
+1,0,1,0,0,0,1,0,// This runs the operation, and shows progress. // (It appears to be a bad thing to fork this onto another thread.) //
+1,1,1,0,0,1,1,1,// EATM Kind of hacky.
 1,1,1,0,0,0,1,0,// This is a kludge to deal with enumerators, which crash the doSwitch. //
-1,0,1,1,0,0,1,1,// This is copied from ItemProviderAdapterFactory. //
-1,0,0,1,0,0,0,1,// EATM This might be better written as a single loop for the EObject case? //
-1,0,0,1,0,0,0,1,// Second alternative should be getModelProject()?
+1,0,1,0,0,0,1,0,// This is copied from ItemProviderAdapterFactory. //
+1,0,1,1,0,0,1,1,// EATM This might be better written as a single loop for the EObject case? //
+1,0,1,0,0,0,1,0,// Second alternative should be getModelProject()?
 1,0,1,1,1,1,1,1,// TODO Hack that should be removed.
-1,0,0,0,1,1,1,1,// TODO // Specialize this to return a resource locator for messages specific to this validator. // Ensure that you remove @generated or mark it @generated NOT
-1,0,0,1,1,1,1,1,// TODO // I'm concerned that folders will often return 401 or even 403. // So should we consider something to exist even though access if unauthorized or forbidden? //
-1,0,0,1,0,0,0,1,// Only file-scheme URIs will be re-encoded. If a URI was decoded in the workaround // above, and Platform.resolve() didn't return a file-scheme URI, then this will return // an decoded URI. //
-1,0,0,1,0,0,0,1,// This functionality should eventually go away, as it is replaced by model exporters. // We'll just delegate to the deprecated GenPackage method. The monitor isn't used, so we won't pass it. //
-1,0,0,1,0,0,0,1,// The eAnnotations and eGenericType are possible containment references.  // We'll move them instead of copying //
-1,0,0,1,0,0,0,1,// Note: Registry based authority is being removed from a // new spec for URI which would obsolete RFC 2396. If the // spec is added to XML errata, processing of reg_name // needs to be removed. - mrglavas.
-1,0,0,1,0,0,0,1,// temporary structure to hold node's attributes + namespaces in scope
+1,0,1,0,1,1,1,1,// TODO // Specialize this to return a resource locator for messages specific to this validator. // Ensure that you remove @generated or mark it @generated NOT
+1,0,1,1,1,1,1,1,// TODO // I'm concerned that folders will often return 401 or even 403. // So should we consider something to exist even though access if unauthorized or forbidden? //
+1,0,1,1,0,0,1,1,// Only file-scheme URIs will be re-encoded. If a URI was decoded in the workaround // above, and Platform.resolve() didn't return a file-scheme URI, then this will return // an decoded URI. //
+1,0,1,0,0,0,1,0,// This functionality should eventually go away, as it is replaced by model exporters. // We'll just delegate to the deprecated GenPackage method. The monitor isn't used, so we won't pass it. //
+1,0,1,0,0,0,1,0,// The eAnnotations and eGenericType are possible containment references.  // We'll move them instead of copying //
+1,0,1,0,0,0,1,0,// Note: Registry based authority is being removed from a // new spec for URI which would obsolete RFC 2396. If the // spec is added to XML errata, processing of reg_name // needs to be removed. - mrglavas.
+1,0,1,0,0,0,1,0,// temporary structure to hold node's attributes + namespaces in scope
 1,0,1,1,1,1,1,1,// HACK: reading encoding
 1,0,1,0,0,0,1,0,// Because of the old factoring approach in the create method,  // it might be the case that the state of the old value has changed by the time we get here, // and in that case, we don't want to duplicate the removals in this code. //
-1,0,0,1,0,0,0,1,// REVISIT: Remove this code. // Store port value as string instead of integer.
-1,0,1,0,1,1,1,1,// TODO // This is faster than many charAt() calls. //
-1,0,0,0,0,0,0,0,//REVISIT: do we really need to support block names as in Unicode 3.1 //         or we can just create all the names in IsBLOCKNAME format (XML Schema REC)? //
-1,0,0,0,0,0,0,0,// Bubble sort // Why? -- In many cases, //         this.ranges has few elements.
-1,0,1,0,0,0,1,0,// Per Schema 1.0 it is not clear if the result returned should be a valid URI.  // For the future if we plant to support IRIs then it is better not to massage // the initialValue.  // We should thought consider where would be the best way to validate anyURI values -- EL
+1,0,1,0,0,0,1,0,// REVISIT: Remove this code. // Store port value as string instead of integer.
+1,0,1,1,1,1,1,1,// TODO // This is faster than many charAt() calls. //
+1,0,1,0,0,0,1,0,//REVISIT: do we really need to support block names as in Unicode 3.1 //         or we can just create all the names in IsBLOCKNAME format (XML Schema REC)? //
+1,0,1,1,0,0,1,1,// Bubble sort // Why? -- In many cases, //         this.ranges has few elements.
+1,0,1,1,0,0,1,1,// Per Schema 1.0 it is not clear if the result returned should be a valid URI.  // For the future if we plant to support IRIs then it is better not to massage // the initialValue.  // We should thought consider where would be the best way to validate anyURI values -- EL
 1,0,1,1,1,1,1,1,// Note that the way they are sorted, the values of index[i++] always increase, // so the objects are added from right to left in the list. // // EATM  TODO // // We could make this more efficient by grouping the adds when indices increment by one, // so that a single grouped notification would result. //
-1,0,1,0,1,1,1,1,// TODO deprecate (since no longer used by getEditPluginClass(), getEditorPluginClass(), getTestSuiteClass()) //
-1,0,0,0,0,0,0,0,// if there are multiple variables in declaration,  // separate this variable fragment into a separate declaration
-1,0,0,1,0,0,0,1,//DMS factor this into a method? Use a non-static subclass?
-1,0,0,0,0,0,0,0,//DMS this doesn't really produce nice output. //
-1,0,0,1,0,0,0,1,//FB TBD filter out volatile and other inappropriate links?
-1,0,0,0,0,0,0,0,// I don't know if this should be run this deferred // because we might have to give the editor a chance to process the viewer update events // and hence to update the views first. // //
-1,0,0,0,1,1,1,1,// TODO processing instructions are not sent to recordValues
-1,0,0,0,1,1,1,1,// TODO comments are not sent to recordValues
-1,0,0,0,1,1,1,1,// TODO Ignore for now.
-1,0,1,0,1,1,1,1,// TODO handle situation when ASTJNode is removed (compilationUnit is null)
+1,0,1,1,1,1,1,1,// TODO deprecate (since no longer used by getEditPluginClass(), getEditorPluginClass(), getTestSuiteClass()) //
+1,0,1,0,0,0,1,0,// if there are multiple variables in declaration,  // separate this variable fragment into a separate declaration
+1,0,1,0,0,0,1,0,//DMS factor this into a method? Use a non-static subclass?
+1,0,1,1,0,0,1,1,//DMS this doesn't really produce nice output. //
+1,0,1,0,0,0,1,0,//FB TBD filter out volatile and other inappropriate links?
+1,0,1,0,0,0,1,0,// I don't know if this should be run this deferred // because we might have to give the editor a chance to process the viewer update events // and hence to update the views first. // //
+1,0,1,1,1,1,1,1,// TODO processing instructions are not sent to recordValues
+1,0,1,1,1,1,1,1,// TODO comments are not sent to recordValues
+1,0,1,1,1,1,1,1,// TODO Ignore for now.
+1,0,1,1,1,1,1,1,// TODO handle situation when ASTJNode is removed (compilationUnit is null)
 1,0,0,0,0,0,0,0,//TBD return super classes of classes in this package that come from a delegate package.
-1,0,0,1,0,0,0,1,// if current char is comma, insert line break after it // // we should be able to find the comma because the range for enum constants includes all trailing comments up to the separator // if TargetSourceRangeComputer of ASTRewrite changes, this logic should change to skip comments // see org.eclipse.emf.codegen.merge.java.facade.ast.CommentAwareSourceRangeComputer#getEnumConstantSourceRange(ASTNode)
-1,0,1,0,1,1,1,1,// TODO translation
-1,0,1,0,1,1,1,1,// TODO Binary incompatibility; an old override must override putAll.
-1,0,0,0,0,0,0,0,// This runs the options, and shows progress. // (It appears to be a bad thing to fork this onto another thread.) //
-1,0,0,0,0,0,0,0,// we should be able to find the comma because the range for enum constants includes all preceding comments up to the previous constant // if TargetSourceRangeComputer of ASTRewrite changes, this logic should change to skip comments // see org.eclipse.emf.codegen.merge.java.facade.ast.CommentAwareSourceRangeComputer#getEnumConstantSourceRange(ASTNode)
-1,0,1,1,1,1,1,1,// TODO we should generate this.
-1,0,0,1,1,1,1,1,// TODO What about the instance type name and the fact that we should be matching its type argument structure? // If they match so far, we must assume they are okay and then check all the arguments. //
-0,0,0,1,0,0,0,1,// Set of options that we want to control
-0,0,0,1,0,0,0,1,// get the end position of the range for the previous node
-0,0,0,1,0,0,0,1,// adding 'at' allows distinguish annotations from other members // (i.e. inner class verses annotation of a class) //
-0,0,0,0,0,0,0,0,// Get the adapter from the factory. //
-0,0,0,1,0,0,0,1,// No methods added.
-0,0,0,0,0,0,0,0,"/*   * Javadoc copied from interface.   */"
-0,0,0,1,0,0,0,1,// add trailing comments if necessary
-0,0,0,1,0,0,0,1,// If the target is read-only, we can ask the platform to release it. //
-0,0,0,0,0,0,0,0,// If entries don't have the same feature, the feature maps aren't equal. //
-0,0,0,1,0,0,0,1,// Merge with an existing file. //
-0,0,0,1,0,0,0,1,// Walk up the superpackages, collecting the package names. // Because empty packages are ommitted from the GenModel, we need to walk up the EPackages. //
-0,0,0,0,0,0,0,0,// Any features that delegate to features in this package. //
-0,0,0,0,0,0,0,0,// See java.lang.Class.getName() javadoc for explanation of array encoding.
-0,0,0,0,0,0,0,0,// Additional useful character classes, including characters valid in certain // URI components and separators used in parsing them out of a string.  // // | ucschar | escaped
-0,0,0,1,0,0,0,1,"/**   * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.   * <!-- begin-user-doc -->   * <!-- end-user-doc -->   * @return the first non-null result returned by a <code>caseXXX</code> call.   * @generated   */"
-0,0,0,0,0,0,0,0,// If the target is read-only, we can ask the platform to release it, and it may be updated in the process. //
-0,0,0,1,0,0,0,1,// find start position of farthest preceding comment
-0,0,0,0,0,0,0,0,// was the details button pressed?
-0,0,0,1,0,0,0,1,// Set up the tree viewer. //
-0,0,0,0,0,0,0,0,// Process the children of the UnitTreeNode recursively. //
-0,0,0,0,0,0,0,0,// Create a code formatter for this compilation unit, if needed. //
-0,0,0,1,0,0,0,1,// If the name isn't qualified, it might be a primitive or from java.lang. Otherwise, assume it's in the current // package and use the nsPrefix for the qualified package name. //
-0,0,0,0,0,0,0,0,// Determine the base URL by looking for the plugin.properties file in the standard way. //
-0,0,0,1,0,0,0,1,// The notification for this list is being thrown by the // delegating list //
-0,0,0,0,0,0,0,0,// Make sure our popups work. //
-0,0,0,1,0,0,0,1,// remove type, insert enum
-0,0,1,1,0,0,1,1,// We need to screen out duplicates in the unlikely event that we have two //  features with the same class-qualified name. We'll only generate one property //  string in that case and let the user add the second one manually, if necessary. //
-0,0,0,0,0,0,0,0,// build mapping from classes to list of features that use them
+1,0,1,0,0,0,1,0,// if current char is comma, insert line break after it // // we should be able to find the comma because the range for enum constants includes all trailing comments up to the separator // if TargetSourceRangeComputer of ASTRewrite changes, this logic should change to skip comments // see org.eclipse.emf.codegen.merge.java.facade.ast.CommentAwareSourceRangeComputer#getEnumConstantSourceRange(ASTNode)
+1,0,1,1,1,1,1,1,// TODO translation
+1,0,1,1,1,1,1,1,// TODO Binary incompatibility; an old override must override putAll.
+1,0,1,0,0,0,1,0,// This runs the options, and shows progress. // (It appears to be a bad thing to fork this onto another thread.) //
+1,0,1,0,0,0,1,0,// we should be able to find the comma because the range for enum constants includes all preceding comments up to the previous constant // if TargetSourceRangeComputer of ASTRewrite changes, this logic should change to skip comments // see org.eclipse.emf.codegen.merge.java.facade.ast.CommentAwareSourceRangeComputer#getEnumConstantSourceRange(ASTNode)
+1,0,0,1,1,1,1,1,// TODO we should generate this.
+1,0,1,0,1,1,1,1,// TODO What about the instance type name and the fact that we should be matching its type argument structure? // If they match so far, we must assume they are okay and then check all the arguments. //
+0,0,1,0,0,0,1,0,// Set of options that we want to control
+0,0,1,0,0,0,1,0,// get the end position of the range for the previous node
+0,0,1,0,0,0,1,0,// adding 'at' allows distinguish annotations from other members // (i.e. inner class verses annotation of a class) //
+0,0,1,0,0,0,1,0,// Get the adapter from the factory. //
+0,0,1,0,0,0,1,0,// No methods added.
+0,0,1,0,0,0,1,0,"/*   * Javadoc copied from interface.   */"
+0,0,1,0,0,0,1,0,// add trailing comments if necessary
+0,0,1,0,0,0,1,0,// If the target is read-only, we can ask the platform to release it. //
+0,0,1,0,0,0,1,0,// If entries don't have the same feature, the feature maps aren't equal. //
+0,0,1,0,0,0,1,0,// Merge with an existing file. //
+0,0,1,0,0,0,1,0,// Walk up the superpackages, collecting the package names. // Because empty packages are ommitted from the GenModel, we need to walk up the EPackages. //
+0,0,1,0,0,0,1,0,// Any features that delegate to features in this package. //
+0,0,1,0,0,0,1,0,// See java.lang.Class.getName() javadoc for explanation of array encoding.
+0,0,1,0,0,0,1,0,// Additional useful character classes, including characters valid in certain // URI components and separators used in parsing them out of a string.  // // | ucschar | escaped
+0,0,1,0,0,0,1,0,"/**   * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.   * <!-- begin-user-doc -->   * <!-- end-user-doc -->   * @return the first non-null result returned by a <code>caseXXX</code> call.   * @generated   */"
+0,0,1,0,0,0,1,0,// If the target is read-only, we can ask the platform to release it, and it may be updated in the process. //
+0,0,1,0,0,0,1,0,// find start position of farthest preceding comment
+0,0,1,0,0,0,1,0,// was the details button pressed?
+0,0,1,0,0,0,1,0,// Set up the tree viewer. //
+0,0,1,0,0,0,1,0,// Process the children of the UnitTreeNode recursively. //
+0,0,1,0,0,0,1,0,// Create a code formatter for this compilation unit, if needed. //
+0,0,1,0,0,0,1,0,// If the name isn't qualified, it might be a primitive or from java.lang. Otherwise, assume it's in the current // package and use the nsPrefix for the qualified package name. //
+0,0,1,0,0,0,1,0,// Determine the base URL by looking for the plugin.properties file in the standard way. //
+0,0,1,0,0,0,1,0,// The notification for this list is being thrown by the // delegating list //
+0,0,1,0,0,0,1,0,// Make sure our popups work. //
+0,0,1,0,0,0,1,0,// remove type, insert enum
+0,0,1,0,0,0,1,0,// We need to screen out duplicates in the unlikely event that we have two //  features with the same class-qualified name. We'll only generate one property //  string in that case and let the user add the second one manually, if necessary. //
+0,0,1,0,0,0,1,0,// build mapping from classes to list of features that use them
 0,0,0,0,0,0,0,0,// This runs the options, and shows progress. //
 0,0,0,0,0,0,0,0,// no paths: keep query only
 0,0,0,0,0,0,0,0,// Select the root object in the view. //
 0,0,0,0,0,0,0,0,// else absolute path: keep it and query
 0,0,0,0,0,0,0,0,// Listen to selection so that we can handle it is a special way. //
-0,0,1,0,0,0,1,0,// The algorithm for the order of the features in this list should never change. // Also, the fact that a new list is created whenever the contents change  // is something else that should never change. // There are clients who rely on both these behaviors,  // and they will need to agree to any change, // so that they can adjust their own code. //
+0,0,0,0,0,0,0,0,// The algorithm for the order of the features in this list should never change. // Also, the fact that a new list is created whenever the contents change  // is something else that should never change. // There are clients who rely on both these behaviors,  // and they will need to agree to any change, // so that they can adjust their own code. //
 0,0,0,0,0,0,0,0,// This ensures that we handle selections correctly. //
 0,0,0,0,0,0,0,0,// Create an adapter factory that yields item providers. //
 0,0,0,0,0,0,0,0,// Get the current time in milliseconds since the epoch  // and adjust it to match the epoch required by the specification. //
@@ -124,7 +124,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Refresh the necessary state. //
 0,0,0,0,0,0,0,0,// A set command without a feature sets the value of this wrapper, hence replacing it with a new wrapper. So, // we need a special command wrapper that selects this new wrapper as the affected object. //
 0,0,0,0,0,0,0,0,// Maintain a (weak hash) set on the type parameter of all referencing generic types. //
-0,0,0,1,0,0,0,1,// Force the project to be setup properly. //
+0,0,0,0,0,0,0,0,// Force the project to be setup properly. //
 0,0,0,0,0,0,0,0,"/*    * Javadoc copied from interface.   */"
 0,0,0,0,0,0,0,0,// WizardContainer variables
 0,0,0,0,0,0,0,0,// return getPrefixedName("EditorPlugin");
@@ -256,7 +256,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// DocumentRoot
 0,0,0,0,0,0,0,0,// We do not want to diagnose any errors that have already been diagnosed by a super type. // Although we ignore all the first super's features, there may be mixin classes that still would result in duplicates. //
 0,0,0,0,0,0,0,0,// loop for all commented out nodes
-0,0,1,0,0,0,1,0,// We need to be careful that the proxy may be resolved while we are attaching this adapter. // We need to avoid attaching the adapter during the resolve  // and also attaching it again as we walk the eContents() later. // Checking here avoids having to check during addAdapter. //
+0,0,0,0,0,0,0,0,// We need to be careful that the proxy may be resolved while we are attaching this adapter. // We need to avoid attaching the adapter during the resolve  // and also attaching it again as we walk the eContents() later. // Checking here avoids having to check during addAdapter. //
 0,0,0,0,0,0,0,0,// Produce different levels of diagnostic depending whether the names are exactly the same or only matching. //
 0,0,0,0,0,0,0,0,// Switch to the new selection provider. //
 0,0,0,0,0,0,0,0,// Look for duplicates among the generic super types. //
@@ -359,7 +359,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// record node's attributes
 0,0,0,0,0,0,0,0,// Fill 4 of value (byte) -87 // Fill 2 of value (byte) 33 // Fill 10 of value (byte) -87 // Fill 519 of value (byte) 33 // Fill 3 of value (byte) -87
 0,0,0,0,0,0,0,0,// There's an EObject on the stack already. //
-0,0,1,0,0,0,1,0,//FB The following method is copied from com.ibm.etools.b2b.util.StringUtility //FB because the mapping framework cannot have a dependency on b2b. What we really //FB need to do is get methods like this moved to vabase so that everyone can //FB use them. // change all occurrences of oldPat to newPat
+0,0,0,0,0,0,0,0,//FB The following method is copied from com.ibm.etools.b2b.util.StringUtility //FB because the mapping framework cannot have a dependency on b2b. What we really //FB need to do is get methods like this moved to vabase so that everyone can //FB use them. // change all occurrences of oldPat to newPat
 0,0,0,0,0,0,0,0,// If it is changing... //
 0,0,0,0,0,0,0,0,// Test for a same document reference that would usually be handled as an IDREF. //
 0,0,0,0,0,0,0,0,// Check for scheme, which must be before '/', '?' or '#'. Also handle // names with DOS drive letters ('D:'), so 1-character schemes are not // allowed.
@@ -374,7 +374,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Fill 6 of value (byte) -87 // Fill 3 of value (byte) 33 // Fill 2 of value (byte) -87 // Fill 2 of value (byte) 33 // Fill 3 of value (byte) -87 // Fill 8 of value (byte) 33 // Fill 2 of value (byte) -87 // Fill 4 of value (byte) 33 // Fill 2 of value (byte) -19
 0,0,0,0,0,0,0,0,// handler.notationDecl(name, publicId, systemId);
 0,0,0,0,0,0,0,0,// EDate is far too often overridden to provide a different mapping, and therefor the default is somewhat obscure. // So, it's best to delegate to the factory. //
-0,0,1,0,0,0,1,0,// This seems to be a pretty sweet formula that supports good growth. // Adding an object to a list will create a list of capacity 4,  // which is just about the average list size. //
+0,0,0,0,0,0,0,0,// This seems to be a pretty sweet formula that supports good growth. // Adding an object to a list will create a list of capacity 4,  // which is just about the average list size. //
 0,0,0,0,0,0,0,0,"/*     *  Convert attribute values:     *  & to &amp;     *  < to &lt;     *  "" to &quot;     *  \t to &#x9;     *  \n to &#xA;     *  \r to &#xD;     */"
 0,0,0,0,0,0,0,0,// caching parser does not parse 2nd file in the same way (javadoc of package for example) // hence, new parser is created every time this method is called
 0,0,0,0,0,0,0,0,// Fill 7 of value (byte) -19 // Fill 3 of value (byte) 33 // Fill 4 of value (byte) -19 // Fill 2 of value (byte) 33 // Fill 6 of value (byte) -19 // Fill 4 of value (byte) 33 // Fill 13 of value (byte) -19 // Fill 5 of value (byte) 33 // Fill 3 of value (byte) -19
@@ -410,7 +410,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//  Interpret the body of a nested ownedComment as a comment-type and assign it as the EAnnotation.source of the parent. //
 0,0,0,0,0,0,0,0,// X{2,6} -> XX(X(X(XX?)?)?)?
 0,0,0,0,0,0,0,0,// Internal bootstrap uses Literals constants, so we must force initialization this inner interface first. //
-0,0,0,1,0,0,0,1,//iri = iri || containsNonASCII(device);
+0,0,0,0,0,0,0,0,//iri = iri || containsNonASCII(device);
 0,0,0,0,0,0,0,0,// Open an editor on the new file. //
 0,0,0,0,0,0,0,0,// Trying to match the following productions: // hexseq = hex4 *( ":" hex4) // hex4   = 1*4HEXDIG
 0,0,0,0,0,0,0,0,"/*           * Checks whether the expression starts with "".*"".           */"
@@ -452,12 +452,12 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Create a proper feature map entry. //
 0,0,0,0,0,0,0,0,// set original node of annotations (to allow get methods to work correctly)
 0,0,0,0,0,0,0,0,// Determine all the bundles that this project depends on. //
-0,0,1,0,0,0,1,0,// This call should get the files checked out from version control if the project is a 'team' project. //
+0,0,0,0,0,0,0,0,// This call should get the files checked out from version control if the project is a 'team' project. //
 0,0,0,0,0,0,0,0,// Like isStringType(), but still returns true even if multiplicity-many. //
 0,0,0,0,0,0,0,0,// Reverse the objects to attach and detach lists. //
 0,0,0,0,0,0,0,0,// this.offset points the next of '?'. // modifiers ::= [imsw]* ('-' [imsw]*)? ':'
 0,0,0,0,0,0,0,0,// Make sure the changed values of bidirectional reference lists are cached before we //  start to apply the change. //
-0,0,1,0,0,0,1,0,// This case will be handled special during apply //
+0,0,0,0,0,0,0,0,// This case will be handled special during apply //
 0,0,0,0,0,0,0,0,// If it doesn't correspond to a bundle, then try to process it as a project in the workspace. //
 0,0,0,0,0,0,0,0,//System.err.println("CLOSURE: "+min+", "+max);
 0,0,0,0,0,0,0,0,// Must be in 0x0040-0x005f
@@ -473,7 +473,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// clone includeStack without cloning contents //
 0,0,0,0,0,0,0,0,"/*               *  a|b|c -> FC_TERMINAL               *  a|.|c -> FC_ANY               *  a|b|  -> FC_CONTINUE               */"
 0,0,0,0,0,0,0,0,// Create .jetproperties file //
-0,0,0,0,0,0,0,0,// Mark the bound as unspecified so that it won't be considered many // but can nevertheless be recognized as being unspecified and perhaps still be treat as many. //
+0,0,0,1,0,0,0,1,// Mark the bound as unspecified so that it won't be considered many // but can nevertheless be recognized as being unspecified and perhaps still be treat as many. //
 0,0,0,0,0,0,0,0,// Store the current state in stack. //
 0,0,0,0,0,0,0,0,// If all the objects aren't used up by the above, then we can't do the command. //
 0,0,0,0,0,0,0,0,// Perl extension
@@ -486,7 +486,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Create a key set that supports add. //
 0,0,0,0,0,0,0,0,// Suppress default constructor for non-instantiability.
 0,0,0,0,0,0,0,0,// Get previous state in stack. //
-0,1,1,0,0,0,1,0,// VAJ kludge //
+0,1,0,0,0,0,0,0,// VAJ kludge //
 0,0,0,0,0,0,0,0,"/*                  result.addRange(0, RegularExpression.LINE_FEED-1);                  result.addRange(RegularExpression.LINE_FEED+1, RegularExpression.CARRIAGE_RETURN-1);                  result.addRange(RegularExpression.CARRIAGE_RETURN+1,                                  RegularExpression.LINE_SEPARATOR-1);                  result.addRange(RegularExpression.PARAGRAPH_SEPARATOR+1, UTF16_MAX);                  return 1;                  */"
 0,0,0,0,0,0,0,0,// Make sure we have something to pop. //
 0,0,0,0,0,0,0,0,// Map to EClass, EEnum or EInerface. // Note that we do not map structure and primitive type class. //
@@ -736,7 +736,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// else keep authority, device, path, and query
 0,0,0,0,0,0,0,0,// Determine the values to be added and add them at the right position. //
 0,0,0,0,0,0,0,0,// note: it's okay for two URIs to share a segments array, since // neither will ever modify it
-0,0,0,1,0,0,0,1,// Find the fragment root so that we can generate to the right location (by default). //
+0,0,0,0,0,0,0,0,// Find the fragment root so that we can generate to the right location (by default). //
 0,0,0,0,0,0,0,0,"/*   * Returns the base portion of the dynamic template path.   */"
 0,0,0,0,0,0,0,0,"/*   * (non-Javadoc)   *    * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)   */"
 0,0,0,0,0,0,0,0,// Remember it. //
@@ -754,9 +754,9 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//GenRuntimeVersion
 0,0,0,0,0,0,0,0,// These will be the children belonging to this feature. //
 0,0,0,0,0,0,0,0,//GenModelPackage
-0,0,0,0,0,0,0,0,// There is no executable command, so we'd better nix the whole deal. //
+0,0,0,1,0,0,0,1,// There is no executable command, so we'd better nix the whole deal. //
 0,0,0,0,0,0,0,0,// this returns either "attribute", "attribute list", "reference", or "reference list"
-0,0,0,1,0,0,0,1,// Do the encoding. //
+0,0,0,0,0,0,0,0,// Do the encoding. //
 0,0,0,0,0,0,0,0,// Get the target object from the item widget and the mouse location in it. //
 0,0,0,0,0,0,0,0,// add variable fragment to new declaration
 0,0,0,0,0,0,0,0,// Determine if we can create a valid command at the current location. //
@@ -782,13 +782,13 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Do allow an existing MANIFEST.MF to be overwritten, since it may have been created as part of an empty EMF project. // Use the existence of a plugin.xml as a guard against overwriting in a project that has already been generated. //
 0,0,0,0,0,0,0,0,// If there isn't an executable command we should maybe try a copy operation, but only if we're allowed and not doing a link. //
 0,0,0,0,0,0,0,0,"/*     * The type string must be qualified by its package uri, e.g. DTD.xmi:DTDElement.     * The package uri is used to look up the package by calling RefRegister.getPackage(uri).     */"
-0,0,0,1,0,0,0,1,// This will be the default return value. //
+0,0,0,0,0,0,0,0,// This will be the default return value. //
 0,0,0,0,0,0,0,0,"/*   * (non-Javadoc)   *    * @see org.eclipse.emf.mapping.action.AddRootBottomAction#getBottomsToAdd()   */"
 0,0,0,0,0,0,0,0,// Try again. //
 0,0,0,0,0,0,0,0,// Otherwise, we could check that the adapter implements interface IItemColorProvider. //
 0,0,0,0,0,0,0,0,// Now we could check that the adapter implements interface ITableItemColorProvider. //
 0,0,0,0,0,0,0,0,// This turns a featureless set command into an operation to create a mapping. // This is invoked during drag and drop. //
-0,0,0,1,0,0,0,1,//GenEnumImpl
+0,0,0,0,0,0,0,0,//GenEnumImpl
 0,0,0,0,0,0,0,0,// We've switch the operation! //
 0,0,0,0,0,0,0,0,// Select the new file resource in the current view. //
 0,0,0,0,0,0,0,0,// If the type isn't Object, we need to cast. If it's a primitive, we need to unbox. //
@@ -800,16 +800,16 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// this returns either "EAttribute" or "EReference"
 0,0,0,0,0,0,0,0,// Continue to compute the offset.
 0,0,0,0,0,0,0,0,// Defer the handling of the opposite. //
-0,0,1,0,0,0,1,0,// this guard is for extra security, but should not be necessary
-0,0,0,0,0,0,0,0,// Do this first for better error message during setEParameterProperties. //
+0,0,0,0,0,0,0,0,// this guard is for extra security, but should not be necessary
+0,0,0,1,0,0,0,1,// Do this first for better error message during setEParameterProperties. //
 0,0,0,0,0,0,0,0,// set properties
 0,0,0,0,0,0,0,0,// Index counters into indices1, indices2, and indices.  //
-0,0,1,0,0,0,1,0,// Just remember it; it's encoded later during execution, which is more efficient. //
+0,0,0,0,0,0,0,0,// Just remember it; it's encoded later during execution, which is more efficient. //
 0,0,0,0,0,0,0,0,// Remove objects from the owner list by index, starting from the end. //
 0,0,0,0,0,0,0,0,//GenModelFactoryImpl
 0,0,0,0,0,0,0,0,// We don't want to insert an object before or after itself... //
 0,0,0,0,0,0,0,0,// add IANA to Java encoding mappings.
-0,0,0,1,0,0,0,1,// Create a code formatter for this compilation unit, if needed
+0,0,0,0,0,0,0,0,// Create a code formatter for this compilation unit, if needed
 0,0,0,0,0,0,0,0,// This is the feedback we use to indicate drop on; it will only be used if the command is executable. //
 0,0,0,0,0,0,0,0,// Get the resource parent, if its a file. //
 0,0,0,0,0,0,0,0,// We'd like the collection of replacements selected after this replace completes. //
@@ -819,7 +819,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Simply remove the object from the owner list. //
 0,0,0,0,0,0,0,0,// Make up a unique new name here. //
 0,0,0,0,0,0,0,0,// Prepare for CreateChild item addition or removal. //
-0,0,1,0,0,0,1,0,// Check all the siblings to see which if any should now be nested under this new mapping. // The are accumulated into a list so that they can be removed as a single command with a single notification. //
+0,0,0,0,0,0,0,0,// Check all the siblings to see which if any should now be nested under this new mapping. // The are accumulated into a list so that they can be removed as a single command with a single notification. //
 0,0,0,0,0,0,0,0,// J9 2.2 has problems assigning null to a Class variable. //
 0,0,0,0,0,0,0,0,// always returns original value
 0,0,0,0,0,0,0,0,// Use the original to do the add, but only if it's of the same type as the copy. // This ensures that if there is conversion being done as part of the copy, // as would be the case for a cross domain copy in the mapping framework, // that we do actually use the converted instance. //
@@ -960,18 +960,18 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.eclipse.emf.mapping.ecore2ecore.Ecore2EcoreMapping#getOutputEPackage()   */"
 0,0,0,0,0,0,0,0,//GenModelSwitch
 0,0,0,0,0,0,0,0,// Now we'll do recursive MatchMapping. // (We need to iterate over a copy, since we modify the underlying list in the loop.)
-0,0,1,0,0,0,1,0,// This guard is needed to ensure that clear doesn't make the resource become loaded. //
+0,0,0,0,0,0,0,0,// This guard is needed to ensure that clear doesn't make the resource become loaded. //
 0,0,0,0,0,0,0,0,// This is done to ensure that this new copy is treated as an output by the domain. // The CreateMappingCommand will rely on this setting. //
 0,0,0,0,0,0,0,0,// If we haven't yet encrypted or decrypted, generate a key. This key will  // only be used for encryption. Decryption keys are always derived from // the header of the input stream itself.
 0,0,0,0,0,0,0,0,// colorMap.put(CLR_GRAD_START, clr1);
 0,0,0,0,0,0,0,0,// write the header to the output stream. this has the format  // (delimeters are not written): // PBE IV|ENCRYPTION IV|ENCRYPTED KEY LENGTH|ENCRYPTED KEY
 0,0,0,0,0,0,0,0,// We'd like the collection of things added to be selected after this command completes. //
 0,0,0,0,0,0,0,0,// Iterate over the children to find the owner. //
-0,0,1,0,0,0,1,0,// Handle the same document proxies, which may have problems resulting from the // other end of a bidirectional reference being handled as an IDREF rather than as a proxy. // When we are done with these, we know that funny proxies are now resolved as if they were handled as IDREFs. //
+0,0,0,0,0,0,0,0,// Handle the same document proxies, which may have problems resulting from the // other end of a bidirectional reference being handled as an IDREF rather than as a proxy. // When we are done with these, we know that funny proxies are now resolved as if they were handled as IDREFs. //
 0,0,0,0,0,0,0,0,// Merges this URI's relative path with the base non-relative path.  If // base has no path, treat it as the root absolute path, unless this has // no path either.
 0,0,0,0,0,0,0,0,// Make up a unique new name here. // //$NON-NLS-1$
 0,0,0,0,0,0,0,0,//removeCommand = RemoveCommand.create(domain, mappingRoot, mappingRoot.ePackageMapping().getMapping_Nested(), mappingRoot.getNested());
-0,0,1,0,0,0,1,0,// We don't want to move insert an object before or after itself... //
+0,0,0,0,0,0,0,0,// We don't want to move insert an object before or after itself... //
 0,0,0,0,0,0,0,0,// The CipherOutputStream shoudln't close the underlying stream //
 0,0,0,0,0,0,0,0,// return getProviderPackageName() + "." + getEditPluginClassName();
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.eclipse.emf.codegen.merge.java.facade.ast.ASTJAbstractType#remove(org.eclipse.emf.codegen.merge.java.facade.ast.ASTJNode)   */"
@@ -994,7 +994,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// We do not want to diagnose any error that have already been diagnosed by a super type. //
 0,0,0,0,0,0,0,0,// Creates the model from the editor input //
 0,0,0,0,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Switch</b> for the model's inheritance hierarchy. * It supports the call {@link #doSwitch(EObject) doSwitch(object)} * to invoke the <code>caseXXX</code> method for each class of the model, * starting with the actual class of the object * and proceeding up the inheritance hierarchy * until a non-null result is returned, * which is the result of the switch. * <!-- end-user-doc --> * @see org.eclipse.emf.mapping.ecore2ecore.Ecore2EcorePackage * @generated */"
-0,0,1,0,0,0,1,0,// Tests the non-null string value to see if it contains only ASCII // characters in the set represented by the specified 128-bit bitmask, // as well as, optionally, non-ASCII characters 0xA0 and above, and, // also optionally, escape sequences of % followed by two hex digits. // This method is used for the new, strict URI validation that is not // not currently in place.
+0,0,0,0,0,0,0,0,// Tests the non-null string value to see if it contains only ASCII // characters in the set represented by the specified 128-bit bitmask, // as well as, optionally, non-ASCII characters 0xA0 and above, and, // also optionally, escape sequences of % followed by two hex digits. // This method is used for the new, strict URI validation that is not // not currently in place.
 0,0,0,0,0,0,0,0,// If the workbench part changes... //
 0,0,0,0,0,0,0,0,/* backward compatibility with old generated overrides */
 0,0,0,0,0,0,0,0,// For a many-to-1, we use SetCommand.create() to create the command to remove the opposite reference; // a RemoveCommand on its opposite will actually result. //
@@ -1082,13 +1082,13 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//MappingPackageImpl
 0,0,0,0,0,0,0,0,// revert all current edits for this node
 0,0,0,0,0,0,0,0,// this line has been commented out, return next line number
-0,0,1,0,0,0,1,0,// Find the appropriate parent mapping, which at the very least, should be the mapping root itself. //
+0,0,0,0,0,0,0,0,// Find the appropriate parent mapping, which at the very least, should be the mapping root itself. //
 0,0,0,0,0,0,0,0,// if there is anything after the node on the same line, insert line break
 0,0,0,0,0,0,0,0,// Separators for parsing a URI string.
 0,0,0,0,0,0,0,0,// comment out all lines of the node itself, from firstLine to last line
 0,0,0,0,0,0,0,0,// This is tricky and is done for each object here rather than once for the owner of the addCommnd. // We want to make sure the object is really part of the conceptual tree induced by the domain. //
 0,0,0,0,0,0,0,0,// next position is checked as well
-0,0,1,0,0,0,1,0,// We can't blindly cache the genModel, since we need to support moving the GenPackage to another container, // but the cast is expensive, so we'd like to do it no more than absolutely necessary. //
+0,0,0,0,0,0,0,0,// We can't blindly cache the genModel, since we need to support moving the GenPackage to another container, // but the cast is expensive, so we'd like to do it no more than absolutely necessary. //
 0,0,0,0,0,0,0,0,// handle the case when there is a replace edit that covers these lines
 0,0,0,0,0,0,0,0,// If it's the selection viewer, then we want it to select the same selection as this selection. //
 0,0,0,0,0,0,0,0,// if there is any content after the node on the same line, insert line break (to prevent commenting out extra content)
@@ -1104,7 +1104,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// if comma is on a line by itself, comment it out but do not insert the line break
 0,0,0,0,0,0,0,0,"/* (non-Javadoc)   * @see org.eclipse.emf.codegen.merge.java.facade.ast.ASTJAbstractType#insertSibling(org.eclipse.emf.codegen.merge.java.facade.ast.ASTJNode, org.eclipse.emf.codegen.merge.java.facade.ast.ASTJNode, boolean)   */"
 0,0,0,0,0,0,0,0,// if previous node is not commented out, but all the following nodes are, comment out a comma (constant separator)
-0,0,1,0,0,0,1,0,// We need to filer out duplicates in the unlikely event that we have two // features with the same class-qualified name. We'll only generate one property // string in that case and let the user add the second one manually, if necessary. //
+0,0,0,0,0,0,0,0,// We need to filer out duplicates in the unlikely event that we have two // features with the same class-qualified name. We'll only generate one property // string in that case and let the user add the second one manually, if necessary. //
 0,0,0,0,0,0,0,0,// if previous node is not commented out, but all following are
 0,0,0,0,0,0,0,0,// Since we will do the processing recursively, we need to ensure we don't stack overflow if there is a circular super type. //
 0,0,0,0,0,0,0,0,// Fill 18 of value (byte) -19 // Fill 13 of value (byte) 33 // Fill 12 of value (byte) -19
@@ -1116,7 +1116,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Uses a cache to speed up creation of a URI from a string.  The cache // is consulted to see if the URI, less any fragment, has already been // created.  If needed, the fragment is re-appended to the cached URI, // which is considerably more efficient than creating the whole URI from // scratch.  If the URI wasn't found in the cache, it is created using // parseIntoURI() and then cached.  This method should always be used // by string-parsing factory methods, instead of parseIntoURI() directly.
 0,0,0,0,0,0,0,0,// Fill 2 of value (byte) 33 // Fill 2 of value (byte) -19
 0,0,0,0,0,0,0,0,// super.collectNewChildDescriptors(newChildDescriptors, object);
-0,0,1,0,0,0,1,0,// this could be method body, for example
+0,0,0,0,0,0,0,0,// this could be method body, for example
 0,0,0,0,0,0,0,0,// A primitive type can only be used as the generic type of a typed element. //
 0,0,0,0,0,0,0,0,// range to look for comments
 0,0,0,0,0,0,0,0,// Discard the old editing domain. //
@@ -1138,7 +1138,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// create new modifiers and add to rewrite
 0,0,0,0,0,0,0,0,// We can also optimize single valued reverse.  //
 0,0,0,0,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Adapter Factory</b> for the model. * It provides an adapter <code>createXXX</code> method for each class of the model. * <!-- end-user-doc --> * @see org.eclipse.emf.ecore.EcorePackage * @generated */"
-0,0,1,0,0,0,1,0,// Create a proxy in the correct way and pop it. //
+0,0,0,0,0,0,0,0,// Create a proxy in the correct way and pop it. //
 0,0,0,0,0,0,0,0,// null -> relative URI reference
 0,0,0,0,0,0,0,0,// If eCore, set the ENamedElement name //
 0,0,0,0,0,0,0,0,//If it was not a warning or an diagnostic then return the diagnostic image
@@ -1166,7 +1166,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// skip nodes in hierarchy that can not be converted to JNode (i.e. VariableDeclarationFragment)
 0,0,0,0,0,0,0,0,// If there is no root object, we're dealing with an EAttribute feature instead of an EReference feature. // So create an instance of simple any type and prepare it to handle the text content. //
 0,0,0,0,0,0,0,0,// get rewriter
-0,0,0,1,0,0,0,1,// path - everything up to query string or fragment
+0,0,0,0,0,0,0,0,// path - everything up to query string or fragment
 0,0,0,0,0,0,0,0,// insert new declaration before this one
 0,0,0,0,0,0,0,0,// if there is an element with end position <= rangeEndPos
 0,0,0,0,0,0,0,0,"/*   * Computes the default path for the given GenModel. This was previously the implementation of getTemplatePath().   */"
@@ -1198,7 +1198,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// mark the node to be removed
 0,0,0,0,0,0,0,0,// We'll rethrow the original exception, not this one.
 0,0,0,0,0,0,0,0,// if are dealing with original, not cloned node
-0,0,1,0,0,0,1,0,// CellEditor.setValue() calls isCorrect() to validate the value that is about to be set. We are doing conversion // between the value and a corresponding string, and we would usually like to validate the string. Because // setValue() is final, we cannot do that conversion there, so we need to record what we're trying to validate and // work around the problem in isCorrect(). //
+0,0,0,0,0,0,0,0,// CellEditor.setValue() calls isCorrect() to validate the value that is about to be set. We are doing conversion // between the value and a corresponding string, and we would usually like to validate the string. Because // setValue() is final, we cannot do that conversion there, so we need to record what we're trying to validate and // work around the problem in isCorrect(). //
 0,0,0,0,0,0,0,0,// stringValue not null, nodeValue is null
 0,0,0,0,0,0,0,0,"/*   * If this is an {@link #isIRI IRI}, converts it to a strict ASCII URI,   * using the procedure described in Section 3.1 of the   * <a href=""http://www.w3.org/International/iri-edit/draft-duerst-iri-09.txt"">IRI   * Draft RFC</a>.  Otherwise, this URI, itself, is returned.   *   * This unused code is included for possible future use...   */"
 0,0,0,0,0,0,0,0,// insert new values
@@ -1227,7 +1227,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// perform split if there is more than 1 fragment
 0,0,0,0,0,0,0,0,// return the whole declaration contents (not just variableDeclarationFragment)
 0,0,0,0,0,0,0,0,// set rewritten node to be the original
-0,0,0,1,0,0,0,1,// Not overlapped // src1: o-----o // src2:         o-----o // res:  empty // Reuse src2
+0,0,0,0,0,0,0,0,// Not overlapped // src1: o-----o // src2:         o-----o // res:  empty // Reuse src2
 0,0,0,0,0,0,0,0,// check number of fragments
 0,0,0,0,0,0,0,0,"/* * This class provides encode/decode for RFC 2045 Base64 as * defined by RFC 2045, N. Freed and N. Borenstein. * RFC 2045: Multipurpose Internet Mail Extensions (MIME) * Part One: Format of Internet Message Bodies. Reference * 1996 Available at: http://www.ietf.org/rfc/rfc2045.txt * This class is used by XML Schema binary format validation * * This implementation does not encode/decode streaming * data. You need the data that you will encode/decode * already on a byte array. * * @author Jeffrey Rodriguez * @author Sandy Gao */"
 0,0,0,0,0,0,0,0,// create a copy of declaration
@@ -1271,7 +1271,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//   public String getExtendedItemProviderClassName() //   { //     return getPrefixedName("ItemProviderAdapter"); //   }
 0,0,0,0,0,0,0,0,// process documentation info and create eEnumLiteral for each line //
 0,0,0,0,0,0,0,0,// EAnnotation
-0,0,0,1,0,0,0,1,// Create a new or replaced entry and continue processing the remaining archives. //
+0,0,0,0,0,0,0,0,// Create a new or replaced entry and continue processing the remaining archives. //
 0,0,0,0,0,0,0,0,//getList(entry).clear();
 0,0,0,0,0,0,0,0,// Subclasses MUST override this function
 0,0,0,0,0,0,0,0,// return eVirtualIndexBits[offset];
@@ -1357,7 +1357,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// The string must contain inappropriate whitespace, so find the index for the first difference. //
 0,0,0,0,0,0,0,0,// When used as a generic super type, there must be a classifier that refers to a class. //
 0,0,0,0,0,0,0,0,// Don't complain about the literals if they are the same as the names and the names collide. //
-0,0,0,0,0,0,0,0,"/* * EncodingMap is a convenience class which handles conversions between  * IANA encoding names and Java encoding names, and vice versa. The * encoding names used in XML instance documents <strong>must</strong> * be the IANA encoding names specified or one of the aliases for those names * which IANA defines. * <p> * <TABLE BORDER=""0"" WIDTH=""100%""> *  <TR> *      <TD WIDTH=""33%""> *          <P ALIGN=""CENTER""><B>Common Name</B> *      </TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER""><B>Use this name in XML files</B> *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER""><B>Name Type</B> *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER""><B>Xerces converts to this Java Encoder Name</B> *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">8 bit Unicode</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">UTF-8 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">UTF8 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin 1</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-1 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-1 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin 2</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-2 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-2 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin 3</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-3 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-3 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin 4</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-4 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-4 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin Cyrillic</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-5 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-5 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin Arabic</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-6 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-6 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin Greek</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-7 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-7 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin Hebrew</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-8 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-8 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin 5</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-9 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-9 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: US</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-us *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp037 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Canada</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-ca *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp037 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Netherlands</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-nl *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp037 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Denmark</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-dk *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp277 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Norway</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-no *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp277 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Finland</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-fi *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp278 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Sweden</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-se *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp278 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Italy</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-it *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp280 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Spain, Latin America</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-es *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp284 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Great Britain</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-gb *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp285 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: France</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-fr *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp297 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Arabic</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-ar1 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp420 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Hebrew</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-he *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp424 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Switzerland</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-ch *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp500 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Roece</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-roece *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp870 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Yugoslavia</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-yu *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp870 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Iceland</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-is *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp871 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Urdu</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-ar2 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp918 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Chinese for PRC, mixed 1/2 byte</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">gb2312 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">GB2312 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Extended Unix Code, packed for Japanese</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">euc-jp *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">eucjis *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Japanese: iso-2022-jp</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">iso-2020-jp *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">JIS *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Japanese: Shift JIS</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">Shift_JIS *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">SJIS *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Chinese: Big5</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">Big5 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">Big5 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Extended Unix Code, packed for Korean</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">euc-kr *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">iso2022kr *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Cyrillic</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">koi8-r *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">koi8-r *      </TD> *  </TR> * </TABLE> *  * @author TAMURA Kent, IBM * @author Andy Clark, IBM */"
+0,0,0,1,0,0,0,1,"/* * EncodingMap is a convenience class which handles conversions between  * IANA encoding names and Java encoding names, and vice versa. The * encoding names used in XML instance documents <strong>must</strong> * be the IANA encoding names specified or one of the aliases for those names * which IANA defines. * <p> * <TABLE BORDER=""0"" WIDTH=""100%""> *  <TR> *      <TD WIDTH=""33%""> *          <P ALIGN=""CENTER""><B>Common Name</B> *      </TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER""><B>Use this name in XML files</B> *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER""><B>Name Type</B> *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER""><B>Xerces converts to this Java Encoder Name</B> *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">8 bit Unicode</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">UTF-8 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">UTF8 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin 1</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-1 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-1 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin 2</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-2 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-2 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin 3</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-3 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-3 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin 4</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-4 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-4 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin Cyrillic</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-5 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-5 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin Arabic</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-6 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-6 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin Greek</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-7 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-7 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin Hebrew</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-8 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-8 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">ISO Latin 5</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ISO-8859-9 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">ISO-8859-9 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: US</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-us *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp037 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Canada</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-ca *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp037 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Netherlands</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-nl *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp037 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Denmark</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-dk *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp277 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Norway</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-no *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp277 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Finland</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-fi *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp278 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Sweden</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-se *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp278 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Italy</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-it *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp280 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Spain, Latin America</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-es *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp284 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Great Britain</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-gb *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp285 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: France</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-fr *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp297 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Arabic</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-ar1 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp420 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Hebrew</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-he *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp424 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Switzerland</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-ch *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp500 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Roece</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-roece *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp870 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Yugoslavia</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-yu *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp870 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Iceland</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-is *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp871 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">EBCDIC: Urdu</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">ebcdic-cp-ar2 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">IANA *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">cp918 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Chinese for PRC, mixed 1/2 byte</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">gb2312 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">GB2312 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Extended Unix Code, packed for Japanese</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">euc-jp *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">eucjis *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Japanese: iso-2022-jp</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">iso-2020-jp *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">JIS *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Japanese: Shift JIS</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">Shift_JIS *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">SJIS *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Chinese: Big5</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">Big5 *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">Big5 *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Extended Unix Code, packed for Korean</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">euc-kr *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">iso2022kr *      </TD> *  </TR> *  <TR> *      <TD WIDTH=""33%"">Cyrillic</TD> *      <TD WIDTH=""15%""> *          <P ALIGN=""CENTER"">koi8-r *      </TD> *      <TD WIDTH=""12%""> *          <P ALIGN=""CENTER"">MIME *      </TD> *      <TD WIDTH=""31%""> *          <P ALIGN=""CENTER"">koi8-r *      </TD> *  </TR> * </TABLE> *  * @author TAMURA Kent, IBM * @author Andy Clark, IBM */"
 0,0,0,0,0,0,0,0,// Can't have both a classifier and a type parameter. //
 0,0,0,0,0,0,0,0,// Add Userinfo Characters
 0,0,0,0,0,0,0,0,// The type parameter must be in scope and must not be a forward reference. //
@@ -1394,7 +1394,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// starting traverse file and build unit tree and table info
 0,0,0,0,0,0,0,0,// If one is null (but the other is not) then they can't be equal. //
 0,0,0,0,0,0,0,0,// If they both aren't null... //
-0,0,0,1,0,0,0,1,// create OK and Details buttons
+0,0,0,0,0,0,0,0,// create OK and Details buttons
 0,0,0,0,0,0,0,0,// If they are the same classifier, they are of course equal. //
 0,0,0,0,0,0,0,0,// If one is null (but the other is not) then they are not equal. //
 0,0,0,0,0,0,0,0,// If they are the same instance they are equal. //
@@ -1408,7 +1408,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Reverse the test. //
 0,0,0,0,0,0,0,0,// Iterate over the mappings in the tree. //
 0,0,0,0,0,0,0,0,// --entryCursor;
-0,0,1,0,0,0,1,0,// Don't cache this one as it will cause leaks because to dynamic demand created document roots and demand created EClasses. //
+0,0,0,0,0,0,0,0,// Don't cache this one as it will cause leaks because to dynamic demand created document roots and demand created EClasses. //
 0,0,0,0,0,0,0,0,"/** * <!-- begin-user-doc --> * The <b>Adapter Factory</b> for the model. * It provides an adapter <code>createXXX</code> method for each class of the model. * <!-- end-user-doc --> * @see org.eclipse.emf.mapping.MappingPackage * @generated */"
 0,0,0,0,0,0,0,0,// reset text edits; since this node is processed successfully, there is no need to revert these changes
 0,0,0,0,0,0,0,0,// EEnumImpl overrides this to do nothing. // The only case that is special is when a more specific instance of AbstractEnumerator is generated/reused. //
@@ -1477,7 +1477,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// The values must be Java equal. //
 0,0,0,0,0,0,0,0,// If this is a feature map... //
 0,0,0,0,0,0,0,0,// If the first value is null, the second value must be null. //
-0,0,0,1,0,0,0,1,// Neither eObject1 nor eObject2 have been compared yet.
+0,0,0,0,0,0,0,0,// Neither eObject1 nor eObject2 have been compared yet.
 0,0,0,0,0,0,0,0,// Since the first value isn't null, if the second one is, they aren't equal. //
 0,0,0,0,0,0,0,0,// If it is in a resource, form the URI relative to that resource. //
 0,0,0,0,0,0,0,0,// There is no reason they aren't equals. //
@@ -1516,9 +1516,9 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// If the resolved object doesn't contain a reference to the proxy holder as it should. //
 0,0,0,0,0,0,0,0,// We won't need to process this again later. //
 0,0,0,0,0,0,0,0,// Compute the holder of the proxy //
-0,0,1,0,0,0,1,0,// Move the resolved object to the right place, remove the proxy, and we're done. //
+0,0,0,0,0,0,0,0,// Move the resolved object to the right place, remove the proxy, and we're done. //
 0,0,0,0,0,0,0,0,// EATM temporary for debug purposes only. //
-0,0,1,0,0,0,1,0,// The proxy needs to be replaced in a way that updates both ends of the reference. //
+0,0,0,0,0,0,0,0,// The proxy needs to be replaced in a way that updates both ends of the reference. //
 0,0,0,0,0,0,0,0,// // Implement LexicalHandler methods //
 0,0,0,0,0,0,0,0,// At least set the references that we were able to resolve, if any. //
 0,0,0,0,0,0,0,0,// We won't need to process this again later.
@@ -1568,11 +1568,11 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// since xmlns="" is default declaration, remove ""->empty_URI mapping
 0,0,0,0,0,0,0,0,// push context
 0,0,0,0,0,0,0,0,// resize array, if needed
-0,0,0,1,0,0,0,1,// find uri in current context
+0,0,0,0,0,0,0,0,// find uri in current context
 0,0,0,0,0,0,0,0,// bind prefix to uri in current context
 0,0,0,0,0,0,0,0,// prefix not found
 0,0,0,0,0,0,0,0,// set parser features and properties
-0,0,0,1,0,0,0,1,// uri not found
+0,0,0,0,0,0,0,0,// uri not found
 0,0,0,0,0,0,0,0,// caching turned on by the user
 0,0,0,0,0,0,0,0,// DOM serialization
 0,0,0,0,0,0,0,0,// Look for a matching element in the specified packages if there are any. //
@@ -1728,7 +1728,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,/*30A0..30FF;*/
 0,0,0,0,0,0,0,0,/*FEFF..FEFF;*/
 0,0,0,0,0,0,0,0,/*AC00..D7A3;*/
-0,0,1,0,0,0,1,0,// Reserve a place to insert xmlns declarations after we know what they all are. //
+0,0,0,0,0,0,0,0,// Reserve a place to insert xmlns declarations after we know what they all are. //
 0,0,0,0,0,0,0,0,/*FE50..FE6F;*/
 0,0,0,0,0,0,0,0,/*A490..A4CF;*/
 0,0,0,0,0,0,0,0,/*4E00..9FFF;*/
@@ -1739,7 +1739,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,/*FE20..FE2F;*/
 0,0,0,0,0,0,0,0,/*FB00..FB4F;*/
 0,0,0,0,0,0,0,0,/*2F800..2FA1F;*/
-0,0,0,1,0,0,0,1,/*1D100..1D1FF;*/
+0,0,0,0,0,0,0,0,/*1D100..1D1FF;*/
 0,0,0,0,0,0,0,0,/*1D000..1D0FF;*/
 0,0,0,0,0,0,0,0,/*E0000..E007F;*/
 0,0,0,0,0,0,0,0,// for all characters
@@ -1943,7 +1943,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//order constants
 0,0,0,0,0,0,0,0,// class XMLChar
 0,0,0,0,0,0,0,0,// interface TypeValidator
-0,0,0,0,0,0,0,0,// If this looks like a feature getter, a kind property will allow it to be recognized properly. //
+0,0,0,1,0,0,0,1,// If this looks like a feature getter, a kind property will allow it to be recognized properly. //
 0,0,0,0,0,0,0,0,// indicate that initializer has been changed // (required to not overwrite initializer if variables are split later)
 0,0,0,0,0,0,0,0,// Remove from by position in reverse order. //
 0,0,0,0,0,0,0,0,// keep comments between nodes when removing or moving nodes
@@ -1952,7 +1952,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// This ensures that we are dealing with actual MOF objects. //
 0,0,0,0,0,0,0,0,// if the character is in the range 0x30 ~ 0x39, return its int value (0~9), // otherwise, return -1
 0,0,0,0,0,0,0,0,//Ecore2XMLSwitch
-0,0,0,1,0,0,0,1,// Check whether there is an opposite that needs attention. //
+0,0,0,0,0,0,0,0,// Check whether there is an opposite that needs attention. //
 0,0,0,0,0,0,0,0,// 6e - remove all "<segment>/../" where "<segment>" is a complete // path segment not equal to ".."
 0,0,0,0,0,0,0,0,// The byte is automatically widened into an int, with sign extension, // for shifting.  This can introduce 1's to the left of the byte, which // must be cleared by masking before looking up the hex digit. //
 0,0,0,0,0,0,0,0,// buttonComposite has to be the first child of composite because subclasses are expecting this.
@@ -1972,7 +1972,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Don't do replacement if we just did one, or if previous line // ended with a semicolon. //
 0,0,0,0,0,0,0,0,// Don't do replacement if previous line ended with a comment. //
 0,0,0,0,0,0,0,0,// Returns the upper half bitmask for all the ASCII characters in the given // string.
-0,0,0,0,0,0,0,0,// We can't undo it, so we'd better give up. //
+0,0,0,1,0,0,0,1,// We can't undo it, so we'd better give up. //
 0,0,0,0,0,0,0,0,// If the path isn't within the root of the archive,  // create a new URI for the folder location of the archive,  // so we can look in the folder that contains it. //
 0,0,0,0,0,0,0,0,// Platform.resolve() doesn't work if the project is encoded. //
 0,0,0,0,0,0,0,0,// There must be at least one archive path. //
@@ -1982,7 +1982,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Create the delegate URL. //
 0,0,0,0,0,0,0,0,// The cutoff point to the next archive. //
 0,0,0,0,0,0,0,0,//missing Specials add manually // 84
-0,0,0,0,0,0,0,0,// Construct the input stream in a special efficient way for case of a file scheme. //
+0,0,0,1,0,0,0,1,// Construct the input stream in a special efficient way for case of a file scheme. //
 0,0,0,0,0,0,0,0,// Just get the stream from the URL. //
 0,0,0,0,0,0,0,0,// The name to be used for the entry. //
 0,0,0,0,0,0,0,0,// Skip over this archive path to the next one, since we are handling this one special. //
@@ -2024,7 +2024,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// oldValue = owner.eGet(feature);
 0,0,0,0,0,0,0,0,// Record the successfully executed command. //
 0,0,0,0,0,0,0,0,// extend to include the comment at the same line as the position  // if there is nothing between the position and the comment
-0,0,1,0,0,0,1,0,// note that string place holder adjusts indentation // to correct this trackAndReplace method is used below
+0,0,0,0,0,0,0,0,// note that string place holder adjusts indentation // to correct this trackAndReplace method is used below
 0,0,0,0,0,0,0,0,// This forces isSaveNeded to always be true. //
 0,0,0,0,0,0,0,0,// Only if we are at the remembered index do we NOT need to save. // //return top != saveIndex;
 0,0,0,0,0,0,0,0,// Clear the list. //
@@ -2101,7 +2101,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// This is the name of the model. //
 0,0,0,0,0,0,0,0,// And add the copy. //
 0,0,0,0,0,0,0,0,// Copy the collection //
-0,0,1,0,0,0,1,0,// We don't want to copy insert an object before or after itself... //
+0,0,0,0,0,0,0,0,// We don't want to copy insert an object before or after itself... //
 0,0,0,0,0,0,0,0,// Just remove the objects and add them. //
 0,0,0,0,0,0,0,0,// if optimize // if collection
 0,0,0,0,0,0,0,0,// This can execute if there is an owner list and a collection and the owner list contains all the objects of the collection. //
@@ -2156,7 +2156,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//MappingHelperImpl
 0,0,0,0,0,0,0,0,// Set the mapper to build an XSD2EcoreMappingRoot, if available. //
 0,0,0,0,0,0,0,0,// We will iterate over the whole collection, removing some as we go. //
-0,0,1,0,0,0,1,0,//MappingStrategyImpl
+0,0,0,0,0,0,0,0,//MappingStrategyImpl
 0,0,0,0,0,0,0,0,//TreeSwitch
 0,0,0,0,0,0,0,0,// Take the first object, and remove it. //
 0,0,0,0,0,0,0,0,// Get the next object and check if it has the same parent. //
@@ -2219,7 +2219,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// It's just a single value //
 0,0,0,0,0,0,0,0,// Consume the rest of the appropriate children. //
 0,0,0,0,0,0,0,0,// The "suffix" can actually be a substitution pattern for the package name. //
-0,0,1,0,0,0,1,0,// Correct the index, if necessary. //
+0,0,0,0,0,0,0,0,// Correct the index, if necessary. //
 0,0,0,0,0,0,0,0,// Create a command for this feature, //
 0,0,0,0,0,0,0,0,// Compute the relative index as best as possible. //
 0,0,0,0,0,0,0,0,// Create a command for this feature,  //
@@ -2252,7 +2252,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//TreeNodeImpl
 0,0,0,0,0,0,0,0,// If we have a good editing domain... //
 0,0,0,0,0,0,0,0,//TreePackageImpl
-0,0,1,0,0,0,1,0,// This guard is for extra security, but should not be necessary. //
+0,0,0,0,0,0,0,0,// This guard is for extra security, but should not be necessary. //
 0,0,0,0,0,0,0,0,// We will only deal with structured selections. //
 0,0,0,0,0,0,0,0,// If there is a new one... //
 0,0,0,0,0,0,0,0,"/*    super.collectNewChildDescriptors(newChildDescriptors, object);*/"
@@ -2283,7 +2283,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Ensure that all proxies are resolved so that references into the controlled object will be saved to reference the new resource. //
 0,0,0,0,0,0,0,0,// Cache the tree path for each object. //
 0,0,0,0,0,0,0,0,// dropDown.addListener(SWT.Paint, dropDownListener);
-0,0,1,0,0,0,1,0,// This is here only to support deprecated adapt(object) rather than adapt(object, Interface.class). // // supportedTypes.add(null);
+0,0,0,0,0,0,0,0,// This is here only to support deprecated adapt(object) rather than adapt(object, Interface.class). // // supportedTypes.add(null);
 0,0,0,0,0,0,0,0,// setEditor(null, null, -1);
 0,0,0,0,0,0,0,0,// event is null when featureTableViewer is double clicked
 0,0,0,0,0,0,0,0,// event is null when choiceTableViewer is double clicked
@@ -2312,7 +2312,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Keep track of any changes to the command information.
 0,0,0,0,0,0,0,0,//We are not generating the manifest file if the plugin.xml exists. //
 0,0,0,0,0,0,0,0,// If we don't have a previous cached command... //
-0,0,1,0,0,0,1,0,// If this command can provide detailed drag and drop feedback... //
+0,0,0,0,0,0,0,0,// If this command can provide detailed drag and drop feedback... //
 0,0,0,0,0,0,0,0,//do this here because setting the text will set enablement on the OK // button
 0,0,0,0,0,0,0,0,// If not, dispose the current command and create a new one. //
 0,0,0,0,0,0,0,0,// Use it for the operation and drag under effect. //
@@ -2398,7 +2398,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Allow a mixed case version of the name to be provided. //
 0,0,0,0,0,0,0,0,// Returns the lower half bitmask for all the ASCII characters in the given // string.
 0,0,0,0,0,0,0,0,// If we can't find it, try the simple name in the package... //
-0,0,1,0,0,0,1,0,// This could potentially map every created model element to its corresponding Rose node. // However, for now we're only using it as needed. //
+0,0,0,0,0,0,0,0,// This could potentially map every created model element to its corresponding Rose node. // However, for now we're only using it as needed. //
 0,0,0,0,0,0,0,0,// Find an explicit import or the first wildcard import. //
 0,0,0,0,0,0,0,0,//no caching
 0,0,0,0,0,0,0,0,// If we still don't have one, we'll have to settle for an EDataType or EClass with an instance class name. //
@@ -2417,7 +2417,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Avoid classifier name collisions. //
 0,0,0,0,0,0,0,0,// Make array names legal. //
 0,0,0,0,0,0,0,0,// Get the parent object. //
-0,0,1,0,0,0,1,0,// Even primitives should be represented by a data type with a conventional (i.e. capitalized) name. //
+0,0,0,0,0,0,0,0,// Even primitives should be represented by a data type with a conventional (i.e. capitalized) name. //
 0,0,0,0,0,0,0,0,// Add to package. //
 0,0,0,0,0,0,0,0,// Map to an EPackage. //
 0,0,0,0,0,0,0,0,// node is not marked up by now, but keep checking other rules
@@ -2510,7 +2510,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Tests whether this URI's path segment array is equal to that of the // given uri.
 0,0,0,0,0,0,0,0,// If the owner and the copy are of the same type, we can proceed with the command, i.e. no override. // If not, we will skip this command by returning a do-nothing override. //
 0,0,0,0,0,0,0,0,// If there is an adapter of the correct type, return the item label //
-0,0,1,0,0,0,1,0,// If this is a RemoveCommand for a root input object, direct it to the MappingRoot. //
+0,0,0,0,0,0,0,0,// If this is a RemoveCommand for a root input object, direct it to the MappingRoot. //
 0,0,0,0,0,0,0,0,// remove all sourceSeparator characters
 0,0,0,0,0,0,0,0,// Tests two objects for equality, tolerating nulls; null is considered // to be a valid value that is only equal to itself.
 0,0,0,0,0,0,0,0,// type-mappings
@@ -2518,7 +2518,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Tests two strings for equality, tolerating nulls and optionally // ignoring case.
 0,0,0,0,0,0,0,0,// sourceSeparator == LABEL_NO_SEPARATOR
 0,0,0,0,0,0,0,0,// top-label-forms
-0,0,1,0,0,0,1,0,// relative path: merge with base and keep query (note: if the // base has no path and this a non-empty relative path, there is // an implied root in the resulting path)
+0,0,0,0,0,0,0,0,// relative path: merge with base and keep query (note: if the // base has no path and this a non-empty relative path, there is // an implied root in the resulting path)
 0,0,0,0,0,0,0,0,// top-label-case
 0,0,0,0,0,0,0,0,//Ecore2EcoreFactory
 0,0,0,0,0,0,0,0,// bottom-label-forms
@@ -2546,8 +2546,8 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,//Ecore2XMLPackageImpl
 0,0,0,0,0,0,0,0,// We either remove the root mapping or we use the iterator that returned the most recent next mapping. //
 0,0,0,0,0,0,0,0,// Set the editor's selection based on the current viewer's selection. //
-0,0,1,0,0,0,1,0,// Many inherited methods must be overridden to handle this case. //
-0,0,1,0,0,0,1,0,// Since we only use this right on an operation, we always want to include the keyType and valueType, and we never // want to qualify the property names. //
+0,0,0,0,0,0,0,0,// Many inherited methods must be overridden to handle this case. //
+0,0,0,0,0,0,0,0,// Since we only use this right on an operation, we always want to include the keyType and valueType, and we never // want to qualify the property names. //
 0,0,0,0,0,0,0,0,// If there are any arguments and they are not unbounded wildcards, casts can't be checked. //
 0,0,0,0,0,0,0,0,// We need to be conservative and diagnose a problem only if we are quite sure that type is built-in  // and hence that the lack of a default value really represents a problem with being unable to convert the literal to a value. //
 0,0,0,0,0,0,0,0,// Or we test their relationship via their instance classes, if they have them. //
@@ -2573,7 +2573,7 @@ oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments
 0,0,0,0,0,0,0,0,// Add all classes from this package first, to guarantee they get the // simple names
 0,0,0,0,0,0,0,0,// Don't even consider it unless this is hierarchical and has scheme, // authority, device and path absoluteness equal to those of the prefix.
 0,0,0,0,0,0,0,0,// If the prefix has no segments, then it is the root absolute path, and // we know this is an absolute path, too.
-0,0,0,0,0,0,0,0,// Barring a better result, this will be the result. //
+0,0,0,1,0,0,0,1,// Barring a better result, this will be the result. //
 0,0,0,0,0,0,0,0,// The prefix really is a prefix of this.  If this has just one more, // empty segment, the paths are the same.
 0,0,0,0,0,0,0,0,// Do this here because getExtendedMetaData() is used during initialization  // and the mappings are are populated the first time it's fetched // which will miss the packages we add as we initialize the tree. //
 0,0,0,0,0,0,0,0,// rewriter is required for set methods

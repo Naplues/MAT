@@ -1,5 +1,6 @@
 package main.methods;
 
+import main.Statistics;
 import others.FileHandle;
 import edu.stanford.nlp.classify.ColumnDataClassifier;
 import edu.stanford.nlp.ling.Datum;
@@ -51,19 +52,19 @@ public class NLP extends Method {
         // 构造训练集
         for (String projectName : projects) {
             String trainProjects = methodPath + "train--" + projectName + ".txt";
-            //String trainLabels = methodPath + "label--" + projectName + ".txt";
+            String trainLabels = methodPath + "label--" + projectName + ".txt";
             StringBuilder text = new StringBuilder();
-            //StringBuilder labelText = new StringBuilder();
+            StringBuilder labelText = new StringBuilder();
             for (String testProjectName : projects) {
                 if (projectName.equals(testProjectName)) continue;
                 List<String> lines = FileHandle.readFileToLines(methodPath + "data--" + testProjectName + ".txt");
                 for (String line : lines) text.append(line).append("\n");
 
-                //List<String> labelLines = FileHandle.readFileToLines("data/origin/label--" + testProjectName + ".txt");
-                //for (String line : labelLines) labelText.append(line).append("\n");
+                List<String> labelLines = FileHandle.readFileToLines("data/origin/label--" + testProjectName + ".txt");
+                for (String line : labelLines) labelText.append(line).append("\n");
             }
             FileHandle.writeStringToFile(trainProjects, text.toString());
-            //FileHandle.writeStringToFile(trainLabels, labelText.toString());
+            FileHandle.writeStringToFile(trainLabels, labelText.toString());
         }
     }
 
@@ -117,6 +118,7 @@ public class NLP extends Method {
 
             FileHandle.writeStringToFile(resultFile, text.toString());
         }
+        Statistics.combineResult();
     }//*/
 
     /**

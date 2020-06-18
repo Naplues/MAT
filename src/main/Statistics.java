@@ -12,7 +12,7 @@ public class Statistics {
     public static void getVennDiagram(String label, String prediction) {
 
         int all_NLP = 0;
-
+        int t = 0;
         for (String project : Settings.projectNames) {
             int NLP = 0, TM = 0, Easy = 0, MAT = 0;
             int NLP_TM = 0, NLP_Easy = 0, NLP_MAT = 0, TM_Easy = 0, TM_MAT = 0, Easy_MAT = 0;
@@ -127,9 +127,9 @@ public class Statistics {
                     + TM + ", " + (TM / all) + ", "
                     + Easy + ", " + (Easy / all) + ", "
                     + MAT + ", " + (MAT / all));*/
-
+            t += all;
         }
-        System.out.println(all_NLP);
+        System.out.println(t);
     }
 
     /**
@@ -177,7 +177,9 @@ public class Statistics {
                     .append(String.format("%.3f", f1)).append(", ")
                     .append(String.format("%.3f", ER)).append(", ")
                     .append(String.format("%.3f", RI)).append("\n");
+
         }
+        System.out.println(text.toString());
         FileHandle.writeStringToFile("result/evaluation/" + methodName + ".csv", text.toString());
     }
 
@@ -203,7 +205,6 @@ public class Statistics {
             List<String> Esy_Lines = FileHandle.readFileToLines(Settings.rootPath + "easy/result--" + project + ".txt");
             List<String> MAT_Lines = FileHandle.readFileToLines(Settings.rootPath + "mat/result--" + project + ".txt");
 
-            Method.evaluate(labelLines, NLP_Lines);
             // 合并结果
             StringBuilder text = new StringBuilder("oracle, Pattern, NLP, TM, Easy, MAT, MAT_NLP, MAT_TM,Comments\n");
             for (int i = 0; i < commentLines.size(); i++) {
@@ -285,8 +286,8 @@ public class Statistics {
                     .append(methodName).append("\"),c(\"True\",\"False\")))\n")
                     .append("r <- mcnemar.exact(d)\n")
                     .append("value <- paste(value, r[\"p.value\"], sep=\", \")\n");
-            System.out.println(Ncw + "," + Nwc + "," + (double) Ncw / Nwc);
-            //System.out.println(projectName);
+            //System.out.println(Ncw + "," + Nwc + "," + (double) Ncw / Nwc);
+            System.out.println(Ncc + ", " + Nwc + ", " + Ncw + ", " + Nww);
         }
         text.append("value\n");
         FileHandle.writeStringToFile("result/mcnemar/" + methodName + "_" + labelString + ".r", text.toString());
@@ -406,19 +407,6 @@ public class Statistics {
     }
 
 
-    public static void f() {
-        int[] total = {3052, 5426, 4090, 2585, 2492, 4644, 2494, 4148, 3652, 4473,
-                1649, 3324, 4435, 29340, 1219, 15033, 7712, 3639, 12218, 2691};
-
-
-        int sum = 0;
-        for (int t : total) sum += t;
-        int[] res = new int[20];
-        for (int i = 0; i < res.length; i++) res[i] = sum - total[i];
-        for (int i = 0; i < res.length; i++) System.out.print(res[i] + ", ");
-    }
-
-
     public static void f1(int base) {
         List<String> lines = FileHandle.readFileToLines("data/cd.p.csv");
 
@@ -443,7 +431,7 @@ public class Statistics {
     public static void ratioOfMAT(String labelString) {
         String[] names = {"Oracle", "Pattern", "NLP", "TM", "Easy", "MAT", "MAT_TM", "MAT_NLP", "Comments"};
         StringBuilder text = new StringBuilder("Project, MAT v.s. NLP, , , MAT v.s. TM, , , MAT v.s. Easy, , ,\n");
-        text.append(",V, A, O, V, A, O, V, A, O \n");
+        text.append(",V, Hit, Over, V, A, O, V, A, O \n");
         // 处理每个项目的结果
         for (String projectName : Settings.projectNames) {
 
@@ -499,29 +487,33 @@ public class Statistics {
         System.out.println(text);
     }
 
+    /**
+     * 输出 P,R,
+     * 输出Precision, Recall, F1, ER, RI
+     */
+    public static void transform(double[] P) {
+        int tp = 0, tn = 0, fp = 0, fn = 0;
+
+
+        // 准确度指标
+        double precision = tp / (tp + fp);
+        double recall = tp / (tp + fn);
+        double f1 = 2 * precision * recall / (precision + recall);
+        // 工作量感知指标
+        double x = tp + fp, y = tp, n = tp + fn, N = tp + fp + fn + tn;
+        double ER = (y * N - x * n) / (y * N);
+        double RI = (y * N - x * n) / (x * n);
+
+    }
+
     public static void main(String[] args) {
-        /*
-        conceptDrift_OTO("NLP");
-        conceptDrift_OTO("TM");
-        conceptDrift_OTO("Easy");*/
-        //conceptDrift_MTO("NLP");
-
-
-        /*
-        contingencyMatrix("NLP", "1");
-        contingencyMatrix("TM", "1");
-        contingencyMatrix("Easy", "1");
-        contingencyMatrix("NLP", "0");
-        contingencyMatrix("TM", "0");
-        contingencyMatrix("Easy", "0");*/
-
         /*
         f1(20 * 0);
         f1(20 * 1);
         f1(20 * 2);*/
 
         //ratioOfMAT("0");
-        combineResult();
-        showResult("NLP");
+        getVennDiagram("1", "1");
+
     }
 }
