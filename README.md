@@ -7,17 +7,17 @@ This repository stores the **source codes** of the four state-of-the-art SATD co
 
 ## 1. Folders Introduction
 
-### 1.1 [`MAT/dataset/`](https://github.com/Naplues/MAT/dataset) This folder stores the comments data of 20 Java projects, consisting of three files: `projects`, `comments`, and `labels`.
+### 1.1 [`MAT/dataset/`](https://github.com/Naplues/MAT/tree/master/dataset) This folder stores the comments data of 20 Java projects, consisting of three files: `projects`, `comments`, and `labels`.
 
-### 1.2 [`MAT/src/`](https://github.com/Naplues/MAT/src) This folder stores the source code of `Pattern`, `NLP`, `TM`, and `MAT` written in Java.
+### 1.2 [`MAT/src/`](https://github.com/Naplues/MAT/tree/master/src) This folder stores the source code of `Pattern`, `NLP`, `TM`, and `MAT` written in Java.
 
-### 1.3 [`MAT/CNN_code/`](https://github.com/Naplues/MAT/CNN_code) This folder stores the source code for `CNN` written in Python. This code was provided by Ren et al. and we modified some code so that it can be used for cross-project predictions.
+### 1.3 [`MAT/CNN_code/`](https://github.com/Naplues/MAT/tree/master/CNN_code) This folder stores the source code for `CNN` written in Python. This code was provided by Ren et al. and we modified some code so that it can be used for cross-project predictions.
 
 [1] X. Ren, Z. Xing, X. Xia, D. Lo, X. Wang, J. Grundy. Neural network based detection of self-admitted technical debt: From performance to explainability. ACM Transactions on Software Engineering and Methodology, 28(3), 2019: 1-45.
 
-### 1.4 [`MAT/data/{approach}/`](https://github.com/Naplues/MAT/data) This floder stores the experimental data and classification result of a specific `approach` based on a specific `dataset`. Note that, `approach` is one of { Pattern, NLP, TM and MAT}.
+### 1.4 [`MAT/data/{approach}/`](https://github.com/Naplues/MAT/tree/master/data) This floder stores the experimental data and classification result of a specific `approach` based on a specific `dataset`. Note that, `approach` is one of { Pattern, NLP, TM and MAT}.
 
-### 1.5 [`MAT/result/`](https://github.com/Naplues/MAT/result) This folder stores all classification results of the each approaches.
+### 1.5 [`MAT/result/`](https://github.com/Naplues/MAT/tree/master/result) This folder stores all classification results of the each approaches.
 
 
 
