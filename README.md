@@ -5,38 +5,23 @@
 
 This repository stores the **source codes** of the four state-of-the-art SATD comments detection approaches, and **20 Java projects** whose comments were manually labeled by Maldonado et al. (10) and ourselves (10).
 
-### 1. Abstract
+## 1. Folders Introduction
 
-**Background.** Self-admitted technical debt (SATD) is a special kind of technical debts that were intentionally introduced and remarked by code comments. Those technical debts reduce the quality of software and increase the cost of subsequent software maintenance. Therefore, it is necessary to find out and resolve these debts in time. Recently, many automatic approaches have been proposed to identify SATD.
-**Problem.** Popular IDEs support a number of predefined task annotation tags for indicating SATD in comments, which have been used in many projects. However, such a clear prior knowledge is neglected by the state-of-the-art SATD identification approaches when identifying SATD. 
-**Objective.** We aim to investigate how far we have really progressed in the field of SATD identification by comparing the state-of-the-art approaches with a simple baseline approach that leverages the predefined task tags to identify SATD.
-**Method.** We first propose a simple heuristic approach that fuzzily Matches task Annotation Tags (MAT) in comments to identify SATD. In nature, MAT is an unsupervised approach, which does not need any data to train a prediction model and has a good understandability. Then, we examine the real progress in SATD identification by comparing MAT against the state-of-the-art approaches.
-**Result.** The experimental result reveal that, MAT has a surprisingly excellent performance for SATD identification compared with the state-of-the-art approaches, regardless of whether non-effort-aware or effort-aware evaluation indicators is considered. Furthermore, the SATDs (or non-SATDs) correctly identified by the state-of-the-art approaches are highly overlapped with those identified by MAT.
-**Conclusion.** It appears that the problem of SATD identification has been (unintentionally) complicated by our community, i.e., the real progress in SATD comments identification is not being achieved as it might have been envisaged. We hence suggest that, when many task tags are used in the comments of a target project, future SATD identification studies should use MAT as an easy-to-implement baseline in order to demonstrate the usefulness of any newly proposed approach.
+### 1.1 [`MAT/dataset/`](https://github.com/Naplues/MAT/dataset) This folder stores the comments data of 20 Java projects, consisting of three files: `projects`, `comments`, and `labels`.
 
+### 1.2 [`MAT/src/`](https://github.com/Naplues/MAT/src) This folder stores the source code of `Pattern`, `NLP`, `TM`, and `MAT` written in Java.
 
-### 2. Folders Introduction
-
-##### 2.1 MAT/dataset/
-This folder stores the comments data of 20 Java projects, consisting of three files: `projects`, `comments`, and `labels`.
-
-##### 2.2 MAT/src/
-This folder stores the source code of `Pattern`, `NLP`, `TM`, and `MAT` written in Java.
-
-##### 2.3 MAT/CNN_code/
-This folder stores the source code for `CNN` written in Python. This code was provided by Ren et al. and we modified some code so that it can be used for cross-project predictions.
+### 1.3 [`MAT/CNN_code/`](https://github.com/Naplues/MAT/CNN_code) This folder stores the source code for `CNN` written in Python. This code was provided by Ren et al. and we modified some code so that it can be used for cross-project predictions.
 
 [1] X. Ren, Z. Xing, X. Xia, D. Lo, X. Wang, J. Grundy. Neural network based detection of self-admitted technical debt: From performance to explainability. ACM Transactions on Software Engineering and Methodology, 28(3), 2019: 1-45.
 
-##### 2.4 MAT/data/{approach}/
-This floder stores the experimental data and classification result of a specific `approach` based on a specific `dataset`. Note that, `approach` is one of { Pattern, NLP, TM and MAT}.
+### 1.4 [`MAT/data/{approach}/`](https://github.com/Naplues/MAT/data) This floder stores the experimental data and classification result of a specific `approach` based on a specific `dataset`. Note that, `approach` is one of { Pattern, NLP, TM and MAT}.
 
-##### 2.5 MAT/result/
-This folder stores all classification results of the each approaches.
+### 1.5 [`MAT/result/`](https://github.com/Naplues/MAT/result) This folder stores all classification results of the each approaches.
 
 
 
-### 3. Studied Approaches
+## 2. Studied Approaches
 
 Year | Authors          | Approach | isSupervised | Description
 ---- | :------          | :------: | :----------: | :-------------
@@ -47,9 +32,9 @@ Year | Authors          | Approach | isSupervised | Description
 2020 | Yu et al.        | Jitterbug|     Yes      | Pattern matching & Hunman effort
 
 
-### 4. Dataset Summary
+## 3. Dataset Summary
 
-##### 4.1 Projects labeled by Maldonado et al.
+### 3.1 Projects labeled by Maldonado et al.
 Project    | Release | Contributors | #Classes | #Comments | #After flitering | SATD | % of SATD
 -------    | :-----: | -----------: | -----: | :-------: | :--------------: | ---: | --------:
 Ant        | 1.7.0   |     74       |  1,475 |   21,587  |       3,052      | 102  |   0.47%
@@ -64,7 +49,7 @@ JRuby      | 1.4.0   |    328       |  1,486 |  11,149   |       3,652      | 38
 SQuirrel   | 3.0.3   |     46       |  3,108 |  27,474   |       4,473      | 201  |   0.73%
 **Total** | -----   |    -     | **16,249** | **259,229** | **37,056** | **2,812** | **1.08%**
 
-##### 4.2 Projects labeled by ourselves.
+### 3.2 Projects labeled by ourselves.
 Project         | Release | Contributors | #Files | #Comments | #After flitering |  SATD | % of SATD
 -------         | :-----: | -----------: | -----: | :-------: | :--------------: |  ---: | --------:
 Dubbo           | 2.7.4   |    255       |  1,493 |     5,875 |       1,649      |    85 |  1.45%
