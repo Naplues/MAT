@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Settings {
 
-    public static String rootPath = "data/";
+    public static String rootPath = "exp_data/";
 
 
     public static String[] projectNames = {
