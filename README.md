@@ -15,7 +15,7 @@ This repository stores the **source codes** of the four state-of-the-art SATD co
 
 [1] X. Ren, Z. Xing, X. Xia, D. Lo, X. Wang, J. Grundy. Neural network based detection of self-admitted technical debt: From performance to explainability. ACM Transactions on Software Engineering and Methodology, 28(3), 2019: 1-45.
 
-### (4) [`MAT/exp_data/{approach}/`](https://github.com/Naplues/MAT/tree/master/exp_data) This floder stores the experimental data and classification result of a specific `approach` based on a specific `dataset`. Note that, `approach` is one of {Pattern, NLP, TM and MAT}.
+### (4) [`MAT/exp_data/{approach}/`](https://github.com/Naplues/MAT/tree/master/exp_data) This floder stores the experimental data and classification result of a specific `approach` based on a specific `dataset`. Note that, `approach` is one of {`Pattern`, `Pattern`, `Pattern` and `Pattern`}.
 
 ### (5) [`MAT/result/`](https://github.com/Naplues/MAT/tree/master/result) This folder stores all classification results of the each approaches. In particular, [`MAT/result/predictions/`](https://github.com/Naplues/MAT/tree/master/result/predictions) stores the detailed classification result for each comment of each project.
 
