@@ -13,23 +13,27 @@ This repository stores the **source codes** of the four state-of-the-art SATD co
 
 - [`MAT/CNN_Code/`](https://github.com/Naplues/MAT/tree/master/CNN_Code) This folder stores the source code for `CNN` written in Python. This code was provided by Ren et al. and we modified some code so that it can be used for cross-project predictions.
 
-- [`MAT/exp_data/{approach}/`](https://github.com/Naplues/MAT/tree/master/exp_data) This floder stores the experimental data and classification result of a specific `approach` based on a specific `dataset`. Note that, `approach` is one of {`Pattern`, `Pattern`, `Pattern` and `Pattern`}.
+- [`MAT/exp_data/{approach}/`](https://github.com/Naplues/MAT/tree/master/exp_data) This floder stores the experimental data and classification result of a specific `approach` based on a specific `dataset`. Note that, `approach` is one of {`Pattern`, `NLP`, `TM` and `MAT`}.
 
 - [`MAT/result/`](https://github.com/Naplues/MAT/tree/master/result) This folder stores all classification results of the each approaches. In particular, [`MAT/result/predictions/`](https://github.com/Naplues/MAT/tree/master/result/predictions) stores the detailed classification result for each comment of each project.
 
+- The implementation of `Jitterbug` can be found in [`its origin repository`] (https://github.com/ai-se/Jitterbug)
+
 ## 2. Runnable jar archive
 
-In order to get the classification results easily, the Java source codes have been packaged into a runnable jar archive file. One can run it by a command-line tool. The jar can be found in [`MAT/out/artifacts/satd_jar/MAT.jar`](https://github.com/Naplues/MAT/tree/master/out/artifacts/satd_jar)
+In order to get the classification results easily, the Java source codes have been packaged into a runnable jar archive file `MAT.jar`. One can run it by the following command regulation.
 
 > java -jar MAT.jar -p data_folder_path -m model -s scenario
 
 In above command,
 
-`-p` indicates the data folder path;
+`-p` indicates the data folder path, in which two sub-folder `dic` and `origin` that can be found in [`MAT/exp_data/`](https://github.com/Naplues/MAT/tree/master/exp_data) should be pre placed. Specifically, `dic` stores some configuration files, and `origin` stores the comment data of each project;
 
-`-m` indicates a SATD identification model, i.e.,`Pattern`, `NLP`, `TM`, and `MAT`. 
+`-m` indicates a SATD identification model, i.e.,`Pattern`, `NLP`, `TM`, and `MAT`;
 
 `-s` indicates a prediction scenario, i.e., `MTO` and `OTO`.
+
+The result file of each run will also be stored in the data folder path orderly.
 
 Usage example:
 
