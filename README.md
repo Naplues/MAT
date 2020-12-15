@@ -1,27 +1,45 @@
-# The replication package of MAT
+# The replication kit of MAT
 
 
-## Titile: How far have we progressed in identifying self-admitted technical debts? A comprehensive empirical study
+## Title: How far have we progressed in identifying self-admitted technical debts? A comprehensive empirical study
 
 This repository stores the **source codes** of the four state-of-the-art SATD comments detection approaches, and **20 Java projects** whose comments were manually labeled by Maldonado et al. (10) and ourselves (10).
 
 ## 1. Folders Introduction
 
-### (1) [`MAT/dataset/`](https://github.com/Naplues/MAT/tree/master/dataset) This folder stores the comments data of 20 Java projects, consisting of 40 files: 20 `comments` files (e.g., data--Ant.txt), 20 `labels` files (i.e., label--Ant).
+- [`MAT/dataset/`](https://github.com/Naplues/MAT/tree/master/dataset) This folder stores the comment data of 20 Java projects, consisting of 40 files: 20 `comments` files (e.g., data--Ant.txt), 20 `labels` files (i.e., label--Ant).
 
-### (2) [`MAT/src/`](https://github.com/Naplues/MAT/tree/master/src) This folder stores the source code of `Pattern`, `NLP`, `TM`, and `MAT` written in Java.
+- [`MAT/src/`](https://github.com/Naplues/MAT/tree/master/src) This folder stores the source code of `Pattern`, `NLP`, `TM`, and `MAT` written in Java.
 
-### (3) [`MAT/CNN_Code/`](https://github.com/Naplues/MAT/tree/master/CNN_Code) This folder stores the source code for `CNN` written in Python. This code was provided by Ren et al. and we modified some code so that it can be used for cross-project predictions.
+- [`MAT/CNN_Code/`](https://github.com/Naplues/MAT/tree/master/CNN_Code) This folder stores the source code for `CNN` written in Python. This code was provided by Ren et al. and we modified some code so that it can be used for cross-project predictions.
 
-[1] X. Ren, Z. Xing, X. Xia, D. Lo, X. Wang, J. Grundy. Neural network based detection of self-admitted technical debt: From performance to explainability. ACM Transactions on Software Engineering and Methodology, 28(3), 2019: 1-45.
+- [`MAT/exp_data/{approach}/`](https://github.com/Naplues/MAT/tree/master/exp_data) This floder stores the experimental data and classification result of a specific `approach` based on a specific `dataset`. Note that, `approach` is one of {`Pattern`, `Pattern`, `Pattern` and `Pattern`}.
 
-### (4) [`MAT/exp_data/{approach}/`](https://github.com/Naplues/MAT/tree/master/exp_data) This floder stores the experimental data and classification result of a specific `approach` based on a specific `dataset`. Note that, `approach` is one of {`Pattern`, `Pattern`, `Pattern` and `Pattern`}.
+- [`MAT/result/`](https://github.com/Naplues/MAT/tree/master/result) This folder stores all classification results of the each approaches. In particular, [`MAT/result/predictions/`](https://github.com/Naplues/MAT/tree/master/result/predictions) stores the detailed classification result for each comment of each project.
 
-### (5) [`MAT/result/`](https://github.com/Naplues/MAT/tree/master/result) This folder stores all classification results of the each approaches. In particular, [`MAT/result/predictions/`](https://github.com/Naplues/MAT/tree/master/result/predictions) stores the detailed classification result for each comment of each project.
+## 2. Runnable jar archive
 
+In order to get the classification results easily, the Java source codes have been packaged into a runnable jar archive file. One can run it by a command-line tool. The jar can be found in [`MAT/out/artifacts/satd_jar/MAT.jar`](https://github.com/Naplues/MAT/tree/master/out/artifacts/satd_jar)
 
+> java -jar MAT.jar -p data_folder_path -m model -s scenario
 
-## 2. Studied Approaches
+In above command,
+
+`-p` indicates the data folder path;
+
+`-m` indicates a SATD identification model, i.e.,`Pattern`, `NLP`, `TM`, and `MAT`. 
+
+`-s` indicates a prediction scenario, i.e., `MTO` and `OTO`.
+
+Usage example:
+
+> java -jar MAT.jar -p D:/satd_data/ -m Pattern -s MTO
+
+> java -jar MAT.jar -p D:/satd_data/ -m NLP -s MTO
+
+> java -jar MAT.jar -p D:/satd_data/ -m TM -s OTO
+
+## 3. Studied Approaches
 
 Year | Authors          | Approach | isSupervised | Description
 ---- | :------          | :------: | :----------: | :-------------
@@ -32,9 +50,9 @@ Year | Authors          | Approach | isSupervised | Description
 2020 | Yu et al.        | Jitterbug|     Yes      | Pattern matching & Hunman effort
 
 
-## 3. Dataset Summary
+## 4. Dataset Summary
 
-### 3.1 Projects labeled by Maldonado et al.
+### 4.1 Projects labeled by Maldonado et al.
 Project    | Release | Contributors | #Classes | #Comments | #After flitering | SATD | % of SATD
 -------    | :-----: | -----------: | -----: | :-------: | :--------------: | ---: | --------:
 Ant        | 1.7.0   |     74       |  1,475 |   21,587  |       3,052      | 102  |   0.47%
@@ -49,7 +67,7 @@ JRuby      | 1.4.0   |    328       |  1,486 |  11,149   |       3,652      | 38
 SQuirrel   | 3.0.3   |     46       |  3,108 |  27,474   |       4,473      | 201  |   0.73%
 **Total** | -----   |    -     | **16,249** | **259,229** | **37,056** | **2,812** | **1.08%**
 
-### 3.2 Projects labeled by ourselves.
+### 4.2 Projects labeled by ourselves.
 Project         | Release | Contributors | #Files | #Comments | #After flitering |  SATD | % of SATD
 -------         | :-----: | -----------: | -----: | :-------: | :--------------: |  ---: | --------:
 Dubbo           | 2.7.4   |    255       |  1,493 |     5,875 |       1,649      |    85 |  1.45%
@@ -63,3 +81,9 @@ Storm           | 2.1.0   |    304       |  2,267 |    12,258 |       3,639     
 Tomcat          | 9.0.27  |     31       |  2,343 |    37,038 |      12,218      |   287 |  0.77%
 Zookeeper       | 3.5.6   |     93       |    677 |     6,894 |       2,691      |    63 |  0.91%
 **Total**        | ------  |     -    | **32,806** | **266,980** | **81,260** | **2,995** | **1.12%**
+
+## 5. Contact us
+
+Mail: gzq@smail.nju.edu.cn
+
+[1] X. Ren, Z. Xing, X. Xia, D. Lo, X. Wang, J. Grundy. Neural network based detection of self-admitted technical debt: From performance to explainability. ACM Transactions on Software Engineering and Methodology, 28(3), 2019: 1-45.

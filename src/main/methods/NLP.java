@@ -1,5 +1,6 @@
 package main.methods;
 
+import main.Settings;
 import main.Statistics;
 import others.FileHandle;
 import edu.stanford.nlp.classify.ColumnDataClassifier;
@@ -21,19 +22,14 @@ public class NLP extends Method {
 
     public static void main(String[] args) throws Exception {
         //prepareData();
-        //new NLP().predict();
-        new NLP().predictWithLimitedTrainingSet();
+        new NLP().predict();
+//        new NLP().predictWithLimitedTrainingSet();
     }
 
 
-    /**
-     * 构造数据集
-     * 将TM数据集转换为指定格式
-     */
     public void prepareData() {
 
-        // 转换测试集格式, 覆盖源文件
-        /*
+        // build data of single project
         for (String projectName : projects) {
             String inputPath = dataPath + "data--" + projectName + ".arff";
             String outputPath = methodPath + "data--" + projectName + ".txt";
@@ -47,9 +43,9 @@ public class NLP extends Method {
                 text.append(label).append("\t ").append(comment).append("\n");
             }
             FileHandle.writeStringToFile(outputPath, text.toString());
-        }//*/
+        }
 
-        // 构造训练集
+        // combine all other data as training data
         for (String projectName : projects) {
             String trainProjects = methodPath + "train--" + projectName + ".txt";
             String trainLabels = methodPath + "label--" + projectName + ".txt";
@@ -60,7 +56,7 @@ public class NLP extends Method {
                 List<String> lines = FileHandle.readFileToLines(methodPath + "data--" + testProjectName + ".txt");
                 for (String line : lines) text.append(line).append("\n");
 
-                List<String> labelLines = FileHandle.readFileToLines("data/origin/label--" + testProjectName + ".txt");
+                List<String> labelLines = FileHandle.readFileToLines(Settings.rootPath + "origin/label--" + testProjectName + ".txt");
                 for (String line : labelLines) labelText.append(line).append("\n");
             }
             FileHandle.writeStringToFile(trainProjects, text.toString());
@@ -68,37 +64,8 @@ public class NLP extends Method {
         }
     }
 
-    /**
-     * 多个源项目预测单个目标项目
-     *
-     * @throws Exception
-     */
-    /*
     public void predict() throws Exception {
-
-        for (String project : projects) {
-            String trainFile = methodPath + "train--" + project + ".txt";
-            String testFile = methodPath + "train--" + project + ".txt";
-            String resultFile = methodPath + "result--" + project + ".txt";
-            StringBuilder text = new StringBuilder();
-
-            ColumnDataClassifier cdc = new ColumnDataClassifier(methodPath + "cheese2007.prop");
-            cdc.trainClassifier(trainFile);
-
-            for (String line : ObjectBank.getLineIterator(testFile, "utf-8")) {
-                Datum<String, String> d = cdc.makeDatumFromLine(line);
-                System.out.printf("%s  ==>  %s (%.4f)%n", line, cdc.classOf(d), cdc.scoresOf(d).getCount(cdc.classOf(d)));
-                if (cdc.classOf(d).equals("WITHOUT_CLASSIFICATION")) text.append("0").append("\n");
-                else text.append("1").append("\n");
-            }
-
-            FileHandle.writeStringToFile(resultFile, text.toString());
-        }
-    }
-
-     //*/
-
-    public void predict() throws Exception {
+        prepareData();
 
         for (String project : projects) {
             String trainFile = methodPath + "train--" + project + ".txt";
@@ -106,7 +73,7 @@ public class NLP extends Method {
             String resultFile = methodPath + "result--" + project + ".txt";
             StringBuilder text = new StringBuilder();
 
-            ColumnDataClassifier cdc = new ColumnDataClassifier(methodPath + "cheese2007.prop");
+            ColumnDataClassifier cdc = new ColumnDataClassifier(Settings.rootPath + "dic/cheese2007.prop");
             cdc.trainClassifier(trainFile);
 
             for (String line : ObjectBank.getLineIterator(testFile, "utf-8")) {
@@ -118,8 +85,9 @@ public class NLP extends Method {
 
             FileHandle.writeStringToFile(resultFile, text.toString());
         }
-        Statistics.combineResult();
-    }//*/
+
+        Statistics.evaluate("NLP");
+    } // */
 
     /**
      * 单个源项目预测单个目标项目
@@ -127,6 +95,7 @@ public class NLP extends Method {
      * @throws IOException
      */
     public void predictWithLimitedTrainingSet() throws IOException {
+        prepareData();
 
         List<Double> P = new ArrayList<>();
         List<Double> R = new ArrayList<>();
@@ -139,12 +108,12 @@ public class NLP extends Method {
             String testFile = methodPath + "data--" + testProject + ".txt";
             for (String trainProject : projects) {
                 // 处理训练项目
-                //if (trainProject.equals(testProject)) continue;
+                if (trainProject.equals(testProject)) continue;
                 String trainFile = methodPath + "data--" + trainProject + ".txt";
                 String oracleFile = originPath + "label--" + testProject + ".txt";
 
                 List<String> resultFileLines = new ArrayList<>();
-                ColumnDataClassifier cdc = new ColumnDataClassifier(methodPath + "cheese2007.prop");
+                ColumnDataClassifier cdc = new ColumnDataClassifier(Settings.rootPath + "dic/cheese2007.prop");
                 cdc.trainClassifier(trainFile);
 
                 for (String line : ObjectBank.getLineIterator(testFile, "utf-8")) {
@@ -164,18 +133,16 @@ public class NLP extends Method {
                         .append(scores[1]).append(", ")
                         .append(scores[2]).append("\n");
             } // end for train project
-            // 收集结果
+
             int len = projects.length - 1;
             P.add(precision / len);
             R.add(recall / len);
             F1.add(f1 / len);
-            FileHandle.writeStringToFile("result/oto/nlp/" + testProject + ".csv", text.toString());
-
+            FileHandle.writeStringToFile(Settings.rootPath + "nlp/OTO_" + testProject + ".csv", text.toString());
         } // end for a test project
 
-        // 打印结果
-        System.out.println();
+        // print result
         for (int i = 0; i < projects.length; i++)
-            System.out.printf("%.3f, %.3f, %.3f\n", P.get(i), R.get(i), F1.get(i));
+            System.out.printf("Avg., %.3f, %.3f, %.3f\n", P.get(i), R.get(i), F1.get(i));
     }
 }

@@ -1,6 +1,7 @@
 package main.methods;
 
 import main.Settings;
+import main.Statistics;
 import others.FileHandle;
 
 import java.util.*;
@@ -21,6 +22,7 @@ public class Pattern extends Method {
      * 将总数据集根据项目进行分割
      */
     public void prepareData() {
+        System.out.println("Preparing data for Pattern");
         List<String> projects = FileHandle.readFileToLines(originPath + "projects");
         List<String> comments = FileHandle.readFileToLines(originPath + "comments");
         List<String> labels = FileHandle.readFileToLines(originPath + "labels");
@@ -49,16 +51,18 @@ public class Pattern extends Method {
         // 保存最后一个项目的信息
         FileHandle.writeStringToFile(originPath + "data--" + currentProject + ".txt", tempCommentData.toString());
         FileHandle.writeStringToFile(originPath + "label--" + currentProject + ".txt", tempLabelData.toString());
-        System.out.println("Split finish!");
     }
 
 
     public void predict() {
+        prepareData();
         // 获取模式
         String[] keyWords = getPatterns(Settings.rootPath + "dic/k.txt");
         // 预测每个项目上的结果
         for (int i = 0; i < Settings.projectNames.length; i++) predictData(Settings.projectNames[i], keyWords);
         System.out.println("Pattern prediction finished!");
+
+        Statistics.evaluate("Pattern");
     }
 
     /**

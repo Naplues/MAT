@@ -39,7 +39,9 @@ public class Mat extends Method {
             FileHandle.writeIntegerArrayToFile(methodPath + "result--" + project + ".txt", predicts);
         }
         System.out.println("MAT prediction finished!");
-        Statistics.combineResult();
+//        Statistics.combineResult();
+
+        Statistics.evaluate("MAT");
     }
 
     /**

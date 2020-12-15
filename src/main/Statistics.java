@@ -9,6 +9,45 @@ import java.util.List;
 
 public class Statistics {
 
+    public static void evaluate(String methodName) {
+        System.out.println("Method: " + methodName);
+        StringBuilder text = new StringBuilder("TP, FN, FP, TN, P    , R    , F1   , ER   , RI\n");
+        // 处理每个项目的结果
+        for (String projectName : Settings.projectNames) {
+            double tp = .0, fp = .0, tn = .0, fn = .0;
+            String resultPath = Settings.rootPath + methodName + "/result--" + projectName + ".txt";
+            String oraclePath = Settings.rootPath + "origin/label--" + projectName + ".txt";
+            List<String> result = FileHandle.readFileToLines(resultPath);
+            List<String> oracle = FileHandle.readFileToLines(oraclePath);
+            for (int i = 1; i < result.size(); i++) {
+                String label = oracle.get(i).trim(), prediction = result.get(i).trim();
+                if (label.equals("positive") && prediction.equals("1")) tp++;
+                if (label.equals("positive") && prediction.equals("0")) fn++;
+                if (label.equals("negative") && prediction.equals("1")) fp++;
+                if (label.equals("negative") && prediction.equals("0")) tn++;
+            }
+            // 准确度指标
+            double precision = tp / (tp + fp);
+            double recall = tp / (tp + fn);
+            double f1 = 2 * precision * recall / (precision + recall);
+            // 工作量感知指标
+            double x = tp + fp, y = tp, n = tp + fn, N = tp + fp + fn + tn;
+            double ER = (y * N - x * n) / (y * N);
+            double RI = (y * N - x * n) / (x * n);
+
+            text.append((int) tp).append(", ").append((int) fn).append(", ").append((int) fp).append(", ").append((int) tn).append(", ");
+
+            text.append(String.format("%.3f", precision)).append(", ")
+                    .append(String.format("%.3f", recall)).append(", ")
+                    .append(String.format("%.3f", f1)).append(", ")
+                    .append(String.format("%.3f", ER)).append(", ")
+                    .append(String.format("%.3f", RI)).append("\n");
+        }
+        System.out.println(text.toString());
+        FileHandle.writeStringToFile(Settings.rootPath + methodName + "/Evaluation_" + methodName + ".csv", text.toString());
+    }
+
+
     public static void getVennDiagram(String label, String prediction) {
 
         int all_NLP = 0;

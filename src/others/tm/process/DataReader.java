@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import others.FileHandle;
 import others.tm.util.FileUtil;
 import others.tm.domain.Document;
 
@@ -37,6 +38,7 @@ public class DataReader {
             else tmp = tmp + "',positive";
             lines.add(tmp);
         }
+        FileHandle.makePath(outputFilePath);
         FileUtil.writeLinesToFile(lines, outputFilePath);
     }
 

@@ -19,6 +19,17 @@ import java.util.List;
 
 public class FileHandle {
 
+    public static void makePath(String filePath) {
+        File file = new File(filePath);
+        // 文件不存在
+        if (!file.exists()) {
+            String[] temp = filePath.split("/");
+            String dir = filePath.replace(temp[temp.length - 1], "");
+            File mkdir = new File(dir);
+            mkdir.mkdirs();
+        }
+    }
+
     /**
      * 读取文件返回一个字符串列表
      *
