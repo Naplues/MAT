@@ -15,6 +15,7 @@ import java.util.List;
 public class Settings {
 
     public static String rootPath = "exp_data/";
+    public static String resultPath = "";
 
 
     public static String[] projectNames = {
@@ -111,7 +112,7 @@ public class Settings {
                 count += prediction.equals("undetermined") ? 0 : 1;
                 yes += prediction.equals("yes") ? 1 : 0;
                 hard++;
-            }//*/
+            } // */
             System.out.println(easyLines.size() + "," + count + "," + yes + "," + (easyLines.size() - hard) + "," + project);
         }
     }

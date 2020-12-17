@@ -126,7 +126,7 @@ public class TM extends Method {
                 }
             } // end for training project */
             double[] predictionLabels = eLearner.evaluate();
-            String resultPath = methodPath + "result--" + Settings.projectNames[target] + ".txt";
+            String resultPath = Settings.resultPath + "MTO_TM/result--" + Settings.projectNames[target] + ".txt";
             FileHandle.writeDoubleArrayToFile(resultPath, predictionLabels);
 
         } // end for test project */
@@ -161,16 +161,16 @@ public class TM extends Method {
         String trainDataPath, testDataPath;
         double ratio = 0.1;
         // 每个测试项目
-        for (int target = 0; target < Settings.projectNames.length; target++) {
-            System.out.println("Target: " + Settings.projectNames[target] + ", ");
-            testDataPath = methodPath + "data--" + Settings.projectNames[target] + ".arff";
+        for (int test = 0; test < Settings.projectNames.length; test++) {
+            System.out.println("Target: " + Settings.projectNames[test] + ", ");
+            testDataPath = methodPath + "data--" + Settings.projectNames[test] + ".arff";
 
             StringBuilder text = new StringBuilder("Training project, P, R, F1\n");
             double precision = .0, recall = .0, f1 = .0;
             // 每个训练项目
-            for (int source = 0; source < Settings.projectNames.length; source++) {
+            for (int train = 0; train < Settings.projectNames.length; train++) {
                 //if (source == target) continue;
-                trainDataPath = methodPath + "data--" + Settings.projectNames[source] + ".arff";
+                trainDataPath = methodPath + "data--" + Settings.projectNames[train] + ".arff";
                 // 集成学习器
                 Instances tmp = DataSource.read(testDataPath);
                 tmp.setClassIndex(1);  //类标记索引
@@ -207,12 +207,16 @@ public class TM extends Method {
                     eLearner.vote(i, score);
                 }
 
+                double[] predictionLabels = eLearner.evaluate();
+                String outPath = Settings.resultPath + "OTO_NLP/result--" + Settings.projectNames[train] + "-" + Settings.projectNames[test] + ".txt";
+                FileHandle.writeDoubleArrayToFile(outPath, predictionLabels);
+
                 eLearner.evaluate();
                 precision += eLearner.getPrecision();
                 recall += eLearner.getRecall();
                 f1 += eLearner.getFmeasure();
 
-                text.append(Settings.projectNames[source]).append(", ")
+                text.append(Settings.projectNames[train]).append(", ")
                         .append(eLearner.getPrecision()).append(", ")
                         .append(eLearner.getRecall()).append(", ")
                         .append(eLearner.getFmeasure()).append("\n");
@@ -222,11 +226,16 @@ public class TM extends Method {
             P.add(precision / len);
             R.add(recall / len);
             F1.add(f1 / len);
-            FileHandle.writeStringToFile(Settings.rootPath + "tm/OTO_" + Settings.projectNames[target] + ".csv", text.toString());
+            FileHandle.writeStringToFile(Settings.resultPath + "OTO_TM/" + Settings.projectNames[test] + ".csv", text.toString());
         } // end for test project */
 
         // print result
-        for (int i = 0; i < projects.length; i++)
+        List<String> r = new ArrayList<>();
+        for (int i = 0; i < projects.length; i++) {
             System.out.printf("Avg., %.3f, %.3f, %.3f\n", P.get(i), R.get(i), F1.get(i));
+            r.add("Avg., " + P.get(i) + ", " + R.get(i) + ", " + F1.get(i));
+        }
+
+        FileHandle.writeLinesToFile(Settings.resultPath + "OTO_TM/Evaluation_all.csv", r);
     }
 }

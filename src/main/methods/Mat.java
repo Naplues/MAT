@@ -1,5 +1,6 @@
 package main.methods;
 
+import main.Settings;
 import main.Statistics;
 import others.FileHandle;
 
@@ -36,10 +37,9 @@ public class Mat extends Method {
                 //if (originComments.get(index).trim().endsWith("?")) predicts[index] = 1;
             }
 
-            FileHandle.writeIntegerArrayToFile(methodPath + "result--" + project + ".txt", predicts);
+            FileHandle.writeIntegerArrayToFile(Settings.resultPath + "MTO_MAT/result--" + project + ".txt", predicts);
         }
         System.out.println("MAT prediction finished!");
-//        Statistics.combineResult();
 
         Statistics.evaluate("MAT");
     }

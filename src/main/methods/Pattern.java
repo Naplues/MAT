@@ -89,7 +89,7 @@ public class Pattern extends Method {
         int[] predictions = new int[comments.size()];
         for (int i = 0; i < comments.size(); i++) predictions[i] = classify(comments.get(i), pattern);
 
-        FileHandle.writeIntegerArrayToFile(methodPath + "result--" + projectName + ".txt", predictions);
+        FileHandle.writeIntegerArrayToFile(Settings.resultPath + "MTO_Pattern/result--" + projectName + ".txt", predictions);
     }
 
     /**

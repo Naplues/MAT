@@ -15,7 +15,7 @@ public class Statistics {
         // 处理每个项目的结果
         for (String projectName : Settings.projectNames) {
             double tp = .0, fp = .0, tn = .0, fn = .0;
-            String resultPath = Settings.rootPath + methodName + "/result--" + projectName + ".txt";
+            String resultPath = Settings.resultPath + "MTO_" + methodName + "/result--" + projectName + ".txt";
             String oraclePath = Settings.rootPath + "origin/label--" + projectName + ".txt";
             List<String> result = FileHandle.readFileToLines(resultPath);
             List<String> oracle = FileHandle.readFileToLines(oraclePath);
@@ -44,7 +44,7 @@ public class Statistics {
                     .append(String.format("%.3f", RI)).append("\n");
         }
         System.out.println(text.toString());
-        FileHandle.writeStringToFile(Settings.rootPath + methodName + "/Evaluation_" + methodName + ".csv", text.toString());
+        FileHandle.writeStringToFile(Settings.resultPath + "MTO_" + methodName + "/Evaluation.csv", text.toString());
     }
 
 

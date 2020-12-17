@@ -70,7 +70,7 @@ public class NLP extends Method {
         for (String project : projects) {
             String trainFile = methodPath + "train--" + project + ".txt";
             String testFile = methodPath + "data--" + project + ".txt";
-            String resultFile = methodPath + "result--" + project + ".txt";
+            String resultFile = Settings.resultPath + "MTO_NLP/result--" + project + ".txt";
             StringBuilder text = new StringBuilder();
 
             ColumnDataClassifier cdc = new ColumnDataClassifier(Settings.rootPath + "dic/cheese2007.prop");
@@ -122,6 +122,9 @@ public class NLP extends Method {
                     else resultFileLines.add("1");
                 }
 
+                String outPath = Settings.resultPath + "OTO_NLP/result--" + trainProject + "-" + testProject + ".txt";
+                FileHandle.writeLinesToFile(outPath, resultFileLines);
+
                 List<String> oracleFileLines = FileHandle.readFileToLines(oracleFile);
 
                 double[] scores = evaluate(oracleFileLines, resultFileLines);
@@ -132,17 +135,23 @@ public class NLP extends Method {
                         .append(scores[0]).append(", ")
                         .append(scores[1]).append(", ")
                         .append(scores[2]).append("\n");
-            } // end for train project
+            } // end for train project-
+
 
             int len = projects.length - 1;
             P.add(precision / len);
             R.add(recall / len);
             F1.add(f1 / len);
-            FileHandle.writeStringToFile(Settings.rootPath + "nlp/OTO_" + testProject + ".csv", text.toString());
+            FileHandle.writeStringToFile(Settings.resultPath + "OTO_NLP/Evaluation_" + testProject + ".csv", text.toString());
         } // end for a test project
 
         // print result
-        for (int i = 0; i < projects.length; i++)
+        List<String> r = new ArrayList<>();
+        for (int i = 0; i < projects.length; i++) {
             System.out.printf("Avg., %.3f, %.3f, %.3f\n", P.get(i), R.get(i), F1.get(i));
+            r.add("Avg., " + P.get(i) + ", " + R.get(i) + ", " + F1.get(i));
+        }
+
+        FileHandle.writeLinesToFile(Settings.resultPath + "OTO_NLP/Evaluation_all.csv", r);
     }
 }

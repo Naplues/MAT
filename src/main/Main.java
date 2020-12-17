@@ -8,9 +8,10 @@ import main.methods.TM;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        // java -jar MAT.jar -p C:/Users/GZQ/Desktop/Git/MAT/exp_data/ -m Pattern -s MTO
+        // java -jar MAT.jar -p D:/exp_data/ -o D:/result/ -m Pattern -s MTO
         Config config = Config.parseArgs(args);
-        Settings.rootPath = config.path;
+        Settings.rootPath = config.dataPath;
+        Settings.resultPath = config.resultPath;
 
         if (config.scenario.equals("MTO")) {
             System.out.println("Running model " + config.model + " in " + config.scenario);
@@ -55,14 +56,16 @@ public class Main {
 
 
 class Config {
-    String path = "";
+    String dataPath = "";
+    String resultPath = "";
     String model = "";
     String scenario = "";
 
     public static Config parseArgs(String[] args) {
         Config config = new Config();
         for (int i = 0; i < args.length - 1; i += 2) {
-            if (args[i].equals("-p")) config.path = args[i + 1];
+            if (args[i].equals("-p")) config.dataPath = args[i + 1];
+            if (args[i].equals("-o")) config.resultPath = args[i + 1];
             if (args[i].equals("-m")) config.model = args[i + 1];
             if (args[i].equals("-s")) config.scenario = args[i + 1];
         }
