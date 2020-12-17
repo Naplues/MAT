@@ -17,7 +17,7 @@ This repository stores the **source codes** of the four state-of-the-art SATD co
 
 - [`MAT/result/`](https://github.com/Naplues/MAT/tree/master/result) This folder stores all classification results of the each approaches. In particular, [`MAT/result/predictions/`](https://github.com/Naplues/MAT/tree/master/result/predictions) stores the detailed classification result for each comment of each project.
 
-- Tips 1: The implementation of `Jitterbug` can be found in [`its origin repository`] (https://github.com/ai-se/Jitterbug)
+- Tips 1: The implementation of `Jitterbug` can be found in [`its origin repository`](https://github.com/ai-se/Jitterbug)
 - Tips 2: The results of `CNN` approach are all copied from their paper **Neural network based detection of self-admitted technical debt: From performance to explainability** [1].
 
 ## 2. Runnable jar archive
