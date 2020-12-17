@@ -208,7 +208,7 @@ public class TM extends Method {
                 }
 
                 double[] predictionLabels = eLearner.evaluate();
-                String outPath = Settings.resultPath + "OTO_NLP/result--" + Settings.projectNames[train] + "-" + Settings.projectNames[test] + ".txt";
+                String outPath = Settings.resultPath + "OTO_TM/result--" + Settings.projectNames[train] + "-" + Settings.projectNames[test] + ".txt";
                 FileHandle.writeDoubleArrayToFile(outPath, predictionLabels);
 
                 eLearner.evaluate();
