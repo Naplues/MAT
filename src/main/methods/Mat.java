@@ -25,6 +25,7 @@ public class Mat extends Method {
     }
 
     public void predict() {
+        new TM().prepareData();
         for (String project : projects) {
 
             List<String> instances = FileHandle.readFileToLines(dataPath + "data--" + project + ".arff");
